@@ -1,0 +1,4 @@
+php artisan make:seeder EmployeeSeeder
+
+
+php artisan db:seed

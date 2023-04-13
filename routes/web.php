@@ -21,11 +21,13 @@ Route::get('/login', function () {
     return view('admin.login');
 });
 
-Route::get('/add-usres', function () {
-    return view('admin.pages.dashboard');
-});
+// Route::get('/add-users', function () {
+//     return view('admin.pages.users.add-users');
+// });
 
+Route::get('/add-users', ['as' => 'add-users', 'uses' => 'App\Http\Controllers\Login\RegisterController@index']);
+Route::post('/add-users', ['as' => 'add-users', 'uses' => 'App\Http\Controllers\Login\RegisterController@register']);
 Route::get('/list-users', function () {
-    return view('admin.pages.users-list');
+    return view('admin.pages.users.users-list');
 });
 

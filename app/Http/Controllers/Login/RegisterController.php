@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Login;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Services\Login\RegisterServices;
-use App\Models\Roles;
+use App\Models\ {
+    Roles,
+    Permissions
+};
 use Validator;
 
-class RegisterController extends Controller
-{
+class RegisterController extends Controller {
     /**
      * Topic constructor.
      */
@@ -20,47 +22,40 @@ class RegisterController extends Controller
 
     public function index()
     {
-        $roles = Roles::where('is_active', true)->get();
-    	return view($this->viewPath.'.register',compact('roles'));
+        $roles = Roles::where('is_active', true)
+                        ->select('id','role_name')
+                        ->get()
+                        ->toArray();
+        $permissions = Permissions::where('is_active', true)
+                            ->select('id','route_name','permission_name','url')
+                            ->get()
+                            ->toArray();
+    	return view('admin.pages.users.add-users',compact('roles','permissions'));
     }
 
 
     public function register(Request $req)
     {
 
-        $user_name = $req->user_name;
-        $mob_no = $req->mob_no;
-        $email_id = $req->email_id;
-        $pincode = $req->pincode;
-        
-        $sel_gender = $req->sel_gender;
-        $sel_grade = $req->sel_grade;
-        $birth_date = $req->birth_date;
-        $chk_terms = $req->chk_terms;
-
-
-
-        $ipAddress = getIPAddress($req);
-
         $rules = [
-                    'user_name' => 'required|max:20',
-                    'mob_no' => 'required',
-                    'pincode' => 'required|digits:6',
-                    'sel_gender' => 'required',
-                    'sel_grade' => 'required',
-                    'birth_date' => 'required',
-                    'chk_terms' => 'required'
+                    'u_email' => 'required',
+                    'u_uname' => 'required',
+                    'u_password' => 'required',
+                    'role_id' => 'required',
+                    'f_name' => 'required',
+                    'm_name' => 'required',
+                    'l_name' => 'required'
                  ];       
 
         $messages = [   
-                        'user_name.required' => 'Please enter valid user name.',
-                        'user_name.max' => 'User name should be at most 20 chars.',
-                        'mob_no.required' => 'Please enter mobile no.',
-                        'pincode.required' => 'Please enter valid pincode.',
-                        'sel_gender.required' => 'Select gender.',
-                        'sel_grade.required' => 'Select grade.',
-                        'birth_date.required' => 'Please select birth date.',
-                        'chk_terms.required' => 'You must agree to terms & conditions.'
+                        'u_email.required' => 'Please enter email.',
+                        'u_email.email' => 'Please enter valid email.',
+                        'u_uname.required' => 'Please enter user uname.',
+                        'u_password.required' => 'Please enter password.',
+                        'role_id.required' => 'Select role.',
+                        'f_name.required' => 'Please enter first name.',
+                        'm_name.required' =>'Please enter middle name.',
+                        'l_name.required' => 'Please enter last name.',
                     ];
 
 
@@ -73,12 +68,7 @@ class RegisterController extends Controller
         }
         else
         {
-            if($birth_date!='')
-            {
-                $birth_date = strtotime($birth_date);
-            }
-        
-            $register_user = $this->service->register($req,$user_name,$mob_no,$email_id,$pincode,$sel_gender,$sel_grade,$birth_date,$chk_terms,$ipAddress);
+            $register_user = $this->service->register($req);
        
             if($register_user)
             {
@@ -99,30 +89,5 @@ class RegisterController extends Controller
 
 
     }
-    
-    public function registerConfirmation(Request $req)
-    {
-
-        $userName = $req->userName;
-        $mobNo = $req->mobNo;
-        $emailId = $req->emailId;
-        $pincode = $req->pincode;
-        
-        $gender = $req->gender;
-        $grade = $req->grade;
-        $birthDate = $req->birthDate;
-        $confirmStatus = $req->confirmStatus;
-
-        $genderName = $this->service->getGenderName($gender);
-        $className = $this->service->getClassName($grade);
-
-        return view($this->viewPath.'.registerModal',compact('userName','mobNo','emailId','pincode','genderName','className','birthDate','confirmStatus'));
-       // dd($userName);
-
-
-    }
-
-    
-
    
 }

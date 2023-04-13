@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('f_name');
             $table->string('m_name');
             $table->string('l_name');
+            $table->string('ip_address');
             $table->rememberToken();
             $table->boolean('is_active')->default(true);
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
