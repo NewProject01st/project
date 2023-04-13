@@ -21,6 +21,11 @@ Route::get('/login', function () {
     return view('admin.login');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/add-usres', function () {
     return view('admin.pages.dashboard');
 });
+
+Route::get('/list-users', function () {
+    return view('admin.pages.users-list');
+});
+
