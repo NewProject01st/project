@@ -39,7 +39,9 @@ body {font-family: 'Poppins', sans-serif;}
     opacity: 1;
   }
 }
-
+.error{
+  color: red;
+}
 @-o-keyframes flash {
   0% {
     opacity: 1;

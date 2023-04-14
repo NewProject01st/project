@@ -25,6 +25,20 @@
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts">
                       <i class="fa fa-th-large menu-icon"></i>
+                      <span class="menu-title">About Us</span>
+                      <i class="menu-arrow"></i>
+                  </a>
+                  <div class="collapse" id="page-layouts">
+                      <ul class="nav flex-column sub-menu">
+                          <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="organisation_master.php">Constitution & History</a></li>
+                          <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="department_master.php">Organization Chart</a></li>
+                          <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="subdept_master.php">Budget</a></li>
+                      </ul>
+                  </div>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts">
+                      <i class="fa fa-th-large menu-icon"></i>
                       <span class="menu-title">Master Management</span>
                       <i class="menu-arrow"></i>
                   </a>
