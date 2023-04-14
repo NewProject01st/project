@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="{{asset('assets/css/stepwizard.css')}}">
     <!-- favicon -->
     <link rel="shortcut icon" href="images/CMRS-logo2.png" />
+
+    <!-- {{-- CKEditor CDN --}} -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
 </head>
  <div class="preloader">
                         <div class="jumping-dots-loader">
