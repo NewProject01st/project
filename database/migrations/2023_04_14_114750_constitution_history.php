@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TblNewuser extends Migration
+class ConstitutionHistory extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class TblNewuser extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_newuser', function (Blueprint $table) {
+        Schema::create('constitution_history', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('email')->unique();
-            $table->string('phone')->unique();
-            $table->string('address')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('english_title');
+            $table->string('marathi_title');
+            $table->string('english_description');
+            $table->string('marathi_description');
+            $table->string('is_Deleted');
+            // Add more columns here
             $table->timestamps();
         });
     }

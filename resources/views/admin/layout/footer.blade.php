@@ -26,6 +26,7 @@
 </div>
 </div>
 <!-- global js -->
+
 <script src="{{asset('assets/vendors/js/vendor.bundle.base.js')}}"></script>
 <script src="{{asset('assets/vendors/js/vendor.bundle.addons.js')}}"></script>
 <script src="{{asset('assets/js/off-canvas.js')}}"></script>
@@ -45,6 +46,7 @@
 <script src="{{asset('assets/js/c3.js')}}"></script>
 <script src="{{asset('assets/js/formpickers.js')}}"></script>
 <script src="{{asset('assets/js/wizard.js')}}"></script>
+
 
 <script>
     
