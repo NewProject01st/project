@@ -9,7 +9,7 @@ class ConstitutionHistoryModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'tbl_constitutionHistory';
+    protected $table = 'constitution_history';
     protected $primaryKey = 'id';
-    protected $fillable = ['fld_english_title', 'fld_marathi_title', 'fld_english_description', 'fld_marathi_description','fld_isDeleted'];
+    protected $fillable = ['english_title', 'marathi_title', 'english_description', 'marathi_description'];
 }

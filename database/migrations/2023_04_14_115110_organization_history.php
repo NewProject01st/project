@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContactsTable extends Migration
+class OrganizationHistory extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateContactsTable extends Migration
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('organization_chart', function (Blueprint $table) {
             $table->id();
+            $table->string('english_title');
+            $table->string('marathi_title');
+            $table->string('english_image');
+            $table->string('marathi_image');
+            $table->string('is_Deleted');
+            // Add more columns here
             $table->timestamps();
-            $table->string('name');
-            $table->string('address');
-            $table->string('mobile');
         });
     }
 
@@ -29,6 +32,6 @@ class CreateContactsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contacts');
+        //
     }
 }

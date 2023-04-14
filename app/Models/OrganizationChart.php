@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class OrganizationChart extends Model
 {
     use HasFactory;
-    protected $table = 'tbl_organization_chart';
+    protected $table = 'organization_chart';
     protected $primaryKey = 'id';
-    protected $fillable = ['fld_english_title', 'fld_marathi_title', 'fld_english_image', 'fld_marathi_image'];
+    protected $fillable = ['english_title', 'marathi_title', 'english_image', 'fld_marathi_image'];
 }
