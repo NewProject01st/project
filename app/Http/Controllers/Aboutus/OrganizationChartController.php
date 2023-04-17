@@ -16,68 +16,105 @@ class OrganizationChartController extends Controller
       return view ('admin.pages.aboutus.organizationChart.index')->with('organizationCharts', $organizationCharts);
     }
 
-    public function create()
-    {
-        return view('admin.pages.aboutus.organizationchart.create');
-    }
- 
-  
-    public function store(Request $request)
-    {
-        $request->validate([
-            'english_title'=>'required',
-            'marathi_title'=>'required',
-            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'english_image'=>'required|image|mimes:jpeg,png,jpg,gif',
-            'marathi_image'=>'required|image|mimes:jpeg,png,jpg,gif',
-        ]);
+        public function create() {
+        
 
-        $englishImage = $request->file('english_image');
-        $marathiImage = $request->file('marathi_image');
-    
-        // Upload English image
-        $englishImagePath = $englishImage->store('public/images');
-        $englishImageUrl = Storage::url($englishImagePath);
-   
-        // Upload Marathi image
-        $marathiImagePath = $marathiImage->store('public/images');
-        $marathiImageUrl = Storage::url($marathiImagePath);
-
-
-         $registrationArray  =   array( 
-            "english_title"    => $request->english_title,
-            "marathi_title"     => $request->marathi_title,
-            "english_image"  => $englishImageUrl,
-            "marathi_image"  =>  $marathiImageUrl,
-        );
-
-        $organizationCharts = OrganizationChart::create($registrationArray);
-        echo $ConstitutionHistory;
-        die();
-        if(!is_null($organizationCharts)) { 
-            return redirect('organizationchart')->with('flash_message', 'Organization Charts completed successfully'); 
-
+            return view('admin.pages.aboutus.organizationchart.create');
         }
 
-        else {
-            return redirect('organizationchart')->with('flash_message', 'Organization Charts failed. Try again.'); 
+        /**
+         * Store a newly created resource in storage.
+         *
+         * @param  IlluminateHttpRequest  $request
+         * @return IlluminateHttpResponse
+         */
 
+        public function store(Request $request) {
+            $request->validate([
+                'english_title'=>'required',
+                'marathi_title'=>'required',
+                'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+
+            $englishImageName = time() . '_english.' . $request->english_image->extension();
+            $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
+            
+            $request->english_image->storeAs('public/images/aboutus', $englishImageName);
+            $request->marathi_image->storeAs('public/images/aboutus', $marathiImageName);
+
+            $organizationCharts = [
+                'english_title' => $request->english_title, 
+                'marathi_title' => $request->marathi_title, 
+                'english_image' => $englishImageName,
+                'marathi_image' => $marathiImageName
+            ];
+
+            OrganizationChart::create($organizationCharts);
+            return redirect('/organizationchart')->with(['message' => 'Post added successfully!', 'status' => 'success']);
         }
-    }
 
-
-    public function edit($id)
+        public function show($id)
+        {
+            $organizationCharts = OrganizationChart::find($id);
+            return view('admin.pages.aboutus.organizationchart.show')->with('organizationCharts', $organizationCharts);
+        }
+           public function edit($id)
     {
         $organizationCharts = OrganizationChart::find($id);
         return view('admin.pages.aboutus.organizationchart.edit')->with('organizationCharts', $organizationCharts);
     }
-    public function update(Request $request, $id)
-    {
-        $organizationCharts = OrganizationChart::find($id);
-        $input = $request->all();
-        $organizationCharts->update($input);
-        return redirect('organizationchart')->with('flash_message', 'Organization Charts Updated!');  
-    }
+        
+          /**
+           * Update the specified resource in storage.
+           *
+           * @param  IlluminateHttpRequest  $request
+           * @param  AppModelsPost  $post
+           * @return IlluminateHttpResponse
+           */
+          public function update(Request $request, $id)
+          {
+              $request->validate([
+                  'english_title' => 'required',
+                  'marathi_title' => 'required',
+                  'file' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // specify your validation rules for the image
+              ]);
+          
+              $organizationChart = OrganizationChart::find($id);
+          
+              $imageName = '';
+              $imageName1 = '';
+          
+              if ($request->hasFile('file')) {
+                  $imageName = time() . '_english.' . $request->file('file')->extension();
+                  $request->file('file')->storeAs('public/images/aboutus/', $imageName);
+                  if ($organizationChart->english_image) {
+                      Storage::delete('public/images/aboutus/' . $organizationChart->english_image);
+                  }
+              } else {
+                  $imageName = $organizationChart->english_image;
+              }
+          
+              if ($request->hasFile('file1')) {
+                  $imageName1 = time() . '_marathi.' . $request->file('file1')->extension();
+                  $request->file('file1')->storeAs('public/images/aboutus/', $imageName1);
+                  if ($organizationChart->marathi_image) {
+                      Storage::delete('public/images/aboutus/' . $organizationChart->marathi_image);
+                  }
+              } else {
+                  $imageName1 = $organizationChart->marathi_image;
+              }
+          
+              $organizationChart->update([
+                  'english_title' => $request->english_title,
+                  'marathi_title' => $request->marathi_title,
+                  'english_image' => $imageName,
+                  'marathi_image' => $imageName1
+              ]);
+          
+              return redirect('/organizationchart')->with(['message' => 'Post updated successfully!', 'status' => 'success']);
+          }
+          
     public function destroy($id)
     {
         OrganizationChart::destroy($id);

@@ -39,8 +39,9 @@
                                             <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->english_title }}</td>
                                         <td>{{ $item->marathi_title }}</td>
-                                        <td>{{ $item->english_description }}</td>       
-                                        <td>{{ $item->marathi_description }}</td>    
+                                        <td><?php  echo $item->english_description; ?></td>      
+                                        <td><?php  echo $item->marathi_description; ?></td>      
+                                        
                                                                             
                                                 <!-- <td>
                                                     <span class="badge badge-success">Active</span>
@@ -53,7 +54,7 @@
 
                                                     <!-- <button class="btn btn-sm btn-outline-info"><i class="fas fa-pencil-alt"></i></button>-->
                                                     <a 
-                                                    href="{{ url('/constitutionHistory/' . $item->id . '/show') }}"
+                                                    href="{{ url('/constitutionHistory/' . $item->id) }}"
                                                         class="btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-eye"></i></a>
                                                             

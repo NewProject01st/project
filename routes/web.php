@@ -5,6 +5,8 @@ use App\Http\Controllers\Aboutus\ConstitutionHistoryController;
 use App\Http\Controllers\Aboutus\BudgetController;
 use App\Http\Controllers\Aboutus\OrganizationChartController;
 use App\Http\Controllers\TendersController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,3 +40,6 @@ Route::resource('/constitutionHistory', ConstitutionHistoryController::class);
 Route::resource('/budget', BudgetController::class);
 Route::resource('/organizationchart', OrganizationChartController::class);
 Route::resource('/tender', TendersController::class);
+
+
+

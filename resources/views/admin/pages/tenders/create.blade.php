@@ -18,7 +18,7 @@
             <div class="col-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <form class="forms-sample" action="{{ url('tender') }}" method="post" id="regForm">
+                        <form class="forms-sample" action="{{ url('tender') }}" method="post" id="regForm" enctype="multipart/form-data">
                         {!! csrf_field() !!}   
                         <div class="row">
                                 <div class="col-md-6">
@@ -76,6 +76,10 @@
                                         <label for="exampleInputUsername1">Tender Number</label>
                                         <input type="tel" class="form-control" placeholder="Tender Number" name="tender_number" id="tender_number"  required="">
                                     </div>
+                                </div>
+                                <div class="my-2">
+                                    <input type="file" name="tender_pdf" id="tender_pdf" accept=".pdf" >
+                                
                                 </div>
                                 <!-- <div class="col-md-6">
                                     <div class="form-group">
@@ -147,9 +151,9 @@
                     tender_number: {
                         required: true,
                     },
-                    // tender_pdf: {
-                    //     required: true,
-                    // },
+                    tender_pdf: {
+                        required: true,
+                    },
                    
                   },
                 messages: {
@@ -184,9 +188,9 @@
                     tender_number: {
                         required: "Tender Number is required"
                     },
-                    // tender_pdf: {
-                    //     required: "Tender Pdf is required",
-                    // },
+                    tender_pdf: {
+                        required: "Tender Pdf is required",
+                    },
                 }
             });
         });

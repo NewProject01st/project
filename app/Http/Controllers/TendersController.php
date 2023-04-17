@@ -34,9 +34,14 @@ class TendersController extends Controller
             'end_date'=>'required',
             'open_date'=>'required',
             'tender_number'=>'required',
-            // 'tender_pdf'=>'required|mimes:pdf',
+            'tender_pdf' => 'required|file|mimes:pdf|max:2048', // Change image to file, and allow only PDF files
+            
         ]);
 
+        $tenderPdf = time() . '_tender.' . $request->tender_pdf->getClientOriginalExtension(); // Get original extension for PDF file
+    
+        $request->tender_pdf->storeAs('public/pdf/tenders', $tenderPdf); // Store the PDF file in 'public/images' directory
+        
         // $tenderPdfPath = $request->file('tender_pdf')->store('public/tender_pdfs'); // Store the PDF file in 'public/tender_pdfs' directory
          $tendersArray  =   array( 
           "tender_date"    => $request->tender_date,
@@ -48,22 +53,25 @@ class TendersController extends Controller
             "end_date"  =>  $request->end_date,
             "open_date"  =>  $request->open_date,
             "tender_number"  =>  $request->tender_number,
-            //  "tender_pdf"  =>   $tenderPdfPath,
+            'tender_pdf' => $tenderPdf,
         );
-
-       
-
-        $tenders = Tenders::create($tendersArray);
-
+        $tenders = Tenders::create($tendersArray);        
         if(!is_null($tenders)) { 
             return redirect('tender')->with('flash_message', 'Tender completed successfully'); 
-
         }
 
         else {
             return redirect('tender')->with('flash_message', 'Tender failed. Try again.'); 
 
         }
+    }
+
+    public function show($id)
+    {
+        $tender = Tenders::find($id);
+        // print_r($tender);
+        // die();
+        return view('admin.pages.tenders.show')->with('tender', $tender);
     }
 
     public function edit($id)

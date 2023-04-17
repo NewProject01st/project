@@ -27,8 +27,8 @@
                                                 <th>S. No.</th>
                                                 <th>Title English</th>
                                                 <th>Title Marathi</th>
-                                                <!-- <th>Image English</th>
-                                                <th>Image Marathi</th> -->
+                                                <th>Image English</th>
+                                                <th>Image Marathi</th>
                                                 <!-- <th>Status</th> -->
                                                 <th>Action</th>
                                             </tr>
@@ -39,8 +39,9 @@
                                             <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->english_title }}</td>
                                         <td>{{ $item->marathi_title }}</td>
-                                        <!-- <td></td>       
-                                        <td></td>     -->
+                                        <td> <img src="{{ asset('storage/images/aboutus/' . $item->english_image) }}" /> </td>
+                                        <td> <img src="{{ asset('storage/images/aboutus/' . $item->marathi_image) }}" /> </td>
+                                    
                                                                             
                                                 <!-- <td>
                                                     <span class="badge badge-success">Active</span>
@@ -49,17 +50,17 @@
 
                                                 <td class="d-flex">
                                                     <a 
-                                                    href="{{ url('/organizationChart/' . $item->id . '/edit') }}"
+                                                    href="{{ url('/organizationchart/' . $item->id . '/edit') }}"
                                                         class="btn btn-sm btn-outline-info m-1"><i
                                                             class="fas fa-pencil-alt"></i></a>
 
                                                     <!-- <button class="btn btn-sm btn-outline-info"><i class="fas fa-pencil-alt"></i></button>-->
                                                     <a 
-                                                    href="{{ url('/organizationChart/' . $item->id . '/show') }}"
+                                                    href="{{ url('/organizationchart/' . $item->id) }}"
                                                         class="btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-eye"></i></a>
                                                             
-                                                            <form method="POST" action="{{ url('/organizationChart' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                            <form method="POST" action="{{ url('/organizationchart' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button class="btn btn-sm btn-outline-danger m-1" type="submit" title="Delete Tender" onclick="return confirm(&quot;Confirm delete?&quot;)"><i

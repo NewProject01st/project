@@ -48,6 +48,11 @@ class ConstitutionHistoryController extends Controller
 
         }
     }
+    public function show($id)
+    {
+        $ConstitutionHistory = ConstitutionHistoryModel::find($id);
+        return view('admin.pages.aboutus.constitutionHistory.show')->with('ConstitutionHistory', $ConstitutionHistory);
+    }
     public function edit($id)
     {
         $constitutionHistoryModels = ConstitutionHistoryModel::find($id);

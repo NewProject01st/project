@@ -37,23 +37,19 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="exampleInputUsername1">Description English</label>
-                                        <!-- <input type="text" name="english_description" class="form-control" id="exampleInputUsername1" placeholder=""> -->
-                                        <textarea class="form-control english_description"  name="english_description" id="english_description" value="{{$organizationCharts->english_description}}" placeholder="Enter the Description" ></textarea>
-                                      </div>
-                                </div>
-                                <!-- <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputUsername1">Description Marathi</label>
-                                        <input type="text" name="marathi_description" class="form-control" id="exampleInputUsername1" placeholder="">
+                                        <label for="exampleInputUsername1">English Image</label>
+                                        <input type="file" name="english_image" id="english_image" accept="image/*" class="form-control">
                                     </div>
-                                </div> -->
-                                <div class="col-md-6">
-                                <div class="form-group">
-                                <label> Description Marathi</label>
-                                <textarea class="form-control marathi_description"  name="marathi_description" id="marathi_description" value="{{$organizationCharts->marathi_description}}" placeholder="Enter the Description" ></textarea>
-                            </div>
-                           </div>
+                                    <img src="{{ asset('storage/images/'.$organizationCharts->english_image) }}" class="img-fluid img-thumbnail" width="150">
+                               </div>
+                               
+                               <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputUsername1">Marathi Image</label>
+                                        <input type="file" name="marathi_image" id="marathi_image" accept="image/*" class="form-control">
+                                    </div>
+                                     <img src="{{ asset('storage/images/'.$organizationCharts->marathi_image) }}" class="img-fluid img-thumbnail" width="150">
+                                </div>
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Update</button>
                                     <button type="submit" class="btn btn-danger">Cancel</button>

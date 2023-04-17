@@ -10,5 +10,5 @@ class OrganizationChart extends Model
     use HasFactory;
     protected $table = 'organization_chart';
     protected $primaryKey = 'id';
-    protected $fillable = ['english_title', 'marathi_title', 'english_image', 'fld_marathi_image'];
+    protected $fillable = ['english_title', 'marathi_title', 'english_image', 'marathi_image'];
 }

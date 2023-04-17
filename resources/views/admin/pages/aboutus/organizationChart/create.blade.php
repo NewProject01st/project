@@ -18,34 +18,33 @@
             <div class="col-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <form class="forms-sample" action="{{ url('organizationchart') }}" method="post" id="regForm">
+                        <form class="forms-sample" action="{{ url('organizationchart') }}"method="POST" enctype="multipart/form-data" id="regForm" >
                         {!! csrf_field() !!}   
                         <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputUsername1">Title English</label>
-                                        <input type="text" name="fld_english_title" id="fld_english_title" class="form-control" id="exampleInputUsername1" placeholder="">
+                                        <input type="text" name="english_title" id="english_title" class="form-control" id="english_title" placeholder="">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                               <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputUsername1">Title Marathi</label>
-                                        <input type="text" name="fld_marathi_title" id="fld_marathi_title" class="form-control" id="exampleInputUsername1" placeholder="">
+                                        <input type="text" name="marathi_title" id="marathi_title" class="form-control" id="marathi_title" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="exampleInputUsername1">Image English</label>
-                                        <input  name="fld_english_image" id="image1" type="file" accept=" .jpg , .jpeg , .png " required="" >
-
-                                      </div>
-                                </div> 
+                                        <label for="ImageEnglish">Image English</label><br>
+                                    <input type="file" name="english_image" id="english_image" accept="image/*" >
+                                </div>
+                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="exampleInputUsername1">Image Marathi</label>
-                                        <input  name="fld_marathi_image" id="image2" type="file" accept=" .jpg , .jpeg , .png " required="" >
-                                      </div>
-                                </div>
+                                        <label for="ImageMarathi">Image Marathi</label><br>
+                                    <input type="file" name="marathi_image" id="marathi_image" accept="image/*" >
+                                 </div>
+                                </div>                                
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                     <button type="submit" class="btn btn-danger">Cancel</button>
@@ -62,37 +61,37 @@
         $(document).ready(function() {
             $("#regForm").validate({
                 rules: {
-                  fld_english_title: {
+                  english_title: {
                         required: true,
                         maxlength: 20,
                     },
-                    fld_marathi_title: {
+                    marathi_title: {
                         required: true,
                         maxlength: 20,
                     },
-                    // fld_english_image: {
-                    //     required: true,
-                    //     maxlength: 100,
-                    // },
-                    // fld_marathi_image: {
-                    //     required: true,
-                    //     maxlength: 100,
-                    // }
+                    english_image: {
+                        required: true,
+                        maxlength: 100,
+                    },
+                    marathi_image: {
+                        required: true,
+                        maxlength: 100,
+                    }
                   },
                 messages: {
-                  fld_english_title: {
+                  english_title: {
                         required: "Title name is required",
                         maxlength: "First name cannot be more than 20 characters"
                     },
-                    fld_marathi_title: {
+                    marathi_title: {
                       required: "Title name is required",
                         maxlength: "Last name cannot be more than 20 characters"
                     },
-                    fld_english_image: {
-                      required: "Title name is required"
+                    english_image: {
+                      required: "Image is required"
                     },
-                    fld_marathi_image: {
-                      required: "Title name is required"
+                    marathi_image: {
+                      required: "Image is required"
                     } 
                    
                 }
