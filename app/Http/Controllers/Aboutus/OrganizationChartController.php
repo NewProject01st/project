@@ -95,6 +95,9 @@ class OrganizationChartController extends Controller
                   $imageName = $organizationChart->english_image;
               }
           
+              echo $imageName;
+              die();
+
               if ($request->hasFile('file1')) {
                   $imageName1 = time() . '_marathi.' . $request->file('file1')->extension();
                   $request->file('file1')->storeAs('public/images/aboutus/', $imageName1);
@@ -110,8 +113,7 @@ class OrganizationChartController extends Controller
                   'marathi_title' => $request->marathi_title,
                   'english_image' => $imageName,
                   'marathi_image' => $imageName1
-              ]);
-          
+              ]);             
               return redirect('/organizationchart')->with(['message' => 'Post updated successfully!', 'status' => 'success']);
           }
           

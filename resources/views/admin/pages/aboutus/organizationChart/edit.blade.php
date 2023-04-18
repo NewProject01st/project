@@ -19,7 +19,7 @@
             <div class="col-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <form class="forms-sample" action="{{ url('organizationChart/' .$organizationCharts->id) }}" method="post" id="regForm">
+                        <form class="forms-sample" action="{{ url('organizationchart/' .$organizationCharts->id) }}" method="post" id="regForm">
                         <input type="hidden" name="_method" value="PUT">
                         {!! csrf_field() !!}   
                         <div class="row">
@@ -40,7 +40,7 @@
                                         <label for="exampleInputUsername1">English Image</label>
                                         <input type="file" name="english_image" id="english_image" accept="image/*" class="form-control">
                                     </div>
-                                    <img src="{{ asset('storage/images/'.$organizationCharts->english_image) }}" class="img-fluid img-thumbnail" width="150">
+                                    <img src="{{ asset('storage/images/aboutus/'.$organizationCharts->english_image) }}" class="img-fluid img-thumbnail" width="150">
                                </div>
                                
                                <div class="col-md-6">
@@ -48,7 +48,7 @@
                                         <label for="exampleInputUsername1">Marathi Image</label>
                                         <input type="file" name="marathi_image" id="marathi_image" accept="image/*" class="form-control">
                                     </div>
-                                     <img src="{{ asset('storage/images/'.$organizationCharts->marathi_image) }}" class="img-fluid img-thumbnail" width="150">
+                                     <img src="{{ asset('storage/images/aboutus/'.$organizationCharts->marathi_image) }}" class="img-fluid img-thumbnail" width="150">
                                 </div>
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Update</button>
