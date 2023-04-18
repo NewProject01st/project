@@ -18,10 +18,10 @@ class CreateRolesPermissionsTable extends Migration
             $table->unsignedBigInteger('permission_id');
             $table->unsignedBigInteger('role_id');
             $table->string('user_id');
-            $table->boolean('per_add')->default(true);
-            $table->boolean('per_edit')->default(true);
-            $table->boolean('per_update')->default(true);
-            $table->boolean('per_delete')->default(true);
+            $table->boolean('per_add')->default(false);
+            $table->boolean('per_edit')->default(false);
+            $table->boolean('per_update')->default(false);
+            $table->boolean('per_delete')->default(false);
             $table->boolean('is_active')->default(true);
             $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');

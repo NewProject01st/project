@@ -30,11 +30,8 @@ Route::get('/login', function () {
 //     return view('admin.pages.users.add-users');
 // });
 
-Route::get('/add-users', ['as' => 'add-users', 'uses' => 'App\Http\Controllers\Login\RegisterController@index']);
-Route::post('/add-users', ['as' => 'add-users', 'uses' => 'App\Http\Controllers\Login\RegisterController@register']);
-Route::get('/list-users', function () {
-    return view('admin.pages.users.users-list');
-});
+Route::get('/login', ['as' => 'login', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@index']);
+Route::post('/submitLogin', ['as' => 'submitLogin', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@submitLogin']);
 
 Route::resource('/constitutionHistory', ConstitutionHistoryController::class);
 Route::resource('/budget', BudgetController::class);
@@ -43,3 +40,9 @@ Route::resource('/tender', TendersController::class);
 
 
 
+// Route::group(['middleware' => ['admin']], function () {
+    Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'App\Http\Controllers\Dashboard\DashboardController@index']);
+    Route::get('/list-users', ['as' => 'list-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@index']);
+    Route::get('/add-users', ['as' => 'add-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@addUsers']);
+    Route::post('/add-users', ['as' => 'add-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@register']);
+// });
