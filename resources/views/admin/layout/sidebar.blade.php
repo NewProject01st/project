@@ -43,6 +43,18 @@
                   </a>
               </li>
               <li class="nav-item">
+                  <a class="nav-link" href="{{ route('policiesacts.index') }}">
+                      <i class="fas fa-window-restore menu-icon"></i>
+                      <span class="menu-title">Policies & Acts</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="">
+                      <i class="fas fa-window-restore menu-icon"></i>
+                      <span class="menu-title">Projects</span>
+                  </a>
+              </li>
+              <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts">
                       <i class="fa fa-th-large menu-icon"></i>
                       <span class="menu-title">Master Management</span>

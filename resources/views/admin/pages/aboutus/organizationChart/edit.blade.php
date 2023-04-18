@@ -38,10 +38,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputUsername1">English Image</label>
-                                        <input type="file" name="english_image" id="english_image" accept="image/*" class="form-control">
+                                        <!-- <input type="file" name="english_image" id="english_image" accept="image/*" class="form-control"> -->
                                     </div>
-                                    <img src="{{ asset('storage/images/aboutus/'.$organizationCharts->english_image) }}" class="img-fluid img-thumbnail" width="150">
-                               </div>
+                                    <!-- <img src="{{ asset('storage/images/aboutus/'.$organizationCharts->english_image) }}" class="img-fluid img-thumbnail" width="150"> -->
+                            
+                                    <input type="file" name="image" class="form-control" placeholder="image">
+                                    <img src="/image/{{ $product->image }}" width="300px">
+                                </div>
                                
                                <div class="col-md-6">
                                     <div class="form-group">

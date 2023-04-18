@@ -55,8 +55,6 @@ class BudgetController extends Controller
     public function show($id)
     {
         $budgets = Budget::find($id);
-        // print_r($tender);
-        // die();
         return view('admin.pages.aboutus.budget.show')->with('budgets', $budgets);
     }
  

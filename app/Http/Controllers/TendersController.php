@@ -10,17 +10,13 @@ class TendersController extends Controller
 {
     public function index()
     {
-        $tenders = Tenders::all();
-        // print_r($contacts);
-        // die();
+      $tenders = Tenders::all();
       return view ('admin.pages.tenders.index')->with('tenders', $tenders);
     }
     public function create()
     {
         return view('admin.pages.tenders.create');
-    }
- 
-  
+    }  
     public function store(Request $request)
     {
 
