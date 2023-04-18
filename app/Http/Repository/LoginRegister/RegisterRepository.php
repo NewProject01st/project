@@ -21,13 +21,13 @@ class RegisterRepository  {
 
 		return $permissions;
 	}
-	public function register($request,$u_password)
+	public function register($request)
 	{
         $ipAddress = getIPAddress($request);
 		$user_data = new User();
 		$user_data->u_email = $request['u_email'];
 		$user_data->u_uname = $request['u_uname'];
-		$user_data->u_password = $u_password;
+		$user_data->u_password = bcrypt($request['u_password']);
 		$user_data->role_id = $request['role_id'];
 		$user_data->f_name = $request['f_name'];
 		$user_data->m_name = $request['m_name'];

@@ -42,9 +42,13 @@ Route::resource('/policiesacts', PoliciesActsController::class);
 
 
 
-// Route::group(['middleware' => ['admin']], function () {
-    Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'App\Http\Controllers\Dashboard\DashboardController@index']);
+Route::group(['middleware' => ['admin']], function () {
+    Route::get('/dashboard', ['as' => '/dashboard', 'uses' => 'App\Http\Controllers\Dashboard\DashboardController@index']);
     Route::get('/list-users', ['as' => 'list-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@index']);
     Route::get('/add-users', ['as' => 'add-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@addUsers']);
     Route::post('/add-users', ['as' => 'add-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@register']);
-// });
+
+
+    Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
+
+});

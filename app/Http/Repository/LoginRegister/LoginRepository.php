@@ -4,7 +4,7 @@ namespace App\Http\Repository\LoginRegister;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\User;
+use App\Models\User;
 use App\dbmodel\Applicant;
 use App\SuperAdmin;
 
@@ -16,9 +16,9 @@ class LoginRepository
     }
 
     //For Applicant 
-    public function checkLogin(Request $request){
+    public function checkLogin($request){
         // get school description
-        return  User::where([['u_email','=',$request->u_email],['u_password','=',$request->u_password]])->select('*')->get();
+        return  User::where('u_email','=',$request['email'])->select('*')->get();
     }
 
 }

@@ -19,8 +19,8 @@ class LoginService
         $response = $this->repo->checkLogin($request);
         if(count($response)>0) {
             // use bcrypt for login
-            $password = strtoupper($request->password);
-            if (Hash::check($password, $response[0]->password)) {
+            $password = $request['password'];
+            if (Hash::check($password, $response[0]->u_password)) {
                 $request->session()->put('user_id',$response[0]->id);
                 $request->session()->put('u_email',$response[0]->u_email);
 

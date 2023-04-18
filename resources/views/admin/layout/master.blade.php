@@ -146,7 +146,7 @@
                                 Settings
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="login.html">
+                            <a class="dropdown-item" href="{{url('log-out')}}">
                                 <i class="fas fa-power-off text-primary"></i>
                                 Logout
                             </a>

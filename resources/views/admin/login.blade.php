@@ -36,6 +36,17 @@
                             </div>
                             <!--  Login Form -->
 
+                            @if (session('error'))
+                                <div class="alert alert-primary" role="alert">
+                                    <p>{{ session()->get('error') }} </p>
+                                </div>
+                            @endif
+                            @if (session('success'))
+                                <div class="alert alert-danger" role="alert">
+                                    <p> {{ session('success') }} </p>
+                                </div>
+                            @endif
+
                             <form class="pt-3 login_wrap" method="post" action='{{ route('submitLogin') }}'>
                                 @csrf
                                 <div class="form-group">
