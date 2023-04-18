@@ -23,18 +23,6 @@ class RegisterServices
 
     public function register($request)
     {
-     
-        $seed = str_split('abcdefghijklmnopqrstuvwxyz'); 
-        shuffle($seed);
-        $rand = '';
-
-        foreach (array_rand($seed, 6) as $k)
-            $rand .= $seed[$k];
-
-        $pass = strtoupper($rand);
-
-        $u_password = bcrypt($pass);
-
        // $academicYear = 1;
         $chk_dup = $this->repo->checkDupCredentials($request);
         if(sizeof($chk_dup)>0)
@@ -43,7 +31,7 @@ class RegisterServices
         }
         else
         {
-            $user_register_id = $this->repo->register($request,$u_password);
+            $user_register_id = $this->repo->register($request);
             return ['status'=>'success','msg'=>'Registration Successful. Please login to complete admission process with credentials sent to your mobile and/or email.'];
         }
     }

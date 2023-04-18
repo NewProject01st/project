@@ -21,21 +21,17 @@ class LoginController extends Controller
     }
 
     public function submitLogin(Request $request) {
-        $this->validateLogin($request);
+        // dd($request);
+        // $this->validateLogin($request);
         $resp  = self::$loginServe->checkLogin($request);
-        
         if($resp['status']=='success') {
-           
-              return view('dashboard');
+              return view('admin.pages.dashboard');
         } else {
-            return view('applicant.common.login.login')->withErrors([
-                    'name' => $resp['msg'],
-                ]);
+              return redirect('/login')->with('error', $resp['msg']);
         }
     }
 
-    protected function validateLogin(Request $request)
-    {   
+    protected function validateLogin($request) {   
         $this->validate($request, [
             'email' => 'required | email', 
             'password' => 'required',
@@ -51,6 +47,6 @@ class LoginController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect('login');
+        return redirect('/login');
     }
 }
