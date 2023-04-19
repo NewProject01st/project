@@ -13,7 +13,7 @@ class OrganizationChartController extends Controller
         $organizationCharts = OrganizationChart::all();
         // print_r($contacts);
         // die();
-      return view ('admin.pages.aboutus.organizationChart.index')->with('organizationCharts', $organizationCharts);
+      return view ('admin.pages.aboutus.organizationchart.index')->with('organizationCharts', $organizationCharts);
     }
 
         public function create() {

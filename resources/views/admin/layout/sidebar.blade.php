@@ -61,12 +61,15 @@
                       <span class="menu-title">Master Management</span>
                       <i class="menu-arrow"></i>
                   </a>
+                  @if(getRouteDetailsPresentOrNot('list-users',session('permissions')))
+                   <?php $currenturl = Request::url(); ?>
                   <div class="collapse" id="page-layouts">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"> <a class="nav-link"
                                   href="{{ route('list-users') }}">Users Master</a></li>
                       </ul>
                   </div>
+                  @endif
               </li>
 
           </ul>

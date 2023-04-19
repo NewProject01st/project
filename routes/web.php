@@ -33,10 +33,7 @@ Route::get('/login', function () {
 Route::get('/login', ['as' => 'login', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@index']);
 Route::post('/submitLogin', ['as' => 'submitLogin', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@submitLogin']);
 
-Route::resource('/constitutionHistory', ConstitutionHistoryController::class);
-Route::resource('/budget', BudgetController::class);
-Route::resource('/organizationchart', OrganizationChartController::class);
-Route::resource('/tender', TendersController::class);
+
 
 
 
@@ -46,6 +43,16 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/add-users', ['as' => 'add-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@addUsers']);
     Route::post('/add-users', ['as' => 'add-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@register']);
 
+    Route::get('/constitution-history-list', ['as' => 'constitution-history-list', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@index']);
+    Route::get('/constitution-history-add', ['as' => 'constitution-history-add', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@create']);
+    Route::post('/constitution-history-store', ['as' => 'constitution-history-store', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@store']);
+    Route::get('/constitution-history-edit/{$id}', ['as' => 'constitution-history-edit', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@edit']);
+    
+
+    Route::resource('/constitutionHistory', ConstitutionHistoryController::class);
+    Route::resource('/budget', BudgetController::class);
+    Route::resource('/organizationchart', OrganizationChartController::class);
+    Route::resource('/tender', TendersController::class);
 
     Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
 
