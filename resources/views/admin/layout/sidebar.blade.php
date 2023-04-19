@@ -44,7 +44,7 @@
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('organizationchart.index') }}">Organization Chart</a></li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('budget.index') }}">Budget</a></li>
+                                  href="{{ route('list-budget') }}">Budget</a></li>
                       </ul>
                   </div>
               </li>

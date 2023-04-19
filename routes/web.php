@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Aboutus\ConstitutionHistoryController;
-use App\Http\Controllers\Aboutus\BudgetController;
+// use App\Http\Controllers\Aboutus\BudgetController;
 use App\Http\Controllers\Aboutus\OrganizationChartController;
 use App\Http\Controllers\TendersController;
 use App\Http\Controllers\PoliciesActsController;
@@ -35,11 +35,20 @@ Route::get('/login', ['as' => 'login', 'uses' => 'App\Http\Controllers\LoginRegi
 Route::post('/submitLogin', ['as' => 'submitLogin', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@submitLogin']);
 
 Route::resource('/constitutionHistory', ConstitutionHistoryController::class);
-Route::resource('/budget', BudgetController::class);
+// Route::resource('/budget', BudgetController::class);
 Route::resource('/organizationchart', OrganizationChartController::class);
 Route::resource('/tender', TendersController::class);
 Route::resource('/policiesacts', PoliciesActsController::class);
 
+Route::get('/list-budget', ['as' => 'list-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@index']);
+Route::get('/add-budget', ['as' => 'add-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@addBudget']);
+Route::post('/add-budget', ['as' => 'add-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@budget']);
+Route::post('/show-budget', ['as' => 'show-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@show']);
+Route::post('/delete-budget', ['as' => 'delete-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@destroy']);
+Route::get('/update-budget/{id}', ['as' => 'update-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@edit']);
+Route::put('/update-budget/{id}', ['as' => 'update-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@update']);
+
+// Route::get('show-budget/{id}', 'App\Http\Controllers\Aboutus\BudgetController@show');
 
 
 Route::group(['middleware' => ['admin']], function () {

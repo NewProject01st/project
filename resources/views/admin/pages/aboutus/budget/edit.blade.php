@@ -19,7 +19,7 @@
             <div class="col-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <form class="forms-sample" action="{{ url('budget/' .$budgets->id) }}" method="post" id="regForm">
+                        <form class="forms-sample" action="{{ url('list-budget/' .$budgets->id) }}" method="post" id="regForm">
                         <input type="hidden" name="_method" value="PUT">
                         {!! csrf_field() !!}   
                         <div class="row">
