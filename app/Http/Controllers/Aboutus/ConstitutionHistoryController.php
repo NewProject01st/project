@@ -14,11 +14,11 @@ class ConstitutionHistoryController extends Controller
         $constitutionHistoryModels = ConstitutionHistoryModel::all();
         // print_r($contacts);
         // die();
-      return view ('admin.pages.aboutus.constitutionHistory.index')->with('constitutionHistoryModels', $constitutionHistoryModels);
+      return view ('admin.pages.aboutus.constitutionhistory.index')->with('constitutionHistoryModels', $constitutionHistoryModels);
     }
     public function create()
     {
-        return view('admin.pages.aboutus.constitutionHistory.create');
+        return view('admin.pages.aboutus.constitutionhistory.create');
     }
      public function store(Request $request)
     {
@@ -51,12 +51,12 @@ class ConstitutionHistoryController extends Controller
     public function show($id)
     {
         $ConstitutionHistory = ConstitutionHistoryModel::find($id);
-        return view('admin.pages.aboutus.constitutionHistory.show')->with('ConstitutionHistory', $ConstitutionHistory);
+        return view('admin.pages.aboutus.constitutionhistory.show')->with('ConstitutionHistory', $ConstitutionHistory);
     }
     public function edit($id)
     {
         $constitutionHistoryModels = ConstitutionHistoryModel::find($id);
-        return view('admin.pages.aboutus.constitutionHistory.edit')->with('constitutionHistoryModels', $constitutionHistoryModels);
+        return view('admin.pages.aboutus.constitutionhistory.edit')->with('constitutionHistoryModels', $constitutionHistoryModels);
     }
     public function update(Request $request, $id)
     {

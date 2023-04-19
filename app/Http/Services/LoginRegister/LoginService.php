@@ -17,14 +17,15 @@ class LoginService
 
     public function checkLogin($request) {
         $response = $this->repo->checkLogin($request);
-        if(count($response)>0) {
+   
+        if($response['user_details']) {
             // use bcrypt for login
             $password = $request['password'];
-            if (Hash::check($password, $response[0]->u_password)) {
-                $request->session()->put('user_id',$response[0]->id);
-                $request->session()->put('u_email',$response[0]->u_email);
-
-                $json = ['status'=>'success','msg'=>$response];
+            if (Hash::check($password, $response['user_details']['u_password'])) {
+                $request->session()->put('user_id',$response['user_details']['id']);
+                $request->session()->put('u_email',$response['user_details']['u_email']);
+                $request->session()->put('permissions',$response['user_permission']);
+                $json = ['status'=>'success','msg'=>$response['user_details']];
             } else {
                 $json = ['status'=>'failed','msg'=>'These credentials do not match our records.'];
             }
