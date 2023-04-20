@@ -19,7 +19,8 @@ class ConstitutionHistory extends Migration
             $table->string('marathi_title');
             $table->string('english_description');
             $table->string('marathi_description');
-            $table->string('is_Deleted');
+            $table->string('is_deleted')->default(true);
+            $table->boolean('is_active')->default(true);
             // Add more columns here
             $table->timestamps();
         });

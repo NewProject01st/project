@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Tenders;
 
 class TendersSeeder extends Seeder
 {
@@ -27,7 +28,9 @@ class TendersSeeder extends Seeder
                 'open_date' => 'Open Date',
                 'tender_number' => 'Tender Number',
                 'tender_pdf' => 'Tender Pdf',
-                'fld_isDeleted' => '0',
+                'is_deleted' => '1',
+                'is_active' => '1',
+                
             ]);
     }
 }

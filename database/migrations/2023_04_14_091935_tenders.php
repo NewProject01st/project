@@ -25,7 +25,8 @@ class Tenders extends Migration
             $table->string('open_date');
             $table->string('tender_number');
             $table->string('tender_pdf');
-            $table->string('fld_isDeleted');
+            $table->string('is_deleted')->default(true);
+            $table->boolean('is_active')->default(true);
             // Add more columns here
             $table->timestamps();
         });
