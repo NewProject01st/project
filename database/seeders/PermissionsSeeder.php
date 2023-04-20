@@ -18,9 +18,9 @@ class PermissionsSeeder extends Seeder
             [
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
-                'route_name' => 'about-us',
+                'route_name' => 'list-users',
                 'url' => 'about-us',
-                'permission_name' => 'About Us Page',
+                'permission_name' => 'Users List',
             ]);
 
             Permissions::create(
