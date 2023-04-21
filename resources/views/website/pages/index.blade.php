@@ -1,9 +1,14 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-{{session()->put('language','marathi')}}
 <form method="post" action="">  
-<label for="cars">Choose Language</label>
+<label for="cars">
+@if(session('language') == 'mar')
+{{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
+@else 
+{{ Config::get('english.HOME_PAGE.SELECT_LANGUAGE') }}
+@endif
+</label>
 <select name="language" id="language">
   <option value="">Slect language</option>
   <option value="en" <?php if($language == 'en') { echo 'selected'; } ?> >English</option>

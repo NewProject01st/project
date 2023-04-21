@@ -17,7 +17,8 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" id="frm_register" name="frm_register" method="post" role="form" action='{{route("add-users")}}' enctype="multipart/form-data" >
+                            <form class="forms-sample" id="frm_register" name="frm_register" method="post" role="form"
+                                action='{{ route('add-users') }}' enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
@@ -117,7 +118,8 @@
                                                             <td>{{ $key + 1 }}</td>
                                                             <td>
                                                                 <input type="hidden" class="form-check-input"
-                                                                    name="permission_id_{{ $permission['id'] }}" id="permission_id_{{ $permission['id'] }}"
+                                                                    name="permission_id_{{ $permission['id'] }}"
+                                                                    id="permission_id_{{ $permission['id'] }}"
                                                                     value="{{ $permission['id'] }}"
                                                                     data-parsley-multiple="permission_id">
                                                                 {{ $permission['permission_name'] }}
@@ -125,7 +127,9 @@
                                                             <td>
                                                                 <label class="form-check-label">
                                                                     <input type="checkbox" class="form-check-input"
-                                                                        name="per_add_{{$permission['id']}}" id="per_add_{{$permission['id']}}" value="add_{{$permission['id']}}"
+                                                                        name="per_add_{{ $permission['id'] }}"
+                                                                        id="per_add_{{ $permission['id'] }}"
+                                                                        value="add_{{ $permission['id'] }}"
                                                                         data-parsley-multiple="per_add">
 
                                                                     <i class="input-helper"></i><i
@@ -134,7 +138,9 @@
                                                             <td>
                                                                 <label class="form-check-label">
                                                                     <input type="checkbox" class="form-check-input"
-                                                                        name="per_update_{{$permission['id']}}" id="per_update_{{$permission['id']}}" value="update_{{$permission['id']}}"
+                                                                        name="per_update_{{ $permission['id'] }}"
+                                                                        id="per_update_{{ $permission['id'] }}"
+                                                                        value="update_{{ $permission['id'] }}"
                                                                         data-parsley-multiple="per_update">
 
                                                                     <i class="input-helper"></i><i
@@ -143,18 +149,16 @@
                                                             <td>
                                                                 <label class="form-check-label">
                                                                     <input type="checkbox" class="form-check-input"
-                                                                        name="per_delete_{{$permission['id']}}" id="per_delete_{{$permission['id']}}" value="delete_{{$permission['id']}}"
+                                                                        name="per_delete_{{ $permission['id'] }}"
+                                                                        id="per_delete_{{ $permission['id'] }}"
+                                                                        value="delete_{{ $permission['id'] }}"
                                                                         data-parsley-multiple="per_delete">
 
                                                                     <i class="input-helper"></i><i
                                                                         class="input-helper"></i></label>
                                                             </td>
-
                                                         </tr>
                                                     @endforeach
-
-
-
                                                 </tbody>
                                             </table>
                                         </div>
@@ -172,7 +176,7 @@
                                     </div>
 
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-success" >Save
+                                        <button type="submit" class="btn btn-success">Save
                                             &amp; Submit</button>
                                         <button type="submit" class="btn btn-danger">Cancel</button>
                                     </div>
