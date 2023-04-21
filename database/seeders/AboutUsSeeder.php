@@ -21,7 +21,7 @@ class AboutUsSeeder extends Seeder
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
                 'english_title' => 'English Title',
-                'marathi_title' => 'Marathi Title',
+                'marathi_title' => 'Lorem Ipsum हा मुद्रण आणि टाइपसेटिंग उद्योगाचा फक्त डमी मजकूर आहे.',
                 'english_description' => 'English Description',
                 'marathi_description' => 'Marathi Description',
                 'is_deleted' => false,
@@ -37,8 +37,8 @@ class AboutUsSeeder extends Seeder
                     'marathi_title' => 'Marathi Title',
                     'english_image' => 'English Description',
                     'marathi_image' => 'Marathi Description',
-                    'is_deleted' => false,
-                'is_active' => true,
+                    'is_deleted'=>false,
+                    'is_active'=>true,
                
                 ]);
                 ConstitutionHistory::create(
@@ -49,8 +49,8 @@ class AboutUsSeeder extends Seeder
                         'marathi_title' => 'Marathi Title',
                         'english_description' => 'English Image',
                         'marathi_description' => 'Marathi Image',
-                        'is_deleted' => false,
-                        'is_active' => true,
+                        'is_deleted'=>false,
+                        'is_active'=>true,
                
                     ]);
     }
