@@ -19,7 +19,7 @@ class BudgetRepository  {
         }
     }
 
-	public function budget($request)
+	public function addAll($request)
 {
     try {
         $budget_data = new Budget();
@@ -55,7 +55,7 @@ public function getById($id)
         ];
     }
 }
-public function updateBudget($id, $request)
+public function updateAll($id, $request)
 {
     try {
         $budget_data = Budget::find($id);
@@ -63,7 +63,10 @@ public function updateBudget($id, $request)
         $budget_data->marathi_title = $request['marathi_title'];
         $budget_data->english_description = $request['english_description'];
         $budget_data->marathi_description = $request['marathi_description'];
-        $budget_data->save();       
+        $budget_data->save();  
+        
+        // print_r($budget_data);
+        // die();
      
         return [
             'msg' => 'Budget updated successfully.',
@@ -79,7 +82,7 @@ public function updateBudget($id, $request)
 }
 
 
-public function delete($id)
+public function deleteById($id)
 {
     try {
         $budget = Budget::destroy($id);

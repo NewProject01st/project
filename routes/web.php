@@ -1,13 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Aboutus\ConstitutionHistoryController;
-// use App\Http\Controllers\Aboutus\BudgetController;
-use App\Http\Controllers\Aboutus\OrganizationChartController;
-use App\Http\Controllers\TendersController;
-use App\Http\Controllers\PoliciesActsController;
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,22 +27,45 @@ Route::get('/login', function () {
 Route::get('/login', ['as' => 'login', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@index']);
 Route::post('/submitLogin', ['as' => 'submitLogin', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@submitLogin']);
 
-// Route::resource('/constitutionHistory', ConstitutionHistoryController::class);
-// Route::resource('/budget', BudgetController::class);
-Route::resource('/organizationchart', OrganizationChartController::class);
-Route::resource('/tender', TendersController::class);
-Route::resource('/policiesacts', PoliciesActsController::class);
-
-
 Route::get('/list-budget', ['as' => 'list-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@index']);
-Route::get('/add-budget', ['as' => 'add-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@addBudget']);
-Route::post('/add-budget', ['as' => 'add-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@budget']);
+Route::get('/add-budget', ['as' => 'add-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@add']);
+Route::post('/add-budget', ['as' => 'add-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@store']);
 Route::post('/show-budget', ['as' => 'show-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@show']);
 Route::post('/delete-budget', ['as' => 'delete-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@destroy']);
-Route::get('/update-budget/{id}', ['as' => 'update-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@edit']);
-Route::put('/update-budget/{id}', ['as' => 'update-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@update']);
+Route::post('/edit-budget', ['as' => 'edit-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@edit']);
+Route::post('/update-budget', ['as' => 'update-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@update']);
 
-// Route::get('show-budget/{id}', 'App\Http\Controllers\Aboutus\BudgetController@show');
+Route::get('/list-constitutionhistory', ['as' => 'list-constitutionhistory', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@index']);
+Route::get('/add-constitutionhistory', ['as' => 'add-constitutionhistory', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@add']);
+Route::post('/add-constitutionhistory', ['as' => 'add-constitutionhistory', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@store']);
+Route::post('/show-constitutionhistory', ['as' => 'show-constitutionhistory', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@show']);
+Route::post('/delete-constitutionhistory', ['as' => 'delete-constitutionhistory', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@destroy']);
+Route::post('/edit-constitutionhistory', ['as' => 'edit-constitutionhistory', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@edit']);
+Route::post('/update-constitutionhistory', ['as' => 'update-constitutionhistory', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@update']);
+
+Route::get('/list-organizationchart', ['as' => 'list-organizationchart', 'uses' => 'App\Http\Controllers\Aboutus\OrganizationChartController@index']);
+Route::get('/add-organizationchart', ['as' => 'add-organizationchart', 'uses' => 'App\Http\Controllers\Aboutus\OrganizationChartController@add']);
+Route::post('/add-organizationchart', ['as' => 'add-organizationchart', 'uses' => 'App\Http\Controllers\Aboutus\OrganizationChartController@store']);
+Route::post('/show-organizationchart', ['as' => 'show-organizationchart', 'uses' => 'App\Http\Controllers\Aboutus\OrganizationChartController@show']);
+Route::post('/delete-organizationchart', ['as' => 'delete-organizationchart', 'uses' => 'App\Http\Controllers\Aboutus\OrganizationChartController@destroy']);
+Route::post('/edit-organizationchart', ['as' => 'edit-organizationchart', 'uses' => 'App\Http\Controllers\Aboutus\OrganizationChartController@edit']);
+Route::post('/update-organizationchart', ['as' => 'update-organizationchart', 'uses' => 'App\Http\Controllers\Aboutus\OrganizationChartController@update']);
+
+Route::get('/list-tenders', ['as' => 'list-tenders', 'uses' => 'App\Http\Controllers\TendersController@index']);
+Route::get('/add-tenders', ['as' => 'add-tenders', 'uses' => 'App\Http\Controllers\TendersController@add']);
+Route::post('/add-tenders', ['as' => 'add-tenders', 'uses' => 'App\Http\Controllers\TendersController@store']);
+Route::post('/show-tenders', ['as' => 'show-tenders', 'uses' => 'App\Http\Controllers\TendersController@show']);
+Route::post('/delete-tenders', ['as' => 'delete-tenders', 'uses' => 'App\Http\Controllers\TendersController@destroy']);
+Route::post('/edit-tenders', ['as' => 'edit-tenders', 'uses' => 'App\Http\Controllers\TendersController@edit']);
+Route::post('/update-tenders', ['as' => 'update-tenders', 'uses' => 'App\Http\Controllers\TendersController@update']);
+
+Route::get('/list-policiesacts', ['as' => 'list-policiesacts', 'uses' => 'App\Http\Controllers\PoliciesActsController@index']);
+Route::get('/add-policiesacts', ['as' => 'add-policiesacts', 'uses' => 'App\Http\Controllers\PoliciesActsController@add']);
+Route::post('/add-policiesacts', ['as' => 'add-policiesacts', 'uses' => 'App\Http\Controllers\PoliciesActsController@store']);
+Route::post('/show-policiesacts', ['as' => 'show-policiesacts', 'uses' => 'App\Http\Controllers\PoliciesActsController@show']);
+Route::post('/delete-policiesacts', ['as' => 'delete-policiesacts', 'uses' => 'App\Http\Controllers\PoliciesActsController@destroy']);
+Route::post('/edit-policiesacts', ['as' => 'edit-policiesacts', 'uses' => 'App\Http\Controllers\PoliciesActsController@edit']);
+Route::post('/update-policiesacts', ['as' => 'update-policiesacts', 'uses' => 'App\Http\Controllers\PoliciesActsController@update']);
 
 
 Route::group(['middleware' => ['admin']], function () {

@@ -5,12 +5,12 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Budget List <a href='{{ route('add-budget') }}' class="btn btn-sm btn-primary ml-3">+ Add</a>
+                    Tenders List <a href="{{ route('add-policiesacts') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Master Management</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Budget List</li>
+                        <li class="breadcrumb-item"><a href="#">Tender</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> Tenders List</li>
                     </ol>
                 </nav>
             </div>
@@ -29,18 +29,25 @@
                                                     <th>Title Marathi</th>
                                                     <th>Description English</th>
                                                     <th>Description Marathi</th>
+                                                    <th>Policy/Law English Pdf</th>
+                                                    <th>Policy/Law Marathi Pdf</th>
                                                     <!-- <th>Status</th> -->
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($budgets as $item)
+                                                @foreach ($policiesacts as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $item->english_title }}</td>
                                                         <td>{{ $item->marathi_title }}</td>
                                                         <td><?php echo $item->english_description; ?></td>
                                                         <td><?php echo $item->marathi_description; ?></td>
+                                                        <td>{{ $item->english_pdf }}</td>
+                                                        <td>{{ $item->marathi_pdf }}</td>
+                                                        <!-- <td>
+                                                        <span class="badge badge-success">Active</span>
+                                                    </td> -->
                                                         <td class="d-flex">
                                                             <a data-id="{{ $item->id }}"
                                                                 class="edit-btn btn btn-sm btn-outline-primary m-1"><i
@@ -60,21 +67,26 @@
                                     </div>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <form method="POST" action="{{ url('/delete-budget') }}" id="deleteform">
+        <form method="POST" action="{{ url('/delete-policiesacts') }}" id="deleteform">
             @csrf
             <input type="hidden" name="delete_id" id="delete_id" value="">
         </form>
-        <form method="POST" action="{{ url('/show-budget') }}" id="showform">
+        <form method="POST" action="{{ url('/show-policiesacts') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="POST" action="{{ url('/edit-budget') }}" id="editform">
+        <form method="POST" action="{{ url('/edit-policiesacts') }}" id="editform">
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>
+
+        <!-- content-wrapper ends -->
+
     @endsection

@@ -23,9 +23,11 @@
     <link rel="stylesheet" href="{{ asset('assets/css/stepwizard.css') }}">
     <!-- favicon -->
     <link rel="shortcut icon" href="images/CMRS-logo2.png" />
-
+<!-- toastr-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
     <!-- {{-- CKEditor CDN --}} -->
     <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 </head>
 
 

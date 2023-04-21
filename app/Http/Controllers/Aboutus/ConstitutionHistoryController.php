@@ -2,72 +2,142 @@
 
 namespace App\Http\Controllers\Aboutus;
 
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\ConstitutionHistoryModel;
-
+use App\Models\ConstitutionHistory;
+use App\Http\Services\AboutUs\ConstitutionHistoryServices;
+use Validator;
 class ConstitutionHistoryController extends Controller
 {
+
+   public function __construct()
+    {
+        $this->service = new ConstitutionHistoryServices();
+    }
     public function index()
     {
-        $constitutionHistoryModels = ConstitutionHistoryModel::all();
-        // print_r($contacts);
-        // die();
-      return view ('admin.pages.aboutus.constitutionhistory.index')->with('constitutionHistoryModels', $constitutionHistoryModels);
-    }
-    public function create()
-    {
-        return view('admin.pages.aboutus.constitutionhistory.create');
-    }
-     public function store(Request $request)
-    {
-        $request->validate([
-            'english_title'=>'required',
-            'marathi_title'=>'required',
-            'english_description'=>'required',
-            'marathi_description'=>'required',
-        ]);
-
-         $registrationArray  =   array( 
-            "english_title"    => $request->english_title,
-            "marathi_title"     => $request->marathi_title,
-            "english_description"  => $request->english_description,
-            "marathi_description"  =>  $request->marathi_description,
-        );
-
-        $ConstitutionHistory = ConstitutionHistoryModel::create($registrationArray);
-        // print_r($ConstitutionHistory);
-        // die();
-        if(!is_null($ConstitutionHistory)) { 
-            return redirect('constitutionHistory')->with('flash_message', 'Constitution History completed successfully'); 
-        }
-
-        else {
-            return redirect('constitutionHistory')->with('flash_message', 'Constitution History failed. Try again.'); 
-
+        try {
+            $constitutionhistory = $this->service->getAll();
+            return view('admin.pages.aboutus.constitutionHistory.list-constitutionhistory', compact('constitutionhistory'));
+        } catch (\Exception $e) {
+            return $e;
         }
     }
-    public function show($id)
+    public function add()
     {
-        $ConstitutionHistory = ConstitutionHistoryModel::find($id);
-        return view('admin.pages.aboutus.constitutionhistory.show')->with('ConstitutionHistory', $ConstitutionHistory);
+        return view('admin.pages.aboutus.constitutionHistory.add-constitutionhistory');
     }
-    public function edit($id)
+
+    public function store(Request $request) {
+    $rules = [
+        'english_title' => 'required',
+        'marathi_title' => 'required',
+        'english_description' => 'required',
+        'marathi_description' => 'required'
+        
+        ];
+    $messages = [   
+        'english_title.required' => 'Please  enter english title.',
+        'marathi_title.required' => 'Please enter marathi title.',
+        'english_description.required' => 'Please enter english description.',
+        'marathi_description.required' => 'Please enter marathi description.',
+    ];
+
+    try {
+        $validation = Validator::make($request->all(),$rules,$messages);
+        if($validation->fails() )
+        {
+            return redirect('add-constitutionhistory')
+                ->withInput()
+                ->withErrors($validation);
+        }
+        else
+        {
+            $add_constitutionhistory = $this->service->addAll($request);
+            if($add_constitutionhistory)
+            {
+
+                $msg = $add_constitutionhistory['msg'];
+                $status = $add_constitutionhistory['status'];
+                if($status=='success') {
+                    return redirect('list-constitutionhistory')->with(compact('msg','status'));
+                }
+                else {
+                    return redirect('add-constitutionhistory')->withInput()->with(compact('msg','status'));
+                }
+            }
+
+        }
+    } catch (Exception $e) {
+        return redirect('add-constitutionhistory')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+    }
+}
+    public function show(Request $request)
     {
-        $constitutionHistoryModels = ConstitutionHistoryModel::find($id);
-        return view('admin.pages.aboutus.constitutionhistory.edit')->with('constitutionHistoryModels', $constitutionHistoryModels);
+        try {
+            //  dd($request->show_id);
+            $constitutionhistory = $this->service->getById($request->show_id);
+            return view('admin.pages.aboutus.constitutionHistory.show-constitutionhistory', compact('constitutionhistory'));
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+    public function edit(Request $request)
+    {
+        $constitutionhistory = ConstitutionHistory::find($request->edit_id);
+        return view('admin.pages.aboutus.constitutionHistory.edit-constitutionhistory', compact('constitutionhistory'));
     }
     public function update(Request $request, $id)
-    {
-        $constitutionHistoryModels = ConstitutionHistoryModel::find($id);
-        $input = $request->all();
-        $constitutionHistoryModels->update($input);
-        return redirect('constitutionHistory')->with('flash_message', 'Constitution History Updated!');  
+{
+    $rules = [
+        'english_title' => 'required',
+        'marathi_title' => 'required',
+        'english_description' => 'required',
+        'marathi_description' => 'required'
+        
+     ];
+    $messages = [   
+        'english_title.required' => 'Please enter English title.',
+        'marathi_title.required' => 'Please enter Marathi title.',
+        'english_description.required' => 'Please enter English description.',
+        'marathi_description.required' => 'Please enter Marathi description.',
+    ];
+
+    try {
+        $validation = Validator::make($request->all(), $rules, $messages);
+        if ($validation->fails()) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors($validation);
+        } else {
+            $update_constitutionhistory = $this->service->updateAll($request->edit_id);
+            if ($update_constitutionhistory) {
+                $msg = $update_constitutionhistory['msg'];
+                $status = $update_constitutionhistory['status'];
+                if ($status == 'success') {
+                    return redirect('list-constitutionhistory')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
+        }
+    } catch (Exception $e) {
+        return redirect()->back()
+            ->withInput()
+            ->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
-    public function destroy($id)
+ }
+    public function destroy(Request $request)
     {
-        ConstitutionHistoryModel::destroy($id);
-        return redirect('constitutionHistory')->with('flash_message', 'Constitution History deleted!');  
-    }
+        try {
+            // dd($request->delete_id);
+            $constitutionhistory = $this->service->deleteById($request->delete_id);
+            return redirect('list-constitutionhistory')->with('flash_message', 'Deleted!');  
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }   
+
 }

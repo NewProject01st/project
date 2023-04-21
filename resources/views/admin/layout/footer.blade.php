@@ -259,6 +259,12 @@
         $("#showform").submit();
     })
 </script>
+<script>
+    $('.edit-btn').click(function(e) {
+        $("#edit_id").val($(this).attr("data-id"));
+        $("#editform").submit();
+    })
+</script>
 </body>
 
 </html> <!-- partial:partials/_footer.html -->

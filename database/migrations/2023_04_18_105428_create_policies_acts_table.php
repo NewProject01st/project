@@ -21,8 +21,8 @@ class CreatePoliciesActsTable extends Migration
             $table->string('marathi_description');
             $table->string('english_pdf');
             $table->string('marathi_pdf');
-            $table->enum('status', ['active', 'inactive']); // Add 'status' field as enum type with values 'active' or 'inactive'
-            $table->string('is_deleted')->default(true);
+            // $table->enum('status', ['active', 'inactive']); 
+            $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

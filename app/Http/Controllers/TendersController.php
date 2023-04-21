@@ -5,86 +5,171 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tenders;
-
+use App\Http\Services\TendersServices;
+use Validator;
 class TendersController extends Controller
 {
+
+   public function __construct()
+    {
+        $this->service = new TendersServices();
+    }
     public function index()
     {
-      $tenders = Tenders::all();
-      return view ('admin.pages.tenders.index')->with('tenders', $tenders);
+        try {
+            $tenders = $this->service->getAll();
+            return view('admin.pages.tenders.list-tenders', compact('tenders'));
+        } catch (\Exception $e) {
+            return $e;
+        }
     }
-    public function create()
+    public function add()
     {
-        return view('admin.pages.tenders.create');
-    }  
-    public function store(Request $request)
-    {
+        return view('admin.pages.tenders.add-tenders');
+    }
 
-        $request->validate([
-            'tender_date'=>'required',
-            'english_title'=>'required',
-            'marathi_title'=>'required',
-            'english_description'=>'required',
-            'marathi_description'=>'required',
-            'start_date'=>'required',
-            'end_date'=>'required',
-            'open_date'=>'required',
-            'tender_number'=>'required',
-            'tender_pdf' => 'required|file|mimes:pdf|max:2048', // Change image to file, and allow only PDF files
+    public function store(Request $request) {
+        $rules = [
+            'tender_date' => 'required',
+            'english_title' => 'required',
+            'marathi_title' => 'required',
+            'english_description' => 'required',
+            'marathi_description' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'open_date' => 'required',
+            'tender_number' => 'required',
+            'english_pdf' => 'required',
+            'marathi_pdf' => 'required'
             
-        ]);
-
-        $tenderPdf = time() . '_tender.' . $request->tender_pdf->getClientOriginalExtension(); // Get original extension for PDF file
-    
-        $request->tender_pdf->storeAs('public/pdf/tenders', $tenderPdf); // Store the PDF file in 'public/images' directory
+         ];
+    $messages = [   
+        'tender_date'=>'required',
+        'english_title'=>'required',
+        'marathi_title'=>'required',
+        'english_description'=>'required',
+        'marathi_description'=>'required',
+        'start_date'=>'required',
+        'end_date'=>'required',
+        'open_date'=>'required',
+        'tender_number'=>'required',
+        'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'marathi_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         
-        // $tenderPdfPath = $request->file('tender_pdf')->store('public/tender_pdfs'); // Store the PDF file in 'public/tender_pdfs' directory
-         $tendersArray  =   array( 
-          "tender_date"    => $request->tender_date,
-            "english_title"    => $request->english_title,
-            "marathi_title"     => $request->marathi_title,
-            "english_description"  => $request->english_description,
-            "marathi_description"  =>  $request->marathi_description,
-            "start_date"  =>  $request->start_date,
-            "end_date"  =>  $request->end_date,
-            "open_date"  =>  $request->open_date,
-            "tender_number"  =>  $request->tender_number,
-            'tender_pdf' => $tenderPdf,
-        );
-        $tenders = Tenders::create($tendersArray);        
-        if(!is_null($tenders)) { 
-            return redirect('tender')->with('flash_message', 'Tender completed successfully'); 
+    ];
+
+    try {
+        $validation = Validator::make($request->all(),$rules,$messages);
+        if($validation->fails() )
+        {
+            return redirect('add-tenders')
+                ->withInput()
+                ->withErrors($validation);
         }
+        else
+        {
+            $add_tenders = $this->service->addAll($request);
+            // print_r($add_tenders);
+            // die();
+            if($add_tenders)
+            {
 
-        else {
-            return redirect('tender')->with('flash_message', 'Tender failed. Try again.'); 
+                $msg = $add_tenders['msg'];
+                $status = $add_tenders['status'];
+                if($status=='success') {
+                    return redirect('list-tenders')->with(compact('msg','status'));
+                }
+                else {
+                    return redirect('add-tenders')->withInput()->with(compact('msg','status'));
+                }
+            }
 
+        }
+    } catch (Exception $e) {
+        return redirect('add-tenders')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+    }
+}
+    public function show(Request $request)
+    {
+        try {
+            //  dd($request->show_id);
+            $tenders = $this->service->getById($request->show_id);
+            return view('admin.pages.tenders.show-tenders', compact('tenders'));
+        } catch (\Exception $e) {
+            return $e;
         }
     }
-
-    public function show($id)
+    public function edit(Request $request)
     {
-        $tender = Tenders::find($id);
-        // print_r($tender);
-        // die();
-        return view('admin.pages.tenders.show')->with('tender', $tender);
-    }
-
-    public function edit($id)
-    {
-        $tenders = Tenders::find($id);
-        return view('admin.pages.tenders.edit')->with('tenders', $tenders);
+        $tenders = Tenders::find($request->edit_id);
+        return view('admin.pages.tenders.edit-tenders', compact('tenders'));
     }
     public function update(Request $request, $id)
-    {
-        $tenders = Tenders::find($id);
-        $input = $request->all();
-        $tenders->update($input);
-        return redirect('tender')->with('flash_message', 'Tender Updated!');  
+{
+    $rules = [
+        'tender_date' => 'required',
+        'english_title' => 'required',
+        'marathi_title' => 'required',
+        'english_description' => 'required',
+        'marathi_description' => 'required',
+        'start_date' => 'required',
+        'end_date' => 'required',
+        'open_date' => 'required',
+        'tender_number' => 'required',
+        'english_pdf' => 'required',
+        'marathi_pdf' => 'required'
+        
+     ];
+    $messages = [   
+        'tender_date'=>'required',
+        'english_title'=>'required',
+        'marathi_title'=>'required',
+        'english_description'=>'required',
+        'marathi_description'=>'required',
+        'start_date'=>'required',
+        'end_date'=>'required',
+        'open_date'=>'required',
+        'tender_number'=>'required',
+        'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'marathi_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        
+    ];
+
+    try {
+        $validation = Validator::make($request->all(),$rules, $messages);
+        if ($validation->fails()) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors($validation);
+        } else {
+            $update_tenders = $this->service->updateAll($request->edit_id);
+            if ($update_tenders) {
+                $msg = $update_tenders['msg'];
+                $status = $update_tenders['status'];
+                if ($status == 'success') {
+                    return redirect('list-tenders')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
+        }
+    } catch (Exception $e) {
+        return redirect()->back()
+            ->withInput()
+            ->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
-    public function destroy($id)
+ }
+    public function destroy(Request $request)
     {
-      Tenders::destroy($id);
-        return redirect('tender')->with('flash_message', 'Tender deleted!');  
-    }
+        try {
+            // dd($request->delete_id);
+            $tenders = $this->service->deleteById($request->delete_id);
+            return redirect('list-tenders')->with('flash_message', 'Deleted!');  
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }   
+
 }

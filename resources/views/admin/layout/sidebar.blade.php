@@ -40,22 +40,22 @@
                   <div class="collapse" id="page-layouts">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('constitutionHistory.index') }}">Constitution & History</a></li>
+                                  href="{{ route('list-constitutionhistory') }}">Constitution & History</a></li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('organizationchart.index') }}">Organization Chart</a></li>
+                                  href="{{ route('list-organizationchart') }}">Organization Chart</a></li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-budget') }}">Budget</a></li>
                       </ul>
                   </div>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="{{ route('tender.index') }}">
+                  <a class="nav-link" href="{{ route('list-tenders') }}">
                       <i class="fas fa-window-restore menu-icon"></i>
                       <span class="menu-title">Tender</span>
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="{{ route('policiesacts.index') }}">
+                  <a class="nav-link" href="{{ route('list-policiesacts') }}">
                       <i class="fas fa-window-restore menu-icon"></i>
                       <span class="menu-title">Policies & Acts</span>
                   </a>

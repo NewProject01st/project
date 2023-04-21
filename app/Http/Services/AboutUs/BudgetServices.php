@@ -28,10 +28,10 @@ class BudgetServices
         }
     }
 
-    public function budget($request)
+    public function addAll($request)
     {
         try {
-            $add_budget = $this->repo->budget($request);
+            $add_budget = $this->repo->addAll($request);
             if ($add_budget) {
                 return ['status' => 'success', 'msg' => 'Budget Added Successfully.'];
             } else {
@@ -41,10 +41,16 @@ class BudgetServices
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
-
-    public function updateBudget($id, $request)
+   
+    public function updateAll($id, $request)
     {
-        return $this->repo->updateBudget($id, $request);
+        $update_budget = $this->repo->updateAll($request);
+        if ($update_budget) {
+            return ['status' => 'success', 'msg' => 'Budget Added Successfully.'];
+        } else {
+            return ['status' => 'error', 'msg' => 'Budget Not Added.'];
+        }  
+       
     }
 
     public function getById($id)
@@ -56,10 +62,10 @@ class BudgetServices
         }
     }
    
-    public function delete($id)
+    public function deleteById($id)
     {
         try {
-            return $this->repo->delete($id);
+            return $this->repo->deleteById($id);
         } catch (\Exception $e) {
             return $e;
         }

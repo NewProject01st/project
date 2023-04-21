@@ -2,108 +2,154 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PoliciesActs;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\PoliciesActs;
+use App\Http\Services\PoliciesActsServices;
+use Validator;
 class PoliciesActsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+   public function __construct()
+    {
+        $this->service = new PoliciesActsServices();
+    }
     public function index()
     {
-      $policiesacts = PoliciesActs::all();
-      return view ('admin.pages.policiesacts.index')->with('policiesacts', $policiesacts);
+        try {
+            $policiesacts = $this->service->getAll();
+            return view('admin.pages.policiesacts.list-policiesacts', compact('policiesacts'));
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+    public function add()
+    {
+        return view('admin.pages.policiesacts.add-policiesacts');
     }
 
-    public function create()
-    {
-        return view('admin.pages.policiesacts.create');
-    }  
-    public function store(Request $request)
-    {
-        $request->validate([
-            'tender_date'=>'required',
-            'english_title'=>'required',
-            'marathi_title'=>'required',
-            'english_description'=>'required',
-            'marathi_description'=>'required',
-            'english_pdf' => 'required|file|mimes:pdf|max:2048', // Change image to file, and allow only PDF files
-            'marathi_pdf' => 'required|file|mimes:pdf|max:2048', // Change image to file, and allow only PDF files
-        ]);
-
-        $englishpdf = time() . '_englishPdf.' . $request->english_pdf->getClientOriginalExtension(); // Get original extension for PDF file
-        $request->english_pdf->storeAs('public/pdf/policiesActs', $englishpdf); // Store the PDF file in 'public/images' directory
+    public function store(Request $request) {
+        $rules = [
+            'english_title' => 'required',
+            'marathi_title' => 'required',
+            'english_description' => 'required',
+            'marathi_description' => 'required',
+            'english_pdf' => 'required',
+            'marathi_pdf' => 'required'
+            
+         ];
+    $messages = [   
+        'english_title'=>'required',
+        'marathi_title'=>'required',
+        'english_description'=>'required',
+        'marathi_description'=>'required',
+        'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'marathi_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         
-        $marathipdf = time() . '_marathiPaf.' . $request->marathi_pdf->getClientOriginalExtension(); // Get original extension for PDF file
-        $request->marathi_pdf->storeAs('public/pdf/policiesActs', $marathipdf); // Store the PDF file in 'public/images' directory
+    ];
 
-        // $tenderPdfPath = $request->file('tender_pdf')->store('public/tender_pdfs'); // Store the PDF file in 'public/tender_pdfs' directory
-         $policiesActsArray  =   array( 
-          "tender_date"    => $request->tender_date,
-            "english_title"    => $request->english_title,
-            "marathi_title"     => $request->marathi_title,
-            "english_description"  => $request->english_description,
-            "marathi_description"  =>  $request->marathi_description,
-            'english_pdf' => $englishpdf,
-            'marathi_pdf' => $marathipdf,
-        );
-        $policiesActs = PoliciesActs::create($policiesActsArray);        
-        if(!is_null($policiesActs)) { 
-            return redirect('policiesacts')->with('flash_message', 'Tender completed successfully'); 
+    try {
+        $validation = Validator::make($request->all(),$rules,$messages);
+        if($validation->fails() )
+        {
+            return redirect('add-policiesacts')
+                ->withInput()
+                ->withErrors($validation);
         }
+        else
+        {
+            $add_policiesacts = $this->service->addAll($request);
+            // print_r($add_policiesacts);
+            // die();
+            if($add_policiesacts)
+            {
 
-        else {
-            return redirect('policiesacts')->with('flash_message', 'Tender failed. Try again.'); 
+                $msg = $add_policiesacts['msg'];
+                $status = $add_policiesacts['status'];
+                if($status=='success') {
+                    return redirect('list-policiesacts')->with(compact('msg','status'));
+                }
+                else {
+                    return redirect('add-policiesacts')->withInput()->with(compact('msg','status'));
+                }
+            }
 
         }
+    } catch (Exception $e) {
+        return redirect('add-policiesacts')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\PoliciesActs  $policiesActs
-     * @return \Illuminate\Http\Response
-     */
-    public function show(PoliciesActs $policiesActs)
+}
+    public function show(Request $request)
     {
-        //
+        try {
+            //  dd($request->show_id);
+            $policiesacts = $this->service->getById($request->show_id);
+            return view('admin.pages.policiesacts.show-policiesacts', compact('policiesacts'));
+        } catch (\Exception $e) {
+            return $e;
+        }
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\PoliciesActs  $policiesActs
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PoliciesActs $policiesActs)
+    public function edit(Request $request)
     {
-        //
+        $policiesacts = PoliciesActs::find($request->edit_id);
+        return view('admin.pages.policiesacts.edit-policiesacts', compact('policiesacts'));
     }
+    public function update(Request $request, $id)
+{
+    $rules = [
+        'english_title' => 'required',
+        'marathi_title' => 'required',
+        'english_description' => 'required',
+        'marathi_description' => 'required',
+        'english_pdf' => 'required',
+        'marathi_pdf' => 'required'
+        
+     ];
+    $messages = [   
+        'english_title'=>'required',
+        'marathi_title'=>'required',
+        'english_description'=>'required',
+        'marathi_description'=>'required',
+        'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'marathi_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        
+    ];
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PoliciesActs  $policiesActs
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, PoliciesActs $policiesActs)
-    {
-        //
+    try {
+        $validation = Validator::make($request->all(),$rules, $messages);
+        if ($validation->fails()) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors($validation);
+        } else {
+            $update_policiesacts = $this->service->updateAll($request->edit_id);
+            if ($update_policiesacts) {
+                $msg = $update_policiesacts['msg'];
+                $status = $update_policiesacts['status'];
+                if ($status == 'success') {
+                    return redirect('list-policiesacts')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
+        }
+    } catch (Exception $e) {
+        return redirect()->back()
+            ->withInput()
+            ->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
+ }
+    public function destroy(Request $request)
+    {
+        try {
+            // dd($request->delete_id);
+            $policiesacts = $this->service->deleteById($request->delete_id);
+            return redirect('list-policiesacts')->with('flash_message', 'Deleted!');  
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }   
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\PoliciesActs  $policiesActs
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(PoliciesActs $policiesActs)
-    {
-        //
-    }
 }

@@ -5,12 +5,12 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Budget List <a href='{{ route('add-budget') }}' class="btn btn-sm btn-primary ml-3">+ Add</a>
+                    Tenders List <a href="{{ route('add-tenders') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Master Management</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Budget List</li>
+                        <li class="breadcrumb-item"><a href="#">Tender</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> Tenders List</li>
                     </ol>
                 </nav>
             </div>
@@ -25,22 +25,42 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
+                                                    <th>Tender Date</th>
                                                     <th>Title English</th>
                                                     <th>Title Marathi</th>
                                                     <th>Description English</th>
                                                     <th>Description Marathi</th>
+                                                    <th>Start Date</th>
+                                                    <th>End Date</th>
+                                                    <th>Open Date</th>
+                                                    <th>Tender Number</th>
+                                                    <th>English Pdf</th>
+                                                    <th>Marathi Pdf</th>
                                                     <!-- <th>Status</th> -->
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($budgets as $item)
+                                                @foreach ($tenders as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
+                                                        <td>{{ $item->tender_date }}</td>
                                                         <td>{{ $item->english_title }}</td>
                                                         <td>{{ $item->marathi_title }}</td>
                                                         <td><?php echo $item->english_description; ?></td>
                                                         <td><?php echo $item->marathi_description; ?></td>
+                                                        <td>{{ $item->start_date }}</td>
+                                                        <td>{{ $item->end_date }}</td>
+                                                        <td>{{ $item->open_date }}</td>
+                                                        <td>{{ $item->tender_number }}</td>
+                                                        <td>{{ $item->english_pdf }}</td>
+                                                        <td>{{ $item->marathi_pdf }}</td>
+                                                        <!-- <td> <img src="{{ asset('storage/pdf/tenders/' . $item->marathi_image) }}" /> </td> -->
+
+
+                                                        <!-- <td>
+                                                            <span class="badge badge-success">Active</span>
+                                                        </td> -->
                                                         <td class="d-flex">
                                                             <a data-id="{{ $item->id }}"
                                                                 class="edit-btn btn btn-sm btn-outline-primary m-1"><i
@@ -51,6 +71,7 @@
                                                             <a data-id="{{ $item->id }}"
                                                                 class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                                 title="Delete Tender"><i class="fas fa-archive"></i></a>
+
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -65,16 +86,19 @@
                 </div>
             </div>
         </div>
-        <form method="POST" action="{{ url('/delete-budget') }}" id="deleteform">
+        <form method="POST" action="{{ url('/delete-tenders') }}" id="deleteform">
             @csrf
             <input type="hidden" name="delete_id" id="delete_id" value="">
         </form>
-        <form method="POST" action="{{ url('/show-budget') }}" id="showform">
+        <form method="POST" action="{{ url('/show-tenders') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="POST" action="{{ url('/edit-budget') }}" id="editform">
+        <form method="POST" action="{{ url('/edit-tenders') }}" id="editform">
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>
+
+        <!-- content-wrapper ends -->
+
     @endsection

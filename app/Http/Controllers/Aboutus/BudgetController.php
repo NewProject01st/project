@@ -23,21 +23,31 @@ class BudgetController extends Controller
             return $e;
         }
     }
-    public function addBudget()
+    public function add()
     {
         return view('admin.pages.aboutus.budget.add-budget');
     }
 
-    public function budget(Request $request) {
+    public function store(Request $request) {
+        $rules = [
+            'english_title' => 'required',
+            'marathi_title' => 'required',
+            'english_description' => 'required',
+            'marathi_description' => 'required'
+            
+         ];
     $messages = [   
         'english_title.required' => 'Please  enter english title.',
         'marathi_title.required' => 'Please enter marathi title.',
         'english_description.required' => 'Please enter english description.',
         'marathi_description.required' => 'Please enter marathi description.',
     ];
+    // print_r($messages);
+    // die();
 
     try {
-        $validation = Validator::make($request->all(),$messages);
+        $validation = Validator::make($request->all(),$rules,$messages);
+      
         if($validation->fails() )
         {
             return redirect('add-budget')
@@ -46,10 +56,9 @@ class BudgetController extends Controller
         }
         else
         {
-            $add_budget = $this->service->budget($request);
+            $add_budget = $this->service->addAll($request);
             if($add_budget)
             {
-
                 $msg = $add_budget['msg'];
                 $status = $add_budget['status'];
                 if($status=='success') {
@@ -75,13 +84,23 @@ class BudgetController extends Controller
             return $e;
         }
     }
-    public function edit($id)
+    public function edit(Request $request)
     {
-        $budgets = Budget::find($id);
-        return view('admin.pages.aboutus.budget.edit', compact('budgets'));
+        $budgets = Budget::find($request->edit_id);
+        // dd($budgets);
+
+        return view('admin.pages.aboutus.budget.edit-budget', compact('budgets'));
     }
     public function update(Request $request, $id)
 {
+    $rules = [
+        'english_title' => 'required',
+        'marathi_title' => 'required',
+        'english_description' => 'required',
+        'marathi_description' => 'required'
+        
+     ];
+
     $messages = [   
         'english_title.required' => 'Please enter English title.',
         'marathi_title.required' => 'Please enter Marathi title.',
@@ -90,13 +109,13 @@ class BudgetController extends Controller
     ];
 
     try {
-        $validation = Validator::make($request->all(), $messages);
+        $validation = Validator::make($request->all(),$rules, $messages);
         if ($validation->fails()) {
             return redirect()->back()
                 ->withInput()
                 ->withErrors($validation);
         } else {
-            $update_budget = $this->service->updateBudget($id, $request);
+            $update_budget = $this->service->updateBudget($request->edit_id);
             if ($update_budget) {
                 $msg = $update_budget['msg'];
                 $status = $update_budget['status'];
@@ -126,7 +145,7 @@ class BudgetController extends Controller
     {
         try {
             // dd($request->delete_id);
-            $budgets = $this->service->delete($request->delete_id);
+            $budgets = $this->service->deleteById($request->delete_id);
             return redirect('list-budget')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {
             return $e;

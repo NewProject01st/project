@@ -10,14 +10,15 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
                             <h3 class="page-title">
-                                Budget List
+                                Constitution History List
                             </h3>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
                             <div>
-                                <a href="{{ route('list-budget') }}" class="btn btn-sm btn-primary ml-3">Back</a>
+                                <a href="{{ route('list-constitutionhistory') }}" class="btn btn-sm btn-primary ml-3">Back</a>
                             </div>
                         </div>
+
                     </div>
                     <div class="card mt-2">
                         <div class="card-body">
@@ -28,7 +29,7 @@
                                             <label>Title English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ $budgets->english_title }}</label>
+                                            <label>{{ $constitutionhistory->english_title }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -36,7 +37,7 @@
                                             <label>Title Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ $budgets->marathi_title }}</label>
+                                            <label>{{ $constitutionhistory->marathi_title }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -44,7 +45,7 @@
                                             <label>Description English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $budgets->english_description; ?></label>
+                                            <label><?php echo $constitutionhistory->english_description; ?></label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -52,7 +53,7 @@
                                             <label>Description Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $budgets->marathi_description; ?></label>
+                                            <label><?php echo $constitutionhistory->marathi_description; ?></label>
                                         </div>
                                     </div>
                                 </div>
@@ -62,6 +63,8 @@
                 </div>
             </div>
         </div>
+
+
         <!-- content-wrapper ends -->
 
     @endsection
