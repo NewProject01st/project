@@ -24,8 +24,6 @@ class SubMenuRepository  {
                 'main_sub_menuses.menu_name_english',
                 )
             ->get();
-            
-
              return $main_menuses;
             // return MainSubMenus::all();
 
