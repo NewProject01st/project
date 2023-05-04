@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class MainSubMenus extends Model
 {
-    use HasFactory;
+    protected $table='main_sub_menuses';
+    protected $primeryKey='id';
+    public $timestamps=false;
+    protected $fillable=[];
 }
