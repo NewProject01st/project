@@ -15,9 +15,10 @@ return array(
     'App\\Http\\Controllers\\DashboardController' => $baseDir . '/app/Http/Controllers/DashboardController.php',
     'App\\Http\\Controllers\\LoginRegister\\LoginController' => $baseDir . '/app/Http/Controllers/LoginRegister/LoginController.php',
     'App\\Http\\Controllers\\LoginRegister\\RegisterController' => $baseDir . '/app/Http/Controllers/LoginRegister/RegisterController.php',
-    'App\\Http\\Controllers\\ProjectsController' => $baseDir . '/app/Http/Controllers/ProjectsController.php',
     'App\\Http\\Controllers\\Menu\\MainMenuController' => $baseDir . '/app/Http/Controllers/Menu/MainMenuController.php',
+    'App\\Http\\Controllers\\Menu\\SubMenuController' => $baseDir . '/app/Http/Controllers/Menu/SubMenuController.php',
     'App\\Http\\Controllers\\PoliciesActsController' => $baseDir . '/app/Http/Controllers/PoliciesActsController.php',
+    'App\\Http\\Controllers\\ProjectsController' => $baseDir . '/app/Http/Controllers/ProjectsController.php',
     'App\\Http\\Controllers\\TendersController' => $baseDir . '/app/Http/Controllers/TendersController.php',
     'App\\Http\\Controllers\\Website\\IndexController' => $baseDir . '/app/Http/Controllers/Website/IndexController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
@@ -36,32 +37,29 @@ return array(
     'App\\Http\\Repository\\LoginRegister\\ForgotPasswordRepository' => $baseDir . '/app/Http/Repository/LoginRegister/ForgotPasswordRepository.php',
     'App\\Http\\Repository\\LoginRegister\\LoginRepository' => $baseDir . '/app/Http/Repository/LoginRegister/LoginRepository.php',
     'App\\Http\\Repository\\LoginRegister\\RegisterRepository' => $baseDir . '/app/Http/Repository/LoginRegister/RegisterRepository.php',
-<<<<<<< HEAD
-=======
     'App\\Http\\Repository\\Menu\\MainMenuRepository' => $baseDir . '/app/Http/Repository/Menu/MainMenuRepository.php',
->>>>>>> f57a778af675141fb15064c4145074eb76f46312
+    'App\\Http\\Repository\\Menu\\SubMenuRepository' => $baseDir . '/app/Http/Repository/Menu/SubMenuRepository.php',
     'App\\Http\\Repository\\PoliciesActsRepository' => $baseDir . '/app/Http/Repository/PoliciesActsRepository.php',
+    'App\\Http\\Repository\\ProjectsRepository' => $baseDir . '/app/Http/Repository/ProjectsRepository.php',
     'App\\Http\\Repository\\TendersRepository' => $baseDir . '/app/Http/Repository/TendersRepository.php',
     'App\\Http\\Services\\AboutUs\\BudgetServices' => $baseDir . '/app/Http/Services/AboutUs/BudgetServices.php',
     'App\\Http\\Services\\AboutUs\\ConstitutionHistoryServices' => $baseDir . '/app/Http/Services/AboutUs/ConstitutionHistoryServices.php',
     'App\\Http\\Services\\AboutUs\\OrganizationChartServices' => $baseDir . '/app/Http/Services/AboutUs/OrganizationChartServices.php',
     'App\\Http\\Services\\LoginRegister\\LoginService' => $baseDir . '/app/Http/Services/LoginRegister/LoginService.php',
     'App\\Http\\Services\\LoginRegister\\RegisterServices' => $baseDir . '/app/Http/Services/LoginRegister/RegisterServices.php',
-<<<<<<< HEAD
-=======
     'App\\Http\\Services\\Menu\\MainMenuServices' => $baseDir . '/app/Http/Services/Menu/MainMenuServices.php',
->>>>>>> f57a778af675141fb15064c4145074eb76f46312
+    'App\\Http\\Services\\Menu\\SubMenuServices' => $baseDir . '/app/Http/Services/Menu/SubMenuServices.php',
     'App\\Http\\Services\\PoliciesActsServices' => $baseDir . '/app/Http/Services/PoliciesActsServices.php',
+    'App\\Http\\Services\\ProjectsServices' => $baseDir . '/app/Http/Services/ProjectsServices.php',
     'App\\Http\\Services\\TendersServices' => $baseDir . '/app/Http/Services/TendersServices.php',
     'App\\Models\\Budget' => $baseDir . '/app/Models/Budget.php',
     'App\\Models\\ConstitutionHistory' => $baseDir . '/app/Models/ConstitutionHistory.php',
-<<<<<<< HEAD
-=======
     'App\\Models\\MainMenus' => $baseDir . '/app/Models/MainMenus.php',
->>>>>>> f57a778af675141fb15064c4145074eb76f46312
+    'App\\Models\\MainSubMenus' => $baseDir . '/app/Models/MainSubMenus.php',
     'App\\Models\\OrganizationChart' => $baseDir . '/app/Models/OrganizationChart.php',
     'App\\Models\\Permissions' => $baseDir . '/app/Models/Permissions.php',
     'App\\Models\\PoliciesActs' => $baseDir . '/app/Models/PoliciesActs.php',
+    'App\\Models\\Projects' => $baseDir . '/app/Models/Projects.php',
     'App\\Models\\Roles' => $baseDir . '/app/Models/Roles.php',
     'App\\Models\\RolesPermissions' => $baseDir . '/app/Models/RolesPermissions.php',
     'App\\Models\\Tenders' => $baseDir . '/app/Models/Tenders.php',
