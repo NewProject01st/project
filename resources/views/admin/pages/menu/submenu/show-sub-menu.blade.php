@@ -15,7 +15,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
                             <div>
-                                <a href="{{ route('list-main-menu') }}" class="btn btn-sm btn-primary ml-3">Back</a>
+                                <a href="{{ route('list-sub-menu') }}" class="btn btn-sm btn-primary ml-3">Back</a>
                             </div>
                         </div>
 
@@ -33,14 +33,14 @@
                                                   </label>
                                         </div>
                                     </div>
-                                    <div class="row ">
+                                    {{-- <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
                                             <label>Menu Name Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $menu_data->menu_name_marathi; ?></label>
+                                            <label><?php //echo $menu_data->menu_name_marathi; ?></label>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                    
                                 </div>
                             </div>

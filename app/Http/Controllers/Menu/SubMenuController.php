@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Services\Menu\SubMenuServices;
 use Validator;
+use App\Models\MainMenus;
+
 class SubMenuController extends Controller
 {
 
@@ -16,15 +18,17 @@ class SubMenuController extends Controller
     public function index()
     {
         try {
-            $main_menu = $this->service->getAll();
-            return view('admin.pages.menu.submenu.list-sub-menu', compact('main_menu'));
+            $sub_menu = $this->service->getAll();
+            return view('admin.pages.menu.submenu.list-sub-menu', compact('sub_menu'));
         } catch (\Exception $e) {
-            return $e;  
+            return $e;
         }
     }
     public function add()
     {
-        return view('admin.pages.menu.submenu.add-sub-menu');
+        $main_menu_data = MainMenus::all();
+        return view('admin.pages.menu.submenu.add-sub-menu',  ['main_menu_data' => $main_menu_data]);
+        // return view('admin.pages.menu.submenu.add-sub-menu');
     }
 
     public function store(Request $request) {

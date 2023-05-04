@@ -19,6 +19,7 @@ class MainMenuController extends Controller
         try {
             $main_menu = $this->service->getAll();
             return view('admin.pages.menu.mainmenu.list-main-menu', compact('main_menu'));
+            
         } catch (\Exception $e) {
             return $e;  
         }

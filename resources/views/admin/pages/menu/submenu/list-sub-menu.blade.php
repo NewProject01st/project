@@ -10,7 +10,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Master Management</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Main Menu List</li>
+                        <li class="breadcrumb-item active" aria-current="page">  Sub Main Menu List</li>
                     </ol>
                 </nav>
             </div>
@@ -25,16 +25,18 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
-                                                    <th>Main Menu Name English</th>
-                                                    <th>Main Menu Name Marathi</th>
+                                                    <th>Sub Menu</th>
+                                                    <th> Sub Main Menu Name English</th>
+                                                    <th> Sub Main Menu Name Marathi</th>
                                                     <!-- <th>Status</th> -->
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($main_menu as $key => $item)
+                                                @foreach ($sub_menu as $key => $item)
                                                     <tr>
                                                         <td><?php echo $key + 1; ?></td>
+                                                        <td><?php echo $item->menu_name_english_main ; ?> / <?php echo $item->menu_name_marathi_main ; ?></td>
                                                         <td><?php echo $item->menu_name_english; ?></td>
                                                         <td><?php echo $item->menu_name_marathi; ?></td>
                                                         <!--  <td><?php echo $item->order_no; ?></td> -->

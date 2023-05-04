@@ -18,22 +18,22 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action='{{ route('add-main-menu') }}' method="post"
+                            <form class="forms-sample" action='{{ route('add-sub-menu') }}' method="post"
                                 id="regForm">
                                 @csrf
                                 <div class="row">
 
                                  <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="menu_name_english">Menu Name English</label>
-                                            <input type="text" name="menu_name_english" id="menu_name_english"
-                                                class="form-control" id="exampleInputUsername1" placeholder="">
-                                            @if ($errors->has('menu_name_english'))
-                                                <span class="red-text"><?php echo $errors->first('menu_name_english', ':message'); ?></span>
-                                            @endif
-                                        </div>
+                                        <label for="menu_name_english">Main Menu</label>
+                                    <select class="form-select form-control" name="main_menu_id" id="main_menu_id" aria-label="Default select example">
+                                        <option selected>Select Name</option>
+                                        @foreach ($main_menu_data as $data)
+                                          <option value="{{$data->id}}">
+                                              {{$data->menu_name_english}}({{$data->menu_name_marathi}})
+                                          </option>
+                                          @endforeach
+                                        </select>
                                     </div>
-                                    
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="menu_name_english">Menu Name English</label>
