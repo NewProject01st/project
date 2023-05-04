@@ -22,6 +22,26 @@
                       <span class="menu-title">Dashboard</span>
                   </a>
               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
+                      aria-controls="page-layouts">
+                      <i class="fa fa-th-large menu-icon"></i>
+                      <span class="menu-title">Menu</span>
+                      <i class="menu-arrow"></i>
+                  </a>
+
+                  <div class="collapse" id="page-layouts">
+                      <ul class="nav flex-column sub-menu">
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-main-menu') }}">Main Menu</a></li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-sub-menu') }}">Sub Menu</a></li>
+                      </ul>
+                  </div>
+              </li>
+
+
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                       aria-controls="page-layouts">
@@ -29,13 +49,6 @@
                       <span class="menu-title">About Us</span>
                       <i class="menu-arrow"></i>
                   </a>
-
-                  <div class="collapse" id="page-layouts">
-                      <ul class="nav flex-column sub-menu">
-                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-users') }}">Users</a></li>
-                      </ul>
-                  </div>
 
                   <div class="collapse" id="page-layouts">
                       <ul class="nav flex-column sub-menu">
