@@ -17,10 +17,13 @@ class IndexController extends Controller
     public function __construct()
     {
         self::$loginServe = new LoginService();
+        $this->menu = getMenuItems();
     }
 
     public function index(){
         try {
+
+            $menu = $this->menu;
             $data_output = Budget::where('is_active','=',true);
             // dd($data_output);
             if (Session::get('language') == 'mar') {
@@ -35,7 +38,7 @@ class IndexController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.index',compact('data_output','language'));
+        return view('website.pages.index',compact('data_output','language','menu'));
     }
 
     public function changeLanguage(Request $request) {

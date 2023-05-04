@@ -24,6 +24,9 @@
 </head>
 
 <body>
+    <?php //echo '<pre>'; print_r($menu);
+    ?>
+
     <form method="post" action="" id="form1">
 
         <a href="" class="simple-back-to-top"></a>
@@ -127,413 +130,48 @@
 
                     <ul class="nav navbar-nav nav-menu ">
 
-                        <li>
-                            <a href="">
-                                Home
+                        @foreach ($menu as $key => $menu_data)
+                            @foreach ($menu_data as $key => $menu_data_new)
+                                <li id="UcMenu_rep1_liParent_0" class="dropdown">
+                                    @if ($key == '0')
+                                        <a href="" id="" class="dropdown-toggle"
+                                            data-toggle="dropdown" title="About Us" target="_self">
+                                            @if (session('language') == 'mar')
+                                                {{ $menu_data_new['menu_name_marathi'] }}
+                                            @else
+                                                {{ $menu_data_new['menu_name_english'] }}
+                                            @endif
 
-                            </a>
-                        </li>
+                                            @if (sizeof($menu_data_new) > 1)
+                                                <b id="UcMenu_rep1_bParent_0" class="caret"></b>
+                                            @endif
+                                        </a>
+                                    @endif
+                                    @if (sizeof($menu_data) > 1)
 
-                        <li id="UcMenu_rep1_liParent_0" class="dropdown">
-                            <a href="" id="UcMenu_rep1_aParent_0" class="dropdown-toggle" data-toggle="dropdown"
-                                title="About Us" target="_self">
 
-                                About Us
-                                <b id="UcMenu_rep1_bParent_0" class="caret"></b>
-                            </a>
+                                        <ul class="dropdown-menu">
+                                            @foreach ($menu_data[1] as $key => $menu_data_sub)
+                                                <li id="">
+                                                    <a href="" target="_self" title="">
+                                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
+                                                        @if (session('language') == 'mar')
+                                                            {{ $menu_data_sub['menu_name_marathi'] }}
+                                                        @else
+                                                            {{ $menu_data_sub['menu_name_english'] }}
+                                                        @endif
 
-                            <ul class="dropdown-menu">
-
-                                <li id="UcMenu_rep1_rep2_0_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Introduction to the disaster management portal
-                                    </a>
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
 
                                 </li>
+                            @endforeach
+                        @endforeach
 
-                                <li id="UcMenu_rep1_rep2_0_liparent_1">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Objective and Goals
-                                    </a>
 
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_0_liparent_2">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        State disaster management authority (SDMA) structure and organization</a>
-
-                                </li>
-
-                            </ul>
-
-                        </li>
-
-                        <li id="UcMenu_rep1_liParent_1" class="dropdown">
-                            <a href="" id="UcMenu_rep1_aParent_1" class="dropdown-toggle"
-                                data-toggle="dropdown" target="_self">
-                                Disasters
-                                <b id="UcMenu_rep1_bParent_1" class="caret"></b>
-                            </a>
-
-                            <ul class="dropdown-menu">
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Types of disasters (Natural and Man-made)
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Earthquakes
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Floods
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Cyclones
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Droughts
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Landslides
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Industrial accidents
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Fires
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Disaster history and statistics for the state
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-
-
-
-                        <li id="UcMenu_rep1_liParent_1" class="dropdown">
-                            <a href="" id="UcMenu_rep1_aParent_1" class="dropdown-toggle"
-                                data-toggle="dropdown" target="_self">
-                                Preparedness
-                                <b id="UcMenu_rep1_bParent_1" class="caret"></b>
-                            </a>
-
-                            <ul class="dropdown-menu">
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Hazard and vulnerability assessment
-                                    </a>
-                                </li>
-
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Early warning systems
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Capacity building and training
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Public awareness and education
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li id="UcMenu_rep1_liParent_1" class="dropdown">
-                            <a href="" id="UcMenu_rep1_aParent_1" class="dropdown-toggle"
-                                data-toggle="dropdown" target="_self">
-                                Emergency Response
-                                <b id="UcMenu_rep1_bParent_1" class="caret"></b>
-                            </a>
-
-                            <ul class="dropdown-menu">
-
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        State Emergency Operations Center (EOC)
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        District Emergency Operations Center (DEOC)
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Emergency contact numbers
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Search and rescue teams
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Relief measures and resources
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Evacuation plans
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li id="UcMenu_rep1_liParent_1" class="dropdown">
-                            <a href="" id="UcMenu_rep1_aParent_1" class="dropdown-toggle"
-                                data-toggle="dropdown" target="_self">
-                                Citizen Action
-                                <b id="UcMenu_rep1_bParent_1" class="caret"></b>
-                            </a>
-
-                            <ul class="dropdown-menu">
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Report a Incident : Crowdsourcing
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Be a Volunteer : Citizen Support
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-
-                                        Feedback and suggestions
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li id="UcMenu_rep1_liParent_1" class="dropdown">
-                            <a href="" id="UcMenu_rep1_aParent_1" class="dropdown-toggle"
-                                data-toggle="dropdown" target="_self">
-                                Training Workshops
-                                <b id="UcMenu_rep1_bParent_1" class="caret"></b>
-                            </a>
-
-                            <ul class="dropdown-menu">
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Upcoming events and trainings
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Past Events and Trainings
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li id="UcMenu_rep1_liParent_1" class="dropdown">
-                            <a href="" id="UcMenu_rep1_aParent_1" class="dropdown-toggle"
-                                data-toggle="dropdown" target="_self">
-                                Policies and Legislation
-                                <b id="UcMenu_rep1_bParent_1" class="caret"></b>
-                            </a>
-
-                            <ul class="dropdown-menu">
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        State disaster management plan
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        District disaster management plans
-                                    </a>
-                                </li>
-
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        State disaster management policy
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Relevant laws and regulations
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li id="UcMenu_rep1_liParent_1" class="dropdown">
-                            <a href="" id="UcMenu_rep1_aParent_1" class="dropdown-toggle"
-                                data-toggle="dropdown" target="_self">
-                                Resource Center
-                                <b id="UcMenu_rep1_bParent_1" class="caret"></b>
-                            </a>
-
-                            <ul class="dropdown-menu">
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Documents and publications
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Maps and GIS data
-                                    </a>
-                                </li>
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Videos and multimedia
-                                    </a>
-                                </li>
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Training materials and workshops
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li id="UcMenu_rep1_liParent_1" class="dropdown">
-                            <a href="" id="UcMenu_rep1_aParent_1" class="dropdown-toggle"
-                                data-toggle="dropdown" target="_self">
-                                News & Events
-                                <b id="UcMenu_rep1_bParent_1" class="caret"></b>
-                            </a>
-
-                            <ul class="dropdown-menu">
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Latest news related to disaster management
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Upcoming events and trainings
-                                    </a>
-                                </li>
-
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Success stories and case studies
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li id="UcMenu_rep1_liParent_1" class="dropdown">
-                            <a href="" id="UcMenu_rep1_aParent_1" class="dropdown-toggle"
-                                data-toggle="dropdown" target="_self">
-                                Contact Us
-                                <b id="UcMenu_rep1_bParent_1" class="caret"></b>
-                            </a>
-
-                            <ul class="dropdown-menu">
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Contact information for SDMA
-                                    </a>
-                                </li>
-
-                                <li id="UcMenu_rep1_rep2_1_liparent_0">
-                                    <a href="" target="_self" title="">
-                                        <span class="glyphicon glyphicon-menu-right"></span>&nbsp;
-                                        Feedback and suggestions
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
 
                     </ul>
                 </div>
