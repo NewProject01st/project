@@ -18,9 +18,8 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action='{{ route('list-organizationchart') }}' method="post"
-                                id="regForm">
-                                <input type="hidden" name="_method" value="PUT">
+                            <form class="forms-sample" action='{{ route('update-organizationchart') }}' method="post"
+                                id="regForm" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
@@ -47,10 +46,10 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="english_title">English Image</label>
-                                            <input type="file" name="image" class="form-control" placeholder="image">
-                                            @if ($errors->has('english_title'))
-                                                <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
+                                            <label for="english_image">English Image</label>
+                                            <input type="file" name="english_image" class="form-control" placeholder="image">
+                                            @if ($errors->has('english_image'))
+                                                <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                             @endif
                                         </div>
                                         <img src="{{ asset('storage/images/aboutus/' . $organizationchart->english_image) }}"
@@ -71,26 +70,16 @@
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Update</button>
                                         <button type="submit" class="btn btn-danger">Cancel</button>
+                                        <span><a href="{{ route('list-organizationchart') }}"
+                                            class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
                                 </div>
+                                <input type="hidden" name="id" id="id" class="form-control" value="{{ $organizationchart->id }}" placeholder="">
+
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <script>
-            ClassicEditor
-                .create(document.querySelector('.english_description'))
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
-        <script>
-            ClassicEditor
-                .create(document.querySelector('.marathi_description'))
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
     @endsection

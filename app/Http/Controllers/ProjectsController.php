@@ -4,28 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\PoliciesActs;
-use App\Http\Services\PoliciesActsServices;
+use App\Models\Projects;
+use App\Http\Services\ProjectsServices;
 use Validator;
-class PoliciesActsController extends Controller
+class ProjectsController extends Controller
 {
 
    public function __construct()
     {
-        $this->service = new PoliciesActsServices();
+        $this->service = new ProjectsServices();
     }
     public function index()
     {
         try {
-            $policiesacts = $this->service->getAll();
-            return view('admin.pages.policiesacts.list-policiesacts', compact('policiesacts'));
+            $projects = $this->service->getAll();
+            return view('admin.pages.projects.list-projects', compact('projects'));
         } catch (\Exception $e) {
             return $e;
         }
     }
     public function add()
     {
-        return view('admin.pages.policiesacts.add-policiesacts');
+        return view('admin.pages.projects.add-projects');
     }
 
     public function store(Request $request) {
@@ -34,8 +34,11 @@ class PoliciesActsController extends Controller
             'marathi_title' => 'required',
             'english_description' => 'required',
             'marathi_description' => 'required',
+            'english_link' => 'required',
+            'marathi_link' => 'required',
             'english_pdf' => 'required',
-            'marathi_pdf' => 'required'
+            'marathi_pdf' => 'required',
+            'status' => 'required'
             
          ];
     $messages = [   
@@ -43,6 +46,9 @@ class PoliciesActsController extends Controller
         'marathi_title'=>'required',
         'english_description'=>'required',
         'marathi_description'=>'required',
+        'english_link'=>'required',
+        'marathi_link'=>'required',
+        'status'=>'required',
         'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'marathi_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         
@@ -52,47 +58,47 @@ class PoliciesActsController extends Controller
         $validation = Validator::make($request->all(),$rules,$messages);
         if($validation->fails() )
         {
-            return redirect('add-policiesacts')
+            return redirect('add-projects')
                 ->withInput()
                 ->withErrors($validation);
         }
         else
         {
-            $add_policiesacts = $this->service->addAll($request);
-            // print_r($add_policiesacts);
+            $add_projects = $this->service->addAll($request);
+            // print_r($add_projects);
             // die();
-            if($add_policiesacts)
+            if($add_projects)
             {
 
-                $msg = $add_policiesacts['msg'];
-                $status = $add_policiesacts['status'];
+                $msg = $add_projects['msg'];
+                $status = $add_projects['status'];
                 if($status=='success') {
-                    return redirect('list-policiesacts')->with(compact('msg','status'));
+                    return redirect('list-projects')->with(compact('msg','status'));
                 }
                 else {
-                    return redirect('add-policiesacts')->withInput()->with(compact('msg','status'));
+                    return redirect('add-projects')->withInput()->with(compact('msg','status'));
                 }
             }
 
         }
     } catch (Exception $e) {
-        return redirect('add-policiesacts')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+        return redirect('add-projects')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
 }
     public function show(Request $request)
     {
         try {
             //  dd($request->show_id);
-            $policiesacts = $this->service->getById($request->show_id);
-            return view('admin.pages.policiesacts.show-policiesacts', compact('policiesacts'));
+            $projects = $this->service->getById($request->show_id);
+            return view('admin.pages.projects.show-projects', compact('projects'));
         } catch (\Exception $e) {
             return $e;
         }
     }
     public function edit(Request $request)
     {
-        $policiesacts = PoliciesActs::find($request->edit_id);
-        return view('admin.pages.policiesacts.edit-policiesacts', compact('policiesacts'));
+        $projects = Projects::find($request->edit_id);
+        return view('admin.pages.projects.edit-projects', compact('projects'));
     }
     public function update(Request $request)
 {
@@ -101,8 +107,11 @@ class PoliciesActsController extends Controller
         'marathi_title' => 'required',
         'english_description' => 'required',
         'marathi_description' => 'required',
+        'english_link' => 'required',
+        'marathi_link' => 'required',
         'english_pdf' => 'required',
-        'marathi_pdf' => 'required'
+        'marathi_pdf' => 'required',
+        'status' => 'required'
         
      ];
     $messages = [   
@@ -110,6 +119,9 @@ class PoliciesActsController extends Controller
         'marathi_title'=>'required',
         'english_description'=>'required',
         'marathi_description'=>'required',
+        'english_link'=>'required',
+        'marathi_link'=>'required',
+        'status'=>'required',
         'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'marathi_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         
@@ -122,12 +134,12 @@ class PoliciesActsController extends Controller
                 ->withInput()
                 ->withErrors($validation);
         } else {
-            $update_policiesacts = $this->service->updateAll($request);
-            if ($update_policiesacts) {
-                $msg = $update_policiesacts['msg'];
-                $status = $update_policiesacts['status'];
+            $update_projects = $this->service->updateAll($request);
+            if ($update_projects) {
+                $msg = $update_projects['msg'];
+                $status = $update_projects['status'];
                 if ($status == 'success') {
-                    return redirect('list-policiesacts')->with(compact('msg', 'status'));
+                    return redirect('list-projects')->with(compact('msg', 'status'));
                 } else {
                     return redirect()->back()
                         ->withInput()
@@ -145,8 +157,8 @@ class PoliciesActsController extends Controller
     {
         try {
             // dd($request->delete_id);
-            $policiesacts = $this->service->deleteById($request->delete_id);
-            return redirect('list-policiesacts')->with('flash_message', 'Deleted!');  
+            $projects = $this->service->deleteById($request->delete_id);
+            return redirect('list-projects')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {
             return $e;
         }

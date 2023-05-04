@@ -42,9 +42,9 @@ class BudgetServices
         }      
     }
    
-    public function updateAll($id, $request)
+    public function updateBudget($request)
     {
-        $update_budget = $this->repo->updateAll($request);
+        $update_budget = $this->repo->updateBudget($request);
         if ($update_budget) {
             return ['status' => 'success', 'msg' => 'Budget Added Successfully.'];
         } else {

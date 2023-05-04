@@ -65,6 +65,8 @@
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                         <button type="submit" class="btn btn-danger">Cancel</button>
+                                        <span><a href="{{ route('list-budget') }}"
+                                            class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
                                 </div>
                             </form>
@@ -73,26 +75,6 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-            function submitRegister() {
-                document.getElementById("frm_register").submit();
-            }
-        </script>
-
-        <script>
-            ClassicEditor
-                .create(document.querySelector('.english_description'))
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
-        <script>
-            ClassicEditor
-                .create(document.querySelector('.marathi_description'))
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
         {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {

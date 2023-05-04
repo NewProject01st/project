@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Repository;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\QueryException;
 use DB;
 use Illuminate\Support\Carbon;
@@ -65,16 +65,31 @@ public function getById($id)
         ];
     }
 }
-public function updateAll($id, $request)
+public function updateAll($request)
 {
     try {
+        $policiesacts_data = PoliciesActs::find($request->id);
+        
+        if (!$policiesacts_data) {
+            return [
+                'msg' => 'PoliciesActs not found.',
+                'status' => 'error'
+            ];
+        }
+        
+        // Delete existing files
+        Storage::delete([
+            'public/pdf/policiesacts/' . $policiesacts_data->marathi_pdf,
+            'public/pdf/policiesacts/' . $policiesacts_data->english_pdf
+        ]);
+
         $englishPdf = time() . '_english.' . $request->english_pdf->extension();
         $marathiPdf= time() . '_marathi.' . $request->marathi_pdf->extension();
         
         $request->english_pdf->storeAs('public/pdf/policiesacts', $englishPdf);
         $request->marathi_pdf->storeAs('public/pdf/policiesacts', $marathiPdf);
         
-        $policiesacts_data = PoliciesActs::find($id);
+        $policiesacts_data = PoliciesActs::find($request->$id);
         $policiesacts_data->english_title = $request['english_title'];
         $policiesacts_data->marathi_title = $request['marathi_title'];
         $policiesacts_data->english_description = $request['english_description'];
@@ -96,22 +111,26 @@ public function updateAll($id, $request)
     }
 }
 
-
 public function deleteById($id)
 {
     try {
-        $policiesacts = PoliciesActs::destroy($id);
+        $policiesacts = PoliciesActs::find($id);
         if ($policiesacts) {
+            // Delete the images from the storage folder
+            Storage::delete([
+                'public/pdf/policiesacts/'.$policiesacts->marathi_pdf,
+                'public/pdf/policiesacts/'.$policiesacts->english_pdf
+            ]);
+
+            // Delete the record from the database
+            $policiesacts->delete();
+            
             return $policiesacts;
         } else {
             return null;
         }
     } catch (\Exception $e) {
         return $e;
-		return [
-            'msg' => 'Failed to delete Policies Acts.',
-            'status' => 'error'
-        ];
     }
 }
 

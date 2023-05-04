@@ -55,16 +55,17 @@ public function getById($id)
         ];
     }
 }
-public function updateAll($id, $request)
+public function updateBudget($request)
 {
     try {
-        $budget_data = Budget::find($id);
+        $budget_data = Budget::find($request->id);
         $budget_data->english_title = $request['english_title'];
         $budget_data->marathi_title = $request['marathi_title'];
         $budget_data->english_description = $request['english_description'];
         $budget_data->marathi_description = $request['marathi_description'];
-        $budget_data->save();  
+        $budget_data->update();  
         
+    //    dd($budget_data);
         // print_r($budget_data);
         // die();
      

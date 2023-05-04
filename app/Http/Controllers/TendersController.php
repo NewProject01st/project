@@ -104,7 +104,7 @@ class TendersController extends Controller
         $tenders = Tenders::find($request->edit_id);
         return view('admin.pages.tenders.edit-tenders', compact('tenders'));
     }
-    public function update(Request $request, $id)
+    public function update(Request $request)
 {
     $rules = [
         'tender_date' => 'required',
@@ -142,7 +142,7 @@ class TendersController extends Controller
                 ->withInput()
                 ->withErrors($validation);
         } else {
-            $update_tenders = $this->service->updateAll($request->edit_id);
+            $update_tenders = $this->service->updateAll($request);
             if ($update_tenders) {
                 $msg = $update_tenders['msg'];
                 $status = $update_tenders['status'];

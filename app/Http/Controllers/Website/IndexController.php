@@ -22,6 +22,7 @@ class IndexController extends Controller
     public function index(){
         try {
             $data_output = Budget::where('is_active','=',true);
+            // dd($data_output);
             if (Session::get('language') == 'mar') {
                 $data_output =  $data_output->select('marathi_title');
                 $language = Session::get('language');

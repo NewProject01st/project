@@ -42,7 +42,7 @@ class OrganizationChartServices
         }      
     }
 
-    public function updateAll($id, $request)
+    public function updateAll($request)
     {
         try {
             $update_organizationchart = $this->repo->updateAll($request);

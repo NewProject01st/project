@@ -55,10 +55,10 @@ public function getById($id)
         ];
     }
 }
-public function updateAll($id, $request)
+public function updateAll($request)
 {
     try {
-        $constitutionhistory_data = ConstitutionHistory::find($id);
+        $constitutionhistory_data = ConstitutionHistory::find($request->id);
         $constitutionhistory_data->english_title = $request['english_title'];
         $constitutionhistory_data->marathi_title = $request['marathi_title'];
         $constitutionhistory_data->english_description = $request['english_description'];

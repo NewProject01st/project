@@ -88,7 +88,7 @@ class OrganizationChartController extends Controller
         $organizationchart = OrganizationChart::find($request->edit_id);
         return view('admin.pages.aboutus.organizationChart.edit-organizationchart', compact('organizationchart'));
     }
-    public function update(Request $request, $id)
+    public function update(Request $request)
 {
     $rules = [
         'english_title' => 'required',
@@ -112,7 +112,7 @@ class OrganizationChartController extends Controller
                 ->withInput()
                 ->withErrors($validation);
         } else {
-            $update_organizationchart = $this->service->updateAll($request->edit_id);
+            $update_organizationchart = $this->service->updateAll($request);
             if ($update_organizationchart) {
                 $msg = $update_organizationchart['msg'];
                 $status = $update_organizationchart['status'];

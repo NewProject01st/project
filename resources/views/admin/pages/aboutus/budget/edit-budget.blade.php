@@ -18,7 +18,8 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action='{{ route('edit-budget') }}' method="post" id="regForm">
+                            <form class="forms-sample" action='{{ route('update-budget') }}' method="post" id="regForm"
+                                name="frm_register" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
@@ -64,32 +65,16 @@
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Update</button>
                                         <button type="submit" class="btn btn-danger">Cancel</button>
+                                        <span><a href="{{ route('list-budget') }}"
+                                            class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
                                 </div>
+                                <input type="hidden" name="id" id="id" class="form-control"
+                                    value="{{ $budgets->id }}" placeholder="">
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-            function submitRegister() {
-                document.getElementById("frm_register").submit();
-            }
-        </script>
-        
-        <script>
-            ClassicEditor
-                .create(document.querySelector('.english_description'))
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
-        <script>
-            ClassicEditor
-                .create(document.querySelector('.marathi_description'))
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
     @endsection

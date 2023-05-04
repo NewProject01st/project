@@ -1,13 +1,13 @@
 <?php
 namespace App\Http\Services;
 
-use App\Http\Repository\TendersRepository;
+use App\Http\Repository\ProjectsRepository;
 
-use App\Tenders;
+use App\Projects;
 use Carbon\Carbon;
 
 
-class TendersServices
+class ProjectsServices
 {
 
 	protected $repo;
@@ -17,7 +17,7 @@ class TendersServices
      */
     public function __construct()
     {
-        $this->repo = new TendersRepository();
+        $this->repo = new ProjectsRepository();
     }
     public function getAll()
     {
@@ -31,25 +31,25 @@ class TendersServices
     public function addAll($request)
     {
         try {
-            $add_tenders = $this->repo->addAll($request);
-            if ($add_tenders) {
-                return ['status' => 'success', 'msg' => 'Tender Added Successfully.'];
+            $add_projects = $this->repo->addAll($request);
+            if ($add_projects) {
+                return ['status' => 'success', 'msg' => 'Projects Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Tender Not Added.'];
+                return ['status' => 'error', 'msg' => 'Projects Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
 
-    public function updateAll($request)
+    public function updateAll($id, $request)
     {
         try {
-            $update_tenders = $this->repo->updateAll($request);
-            if ($update_tenders) {
-                return ['status' => 'success', 'msg' => 'Tender Updated Successfully.'];
+            $update_projects = $this->repo->updateAll($request);
+            if ($update_projects) {
+                return ['status' => 'success', 'msg' => 'Projects Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Tender Not Updated.'];
+                return ['status' => 'error', 'msg' => 'Projects Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];

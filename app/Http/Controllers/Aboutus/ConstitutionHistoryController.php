@@ -87,7 +87,7 @@ class ConstitutionHistoryController extends Controller
         $constitutionhistory = ConstitutionHistory::find($request->edit_id);
         return view('admin.pages.aboutus.constitutionHistory.edit-constitutionhistory', compact('constitutionhistory'));
     }
-    public function update(Request $request, $id)
+    public function update(Request $request)
 {
     $rules = [
         'english_title' => 'required',
@@ -110,7 +110,7 @@ class ConstitutionHistoryController extends Controller
                 ->withInput()
                 ->withErrors($validation);
         } else {
-            $update_constitutionhistory = $this->service->updateAll($request->edit_id);
+            $update_constitutionhistory = $this->service->updateAll($request);
             if ($update_constitutionhistory) {
                 $msg = $update_constitutionhistory['msg'];
                 $status = $update_constitutionhistory['status'];

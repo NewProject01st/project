@@ -265,6 +265,26 @@
         $("#editform").submit();
     })
 </script>
+
+<script type="text/javascript">
+    function submitRegister() {
+        document.getElementById("frm_register").submit();
+    }
+</script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('.english_description'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('.marathi_description'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 </body>
 
 </html> <!-- partial:partials/_footer.html -->

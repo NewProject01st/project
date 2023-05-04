@@ -5,12 +5,12 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Budget
+                    Tenders
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Constitution & History</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Tenders</li>
                     </ol>
                 </nav>
             </div>
@@ -142,18 +142,4 @@
                 </div>
             </div>
         </div>
-        <script>
-            ClassicEditor
-                .create(document.querySelector('.english_description'))
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
-        <script>
-            ClassicEditor
-                .create(document.querySelector('.marathi_description'))
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
     @endsection

@@ -42,7 +42,7 @@ class ConstitutionHistoryServices
         }      
     }
 
-    public function updateAll($id, $request)
+    public function updateAll($request)
     {
         try {
             $update_constitutionhistory = $this->repo->updateAll($request);

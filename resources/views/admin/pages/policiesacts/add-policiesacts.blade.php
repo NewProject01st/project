@@ -84,6 +84,8 @@
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                         <button type="submit" class="btn btn-danger">Cancel</button>
+                                        <span><a href="{{ route('list-policiesacts') }}"
+                                            class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
                                 </div>
                             </form>
@@ -92,18 +94,4 @@
                 </div>
             </div>
         </div>
-        <script>
-            ClassicEditor
-                .create(document.querySelector('.english_description'))
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
-        <script>
-            ClassicEditor
-                .create(document.querySelector('.marathi_description'))
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
     @endsection

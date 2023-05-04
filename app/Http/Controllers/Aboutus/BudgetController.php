@@ -84,15 +84,14 @@ class BudgetController extends Controller
             return $e;
         }
     }
-    public function edit(Request $request)
-    {
+    public function edit(Request $request) {
         $budgets = Budget::find($request->edit_id);
         // dd($budgets);
 
         return view('admin.pages.aboutus.budget.edit-budget', compact('budgets'));
     }
-    public function update(Request $request, $id)
-{
+
+    public function update(Request $request) {
     $rules = [
         'english_title' => 'required',
         'marathi_title' => 'required',
@@ -115,7 +114,7 @@ class BudgetController extends Controller
                 ->withInput()
                 ->withErrors($validation);
         } else {
-            $update_budget = $this->service->updateBudget($request->edit_id);
+            $update_budget = $this->service->updateBudget($request);
             if ($update_budget) {
                 $msg = $update_budget['msg'];
                 $status = $update_budget['status'];
@@ -128,19 +127,14 @@ class BudgetController extends Controller
                 }
             }
         }
+        
     } catch (Exception $e) {
         return redirect()->back()
             ->withInput()
             ->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
 }
-    // public function update(Request $request, $id)
-    // {
-    //     $budgets = Budget::find($id);
-    //     $input = $request->all();
-    //     $budgets->update($input);
-    //     return redirect('budget')->with('flash_message', 'Budget Updated!');  
-    // }
+ 
     public function destroy(Request $request)
     {
         try {
