@@ -1,4 +1,4 @@
-php artisan make:model MainMenu --migration
+php artisan make:model AllPages --migration
 
 
 php artisan make:seeder EmployeeSeeder

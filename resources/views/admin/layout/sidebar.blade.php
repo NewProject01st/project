@@ -23,7 +23,7 @@
                   </a>
               </li>
 
-               <li class="nav-item">
+              <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                       aria-controls="page-layouts">
                       <i class="fa fa-th-large menu-icon"></i>
@@ -41,6 +41,21 @@
                   </div>
               </li>
 
+              <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
+                      aria-controls="page-layouts">
+                      <i class="fa fa-th-large menu-icon"></i>
+                      <span class="menu-title">Pages</span>
+                      <i class="menu-arrow"></i>
+                  </a>
+
+                  <div class="collapse" id="page-layouts">
+                      <ul class="nav flex-column sub-menu">
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-dynamic-page') }}">Dynamic Pages</a></li>
+                      </ul>
+                  </div>
+              </li>
 
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
@@ -80,22 +95,23 @@
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                       aria-controls="page-layouts">
-                      <i class="fa fa-th-large menu-icon"></i>
-                      <span class="menu-title">Master Management</span>
-                      <i class="menu-arrow"></i>
-                  </a>
-                  @if(getRouteDetailsPresentOrNot('list-users',session('permissions')))
-                   <?php $currenturl = Request::url(); ?>
-                  <div class="collapse" id="page-layouts">
-                      <ul class="nav flex-column sub-menu">
-                          <li class="nav-item d-none d-lg-block"> <a class="nav-link"
-                                  href="{{ route('list-users') }}">Users Master</a></li>
-                      </ul>
-                  </div>
-                  @endif
+                      <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
+                          aria-controls="page-layouts">
+                          <i class="fa fa-th-large menu-icon"></i>
+                          <span class="menu-title">Master Management</span>
+                          <i class="menu-arrow"></i>
+                      </a>
+                      @if (getRouteDetailsPresentOrNot('list-users', session('permissions')))
+                          <?php $currenturl = Request::url(); ?>
+                          <div class="collapse" id="page-layouts">
+                              <ul class="nav flex-column sub-menu">
+                                  <li class="nav-item d-none d-lg-block"> <a class="nav-link"
+                                          href="{{ route('list-users') }}">Users Master</a></li>
+                              </ul>
+                          </div>
+                      @endif
               </li>
 
           </ul>
