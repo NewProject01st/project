@@ -22,6 +22,8 @@ class SubMenuRepository  {
                 'main_menuses.menu_name_english as menu_name_english_main', 
                 'main_sub_menuses.menu_name_marathi',
                 'main_sub_menuses.menu_name_english',
+                'main_sub_menuses.url',
+                'main_sub_menuses.id',
                 )
             ->get();
              return $main_menuses;
@@ -37,6 +39,7 @@ class SubMenuRepository  {
     try {
         $main_menu_data = new MainSubMenus();
         $main_menu_data->main_menu_id = $request['main_menu_id'];
+        $main_menu_data->url = $request['url'];
         $main_menu_data->menu_name_marathi = $request['menu_name_marathi'];
         $main_menu_data->menu_name_english = $request['menu_name_english'];
         $main_menu_data->order_no = isset($request['order_no']) ? $request['order_no'] : 0 ;
@@ -56,9 +59,6 @@ public function getById($id)
 {
     try {
         $main_menu_data = MainSubMenus::find($id);
-        // print_r($main_menu_data);
-       // dd($main_menu_data);
-
         if ($main_menu_data) {
             return $main_menu_data;
         } else {
@@ -76,6 +76,7 @@ public function updateAll($request)
 {
     try { 
         $main_menu_data = MainSubMenus::find($request['edit_id']);
+        $main_menu_data->url = $request['url'];
         $main_menu_data->menu_name_marathi = $request['menu_name_marathi'];
         $main_menu_data->menu_name_english = $request['menu_name_english'];
         $main_menu_data->order_no =  isset($request['order_no']) ? $request['order_no'] : 0 ;

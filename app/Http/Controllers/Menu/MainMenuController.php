@@ -74,7 +74,7 @@ class MainMenuController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
+            // dd($request->show_id);
             $menu_data = $this->service->getById($request->show_id);
             return view('admin.pages.menu.mainmenu.show-main-menu', compact('menu_data'));
         } catch (\Exception $e) {

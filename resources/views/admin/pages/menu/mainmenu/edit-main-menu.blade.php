@@ -26,7 +26,8 @@
                                         <div class="form-group">
                                             <label for="menu_name_english">Menu Name English</label>
                                             <input type="text" name="menu_name_english" id="menu_name_english"
-                                                class="form-control" id="exampleInputUsername1" placeholder="" value="{{ $main_menu_data->menu_name_english }}">
+                                                class="form-control" id="exampleInputUsername1" placeholder=""
+                                                value="{{ $main_menu_data->menu_name_english }}">
                                             @if ($errors->has('menu_name_english'))
                                                 <span class="red-text"><?php echo $errors->first('menu_name_english', ':message'); ?></span>
                                             @endif
@@ -36,19 +37,22 @@
                                         <div class="form-group">
                                             <label for="menu_name_marathi">Menu Name Marathi</label>
                                             <input type="text" name="menu_name_marathi" id="menu_name_marathi"
-                                                class="form-control" id="exampleInputUsername1" placeholder="" value="{{ $main_menu_data->menu_name_marathi }}">
+                                                class="form-control" id="exampleInputUsername1" placeholder=""
+                                                value="{{ $main_menu_data->menu_name_marathi }}">
                                             @if ($errors->has('menu_name_marathi'))
                                                 <span class="red-text"><?php echo $errors->first('menu_name_marathi', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                   
-                                   
+
+
                                     <div class="col-md-12 col-sm-12 text-center">
-                                    <input type="hidden" name="edit_id" id="edit_id"
-                                                class="form-control" value="{{ $edit_data_id }}">
+                                        <input type="hidden" name="edit_id" id="edit_id" class="form-control"
+                                            value="{{ $edit_data_id }}">
                                         <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                         <button type="submit" class="btn btn-danger">Cancel</button>
+                                        <span><a href="{{ route('list-main-menu') }}"
+                                                class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
                                 </div>
                             </form>
@@ -57,7 +61,7 @@
                 </div>
             </div>
         </div>
-        
+
         <script type="text/javascript">
             function submitRegister() {
                 document.getElementById("frm_register").submit();

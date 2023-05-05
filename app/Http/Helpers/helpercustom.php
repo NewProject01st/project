@@ -30,6 +30,7 @@ function getMenuItems() {
                         ->select( 
                             'menu_name_marathi', 
                             'menu_name_english',
+                            'url',
                             'id'
                         )
                         ->get()
@@ -44,6 +45,7 @@ function getMenuItems() {
                                         'main_sub_menuses.main_menu_id',
                                         'main_sub_menuses.menu_name_marathi',
                                         'main_sub_menuses.menu_name_english',
+                                        'main_sub_menuses.url',
                                     )
                                     ->get()
                                     ->toArray();

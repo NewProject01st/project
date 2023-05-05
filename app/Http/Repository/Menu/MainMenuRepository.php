@@ -22,6 +22,7 @@ class MainMenuRepository  {
     // dd(isset($request['order_no']) ? $request['order_no'] : 0 );
     try {
         $main_menu_data = new MainMenus();
+        $main_menu_data->url = $request['url'];
         $main_menu_data->menu_name_marathi = $request['menu_name_marathi'];
         $main_menu_data->menu_name_english = $request['menu_name_english'];
         $main_menu_data->order_no = isset($request['order_no']) ? $request['order_no'] : 0 ;
@@ -58,6 +59,7 @@ public function updateAll($request)
 {
     try { 
         $main_menu_data = MainMenus::find($request['edit_id']);
+        $main_menu_data->url = $request['url'];
         $main_menu_data->menu_name_marathi = $request['menu_name_marathi'];
         $main_menu_data->menu_name_english = $request['menu_name_english'];
         $main_menu_data->order_no =  isset($request['order_no']) ? $request['order_no'] : 0 ;
