@@ -285,6 +285,20 @@
             console.error(error);
         });
 </script>
+
+
+<!-- Summernote Editor -->
+
+<script>
+    $('#summernote').summernote({
+    placeholder: 'Hello Bootstrap 4',
+    tabsize: 2,
+    height: 100
+    });
+</script>
+
+<!-- Summernote Editor End -->
+
 </body>
 
 </html> <!-- partial:partials/_footer.html -->

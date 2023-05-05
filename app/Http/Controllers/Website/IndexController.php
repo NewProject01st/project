@@ -20,7 +20,7 @@ class IndexController extends Controller
         $this->menu = getMenuItems();
     }
 
-    public function index(){
+    public function index() {
         try {
 
             $menu = $this->menu;
