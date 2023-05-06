@@ -36,13 +36,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($sub_menu as $key => $item)
+                                                @foreach ($dynamic_page as $key => $item)
                                                     <tr>
                                                         <td><?php echo $key + 1; ?></td>
-                                                        <td><?php echo $item->menu_name_english_main ; ?> / <?php echo $item->menu_name_marathi_main ; ?></td>
-                                                        <td><?php echo $item->menu_name_english; ?></td>
-                                                        <td><?php echo $item->menu_name_marathi; ?></td>
-                                                        <!--  <td><?php echo $item->order_no; ?></td> -->
+                                                        <td><?php echo $item->english_title ; ?></td>
+                                                        <td><?php echo $item->marathi_title; ?></td>
+                                                        <td><?php echo $item->english_description; ?></td>
+                                                        <td><?php echo $item->marathi_description; ?></td>
+                                                        <td><?php echo $item->marathi_image; ?></td>
+                                                        <td><?php echo $item->english_image; ?></td>
                                                         <!-- <td>
                                                                 <span class="badge badge-success">Active</span>
                                                             </td> -->
@@ -50,6 +52,11 @@
                                                             <a data-id="{{ $item->id }}"
                                                                 class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                                     class="fas fa-pencil-alt"></i></a>
+
+                                                                    {{-- <a href="./resources/views/admin/pages/dynamic-pages-created/satish-eng.blade.html"
+                                                                        class="edit-btn btn btn-sm btn-outline-primary m-1"><i
+                                                                            class="fas fa-pencil-alt"></i></a> --}}
+                                                                            
                                                             <a data-id="{{ $item->id }}"
                                                                 class="show-btn btn btn-sm btn-outline-primary m-1"><i
                                                                     class="fas fa-eye"></i></a>

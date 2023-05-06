@@ -14,7 +14,7 @@ class OrganizationHistory extends Migration
     public function up()
     {
         Schema::create('organization_chart', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('english_title');
             $table->string('marathi_title');
             $table->string('english_image');

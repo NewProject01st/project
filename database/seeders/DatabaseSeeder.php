@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesPermissionSeeder::class);
         $this->call(MainMenusSeeder::class);
         $this->call(MainSubMenusSeeder::class);
-
+        $this->call(DynamicPagesSeeder::class);
+        
     }
 }

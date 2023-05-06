@@ -14,7 +14,8 @@ class CreateDynamicWebPagesTable extends Migration
     public function up()
     {
         Schema::create('dynamic_web_pages', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('main_menu_id');
             $table->string('english_title');
             $table->string('marathi_title');
             $table->string('english_description');

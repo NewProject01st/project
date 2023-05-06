@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Services\DynamicPages\DynamicPagesServices;
 use Validator;
-// use App\Models\MainMenus;
-
+use App\Models\ {
+	DynamicWebPages,
+    MainMenus
+};
 class DynamicPagesController extends Controller
 {
 
@@ -26,7 +28,9 @@ class DynamicPagesController extends Controller
     }
     public function add()
     {
-        return view('admin.pages.dynamic-pages.add-page');
+        $main_menu_data = MainMenus::all();
+        return view('admin.pages.dynamic-pages.add-page',  ['main_menu_data' => $main_menu_data]);
+        // return view('admin.pages.dynamic-pages.add-page');
     }
 
     public function store(Request $request) {
@@ -35,6 +39,7 @@ class DynamicPagesController extends Controller
         mkdir("./pages");
         $current_name = 'satish-eng.blade.html';
         $new_name = 'satish-eng.blade.html';
+        $main_menu_id=$request->main_menu_id;
         $final_content_marathi = $request->marathi_title." ".$request->marathi_description;
         $final_content_english = $request->english_title." ".$request->english_description;
         if($current_name != $new_name){
@@ -53,9 +58,9 @@ class DynamicPagesController extends Controller
         }
         $save = file_put_contents("./resources/views/admin/pages/dynamic-pages-created/{$new_name}",$final_content_english);
 
-        $contents = file_get_contents('satish-eng.blade.html');
-        $new_contents = str_replace('Alice', 'John', $contents);
-        file_put_contents('satish-eng.blade.html', $new_contents);
+        
+
+       
         // Marathi 
 
         $current_name = 'satish-marathi.blade.html';
@@ -78,7 +83,7 @@ class DynamicPagesController extends Controller
         }
         $save = file_put_contents("./resources/views/admin/pages/dynamic-pages-created/{$new_name}",$final_content_marathi);
 
-        dd($request);
+        // dd($request);
 
     $rules = [
         'english_title' => 'required',
@@ -127,28 +132,88 @@ class DynamicPagesController extends Controller
     {
         try {
             //  dd($request->show_id);
-            $menu_data = $this->service->getById($request->show_id);
-            return view('admin.pages.dynamic-pages.show-page', compact('menu_data'));
+            $dynamic_page = $this->service->getById($request->show_id);
+            return view('admin.pages.dynamic-pages.show-page', compact('dynamic_page'));
         } catch (\Exception $e) {
             return $e;
         }
     }
+    
     public function edit(Request $request)
     {
-        $edit_data_id = $request->edit_id;
-        $main_menu_data =  $this->service->getById($request->edit_id);
-        return view('admin.pages.dynamic-pages.edit-page', compact('main_menu_data', 'edit_data_id'));
+
+        // $dyanamic_page = DynamicWebPages::find($request->edit_id);
+        // return view('admin.pages.dynamic-pages.edit-page', compact('dyanamic_page'));
+
+        // // when installed using the Composer package
+        $nname = '/satish-eng.blade.html';
+        $html = "./resources/views/admin/pages/dynamic-pages-created/{$nname}";
+        $text = file_get_contents($html);
+        // dd($text);
+
+        if(!is_dir("./pages"))
+        mkdir("./pages");
+        $current_name = 'satish-eng.blade.html';
+        $new_name = 'satish-eng.blade.html';
+        $final_content_marathi = $request->marathi_title." ".$request->marathi_description;
+        $final_content_english = $request->english_title." ".$request->english_description;
+        if($current_name != $new_name){
+            $nname = 'satish-eng.blade.html';
+            while(true){
+                if(is_file("./resources/views/admin/pages/dynamic-pages-created/{$nname}")){
+                    $nname = $new_name."_".($i++);
+                }else{
+                    break;
+                }
+            }
+            $new_name = $nname;
+        }
+        if(!empty($current_name) && $current_name != $new_name){
+            rename("./resources/views/admin/pages/dynamic-pages-created/{$current_name}","./resources/views/admin/pages/dynamic-pages-created/{$new_name}");
+        }
+        $save = file_put_contents("./resources/views/admin/pages/dynamic-pages-created/{$new_name}",$final_content_english);
+
+        // Marathi 
+
+        $current_name = 'satish-marathi.blade.html';
+        $new_name = 'satish-marathi.blade.html';
+        $final_content_marathi = $request->marathi_title." ".$request->marathi_description;
+        $final_content_english = $request->english_title." ".$request->english_description;
+        if($current_name != $new_name){
+            $nname = 'satish-marathi.blade.html';
+            while(true){
+                if(is_file("./resources/views/admin/pages/dynamic-pages-created/{$nname}")){
+                    $nname = $new_name."_".($i++);
+                }else{
+                    break;
+                }
+            }
+            $new_name = $nname;
+        }
+        if(!empty($current_name) && $current_name != $new_name){
+            rename("./resources/views/admin/pages/dynamic-pages-created/{$current_name}","./resources/views/admin/pages/dynamic-pages-created/{$new_name}");
+        }
+        $save = file_put_contents("./resources/views/admin/pages/dynamic-pages-created/{$new_name}",$final_content_marathi);
+
+        // dd($request);
+
+        // $edit_data_id = $request->edit_id;
+        // $dynamic_page =  $this->service->getById($request->edit_id);
+        // return view('admin.pages.dynamic-pages.edit-page', compact('dynamic_page', 'edit_data_id'));
     }
     public function update(Request $request) {
         $rules = [
-            'menu_name_marathi' => 'required',
-            'menu_name_english' => 'required',
-            // 'order_no' => 'required',
+        'english_title' => 'required',
+        'marathi_title' => 'required',
+        'english_description' => 'required',
+        'marathi_description' => 'required',
             
             ];
         $messages = [   
-            'menu_name_marathi.required' => 'Please  enter menu name title.',
-            'menu_name_english.required' => 'Please  enter menu name title.',
+            'english_title.required' => 'Please enter english title.',
+            'marathi_title.required' => 'Please enter marathi title.',
+            'english_description.required' => 'Please enter english description.',
+            'marathi_description.required' => 'Please enter marathi description.',
             // 'order_no.required' => 'Please enter marathi title.',
         ];
 
@@ -165,7 +230,7 @@ class DynamicPagesController extends Controller
                     $msg = $update_constitutionhistory['msg'];
                     $status = $update_constitutionhistory['status'];
                     if ($status == 'success') {
-                        return redirect('list-page')->with(compact('msg', 'status'));
+                        return redirect('list-dynamic-page')->with(compact('msg', 'status'));
                     } else {
                         return redirect()->back()
                             ->withInput()

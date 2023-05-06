@@ -18,12 +18,14 @@ class MainMenusSeeder extends Seeder
         MainMenus::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'menu_name_marathi' => 'About',
-            'menu_name_english' => 'About',
+            'menu_name_marathi' => 'Home',
+            'menu_name_english' => 'Home',
             'url' => 'https://www.sumagoinfotech.com/',
             'order_no' => 1,
             'is_active' => true,
            
         ]);
+
+        
     }
 }

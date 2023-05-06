@@ -14,7 +14,7 @@ class CreatePoliciesActsTable extends Migration
     public function up()
     {
         Schema::create('policies_acts', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('english_title');
             $table->string('marathi_title');
             $table->string('english_description');

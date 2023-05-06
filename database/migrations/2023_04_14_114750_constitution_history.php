@@ -14,7 +14,7 @@ class ConstitutionHistory extends Migration
     public function up()
     {
         Schema::create('constitution_history', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('english_title');
             $table->string('marathi_title');
             $table->string('english_description');

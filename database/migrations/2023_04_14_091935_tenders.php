@@ -14,7 +14,7 @@ class Tenders extends Migration
     public function up()
     {
         Schema::create('tenders', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('tender_date');
             $table->string('english_title');
             $table->string('marathi_title');
