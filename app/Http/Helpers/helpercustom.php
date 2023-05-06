@@ -12,6 +12,15 @@ function getIPAddress($req)
     return $req->ip();
 }
 
+function getLanguageSelected() {
+    $language = '';
+    if (Session::get('language') == 'mar') {
+        $language = Session::get('language');
+    } else {
+        $language = 'en';
+    }
+    return $language;
+}
 function getRouteDetailsPresentOrNot($data_to_search,$data_for_session) {
     foreach ($data_for_session as $key => $value) {
         foreach ($value as $key => $value_new) {
@@ -45,7 +54,8 @@ function getMenuItems() {
                                         'main_sub_menuses.main_menu_id',
                                         'main_sub_menuses.menu_name_marathi',
                                         'main_sub_menuses.menu_name_english',
-                                        'main_sub_menuses.url',
+                                        'main_sub_menuses.url', 
+                                        'main_sub_menuses.is_static', 
                                     )
                                     ->get()
                                     ->toArray();

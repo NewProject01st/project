@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Website;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Services\LoginRegister\LoginService;
+// use App\Http\Services\LoginRegister\LoginService;
 use Session;
 
 use App\Models\ {
@@ -16,7 +16,7 @@ class IndexController extends Controller
     public static $loginServe,$masterApi;
     public function __construct()
     {
-        self::$loginServe = new LoginService();
+        // self::$loginServe = new LoginService();
         $this->menu = getMenuItems();
     }
 
