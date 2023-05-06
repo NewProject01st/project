@@ -25,9 +25,12 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
-                                                    <th>Sub Menu</th>
-                                                    <th> Sub Main Menu Name English</th>
-                                                    <th> Sub Main Menu Name Marathi</th>
+                                                    <th>English Title</th>
+                                                    <th>Marathi Title</th>
+                                                    <th>English Description</th>
+                                                    <th>Marathi Description</th>
+                                                    <th>English Image</th>
+                                                    <th>Marathi Image</th>
                                                     <!-- <th>Status</th> -->
                                                     <th>Action</th>
                                                 </tr>

@@ -271,6 +271,7 @@
         document.getElementById("frm_register").submit();
     }
 </script>
+
 <script>
     ClassicEditor
         .create(document.querySelector('.english_description'))
@@ -289,13 +290,13 @@
 
 <!-- Summernote Editor -->
 
-<script>
+{{-- <script>
     $('#summernote').summernote({
     placeholder: 'Hello Bootstrap 4',
     tabsize: 2,
     height: 100
     });
-</script>
+</script> --}}
 
 <!-- Summernote Editor End -->
 

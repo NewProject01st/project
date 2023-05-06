@@ -27,11 +27,11 @@ class DynamicPagesServices {
     public function addAll($request)
     {
         try {
-            $add_constitutionhistory = $this->repo->addAll($request);
-            if ($add_constitutionhistory) {
-                return ['status' => 'success', 'msg' => 'Constitution History Added Successfully.'];
+            $add_dynamic_page = $this->repo->addAll($request);
+            if ($add_dynamic_page) {
+                return ['status' => 'success', 'msg' => 'Dynamic Page Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Constitution History Not Added.'];
+                return ['status' => 'error', 'msg' => 'Dynamic Page Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -40,11 +40,11 @@ class DynamicPagesServices {
 
     public function updateAll($request) {
         try {
-            $update_constitutionhistory = $this->repo->updateAll($request);
-            if ($update_constitutionhistory) {
-                return ['status' => 'success', 'msg' => 'Constitution History Updated Successfully.'];
+            $update_dynamic_page = $this->repo->updateAll($request);
+            if ($update_dynamic_page) {
+                return ['status' => 'success', 'msg' => 'Dynamic Page Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Constitution History Not Updated.'];
+                return ['status' => 'error', 'msg' => 'Dynamic Page Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];

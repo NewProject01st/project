@@ -5,12 +5,12 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                   Sub Main Menu
+                    Dynamic Page
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Main Menu</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Dynamic Page</li>
                     </ol>
                 </nav>
             </div>
@@ -23,15 +23,16 @@
                                 @csrf
                                 <div class="row">
 
-                                 <div class="col-md-4">
+                                    {{-- <div class="col-md-4">
                                         <label for="menu_name_english">Main Menu</label>
-                                    <select class="form-select form-control" name="main_menu_id" id="main_menu_id" aria-label="Default select example">
-                                        <option selected>Select Name</option>
-                                        @foreach ($main_menu_data as $data)
-                                          <option value="{{$data->id}}">
-                                              {{$data->menu_name_english}}({{$data->menu_name_marathi}})
-                                          </option>
-                                          @endforeach
+                                        <select class="form-select form-control" name="main_menu_id" id="main_menu_id"
+                                            aria-label="Default select example">
+                                            <option selected>Select Name</option>
+                                            @foreach ($main_menu_data as $data)
+                                                <option value="{{ $data->id }}">
+                                                    {{ $data->menu_name_english }}({{ $data->menu_name_marathi }})
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-md-4">
@@ -46,17 +47,57 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                         <div id="summernote"></div>
+                                            <div id="summernote"></div>
                                             <label for="menu_name_marathi">Menu Name Marathi</label>
                                             <input type="text" name="menu_name_marathi" id="menu_name_marathi"
                                                 class="form-control" id="exampleInputUsername1" placeholder="">
                                             @if ($errors->has('menu_name_marathi'))
-                                                <span class="red-text"><?php echo $errors->first('menu_name_marathi', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('menu_name_marathi', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div> --}}
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="english_title">Title English</label>
+                                                <textarea class="form-control" name="english_title" id="summernote"
+                                                placeholder="Enter the Tilte"></textarea>
+                                            @if ($errors->has('english_title'))
+                                                <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                   
-                                   
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="marathi_title">Title Marathi</label>
+                                                <textarea class="form-control" name="marathi_title" id="summernote1"
+                                                placeholder="Enter the Tilte"></textarea>
+                                            @if ($errors->has('marathi_title'))
+                                                <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="english_description">Description English</label>
+                                            <textarea class="form-control" name="english_description" id="summernote2"
+                                            placeholder="Enter the Description"></textarea>
+                                            @if ($errors->has('english_description'))
+                                                <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="english_description">Description Marathi</label>
+                                            <textarea class="form-control" name="marathi_description" id="summernote3"
+                                            placeholder="Enter the Description"></textarea>                                          
+                                            @if ($errors->has('english_description'))
+                                                <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+  
+                                
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                         <button type="submit" class="btn btn-danger">Cancel</button>
@@ -68,7 +109,74 @@
                 </div>
             </div>
         </div>
-        
+
+        <!-- Summernote Editor -->
+
+        <script>
+            $('#summernote').summernote({
+                placeholder: 'Enter English Title',
+                tabsize: 2,
+                height: 100
+            });
+        </script>
+
+        <!-- Summernote Editor End -->
+         <!-- Summernote Editor -->
+
+         <script>
+            $('#summernote1').summernote({
+                placeholder: 'Enter Marathi Title',
+                tabsize: 2,
+                height: 100
+            });
+        </script>
+
+        <!-- Summernote Editor End -->
+         <!-- Summernote Editor -->
+
+         <script>
+            $('#summernote2').summernote({
+                placeholder: 'Enter English Title',
+                tabsize: 2,
+                height: 100
+            });
+        </script>
+
+        <!-- Summernote Editor End -->
+         <!-- Summernote Editor -->
+
+         <script>
+            $('#summernote3').summernote({
+                placeholder: 'Enter Marathi Title',
+                tabsize: 2,
+                height: 100
+            });
+        </script>
+
+        <!-- Summernote Editor End -->
+          <!-- Summernote Editor -->
+
+          <script>
+            $('#summernote4').summernote({
+                placeholder: 'Enter English Title',
+                tabsize: 2,
+                height: 100
+            });
+        </script>
+
+        <!-- Summernote Editor End -->
+         <!-- Summernote Editor -->
+
+         <script>
+            $('#summernote5').summernote({
+                placeholder: 'Enter Marathi Title',
+                tabsize: 2,
+                height: 100
+            });
+        </script>
+
+        <!-- Summernote Editor End -->
+
         <script type="text/javascript">
             function submitRegister() {
                 document.getElementById("frm_register").submit();
