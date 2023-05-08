@@ -14,11 +14,13 @@ class CreateDynamicWebPagesTable extends Migration
     public function up()
     {
         Schema::create('dynamic_web_pages', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('main_menu_id');
-            $table->unsignedBigInteger('sub_menu_id');
+            $table->bigIncrements('id'); 
+            $table->string('menu_type')->default('null');
+            $table->unsignedBigInteger('menu_id')->default(0);
+            $table->string('menu_name')->default('null');
             $table->string('slug')->unique();
-            $table->string('actual_page_name')->unique();
+            $table->string('actual_page_name_marathi')->unique();
+            $table->string('actual_page_name_english')->unique();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

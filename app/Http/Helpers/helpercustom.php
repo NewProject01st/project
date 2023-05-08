@@ -4,7 +4,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Models\ {
 	MainMenus,
-    MainSubMenus
+    MainSubMenus,
+    DynamicWebPages
 };
 
 function getIPAddress($req)
@@ -67,6 +68,128 @@ function getMenuItems() {
     
                 
 }
+
+function getMenuItemsForDynamicPageAdd() {
+
+
+    $menu_data = array();
+    $main_menu_data =  MainMenus::where('main_menuses.is_static', '=',false)
+                                ->where('is_active', '=',true)
+                                ->select( 
+                                    'main_menuses.menu_name_marathi', 
+                                    'main_menuses.menu_name_english',
+                                    'main_menuses.url as main_menu_url',
+                                    'main_menuses.id as menu_id',
+                                    'main_menuses.is_static as main_menu_static',
+                                    'main_menuses.main_sub'
+                                )
+                                ->get()
+                                ->toArray();
+        
+                        
+        $subMenus  = MainSubMenus::where('main_sub_menuses.is_static', '=',false)
+                                    ->where('is_active', '=',true)
+                                    ->select( 
+                                        'main_sub_menuses.id as menu_id',
+                                        'main_sub_menuses.menu_name_marathi',
+                                        'main_sub_menuses.menu_name_english',
+                                        'main_sub_menuses.url as sub_menu_url', 
+                                        'main_sub_menuses.is_static as sub_menu_static', 
+                                        'main_sub_menuses.main_sub'
+                                    )
+                                    ->get()
+                                    ->toArray();
+      
+                                    $menu_data = array_merge($main_menu_data, $subMenus);
+    return $menu_data ;
+    
+                
+}
+
+function savePageNameInMenu($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name) {
+
+
+    if($main_sub =='main') {
+        $main_menu_data =  MainMenus::where('id', '=', $id)
+                                    ->update([ 
+                                        'url'=> $url,
+                                        'is_static'=> false
+                                    ]);
+
+        
+        addOrUpdateDynamicWebPages($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name);
+            
+    } else {
+        $subMenus  = MainSubMenus::where('id', '=', $id)
+                                    ->update([ 
+                                        'url'=> $url,
+                                        'is_static'=> false
+                                    ]);
+
+        addOrUpdateDynamicWebPages($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name);
+                                   
+    }
+    return 'ok';
+}
+
+function addOrUpdateDynamicWebPages($main_sub,$id,$url,$actual_page_name_marathi, $actual_page_name_english, $menu_name) {
+
+        $dynamic_web_page_name = DynamicWebPages::where('is_active',true)
+                                                ->where('menu_id',$id)
+                                                ->where('menu_type',$main_sub)
+                                                ->first();
+
+        if($dynamic_web_page_name) {
+            $dynamic_web_page_name = DynamicWebPages::where('is_active',true)
+                                                    ->where('menu_id',$id)
+                                                    ->where('menu_type',$main_sub)
+                                                    ->update([
+                                                                'slug'=> $url,
+                                                                'actual_page_name_marathi'=> $actual_page_name_marathi,
+                                                                'actual_page_name_english'=> $actual_page_name_english,
+                                                                'menu_name' =>$menu_name
+                                                            ]);
+        } else {
+            $data_for_insert = [
+                'slug'=> $url,
+                'actual_page_name_marathi'=> $actual_page_name_marathi,
+                'actual_page_name_english'=> $actual_page_name_english,
+                'menu_name' => $menu_name,
+                'menu_id' => $id
+            ];
+
+            if($main_sub =='main') { 
+                $data_for_insert['menu_type']= 'main';     
+            } else {
+                $data_for_insert['menu_type']= 'sub';   
+            }
+
+            $dynamic_web_page_name = DynamicWebPages::insert($data_for_insert);
+        }
+}
+
+function getMenuItemsDynamicPageDetailsById($id) {
+
+
+    return  DynamicWebPages::where('is_active',true)
+                                ->where('id',$id)
+                                ->select( 
+                                    'id',
+                                    'menu_type',
+                                    'menu_id',
+                                    'menu_name',
+                                    'slug',
+                                    'actual_page_name_marathi',
+                                    'actual_page_name_english',
+                                )
+                                ->first();
+        
+                        
+       
+                
+}
+
+
 
 
 

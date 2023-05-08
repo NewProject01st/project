@@ -21,22 +21,22 @@
                             <form class="forms-sample" action='{{ route('add-dynamic-page') }}' method="post"  enctype="multipart/form-data" id="regForm" >
                                 @csrf
                                 <div class="row">
-
                                   <div class="col-md-12 mb-2">
                                   <div class="col-md-6">
+
                                   <label for="menu_name_english">Main Menu</label>
-                                        <select class="form-select form-control" name="main_menu_id" id="main_menu_id"
+                                        <select class="form-select form-control" name="menu_data" id="menu_data"
                                             aria-label="Default select example">
                                             <option selected>Select Name</option>
-                                            @foreach ($main_menu_data as $data)
-                                                <option value="{{ $data->id }}">
-                                                    {{ $data->menu_name_english }}({{ $data->menu_name_marathi }})
+                                            @foreach ($main_menu_data as $key=>$data)
+                                                <option value="{{ $data['menu_id']}}_{{ $data['main_sub']}}">
+                                                    {{ $data['menu_name_english'] }}({{ $data['menu_name_marathi'] }})
                                                 </option>
                                             @endforeach
                                         </select>
                                   </div>
                                     </div>
-                                    <div class="col-md-6">
+                                  {{--   <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>
                                                 <textarea class="form-control" name="english_title" id="summernote"
@@ -55,8 +55,8 @@
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>
-                                    {{-- <div class="col-md-6">
+                                    </div>--}}
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="english_description">Description English</label>
                                             <textarea class="form-control" name="english_description" id="summernote2"
@@ -75,7 +75,7 @@
                                                 <span class="red-text"><?php //echo $errors->first('english_description', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div> --}}
+                                    </div> 
   
                                 
                                     <div class="col-md-12 col-sm-12 text-center">
