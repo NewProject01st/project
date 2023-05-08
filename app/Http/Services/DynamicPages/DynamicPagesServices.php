@@ -19,6 +19,7 @@ class DynamicPagesServices {
     {
         try {
             return $this->repo->getAll();
+          
         } catch (\Exception $e) {
             return $e;
         }

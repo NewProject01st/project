@@ -10,7 +10,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Master Management</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">  Sub Main Menu List</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Sub Main Menu List</li>
                     </ol>
                 </nav>
             </div>
@@ -25,13 +25,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
-                                                    <th>English Title</th>
-                                                    <th>Marathi Title</th>
-                                                    <th>English Description</th>
-                                                    <th>Marathi Description</th>
-                                                    <th>English Image</th>
-                                                    <th>Marathi Image</th>
-                                                    <!-- <th>Status</th> -->
+                                                    <th>Page Name</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -39,30 +33,15 @@
                                                 @foreach ($dynamic_page as $key => $item)
                                                     <tr>
                                                         <td><?php echo $key + 1; ?></td>
-                                                        <td><?php echo $item->english_title ; ?></td>
-                                                        <td><?php echo $item->marathi_title; ?></td>
-                                                        <td><?php echo $item->english_description; ?></td>
-                                                        <td><?php echo $item->marathi_description; ?></td>
-                                                        <td><?php echo $item->marathi_image; ?></td>
-                                                        <td><?php echo $item->english_image; ?></td>
-                                                        <!-- <td>
-                                                                <span class="badge badge-success">Active</span>
-                                                            </td> -->
+                                                        <td>{{ $item['menu_name'] }}</td>
                                                         <td class="d-flex">
-                                                            <a data-id="{{ $item->id }}"
+                                                            <a data-id="{{ $item['id'] }}"
                                                                 class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                                     class="fas fa-pencil-alt"></i></a>
 
-                                                                    {{-- <a href="./resources/views/admin/pages/dynamic-pages-created/satish-eng.blade.html"
-                                                                        class="edit-btn btn btn-sm btn-outline-primary m-1"><i
-                                                                            class="fas fa-pencil-alt"></i></a> --}}
-                                                                            
-                                                            <a data-id="{{ $item->id }}"
+                                                            <a data-id="{{ $item['id'] }}"
                                                                 class="show-btn btn btn-sm btn-outline-primary m-1"><i
                                                                     class="fas fa-eye"></i></a>
-                                                            <a data-id="{{ $item->id }}"
-                                                                class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                                title="Delete Tender"><i class="fas fa-archive"></i></a>
                                                         </td>
                                                     </tr>
                                                 @endforeach

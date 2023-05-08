@@ -21,49 +21,12 @@
                             <form class="forms-sample" action='{{ route('update-dynamic-page') }}' method="post"
                                 id="regForm">
                                 @csrf
-                                <div class="row">
-                                    {{-- <div class="col-md-12 mb-2">
-                                        <div class="col-md-6">
-                                            <label for="menu_name_english">Main Menu</label>
-                                            <select class="form-select form-control" name="main_menu_id" id="main_menu_id" aria-label="Default select example">
-                                                <option value="" disabled>Select Name</option>
-                                                @foreach ($dynamic_page as $data)
-                                                    <option value="{{ $data->id }}" {{ $dynamic_page->main_menu_id == $data->id ? 'selected' : '' }}>
-                                                        {{ $data->menu_name_english }} ({{ $data->menu_name_marathi }})
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div> --}}
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="english_title">Title English</label>
-                                            <textarea class="form-control" name="english_title" id="summernote" placeholder="Enter the Tilte">
-                                                {{ $text->$final_content_marathi }}
-                                            </textarea>
-
-                                            @if ($errors->has('english_title'))
-                                                <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="marathi_title">Title Marathi</label>
-                                            <textarea class="form-control" name="marathi_title" id="summernote1" placeholder="Enter the Tilte">
-                                                {{ $dynamic_page->marathi_title }}
-                                            </textarea>
-                                            @if ($errors->has('marathi_title'))
-                                                <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
+                                <div class="row">                                   
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="english_description">Description English</label>
                                             <textarea class="form-control" name="english_description" id="summernote2" placeholder="Enter the Description">
-                                            {{ $dynamic_page->english_description }}
+                                            {{ $html_english }}
                                         </textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
@@ -74,7 +37,7 @@
                                         <div class="form-group">
                                             <label for="marathi_description">Description Marathi</label>
                                             <textarea class="form-control" name="marathi_description" id="summernote3" placeholder="Enter the Description">
-                                            {{ $dynamic_page->marathi_description }}
+                                            {{ $html_marathi }}
                                         </textarea>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>

@@ -21,6 +21,7 @@ class CreateMainMenusesTable extends Migration
             $table->boolean('is_static')->default(true);
             $table->string('url')->default('null');
             $table->boolean('is_active')->default(true);
+            $table->string('main_sub')->default('main');
             // $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->timestamps();
         });
