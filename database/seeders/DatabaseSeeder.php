@@ -24,6 +24,9 @@ class DatabaseSeeder extends Seeder
         $this->call(MainMenusSeeder::class);
         $this->call(MainSubMenusSeeder::class);
         $this->call(DynamicPagesSeeder::class);
+        $this->call(MarqueeSeeder::class);
+        $this->call(SliderSeeder::class);
+        
         
     }
 }

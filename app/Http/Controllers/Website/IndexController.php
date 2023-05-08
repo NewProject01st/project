@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Session;
 
 use App\Models\ {
-	Budget
+	ObjectiveGoals
 };
 
 class IndexController extends Controller
@@ -24,7 +24,7 @@ class IndexController extends Controller
         try {
 
             $menu = $this->menu;
-            $data_output = Budget::where('is_active','=',true);
+            $data_output = ObjectiveGoals::where('is_active','=',true);
             // dd($data_output);
             if (Session::get('language') == 'mar') {
                 $data_output =  $data_output->select('marathi_title');
@@ -44,5 +44,16 @@ class IndexController extends Controller
     public function changeLanguage(Request $request) {
         Session::put('language', $request->language);
     }
+
+    public function getObjective()
+    {
+        try {
+            $objectivegoals = $this->service->getAll();
+            return view('website.pages.list-objectivegoals-web', compact('objectivegoals'));
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
 
 }

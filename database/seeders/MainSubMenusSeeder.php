@@ -22,6 +22,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Introduction to the disaster management portal',
             'menu_name_marathi' => 'आपत्ती व्यवस्थापन पोर्टलची ओळख',
             'order_no' => 1,
+            'url'=>'/list-disastermanagementportal',
             'is_active' => true,
            
         ]);
@@ -32,6 +33,8 @@ class MainSubMenusSeeder extends Seeder
             'main_menu_id' => 2,
             'menu_name_english' => 'Objective and Goals',
             'menu_name_marathi' => 'उद्दिष्ट आणि ध्येय',
+            'url'=>'/list-objectivegoals-web',
+            'is_static'=>true,
             'order_no' => 2,
             'is_active' => true,
            
@@ -42,6 +45,7 @@ class MainSubMenusSeeder extends Seeder
             'main_menu_id' => 2,
             'menu_name_english' => 'State disaster management authority (SDMA) structure and organization',
             'menu_name_marathi' => 'राज्य आपत्ती व्यवस्थापन प्राधिकरण (SDMA) संरचना आणि संघटना',
+            'url'=>'/list-statedisastermanagementauthority',
             'order_no' => 3,
             'is_active' => true,
            

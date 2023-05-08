@@ -32,7 +32,8 @@ Route::get('/login', ['as' => 'login', 'uses' => 'App\Http\Controllers\LoginRegi
 Route::post('/submitLogin', ['as' => 'submitLogin', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@submitLogin']);
 
 Route::get('/pages/{page}', ['as' => 'pages', 'uses' => 'App\Http\Controllers\Website\DynamicPages\DynamicPagesController@index']);
-
+// Website
+Route::get('/list-objectivegoals-web', ['as' => 'list-objectivegoals-web', 'uses' => 'App\Http\Controllers\Website\AboutUs\ObjectiveGoalsController@index']);
 
 
 Route::group(['middleware' => ['admin']], function () {
@@ -67,30 +68,45 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/edit-dynamic-page', ['as' => 'edit-dynamic-page', 'uses' => 'App\Http\Controllers\DynamicPages\DynamicPagesController@edit']);
     Route::post('/update-dynamic-page', ['as' => 'update-dynamic-page', 'uses' => 'App\Http\Controllers\DynamicPages\DynamicPagesController@update']);
 
+    Route::get('/list-marquee', ['as' => 'list-marquee', 'uses' => 'App\Http\Controllers\Home\MarqueeController@index']);
+    Route::get('/add-marquee', ['as' => 'add-marquee', 'uses' => 'App\Http\Controllers\Home\MarqueeController@add']);
+    Route::post('/add-marquee', ['as' => 'add-marquee', 'uses' => 'App\Http\Controllers\Home\MarqueeController@store']);
+    Route::post('/edit-marquee', ['as' => 'edit-marquee', 'uses' => 'App\Http\Controllers\Home\MarqueeController@edit']);
+    Route::post('/update-marquee', ['as' => 'update-marquee', 'uses' => 'App\Http\Controllers\Home\MarqueeController@update']);
+    Route::post('/show-marquee', ['as' => 'show-marquee', 'uses' => 'App\Http\Controllers\Home\MarqueeController@show']);
+    Route::post('/delete-marquee', ['as' => 'delete-marquee', 'uses' => 'App\Http\Controllers\Home\MarqueeController@destroy']);
 
-    Route::get('/list-budget', ['as' => 'list-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@index']);
-    Route::get('/add-budget', ['as' => 'add-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@add']);
-    Route::post('/add-budget', ['as' => 'add-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@store']);
-    Route::post('/show-budget', ['as' => 'show-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@show']);
-    Route::post('/delete-budget', ['as' => 'delete-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@destroy']);
-    Route::post('/edit-budget', ['as' => 'edit-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@edit']);
-    Route::post('/update-budget', ['as' => 'update-budget', 'uses' => 'App\Http\Controllers\Aboutus\BudgetController@update']);
+    Route::get('/list-slide', ['as' => 'list-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@index']);
+    Route::get('/add-slide', ['as' => 'add-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@add']);
+    Route::post('/add-slide', ['as' => 'add-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@store']);
+    Route::post('/edit-slide', ['as' => 'edit-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@edit']);
+    Route::post('/update-slide', ['as' => 'update-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@update']);
+    Route::post('/show-slide', ['as' => 'show-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@show']);
+    Route::post('/delete-slide', ['as' => 'delete-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@destroy']);
+
+    Route::get('/list-objectivegoals', ['as' => 'list-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@index']);
+    Route::get('/add-objectivegoals', ['as' => 'add-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@add']);
+    Route::post('/add-objectivegoals', ['as' => 'add-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@store']);
+    Route::post('/show-objectivegoals', ['as' => 'show-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@show']);
+    Route::post('/delete-objectivegoals', ['as' => 'delete-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@destroy']);
+    Route::post('/edit-objectivegoals', ['as' => 'edit-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@edit']);
+    Route::post('/update-objectivegoals', ['as' => 'update-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@update']);
     
-    Route::get('/list-constitutionhistory', ['as' => 'list-constitutionhistory', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@index']);
-    Route::get('/add-constitutionhistory', ['as' => 'add-constitutionhistory', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@add']);
-    Route::post('/add-constitutionhistory', ['as' => 'add-constitutionhistory', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@store']);
-    Route::post('/show-constitutionhistory', ['as' => 'show-constitutionhistory', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@show']);
-    Route::post('/delete-constitutionhistory', ['as' => 'delete-constitutionhistory', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@destroy']);
-    Route::post('/edit-constitutionhistory', ['as' => 'edit-constitutionhistory', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@edit']);
-    Route::post('/update-constitutionhistory', ['as' => 'update-constitutionhistory', 'uses' => 'App\Http\Controllers\Aboutus\ConstitutionHistoryController@update']);
+    Route::get('/list-disastermanagementportal', ['as' => 'list-disastermanagementportal', 'uses' => 'App\Http\Controllers\Aboutus\DisasterManagementPortalController@index']);
+    Route::get('/add-disastermanagementportal', ['as' => 'add-disastermanagementportal', 'uses' => 'App\Http\Controllers\Aboutus\DisasterManagementPortalController@add']);
+    Route::post('/add-disastermanagementportal', ['as' => 'add-disastermanagementportal', 'uses' => 'App\Http\Controllers\Aboutus\DisasterManagementPortalController@store']);
+    Route::post('/show-disastermanagementportal', ['as' => 'show-disastermanagementportal', 'uses' => 'App\Http\Controllers\Aboutus\DisasterManagementPortalController@show']);
+    Route::post('/delete-disastermanagementportal', ['as' => 'delete-disastermanagementportal', 'uses' => 'App\Http\Controllers\Aboutus\DisasterManagementPortalController@destroy']);
+    Route::post('/edit-disastermanagementportal', ['as' => 'edit-disastermanagementportal', 'uses' => 'App\Http\Controllers\Aboutus\DisasterManagementPortalController@edit']);
+    Route::post('/update-disastermanagementportal', ['as' => 'update-disastermanagementportal', 'uses' => 'App\Http\Controllers\Aboutus\DisasterManagementPortalController@update']);
     
-    Route::get('/list-organizationchart', ['as' => 'list-organizationchart', 'uses' => 'App\Http\Controllers\Aboutus\OrganizationChartController@index']);
-    Route::get('/add-organizationchart', ['as' => 'add-organizationchart', 'uses' => 'App\Http\Controllers\Aboutus\OrganizationChartController@add']);
-    Route::post('/add-organizationchart', ['as' => 'add-organizationchart', 'uses' => 'App\Http\Controllers\Aboutus\OrganizationChartController@store']);
-    Route::post('/show-organizationchart', ['as' => 'show-organizationchart', 'uses' => 'App\Http\Controllers\Aboutus\OrganizationChartController@show']);
-    Route::post('/delete-organizationchart', ['as' => 'delete-organizationchart', 'uses' => 'App\Http\Controllers\Aboutus\OrganizationChartController@destroy']);
-    Route::post('/edit-organizationchart', ['as' => 'edit-organizationchart', 'uses' => 'App\Http\Controllers\Aboutus\OrganizationChartController@edit']);
-    Route::post('/update-organizationchart', ['as' => 'update-organizationchart', 'uses' => 'App\Http\Controllers\Aboutus\OrganizationChartController@update']);
+    Route::get('/list-statedisastermanagementauthority', ['as' => 'list-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@index']);
+    Route::get('/add-statedisastermanagementauthority', ['as' => 'add-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@add']);
+    Route::post('/add-statedisastermanagementauthority', ['as' => 'add-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@store']);
+    Route::post('/show-statedisastermanagementauthority', ['as' => 'show-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@show']);
+    Route::post('/delete-statedisastermanagementauthority', ['as' => 'delete-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@destroy']);
+    Route::post('/edit-statedisastermanagementauthority', ['as' => 'edit-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@edit']);
+    Route::post('/update-statedisastermanagementauthority', ['as' => 'update-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@update']);
     
     Route::get('/list-tenders', ['as' => 'list-tenders', 'uses' => 'App\Http\Controllers\TendersController@index']);
     Route::get('/add-tenders', ['as' => 'add-tenders', 'uses' => 'App\Http\Controllers\TendersController@add']);

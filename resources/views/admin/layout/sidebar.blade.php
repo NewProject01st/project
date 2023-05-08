@@ -56,6 +56,27 @@
                       </ul>
                   </div>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
+                    aria-controls="page-layouts">
+                    <i class="fa fa-th-large menu-icon"></i>
+                    <span class="menu-title">Home</span>
+                    <i class="menu-arrow"></i>
+                </a>
+
+                <div class="collapse" id="page-layouts">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                href="{{ route('list-marquee') }}">Marquee</a></li>
+                                <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-slide') }}">Slider</a></li>
+                                {{-- <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                href="{{ route('list-slide') }}">Slider</a></li> --}}
+                       
+                    </ul>
+                </div>
+            </li>
+
 
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
@@ -68,11 +89,12 @@
                   <div class="collapse" id="page-layouts">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-constitutionhistory') }}">Constitution & History</a></li>
-                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-organizationchart') }}">Organization Chart</a></li>
-                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-budget') }}">Budget</a></li>
+                                  href="{{ route('list-disastermanagementportal') }}">Disaster Management Portal</a></li>
+                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                    href="{{ route('list-objectivegoals') }}">Objective Goals</a></li>
+                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-statedisastermanagementauthority') }}">State Disaster Management Authority</a></li>
+                         
                       </ul>
                   </div>
               </li>
