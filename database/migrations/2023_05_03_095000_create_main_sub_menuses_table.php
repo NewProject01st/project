@@ -16,11 +16,11 @@ class CreateMainSubMenusesTable extends Migration
         Schema::create('main_sub_menuses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('main_menu_id');
-            $table->string('menu_name_marathi')->unique();
-            $table->string('menu_name_english')->unique();
+            $table->string('menu_name_marathi');
+            $table->string('menu_name_english');
             $table->string('order_no');
             $table->boolean('is_static')->default(true);
-            $table->string('url')->default(null);
+            $table->string('url')->default('null');
             $table->boolean('is_active')->default(true);
             // $table->foreign('main_menu_id')->references('id')->on('main_menuses')->onDelete('cascade');
             $table->timestamps();

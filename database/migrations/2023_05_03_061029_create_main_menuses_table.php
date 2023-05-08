@@ -15,11 +15,11 @@ class CreateMainMenusesTable extends Migration
     {
         Schema::create('main_menuses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('menu_name_marathi')->unique();
-            $table->string('menu_name_english')->unique();
+            $table->string('menu_name_marathi');
+            $table->string('menu_name_english');
             $table->string('order_no');
             $table->boolean('is_static')->default(true);
-            $table->string('url')->default(null);
+            $table->string('url')->default('null');
             $table->boolean('is_active')->default(true);
             // $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->timestamps();
