@@ -31,6 +31,8 @@ class StateDisasterManagementAuthorityRepository  {
         $statedisastermanagementauthority_data = new StateDisasterManagementAuthority();
         $statedisastermanagementauthority_data->english_title = $request['english_title'];
         $statedisastermanagementauthority_data->marathi_title = $request['marathi_title'];
+        $statedisastermanagementauthority_data->english_description = $request['english_description'];
+        $statedisastermanagementauthority_data->marathi_description = $request['marathi_description'];
         $statedisastermanagementauthority_data->english_image = $englishImageName; // Save the image filename to the database
         $statedisastermanagementauthority_data->marathi_image = $marathiImageName; // Save the image filename to the database
         $statedisastermanagementauthority_data->save();       
@@ -69,7 +71,7 @@ public function updateAll($request)
         
         if (!$statedisastermanagementauthority_data) {
             return [
-                'msg' => 'Organization Chart not found.',
+                'msg' => 'State Disaster Management Authority not found.',
                 'status' => 'error'
             ];
         }
@@ -90,6 +92,8 @@ public function updateAll($request)
         $statedisastermanagementauthority_data = StateDisasterManagementAuthority::find($request->id);
         $statedisastermanagementauthority_data->english_title = $request['english_title'];
         $statedisastermanagementauthority_data->marathi_title = $request['marathi_title'];
+        $statedisastermanagementauthority_data->english_description = $request['english_description'];
+        $statedisastermanagementauthority_data->marathi_description = $request['marathi_description'];
         $statedisastermanagementauthority_data->english_image = $englishImageName; // Save the image filename to the database
         $statedisastermanagementauthority_data->marathi_image = $marathiImageName; // Save the image filename to the database
         $statedisastermanagementauthority_data->save();       

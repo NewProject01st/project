@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Repository\AboutUs;
+namespace App\Http\Repository\Website\AboutUs;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\QueryException;
 use DB;
@@ -13,7 +13,8 @@ class StateDisasterManagementAuthorityRepository  {
 	public function getAll()
     {
         try {
-            return StateDisasterManagementAuthority::all();
+            $data_output = StateDisasterManagementAuthority::where('is_active','=',true);
+            return  $data_output;
         } catch (\Exception $e) {
             return $e;
         }

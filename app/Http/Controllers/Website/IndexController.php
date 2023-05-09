@@ -45,15 +45,4 @@ class IndexController extends Controller
         Session::put('language', $request->language);
     }
 
-    public function getObjective()
-    {
-        try {
-            $objectivegoals = $this->service->getAll();
-            return view('website.pages.list-objectivegoals-web', compact('objectivegoals'));
-        } catch (\Exception $e) {
-            return $e;
-        }
-    }
-
-
 }

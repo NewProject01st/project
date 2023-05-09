@@ -1,7 +1,7 @@
 <?php
-namespace App\Http\Services\AboutUs;
+namespace App\Http\Services\Website\AboutUs;
 
-use App\Http\Repository\AboutUs\ObjectiveGoalsRepository;
+use App\Http\Repository\Website\AboutUs\ObjectiveGoalsRepository;
 
 use App\ObjectiveGoals;
 use Carbon\Carbon;

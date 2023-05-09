@@ -19,7 +19,7 @@
                     <div class="card">
                         <div class="card-body">
                             <form class="forms-sample" action='{{ route('update-disastermanagementportal') }}'
-                                method="post" id="regForm">
+                                method="post" id="regForm" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
@@ -35,9 +35,6 @@
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi</label>
                                             <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">{{ $disastermanagementportal->marathi_title }}</textarea>
-                                            <input type="text" name="marathi_title" id="marathi_title"
-                                                class="form-control" value="{{ $disastermanagementportal->marathi_title }}"
-                                                placeholder="">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -72,7 +69,7 @@
                                                 <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <img src="{{ asset('storage/images/aboutus/' . $organizationchart->english_image) }}"
+                                        <img src="{{ asset('storage/images/disaster-management-portal/' . $disastermanagementportal->english_image) }}"
                                             class="img-fluid img-thumbnail" width="150">
                                     </div>
                                     <div class="col-md-6">
@@ -84,7 +81,7 @@
                                                 <span class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <img src="{{ asset('storage/images/aboutus/' . $organizationchart->marathi_image) }}"
+                                        <img src="{{ asset('storage/images/disaster-management-portal/' . $disastermanagementportal->marathi_image) }}"
                                             class="img-fluid img-thumbnail" width="150">
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
@@ -96,6 +93,7 @@
                                 </div>
                                 <input type="hidden" name="id" id="id" class="form-control"
                                     value="{{ $disastermanagementportal->id }}" placeholder="">
+
                             </form>
                         </div>
                     </div>

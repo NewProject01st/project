@@ -1,7 +1,7 @@
 <?php
-namespace App\Http\Services\AboutUs;
+namespace App\Http\Services\Website\AboutUs;
 
-use App\Http\Repository\AboutUs\StateDisasterManagementAuthorityRepository;
+use App\Http\Repository\Website\AboutUs\StateDisasterManagementAuthorityRepository;
 
 use App\StateDisasterManagementAuthority;
 use Carbon\Carbon;

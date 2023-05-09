@@ -42,6 +42,26 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            <label for="english_description">Description English</label>
+                                            <textarea class="form-control english_description" name="english_description" id="english_description"
+                                                placeholder="Enter the Description">{{ $statedisastermanagementauthority->english_description }}</textarea>
+                                            @if ($errors->has('english_description'))
+                                                <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="marathi_description"> Description Marathi</label>
+                                            <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
+                                                placeholder="Enter the Description">{{ $statedisastermanagementauthority->marathi_description }}</textarea>
+                                            @if ($errors->has('marathi_description'))
+                                                <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
                                             <label for="english_image">English Image</label>
                                             <input type="file" name="english_image" class="form-control"
                                                 placeholder="image">

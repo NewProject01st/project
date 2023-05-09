@@ -33,9 +33,9 @@ class DisasterManagementPortalServices
         try {
             $add_disastermanagementportal = $this->repo->addAll($request);
             if ($add_disastermanagementportal) {
-                return ['status' => 'success', 'msg' => 'Disaster Management Portal Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'State Disaster Management Authority Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Disaster Management Portal Not Added.'];
+                return ['status' => 'error', 'msg' => 'State Disaster Management Authority get Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -47,9 +47,9 @@ class DisasterManagementPortalServices
         try {
             $update_disastermanagementportal = $this->repo->updateAll($request);
             if ($update_disastermanagementportal) {
-                return ['status' => 'success', 'msg' => 'Disaster Management Portal Updated Successfully.'];
+                return ['status' => 'success', 'msg' => 'State Disaster Management Authority Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Disaster Management Portal Not Updated.'];
+                return ['status' => 'error', 'msg' => 'State Disaster Management Authority Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];

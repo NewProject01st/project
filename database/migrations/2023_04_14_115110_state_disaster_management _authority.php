@@ -17,6 +17,8 @@ class StateDisasterManagementAuthority  extends Migration
             $table->bigIncrements('id');
             $table->string('english_title');
             $table->string('marathi_title');
+            $table->string('english_description');
+            $table->string('marathi_description');
             $table->string('english_image');
             $table->string('marathi_image');
             $table->string('is_deleted')->default(true);

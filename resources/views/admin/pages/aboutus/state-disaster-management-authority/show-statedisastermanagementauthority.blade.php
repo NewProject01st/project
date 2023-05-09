@@ -46,13 +46,29 @@
                                             <label>Description English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label><?php echo $statedisastermanagementauthority->english_description; ?></label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <label>Description Marathi :</label>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label><?php echo $statedisastermanagementauthority->marathi_description; ?></label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <label>Image English :</label>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
                                             <img src="{{ asset('storage/images/state-disaster-management-authority/' . $statedisastermanagementauthority->english_image) }}"
                                                 style="width:70px; height:70px;" />
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Description Marathi :</label>
+                                            <label>Image Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
                                             <img src="{{ asset('storage/images/state-disaster-management-authority/' . $statedisastermanagementauthority->marathi_image) }}"

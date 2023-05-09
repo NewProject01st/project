@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Description English :</label>
+                                            <label>Image English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <img src="{{ asset('storage/images/disaster-management-portal/' . $disastermanagementportal->english_image) }}"
@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Description Marathi :</label>
+                                            <label>Image Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
                                             <img src="{{ asset('storage/images/disaster-management-portal/' . $disastermanagementportal->marathi_image) }}"

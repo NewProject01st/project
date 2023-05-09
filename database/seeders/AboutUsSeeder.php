@@ -46,8 +46,10 @@ class AboutUsSeeder extends Seeder
                 'updated_at' => \Carbon\Carbon::now(),
                 'english_title' => 'English Title',
                 'marathi_title' => 'Marathi Title',
-                'english_image' => 'English Description',
-                'marathi_image' => 'Marathi Description',
+                'english_description' => 'English Description',
+                'marathi_description' => 'Marathi Description',
+                'english_image' => 'English Image',
+                'marathi_image' => 'Marathi Image',
                 'is_deleted'=>false,
                 'is_active'=>true,
             

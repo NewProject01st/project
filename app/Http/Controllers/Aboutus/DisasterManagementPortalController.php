@@ -29,18 +29,23 @@ class DisasterManagementPortalController extends Controller
     }
 
     public function store(Request $request) {
+        // dd($request);
     $rules = [
         'english_title' => 'required',
         'marathi_title' => 'required',
         'english_description' => 'required',
-        'marathi_description' => 'required'
+        'marathi_description' => 'required',
+        'english_image' => 'required',
+        'marathi_image' => 'required'
         
         ];
     $messages = [   
         'english_title.required' => 'Please  enter english title.',
         'marathi_title.required' => 'Please enter marathi title.',
-        'english_description.required' => 'Please enter english description.',
+        'english_description.required' => 'Please  enter english description.',
         'marathi_description.required' => 'Please enter marathi description.',
+        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ];
 
     try {
@@ -84,7 +89,7 @@ class DisasterManagementPortalController extends Controller
     }
     public function edit(Request $request)
     {
-        $disastermanagementportal = disastermanagementportal::find($request->edit_id);
+        $disastermanagementportal = DisasterManagementPortal::find($request->edit_id);
         return view('admin.pages.aboutus.disaster-management-portal.edit-disastermanagementportal', compact('disastermanagementportal'));
     }
     public function update(Request $request)
@@ -93,18 +98,23 @@ class DisasterManagementPortalController extends Controller
         'english_title' => 'required',
         'marathi_title' => 'required',
         'english_description' => 'required',
-        'marathi_description' => 'required'
+        'marathi_description' => 'required',
+        'english_image' => 'required',
+        'marathi_image' => 'required'
         
      ];
+
     $messages = [   
         'english_title.required' => 'Please enter English title.',
         'marathi_title.required' => 'Please enter Marathi title.',
-        'english_description.required' => 'Please enter English description.',
-        'marathi_description.required' => 'Please enter Marathi description.',
+        'english_description.required' => 'Please  enter english description.',
+        'marathi_description.required' => 'Please enter marathi description.',
+        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ];
 
     try {
-        $validation = Validator::make($request->all(), $rules, $messages);
+        $validation = Validator::make($request->all(),$rules, $messages);
         if ($validation->fails()) {
             return redirect()->back()
                 ->withInput()

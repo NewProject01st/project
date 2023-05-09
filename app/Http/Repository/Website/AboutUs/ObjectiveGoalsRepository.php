@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Repository\AboutUs;
+namespace App\Http\Repository\Website\AboutUs;
 
 use Illuminate\Database\QueryException;
 use DB;
@@ -14,7 +14,8 @@ class ObjectiveGoalsRepository  {
 	public function getAll()
     {
         try {
-            return ObjectiveGoals::all();
+            $data_output = ObjectiveGoals::where('is_active','=',true);
+            return  $data_output;
         } catch (\Exception $e) {
             return $e;
         }

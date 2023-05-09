@@ -18,8 +18,8 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action='{{ route('add-disastermanagementportal') }}' method="post"
-                                id="regForm">
+                            <form class="forms-sample" action='{{ route('add-disastermanagementportal') }}'
+                                method="POST" enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">

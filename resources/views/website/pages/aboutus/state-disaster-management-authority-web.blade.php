@@ -6,12 +6,14 @@
                 <div class="container-fluid">
                     @if (session('language') == 'mar')
                         <div>
-                            <h2>
-                                <?php echo $item['marathi_title']; ?>
-                            </h2>
+                            <?php echo $item['marathi_title']; ?>
                         </div>
                         <div>
                             <?php echo $item['marathi_description']; ?>
+                        </div>
+                        <div>
+                            <img
+                                src="{{ asset('storage/images/state-disaster-management-authority/' . $item['marathi_image']) }}" />
                         </div>
                     @else
                         <div>
@@ -19,6 +21,10 @@
                         </div>
                         <div>
                             <?php echo $item['english_description']; ?>
+                        </div>
+                        <div>
+                            <img
+                                src="{{ asset('storage/images/state-disaster-management-authority/' . $item['english_image']) }}" />
 
                         </div>
                     @endif

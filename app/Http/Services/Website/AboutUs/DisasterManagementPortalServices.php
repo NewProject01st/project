@@ -1,7 +1,7 @@
 <?php
-namespace App\Http\Services\AboutUs;
+namespace App\Http\Services\Website\AboutUs;
 
-use App\Http\Repository\AboutUs\DisasterManagementPortalRepository;
+use App\Http\Repository\Website\AboutUs\DisasterManagementPortalRepository;
 
 use App\DisasterManagementPortal;
 use Carbon\Carbon;
