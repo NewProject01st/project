@@ -39,7 +39,7 @@ class SubMenuRepository  {
     try {
         $main_menu_data = new MainSubMenus();
         $main_menu_data->main_menu_id = $request['main_menu_id'];
-        $main_menu_data->url = $request['url'];
+        // $main_menu_data->url = $request['url'];
         $main_menu_data->menu_name_marathi = $request['menu_name_marathi'];
         $main_menu_data->menu_name_english = $request['menu_name_english'];
         $main_menu_data->order_no = isset($request['order_no']) ? $request['order_no'] : 0 ;
@@ -76,7 +76,7 @@ public function updateAll($request)
 {
     try { 
         $main_menu_data = MainSubMenus::find($request['edit_id']);
-        $main_menu_data->url = $request['url'];
+        // $main_menu_data->url = $request['url'];
         $main_menu_data->menu_name_marathi = $request['menu_name_marathi'];
         $main_menu_data->menu_name_english = $request['menu_name_english'];
         $main_menu_data->order_no =  isset($request['order_no']) ? $request['order_no'] : 0 ;

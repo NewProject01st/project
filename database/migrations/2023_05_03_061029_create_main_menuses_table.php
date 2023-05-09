@@ -18,7 +18,7 @@ class CreateMainMenusesTable extends Migration
             $table->string('menu_name_marathi');
             $table->string('menu_name_english');
             $table->string('order_no');
-            $table->boolean('is_static')->default(true);
+            $table->boolean('is_static')->default(false);
             $table->string('url')->default('null');
             $table->boolean('is_active')->default(true);
             $table->string('main_sub')->default('main');
