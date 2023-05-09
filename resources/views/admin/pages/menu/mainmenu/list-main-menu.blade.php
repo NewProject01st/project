@@ -38,7 +38,10 @@
                                                         <td><?php echo $key + 1; ?></td>
                                                         <td><?php echo $item->menu_name_english; ?></td>
                                                         <td><?php echo $item->menu_name_marathi; ?></td>
+<<<<<<< HEAD
                                                         {{-- <td><?php //echo $item->url; ?></td> --}}
+=======
+>>>>>>> satish
                                                         <!--  <td><?php echo $item->order_no; ?></td> -->
                                                         <!-- <td>
                                                                     <span class="badge badge-success">Active</span>
