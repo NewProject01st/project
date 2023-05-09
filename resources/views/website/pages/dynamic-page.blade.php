@@ -187,7 +187,16 @@
         </nav>
 
     </form>
-    @include($dynamic_page)
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                @include($dynamic_page)
+            </div>
+        </div>
+    </div>
+
+    
     <script type="text/javascript">
         $("#language").change(function() {
             $.ajax({
