@@ -36,7 +36,8 @@ Route::get('/pages/{page}', ['as' => 'pages', 'uses' => 'App\Http\Controllers\We
 Route::get('/list-disastermanagementportal-web', ['as' => 'list-disastermanagementportal-web', 'uses' => 'App\Http\Controllers\Website\AboutUs\DisasterManagementPortalController@index']);
 Route::get('/list-objectivegoals-web', ['as' => 'list-objectivegoals-web', 'uses' => 'App\Http\Controllers\Website\AboutUs\ObjectiveGoalsController@index']);
 Route::get('/state-disaster-management-authority-web', ['as' => 'state-disaster-management-authority-web', 'uses' => 'App\Http\Controllers\Website\AboutUs\StateDisasterManagementAuthorityController@index']);
-
+Route::get('/list-marquee-web', ['as' => 'list-marquee-web', 'uses' => 'App\Http\Controllers\Website\Home\MarqueeController@index']);
+Route::get('/list-slider-web', ['as' => 'list-slider-web', 'uses' => 'App\Http\Controllers\Website\Home\SliderController@index']);
 
 
 

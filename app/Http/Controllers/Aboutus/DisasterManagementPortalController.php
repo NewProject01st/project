@@ -89,7 +89,8 @@ class DisasterManagementPortalController extends Controller
     }
     public function edit(Request $request)
     {
-        $disastermanagementportal = DisasterManagementPortal::find($request->edit_id);
+        $edit_data_id = $request->edit_id;
+        $disastermanagementportal = $this->service->getById($edit_data_id);
         return view('admin.pages.aboutus.disaster-management-portal.edit-disastermanagementportal', compact('disastermanagementportal'));
     }
     public function update(Request $request)

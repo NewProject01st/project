@@ -89,7 +89,8 @@ class StateDisasterManagementAuthorityController extends Controller
     }
     public function edit(Request $request)
     {
-        $statedisastermanagementauthority = statedisastermanagementauthority::find($request->edit_id);
+        $edit_data_id = $request->edit_id;
+        $statedisastermanagementauthority = $this->service->getById($edit_data_id);
         return view('admin.pages.aboutus.state-disaster-management-authority.edit-statedisastermanagementauthority', compact('statedisastermanagementauthority'));
     }
     public function update(Request $request)

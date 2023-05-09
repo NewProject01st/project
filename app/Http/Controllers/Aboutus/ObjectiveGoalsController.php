@@ -85,9 +85,8 @@ class ObjectiveGoalsController extends Controller
         }
     }
     public function edit(Request $request) {
-        $objectivegoals = ObjectiveGoals::find($request->edit_id);
-        // dd($objectivegoals);
-
+        $edit_data_id = $request->edit_id;
+        $objectivegoals = $this->service->getById($edit_data_id);
         return view('admin.pages.aboutus.objective-goals.edit-objectivegoals', compact('objectivegoals'));
     }
 

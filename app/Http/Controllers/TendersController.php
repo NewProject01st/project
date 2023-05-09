@@ -101,7 +101,8 @@ class TendersController extends Controller
     }
     public function edit(Request $request)
     {
-        $tenders = Tenders::find($request->edit_id);
+        $edit_data_id = $request->edit_id;
+        $tenders =  $this->service->getById($request->edit_id);
         return view('admin.pages.tenders.edit-tenders', compact('tenders'));
     }
     public function update(Request $request)
