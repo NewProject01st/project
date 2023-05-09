@@ -27,7 +27,6 @@
                                                     <th>Sr. No.</th>
                                                     <th>Main Menu Name English</th>
                                                     <th>Main Menu Name Marathi</th>
-                                                    <th>URL</th>
                                                     <!-- <th>Status</th> -->
                                                     <th>Action</th>
                                                 </tr>
@@ -38,7 +37,6 @@
                                                         <td><?php echo $key + 1; ?></td>
                                                         <td><?php echo $item->menu_name_english; ?></td>
                                                         <td><?php echo $item->menu_name_marathi; ?></td>
-                                                        <td><?php echo $item->url; ?></td>
                                                         <!--  <td><?php echo $item->order_no; ?></td> -->
                                                         <!-- <td>
                                                                     <span class="badge badge-success">Active</span>
