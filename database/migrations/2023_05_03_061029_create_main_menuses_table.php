@@ -20,7 +20,7 @@ class CreateMainMenusesTable extends Migration
             $table->string('order_no');
             $table->boolean('is_static')->default(true);
             $table->string('url')->default('null');
-            $table->boolean('is_active')->default(true);
+            $table->boolean('is_active')->default(false);
             $table->string('main_sub')->default('main');
             // $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->timestamps();
