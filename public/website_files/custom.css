@@ -725,356 +725,159 @@ section .row {
     background: url(../images/dot_border_h.png) repeat-x bottom left;
 }
 /* ************** footer *********** */
+.textwidget address ul {
+	margin: 20px 0 0;
+	padding: 0px;
+	list-style: none;
+}
+.textwidget address ul li {
+	color: #fff;
+	margin: 0 0 20px;
+	padding: 0 0 0 26px;
+	position: relative;
+}
+.textwidget address ul li i {
+	position: absolute;
+	left: 0;
+	top: 5px;
+	font-size: 14px;
+}
+.textwidget address ul li strong {
+	display: block;
+	font-weight: 500;
+}
 .main-footer {
-    position: relative;
-    background: rgba(25,25,25,0.82) url(../images/bg-pattern.png) center top no-repeat;
-    color: #ececec !important;
-    margin-top: 20px;
+	background: url(../website_files/images/footer/footer.jpeg) no-repeat;
+	background-size: cover;
+    padding: 30px 0;
 }
-
-    .main-footer.footer-style-two {
-        background-image: none !important;
-        background-color: #222326;
-    }
-
-    .main-footer.footer-style-three {
-        background-color: #191919;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
-    }
-
-        .main-footer.footer-style-three:before {
-            content: '';
-            position: absolute;
-            left: 0px;
-            top: 0px;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-        }
-
-    .main-footer .widgets-section {
-        position: relative;
-        padding: 20px 0px 20px;
-        z-index: 1;
-    }
-
-    .main-footer.style-three .widgets-section {
-        position: relative;
-        padding: 80px 0px 50px;
-        border-bottom: 1px solid rgba(255,255,255,0.10);
-    }
-
-.footer-bannar-health {
-    background-color: #42b3e5;
-    padding: 5px 30px;
-    top: -80px;
+.footer {
+	background: #d94148;
 }
-
-.footer-bannar-medical {
-    background-color: #0384ce;
-    top: -80px;
-    padding: 5px 30px;
+.footer p.copyr {
+	color: #fff;
 }
-
-.footer-bannar-online {
-    background-color: #3156a3;
-    padding: 5px 30px;
-    top: -80px;
+.footer a, .footer p a {
+	color: #fff;
 }
-
-.footer-bannar-box h3 {
-    /*font-family: "raleway" , sans-serif;*/
-    font-weight: 700;
-    letter-spacing: 2px;
+.footer {
+	background: #d94148;
 }
-
-.footer-bannar-health a {
-    color: #fff;
-    font-size: 13px;
+.footer-widget h6 {
+	font-size: 22px;
+	color: #fff;
+	margin: 0;
+	font-weight: 600;
+	margin-bottom: 16px;
 }
-
-    .footer-bannar-health a:hover {
-        color: #000;
-        font-size: 13px;
-    }
-
-.footer-bannar-medical a {
-    color: #fff;
-    font-size: 13px;
+.footer-widget ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
 }
-
-    .footer-bannar-medical a:hover {
-        color: #000;
-    }
-
-.footer-bannar-online a {
-    color: #fff;
-    font-size: 13px;
+.footer-widget ul li {
+	line-height: 32px;
 }
-
-    .footer-bannar-online a:hover {
-        color: #000;
-    }
-
-.footer-bannar-box i {
-    margin-left: 8px;
+.footer-widget ul li a {
+	color: #fff;
+	font-size: 16px;
 }
-
-.main-footer .widgets-section .footer-logo img {
-    display: block;
-    max-width: 100%;
+.footer-widget ul li a i {
+	font-size: 8px;
+	margin-right: 8px;
 }
-
-.main-footer .footer-column {
-    margin-bottom: 25px;
+.footer-widget ul li a:hover {
+	color: #d94148;
 }
-
-.main-footer .footer-widget {
-    position: relative;
+.twitter-widget {
+	background: #38a1f3;
+	border-radius: 5px;
+	position: relative;
 }
-
-.main-footer .footer-column h2 {
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    margin-top: 13px;
-    text-transform: uppercase;
+.twitter-widget h6 {
+	color: #fff;
+	margin: 0 0 20px;
 }
-
-.main-footer .about-widget .text {
-    color: #ececec !important;
-    margin-top: 14px;
-    margin-bottom: 30px;
+.twitter-widget a.reply-tw {
+	position: absolute;
+	right: 24px;
+	top: 24px;
+	border: 2px solid #fff;
+	width: 30px;
+	height: 30px;
+	color: #fff;
+	text-align: center;
+	line-height: 28px;
+	border-radius: 100%;
+	font-size: 12px;
 }
-
-.main-footer a {
-    transition: all 500ms ease;
-    -webkit-transition: all 500ms ease;
-    -ms-transition: all 500ms ease;
-    -o-transition: all 500ms ease;
-    -moz-transition: all 500ms ease;
+.twitter-widget p {
+	color: #fff;
+	font-size: 16px;
+	padding: 0 10px 0 0;
+	margin: 0px;
 }
-
-.main-footer .social-links a {
-    display: inline-block;
-    margin-right: 5px;
-    width: 40px;
-    height: 40px;
-    background: #303030;
-    text-align: center;
-    color: #ffffff;
-    font-size: 13px;
-    border-radius: 50%;
-    padding: 12px;
-    text-align: center;
+.twitter-widget a.reply-tw:hover {
+	color: #40407e;
+	border-color: #40407e;
 }
-
-    .main-footer .social-links a:hover {
-        background: #42b3e5;
-    }
-
-.main-footer .news-widget .post {
-    position: relative;
-    min-height: 80px;
-    padding-left: 110px;
-    padding-top: 0px;
-    margin-bottom: 20px;
+.twitter-widget h6 {
+	color: #fff;
+	margin: 0 0 20px;
 }
-
-    .main-footer .news-widget .post:last-child {
-        margin-bottom: 0px;
-    }
-
-    .main-footer .news-widget .post .post-thumb {
-        position: absolute;
-        left: 0px;
-        top: 6px;
-        width: 80px;
-        height: 80px;
-    }
-
-        .main-footer .news-widget .post .post-thumb img {
-            display: block;
-            width: 100%;
-        }
-
-    .main-footer .news-widget .post h4 {
-        font-size: 16px;
-        color: #ffffff;
-        line-height: 24px;
-        font-weight: 400;
-        margin-bottom: 5px;
-    }
-
-        .main-footer .news-widget .post h4 a {
-            color: #ffffff;
-        }
-
-        .main-footer .news-widget .post h4 a {
-            color: #42b3e5;
-            font-weight: 700;
-        }
-
-    .main-footer .news-widget .post .time {
-        color: #42b3e5;
-        font-size: 13px;
-    }
-
-.main-footer .links-widget {
-    padding-left: 15px;
-    left: 30px;
+.twitter-widget a.reply-tw {
+	position: absolute;
+	right: 24px;
+	top: 24px;
+	border: 2px solid #fff;
+	width: 30px;
+	height: 30px;
+	color: #fff;
+	text-align: center;
+	line-height: 28px;
+	border-radius: 100%;
+	font-size: 12px;
 }
-
-    .main-footer .links-widget .list li {
-        list-style: none;
-        margin-bottom: 10px;
-    }
-
-        .main-footer .links-widget .list li a {
-            position: relative;
-            display: block;
-            line-height: 24px;
-            padding: 0px 0px;
-            color: #ececec !important;
-            text-transform: capitalize;
-            font-size: 14px;
-        }
-
-            .main-footer .links-widget .list li a:hover {
-                color: #42b3e5 !important;
-                text-decoration: underline;
-                outline:none;
-            }
-
-.main-footer .contact-widget {
-    left: 30px;
-    position: relative;
+.twitter-widget p {
+	color: #fff;
+	font-size: 16px;
+	padding: 0 10px 0 0;
+	margin: 0px;
 }
-
-    .main-footer .contact-widget .contact-info li {
-        position: relative;
-        color: #ececec;
-        font-size: 14px;
-        line-height: 24px;
-        margin-bottom: 20px;
-        list-style: none;
-    }
-
-        .main-footer .contact-widget .contact-info li:last-child {
-            margin-bottom: 0px;
-        }
-
-    .main-footer .contact-widget h4 {
-        position: relative;
-        padding-left: 30px;
-        line-height: 24px;
-        font-size: 16px;
-        font-weight: 500;
-        margin-bottom: 5px;
-        text-transform: capitalize;
-    }
-
-        .main-footer .contact-widget h4 .icon {
-            position: absolute;
-            left: 0px;
-            top: 0px;
-            font-size: 18px;
-            line-height: 24px;
-            color: #42b3e5;
-        }
-
-.main-footer .info-style-two li {
-    position: relative;
-    color: #ececec;
-    font-size: 14px;
-    line-height: 24px;
-    padding-left: 30px;
-    margin-bottom: 10px;
+.tw-footer {
+	border-top: 1px solid rgba(255,255,255,.20);
+	padding: 10px 30px;
+	color: #fff;
+	position: relative;
+	font-size: 14px;
 }
-
-    .main-footer .info-style-two li li:last-child {
-        margin-bottom: 0px;
-    }
-
-    .main-footer .info-style-two li .icon {
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        font-size: 16px;
-        line-height: 24px;
-    }
-
-.main-footer .gallery-widget {
-    position: relative;
-    margin-left: -10px;
-    margin-right: -10px;
+.tw-footer strong {
+	font-size: 12px;
+	font-weight: 600;
+	display: block;
+	text-transform: uppercase;
 }
-
-    .main-footer .gallery-widget .image {
-        position: relative;
-        float: left;
-        width: 33.333%;
-        padding: 0px 5px 10px;
-    }
-
-        .main-footer .gallery-widget .image img {
-            position: relative;
-            display: block;
-            width: 100%;
-            border-radius: 2px;
-            transition: all 0.5s ease;
-            -moz-transition: all 0.5s ease;
-            -webkit-transition: all 0.5s ease;
-            -ms-transition: all 0.5s ease;
-            -o-transition: all 0.5s ease;
-        }
-
-            .main-footer .gallery-widget .image img:hover {
-                opacity: 0.70;
-            }
-
-.footer-bottom {
-    position: relative;
-    padding: 20px 0px 10px;
-    background: #121212;
-    line-height: 24px;
-    color: #ffffff;
-    font-size: 13px;
-    text-transform: uppercase;
-    /*font-family: 'Roboto' ,sans-serif;*/
-    z-index: 1;
+.tw-footer i {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: 60px;
+	color: rgba(255,255,255,.20);
 }
-
-.footer-style-two .footer-bottom {
-    background: #1a1c1f;
+.tw-txt {
+	padding: 30px 30px 17px 30px;
 }
-
-.footer-bottom .footer-nav {
-    position: relative;
+.main-footer {
+	margin: 0 !important;
 }
-
-    .footer-bottom .footer-nav li {
-        list-style: none;
-        position: relative;
-        float: left;
-        margin-left: 35px;
-    }
-
-        .footer-bottom .footer-nav li a {
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 400;
-        }
-
-            .footer-bottom .footer-nav li a:hover {
-                color: #42b3e5 !important;
-            }
-
-.main-footer .contact-widget .contact-info li .text {
-    color: #ececec;
+.main-footer {
+	margin: 0 !important;
+}
+.footer-widget, .community-box, .event-post-full {
+	margin: 0 0 30px;
+}
+.footer-widget, .textwidget, .official-members .team-box, .community-box, .event-post-full {
+	margin: 0 0 30px;
 }
 /* **************************************** */
 .mainlink ul {
@@ -2843,3 +2646,11 @@ ol.boxes-list {
 }
 .accesibility-area a:first-child {margin-right:10px;}
 .accesibility-area a img {margin:6px 0;}
+
+/******** + ========== + Transition Start + ========== + ********/
+
+.lb-ser-box h6, .lb-ser-box img, .lb-icon, .lb-box img, .ch-box:after, .banner-tags li, .main-slider .owl-carousel button.owl-dot span, .news-box-f:after, ul.team-social:after, .latest-updates ul li:after, .sub-menu a, .login-account input[type="submit"], .login-box input[type="submit"], .register-account input[type="submit"], .donator-details input[type="submit"], .testimonials-section .owl-theme .owl-dots .owl-dot span, li.form-submit button, .dn-btn, .causes-listing .campaign-txt h4 a, .campaign-txt h6 a, .campaign-txt h5 a, a.dbutton, .campaign-thumb a, .campaign-thumb:after, .event-counter a, .event-share ul a, .event-share ul a.like:after, .event-gallery .eg-thumb:after, .event-gallery .eg-thumb a, .h3-team-box img, .contact-form input[type="submit"], .single-post-tags a, .gallery-thumb:after, .gallery-thumb a, .stay-connected input[type="submit"], .department-links li a:after, .department-links li a, .ch-box .ch-txt h6 a, .city-updates li.more-news a, .city-updates ul li strong a, .deprt-icon-box h5 a, .service-box img, .serbox-cap, .serbox-cap h6 a, .serbox-cap p, .serbox-cap .rm, .service-box:after, .local-service-box img, .hc-box .hc-box-cap, .hc-box .hc-box-cap p, .event-cap, .event-cap p, .owl-carousel .owl-item img, .ch-box .ch-txt, .ch-box .ch-txt p, .post-comments-form input[type="submit"], ul.gallery-2-col img, ul.gallery-3-col img, ul.gallery-4-col img, .share-post-single a, .newsletter-style2 button, .department-box:after, .contact-team, ul.member-social a, .team-grid .h3-team-box img, .new-thumb a, .event-list-box, .event-list-box .event-title h6 a, a.join-now, a.join-now, .about-widget a, .widget .archives a, .tags-widget a, .widget .categories a, .widget .upcoming-events .edate, .widget h6 a, .site-pagination .pagination>li>a, .pagination>li>span, #h3team-slider .owl-next, #h3team-slider .owl-prev, .team-info ul, .team-info p, .team-info, .team-info ul li a, .community-links-style-two li a, .community-links-style-two li a img, ul.reports a, a.jobs-link, .deprt-icon-box, .deprt-icon-box img, .deprt-icon-box h6, .deprt-icon-box h6 a, .deprt-icon-box a.rm, .news-box, .new-thumb:after, .new-txt h6 a, .news-box-f a, .event-cap h5 a, .recent-events .event-list, .recent-events .event-list:after, .event-list li.el-title h6 a, .event-list a.joinnow, .recent-events .nav-tabs>li>a, .h3-slider-caption a, .h3-navbar .dropdown-menu a, .h3-navbar .navbar .navbar-nav>li>a, .h3-navbar .navbar .navbar-nav>li>a:after, .h3-logo-row ul.quick-links li a, .become-vol, .cross-btn, .some-facts strong, .community-box, .news-post, .event-post-full, .hc-box, .hc-box .hc-box-cap, .hc-box .hc-box-cap h5 a, .hc-box .hc-box-cap ul li, .hc-box .hc-box-cap p, .hc-box .hc-box-cap h5 a, .hc-box .hc-box-cap ul, .hc-box .hc-box-cap li a, .local-box img, .event-post-txt h5 a, .newsletter-form button, .e-numbers .em-box, .e-numbers .em-box strong.em-num, .e-numbers .em-box strong.em-deprt, .e-numbers .em-box i, .twitter-widget a.reply-tw, .footer-widget ul li a, .team-heading a, .community-box ul li a, .community-box a.see-more, .highlights-cityscapes .owl-carousel .owl-nav button.owl-prev, .highlights-cityscapes .owl-carousel .owl-nav button.owl-next, .btn-group.share-post button.dropdown-toggle, .news-post-txt h5 a, .local-box:after, .local-box a, .city-tour a img, .h2-Mayor-msg .Mayor-txt a, .slider-caption a, .header .topbar a, .call2action a, .footer p.copyr a, .footer-social a, .team-box .team-txt h5, .team-box .team-txt strong, .team-box .team-thumb:after, .team-box .team-thumb a, ul.team-social a, .fact-box, .fact-box span, .fact-box strong, .department-box a, .ch-box .ch-txt ul li a, .ch-box .ch-thumb a, .ch-box .ch-thumb:after, .ch-box .ch-txt h5 a, .city-highlights .owl-carousel .owl-nav button.owl-next, .city-highlights .owl-carousel .owl-nav button.owl-prev, .thumb a, .thumb:after, .event-post-txt h5 a, .event-post-loc a, .latest-updates ul li strong a, .title-style-2 a, .local-service-box:after, .local-service-box a, .Mayor-text a, .logo-nav-row .navbar-nav>li>a, .topbar ul.left-links a, .logo-nav-row .dropdown-menu>li>a {
+	transition: all ease-in-out 0.3s;
+	-webkit-transition: all ease-in-out 0.3s;
+}
+/******** + ========== + Transition End + ========== + ********/
