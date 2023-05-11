@@ -91,7 +91,8 @@ class PoliciesActsController extends Controller
     }
     public function edit(Request $request)
     {
-        $policiesacts = PoliciesActs::find($request->edit_id);
+        $edit_data_id = $request->edit_id;
+        $policiesacts =  $this->service->getById($request->edit_id);
         return view('admin.pages.policiesacts.edit-policiesacts', compact('policiesacts'));
     }
     public function update(Request $request)

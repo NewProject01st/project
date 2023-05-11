@@ -97,7 +97,8 @@ class ProjectsController extends Controller
     }
     public function edit(Request $request)
     {
-        $projects = Projects::find($request->edit_id);
+        $edit_data_id = $request->edit_id;
+        $projects =  $this->service->getById($request->edit_id);
         return view('admin.pages.projects.edit-projects', compact('projects'));
     }
     public function update(Request $request)
