@@ -24,97 +24,89 @@
 </head>
 
 <body>
-    <?php //echo '<pre>'; print_r($menu);
-    ?>
+    <div class="header">
+        <div class="container-fluid">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                <a href="">
+                    <img src="{{ asset('website_files/full-logo-1.png') }}" id="UcMenu_imgLogo" class="img-responsive"
+                        alt="Disaster Management Authority" title="Disaster Management Authority">
+                </a>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 main-header">
 
-    <form method="post" action="" id="form1">
-
-        <a href="" class="simple-back-to-top"></a>
-
-        <div class="header">
-            <div class="container-fluid">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                    <a href="">
-                        <img src="{{ asset('website_files/full-logo-1.png') }}" id="UcMenu_imgLogo"
-                            class="img-responsive" alt="Disaster Management Authority"
-                            title="Disaster Management Authority">
-                    </a>
+                <div class="col-sm-2"><img src="{{ asset('website_files/G-20-Summit-India.png') }}"
+                        style="border: solid 1px #ccc; background: white; height: 75px;"></div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="upper-column info-box ">
+                        <div class="icon-box">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <ul>
+                            <li>
+                                <strong>
+                                    <a href="">Emergency Toll free number</a>
+                                </strong>
+                            </li>
+                            <li>State Control Room - 1070
+                            </li>
+                            <li>District EOC'<sub>s</sub>
+                                - &lt;STD CODE&gt; + 1077
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 main-header">
+                <div class="col-sm-2 col-xs-12">
+                    <div class="upper-column info-box  center-block text-center">
 
-                    <div class="col-sm-2"><img src="{{ asset('website_files/G-20-Summit-India.png') }}"
-                            style="border: solid 1px #ccc; background: white; height: 75px;"></div>
-                    <div class="col-sm-4 col-xs-12">
-                        <div class="upper-column info-box ">
-                            <div class="icon-box">
-                                <i class="fa fa-phone"></i>
-                            </div>
+
+                        <div class="icon-box ">
+                            <i class="fa fa-language" aria-hidden="true"></i>
+                        </div>
+
+                        <form method="post" action="">
+
                             <ul>
                                 <li>
                                     <strong>
-                                        <a href="">Emergency Toll free number</a>
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
+                                        @else
+                                            {{ Config::get('english.HOME_PAGE.SELECT_LANGUAGE') }}
+                                        @endif
                                     </strong>
                                 </li>
-                                <li>State Control Room - 1070
-                                </li>
-                                <li>District EOC'<sub>s</sub>
-                                    - &lt;STD CODE&gt; + 1077
+                                <li>
+                                    <select name="language" id="language">
+                                        <option value="">Slect language</option>
+                                        <option value="en" <?php if ($language == 'en') {
+                                            echo 'selected';
+                                        }
+                                        ?>>English</option>
+                                        <option value="mar"<?php if ($language == 'mar') {
+                                            echo 'selected';
+                                        }
+                                        ?>>Marathi</option>
+                                    </select>
                                 </li>
                             </ul>
-                        </div>
                     </div>
-                    <div class="col-sm-2 col-xs-12">
-                        <div class="upper-column info-box  center-block text-center">
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="upper-column info-box text-left zeromarg  " style="padding-left:10px;">
+                        <span class="accesibility-area">
 
-
-                            <div class="icon-box ">
-                                <i class="fa fa-language" aria-hidden="true"></i>
-                            </div>
-
-                            <form method="post" action="">
-
-                                <ul>
-                                    <li>
-                                        <strong>
-                                            @if (session('language') == 'mar')
-                                                {{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
-                                            @else
-                                                {{ Config::get('english.HOME_PAGE.SELECT_LANGUAGE') }}
-                                            @endif
-                                        </strong>
-                                    </li>
-                                    <li>
-                                        <select name="language" id="language">
-                                            <option value="">Slect language</option>
-                                            <option value="en" <?php //if ($language == 'en') {
-                                            //echo 'selected';
-                                            //}
-                                            ?>>English</option>
-                                            <option value="mar"<?php //if ($language == 'mar') {
-                                            //echo 'selected';
-                                            //}
-                                            ?>>Marathi</option>
-                                        </select>
-                                    </li>
-                                </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-xs-12">
-                        <div class="upper-column info-box text-left zeromarg  " style="padding-left:10px;">
-                            <span class="accesibility-area">
-
-                                <a href="" id="linkDecrease" onclick="myFunction1()">
-                                    <img src="{{ asset('website_files/textsize-decrease.png') }}"
-                                        class="img-responsive" height="24" width="24"></a>
-                                <a href="" id="linkIncrease" onclick="myFunction()">
-                                    <img src="{{ asset('website_files/textsize-increase.png') }}"
-                                        class="img-responsive" height="24" width="24"></a>
-                                <a href="" id="linkReset" onclick="myFunction2()">
-                                    <img src="{{ asset('website_files/color-01.png') }}" class="img-responsive"
-                                        height="24" width="24"></a>
-                            </span>
-                        </div>
+                            <a href="" id="linkDecrease" onclick="myFunction1()">
+                                <img src="{{ asset('website_files/textsize-decrease.png') }}" class="img-responsive"
+                                    height="24" width="24"></a>
+                            <a href="" id="linkIncrease" onclick="myFunction()">
+                                <img src="{{ asset('website_files/textsize-increase.png') }}" class="img-responsive"
+                                    height="24" width="24"></a>
+                            <a href="" id="linkReset" onclick="myFunction2()">
+                                <img src="{{ asset('website_files/color-01.png') }}" class="img-responsive"
+                                    height="24" width="24"></a>
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
