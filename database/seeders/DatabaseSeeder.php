@@ -26,7 +26,11 @@ class DatabaseSeeder extends Seeder
         $this->call(DynamicPagesSeeder::class);
         $this->call(MarqueeSeeder::class);
         $this->call(SliderSeeder::class);
-        
+        $this->call(DisasterManagementNewsSeeder::class);
+        $this->call(EmergencyContactSeeder::class);
+        $this->call(HomeTenderSeeder::class);
+        $this->call(GeneralContactSeeder::class);    
+        $this->call(DisasterManagementWebPortalSeeder::class);    
         
     }
 }

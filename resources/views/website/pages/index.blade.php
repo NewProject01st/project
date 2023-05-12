@@ -1,4 +1,4 @@
-@extends('website.layout.master')
+{{-- @extends('website.layout.master')
 @section('title', 'Applicant\'s Form')
 @section('content')
 
@@ -15,8 +15,7 @@
             @elseif (array_key_exists('english_title', $item))
                 <div>
                     <marquee behavior="scroll" direction="left" scrollamount="10">
-                        {{-- {{ $item['english_title'] }} --}}
-                        <?php echo $item['english_title']; ?>
+                        <?php //echo $item['english_title']; ?>
                     </marquee>
                 </div>
             @endif
@@ -24,21 +23,7 @@
     @endforeach
     
 
-        {{-- @foreach ($data_output_marquee as $item)
-        <div class="container-fluid">
-            @if (session('language') == 'mar')
-                <div class="marquee">
-                    {{ $item['marathi_title'] }}
-                </div>
-            @else
-                <div class="marquee">
-                    <?php //echo $item['english_title']; ?>
-                    {{ $item['english_title'] }}
-                </div> 
-            @endif
-        </div>
-    @endforeach --}}
-
+        
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <ol class="carousel-indicators">
           @foreach ($data_output_slider as $slider)
@@ -65,25 +50,15 @@
       </div>
 
 
-        {{-- @foreach ($data_output as $item)
-    <div class="container-fluid">
-        @if (session('language') == 'mar')
-            <div>
-                <marquee behavior="scroll" direction="left" scrollamount="5">
-                    <?php //echo $item['marathi_title']; ?>
-                </marquee>
-            </div>
-        @else
-            <div>
-                <marquee behavior="scroll" direction="left" scrollamount="5">
-                <?php //echo $item['english_title']; ?>
-            </marquee>
-            </div> 
-        @endif
-    </div>
-@endforeach --}}
+       
+@endsection
+        --}}
+
+
+@extends('website.layout.footer')
+@section('content')
+
 
 @endsection
-       
-
-
+@extends('website.layout.navbar')
+@extends('website.layout.header')

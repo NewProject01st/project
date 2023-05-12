@@ -57,27 +57,38 @@
                   </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                    aria-controls="page-layouts">
-                    <i class="fa fa-th-large menu-icon"></i>
-                    <span class="menu-title">Home</span>
-                    <i class="menu-arrow"></i>
-                </a>
-
-                <div class="collapse" id="page-layouts">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                href="{{ route('list-marquee') }}">Marquee</a></li>
-                                <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
+                      aria-controls="page-layouts">
+                      <i class="fa fa-th-large menu-icon"></i>
+                      <span class="menu-title">Home</span>
+                      <i class="menu-arrow"></i>
+                  </a>
+                  <div class="collapse" id="page-layouts">
+                      <ul class="nav flex-column sub-menu">
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-marquee') }}">Marquee</a></li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-slide') }}">Slider</a></li>
                                 <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                 href="{{ route('list-weather') }}">Weather</a></li>
                                 <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                     href="{{ route('list-disasterforcast') }}">Disaster Forcast</a></li>
                        
-                    </ul>
-                </div>
-            </li>
+                    
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-disaster-management-news') }}">Disaster Management News</a></li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-emergency-contact') }}">Emergency Contact</a></li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-home-tender') }}">Tenders</a></li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-general-contact') }}">General Contact</a></li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-disaster-management-web-portal') }}">Disaster Web Portal</a></li>
+
+                      </ul>
+                  </div>
+              </li>
 
 
               <li class="nav-item">
@@ -91,12 +102,14 @@
                   <div class="collapse" id="page-layouts">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-disastermanagementportal') }}">Disaster Management Portal</a></li>
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                    href="{{ route('list-objectivegoals') }}">Objective Goals</a></li>
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-statedisastermanagementauthority') }}">State Disaster Management Authority</a></li>
-                         
+                                  href="{{ route('list-disastermanagementportal') }}">Disaster Management Portal</a>
+                          </li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-objectivegoals') }}">Objective Goals</a></li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-statedisastermanagementauthority') }}">State Disaster Management
+                                  Authority</a></li>
+
                       </ul>
                   </div>
               </li>
@@ -134,13 +147,13 @@
                           <i class="menu-arrow"></i>
                       </a>
                       @if (getRouteDetailsPresentOrNot('list-users', session('permissions')))
-                          <?php $currenturl = Request::url(); ?>
-                          <div class="collapse" id="page-layouts">
-                              <ul class="nav flex-column sub-menu">
-                                  <li class="nav-item d-none d-lg-block"> <a class="nav-link"
-                                          href="{{ route('list-users') }}">Users Master</a></li>
-                              </ul>
-                          </div>
+                      <?php $currenturl = Request::url(); ?>
+                      <div class="collapse" id="page-layouts">
+                          <ul class="nav flex-column sub-menu">
+                              <li class="nav-item d-none d-lg-block"> <a class="nav-link"
+                                      href="{{ route('list-users') }}">Users Master</a></li>
+                          </ul>
+                      </div>
                       @endif
               </li>
 

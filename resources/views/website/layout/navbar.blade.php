@@ -1,4 +1,4 @@
-<nav class="navbar navclr affix-top" data-spy="affix" data-offset-top="197">
+<!-- <nav class="navbar navclr affix-top" data-spy="affix" data-offset-top="197">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -74,5 +74,4 @@
             </ul>
         </div>
     </div>
-</nav>
-</form>
+</nav> -->
