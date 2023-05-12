@@ -1,7 +1,7 @@
-@extends('website.layout.header')
-@extends('website.layout.navbar')
+@extends('website.layout.footer')
 @section('content')
 
 
 @endsection
-@extends('website.layout.footer')
+@extends('website.layout.navbar')
+@extends('website.layout.header')

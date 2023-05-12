@@ -1,4 +1,4 @@
-<footer class="main-footer">
+<!-- <footer class="main-footer">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -61,7 +61,7 @@
             </div>
         </div>
     </div>
-</footer>
+</footer> -->
 
 <script type="text/javascript">
     $("#language").change(function() {
