@@ -1,5 +1,4 @@
-<div class="container-fluid page-body-wrapper">
-    @include('website.layout.header')
-    @include('website.layout.navbar')
-    @yield('content')
-    @extends('website.layout.footer')
+@extends('website.layout.header')
+@extends('website.layout.navbar')
+@yield('content')
+@extends('website.layout.footer')
