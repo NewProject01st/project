@@ -21,6 +21,7 @@ class CreateDynamicWebPagesTable extends Migration
             $table->string('slug')->unique();
             $table->string('actual_page_name_marathi')->unique();
             $table->string('actual_page_name_english')->unique();
+            $table->string('publish_date');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

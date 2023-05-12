@@ -70,8 +70,10 @@
                                 href="{{ route('list-marquee') }}">Marquee</a></li>
                                 <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-slide') }}">Slider</a></li>
-                                {{-- <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                href="{{ route('list-slide') }}">Slider</a></li> --}}
+                                <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                href="{{ route('list-weather') }}">Weather</a></li>
+                                <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                    href="{{ route('list-disasterforcast') }}">Disaster Forcast</a></li>
                        
                     </ul>
                 </div>
@@ -116,6 +118,12 @@
                       <span class="menu-title">Projects</span>
                   </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('list-metadata') }}">
+                    <i class="fas fa-window-restore menu-icon"></i>
+                    <span class="menu-title">Metadata</span>
+                </a>
+            </li>
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                       aria-controls="page-layouts">

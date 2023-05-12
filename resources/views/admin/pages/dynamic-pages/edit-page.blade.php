@@ -44,7 +44,16 @@
                                             @endif
                                         </div>
                                     </div>
-
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="publish_date">Publish Date</label>
+                                            <input type="date" class="form-control" placeholder="YYYY-MM-DD" value="{{ $get_publish_date }}"
+                                                name="publish_date" id="publish_date">
+                                            @if ($errors->has('publish_date'))
+                                                <span class="red-text"><?php echo $errors->first('publish_date', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
 
 
                                     <div class="col-md-12 col-sm-12 text-center">

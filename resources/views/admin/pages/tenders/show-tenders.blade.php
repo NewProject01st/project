@@ -37,7 +37,7 @@
                                             <label>Title English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ $tenders->english_title }}</label>
+                                            <label><?php echo $tenders->english_title; ?></label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -45,7 +45,7 @@
                                             <label>Title Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ $tenders->marathi_title }}</label>
+                                            <label><?php echo $tenders->marathi_title; ?></label>
                                         </div>
                                     </div>
                                     <div class="row ">

@@ -15,7 +15,7 @@ class DynamicPagesRepository  {
     {
         try {
             return DynamicWebPages::where('is_active',true)
-                                    ->select('id','slug','menu_name')
+                                    ->select('id','slug','menu_name','publish_date')
                                     ->get()
                                     ->toArray();
         } catch (\Exception $e) {
@@ -30,7 +30,7 @@ public function getById($id)
         $dynamic_page_data = DynamicWebPages::where('id','=',$id)
                             ->select('actual_page_name_marathi',
                                      'actual_page_name_english',
-                                     'menu_type'
+                                     'menu_type','publish_date'
                             )->first();
 
         if ($dynamic_page_data) {
@@ -55,7 +55,8 @@ public function updateAll($request)
         $dynamic_page_data->english_title = $request['english_title'];
         $dynamic_page_data->marathi_title = $request['marathi_title'];
         $dynamic_page_data->english_description = $request['english_description'];
-        $dynamic_page_data->marathi_title = $request['marathi_title'];
+        $dynamic_page_data->marathi_description = $request['marathi_description'];
+        $dynamic_page_data->publish_date = $request['publish_date'];
         $dynamic_page_data->save();           
      
         return [

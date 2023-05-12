@@ -41,8 +41,8 @@
                                                 @foreach ($projects as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $item->english_title }}</td>
-                                                        <td>{{ $item->marathi_title }}</td>
+                                                        <td><?php echo $item->english_title; ?></td>
+                                                        <td><?php echo $item->marathi_title; ?></td>
                                                         <td><?php echo $item->english_description; ?></td>
                                                         <td><?php echo $item->marathi_description; ?></td>
                                                         <td>{{ $item->marathi_link }}</td>

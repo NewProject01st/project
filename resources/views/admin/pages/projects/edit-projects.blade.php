@@ -18,15 +18,13 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action='{{ route('update-projects') }}' method="post" id="regForm">
-                                <input type="hidden" name="_method" value="PUT">
+                            <form class="forms-sample" action='{{ route('update-projects') }}' method="post" id="regForm" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>
-                                            <input type="text" name="english_title" id="english_title"
-                                                class="form-control" value="{{ $projects->english_title }}" placeholder="">
+                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">{{ $projects->english_title }}</textarea>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -35,8 +33,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi</label>
-                                            <input type="text" name="marathi_title" id="marathi_title"
-                                                class="form-control" value="{{ $projects->marathi_title }}" placeholder="">
+                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">{{ $projects->marathi_title }}</textarea>
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -82,7 +79,29 @@
                                             @endif
                                         </div>
                                     </div>
-                                    
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="english_pdf">Pdf English</label><br>
+                                            <input type="file" name="english_pdf" id="english_pdf" accept=".pdf">
+                                            @if ($errors->has('english_pdf'))
+                                                <span class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
+                                            @endif
+                                            <a href="{{ asset('storage/pdf/projects/' . $projects->english_pdf) }}"
+                                                ></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="marathi_pdf">Pdf Marathi</label>
+                                            <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
+                                                class="form-control">
+                                            @if ($errors->has('marathi_pdf'))
+                                                <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                        <a href="{{ asset('storage/pdf/projects/' . $projects->marathi_pdf) }}"
+                                            ></a>
+                                    </div>
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Update</button>
                                         <button type="submit" class="btn btn-danger">Cancel</button>

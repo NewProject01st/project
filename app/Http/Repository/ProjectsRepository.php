@@ -71,6 +71,7 @@ public function getById($id)
 public function updateAll($request)
 {
     try {
+        // dd($request);
         $projects_data = Projects::find($request->id);
         
         if (!$projects_data) {
@@ -102,7 +103,9 @@ public function updateAll($request)
         $projects_data->status = $request['status'];
         $projects_data->marathi_description = $englishPdf;
         $projects_data->marathi_description = $marathiPdf;
-        $projects_data->save();          
+        $projects_data->save();   
+        
+        // dd($projects_data);
      
         return [
             'msg' => 'Projects updated successfully.',

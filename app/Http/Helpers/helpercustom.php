@@ -106,7 +106,7 @@ function getMenuItemsForDynamicPageAdd() {
                 
 }
 
-function savePageNameInMenu($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name) {
+function savePageNameInMenu($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date) {
 
 
     if($main_sub =='main') {
@@ -117,7 +117,7 @@ function savePageNameInMenu($main_sub, $id, $url, $actual_page_name_marathi, $ac
                                     ]);
 
         
-        addOrUpdateDynamicWebPages($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name);
+        addOrUpdateDynamicWebPages($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date);
             
     } else {
         $subMenus  = MainSubMenus::where('id', '=', $id)
@@ -126,13 +126,13 @@ function savePageNameInMenu($main_sub, $id, $url, $actual_page_name_marathi, $ac
                                         'is_static'=> false
                                     ]);
 
-        addOrUpdateDynamicWebPages($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name);
+        addOrUpdateDynamicWebPages($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date);
                                    
     }
     return 'ok';
 }
 
-function addOrUpdateDynamicWebPages($main_sub,$id,$url,$actual_page_name_marathi, $actual_page_name_english, $menu_name) {
+function addOrUpdateDynamicWebPages($main_sub,$id,$url,$actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date) {
 
         $dynamic_web_page_name = DynamicWebPages::where('is_active',true)
                                                 ->where('menu_id',$id)
@@ -147,7 +147,8 @@ function addOrUpdateDynamicWebPages($main_sub,$id,$url,$actual_page_name_marathi
                                                                 'slug'=> $url,
                                                                 'actual_page_name_marathi'=> $actual_page_name_marathi,
                                                                 'actual_page_name_english'=> $actual_page_name_english,
-                                                                'menu_name' =>$menu_name
+                                                                'menu_name' =>$menu_name,
+                                                                'publish_date' =>$publish_date
                                                             ]);
         } else {
             $data_for_insert = [
@@ -155,7 +156,8 @@ function addOrUpdateDynamicWebPages($main_sub,$id,$url,$actual_page_name_marathi
                 'actual_page_name_marathi'=> $actual_page_name_marathi,
                 'actual_page_name_english'=> $actual_page_name_english,
                 'menu_name' => $menu_name,
-                'menu_id' => $id
+                'menu_id' => $id,
+                'publish_date' => $publish_date,
             ];
 
             if($main_sub =='main') { 
@@ -181,6 +183,7 @@ function getMenuItemsDynamicPageDetailsById($id) {
                                     'slug',
                                     'actual_page_name_marathi',
                                     'actual_page_name_english',
+                                    'publish_date',
                                 )
                                 ->first();
         

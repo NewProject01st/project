@@ -126,7 +126,7 @@
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Update</button>
-                                        <button type="submit" class="btn btn-danger">Cancel</button>
+                                        <button type="submit" class="btn btn-danger"><a href="{{ route('list-tenders') }}" class="text-light">Cancel</a></button>
                                     </div>
                                 </div>
                                 <input type="hidden" name="id" id="id" class="form-control" value="{{ $tenders->id }}" placeholder="">

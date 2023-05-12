@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Weather;
+namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Weather;
-use App\Http\Services\Weather\WeatherServices;
+use App\Http\Services\Home\WeatherServices;
 use Validator;
 class WeatherController extends Controller
 {
@@ -18,29 +18,39 @@ class WeatherController extends Controller
     {
         try {
             $weather = $this->service->getAll();
-            return view('admin.pages.weather.list-weather', compact('weather'));
+            return view('admin.pages.home.weather.list-weather', compact('weather'));
         } catch (\Exception $e) {
             return $e;
         }
     }
     public function add()
     {
-        return view('admin.pages.weather.add-weather');
+        return view('admin.pages.home.weather.add-weather');
     }
 
     public function store(Request $request) {
+       
         $rules = [
             'english_title' => 'required',
             'marathi_title' => 'required',
-            'english_url' => 'required',
-            'marathi_url' => 'required',
+            'english_description' => 'required',
+            'marathi_description' => 'required',
+            'weather_date' => 'required',
+            'expired_date' => 'required',
+            'english_image' => 'required',
+            'marathi_image' => 'required',
+         
             
          ];
     $messages = [   
-        'english_title'=>'Please  enter english title.',
-        'marathi_title'=>'Please  enter marathi title.',
-        'english_url'=>'required',
-        'marathi_url'=>'required',
+        'english_title'=>'required',
+        'marathi_title'=>'required',
+        'english_description'=>'required',
+        'marathi_description'=>'required',
+        'weather_date' => 'required',
+        'expired_date' => 'required',
+        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         
     ];
 
@@ -55,7 +65,7 @@ class WeatherController extends Controller
         else
         {
             $add_weather = $this->service->addAll($request);
-            // print_r($add_tenders);
+            // print_r($add_weather);
             // die();
             if($add_weather)
             {
@@ -75,28 +85,47 @@ class WeatherController extends Controller
         return redirect('add-weather')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
 }
-    
+    public function show(Request $request)
+    {
+        try {
+            //  dd($request->show_id);
+            $weather = $this->service->getById($request->show_id);
+            return view('admin.pages.home.weather.show-weather', compact('weather'));
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
     public function edit(Request $request)
     {
-        $weather = Weather::find($request->edit_id);
-        return view('admin.pages.weather.edit-weather', compact('weather'));
+        $edit_data_id = $request->edit_id;
+        $weather =  $this->service->getById($request->edit_id);
+        return view('admin.pages.home.weather.edit-weather', compact('weather'));
     }
     public function update(Request $request)
 {
     $rules = [
         'english_title' => 'required',
         'marathi_title' => 'required',
-        'english_url' => 'required',
-        'marathi_url' => 'required',
+        'english_description' => 'required',
+        'marathi_description' => 'required',
+        'weather_date' => 'required',
+        'expired_date' => 'required',
+        'english_image' => 'required',
+        'marathi_image' => 'required',
+     
         
      ];
-    $messages = [   
-        'english_title'=>'required',
-        'marathi_title'=>'required',
-        'english_url'=>'required',
-        'marathi_url'=>'required',
-        
-    ];
+$messages = [   
+    'english_title'=>'required',
+    'marathi_title'=>'required',
+    'english_description'=>'required',
+    'marathi_description'=>'required',
+    'weather_date' => 'required',
+    'expired_date' => 'required',
+    'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    
+];
 
     try {
         $validation = Validator::make($request->all(),$rules, $messages);
@@ -124,17 +153,6 @@ class WeatherController extends Controller
             ->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
  }
-public function show(Request $request)
-    {
-        try {
-            //  dd($request->show_id);
-            $weathers = $this->service->getById($request->show_id);
-            return view('admin.pages.weather.show-weather', compact('weathers'));
-        } catch (\Exception $e) {
-            return $e;
-        }
-    }
-
     public function destroy(Request $request)
     {
         try {

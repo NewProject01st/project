@@ -16,7 +16,10 @@
                     @foreach ($menu_data as $key => $menu_data_new)
                         <li class="dropdown">
                             @if ($key == '0')
-                                <a href="{{ url($menu_data_new['url']) }}" id="" class="dropdown-toggle"
+                                <a
+                                href=" {{ url($menu_data_new['url']) }} "
+                                {{-- href="{{ url($menu_data_new['url']) }}" --}}
+                                 id="" class="dropdown-toggle"
                                     data-toggle="dropdown" title="About Us" target="_self">
                                     @if (session('language') == 'mar')
                                         {{ $menu_data_new['menu_name_marathi'] }}
