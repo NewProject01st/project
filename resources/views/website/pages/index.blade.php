@@ -155,7 +155,7 @@
                         @endif
                     @endforeach
                     <!--News Box End-->
-                   
+
                 </div>
             </div>
         </section>
@@ -234,111 +234,55 @@
                                 Services </h5>
                             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                 <!--Panel Start-->
-                                data_output_emergencycontact
-                                <div class="panel">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                        <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> DMS
-                                                Office </a> </h6>
-                                    </div>
-                                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
-                                        aria-labelledby="headingOne">
-                                        <div class="panel-body">
-                                            <ul>
-                                                <li> <i class="fas fa-user-tie"></i> Lorem Ipsum</li>
-                                                <li> <i class="far fa-building"></i> 93002 Green Avenue</li>
-                                                <li> <i class="fas fa-phone"></i> 333 111 333</li>
-                                                <li> <i class="fas fa-fax"></i> 777 555 666 </li>
-                                                <li> <i class="far fa-envelope"></i> office@dms.org </li>
-                                            </ul>
+
+
+                                @foreach ($data_output_emergencycontact as $item)
+                                    @if (session('language') == 'mar')
+                                        <div class="panel">
+                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                        href="#collapseOne" aria-expanded="true"
+                                                        aria-controls="collapseOne"> DMS
+                                                        Office </a> </h6>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingOne">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li> <i class="fas fa-user-tie"></i> <?php echo $item['marathi_name']; ?> </li>
+                                                        <li> <i class="far fa-building"></i> <?php echo $item['marathi_address']; ?> </li>
+                                                        <li> <i class="fas fa-phone"></i> <?php echo $item['marathi_number']; ?></li>
+                                                        <li> <i class="fas fa-fax"></i> <?php echo $item['marathi_landline_no']; ?> </li>
+                                                        <li> <i class="far fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <!--Panel End-->
-                                <!--Panel Start-->
-                                <div class="panel">
-                                    <div class="panel-heading" role="tab" id="heading2">
-                                        <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                href="#collapse2" aria-expanded="true" aria-controls="collapse2"> City
-                                                Council </a> </h6>
-                                    </div>
-                                    <div id="collapse2" class="panel-collapse collapse" role="tabpanel"
-                                        aria-labelledby="heading2">
-                                        <div class="panel-body">
-                                            <ul>
-                                                <li> <i class="fas fa-user-tie"></i> Lorem Ipsum</li>
-                                                <li> <i class="far fa-building"></i> 93002 Green Avenue</li>
-                                                <li> <i class="fas fa-phone"></i> 333 111 333</li>
-                                                <li> <i class="fas fa-fax"></i> 777 555 666 </li>
-                                                <li> <i class="far fa-envelope"></i> city@dms.org </li>
-                                            </ul>
+                                    @else
+                                        <div class="panel">
+                                            <div class="panel-heading" role="tab" id="headingOne">
+                                                <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                        href="#collapseOne" aria-expanded="true"
+                                                        aria-controls="collapseOne"> DMS
+                                                        Office </a> </h6>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="headingOne">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li> <i class="fas fa-user-tie"></i> <?php echo $item['english_name']; ?> </li>
+                                                        <li> <i class="far fa-building"></i> <?php echo $item['english_address']; ?> </li>
+                                                        <li> <i class="fas fa-phone"></i> <?php echo $item['english_number']; ?></li>
+                                                        <li> <i class="fas fa-fax"></i> <?php echo $item['english_landline_no']; ?> </li>
+                                                        <li> <i class="far fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    @endif
+                                @endforeach
                                 <!--Panel End-->
-                                <!--Panel Start-->
-                                <div class="panel">
-                                    <div class="panel-heading" role="tab" id="heading3">
-                                        <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                href="#collapse3" aria-expanded="true" aria-controls="collapse3"> Police
-                                                Emergency </a> </h6>
-                                    </div>
-                                    <div id="collapse3" class="panel-collapse collapse" role="tabpanel"
-                                        aria-labelledby="heading3">
-                                        <div class="panel-body">
-                                            <ul>
-                                                <li> <i class="fas fa-user-tie"></i> Lorem Ipsum</li>
-                                                <li> <i class="far fa-building"></i> 93002 Green Avenue</li>
-                                                <li> <i class="fas fa-phone"></i> 333 111 333</li>
-                                                <li> <i class="fas fa-fax"></i> 777 555 666 </li>
-                                                <li> <i class="far fa-envelope"></i> police@dms.org </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Panel End-->
-                                <!--Panel Start-->
-                                <div class="panel">
-                                    <div class="panel-heading" role="tab" id="heading4">
-                                        <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                href="#collapse4" aria-expanded="true" aria-controls="collapse4">
-                                                Ambulance </a> </h6>
-                                    </div>
-                                    <div id="collapse4" class="panel-collapse collapse" role="tabpanel"
-                                        aria-labelledby="heading4">
-                                        <div class="panel-body">
-                                            <ul>
-                                                <li> <i class="fas fa-user-tie"></i> Lorem Ipsum</li>
-                                                <li> <i class="far fa-building"></i> 93002 Green Avenue</li>
-                                                <li> <i class="fas fa-phone"></i> 333 111 333</li>
-                                                <li> <i class="fas fa-fax"></i> 777 555 666 </li>
-                                                <li> <i class="far fa-envelope"></i> ambulance@dms.org </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Panel End-->
-                                <!--Panel Start-->
-                                <div class="panel">
-                                    <div class="panel-heading" role="tab" id="heading5">
-                                        <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                href="#collapse5" aria-expanded="true" aria-controls="collapse5">
-                                                E-Services </a> </h6>
-                                    </div>
-                                    <div id="collapse5" class="panel-collapse collapse" role="tabpanel"
-                                        aria-labelledby="heading5">
-                                        <div class="panel-body">
-                                            <ul>
-                                                <li> <i class="fas fa-user-tie"></i> Lorem Ipsum</li>
-                                                <li> <i class="far fa-building"></i> 93002 Green Avenue</li>
-                                                <li> <i class="fas fa-phone"></i> 333 111 333</li>
-                                                <li> <i class="fas fa-fax"></i> 777 555 666 </li>
-                                                <li> <i class="far fa-envelope"></i> service@dms.org </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Panel End-->
+
                             </div>
                         </div>
                         <a href="#" class="jobs-link">Open Vacancies</a>
@@ -375,35 +319,35 @@
                                     <img src="{{ asset('website_files/images/home/e1.jpeg') }}" alt="">
                                 </div>
                                 <!-- <div class="event-big">
-                                  <div class="event-cap">
-                                    <h5><a href="#">Ohio Stormwater Conference</a></h5>
-                                    <ul>
-                                      <li><i class="fas fa-image"></i> 83 Photos</li>
-                                      <li><i class="fas fa-play-circle"></i> 16 Videos</li>
-                                    </ul>
-                                    <p> The conference has grown from 399 attendees to over 1,000 in the past 15 years. </p>
-                                  </div>
-                                  <img src="{{ asset('website_files/images/home/e2.jpeg') }}" alt=""> </div> -->
+                                      <div class="event-cap">
+                                        <h5><a href="#">Ohio Stormwater Conference</a></h5>
+                                        <ul>
+                                          <li><i class="fas fa-image"></i> 83 Photos</li>
+                                          <li><i class="fas fa-play-circle"></i> 16 Videos</li>
+                                        </ul>
+                                        <p> The conference has grown from 399 attendees to over 1,000 in the past 15 years. </p>
+                                      </div>
+                                      <img src="{{ asset('website_files/images/home/e2.jpeg') }}" alt=""> </div> -->
                                 <!-- <div class="event-big">
-                                  <div class="event-cap">
-                                    <h5><a href="#">Governors Hurricane Conference</a></h5>
-                                    <ul>
-                                      <li><i class="fas fa-image"></i> 83 Photos</li>
-                                      <li><i class="fas fa-play-circle"></i> 16 Videos</li>
-                                    </ul>
-                                    <p> It was a good event, one particular program was overcrowded. A better plan for this presentation could have made a better situation. </p>
-                                  </div>
-                                  <img src="{{ asset('website_files/images/home/e4.jpeg') }}" alt=""> </div> -->
+                                      <div class="event-cap">
+                                        <h5><a href="#">Governors Hurricane Conference</a></h5>
+                                        <ul>
+                                          <li><i class="fas fa-image"></i> 83 Photos</li>
+                                          <li><i class="fas fa-play-circle"></i> 16 Videos</li>
+                                        </ul>
+                                        <p> It was a good event, one particular program was overcrowded. A better plan for this presentation could have made a better situation. </p>
+                                      </div>
+                                      <img src="{{ asset('website_files/images/home/e4.jpeg') }}" alt=""> </div> -->
                                 <!-- <div class="event-big">
-                                  <div class="event-cap">
-                                    <h5><a href="#">2K23 Conference</a></h5>
-                                    <ul>
-                                      <li><i class="fas fa-image"></i> 83 Photos</li>
-                                      <li><i class="fas fa-play-circle"></i> 16 Videos</li>
-                                    </ul>
-                                    <p> The conference has grown from 399 attendees to over 1,000 in the past 15 years. </p>
-                                  </div>
-                                  <img src="{{ asset('website_files/images/home/e5.jpeg') }}" alt=""> </div> -->
+                                      <div class="event-cap">
+                                        <h5><a href="#">2K23 Conference</a></h5>
+                                        <ul>
+                                          <li><i class="fas fa-image"></i> 83 Photos</li>
+                                          <li><i class="fas fa-play-circle"></i> 16 Videos</li>
+                                        </ul>
+                                        <p> The conference has grown from 399 attendees to over 1,000 in the past 15 years. </p>
+                                      </div>
+                                      <img src="{{ asset('website_files/images/home/e5.jpeg') }}" alt=""> </div> -->
                             </div>
                             <!--Slider Big Slider End-->
                             <!--Slider Big Slider Nav-->
@@ -557,7 +501,7 @@
                             <li> <a href="#"> <img src="{{ asset('website_files/images/home/excomm-icon4.png') }}"
                                         alt=""> Volunteer Management </a> </li>
                             <!-- <li> <a href="#"> <img src="images/excomm-icon9.png" alt=""> City Council </a> </li>
-                              <li> <a href="#"> <img src="images/excomm-icon10.png" alt=""> Important Numbers </a> </li> -->
+                                  <li> <a href="#"> <img src="images/excomm-icon10.png" alt=""> Important Numbers </a> </li> -->
                         </ul>
                     </div>
                     <div class="col-md-6">
