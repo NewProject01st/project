@@ -15,10 +15,11 @@ class ObjectiveGoals extends Migration
     {
         Schema::create('objective-goals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('english_title');
-            $table->string('marathi_title');
-            $table->string('english_description');
-            $table->string('marathi_description');
+            $table->text('english_title');
+            $table->text('marathi_title');
+            $table->text('english_description');
+            $table->text('marathi_description');
+            $table->string('url');
             $table->string('is_deleted')->default(true);
             $table->boolean('is_active')->default(true);
             // Add more columns here

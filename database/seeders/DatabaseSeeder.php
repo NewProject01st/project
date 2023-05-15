@@ -31,6 +31,10 @@ class DatabaseSeeder extends Seeder
         $this->call(HomeTenderSeeder::class);
         $this->call(GeneralContactSeeder::class);    
         $this->call(DisasterManagementWebPortalSeeder::class);    
+        $this->call(DisasterForcastSeeder::class);
+        $this->call(WeatherSeeder::class);  
+        $this->call(MetaDataSeeder::class);        
+      
         
     }
 }

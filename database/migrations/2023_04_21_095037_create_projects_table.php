@@ -15,10 +15,10 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('english_title');
-            $table->string('marathi_title');
-            $table->string('english_description');
-            $table->string('marathi_description');
+            $table->text('english_title');
+            $table->text('marathi_title');
+            $table->text('english_description');
+            $table->text('marathi_description');
             $table->string('english_link');
             $table->string('marathi_link');
             $table->string('english_pdf');

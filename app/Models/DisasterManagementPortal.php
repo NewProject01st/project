@@ -11,5 +11,5 @@ class DisasterManagementPortal extends Model
 
     protected $table = 'disaster_management_portal';
     protected $primaryKey = 'id';
-    protected $fillable = ['english_title', 'marathi_title', 'english_description', 'marathi_description', 'english_image', 'marathi_image'];
+    protected $fillable = ['english_title', 'marathi_title', 'english_description', 'marathi_description', 'english_image', 'marathi_image','url'];
 }

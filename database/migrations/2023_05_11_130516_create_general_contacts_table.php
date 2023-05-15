@@ -14,9 +14,9 @@ class CreateGeneralContactsTable extends Migration
     public function up()
     {
         Schema::create('general_contacts', function (Blueprint $table) {
-            $table->id();
-            $table->string('english_name');
-            $table->string('marathi_name');
+            $table->bigIncrements('id');
+            $table->text('english_name');
+            $table->text('marathi_name');
             $table->bigInteger('english_number');
             $table->bigInteger('marathi_number');
             $table->string('english_icon');
