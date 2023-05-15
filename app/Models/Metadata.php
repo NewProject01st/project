@@ -10,5 +10,5 @@ class Metadata extends Model
     use HasFactory;
     protected $table = 'metadata';
     protected $primaryKey = 'id';
-    protected $fillable = ['english_name', 'english_name'];
+    protected $fillable = ['english_name', 'keywords'];
 }

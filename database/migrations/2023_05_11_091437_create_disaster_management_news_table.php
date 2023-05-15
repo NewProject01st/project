@@ -14,11 +14,11 @@ class CreateDisasterManagementNewsTable extends Migration
     public function up()
     {
         Schema::create('disaster_management_news', function (Blueprint $table) {
-            $table->id();
-            $table->string('english_title');
-            $table->string('marathi_title');
-            $table->string('english_description');
-            $table->string('marathi_description');
+            $table->bigIncrements('id');
+            $table->text('english_title');
+            $table->text('marathi_title');
+            $table->text('english_description');
+            $table->text('marathi_description');
             $table->string('english_url');
             $table->string('disaster_date');
             $table->string('english_image');

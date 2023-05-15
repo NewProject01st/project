@@ -14,11 +14,11 @@ class CreateEmergencyContactsTable extends Migration
     public function up()
     {
         Schema::create('emergency_contacts', function (Blueprint $table) {
-            $table->id();
-            $table->string('english_name');
-            $table->string('marathi_name');
-            $table->string('english_address');
-            $table->string('marathi_address');
+            $table->bigIncrements('id');
+            $table->text('english_name');
+            $table->text('marathi_name');
+            $table->text('english_address');
+            $table->text('marathi_address');
             $table->string('email');
             $table->bigInteger('english_number');
             $table->bigInteger('marathi_number');

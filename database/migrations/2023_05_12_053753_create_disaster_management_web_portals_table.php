@@ -14,11 +14,11 @@ class CreateDisasterManagementWebPortalsTable extends Migration
     public function up()
     {
         Schema::create('disaster_management_web_portals', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('english_name');
             $table->string('marathi_name');
-            $table->string('english_title');
-            $table->string('marathi_title');
+            $table->text('english_title');
+            $table->text('marathi_title');
             $table->text('english_description');
             $table->text('marathi_description');
             $table->string('english_designation');

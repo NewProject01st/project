@@ -16,10 +16,10 @@ class Tenders extends Migration
         Schema::create('tenders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('tender_date');
-            $table->string('english_title');
-            $table->string('marathi_title');
-            $table->string('english_description');
-            $table->string('marathi_description');
+            $table->text('english_title');
+            $table->text('marathi_title');
+            $table->text('english_description');
+            $table->text('marathi_description');
             $table->string('start_date');
             $table->string('end_date');
             $table->string('open_date');
