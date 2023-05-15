@@ -62,6 +62,9 @@ class IndexController extends Controller
             // dd($data_output_slider);
             $data_output_marquee = $this->service->getAllMarquee();
             // dd($data_output_marquee);
+            $data_output_disastermangwebportal = $this->service->getAllDisasterManagementWebPortal();
+            $data_output_disastermanagementnews = $this->service->getAllDisasterManagementNews();
+            $data_output_emergencycontact = $this->service->getAllEmergencyContact();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -71,7 +74,7 @@ class IndexController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.index',compact('language','menu','data_output_marquee', 'data_output_slider'));
+        return view('website.pages.index',compact('language','menu','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact'));
     }
 
     public function changeLanguage(Request $request) {

@@ -49,10 +49,10 @@
                                                 <td>{{ $item->english_url }}</td>
                                                 <td>{{ $item->disaster_date }}</td>
                                                 <td> <img
-                                                        src="{{ asset('storage/images/disaster_news/' . $item->english_image) }}" />
+                                                        src="{{ asset('storage/images/disaster-news/' . $item->english_image) }}" />
                                                 </td>
                                                 <td> <img
-                                                        src="{{ asset('storage/images/disaster_news/' . $item->marathi_image) }}" />
+                                                        src="{{ asset('storage/images/disaster-news/' . $item->marathi_image) }}" />
                                                 </td>
 
                                                 <td class="d-flex">

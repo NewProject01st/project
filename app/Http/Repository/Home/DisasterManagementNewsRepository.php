@@ -25,8 +25,8 @@ class DisasterManagementNewsRepository  {
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/disaster_news', $englishImageName);
-        $request->marathi_image->storeAs('public/images/disaster_news', $marathiImageName);
+        $request->english_image->storeAs('public/images/disaster-news', $englishImageName);
+        $request->marathi_image->storeAs('public/images/disaster-news', $marathiImageName);
 
         
         $disaster_data = new DisasterManagementNews();
@@ -80,15 +80,15 @@ public function updateAll($request)
         }
          // Delete existing files
          Storage::delete([
-            'public/images/disaster_news/' . $disaster_data->english_image,
-            'public/images/disaster_news/' . $disaster_data->marathi_image
+            'public/images/disaster-news/' . $disaster_data->english_image,
+            'public/images/disaster-news/' . $disaster_data->marathi_image
         ]);
         
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/disaster_news/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/disaster_news/', $marathiImageName);
+        $request->english_image->storeAs('public/images/disaster-news/', $englishImageName);
+        $request->marathi_image->storeAs('public/images/disaster-news/', $marathiImageName);
 
                 
         $disaster_data->english_title = $request['english_title'];
@@ -121,8 +121,8 @@ public function deleteById($id)
         if ($disaster) {
               // Delete the images from the storage folder
               Storage::delete([
-                'public/images/disaster_news/'.$disaster->english_image,
-                'public/images/disaster_news/'.$disaster->marathi_image
+                'public/images/disaster-news/'.$disaster->english_image,
+                'public/images/disaster-news/'.$disaster->marathi_image
             ]);
 
             // Delete the record from the database

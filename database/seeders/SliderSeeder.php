@@ -18,8 +18,26 @@ class SliderSeeder extends Seeder
         Slider::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_image' => 'English Description',
-            'marathi_image' => 'Marathi Description',
+            'english_image' => 'slide1_english.jpeg',
+            'marathi_image' => 'slide1_marathi.jpeg',
+            'is_deleted'=>false,
+            'is_active'=>true,
+        
+        ]);
+        Slider::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'english_image' => 'slide2_english.jpeg',
+            'marathi_image' => 'slide2_marathi.jpeg',
+            'is_deleted'=>false,
+            'is_active'=>true,
+        
+        ]);
+        Slider::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'english_image' => 'slide3_english.jpeg',
+            'marathi_image' => 'slide3_marathi.jpeg',
             'is_deleted'=>false,
             'is_active'=>true,
         

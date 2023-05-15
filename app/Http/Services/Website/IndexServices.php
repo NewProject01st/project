@@ -34,5 +34,29 @@ class IndexServices
         } catch (\Exception $e) {
             return $e;
         }
+    }  
+    public function getAllDisasterManagementWebPortal()
+    {
+        try {
+            return $this->repo->getAllDisasterManagementWebPortal();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
+    public function getAllDisasterManagementNews()
+    {
+        try {
+            return $this->repo->getAllDisasterManagementNews();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }    
+    public function getAllEmergencyContact()
+    {
+        try {
+            return $this->repo->getAllEmergencyContact();
+        } catch (\Exception $e) {
+            return $e;
+        }
     }    
 }

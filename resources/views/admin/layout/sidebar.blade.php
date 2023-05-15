@@ -69,22 +69,25 @@
                                   href="{{ route('list-marquee') }}">Marquee</a></li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-slide') }}">Slider</a></li>
+                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                    href="{{ route('list-disaster-management-web-portal') }}">Disaster Web Portal</a></li>
+                                    <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                        href="{{ route('list-disaster-management-news') }}">Disaster Management News</a></li>
+
                                 <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                 href="{{ route('list-weather') }}">Weather</a></li>
                                 <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                     href="{{ route('list-disasterforcast') }}">Disaster Forcast</a></li>
                        
                     
-                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-disaster-management-news') }}">Disaster Management News</a></li>
+                          
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-emergency-contact') }}">Emergency Contact</a></li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-home-tender') }}">Tenders</a></li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-general-contact') }}">General Contact</a></li>
-                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-disaster-management-web-portal') }}">Disaster Web Portal</a></li>
+                         
 
                       </ul>
                   </div>

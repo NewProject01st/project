@@ -1,64 +1,727 @@
-{{-- @extends('website.layout.master')
-@section('title', 'Applicant\'s Form')
+@extends('website.layout.master')
 @section('content')
-
-    <div>
-
-        @foreach ($data_output_marquee as $item)
-        <div class="container-fluid">
-            @if (session('language') == 'mar')
-                <div>
-                    <marquee behavior="scroll" direction="left" scrollamount="10">
-                        {{ $item['marathi_title'] }}
-                    </marquee>
-                </div>
-            @elseif (array_key_exists('english_title', $item))
-                <div>
-                    <marquee behavior="scroll" direction="left" scrollamount="10">
-                        <?php //echo $item['english_title']; ?>
-                    </marquee>
-                </div>
-            @endif
-        </div>
-    @endforeach
-    
-
-        
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <ol class="carousel-indicators">
-          @foreach ($data_output_slider as $slider)
-          <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
-          @endforeach
-        </ol>
-        <div class="carousel-inner">
-          @foreach ($data_output_slider as $slider)
-          <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-            <img src="{{ asset('storage/images/slides/' .  $slider['english_image']) }}" class="d-block w-100" >
-            <div class="carousel-caption d-none d-md-block">
+    <div class="main-content">
+        {{-- Start Marquee --}}
+        <section class="">
+            <div class="container">
+                @foreach ($data_output_marquee as $item)
+                    <div class="container-fluid">
+                        @if (session('language') == 'mar')
+                            <div>
+                                <marquee behavior="scroll" direction="left" scrollamount="10">
+                                    {{ $item['marathi_title'] }}
+                                </marquee>
+                            </div>
+                        @elseif (array_key_exists('english_title', $item))
+                            <div>
+                                <marquee behavior="scroll" direction="left" scrollamount="10">
+                                    <?php echo $item['english_title']; ?>
+                                </marquee>
+                            </div>
+                        @endif
+                    </div>
+                @endforeach
             </div>
-          </div>
-          @endforeach
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </a>
-      </div>
+        </section>
+        {{-- End Marquee --}}
+        {{-- Start Slider --}}
+        <section>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    @foreach ($data_output_slider as $slider)
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $loop->index }}"
+                            class="{{ $loop->first ? 'active' : '' }}"></li>
+                    @endforeach
+                </ol>
+                <div class="carousel-inner">
+                    @foreach ($data_output_slider as $slider)
+                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                            <img src="{{ asset('storage/images/slides/' . $slider['english_image']) }}"
+                                class="d-block w-100">
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </a>
+            </div>
+        </section>
+        {{-- End Slider --}}
+        {{-- Start Disaster Management --}}
+        <section class="Mayor-video-msg">
+            <div class="container">
+                @foreach ($data_output_disastermangwebportal as $item)
+                    @if (session('language') == 'mar')
+                        <div class="row">
+                            <div class="col-md-4 col-sm-5">
+                                <div class="city-tour gallery"> <strong> Disaster Management Head </strong>
+                                    <img src="{{ asset('storage/images/disaster-webportal/' . $item['marathi_image']) }}"
+                                        class="d-block w-100">
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-sm-7">
+                                <div class="Mayor-welcome">
+                                    <h5><?php echo $item['marathi_title']; ?></h5>
+                                    <p><?php echo $item['marathi_description']; ?></h6>
+                                        <strong><?php echo $item['marathi_designation']; ?></strong>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="row">
+                            <div class="col-md-4 col-sm-5">
+                                <div class="city-tour gallery"> <strong> Disaster Management Head </strong>
+                                    <img src="{{ asset('storage/images/disaster-webportal/' . $item['english_image']) }}"
+                                        class="d-block w-100">
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-sm-7">
+                                <div class="Mayor-welcome">
+                                    <h5><?php echo $item['english_title']; ?></h5>
+                                    <p><?php echo $item['english_description']; ?></h6>
+                                    <h6><?php echo $item['english_name']; ?></h6>
+                                    <strong><?php echo $item['english_designation']; ?></strong>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+        </section>
+        {{-- End Disaster Management --}}
+        <!--Start News Start-->
+        <section class="wf100 city-news p75">
+            <div class="container">
+                <div class="title-style-3">
+                    <h3>Be Updated with Disaster Management News</h3>
+                    <p>Read the News Updates and Articles from Government </p>
+                </div>
+                <div class="row">
+                    <!--News Box Start-->
+                    @foreach ($data_output_disastermanagementnews as $item)
+                        @if (session('language') == 'mar')
+                            <div class="col-md-3 col-sm-6">
+                                <div class="news-box">
+                                    <div class="new-thumb"> <span class="cat c1">Fire</span>
+                                        <img src="{{ asset('storage/images/disaster-news/' . $item['marathi_image']) }}"
+                                            class="d-block w-100">
+                                    </div>
+                                    <div class="new-txt">
+                                        <ul class="news-meta">
+                                            <li>
+                                                {{-- 05 MAY, 2023  --}}
+                                                <?php echo $item['disaster_date']; ?></li>
+                                            {{-- <li>176 Comments</li> --}}
+                                        </ul>
+                                        <h6><a href="#"><?php echo $item['marathi_title']; ?></a></h6>
+                                        <p> <?php echo $item['marathi_description']; ?></p>
+                                    </div>
+                                    <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
+                                            alt=""> Read more <a href="#"><i
+                                                class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            <div class="col-md-3 col-sm-6">
+                                <div class="news-box">
+                                    <div class="new-thumb"> <span class="cat c1">Fire</span>
+                                        <img src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
+                                            class="d-block w-100">
+                                    </div>
+                                    <div class="new-txt">
+                                        <ul class="news-meta">
+                                            <li>
+                                                {{-- 05 MAY, 2023  --}}
+                                                <?php echo $item['disaster_date']; ?></li>
+                                            {{-- <li>176 Comments</li> --}}
+                                        </ul>
+                                        <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
+                                        <p> <?php echo $item['english_description']; ?></p>
+                                    </div>
+                                    <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
+                                            alt=""> Read more <a href="#"><i
+                                                class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                    <!--News Box End-->
+                   
+                </div>
+            </div>
+        </section>
+        <!--End News End-->
+
+        <!--Departments & Information Desk Start-->
+        <section class="wf100 p75-50  depart-info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="title-style-3">
+                            <h3>Departments & Information Desk</h3>
+                            <p>Read the News Updates and Articles about Disaster Management </p>
+                        </div>
+                        <div class="row">
+                            <!--Icon Box Start-->
+                            <div class="col-md-4 col-sm-4">
+                                <div class="deprt-icon-box"> <img
+                                        src="{{ asset('website_files/images/home/deprticon1.png') }}" alt="">
+                                    <h6> <a href="#">Emergency Department</a> </h6>
+                                    <a class="rm" href="#">Read More</a>
+                                </div>
+                            </div>
+                            <!--Icon Box End-->
+                            <!--Icon Box Start-->
+                            <div class="col-md-4 col-sm-4">
+                                <div class="deprt-icon-box"> <img
+                                        src="{{ asset('website_files/images/home/deprticon2.png') }}" alt="">
+                                    <h6> <a href="#">Public Health Department</a> </h6>
+                                    <a class="rm" href="#">Read More</a>
+                                </div>
+                            </div>
+                            <!--Icon Box End-->
+                            <!--Icon Box Start-->
+                            <div class="col-md-4 col-sm-4">
+                                <div class="deprt-icon-box"> <img
+                                        src="{{ asset('website_files/images/home/deprticon3.png') }}" alt="">
+                                    <h6> <a href="#">Information Desk/Hotline</a> </h6>
+                                    <a class="rm" href="#">Read More</a>
+                                </div>
+                            </div>
+                            <!--Icon Box End-->
+                            <!--Icon Box Start-->
+                            <div class="col-md-4 col-sm-4">
+                                <div class="deprt-icon-box"> <img
+                                        src="{{ asset('website_files/images/home/deprticon4.png') }}" alt="">
+                                    <h6> <a href="#">Police Department </a> </h6>
+                                    <a class="rm" href="#">Read More</a>
+                                </div>
+                            </div>
+                            <!--Icon Box End-->
+                            <!--Icon Box Start-->
+                            <div class="col-md-4 col-sm-4">
+                                <div class="deprt-icon-box"> <img
+                                        src="{{ asset('website_files/images/home/deprticon5.png') }}" alt="">
+                                    <h6> <a href="#">National Guard </a> </h6>
+                                    <a class="rm" href="#">Read More</a>
+                                </div>
+                            </div>
+                            <!--Icon Box End-->
+                            <!--Icon Box Start-->
+                            <div class="col-md-4 col-sm-4">
+                                <div class="deprt-icon-box"> <img
+                                        src="{{ asset('website_files/images/home/deprticon6.png') }}" alt="">
+                                    <h6> <a href="#">Fire Department</a> </h6>
+                                    <a class="rm" href="#">Read More</a>
+                                </div>
+                            </div>
+                            <!--Icon Box End-->
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="emergency-info">
+                            <h5>Helplines &
+                                Emergency
+                                Services </h5>
+                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                <!--Panel Start-->
+                                data_output_emergencycontact
+                                <div class="panel">
+                                    <div class="panel-heading" role="tab" id="headingOne">
+                                        <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> DMS
+                                                Office </a> </h6>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
+                                        aria-labelledby="headingOne">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li> <i class="fas fa-user-tie"></i> Lorem Ipsum</li>
+                                                <li> <i class="far fa-building"></i> 93002 Green Avenue</li>
+                                                <li> <i class="fas fa-phone"></i> 333 111 333</li>
+                                                <li> <i class="fas fa-fax"></i> 777 555 666 </li>
+                                                <li> <i class="far fa-envelope"></i> office@dms.org </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Panel End-->
+                                <!--Panel Start-->
+                                <div class="panel">
+                                    <div class="panel-heading" role="tab" id="heading2">
+                                        <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                href="#collapse2" aria-expanded="true" aria-controls="collapse2"> City
+                                                Council </a> </h6>
+                                    </div>
+                                    <div id="collapse2" class="panel-collapse collapse" role="tabpanel"
+                                        aria-labelledby="heading2">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li> <i class="fas fa-user-tie"></i> Lorem Ipsum</li>
+                                                <li> <i class="far fa-building"></i> 93002 Green Avenue</li>
+                                                <li> <i class="fas fa-phone"></i> 333 111 333</li>
+                                                <li> <i class="fas fa-fax"></i> 777 555 666 </li>
+                                                <li> <i class="far fa-envelope"></i> city@dms.org </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Panel End-->
+                                <!--Panel Start-->
+                                <div class="panel">
+                                    <div class="panel-heading" role="tab" id="heading3">
+                                        <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                href="#collapse3" aria-expanded="true" aria-controls="collapse3"> Police
+                                                Emergency </a> </h6>
+                                    </div>
+                                    <div id="collapse3" class="panel-collapse collapse" role="tabpanel"
+                                        aria-labelledby="heading3">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li> <i class="fas fa-user-tie"></i> Lorem Ipsum</li>
+                                                <li> <i class="far fa-building"></i> 93002 Green Avenue</li>
+                                                <li> <i class="fas fa-phone"></i> 333 111 333</li>
+                                                <li> <i class="fas fa-fax"></i> 777 555 666 </li>
+                                                <li> <i class="far fa-envelope"></i> police@dms.org </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Panel End-->
+                                <!--Panel Start-->
+                                <div class="panel">
+                                    <div class="panel-heading" role="tab" id="heading4">
+                                        <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                href="#collapse4" aria-expanded="true" aria-controls="collapse4">
+                                                Ambulance </a> </h6>
+                                    </div>
+                                    <div id="collapse4" class="panel-collapse collapse" role="tabpanel"
+                                        aria-labelledby="heading4">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li> <i class="fas fa-user-tie"></i> Lorem Ipsum</li>
+                                                <li> <i class="far fa-building"></i> 93002 Green Avenue</li>
+                                                <li> <i class="fas fa-phone"></i> 333 111 333</li>
+                                                <li> <i class="fas fa-fax"></i> 777 555 666 </li>
+                                                <li> <i class="far fa-envelope"></i> ambulance@dms.org </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Panel End-->
+                                <!--Panel Start-->
+                                <div class="panel">
+                                    <div class="panel-heading" role="tab" id="heading5">
+                                        <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                href="#collapse5" aria-expanded="true" aria-controls="collapse5">
+                                                E-Services </a> </h6>
+                                    </div>
+                                    <div id="collapse5" class="panel-collapse collapse" role="tabpanel"
+                                        aria-labelledby="heading5">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li> <i class="fas fa-user-tie"></i> Lorem Ipsum</li>
+                                                <li> <i class="far fa-building"></i> 93002 Green Avenue</li>
+                                                <li> <i class="fas fa-phone"></i> 333 111 333</li>
+                                                <li> <i class="fas fa-fax"></i> 777 555 666 </li>
+                                                <li> <i class="far fa-envelope"></i> service@dms.org </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Panel End-->
+                            </div>
+                        </div>
+                        <a href="#" class="jobs-link">Open Vacancies</a>
+                        <ul class="reports">
+                            <li> <a href="#"><i class="fas fa-file-alt"></i> 2023 Economy Report</a> </li>
+                            <li> <a href="#"><i class="fas fa-file-alt"></i> 30 Days Plans of Govt.</a> </li>
+                            <li> <a href="#"><i class="fas fa-file-alt"></i> Court Case about TAX</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Departments & Information Desk End-->
+
+        <!--Recent Events Start-->
+        <section class="wf100 p75 recent-events">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h3>Recent Events</h3>
+                        <div class="recent-event-block">
+                            <!--Slider Big Slider Start-->
+                            <div class="recent-event-slider">
+                                <div class="event-big">
+                                    <div class="event-cap">
+                                        <h5><a href="#">2K23 Disaster Risk Reduction</a></h5>
+                                        <ul>
+                                            <li><i class="fas fa-image"></i> 83 Photos</li>
+                                            <li><i class="fas fa-play-circle"></i> 16 Videos</li>
+                                        </ul>
+                                        <p> The National Disaster Management Authority (NDMA), headed by the Prime Minister
+                                            of India, is the apex body for Disaster Management in India. </p>
+                                    </div>
+                                    <img src="{{ asset('website_files/images/home/e1.jpeg') }}" alt="">
+                                </div>
+                                <!-- <div class="event-big">
+                                  <div class="event-cap">
+                                    <h5><a href="#">Ohio Stormwater Conference</a></h5>
+                                    <ul>
+                                      <li><i class="fas fa-image"></i> 83 Photos</li>
+                                      <li><i class="fas fa-play-circle"></i> 16 Videos</li>
+                                    </ul>
+                                    <p> The conference has grown from 399 attendees to over 1,000 in the past 15 years. </p>
+                                  </div>
+                                  <img src="{{ asset('website_files/images/home/e2.jpeg') }}" alt=""> </div> -->
+                                <!-- <div class="event-big">
+                                  <div class="event-cap">
+                                    <h5><a href="#">Governors Hurricane Conference</a></h5>
+                                    <ul>
+                                      <li><i class="fas fa-image"></i> 83 Photos</li>
+                                      <li><i class="fas fa-play-circle"></i> 16 Videos</li>
+                                    </ul>
+                                    <p> It was a good event, one particular program was overcrowded. A better plan for this presentation could have made a better situation. </p>
+                                  </div>
+                                  <img src="{{ asset('website_files/images/home/e4.jpeg') }}" alt=""> </div> -->
+                                <!-- <div class="event-big">
+                                  <div class="event-cap">
+                                    <h5><a href="#">2K23 Conference</a></h5>
+                                    <ul>
+                                      <li><i class="fas fa-image"></i> 83 Photos</li>
+                                      <li><i class="fas fa-play-circle"></i> 16 Videos</li>
+                                    </ul>
+                                    <p> The conference has grown from 399 attendees to over 1,000 in the past 15 years. </p>
+                                  </div>
+                                  <img src="{{ asset('website_files/images/home/e5.jpeg') }}" alt=""> </div> -->
+                            </div>
+                            <!--Slider Big Slider End-->
+                            <!--Slider Big Slider Nav-->
+                            <div class="recent-event-slider-nav">
+                                <div><img src="{{ asset('website_files/images/home/e0.jpeg') }}" alt=""></div>
+                                <div><img src="{{ asset('website_files/images/home/e02.jpeg') }}" alt=""></div>
+                                <div><img src="{{ asset('website_files/images/home/e04.jpeg') }}" alt=""></div>
+                                <div><img src="{{ asset('website_files/images/home/05.jpeg') }}" alt=""></div>
+                            </div>
+                            <!--Slider Big Slider Nav-->
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <h3>Upcoming Schedules</h3>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#Events" aria-controls="Events"
+                                    role="tab" data-toggle="tab">Next Events</a></li>
+                            <li role="presentation"><a href="#Meetings" aria-controls="Meetings" role="tab"
+                                    data-toggle="tab">Meetings</a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="Events">
+                                <!--Event List Start-->
+                                <ul class="event-list">
+                                    <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00
+                                            pm</strong> </li>
+                                    <li><img src="images/chart.jpeg" alt=""></li>
+                                    <li class="el-title">
+                                        <h6><a href="#">Annual Cycling 2023 for Charity Donation</a></h6>
+                                        <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
+                                    </li>
+                                    <li> <a href="#" class="joinnow">Join Now</a> </li>
+                                </ul>
+                                <!--Event List End-->
+                                <!--Event List Start-->
+                                <ul class="event-list">
+                                    <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00
+                                            pm</strong> </li>
+                                    <li><img src="images/chart.jpeg" alt=""></li>
+                                    <li class="el-title">
+                                        <h6><a href="#">Cultural Festival & Concert at New Year</a></h6>
+                                        <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
+                                    </li>
+                                    <li> <a href="#" class="joinnow">Join Now</a> </li>
+                                </ul>
+                                <!--Event List End-->
+                                <!--Event List Start-->
+                                <ul class="event-list">
+                                    <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00
+                                            pm</strong> </li>
+                                    <li><img src="images/chart.jpeg" alt=""></li>
+                                    <li class="el-title">
+                                        <h6><a href="#">Seminar on Child Labour held in next month</a></h6>
+                                        <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
+                                    </li>
+                                    <li> <a href="#" class="joinnow">Join Now</a> </li>
+                                </ul>
+                                <!--Event List End-->
+                                <!--Event List Start-->
+                                <ul class="event-list">
+                                    <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00
+                                            pm</strong> </li>
+                                    <li><img src="images/chart.jpeg" alt=""></li>
+                                    <li class="el-title">
+                                        <h6><a href="#">Protest against women rights violence</a></h6>
+                                        <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
+                                    </li>
+                                    <li> <a href="#" class="joinnow">Join Now</a> </li>
+                                </ul>
+                                <!--Event List End-->
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="Meetings">
+                                <!--Event List Start-->
+                                <ul class="event-list">
+                                    <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00
+                                            pm</strong> </li>
+                                    <li><img src="images/meeting.jpeg" alt=""></li>
+                                    <li class="el-title">
+                                        <h6><a href="#">Seminar on Child Labour held in next month</a></h6>
+                                        <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
+                                    </li>
+                                    <li> <a href="#" class="joinnow">Join Now</a> </li>
+                                </ul>
+                                <!--Event List End-->
+                                <!--Event List Start-->
+                                <ul class="event-list">
+                                    <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00
+                                            pm</strong> </li>
+                                    <li><img src="images/meeting.jpeg" alt=""></li>
+                                    <li class="el-title">
+                                        <h6><a href="#">Cultural Festival & Concert at New Year</a></h6>
+                                        <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
+                                    </li>
+                                    <li> <a href="#" class="joinnow">Join Now</a> </li>
+                                </ul>
+                                <!--Event List End-->
+                                <!--Event List Start-->
+                                <ul class="event-list">
+                                    <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00
+                                            pm</strong> </li>
+                                    <li><img src="images/meeting.jpeg" alt=""></li>
+                                    <li class="el-title">
+                                        <h6><a href="#">Annual Cycling 2023 for Charity Donation</a></h6>
+                                        <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
+                                    </li>
+                                    <li> <a href="#" class="joinnow">Join Now</a> </li>
+                                </ul>
+                                <!--Event List End-->
+                                <!--Event List Start-->
+                                <ul class="event-list">
+                                    <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00
+                                            pm</strong> </li>
+                                    <li><img src="images/meeting.jpeg" alt=""></li>
+                                    <li class="el-title">
+                                        <h6><a href="#">Protest against women rights violence</a></h6>
+                                        <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
+                                    </li>
+                                    <li> <a href="#" class="joinnow">Join Now</a> </li>
+                                </ul>
+                                <!--Event List End-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Recent Events End-->
+
+        <!-- Explore Community Start-->
+        <section class="wf100 p80 explore-community">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>DMS Sub-Departments</h3>
+                        <ul class="community-links-style-two">
+                            <li> <a href="#"> <img src="{{ asset('website_files/images/home/excomm-icon4.png') }}"
+                                        alt=""> Emergency Management </a> </li>
+                            <li> <a href="#"> <img src="{{ asset('website_files/images/home/excomm-icon4.png') }}"
+                                        alt=""> Public Health </a> </li>
+                            <li> <a href="#"> <img src="{{ asset('website_files/images/home/excomm-icon4.png') }}"
+                                        alt=""> Transportation </a> </li>
+                            <li> <a href="#"> <img src="{{ asset('website_files/images/home/excomm-icon4.png') }}"
+                                        alt=""> Communications </a> </li>
+                            <li> <a href="#"> <img src="{{ asset('website_files/images/home/excomm-icon4.png') }}"
+                                        alt=""> Infrastructure </a> </li>
+                            <li> <a href="#"> <img src="{{ asset('website_files/images/home/excomm-icon4.png') }}"
+                                        alt=""> Law Enforcement </a> </li>
+                            <li> <a href="#"> <img src="{{ asset('website_files/images/home/excomm-icon4.png') }}"
+                                        alt=""> Administration </a> </li>
+                            <li> <a href="#"> <img src="{{ asset('website_files/images/home/excomm-icon4.png') }}"
+                                        alt=""> Volunteer Management </a> </li>
+                            <!-- <li> <a href="#"> <img src="images/excomm-icon9.png" alt=""> City Council </a> </li>
+                              <li> <a href="#"> <img src="images/excomm-icon10.png" alt=""> Important Numbers </a> </li> -->
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Meet Officials</h3>
+                        <!--Team Slider Start-->
+
+                        <!--Team Slider End-->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Explore Community End-->
+
+        <section class="wf100 home3 emergency-numbers">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-5">
+                        <div class="newsletter-form">
+                            <h5>Be Updated with us</h5>
+                            <ul class="row">
+                                <li class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Your Name">
+                                </li>
+                                <li class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Email Address">
+                                </li>
+                                <li class="col-md-6">
+                                    <p>Signup to get the updates on email from the disaster management!</p>
+                                </li>
+                                <li class="col-md-6">
+                                    <button>Subscribe</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-7">
+                        <div class="e-numbers">
+                            <h5>Emergency Numbers</h5>
+                            <p>Dial these numbers in case of any emergency</p>
+                            <div class="info-num"> <strong>For any Information</strong>
+                                <h3>(00)00 0000</h3>
+                            </div>
+                            <ul class="row">
+                                <li class="col-md-4 col-sm-4">
+                                    <div class="em-box"> <i class="fas fa-user-secret"></i> <strong
+                                            class="em-num">100</strong> <strong class="em-deprt">Police
+                                            Department</strong> </div>
+                                </li>
+                                <li class="col-md-4 col-sm-4">
+                                    <div class="em-box"> <i class="fas fa-ambulance"></i> <strong
+                                            class="em-num">108</strong> <strong class="em-deprt"> Ambulance
+                                            Services</strong> </div>
+                                </li>
+                                <li class="col-md-4 col-sm-4">
+                                    <div class="em-box"> <i class="fas fa-fire-extinguisher"></i> <strong
+                                            class="em-num">101</strong> <strong class="em-deprt">Fire Brigade
+                                            Department</strong> </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Footer Start-->
+        <footer class="home3 main-footer wf100">
+            <div class="container">
+                <div class="row">
+                    <!--Footer Widget Start-->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="textwidget"> <img src="images/footer_logo.png" alt=""
+                                width="80%"><br><br>
+                            <address>
+                                <ul>
+                                    <li> <i class="fas fa-university"></i> <strong>Council Address:</strong> DMS Office,
+                                        Maharshtra,
+                                        INDIA</li>
+                                    <li> <i class="fas fa-envelope"></i> <strong>Email:</strong> contact@dms.com<br>
+                                        info@dms.com </li>
+                                    <li> <i class="fas fa-phone"></i> <strong>Call us:</strong>
+                                        +91 000 0000 000 </li>
+                                </ul>
+                            </address>
+                        </div>
+                    </div>
+                    <!--Footer Widget End-->
+                    <!--Footer Widget Start-->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer-widget">
+                            <h6>Sub-Departments</h6>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-star"></i> Emergency Management</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Public Health</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Transportation</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Communications</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Infrastructure</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Law Enforcement</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Finance and Administration</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Volunteer Management</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--Footer Widget End-->
+                    <!--Footer Widget Start-->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer-widget">
+                            <h6>Important Links</h6>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-star"></i> Emergency Services</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Environmental Conditions</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Disaster Preparedness</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Disaster Response</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Disaster Recovery</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Volunteer Opportunities</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Donations and Aid</a></li>
+                                <li><a href="#"><i class="fas fa-star"></i> Local Resources</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--Footer Widget End-->
+                    <!--Footer Widget Start-->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="twitter-widget">
+                            <div class="tw-txt">
+                                <h6>@DMS.gov</h6>
+                                <a href="#" class="reply-tw"><i class="fas fa-reply"></i></a>
+                                <p> "Stay prepared for disasters, stay safe. Make sure you have an emergency kit, know
+                                    evacuation routes, and stay informed with our updates. #DisasterPreparedness #StaySafe"
+                                </p>
+                            </div>
+                            <div class="tw-footer"> @dms.gov <strong>3 May, 2023</strong> <i class="fab fa-twitter"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Footer Widget End-->
+                </div>
+            </div>
+        </footer>
+        <!--Footer Start-->
+        <!--Footer Start-->
+        <footer class="home3 footer wf100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 col-sm-7">
+                        <p class="copyr"> © 2023, <a href="#">All rights reserved</a></p>
+                    </div>
+                    <div class="col-md-5 col-sm-5">
+                        <ul class="footer-social">
+                            <li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#" class="tw"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#" class="insta"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#" class="linken"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#" class="yt"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--Footer End-->
 
 
-       
+
+    </div>
 @endsection
-        --}}
-
-
-@extends('website.layout.footer')
-@section('content')
-
-
-@endsection
-@extends('website.layout.navbar')
-@extends('website.layout.header')
+{{-- @extends('website.layout.navbar')
+@extends('website.layout.header') --}}

@@ -25,8 +25,8 @@ class DisasterManagementWebPortalRepository  {
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/disaster_webportal', $englishImageName);
-        $request->marathi_image->storeAs('public/images/disaster_webportal', $marathiImageName);
+        $request->english_image->storeAs('public/images/disaster-webportal', $englishImageName);
+        $request->marathi_image->storeAs('public/images/disaster-webportal', $marathiImageName);
 
         
         $disaster_data = new DisasterManagementWebPortal();
@@ -82,15 +82,15 @@ public function updateAll($request)
         }
          // Delete existing files
          Storage::delete([
-            'public/images/disaster_webportal/' . $disaster_data->english_image,
-            'public/images/disaster_webportal/' . $disaster_data->marathi_image
+            'public/images/disaster-webportal/' . $disaster_data->english_image,
+            'public/images/disaster-webportal/' . $disaster_data->marathi_image
         ]);
                 
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/disaster_webportal', $englishImageName);
-        $request->marathi_image->storeAs('public/images/disaster_webportal', $marathiImageName);
+        $request->english_image->storeAs('public/images/disaster-webportal', $englishImageName);
+        $request->marathi_image->storeAs('public/images/disaster-webportal', $marathiImageName);
 
         $disaster_data->english_name = $request['english_name'];
         $disaster_data->marathi_name = $request['marathi_name'];
@@ -124,8 +124,8 @@ public function deleteById($id)
         if ($disaster_web_portal) {
              // Delete the images from the storage folder
              Storage::delete([
-                'public/images/disaster_webportal/'.$disaster_web_portal->english_image,
-                'public/images/disaster_webportal/'.$disaster_web_portal->marathi_image
+                'public/images/disaster-webportal/'.$disaster_web_portal->english_image,
+                'public/images/disaster-webportal/'.$disaster_web_portal->marathi_image
             ]);
 
             // Delete the record from the database
