@@ -36,7 +36,7 @@ class StateEmergencyOperationsCenterRepository  {
         $stateemergencyoperationscenter_data->english_image = $englishImageName; // Save the image filename to the database
         $stateemergencyoperationscenter_data->marathi_image = $marathiImageName; // Save the image filename to the database
         $stateemergencyoperationscenter_data->save();       
-    dd($stateemergencyoperationscenter_data);
+    // dd($stateemergencyoperationscenter_data);
    
         return $stateemergencyoperationscenter_data;
     } catch (\Exception $e) {
