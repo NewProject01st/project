@@ -28,16 +28,17 @@ class StateEmergencyOperationsCenterRepository  {
         $request->english_image->storeAs('public/images/state-emergency-operations-center', $englishImageName);
         $request->marathi_image->storeAs('public/images/state-emergency-operations-center', $marathiImageName);
 
-        $disastermanagementportal_data = new StateEmergencyOperationsCenter();
-        $disastermanagementportal_data->english_title = $request['english_title'];
-        $disastermanagementportal_data->marathi_title = $request['marathi_title'];
-        $disastermanagementportal_data->english_description = $request['english_description'];
-        $disastermanagementportal_data->marathi_description = $request['marathi_description'];
-        $disastermanagementportal_data->english_image = $englishImageName; // Save the image filename to the database
-        $disastermanagementportal_data->marathi_image = $marathiImageName; // Save the image filename to the database
-        $disastermanagementportal_data->save();       
-     
-        return $disastermanagementportal_data;
+        $stateemergencyoperationscenter_data = new StateEmergencyOperationsCenter();
+        $stateemergencyoperationscenter_data->english_title = $request['english_title'];
+        $stateemergencyoperationscenter_data->marathi_title = $request['marathi_title'];
+        $stateemergencyoperationscenter_data->english_description = $request['english_description'];
+        $stateemergencyoperationscenter_data->marathi_description = $request['marathi_description'];
+        $stateemergencyoperationscenter_data->english_image = $englishImageName; // Save the image filename to the database
+        $stateemergencyoperationscenter_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        $stateemergencyoperationscenter_data->save();       
+    dd($stateemergencyoperationscenter_data);
+   
+        return $stateemergencyoperationscenter_data;
     } catch (\Exception $e) {
         return [
             'msg' => $e,
@@ -49,9 +50,9 @@ class StateEmergencyOperationsCenterRepository  {
 public function getById($id)
 {
     try {
-        $statedisastermanagementauthority = StateEmergencyOperationsCenter::find($id);
-        if ($statedisastermanagementauthority) {
-            return $statedisastermanagementauthority;
+        $stateemergencyoperationscenter = StateEmergencyOperationsCenter::find($id);
+        if ($stateemergencyoperationscenter) {
+            return $stateemergencyoperationscenter;
         } else {
             return null;
         }
@@ -67,39 +68,39 @@ public function updateAll($request)
 {
    
     try {
-        $disastermanagementportal_data = StateEmergencyOperationsCenter::find($request->id);
+        $stateemergencyoperationscenter_data = StateEmergencyOperationsCenter::find($request->id);
         
-        if (!$disastermanagementportal_data) {
+        if (!$stateemergencyoperationscenter_data) {
             return [
-                'msg' => 'State Disaster Management Authority not found.',
+                'msg' => 'State Emergency Operations Center not found.',
                 'status' => 'error'
             ];
         }
         
         // Delete existing files
         Storage::delete([
-            'public/images/aboutus/' . $disastermanagementportal_data->english_image,
-            'public/images/aboutus/' . $disastermanagementportal_data->marathi_image
+            'public/images/state-emergency-operations-center/' . $stateemergencyoperationscenter_data->english_image,
+            'public/images/state-emergency-operations-center/' . $stateemergencyoperationscenter_data->marathi_image
         ]);
         
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/disaster-management-portal', $englishImageName);
-        $request->marathi_image->storeAs('public/images/disaster-management-portal', $marathiImageName);
+        $request->english_image->storeAs('public/images/state-emergency-operations-center', $englishImageName);
+        $request->marathi_image->storeAs('public/images/state-emergency-operations-center', $marathiImageName);
 
 
-        $disastermanagementportal_data = StateEmergencyOperationsCenter::find($request->id);
-        $disastermanagementportal_data->english_title = $request['english_title'];
-        $disastermanagementportal_data->marathi_title = $request['marathi_title'];
-        $disastermanagementportal_data->english_description = $request['english_description'];
-        $disastermanagementportal_data->marathi_description = $request['marathi_description'];
-        $disastermanagementportal_data->english_image = $englishImageName; // Save the image filename to the database
-        $disastermanagementportal_data->marathi_image = $marathiImageName; // Save the image filename to the database
-        $disastermanagementportal_data->save();       
+        $stateemergencyoperationscenter_data = StateEmergencyOperationsCenter::find($request->id);
+        $stateemergencyoperationscenter_data->english_title = $request['english_title'];
+        $stateemergencyoperationscenter_data->marathi_title = $request['marathi_title'];
+        $stateemergencyoperationscenter_data->english_description = $request['english_description'];
+        $stateemergencyoperationscenter_data->marathi_description = $request['marathi_description'];
+        $stateemergencyoperationscenter_data->english_image = $englishImageName; // Save the image filename to the database
+        $stateemergencyoperationscenter_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        $stateemergencyoperationscenter_data->save();       
      
         return [
-            'msg' => 'State Disaster Management Authority updated successfully.',
+            'msg' => 'State Emergency Operations Center updated successfully.',
             'status' => 'success'
         ];
     } catch (\Exception $e) {
@@ -114,18 +115,18 @@ public function updateAll($request)
 public function deleteById($id)
 {
     try {
-        $statedisastermanagementauthority = StateEmergencyOperationsCenter::find($id);
-        if ($statedisastermanagementauthority) {
+        $stateemergencyoperationscenter = StateEmergencyOperationsCenter::find($id);
+        if ($stateemergencyoperationscenter) {
             // Delete the images from the storage folder
             Storage::delete([
-                'public/images/aboutus/'.$statedisastermanagementauthority->english_image,
-                'public/images/aboutus/'.$statedisastermanagementauthority->marathi_image
+                'public/images/state-emergency-operations-center/'.$stateemergencyoperationscenter->english_image,
+                'public/images/state-emergency-operations-center/'.$stateemergencyoperationscenter->marathi_image
             ]);
 
             // Delete the record from the database
-            $statedisastermanagementauthority->delete();
+            $stateemergencyoperationscenter->delete();
             
-            return $statedisastermanagementauthority;
+            return $stateemergencyoperationscenter;
         } else {
             return null;
         }

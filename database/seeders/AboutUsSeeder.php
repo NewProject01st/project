@@ -81,6 +81,51 @@ class AboutUsSeeder extends Seeder
                
             ]);
 
+
+
+            ObjectiveGoals::create([
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now(),
+                'english_title' => '<b>Goals of Disaster Management</b>',
+                'marathi_title' => '<b>आपत्ती व्यवस्थापनाची उद्दिष्टे</b>',
+                'english_description' => '
+                The goals of a disaster management portal refer to the overarching objectives or desired outcomes that the portal aims to achieve. These goals typically revolve around improving disaster preparedness, response, and recovery efforts by providing access to information, resources to support effective disaster management. Some common goals of a disaster management portal include:<br>
+                
+               <ul>
+               <li>Enhancing Situational Awareness: The portal aims to provide real-time information and updates on disaster events, including their location, severity, and impact, to help stakeholders make informed decisions and respond effectively.</li>
+                
+                <li>Facilitating Communication: The portal seeks to enable effective communication and collaboration among various stakeholders involved in disaster management, including government agencies, emergency responders, relief organizations, and affected communities
+                .</li>
+                
+                <li>Promoting Preparedness and Planning: The portal aims to provide resources, guidelines, and tools for disaster preparedness and planning, helping individuals and organizations develop strategies, emergency response plans, and risk mitigation measures.</li>
+                
+               <li>Improving Response and Recovery Efforts: The portal aims to streamline the response and recovery processes by providing access to critical information, mapping tools, situational analysis, and coordination mechanisms to ensure timely and effective assistance to affected areas.
+               </li>
+                
+               <li>Enhancing Public Awareness and Education: The portal aims to raise public awareness about disaster risks, safety measures, and preparedness strategies through educational materials, interactive features, and campaigns.</li> 
+                
+              <li>Ensuring Accessibility and Inclusivity: The portal strives to be accessible to all users, including those with disabilities, by incorporating inclusive design principles and providing alternative formats for information dissemination.</li> 
+                
+               <li>Continuous Improvement and Learning: The portal seeks to foster a culture of continuous improvement by collecting feedback, conducting evaluations, and incorporating lessons learned from past disasters to enhance future disaster management efforts.</li>
+                </ul>',
+
+                'marathi_description' => 'आपत्ती व्यवस्थापन पोर्टलची उद्दिष्टे या पोर्टलचे उद्दिष्ट साध्य करण्याच्या व्यापक उद्दिष्टांचा किंवा इच्छित परिणामांचा संदर्भ घेतात. ही उद्दिष्टे सामान्यत: प्रभावी आपत्ती व्यवस्थापनास समर्थन देण्यासाठी माहिती, संसाधनांमध्ये प्रवेश प्रदान करून आपत्ती सज्जता, प्रतिसाद आणि पुनर्प्राप्ती प्रयत्न सुधारण्याभोवती फिरतात. आपत्ती व्यवस्थापन पोर्टलच्या काही सामान्य उद्दिष्टांमध्ये हे समाविष्ट आहे:<br>
+              <ul> 
+              <li>सार्वजनिक जागरुकता आणि शिक्षण वाढवणे: पोर्टलचे उद्दिष्ट शैक्षणिक साहित्य, संवादात्मक वैशिष्ट्ये आणि मोहिमांद्वारे आपत्ती धोके, सुरक्षा उपाय आणि सज्जता धोरणांबद्दल जनजागृती करणे हे आहे.</li>
+                <li>प्रवेशयोग्यता आणि सर्वसमावेशकता सुनिश्चित करणे: पोर्टल सर्व वापरकर्त्यांसाठी, अपंगांसह, सर्वसमावेशक डिझाइन तत्त्वे समाविष्ट करून आणि माहितीच्या प्रसारासाठी पर्यायी स्वरूप प्रदान करून, सर्व वापरकर्त्यांसाठी प्रवेशयोग्य होण्याचा प्रयत्न करते.</li>  
+                <li> सहाय्यक माहिती व्यवस्थापन: आपत्ती घटनांमध्ये निर्णय घेण्याच्या प्रक्रियेस समर्थन देण्यासाठी संबंधित डेटा, नकाशे, अहवाल आणि इतर माहिती गोळा करा, विश्लेषण करा आणि सादर करा.</li>
+                <li> घटना अहवाल सक्षम करणे: वापरकर्त्यांना परिस्थितीचे सर्वसमावेशक आकलन सुलभ करण्यासाठी आपत्तींशी संबंधित घटनांची तक्रार करण्याची परवानगी द्या, जसे की नुकसानाचे मूल्यांकन, पायाभूत सुविधा अपयश आणि संसाधनांच्या गरजा.</li>
+                <li>  डिजिटल संसाधन व्यवस्थापन: आपत्कालीन सेवा, मदत संस्था आणि आपत्ती प्रतिसादादरम्यान स्वयंसेवक गटांसह डिजिटल संसाधनांची निर्देशिका प्रदान करा.</li>
+                <li> संप्रेषण आणि सहयोग वाढवणे: आपत्ती व्यवस्थापनासाठी समन्वित आणि एकात्मिक दृष्टीकोन वाढविण्यासाठी सरकारी संस्था, ना-नफा संस्था आणि प्रभावित समुदायांसह भागधारकांमध्ये प्रभावी संवाद आणि सहयोग सुलभ करा.</li>
+                <li> सार्वजनिक जागरुकता आणि शिक्षणाचा प्रचार करणे: शैक्षणिक साहित्य, मोहिमा आणि प्रशिक्षण कार्यक्रमांद्वारे आपत्ती जोखीम, कमी करण्याच्या धोरणे आणि सुरक्षा उपायांबद्दल जनजागृती करणे.</li>
+                <li>सतत सुधारणा आणि शिक्षण: पोर्टल अभिप्राय गोळा करून, मूल्यमापन आयोजित करून आणि भविष्यातील आपत्ती व्यवस्थापन प्रयत्नांना बळ देण्यासाठी भूतकाळातील आपत्तींमधून शिकलेल्या धड्यांचा समावेश करून सतत सुधारणा करण्याची संस्कृती वाढवण्याचा प्रयत्न करते.</li>
+                 </ul> ',
+                'url' => 'goals',
+                'is_deleted' => false,
+                'is_active' => true,
+               
+            ]);
+
             StateDisasterManagementAuthority::create([
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),

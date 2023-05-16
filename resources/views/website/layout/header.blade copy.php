@@ -553,14 +553,14 @@
     <!--Departments & Information Desk End--> 
 
     <!--Recent Events Start-->
-    <section class="wf100 p75 recent-events">
+    <!-- <section class="wf100 p75 recent-events">
       <div class="container">
         <div class="row">
           <div class="col-md-5">
             <h3>Recent Events</h3>
-            <div class="recent-event-block"> 
+            <div class="recent-event-block">  -->
               <!--Slider Big Slider Start-->
-              <div class="recent-event-slider">
+              <!-- <div class="recent-event-slider">
                 <div class="event-big">
                   <div class="event-cap">
                     <h5><a href="#">2K23 Disaster Risk Reduction</a></h5>
@@ -571,39 +571,10 @@
                     <p> The National Disaster Management Authority (NDMA), headed by the Prime Minister of India, is the apex body for Disaster Management in India. </p>
                   </div>
                   <img src="{{ asset('website_files/images/home/e1.jpeg') }}" alt=""> </div>
-                <!-- <div class="event-big">
-                  <div class="event-cap">
-                    <h5><a href="#">Ohio Stormwater Conference</a></h5>
-                    <ul>
-                      <li><i class="fas fa-image"></i> 83 Photos</li>
-                      <li><i class="fas fa-play-circle"></i> 16 Videos</li>
-                    </ul>
-                    <p> The conference has grown from 399 attendees to over 1,000 in the past 15 years. </p>
-                  </div>
-                  <img src="{{ asset('website_files/images/home/e2.jpeg') }}" alt=""> </div> -->
-                <!-- <div class="event-big">
-                  <div class="event-cap">
-                    <h5><a href="#">Governors Hurricane Conference</a></h5>
-                    <ul>
-                      <li><i class="fas fa-image"></i> 83 Photos</li>
-                      <li><i class="fas fa-play-circle"></i> 16 Videos</li>
-                    </ul>
-                    <p> It was a good event, one particular program was overcrowded. A better plan for this presentation could have made a better situation. </p>
-                  </div>
-                  <img src="{{ asset('website_files/images/home/e4.jpeg') }}" alt=""> </div> -->
-                <!-- <div class="event-big">
-                  <div class="event-cap">
-                    <h5><a href="#">2K23 Conference</a></h5>
-                    <ul>
-                      <li><i class="fas fa-image"></i> 83 Photos</li>
-                      <li><i class="fas fa-play-circle"></i> 16 Videos</li>
-                    </ul>
-                    <p> The conference has grown from 399 attendees to over 1,000 in the past 15 years. </p>
-                  </div>
-                  <img src="{{ asset('website_files/images/home/e5.jpeg') }}" alt=""> </div> -->
-              </div>
+                
+              </div> -->
               <!--Slider Big Slider End--> 
-              <!--Slider Big Slider Nav-->
+              Slider Big Slider Nav
               <div class="recent-event-slider-nav">
                 <div><img src="{{ asset('website_files/images/home/e0.jpeg') }}" alt=""></div>
                 <div><img src="{{ asset('website_files/images/home/e02.jpeg') }}" alt=""></div>
@@ -611,19 +582,19 @@
                 <div><img src="{{ asset('website_files/images/home/05.jpeg') }}" alt=""></div>
               </div>
               <!--Slider Big Slider Nav--> 
-            </div>
+            <!-- </div>
           </div>
           <div class="col-md-7">
             <h3>Upcoming Schedules</h3>
             <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="active"><a href="#Events" aria-controls="Events" role="tab" data-toggle="tab">Next Events</a></li>
               <li role="presentation"><a href="#Meetings" aria-controls="Meetings" role="tab" data-toggle="tab">Meetings</a></li>
-            </ul>
+            </ul> -->
             <!-- Tab panes -->
-            <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="Events"> 
+            <!-- <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="Events">  -->
                 <!--Event List Start-->
-                <ul class="event-list">
+                <!-- <ul class="event-list">
                   <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00 pm</strong> </li>
                   <li><img src="images/chart.jpeg" alt=""></li>
                   <li class="el-title">
@@ -631,10 +602,10 @@
                     <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
                   </li>
                   <li> <a href="#" class="joinnow">Join Now</a> </li>
-                </ul>
+                </ul> -->
                 <!--Event List End--> 
                 <!--Event List Start-->
-                <ul class="event-list">
+                <!-- <ul class="event-list">
                   <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00 pm</strong> </li>
                   <li><img src="images/chart.jpeg" alt=""></li>
                   <li class="el-title">
@@ -642,10 +613,10 @@
                     <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
                   </li>
                   <li> <a href="#" class="joinnow">Join Now</a> </li>
-                </ul>
+                </ul> -->
                 <!--Event List End--> 
                 <!--Event List Start-->
-                <ul class="event-list">
+                <!-- <ul class="event-list">
                   <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00 pm</strong> </li>
                   <li><img src="images/chart.jpeg" alt=""></li>
                   <li class="el-title">
@@ -653,10 +624,10 @@
                     <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
                   </li>
                   <li> <a href="#" class="joinnow">Join Now</a> </li>
-                </ul>
+                </ul> -->
                 <!--Event List End--> 
                 <!--Event List Start-->
-                <ul class="event-list">
+                <!-- <ul class="event-list">
                   <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00 pm</strong> </li>
                   <li><img src="images/chart.jpeg" alt=""></li>
                   <li class="el-title">
@@ -664,12 +635,12 @@
                     <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
                   </li>
                   <li> <a href="#" class="joinnow">Join Now</a> </li>
-                </ul>
+                </ul> -->
                 <!--Event List End--> 
-              </div>
-              <div role="tabpanel" class="tab-pane" id="Meetings"> 
+              <!-- </div>
+              <div role="tabpanel" class="tab-pane" id="Meetings">  -->
                 <!--Event List Start-->
-                <ul class="event-list">
+                <!-- <ul class="event-list">
                   <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00 pm</strong> </li>
                   <li><img src="images/meeting.jpeg" alt=""></li>
                   <li class="el-title">
@@ -677,10 +648,10 @@
                     <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
                   </li>
                   <li> <a href="#" class="joinnow">Join Now</a> </li>
-                </ul>
+                </ul> -->
                 <!--Event List End--> 
                 <!--Event List Start-->
-                <ul class="event-list">
+                <!-- <ul class="event-list">
                   <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00 pm</strong> </li>
                   <li><img src="images/meeting.jpeg" alt=""></li>
                   <li class="el-title">
@@ -688,10 +659,10 @@
                     <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
                   </li>
                   <li> <a href="#" class="joinnow">Join Now</a> </li>
-                </ul>
+                </ul> -->
                 <!--Event List End--> 
                 <!--Event List Start-->
-                <ul class="event-list">
+                <!-- <ul class="event-list">
                   <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00 pm</strong> </li>
                   <li><img src="images/meeting.jpeg" alt=""></li>
                   <li class="el-title">
@@ -699,10 +670,10 @@
                     <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
                   </li>
                   <li> <a href="#" class="joinnow">Join Now</a> </li>
-                </ul>
+                </ul> -->
                 <!--Event List End--> 
                 <!--Event List Start-->
-                <ul class="event-list">
+                <!-- <ul class="event-list">
                   <li> <strong class="edate">30 May, 2023</strong> <strong class="etime">09:00 pm</strong> </li>
                   <li><img src="images/meeting.jpeg" alt=""></li>
                   <li class="el-title">
@@ -710,14 +681,14 @@
                     <p><i class="fas fa-map-marker-alt"></i> DMS Office, India</p>
                   </li>
                   <li> <a href="#" class="joinnow">Join Now</a> </li>
-                </ul>
+                </ul> -->
                 <!--Event List End--> 
-              </div>
+              <!-- </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!--Recent Events End--> 
 
         <!-- Explore Community Start-->
@@ -735,8 +706,7 @@
               <li> <a href="#"> <img src="{{ asset('website_files/images/home/excomm-icon4.png') }}" alt=""> Law Enforcement </a> </li>
               <li> <a href="#"> <img src="{{ asset('website_files/images/home/excomm-icon4.png') }}" alt=""> Administration </a> </li>
               <li> <a href="#"> <img src="{{ asset('website_files/images/home/excomm-icon4.png') }}" alt=""> Volunteer Management </a> </li>
-              <!-- <li> <a href="#"> <img src="images/excomm-icon9.png" alt=""> City Council </a> </li>
-              <li> <a href="#"> <img src="images/excomm-icon10.png" alt=""> Important Numbers </a> </li> -->
+              
             </ul>
           </div>
           <div class="col-md-6">
@@ -750,7 +720,7 @@
     </section>
     <!-- Explore Community End-->
 
-    <section class="wf100 home3 emergency-numbers">
+    <!-- <section class="wf100 home3 emergency-numbers">
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-sm-5">
@@ -797,7 +767,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!--Footer Start-->
   <footer class="home3 main-footer wf100">
