@@ -15,8 +15,10 @@ class CreateEmergencyContactsTable extends Migration
     {
         Schema::create('emergency_contacts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('english_name');
-            $table->text('marathi_name');
+            $table->text('english_title');
+            $table->text('marathi_title');
+            $table->string('english_name');
+            $table->string('marathi_name');
             $table->text('english_address');
             $table->text('marathi_address');
             $table->string('email');

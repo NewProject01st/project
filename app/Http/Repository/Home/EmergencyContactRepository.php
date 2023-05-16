@@ -24,6 +24,8 @@ class EmergencyContactRepository  {
     try {
         
         $contact_data = new EmergencyContact();  
+        $contact_data->english_title = $request['english_title'];
+        $contact_data->marathi_title = $request['marathi_title'];
         $contact_data->english_name = $request['english_name'];
         $contact_data->marathi_name = $request['marathi_name'];
         $contact_data->english_address = $request['english_address'];
@@ -73,7 +75,8 @@ public function updateAll($request)
                 'status' => 'error'
             ];
         }
-                
+        $contact_data->english_title = $request['english_title'];
+        $contact_data->marathi_title = $request['marathi_title'];
         $contact_data->english_name = $request['english_name'];
         $contact_data->marathi_name = $request['marathi_name'];
         $contact_data->english_address = $request['english_address'];

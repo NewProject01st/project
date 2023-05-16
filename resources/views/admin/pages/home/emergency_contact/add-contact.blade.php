@@ -24,9 +24,30 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_name">English Name</label>
-                                        <textarea class="form-control english_title" name="english_name"
-                                            id="english_name" placeholder="Enter the Name"></textarea>
+                                        <label for="english_title">Title English</label>
+                                        <textarea class="form-control english_title" name="english_title"
+                                            id="english_title" placeholder="Enter the Title"></textarea>
+                                        @if ($errors->has('english_title'))
+                                        <span
+                                            class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="marathi_title">Title Marathi</label>
+                                        <textarea class="form-control marathi_title" name="marathi_title"
+                                            id="marathi_title" placeholder="Enter the Title"></textarea>
+                                        @if ($errors->has('marathi_title'))
+                                        <span
+                                            class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="english_name">Name English</label><br>
+                                        <input type="text" name="english_name" id="english_name" class="form-control">
                                         @if ($errors->has('english_name'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_name', ':message'); ?></span>
@@ -35,9 +56,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_name">Marathi Name</label>
-                                        <textarea class="form-control marathi_title" name="marathi_name"
-                                            id="marathi_name" placeholder="Enter the Name"></textarea>
+                                        <label for="marathi_name">Name Marathi</label><br>
+                                        <input type="text" name="marathi_name" id="marathi_name" class="form-control">
                                         @if ($errors->has('marathi_name'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_name', ':message'); ?></span>
