@@ -17,7 +17,7 @@ class CreateSlidersTable extends Migration
             $table->id();
             $table->string('english_image');
             $table->string('marathi_image');
-            $table->string('is_deleted')->default(true);
+            $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             // Add more columns here
             $table->timestamps();

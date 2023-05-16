@@ -102,7 +102,7 @@
               </ul>
             </div>
             <div class="col-md-4 col-sm-4">
-              <div class="h3-logo"> <a href="index.html"><img src="images/DMS.png" alt="" style="width: 50%;"></a></div>
+              <div class="h3-logo"> <a href="index.html"><img src="{{ asset('website_files/images/home/DMS.png') }}"  alt="" style="width: 50%;"></a></div>
             </div>
             <div class="col-md-4 col-sm-4">
               <ul class="header-contact">
@@ -172,3 +172,6 @@
           </div>
       </div>
   </div>
+ 
+
+

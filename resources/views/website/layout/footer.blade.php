@@ -89,6 +89,16 @@
         });
     });
 </script>
+
+<script>
+    $(document).ready(function() {
+        $('.marquee-scroll').hover(function() {
+            $(this).attr('scrollamount', '0');
+        }, function() {
+            $(this).attr('scrollamount', '10');
+        });
+    });
+    </script>
 </body>
 
 </html>

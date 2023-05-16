@@ -24,7 +24,7 @@ class CreateEmergencyContactsTable extends Migration
             $table->bigInteger('marathi_number');
             $table->bigInteger('english_landline_no');
             $table->bigInteger('marathi_landline_no');
-            $table->string('is_deleted')->default(true);
+            $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

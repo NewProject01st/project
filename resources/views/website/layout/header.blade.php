@@ -44,7 +44,7 @@
     <link href="{{ asset('website_files/assets/bootstrap-5.0.2-dist/css/bootstrap.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/assets/bootstrap-5.0.2-dist/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/assets/font-awesome.min') }}" type="text/css" rel="stylesheet">
-    <!-- <script src="{{ asset('website_files/assets/bootstrap-5.0.2-dist/js/jquery.min.js') }}"></script> -->
+     <script src="{{ asset('website_files/assets/bootstrap-5.0.2-dist/js/jquery.min.js') }}"></script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -146,7 +146,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div> 
 
 
 

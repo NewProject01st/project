@@ -21,7 +21,7 @@ class CreateGeneralContactsTable extends Migration
             $table->bigInteger('marathi_number');
             $table->string('english_icon');
             $table->string('marathi_icon');
-            $table->string('is_deleted')->default(true);
+            $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

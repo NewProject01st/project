@@ -2,20 +2,20 @@
 @section('content')
     <div class="main-content">
         {{-- Start Marquee --}}
-        <section class="">
+        <section class="marquee-main">
             <div class="container">
                 @foreach ($data_output_marquee as $item)
-                    <div class="container-fluid">
+                    <div class="container">
                         @if (session('language') == 'mar')
                             <div>
-                                <marquee behavior="scroll" direction="left" scrollamount="10">
+                                <marquee class="marquee-scroll" behavior="scroll" direction="left" scrollamount="10">
                                     {{ $item['marathi_title'] }}
                                 </marquee>
                             </div>
                         @elseif (array_key_exists('english_title', $item))
                             <div>
-                                <marquee behavior="scroll" direction="left" scrollamount="10">
-                                    <?php echo $item['english_title']; ?>
+                                <marquee class="marquee-scroll" behavior="scroll" direction="left" scrollamount="10">
+                                    <h6><?php echo $item['english_title']; ?></h6>
                                 </marquee>
                             </div>
                         @endif
@@ -26,31 +26,47 @@
         {{-- End Marquee --}}
         {{-- Start Slider --}}
         <section>
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <ol class="carousel-indicators">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
                     @foreach ($data_output_slider as $slider)
-                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $loop->index }}"
-                            class="{{ $loop->first ? 'active' : '' }}"></li>
-                    @endforeach
-                </ol>
-                <div class="carousel-inner">
-                    @foreach ($data_output_slider as $slider)
-                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                            <img src="{{ asset('storage/images/slides/' . $slider['english_image']) }}"
-                                class="d-block w-100">
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{ $loop->index }}"
+                            class="{{ $loop->first ? 'active' : '' }}" aria-current="true" aria-label="Slide 1"></button>
                     @endforeach
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                <div class="carousel-inner">
+                    @foreach ($data_output_slider as $slider)
+                        @if (session('language') == 'mar')
+                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
+                                <img src="{{ asset('storage/images/slides/' . $slider['marathi_image']) }}"
+                                    class="d-block w-100" alt="...">
+
+                                {{-- <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div> --}}
+                            </div>
+                        @elseif (array_key_exists('english_title', $item))
+                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
+                                <img src="{{ asset('storage/images/slides/' . $slider['english_image']) }}"
+                                    class="d-block w-100" alt="...">
+                                {{-- <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div> --}}
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
-                </a>
+                </button>
             </div>
         </section>
         {{-- End Slider --}}
@@ -319,35 +335,35 @@
                                     <img src="{{ asset('website_files/images/home/e1.jpeg') }}" alt="">
                                 </div>
                                 <!-- <div class="event-big">
-                                      <div class="event-cap">
-                                        <h5><a href="#">Ohio Stormwater Conference</a></h5>
-                                        <ul>
-                                          <li><i class="fas fa-image"></i> 83 Photos</li>
-                                          <li><i class="fas fa-play-circle"></i> 16 Videos</li>
-                                        </ul>
-                                        <p> The conference has grown from 399 attendees to over 1,000 in the past 15 years. </p>
-                                      </div>
-                                      <img src="{{ asset('website_files/images/home/e2.jpeg') }}" alt=""> </div> -->
+                                                  <div class="event-cap">
+                                                    <h5><a href="#">Ohio Stormwater Conference</a></h5>
+                                                    <ul>
+                                                      <li><i class="fas fa-image"></i> 83 Photos</li>
+                                                      <li><i class="fas fa-play-circle"></i> 16 Videos</li>
+                                                    </ul>
+                                                    <p> The conference has grown from 399 attendees to over 1,000 in the past 15 years. </p>
+                                                  </div>
+                                                  <img src="{{ asset('website_files/images/home/e2.jpeg') }}" alt=""> </div> -->
                                 <!-- <div class="event-big">
-                                      <div class="event-cap">
-                                        <h5><a href="#">Governors Hurricane Conference</a></h5>
-                                        <ul>
-                                          <li><i class="fas fa-image"></i> 83 Photos</li>
-                                          <li><i class="fas fa-play-circle"></i> 16 Videos</li>
-                                        </ul>
-                                        <p> It was a good event, one particular program was overcrowded. A better plan for this presentation could have made a better situation. </p>
-                                      </div>
-                                      <img src="{{ asset('website_files/images/home/e4.jpeg') }}" alt=""> </div> -->
+                                                  <div class="event-cap">
+                                                    <h5><a href="#">Governors Hurricane Conference</a></h5>
+                                                    <ul>
+                                                      <li><i class="fas fa-image"></i> 83 Photos</li>
+                                                      <li><i class="fas fa-play-circle"></i> 16 Videos</li>
+                                                    </ul>
+                                                    <p> It was a good event, one particular program was overcrowded. A better plan for this presentation could have made a better situation. </p>
+                                                  </div>
+                                                  <img src="{{ asset('website_files/images/home/e4.jpeg') }}" alt=""> </div> -->
                                 <!-- <div class="event-big">
-                                      <div class="event-cap">
-                                        <h5><a href="#">2K23 Conference</a></h5>
-                                        <ul>
-                                          <li><i class="fas fa-image"></i> 83 Photos</li>
-                                          <li><i class="fas fa-play-circle"></i> 16 Videos</li>
-                                        </ul>
-                                        <p> The conference has grown from 399 attendees to over 1,000 in the past 15 years. </p>
-                                      </div>
-                                      <img src="{{ asset('website_files/images/home/e5.jpeg') }}" alt=""> </div> -->
+                                                  <div class="event-cap">
+                                                    <h5><a href="#">2K23 Conference</a></h5>
+                                                    <ul>
+                                                      <li><i class="fas fa-image"></i> 83 Photos</li>
+                                                      <li><i class="fas fa-play-circle"></i> 16 Videos</li>
+                                                    </ul>
+                                                    <p> The conference has grown from 399 attendees to over 1,000 in the past 15 years. </p>
+                                                  </div>
+                                                  <img src="{{ asset('website_files/images/home/e5.jpeg') }}" alt=""> </div> -->
                             </div>
                             <!--Slider Big Slider End-->
                             <!--Slider Big Slider Nav-->
@@ -501,7 +517,7 @@
                             <li> <a href="#"> <img src="{{ asset('website_files/images/home/excomm-icon4.png') }}"
                                         alt=""> Volunteer Management </a> </li>
                             <!-- <li> <a href="#"> <img src="images/excomm-icon9.png" alt=""> City Council </a> </li>
-                                  <li> <a href="#"> <img src="images/excomm-icon10.png" alt=""> Important Numbers </a> </li> -->
+                                              <li> <a href="#"> <img src="images/excomm-icon10.png" alt=""> Important Numbers </a> </li> -->
                         </ul>
                     </div>
                     <div class="col-md-6">

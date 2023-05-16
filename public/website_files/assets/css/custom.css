@@ -54,7 +54,7 @@ body h6 {
 	font-size: 18px;
 }
 .wf100 {
-	width: 100%;
+	width: 100% !important;
 	float: left;
 }
 .p80 {
@@ -247,8 +247,8 @@ header {
 /***************  Sub Header Start  *****************/
 
 .subheader {
-	/* background: url(../images/header.jpeg) no-repeat; */
-	background-size: cover;
+	background: url(../../../storage/images//aboutus/header.jpeg) no-repeat !important;
+	background-size: cover !important;
 	padding: 110px 0;
 }
 .subheader h2 {
@@ -277,10 +277,20 @@ header {
 }
 /***************  Sub Header End  *****************/
 
-
-
 /******** + ========== + Header End + ========== + ********/
 
+
+/******** + ========== + Main Marquee Start + ========== + ********/
+.marquee-main{
+	background-color: #144b8b;
+	
+	padding: 10px 0px 10px 0px;
+	font-family: 'Montserrat', sans-serif;
+}
+.marquee-main h6{
+	color: #fff !important;
+}
+/******** + ========== + Main Marquee End + ========== + ********/
 
 /******** + ========== + Main Slider Start + ========== + ********/
 
@@ -3653,10 +3663,10 @@ ul.check-list i {
 	margin: 0 0 20px;
 }
 .deprt-txt p {
-	margin: 0 0 15px;
+	margin: 0 0 15px !important;
 	color: #777;
-	line-height: 24px;
-	font-size: 16px;
+	line-height: 24px !important;
+	font-size: 16px !important;
 }
 .deprt-txt h5 {
 	font-weight: 700;
