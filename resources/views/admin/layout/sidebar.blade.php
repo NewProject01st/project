@@ -69,25 +69,25 @@
                                   href="{{ route('list-marquee') }}">Marquee</a></li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-slide') }}">Slider</a></li>
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                    href="{{ route('list-disaster-management-web-portal') }}">Disaster Web Portal</a></li>
-                                    <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                        href="{{ route('list-disaster-management-news') }}">Disaster Management News</a></li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-disaster-management-web-portal') }}">Disaster Web Portal</a></li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-disaster-management-news') }}">Disaster Management News</a></li>
 
-                                <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                href="{{ route('list-weather') }}">Weather</a></li>
-                                <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                    href="{{ route('list-disasterforcast') }}">Disaster Forcast</a></li>
-                       
-                    
-                          
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-weather') }}">Weather</a></li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-disasterforcast') }}">Disaster Forcast</a></li>
+
+
+
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-emergency-contact') }}">Emergency Contact</a></li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-home-tender') }}">Tenders</a></li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-general-contact') }}">General Contact</a></li>
-                         
+
 
                       </ul>
                   </div>
@@ -117,6 +117,30 @@
                   </div>
               </li>
               <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
+                      aria-controls="page-layouts">
+                      <i class="fa fa-th-large menu-icon"></i>
+                      <span class="menu-title">Preparedness</span>
+                      <i class="menu-arrow"></i>
+                  </a>
+
+                  <div class="collapse" id="page-layouts">
+                      <ul class="nav flex-column sub-menu">
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-hazard-vulnerability-assessment') }}">Hazard and Vulnerability
+                              </a>
+                          </li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-early-warning-system') }}">Early Warning System</a>
+                          </li>
+                          <li class="nav-item d-none d-lg-block">
+                              <a class="nav-link" href="">Capacity building and training</a>
+                          </li>
+
+                      </ul>
+                  </div>
+              </li>
+              <li class="nav-item">
                   <a class="nav-link" href="{{ route('list-tenders') }}">
                       <i class="fas fa-window-restore menu-icon"></i>
                       <span class="menu-title">Tender</span>
@@ -135,11 +159,11 @@
                   </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('list-metadata') }}">
-                    <i class="fas fa-window-restore menu-icon"></i>
-                    <span class="menu-title">Metadata</span>
-                </a>
-            </li>
+                  <a class="nav-link" href="{{ route('list-metadata') }}">
+                      <i class="fas fa-window-restore menu-icon"></i>
+                      <span class="menu-title">Metadata</span>
+                  </a>
+              </li>
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                       aria-controls="page-layouts">

@@ -33,7 +33,9 @@ class DatabaseSeeder extends Seeder
         $this->call(DisasterManagementWebPortalSeeder::class);    
         $this->call(DisasterForcastSeeder::class);
         $this->call(WeatherSeeder::class);  
-        $this->call(MetaDataSeeder::class);        
+        $this->call(MetaDataSeeder::class);   
+        $this->call(HazardVulnerabilitySeeder::class);        
+     
       
         
     }

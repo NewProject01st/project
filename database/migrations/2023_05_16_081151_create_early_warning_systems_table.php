@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmergencyContactsTable extends Migration
+class CreateEarlyWarningSystemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,14 @@ class CreateEmergencyContactsTable extends Migration
      */
     public function up()
     {
-        Schema::create('emergency_contacts', function (Blueprint $table) {
+        Schema::create('early_warning_systems', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('english_title');
             $table->text('marathi_title');
-            $table->string('english_name');
-            $table->string('marathi_name');
-            $table->text('english_address');
-            $table->text('marathi_address');
-            $table->string('email');
-            $table->bigInteger('english_number');
-            $table->bigInteger('marathi_number');
-            $table->bigInteger('english_landline_no');
-            $table->bigInteger('marathi_landline_no');
+            $table->text('english_description');
+            $table->text('marathi_description');
+            $table->string('english_image');
+            $table->string('marathi_image');
             $table->string('is_deleted')->default(true);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
@@ -39,6 +34,6 @@ class CreateEmergencyContactsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('emergency_contacts');
+        Schema::dropIfExists('early_warning_systems');
     }
 }

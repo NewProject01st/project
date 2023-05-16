@@ -26,6 +26,22 @@
                             <div class="col-12">
                                 <div class="row ">
                                     <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label>English Title :</label>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label><?php echo $emergency_contacts->english_title ?></label>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label>Marathi Title :</label>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label><?php echo $emergency_contacts->marathi_title ?></label>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>English Name :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">

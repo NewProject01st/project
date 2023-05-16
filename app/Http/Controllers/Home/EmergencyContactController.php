@@ -30,6 +30,8 @@ class EmergencyContactController extends Controller
 
     public function store(Request $request) {
         $rules = [
+            'english_title' => 'required',
+            'marathi_title' => 'required',
             'english_name' => 'required',
             'marathi_name' => 'required',
             'english_address' => 'required',
@@ -42,6 +44,8 @@ class EmergencyContactController extends Controller
             
          ];
     $messages = [   
+        'english_title' => 'required',
+         'marathi_title' => 'required',
         'english_name' => 'required',
         'marathi_name' => 'required',
         'english_address' => 'required',
