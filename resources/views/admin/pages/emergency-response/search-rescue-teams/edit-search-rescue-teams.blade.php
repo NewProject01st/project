@@ -5,12 +5,12 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Disaster Management Portal
+                    Search Rescue Team
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Update Disaster Management Portal</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Update Search Rescue Team</li>
                     </ol>
                 </nav>
             </div>
@@ -18,14 +18,14 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action='{{ route('update-disastermanagementportal') }}'
+                            <form class="forms-sample" action='{{ route('update-search-rescue-teams') }}'
                                 method="post" id="regForm" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>
-                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">{{ $disastermanagementportal->english_title }}</textarea>
+                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">{{ $searchrescueteams->english_title }}</textarea>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -34,7 +34,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi</label>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">{{ $disastermanagementportal->marathi_title }}</textarea>
+                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">{{ $searchrescueteams->marathi_title }}</textarea>
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -44,7 +44,7 @@
                                         <div class="form-group">
                                             <label for="english_description">Description English</label>
                                             <textarea class="form-control english_description" name="english_description" id="english_description"
-                                                placeholder="Enter the Description">{{ $disastermanagementportal->english_description }}</textarea>
+                                                placeholder="Enter the Description">{{ $searchrescueteams->english_description }}</textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
                                             @endif
@@ -54,7 +54,7 @@
                                         <div class="form-group">
                                             <label for="marathi_description"> Description Marathi</label>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
-                                                placeholder="Enter the Description">{{ $disastermanagementportal->marathi_description }}</textarea>
+                                                placeholder="Enter the Description">{{ $searchrescueteams->marathi_description }}</textarea>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
                                             @endif
@@ -69,7 +69,7 @@
                                                 <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <img src="{{ asset('storage/images/disaster-management-portal/' . $disastermanagementportal->english_image) }}"
+                                        <img src="{{ asset('storage/images/search-rescue-teams/' . $searchrescueteams->english_image) }}"
                                             class="img-fluid img-thumbnail" width="150">
                                     </div>
                                     <div class="col-md-6">
@@ -81,18 +81,18 @@
                                                 <span class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <img src="{{ asset('storage/images/disaster-management-portal/' . $disastermanagementportal->marathi_image) }}"
+                                        <img src="{{ asset('storage/images/search-rescue-teams/' . $searchrescueteams->marathi_image) }}"
                                             class="img-fluid img-thumbnail" width="150">
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Update</button>
                                         <button type="submit" class="btn btn-danger">Cancel</button>
-                                        <span><a href="{{ route('list-disastermanagementportal') }}"
+                                        <span><a href="{{ route('list-search-rescue-teams') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
                                 </div>
                                 <input type="hidden" name="id" id="id" class="form-control"
-                                    value="{{ $disastermanagementportal->id }}" placeholder="">
+                                    value="{{ $searchrescueteams->id }}" placeholder="">
 
                             </form>
                         </div>

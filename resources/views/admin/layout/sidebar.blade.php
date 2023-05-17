@@ -133,6 +133,9 @@
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-early-warning-system') }}">Early Warning System</a>
                           </li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                            href="{{ route('list-test') }}">Test</a>
+                    </li>
                           <li class="nav-item d-none d-lg-block">
                               <a class="nav-link" href="">Capacity building and training</a>
                           </li>
@@ -157,9 +160,16 @@
                         <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                 href="{{ route('list-district-emergency-operations-center') }}">District Emergency Operations Center (DEOC)</a>
                         </li>
-                        {{-- <li class="nav-item d-none d-lg-block">
-                            <a class="nav-link" href="">Capacity building and training</a>
-                        </li> --}}
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                            href="{{ route('list-evacuation-plans') }}">Evacuation Plans</a>
+                    </li>
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                        href="{{ route('list-relief-measures-resources') }}">Relief Measures Resources</a>
+                </li>
+                <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                    href="{{ route('list-search-rescue-teams') }}">Search Rescue Teams</a>
+            </li>
+                    
 
                     </ul>
                 </div>

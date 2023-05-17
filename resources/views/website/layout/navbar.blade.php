@@ -115,7 +115,7 @@
 
 
 
-              <ul>
+              {{-- <ul>
         <li>
             <strong>
                 @if (session('language') == 'mar')
@@ -138,7 +138,7 @@
                 ?>>Marathi</option>
             </select>
         </li>
-    </ul>
+    </ul> --}}
             </div>
           </div>
         </div>
