@@ -5,13 +5,13 @@
          <div class="content-wrapper">
              <div class="page-header">
                  <h3 class="page-title">
-                    Disaster Management Portal List <a href="{{ route('add-disastermanagementportal') }}"
+                    Evacuation Plans List <a href="{{ route('add-evacuation-plans') }}"
                          class="btn btn-sm btn-primary ml-3">+ Add</a>
                  </h3>
                  <nav aria-label="breadcrumb">
                      <ol class="breadcrumb">
                          <li class="breadcrumb-item"><a href="#">Master Management</a></li>
-                         <li class="breadcrumb-item active" aria-current="page"> Disaster Management Portal</li>
+                         <li class="breadcrumb-item active" aria-current="page"> Evacuation Plans</li>
                      </ol>
                  </nav>
              </div>
@@ -37,7 +37,7 @@
                                                  </tr>
                                              </thead>
                                              <tbody>
-                                                 @foreach ($disastermanagementportal as $item)
+                                                 @foreach ($evacuationplans as $item)
                                                      <tr>
                                                          <td>{{ $loop->iteration }}</td>
                                                          <td><?php echo $item->english_title; ?></td>
@@ -45,10 +45,10 @@
                                                          <td><?php echo $item->english_description; ?></td>
                                                          <td><?php echo $item->marathi_description; ?></td>
                                                          <td> <img
-                                                                 src="{{ asset('storage/images/disaster-management-portal/' . $item->english_image) }}" />
+                                                                 src="{{ asset('storage/images/evacuation-plans/' . $item->english_image) }}" />
                                                          </td>
                                                          <td> <img
-                                                                 src="{{ asset('storage/images/disaster-management-portal/' . $item->marathi_image) }}" />
+                                                                 src="{{ asset('storage/images/evacuation-plans/' . $item->marathi_image) }}" />
                                                          </td>
                                                          <!-- <td>
                                                                 <span class="badge badge-success">Active</span>
@@ -81,15 +81,15 @@
                  </div>
              </div>
          </div>
-         <form method="POST" action="{{ url('/delete-disastermanagementportal') }}" id="deleteform">
+         <form method="POST" action="{{ url('/delete-evacuation-plans') }}" id="deleteform">
              @csrf
              <input type="hidden" name="delete_id" id="delete_id" value="">
          </form>
-         <form method="POST" action="{{ url('/show-disastermanagementportal') }}" id="showform">
+         <form method="POST" action="{{ url('/show-evacuation-plans') }}" id="showform">
              @csrf
              <input type="hidden" name="show_id" id="show_id" value="">
          </form>
-         <form method="POST" action="{{ url('/edit-disastermanagementportal') }}" id="editform">
+         <form method="POST" action="{{ url('/edit-evacuation-plans') }}" id="editform">
              @csrf
              <input type="hidden" name="edit_id" id="edit_id" value="">
          </form>

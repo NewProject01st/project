@@ -57,8 +57,8 @@ class StateEmergencyOperationsCenterController extends Controller
         else
         {
             $add_stateemergencyoperationscenter = $this->service->addAll($request);
-            dd($add_stateemergencyoperationscenter);
-            die();
+            // dd($add_stateemergencyoperationscenter);
+            // die();
             if($add_stateemergencyoperationscenter)
             {
 
