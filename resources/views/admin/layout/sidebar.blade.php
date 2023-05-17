@@ -133,8 +133,8 @@
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-early-warning-system') }}">Early Warning System</a>
                           </li>
-                          <li class="nav-item d-none d-lg-block">
-                              <a class="nav-link" href="">Capacity building and training</a>
+                          <li class="nav-item d-none d-lg-block"> <a class="nav-link"
+                                  href="{{ route('list-capacity-building-and-training') }}">Capacity training</a>
                           </li>
 
                       </ul>

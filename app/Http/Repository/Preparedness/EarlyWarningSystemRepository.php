@@ -117,8 +117,8 @@ public function deleteById($id)
         if ($warning) {
               // Delete the images from the storage folder
               Storage::delete([
-                'public/images/early-warning/'.$hazard->english_image,
-                'public/images/early-warning/'.$hazard->marathi_image
+                'public/images/early-warning/'.$warning->english_image,
+                'public/images/early-warning/'.$warning->marathi_image
             ]);
 
             // Delete the record from the database
