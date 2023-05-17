@@ -33,7 +33,7 @@ class StateEmergencyOperationsCenterSeeder extends Seeder
             </li>
             <li><b>Support to Local EOCs:</b> The State EOC provides support and guidance to local emergency operations centers (EOCs) located in different regions or municipalities within the state. It assists in coordinating resources, sharing information, and addressing operational challenges faced by local EOCs during emergencies. The State EOC serves as a liaison between local, state, and federal agencies to facilitate effective interagency collaboration and resource sharing.
             </li>
-             </ul> ';
+             </ul> ',
             'marathi_description' => 'राज्य आपत्कालीन ऑपरेशन केंद्र (EOC) ही आपत्ती किंवा मोठ्या आपत्कालीन परिस्थितीत आपत्कालीन प्रतिसाद क्रियाकलापांचे समन्वय आणि व्यवस्थापन करण्यासाठी सरकारने स्थापन केलेली केंद्रीकृत सुविधा आहे. हे आपत्ती व्यवस्थापनासाठी चेता केंद्र म्हणून काम करते आणि राज्य स्तरावर आपत्कालीन प्रतिसादात सहभागी असलेल्या प्रमुख एजन्सी, विभाग आणि भागधारकांना एकत्र आणते. राज्य EOC चे स्पष्टीकरण आणि आपत्ती आपत्कालीन प्रतिसादात त्याची भूमिका येथे आहे: <br> 
             <ul>
             <li>राज्य आपत्कालीन ऑपरेशन केंद्र (EOC) ही आपत्ती किंवा मोठ्या आपत्कालीन परिस्थितीत आपत्कालीन प्रतिसाद क्रियाकलापांचे समन्वय आणि व्यवस्थापन करण्यासाठी सरकारने स्थापन केलेली केंद्रीकृत सुविधा आहे. हे आपत्ती व्यवस्थापनासाठी चेता केंद्र म्हणून काम करते आणि राज्य स्तरावर आपत्कालीन प्रतिसादात सहभागी असलेल्या प्रमुख एजन्सी, विभाग आणि भागधारकांना एकत्र आणते. राज्य EOC चे स्पष्टीकरण आणि आपत्ती आपत्कालीन प्रतिसादात त्याची भूमिका येथे आहे:
@@ -52,7 +52,6 @@ class StateEmergencyOperationsCenterSeeder extends Seeder
             ',
             'english_image' => 'slide_english.jpeg',
             'marathi_image' => 'slide_marathi.jpeg',
-            'url' => 'disaster',
             'is_deleted'=>false,
             'is_active'=>true,
         ]);

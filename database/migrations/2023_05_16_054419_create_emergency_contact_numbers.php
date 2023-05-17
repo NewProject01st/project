@@ -28,6 +28,7 @@ class CreateEmergencyContactNumbers extends Migration
             $table->string('marathi_image');
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
+            $table->timestamps();
         });
     }
 

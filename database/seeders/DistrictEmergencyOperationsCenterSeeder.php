@@ -53,7 +53,6 @@ class DistrictEmergencyOperationsCenterSeeder extends Seeder
             ',
             'english_image' => 'slide_english.jpeg',
             'marathi_image' => 'slide_marathi.jpeg',
-            'url' => 'disaster',
             'is_deleted'=>false,
             'is_active'=>true,
         ]);
