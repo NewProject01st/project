@@ -169,11 +169,6 @@
                 <li class="nav-item d-none d-lg-block"><a class="nav-link"
                     href="{{ route('list-search-rescue-teams') }}">Search Rescue Teams</a>
             </li>
-                    
-
-                    </ul>
-                </div>
-            </li>
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('list-tenders') }}">
                       <i class="fas fa-window-restore menu-icon"></i>

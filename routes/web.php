@@ -270,14 +270,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/delete-search-rescue-teams', ['as' => 'delete-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@destroy']);
 
 
-    Route::get('/list-test', ['as' => 'list-test', 'uses' => 'App\Http\Controllers\Preparedness\TestController@index']);
-    Route::get('/add-test', ['as' => 'add-test', 'uses' => 'App\Http\Controllers\Preparedness\TestController@add']);
-    Route::post('/add-test', ['as' => 'add-test', 'uses' => 'App\Http\Controllers\Preparedness\TestController@store']);
-    Route::post('/edit-test', ['as' => 'edit-test', 'uses' => 'App\Http\Controllers\Preparedness\TestController@edit']);
-    Route::post('/update-test', ['as' => 'update-test', 'uses' => 'App\Http\Controllers\Preparedness\TestController@update']);
-    Route::post('/show-test', ['as' => 'show-test', 'uses' => 'App\Http\Controllers\Preparedness\TestController@show']);
-    Route::post('/delete-test', ['as' => 'delete-test', 'uses' => 'App\Http\Controllers\Preparedness\TestController@destroy']);
-
     Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
 
 });
