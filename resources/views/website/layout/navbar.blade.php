@@ -111,6 +111,34 @@
                   Name</strong> </li>
                 <li class="header-weather"> <i class="fas fa-cloud-sun"></i> 24°C / 75°F </li>
               </ul>
+
+
+
+
+              {{-- <ul>
+        <li>
+            <strong>
+                @if (session('language') == 'mar')
+                    {{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
+                @else
+                    {{ Config::get('english.HOME_PAGE.SELECT_LANGUAGE') }}
+                @endif
+            </strong>
+        </li>
+        <li>
+            <select name="language" id="language">
+                <option value="">Slect language</option>
+                <option value="en" <?php if ($language == 'en') {
+                echo 'selected';
+            }
+                ?>>English</option>
+                <option value="mar"<?php if ($language == 'mar') {
+                echo 'selected';
+                }
+                ?>>Marathi</option>
+            </select>
+        </li>
+    </ul> --}}
             </div>
           </div>
         </div>
@@ -170,7 +198,7 @@
   
               </div>
           </div>
-      </div>
+        </div>
   </div>
  
 

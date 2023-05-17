@@ -10,12 +10,12 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
                             <h3 class="page-title">
-                                Disaster Management Portal List
+                                Evacuation Plans List
                             </h3>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
                             <div>
-                                <a href="{{ route('list-disastermanagementportal') }}"
+                                <a href="{{ route('list-evacuation-plans') }}"
                                     class="btn btn-sm btn-primary ml-3">Back</a>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                                             <label>Title English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disastermanagementportal->english_title; ?></label>
+                                            <label><?php echo $evacuationplans->english_title; ?></label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -38,7 +38,7 @@
                                             <label>Title Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disastermanagementportal->marathi_title; ?></label>
+                                            <label><?php echo $evacuationplans->marathi_title; ?></label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -46,7 +46,7 @@
                                             <label>Description English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disastermanagementportal->english_description; ?></label>
+                                            <label><?php echo $evacuationplans->english_description; ?></label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -54,7 +54,7 @@
                                             <label>Description Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disastermanagementportal->marathi_description; ?></label>
+                                            <label><?php echo $evacuationplans->marathi_description; ?></label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -62,7 +62,7 @@
                                             <label>Image English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <img src="{{ asset('storage/images/disaster-management-portal/' . $disastermanagementportal->english_image) }}"
+                                            <img src="{{ asset('storage/images/evacuation-plans/' . $evacuationplans->english_image) }}"
                                                 style="width:70px; height:70px;" />
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@
                                             <label>Image Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
-                                            <img src="{{ asset('storage/images/disaster-management-portal/' . $disastermanagementportal->marathi_image) }}"
+                                            <img src="{{ asset('storage/images/evacuation-plans/' . $evacuationplans->marathi_image) }}"
                                                 style="width:70px; height:70px;" />
                                         </div>
                                     </div>
