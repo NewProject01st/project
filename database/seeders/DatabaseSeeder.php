@@ -39,7 +39,13 @@ class DatabaseSeeder extends Seeder
         $this->call(CapacityTrainingSeeder::class);   
         $this->call(StateEmergencyOperationsCenterSeeder::class);           
         $this->call(DistrictEmergencyOperationsCenterSeeder::class);           
-        $this->call(SearchRescueTeamsSeeder::class);           
+        $this->call(SearchRescueTeamsSeeder::class);  
+        $this->call(ReliefMeasuresResourcesSeeder::class);    
+        $this->call(EvacuationPlansSeeder::class);       
+        $this->call(PrimaryEmergencyContactNumbersSeeder::class);           
+    
+       
+         
         
         
     }
