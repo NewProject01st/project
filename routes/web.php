@@ -226,7 +226,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-early-warning-system', ['as' => 'show-early-warning-system', 'uses' => 'App\Http\Controllers\Preparedness\EarlyWarningSystemController@show']);
     Route::post('/delete-early-warning-system', ['as' => 'delete-early-warning-system', 'uses' => 'App\Http\Controllers\Preparedness\EarlyWarningSystemController@destroy']);
 
-<<<<<<< HEAD
     Route::get('/list-capacity-building-and-training', ['as' => 'list-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Preparedness\CapacityTrainingController@index']);
     Route::get('/add-capacity-building-and-training', ['as' => 'add-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Preparedness\CapacityTrainingController@add']);
     Route::post('/add-capacity-building-and-training', ['as' => 'add-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Preparedness\CapacityTrainingController@store']);
@@ -236,7 +235,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/delete-capacity-building-and-training', ['as' => 'delete-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Preparedness\CapacityTrainingController@destroy']);
 
 
-=======
     // ==========EmergencyResponse=======
     Route::get('/list-state-emergency-operations-center', ['as' => 'list-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\StateEmergencyOperationsCenterController@index']);
     Route::get('/add-state-emergency-operations-center', ['as' => 'add-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\StateEmergencyOperationsCenterController@add']);
@@ -280,7 +278,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-search-rescue-teams', ['as' => 'show-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@show']);
     Route::post('/delete-search-rescue-teams', ['as' => 'delete-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@destroy']);
 
->>>>>>> 1fa6da8ba9912f08032fd803c3e4d17e660a04be
 
     Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
 
