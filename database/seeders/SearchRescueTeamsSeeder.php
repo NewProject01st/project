@@ -18,7 +18,7 @@ class SearchRescueTeamsSeeder extends Seeder
         SearchRescueTeams::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => '<b>Search and rescue teams</b>',
+            'english_title' => '<b>Search and Rescue Teams</b>',
             'marathi_title' => '<b>शोध आणि बचाव पथके</b>',
             'english_description' => 'In the event of a disaster or emergency situation in Maharashtra, various search and rescue teams are mobilized as part of the emergency response efforts. These teams are trained and equipped to carry out search and rescue operations in different environments and scenarios. Here are some of the search and rescue teams commonly involved in emergency response in Maharashtra:<br>
             <ul>

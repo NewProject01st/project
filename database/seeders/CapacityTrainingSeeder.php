@@ -17,7 +17,7 @@ class CapacityTrainingSeeder extends Seeder
         CapacityTraining::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => 'Capacity building and training',
+            'english_title' => 'Capacity Building and Training',
             'marathi_title' => 'क्षमता निर्माण आणि प्रशिक्षण',
             'english_description' => 'Capacity building and training play a crucial role in preparedness efforts. Here an explanation of preparedness through capacity building and training in the context of disaster management:<br><br>
              <b>Capacity Building:</b> Capacity building refers to the process of strengthening the knowledge, skills, resources, and capabilities of individuals, organizations, and systems involved in disaster management. It involves activities aimed at enhancing preparedness, response, and recovery capacities at various levels. Capacity building initiatives may include:<br>

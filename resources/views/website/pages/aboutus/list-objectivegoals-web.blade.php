@@ -7,7 +7,7 @@
             <h2>About Us </h2>
             <ul>
                 <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li> About Us </li>
+                <li> Objective and Goals </li>
             </ul>
         </div>
     </section>

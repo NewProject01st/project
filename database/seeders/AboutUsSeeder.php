@@ -19,7 +19,7 @@ class AboutUsSeeder extends Seeder
         DisasterManagementPortal::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => '<b>Introduction to the disaster management portal</b>',
+            'english_title' => 'Introduction to the Disaster Management Portal',
             'marathi_title' => '<b>आपत्ती व्यवस्थापन पोर्टलची ओळख</b>',
             'english_description' => 'The Disaster Management Portal is a comprehensive online platform designed to facilitate efficient and organized management of disasters. It serves as a centralized hub for disaster-related information, coordination, and collaboration among various stakeholders involved in disaster management, including government agencies, relief organizations, emergency services, and the general public. The portal aims to enhance preparedness, response, and recovery efforts by providing timely and accurate information, tools, and resources.<br>
 
@@ -32,8 +32,8 @@ class AboutUsSeeder extends Seeder
             पोर्टलच्या मुख्य कार्यांपैकी एक म्हणजे घटना अहवाल प्रणाली. वापरकर्ते आपत्तींशी संबंधित घटनांची तक्रार करू शकतात, जसे की भूकंप, पूर, आग किंवा इतर कोणत्याही आपत्कालीन परिस्थिती. ते घटनेचे स्थान, तीव्रता आणि इतर कोणत्याही संबंधित माहितीसह आवश्यक तपशील प्रदान करू शकतात. "
 
             ',
-            'english_image' => 'slide_english.jpeg',
-            'marathi_image' => 'slide_marathi.jpeg',
+            'english_image' => 'test_english.jpeg',
+            'marathi_image' => 'test_marathi.jpeg',
             'url' => 'disaster',
             'is_deleted'=>false,
             'is_active'=>true,
@@ -136,6 +136,8 @@ class AboutUsSeeder extends Seeder
                 'english_image' => 'English Image',
                 'marathi_image' => 'Marathi Image',
                 'url' => 'state',
+                'english_image' => 'test_english.jpeg',
+            'marathi_image' => 'test_marathi.jpeg',
                 'is_deleted'=>false,
                 'is_active'=>true,
             

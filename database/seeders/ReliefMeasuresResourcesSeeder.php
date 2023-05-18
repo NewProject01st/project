@@ -17,7 +17,7 @@ class ReliefMeasuresResourcesSeeder extends Seeder
         ReliefMeasuresResources::create([
         'created_at' => \Carbon\Carbon::now(),
         'updated_at' => \Carbon\Carbon::now(),
-        'english_title' => '<b>Relief measures and resources</b>',
+        'english_title' => '<b>Relief Measures and Resources</b>',
         'marathi_title' => '<b>मदत उपाय आणि संसाधने</b>',
         'english_description' => 'In Maharashtra, the state government and various agencies implement relief measures and provide resources as part of their emergency response efforts during disasters. Here are some key relief measures and resources available in Maharashtra for disaster response:<br>
         <ul>

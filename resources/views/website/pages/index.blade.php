@@ -1,9 +1,83 @@
 @extends('website.layout.master')
 @section('content')
+<style>
+    .marquee-container {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.marquee-item {
+    margin-right: 10px;
+}
+
+.marquee-scroll {
+    animation: marquee-scroll 10s linear infinite;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+    </style>
     <div class="main-content">
         {{-- Start Marquee --}}
         <section class="marquee-main">
+
+
             <div class="container">
+                <div class="marquee-container">
+                    @foreach ($data_output_marquee as $item)
+                        <div class="marquee-item">
+                            @if (session('language') == 'mar')
+                                <div class="marquee-scroll">
+                                    {{ $item['marathi_title'] }}
+                                </div>
+                            @elseif (array_key_exists('english_title', $item))
+                                <div class="marquee-scroll">
+                                    <h6>{{ $item['english_title'] }}</h6>
+                                </div>
+                            @endif
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            
+            
+{{-- <div class="container">
+    @foreach ($data_output_marquee as $index => $item)
+        <div class="container">
+            @if (session('language') == 'mar')
+                @if ($index == 0)
+                    <div>
+                        <marquee class="marquee-scroll" behavior="scroll" direction="left" scrollamount="10">
+                            {{ $item['marathi_title'] }}
+                        </marquee>
+                    </div>
+                @endif
+            @elseif (array_key_exists('english_title', $item))
+                @if ($index == 0)
+                    <div>
+                        <marquee class="marquee-scroll" behavior="scroll" direction="left" scrollamount="10">
+                            <h6><?php echo $item['english_title']; ?></h6>
+                        </marquee>
+                    </div>
+                @endif
+            @endif
+        </div>
+    @endforeach
+</div> --}}
+
+
+
+
+
+            {{-- <div class="container">
                 @foreach ($data_output_marquee as $item)
                     <div class="container">
                         @if (session('language') == 'mar')
@@ -21,7 +95,7 @@
                         @endif
                     </div>
                 @endforeach
-            </div>
+            </div> --}}
         </section>
         {{-- End Marquee --}}
         {{-- Start Slider --}}

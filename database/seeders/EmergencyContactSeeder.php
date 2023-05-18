@@ -18,7 +18,7 @@ class EmergencyContactSeeder extends Seeder
         EmergencyContact::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => 'emergency',
+            'english_title' => 'Emergency',
             'marathi_title' => 'आणीबाणी',
             'english_name' => 'ABC',
             'marathi_name' => 'ABC',

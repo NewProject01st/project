@@ -19,10 +19,10 @@ class CreateEmergencyContactNumbers extends Migration
             $table->text('marathi_title');
             $table->text('english_description');
             $table->text('marathi_description');
-            $table->string('english_emergency_contact_title');
-            $table->string('marathi_emergency_contact_title');
-            $table->string('english_emergency_contact_number');
-            $table->string('marathi_emergency_contact_number');
+            // $table->string('english_emergency_contact_title');
+            // $table->string('marathi_emergency_contact_title');
+            // $table->string('english_emergency_contact_number');
+            // $table->string('marathi_emergency_contact_number');
             $table->string('url')->default('null');
             $table->string('english_image');
             $table->string('marathi_image');
