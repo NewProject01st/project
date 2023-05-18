@@ -34,7 +34,7 @@ class AboutUsSeeder extends Seeder
             ',
             'english_image' => 'test_english.jpeg',
             'marathi_image' => 'test_marathi.jpeg',
-            'url' => 'disaster',
+            // 'url' => 'disaster',
             'is_deleted'=>false,
             'is_active'=>true,
         ]);
@@ -75,7 +75,7 @@ class AboutUsSeeder extends Seeder
                 <li> सार्वजनिक जागरुकता आणि शिक्षणाचा प्रचार करणे: शैक्षणिक साहित्य, मोहिमा आणि प्रशिक्षण कार्यक्रमांद्वारे आपत्ती जोखीम, कमी करण्याच्या धोरणे आणि सुरक्षा उपायांबद्दल जनजागृती करणे.</li>
                 <li>प्रवेशयोग्यता आणि सर्वसमावेशकता सुनिश्चित करणे: वापरकर्त्यांच्या विस्तृत श्रेणीसाठी प्रवेशयोग्य होण्यासाठी पोर्टल डिझाइन करा. विविध गरजा पूर्ण करण्यासाठी माहिती आणि संसाधने अनेक भाषांमध्ये आणि स्वरूपांमध्ये उपलब्ध असल्याची खात्री करा."</li>
                  </ul> ',
-                'url' => 'goals',
+                // 'url' => 'goals',
                 'english_image' => 'test_english.jpeg',
                 'marathi_image' => 'test_marathi.jpeg',
                 'is_deleted' => false,
@@ -122,7 +122,7 @@ class AboutUsSeeder extends Seeder
                 <li> सार्वजनिक जागरुकता आणि शिक्षणाचा प्रचार करणे: शैक्षणिक साहित्य, मोहिमा आणि प्रशिक्षण कार्यक्रमांद्वारे आपत्ती जोखीम, कमी करण्याच्या धोरणे आणि सुरक्षा उपायांबद्दल जनजागृती करणे.</li>
                 <li>सतत सुधारणा आणि शिक्षण: पोर्टल अभिप्राय गोळा करून, मूल्यमापन आयोजित करून आणि भविष्यातील आपत्ती व्यवस्थापन प्रयत्नांना बळ देण्यासाठी भूतकाळातील आपत्तींमधून शिकलेल्या धड्यांचा समावेश करून सतत सुधारणा करण्याची संस्कृती वाढवण्याचा प्रयत्न करते.</li>
                  </ul> ',
-                'url' => 'goals',
+                // 'url' => 'goals',
                 'english_image' => 'test_english1.jpeg',
                 'marathi_image' => 'test_marathi1.jpeg',
                 'is_deleted' => false,
@@ -183,7 +183,7 @@ class AboutUsSeeder extends Seeder
                 ',
                 'english_image' => 'slide_english.jpeg',
                 'marathi_image' => 'slide_marathi.jpeg',
-                'url' => 'state',
+                // 'url' => 'state',
                 'english_image' => 'test_english.jpeg',
             'marathi_image' => 'test_marathi.jpeg',
                 'is_deleted'=>false,
