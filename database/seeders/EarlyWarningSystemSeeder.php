@@ -38,8 +38,8 @@ class EarlyWarningSystemSeeder extends Seeder
              <li>संस्थात्मक समन्वय आणि क्षमता निर्माण: प्रभावी पूर्व चेतावणी प्रणालींना सरकारी संस्था, आपत्ती व्यवस्थापन अधिकारी, वैज्ञानिक संस्था आणि समुदाय संस्थांसह विविध भागधारकांमध्ये समन्वय आवश्यक आहे. कर्मचार्‍यांना प्रशिक्षित करण्यासाठी, प्रतिसाद योजना विकसित करण्यासाठी आणि आणीबाणीच्या काळात अखंड समन्वयासाठी संप्रेषण नेटवर्क स्थापित करण्यासाठी क्षमता निर्माण उपक्रम आवश्यक आहेत.</li>             
              </ul>
             ',
-            'english_image' => 'slide2_english.jpeg',
-            'marathi_image' => 'slide2_marathi.jpeg',
+            'english_image' => 'test_english.jpeg',
+            'marathi_image' => 'test_marathi.jpeg',
             'is_deleted'=>false,
             'is_active'=>true,
         

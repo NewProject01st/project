@@ -184,6 +184,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Hazard and vulnerability assessment',
             'menu_name_marathi' => 'धोका आणि असुरक्षा मूल्यांकन',
             'order_no' => 1,
+            'url'=>'/list-hazard-vulnerability-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -196,6 +197,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Early warning systems',
             'menu_name_marathi' => 'पूर्व चेतावणी प्रणाली',
             'order_no' => 2,
+            'url'=>'/list-warning-system-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -208,6 +210,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Capacity building and training',
             'menu_name_marathi' => 'क्षमता निर्माण आणि प्रशिक्षण',
             'order_no' => 3,
+            'url'=>'/list-capacity-training',
             'is_static'=>true,
             'is_active' => true,
            
@@ -232,6 +235,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'State Emergency Operations Center (EOC)',
             'menu_name_marathi' => 'राज्य आपत्कालीन ऑपरेशन केंद्र (EOC)',
             'order_no' => 1,
+            'url'=>'/list-state-emergency-operations-center-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -245,6 +249,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => ' District Emergency Operations Center (DEOC)',
             'menu_name_marathi' => 'जिल्हा आपत्कालीन ऑपरेशन केंद्र (DEOC)',
             'order_no' => 2,
+            'url'=>'/list-district-emergency-operations-center-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -257,6 +262,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => ' Emergency contact numbers',
             'menu_name_marathi' => 'आपत्कालीन संपर्क क्रमांक',
             'order_no' => 3,
+            'url'=>'/list-emergency-contact-numbers-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -269,6 +275,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Search and rescue teams',
             'menu_name_marathi' => 'शोध आणि बचाव पथके',
             'order_no' => 4,
+            'url'=>'/list-search-rescue-teams-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -281,6 +288,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => ' Relief measures and resources',
             'menu_name_marathi' => 'मदत उपाय आणि संसाधने',
             'order_no' => 5,
+            'url'=>'/list-relief-measures-resources-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -293,6 +301,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => ' Evacuation plans',
             'menu_name_marathi' => 'निर्वासन योजना',
             'order_no' => 6,
+            'url'=>'/list-evacuation-plans-web',
             'is_static'=>true,
             'is_active' => true,
            

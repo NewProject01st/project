@@ -59,8 +59,8 @@ class ReliefMeasuresResourcesSeeder extends Seeder
         </li>
         </ul>
         ',
-        'english_image' => 'slide2_english.jpeg',
-        'marathi_image' => 'slide2_marathi.jpeg',
+        'english_image' => 'test_english.jpeg',
+            'marathi_image' => 'test_marathi.jpeg',
         'is_deleted'=>false,
         'is_active'=>true,
     ]);

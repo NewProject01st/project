@@ -51,8 +51,8 @@ class CapacityTrainingSeeder extends Seeder
              <li><b>समुदाय सज्जता:</b> रहिवाशांना आपत्ती सज्जता, प्रतिसाद प्रक्रिया आणि स्वयं-मदत उपायांबद्दल शिक्षित करण्यासाठी समुदाय स्तरावर प्रशिक्षण सत्र आयोजित करणे. हे समुदायांना आपत्तींचा सामना करण्यासाठी सक्रिय आणि लवचिक होण्यासाठी सक्षम करते.</li>         
              </ul>
             ',
-            'english_image' => 'slide2_english.jpeg',
-            'marathi_image' => 'slide2_marathi.jpeg',
+            'english_image' => 'test_english.jpeg',
+            'marathi_image' => 'test_marathi.jpeg',
             'is_deleted'=>false,
             'is_active'=>true,
         

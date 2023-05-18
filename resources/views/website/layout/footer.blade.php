@@ -110,12 +110,7 @@
                 'language': $("#language").val()
             },
             error: function(errorResponse) {
-                swal({
-                    titile: "Error!",
-                    text: "Something Went Wrong",
-                    icon: "error",
-                    button: "Ok",
-                });
+                
             }
         });
     });

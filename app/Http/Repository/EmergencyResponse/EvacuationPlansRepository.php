@@ -25,8 +25,8 @@ class EvacuationPlansRepository  {
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/evacuation-plans', $englishImageName);
-        $request->marathi_image->storeAs('public/images/evacuation-plans', $marathiImageName);
+        $request->english_image->storeAs('public/images/emergency-response/evacuation-plans', $englishImageName);
+        $request->marathi_image->storeAs('public/images/emergency-response/evacuation-plans', $marathiImageName);
 
         $evacuationplans_data = new EvacuationPlans();
         $evacuationplans_data->english_title = $request['english_title'];
@@ -78,15 +78,15 @@ public function updateAll($request)
         
         // Delete existing files
         Storage::delete([
-            'public/images/evacuation-plans/' . $evacuationplans_data->english_image,
-            'public/images/evacuation-plans/' . $evacuationplans_data->marathi_image
+            'public/images/emergency-response/evacuation-plans/' . $evacuationplans_data->english_image,
+            'public/images/emergency-response/evacuation-plans/' . $evacuationplans_data->marathi_image
         ]);
         
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/evacuation-plans', $englishImageName);
-        $request->marathi_image->storeAs('public/images/evacuation-plans', $marathiImageName);
+        $request->english_image->storeAs('public/images/emergency-response/evacuation-plans', $englishImageName);
+        $request->marathi_image->storeAs('public/images/emergency-response/evacuation-plans', $marathiImageName);
 
 
         $evacuationplans_data = EvacuationPlans::find($request->id);
@@ -118,8 +118,8 @@ public function deleteById($id)
         if ($statedisastermanagementauthority) {
             // Delete the images from the storage folder
             Storage::delete([
-                'public/images/evacuation-plans/'.$statedisastermanagementauthority->english_image,
-                'public/images/evacuation-plans/'.$statedisastermanagementauthority->marathi_image
+                'public/images/emergency-response/evacuation-plans/'.$statedisastermanagementauthority->english_image,
+                'public/images/emergency-response/evacuation-plans/'.$statedisastermanagementauthority->marathi_image
             ]);
 
             // Delete the record from the database

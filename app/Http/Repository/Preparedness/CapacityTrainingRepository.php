@@ -25,8 +25,8 @@ class CapacityTrainingRepository{
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/capacity-training', $englishImageName);
-        $request->marathi_image->storeAs('public/images/capacity-training', $marathiImageName);
+        $request->english_image->storeAs('public/images/preparedness/capacity-training', $englishImageName);
+        $request->marathi_image->storeAs('public/images/preparedness/capacity-training', $marathiImageName);
 
         
         $training_data = new CapacityTraining();
@@ -78,15 +78,15 @@ public function updateAll($request)
         }
          // Delete existing files
          Storage::delete([
-            'public/images/capacity-training/' . $training_data->english_image,
-            'public/images/capacity-training/' . $training_data->marathi_image
+            'public/images/preparedness/capacity-training/' . $training_data->english_image,
+            'public/images/preparedness/capacity-training/' . $training_data->marathi_image
         ]);
         
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/capacity-training/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/capacity-training/', $marathiImageName);
+        $request->english_image->storeAs('public/images/preparedness/capacity-training/', $englishImageName);
+        $request->marathi_image->storeAs('public/images/preparedness/capacity-training/', $marathiImageName);
 
                 
         $training_data->english_title = $request['english_title'];
@@ -117,8 +117,8 @@ public function deleteById($id)
         if ($training) {
               // Delete the images from the storage folder
               Storage::delete([
-                'public/images/capacity-training/'.$training->english_image,
-                'public/images/capacity-training/'.$training->marathi_image
+                'public/images/preparedness/capacity-training/'.$training->english_image,
+                'public/images/preparedness/capacity-training/'.$training->marathi_image
             ]);
 
             // Delete the record from the database

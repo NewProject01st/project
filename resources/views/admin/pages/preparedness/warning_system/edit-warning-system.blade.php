@@ -81,7 +81,7 @@
                                             class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <img src="{{ asset('storage/images/early-warning/' . $warning_system->english_image) }}"
+                                    <img src="{{ asset('storage/images/preparedness/early-warning/' . $warning_system->english_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                 </div>
                                 <div class="col-md-6">
@@ -94,7 +94,7 @@
                                             class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <img src="{{ asset('storage/images/early-warning/' . $warning_system->marathi_image) }}"
+                                    <img src="{{ asset('storage/images/preparedness/early-warning/' . $warning_system->marathi_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                 </div>
 

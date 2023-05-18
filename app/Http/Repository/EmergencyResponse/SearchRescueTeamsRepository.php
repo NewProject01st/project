@@ -25,8 +25,8 @@ class SearchRescueTeamsRepository  {
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/search-rescue-teams', $englishImageName);
-        $request->marathi_image->storeAs('public/images/search-rescue-teams', $marathiImageName);
+        $request->english_image->storeAs('public/images/emergency-response/search-rescue-teams', $englishImageName);
+        $request->marathi_image->storeAs('public/images/emergency-response/search-rescue-teams', $marathiImageName);
 
         $searchrescueteams_data = new SearchRescueTeams();
         $searchrescueteams_data->english_title = $request['english_title'];
@@ -78,15 +78,15 @@ public function updateAll($request)
         
         // Delete existing files
         Storage::delete([
-            'public/images/search-rescue-teams/' . $searchrescueteams_data->english_image,
-            'public/images/search-rescue-teams/' . $searchrescueteams_data->marathi_image
+            'public/images/emergency-response/search-rescue-teams/' . $searchrescueteams_data->english_image,
+            'public/images/emergency-response/search-rescue-teams/' . $searchrescueteams_data->marathi_image
         ]);
         
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/search-rescue-teams', $englishImageName);
-        $request->marathi_image->storeAs('public/images/search-rescue-teams', $marathiImageName);
+        $request->english_image->storeAs('public/images/emergency-response/search-rescue-teams', $englishImageName);
+        $request->marathi_image->storeAs('public/images/emergency-response/search-rescue-teams', $marathiImageName);
 
 
         $searchrescueteams_data = SearchRescueTeams::find($request->id);
@@ -118,8 +118,8 @@ public function deleteById($id)
         if ($searchrescueteams) {
             // Delete the images from the storage folder
             Storage::delete([
-                'public/images/search-rescue-teams/'.$searchrescueteams->english_image,
-                'public/images/search-rescue-teams/'.$searchrescueteams->marathi_image
+                'public/images/emergency-response/search-rescue-teams/'.$searchrescueteams->english_image,
+                'public/images/emergency-response/search-rescue-teams/'.$searchrescueteams->marathi_image
             ]);
 
             // Delete the record from the database

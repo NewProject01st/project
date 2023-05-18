@@ -25,8 +25,8 @@ class DistrictEmergencyOperationsCenterRepository  {
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/district-emergency-operations-center', $englishImageName);
-        $request->marathi_image->storeAs('public/images/district-emergency-operations-center', $marathiImageName);
+        $request->english_image->storeAs('public/images/emergency-response/district-emergency-operations-center', $englishImageName);
+        $request->marathi_image->storeAs('public/images/emergency-response/district-emergency-operations-center', $marathiImageName);
 
         $districtemergencyoperationscenter_data = new DistrictEmergencyOperationsCenter();
         $districtemergencyoperationscenter_data->english_title = $request['english_title'];
@@ -36,7 +36,7 @@ class DistrictEmergencyOperationsCenterRepository  {
         $districtemergencyoperationscenter_data->english_image = $englishImageName; // Save the image filename to the database
         $districtemergencyoperationscenter_data->marathi_image = $marathiImageName; // Save the image filename to the database
         $districtemergencyoperationscenter_data->save();       
-    dd($districtemergencyoperationscenter_data);
+    // dd($districtemergencyoperationscenter_data);
    
         return $districtemergencyoperationscenter_data;
     } catch (\Exception $e) {
@@ -79,15 +79,15 @@ public function updateAll($request)
         
         // Delete existing files
         Storage::delete([
-            'public/images/district-emergency-operations-center/' . $districtemergencyoperationscenter_data->english_image,
-            'public/images/district-emergency-operations-center/' . $districtemergencyoperationscenter_data->marathi_image
+            'public/images/emergency-response/district-emergency-operations-center/' . $districtemergencyoperationscenter_data->english_image,
+            'public/images/emergency-response/district-emergency-operations-center/' . $districtemergencyoperationscenter_data->marathi_image
         ]);
         
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/district-emergency-operations-center', $englishImageName);
-        $request->marathi_image->storeAs('public/images/district-emergency-operations-center', $marathiImageName);
+        $request->english_image->storeAs('public/images/emergency-response/district-emergency-operations-center', $englishImageName);
+        $request->marathi_image->storeAs('public/images/emergency-response/district-emergency-operations-center', $marathiImageName);
 
 
         $districtemergencyoperationscenter_data = DistrictEmergencyOperationsCenter::find($request->id);
@@ -119,8 +119,8 @@ public function deleteById($id)
         if ($districtemergencyoperationscenter) {
             // Delete the images from the storage folder
             Storage::delete([
-                'public/images/district-emergency-operations-center/'.$districtemergencyoperationscenter->english_image,
-                'public/images/district-emergency-operations-center/'.$districtemergencyoperationscenter->marathi_image
+                'public/images/emergency-response/district-emergency-operations-center/'.$districtemergencyoperationscenter->english_image,
+                'public/images/emergency-response/district-emergency-operations-center/'.$districtemergencyoperationscenter->marathi_image
             ]);
 
             // Delete the record from the database

@@ -38,8 +38,8 @@ class SearchRescueTeamsSeeder extends Seeder
             <li><b>स्थानिक पोलीस आणि नागरी संरक्षण:</b> स्थानिक पोलीस आणि नागरी संरक्षण कर्मचारी देखील शोध आणि बचाव कार्यात महत्वाची भूमिका बजावतात. ते अनेकदा आपत्कालीन परिस्थितीत प्रथम प्रतिसादकर्ते असतात आणि विशेष कार्यसंघ येईपर्यंत प्राथमिक मदत करतात. ते इतर एजन्सींशी समन्वय साधतात, गर्दीचे नियंत्रण व्यवस्थापित करतात आणि बाहेर काढण्यात मदत करतात.</li>
             </ul>
             ',
-            'english_image' => 'slide2_english.jpeg',
-            'marathi_image' => 'slide2_marathi.jpeg',
+            'english_image' => 'test_english.jpeg',
+            'marathi_image' => 'test_marathi.jpeg',
             'is_deleted'=>false,
             'is_active'=>true,
         

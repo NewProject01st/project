@@ -5,6 +5,7 @@ namespace App\Http\Controllers\EmergencyResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Services\EmergencyResponse\SearchRescueTeamsServices;
+use Validator;
 class SearchRescueTeamsController extends Controller
 {
     public function __construct()
