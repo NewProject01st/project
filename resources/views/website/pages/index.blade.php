@@ -2,7 +2,7 @@
 @section('content')
     <div class="main-content">
         {{-- Start Marquee --}}
-        <section class="marquee-main">
+        <section class="marquee-main">            
             <div class="container">
                 @foreach ($data_output_marquee as $item)
                     <div class="container">
@@ -15,7 +15,7 @@
                         @elseif (array_key_exists('english_title', $item))
                             <div>
                                 <marquee class="marquee-scroll" behavior="scroll" direction="left" scrollamount="10">
-                                    <h6><?php echo $item['english_title']; ?></h6>
+                                    <h6 class="d-flex"><?php echo $item['english_title']; ?></h6>
                                 </marquee>
                             </div>
                         @endif
@@ -103,7 +103,8 @@
                         @else
                             <div class="col-md-3 col-sm-6">
                                 <div class="news-box">
-                                    <div class="new-thumb"> <span class="cat c1">Fire</span>
+                                    <div class="new-thumb">
+                                         {{-- <span class="cat c1">Fire</span> --}}
                                         <img src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
                                             class="d-block w-100">
                                     </div>
@@ -203,18 +204,15 @@
                             <h5>Helplines &
                                 Emergency
                                 Services </h5>
-                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            {{-- <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                 <!--Panel Start-->
-
-
                                 @foreach ($data_output_emergencycontact as $item)
                                     @if (session('language') == 'mar')
                                         <div class="panel">
                                             <div class="panel-heading" role="tab" id="headingOne">
                                                 <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
                                                         href="#collapseOne" aria-expanded="true"
-                                                        aria-controls="collapseOne"> DMS
-                                                        Office </a> </h6>
+                                                        aria-controls="collapseOne"> <?php echo $item['marathi_title']; ?> </a> </h6>
                                             </div>
                                             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
                                                 aria-labelledby="headingOne">
@@ -234,8 +232,7 @@
                                             <div class="panel-heading" role="tab" id="headingOne">
                                                 <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
                                                         href="#collapseOne" aria-expanded="true"
-                                                        aria-controls="collapseOne"> DMS
-                                                        Office </a> </h6>
+                                                        aria-controls="collapseOne"> <?php echo $item['english_title']; ?> </a> </h6>
                                             </div>
                                             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
                                                 aria-labelledby="headingOne">
@@ -254,14 +251,63 @@
                                 @endforeach
                                 <!--Panel End-->
 
+                            </div> --}}
+
+                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                <!--Panel Start-->
+                                @foreach ($data_output_emergencycontact as $index => $item)
+                                    @if (session('language') == 'mar')
+                                        <div class="panel">
+                                            <div class="panel-heading" role="tab" id="heading{{ $index }}">
+                                                <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                        href="#collapse{{ $index }}" aria-expanded="true"
+                                                        aria-controls="collapse{{ $index }}"> <?php echo $item['marathi_title']; ?> </a> </h6>
+                                            </div>
+                                            <div id="collapse{{ $index }}" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="heading{{ $index }}">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li> <i class="fas fa-user-tie"></i> <?php echo $item['marathi_name']; ?> </li>
+                                                        <li> <i class="far fa-building"></i> <?php echo $item['marathi_address']; ?> </li>
+                                                        <li> <i class="fas fa-phone"></i> <?php echo $item['marathi_number']; ?></li>
+                                                        <li> <i class="fas fa-fax"></i> <?php echo $item['marathi_landline_no']; ?> </li>
+                                                        <li> <i class="far fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @else
+                                        <div class="panel">
+                                            <div class="panel-heading" role="tab" id="heading{{ $index }}">
+                                                <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                        href="#collapse{{ $index }}" aria-expanded="true"
+                                                        aria-controls="collapse{{ $index }}"> <?php echo $item['english_title']; ?> </a> </h6>
+                                            </div>
+                                            <div id="collapse{{ $index }}" class="panel-collapse collapse" role="tabpanel"
+                                                aria-labelledby="heading{{ $index }}">
+                                                <div class="panel-body">
+                                                    <ul>
+                                                        <li> <i class="fas fa-user-tie"></i> <?php echo $item['english_name']; ?> </li>
+                                                        <li> <i class="far fa-building"></i> <?php echo $item['english_address']; ?> </li>
+                                                        <li> <i class="fas fa-phone"></i> <?php echo $item['english_number']; ?></li>
+                                                        <li> <i class="fas fa-fax"></i> <?php echo $item['english_landline_no']; ?> </li>
+                                                        <li> <i class="far fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                                <!--Panel End-->
                             </div>
+                            
                         </div>
                         <a href="#" class="jobs-link">Open Vacancies</a>
-                        <ul class="reports">
+                        {{-- <ul class="reports">
                             <li> <a href="#"><i class="fas fa-file-alt"></i> 2023 Economy Report</a> </li>
                             <li> <a href="#"><i class="fas fa-file-alt"></i> 30 Days Plans of Govt.</a> </li>
                             <li> <a href="#"><i class="fas fa-file-alt"></i> Court Case about TAX</a> </li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </div>
             </div>

@@ -4,17 +4,17 @@
     <!--Subheader Start-->
     <section class="wf100 subheader">
         <div class="container">
-            <h2>About Us </h2>
+            <h2>Preparedness </h2>
             <ul>
                 <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li> State Disaster Management Authority </li>
+                <li> Public Awareness Education </li>
             </ul>
         </div>
     </section>
     <!--Subheader End-->
     <!--Main Content Start-->
     <div class="main-content p60">
-        <!--Department Details Page Start-->
+        <!--Objective Goals Start-->
         <div class="department-details">
             <div class="container">
                 <div class="row">
@@ -24,12 +24,12 @@
                             <div class="deprt-txt">
                                 @if (session('language') == 'mar')
                                     <h3><?php echo $item['marathi_title']; ?> : </h3>
-                                    <img src="{{ asset('storage/images/aboutus/state-disaster-management-authority/' . $item['marathi_image']) }}"
+                                    <img src="{{ asset('storage/images/preparedness/awareness-education/' . $item['marathi_image']) }}"
                                     class="d-block w-100" alt="...">
                                     <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                 @else
                                     <h3><?php echo $item['english_title']; ?> : </h3>
-                                    <img src="{{ asset('storage/images/aboutus/state-disaster-management-authority/' . $item['english_image']) }}"
+                                    <img src="{{ asset('storage/images/preparedness/awareness-education/' . $item['english_image']) }}"
                                     class="d-block w-100" alt="...">
                                     <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
                                 @endif
@@ -47,20 +47,20 @@
                                 <div class="upcoming-events inner">
                                     <ul>
                                         <li>
-                                            <div class="edate"> <strong>01</strong> May <span
-                                                    class="year">2023</span> </div>
+                                            <div class="edate"> <strong>01</strong> May <span class="year">2023</span>
+                                            </div>
                                             <h6> <a href="#">Maharashtra battles forest fires</a> </h6>
                                             <span class="loc">Maharashtra, India</span>
                                         </li>
                                         <li>
-                                            <div class="edate"> <strong>03</strong> May <span
-                                                    class="year">2023</span> </div>
+                                            <div class="edate"> <strong>03</strong> May <span class="year">2023</span>
+                                            </div>
                                             <h6> <a href="#">Kerala floods displace thousands</a> </h6>
                                             <span class="loc">Maharashtra, India</span>
                                         </li>
                                         <li>
-                                            <div class="edate"> <strong>06</strong> May <span
-                                                    class="year">2023</span> </div>
+                                            <div class="edate"> <strong>06</strong> May <span class="year">2023</span>
+                                            </div>
                                             <h6> <a href="#">Odisha prepares for Cyclone Yaas.</a>
                                             </h6>
                                             <span class="loc">Maharashtra, India</span>
@@ -92,7 +92,7 @@
                 </div>
             </div>
         </div>
-        <!--Department Details Page End-->
+        <!--Objective Goals End-->
     </div>
     <!--Main Content End-->
 @endsection

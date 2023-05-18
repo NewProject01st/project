@@ -223,6 +223,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Public awareness and education',
             'menu_name_marathi' => 'जनजागृती आणि शिक्षण',
             'order_no' => 4,
+            'url'=>'/list-awareness-education-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -509,6 +510,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Contact information for SDMA',
             'menu_name_marathi' => 'SDMA साठी संपर्क माहिती',
             'order_no' => 1,
+            'url'=>'/contact',
             'is_static'=>true,
             'is_active' => true,
            
@@ -522,6 +524,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Feedback and suggestions',
             'menu_name_marathi' => 'अभिप्राय आणि सूचना',
             'order_no' => 2,
+            'url'=>'/contact',
             'is_static'=>true,
             'is_active' => true,
            

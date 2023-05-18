@@ -45,7 +45,7 @@ class MarqueeController extends Controller
 
     try {
         $validation = Validator::make($request->all(),$rules,$messages);
-      
+     
         if($validation->fails() )
         {
             return redirect('add-marquee')

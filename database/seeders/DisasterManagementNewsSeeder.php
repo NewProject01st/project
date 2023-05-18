@@ -19,7 +19,7 @@ class DisasterManagementNewsSeeder extends Seeder
         DisasterManagementNews::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => 'Maharashtra battles forest fires',
+            'english_title' => 'Maharashtra Battles Forest Fires',
             'marathi_title' => 'महाराष्ट्र जंगलातील आगीशी लढत आहे',
             'english_description' => 'In February 2021, Maharashtra battled forest fires in 2021 using firefighting teams, helicopters, and the Indian Army. ',
             'marathi_description' => 'फेब्रुवारी 2021 मध्ये, महाराष्ट्राने 2021 मध्ये अग्निशामक दल, हेलिकॉप्टर आणि भारतीय सैन्याचा वापर करून जंगलातील आगीशी लढा दिला.',

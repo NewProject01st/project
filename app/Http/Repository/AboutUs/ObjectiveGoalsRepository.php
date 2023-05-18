@@ -26,8 +26,8 @@ class ObjectiveGoalsRepository  {
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/objective-goals', $englishImageName);
-        $request->marathi_image->storeAs('public/images/objective-goals', $marathiImageName);
+        $request->english_image->storeAs('public/images/aboutus/objective-goals', $englishImageName);
+        $request->marathi_image->storeAs('public/images/aboutus/objective-goals', $marathiImageName);
 
         $objective_data = new ObjectiveGoals();
         $objective_data->english_title = $request['english_title'];
@@ -79,15 +79,15 @@ public function updateAll($request)
 
         // Delete existing files
         Storage::delete([
-            'public/images/objective-goals/' . $objectivegoals_data->english_image,
-            'public/images/objective-goals/' . $objectivegoals_data->marathi_image
+            'public/images/aboutus/objective-goals/' . $objectivegoals_data->english_image,
+            'public/images/aboutus/objective-goals/' . $objectivegoals_data->marathi_image
         ]);
         
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/objective-goals', $englishImageName);
-        $request->marathi_image->storeAs('public/images/objective-goals', $marathiImageName);
+        $request->english_image->storeAs('public/images/aboutus/objective-goals', $englishImageName);
+        $request->marathi_image->storeAs('public/images/aboutus/objective-goals', $marathiImageName);
 
 
         $objectivegoals_data->english_title = $request['english_title'];
