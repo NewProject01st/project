@@ -17,7 +17,7 @@ class EarlyWarningSystemSeeder extends Seeder
         EarlyWarningSystem::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => '<b>Early warning systems</b>',
+            'english_title' => '<b>Early Warning Systems</b>',
             'marathi_title' => '<b>पूर्व चेतावणी प्रणाली</b>',
             'english_description' => 'Early warning systems play a crucial role in preparedness by providing timely and accurate information about potential hazards, allowing communities and authorities to take appropriate actions to protect lives and property.<br><br>
              Early warning systems involve the following key components:<br>

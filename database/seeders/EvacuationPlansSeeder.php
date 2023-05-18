@@ -17,7 +17,7 @@ class EvacuationPlansSeeder extends Seeder
         EvacuationPlans::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => '<b>Evacuation plans</b>',
+            'english_title' => '<b>Evacuation Plans</b>',
             'marathi_title' => '<b>निर्वासन योजना</b>',
             'english_description' => 'Evacuation plans are an integral part of disaster emergency response in Maharashtra. These plans outline the systematic and organized procedures for safely relocating people from areas at risk to designated evacuation centers or safer locations. The specific details of evacuation plans may vary depending on the type of disaster, but the general principles include the following:<br>
             <ul>

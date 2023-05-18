@@ -25,8 +25,8 @@ class DisasterManagementPortalRepository  {
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/disaster-management-portal', $englishImageName);
-        $request->marathi_image->storeAs('public/images/disaster-management-portal', $marathiImageName);
+        $request->english_image->storeAs('public/images/aboutus/disaster-management-portal', $englishImageName);
+        $request->marathi_image->storeAs('public/images/aboutus/disaster-management-portal', $marathiImageName);
 
         $disastermanagementportal_data = new DisasterManagementPortal();
         $disastermanagementportal_data->english_title = $request['english_title'];
@@ -85,8 +85,8 @@ public function updateAll($request)
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/disaster-management-portal', $englishImageName);
-        $request->marathi_image->storeAs('public/images/disaster-management-portal', $marathiImageName);
+        $request->english_image->storeAs('public/images/aboutus/disaster-management-portal', $englishImageName);
+        $request->marathi_image->storeAs('public/images/aboutus/disaster-management-portal', $marathiImageName);
 
 
         $disastermanagementportal_data = DisasterManagementPortal::find($request->id);
@@ -136,5 +136,3 @@ public function deleteById($id)
 
 
 }
-
-

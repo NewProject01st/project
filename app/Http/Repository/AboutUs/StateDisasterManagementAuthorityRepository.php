@@ -25,8 +25,8 @@ class StateDisasterManagementAuthorityRepository  {
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/state-disaster-management-authority', $englishImageName);
-        $request->marathi_image->storeAs('public/images/state-disaster-management-authority', $marathiImageName);
+        $request->english_image->storeAs('public/images/aboutus/state-disaster-management-authority', $englishImageName);
+        $request->marathi_image->storeAs('public/images/aboutus/state-disaster-management-authority', $marathiImageName);
 
         $statedisastermanagementauthority_data = new StateDisasterManagementAuthority();
         $statedisastermanagementauthority_data->english_title = $request['english_title'];
@@ -85,8 +85,8 @@ public function updateAll($request)
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/state-disaster-management-authority', $englishImageName);
-        $request->marathi_image->storeAs('public/images/state-disaster-management-authority', $marathiImageName);
+        $request->english_image->storeAs('public/images/aboutus/state-disaster-management-authority', $englishImageName);
+        $request->marathi_image->storeAs('public/images/aboutus/state-disaster-management-authority', $marathiImageName);
 
 
         $statedisastermanagementauthority_data = StateDisasterManagementAuthority::find($request->id);

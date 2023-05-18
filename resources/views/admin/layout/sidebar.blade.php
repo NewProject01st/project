@@ -110,8 +110,7 @@
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-objectivegoals') }}">Objective Goals</a></li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-statedisastermanagementauthority') }}">State Disaster Management
-                                  Authority</a></li>
+                                  href="{{ route('list-statedisastermanagementauthority') }}">State Disaster Management Authority</a></li>
 
                       </ul>
                   </div>
@@ -135,6 +134,9 @@
                           </li>
                           <li class="nav-item d-none d-lg-block"> <a class="nav-link"
                                   href="{{ route('list-capacity-building-and-training') }}">Capacity training</a>
+                          </li>
+                          <li class="nav-item d-none d-lg-block"> <a class="nav-link"
+                                  href="{{ route('list-public-awareness-and-education') }}">Awareness And Education </a>
                           </li>
 
                       </ul>

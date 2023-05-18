@@ -26,7 +26,7 @@ class ReportIncidentCrowdsourcingRepository{
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
         $request->english_image->storeAs('public/images/citizen-action', $englishImageName);
-        $request->marathi_image->storeAs('public/images/capacity-training', $marathiImageName);
+        $request->marathi_image->storeAs('public/images/citizen-action', $marathiImageName);
 
         
         $crowdsourcing_data = new ReportIncidentCrowdsourcing();
@@ -72,7 +72,7 @@ public function updateAll($request)
         
         if (!$crowdsourcing_data) {
             return [
-                'msg' => 'Capacity buildind and Training not found.',
+                'msg' => 'Report Incident Crowdsourcing not found.',
                 'status' => 'error'
             ];
         }
@@ -85,26 +85,26 @@ public function updateAll($request)
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/capacity-training/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/capacity-training/', $marathiImageName);
+        $request->english_image->storeAs('public/images/citizen-action/', $englishImageName);
+        $request->marathi_image->storeAs('public/images/citizen-action/', $marathiImageName);
 
                 
-        $training_data->english_title = $request['english_title'];
-        $training_data->marathi_title = $request['marathi_title'];
-        $training_data->english_description = $request['english_description'];
-        $training_data->marathi_description = $request['marathi_description'];
-        $training_data->english_image = $englishImageName;
-        $training_data->marathi_image =   $marathiImageName;
-        $training_data->save();        
+        $crowdsourcing_data->english_title = $request['english_title'];
+        $crowdsourcing_data->marathi_title = $request['marathi_title'];
+        $crowdsourcing_data->english_description = $request['english_description'];
+        $crowdsourcing_data->marathi_description = $request['marathi_description'];
+        $crowdsourcing_data->english_image = $englishImageName;
+        $crowdsourcing_data->marathi_image =   $marathiImageName;
+        $crowdsourcing_data->save();        
      
         return [
-            'msg' => 'Capacity buildind and Training updated successfully.',
+            'msg' => 'Report Incident Crowdsourcing updated successfully.',
             'status' => 'success'
         ];
     } catch (\Exception $e) {
         return $e;
         return [
-            'msg' => 'Failed to update Capacity buildind and Training.',
+            'msg' => 'Failed to update Report Incident Crowdsourcing.',
             'status' => 'error'
         ];
     }
@@ -113,19 +113,19 @@ public function updateAll($request)
 public function deleteById($id)
 {
     try {
-        $training = CapacityTraining::find($id);
-        if ($training) {
+        $crowdsourcing = ReportIncidentCrowdsourcing::find($id);
+        if ($crowdsourcing) {
               // Delete the images from the storage folder
               Storage::delete([
-                'public/images/capacity-training/'.$training->english_image,
-                'public/images/capacity-training/'.$training->marathi_image
+                'public/images/citizen-action/'.$crowdsourcing->english_image,
+                'public/images/citizen-action/'.$crowdsourcing->marathi_image
             ]);
 
             // Delete the record from the database
             
-            $training->delete();
+            $crowdsourcing->delete();
             
-            return $training;
+            return $crowdsourcing;
         } else {
             return null;
         }

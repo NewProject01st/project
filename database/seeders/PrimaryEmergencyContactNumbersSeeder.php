@@ -17,7 +17,7 @@ class PrimaryEmergencyContactNumbersSeeder extends Seeder
         EmergencyContactNumbers::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => '<b>Primary Emergency contact numbers</b>',
+            'english_title' => '<b>Primary Emergency Contact Numbers</b>',
             'marathi_title' => '<b>प्राथमिक आपत्कालीन संपर्क क्रमांक</b>',
             'english_description' => 'During emergencies, it is crucial to have access to reliable and immediate assistance. Here are some commonly used emergency contact numbers in various disaster situations:<br>
             <ul>
@@ -47,12 +47,12 @@ class PrimaryEmergencyContactNumbersSeeder extends Seeder
             </li>
            </ul>
             ',
-            'english_emergency_contact_title' => 'List of Emergency Contact Numbers',
-            'marathi_emergency_contact_title' => 'आपत्कालीन संपर्क क्रमांकांची यादी',
-            'english_emergency_contact_number' => 'Number',
-            'marathi_emergency_contact_number' => 'Number',
-            'english_image' => 'slide2_english.jpeg',
-            'marathi_image' => 'slide2_marathi.jpeg',
+            // 'english_emergency_contact_title' => 'List of Emergency Contact Numbers',
+            // 'marathi_emergency_contact_title' => 'आपत्कालीन संपर्क क्रमांकांची यादी',
+            // 'english_emergency_contact_number' => 'Number',
+            // 'marathi_emergency_contact_number' => 'Number',
+            'english_image' => 'test_english.jpeg',
+            'marathi_image' => 'test_marathi.jpeg',
             'is_deleted'=>false,
             'is_active'=>true,
         ]);

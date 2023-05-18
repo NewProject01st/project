@@ -19,7 +19,7 @@ class AboutUsSeeder extends Seeder
         DisasterManagementPortal::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => '<b>Introduction to the disaster management portal</b>',
+            'english_title' => 'Introduction to the Disaster Management Portal',
             'marathi_title' => '<b>आपत्ती व्यवस्थापन पोर्टलची ओळख</b>',
             'english_description' => 'The Disaster Management Portal is a comprehensive online platform designed to facilitate efficient and organized management of disasters. It serves as a centralized hub for disaster-related information, coordination, and collaboration among various stakeholders involved in disaster management, including government agencies, relief organizations, emergency services, and the general public. The portal aims to enhance preparedness, response, and recovery efforts by providing timely and accurate information, tools, and resources.<br>
 
@@ -32,9 +32,9 @@ class AboutUsSeeder extends Seeder
             पोर्टलच्या मुख्य कार्यांपैकी एक म्हणजे घटना अहवाल प्रणाली. वापरकर्ते आपत्तींशी संबंधित घटनांची तक्रार करू शकतात, जसे की भूकंप, पूर, आग किंवा इतर कोणत्याही आपत्कालीन परिस्थिती. ते घटनेचे स्थान, तीव्रता आणि इतर कोणत्याही संबंधित माहितीसह आवश्यक तपशील प्रदान करू शकतात. "
 
             ',
-            'english_image' => 'slide_english.jpeg',
-            'marathi_image' => 'slide_marathi.jpeg',
-            'url' => 'disaster',
+            'english_image' => 'test_english.jpeg',
+            'marathi_image' => 'test_marathi.jpeg',
+            // 'url' => 'disaster',
             'is_deleted'=>false,
             'is_active'=>true,
         ]);
@@ -75,7 +75,9 @@ class AboutUsSeeder extends Seeder
                 <li> सार्वजनिक जागरुकता आणि शिक्षणाचा प्रचार करणे: शैक्षणिक साहित्य, मोहिमा आणि प्रशिक्षण कार्यक्रमांद्वारे आपत्ती जोखीम, कमी करण्याच्या धोरणे आणि सुरक्षा उपायांबद्दल जनजागृती करणे.</li>
                 <li>प्रवेशयोग्यता आणि सर्वसमावेशकता सुनिश्चित करणे: वापरकर्त्यांच्या विस्तृत श्रेणीसाठी प्रवेशयोग्य होण्यासाठी पोर्टल डिझाइन करा. विविध गरजा पूर्ण करण्यासाठी माहिती आणि संसाधने अनेक भाषांमध्ये आणि स्वरूपांमध्ये उपलब्ध असल्याची खात्री करा."</li>
                  </ul> ',
-                'url' => 'goals',
+                // 'url' => 'goals',
+                'english_image' => 'test_english.jpeg',
+                'marathi_image' => 'test_marathi.jpeg',
                 'is_deleted' => false,
                 'is_active' => true,
                
@@ -120,7 +122,9 @@ class AboutUsSeeder extends Seeder
                 <li> सार्वजनिक जागरुकता आणि शिक्षणाचा प्रचार करणे: शैक्षणिक साहित्य, मोहिमा आणि प्रशिक्षण कार्यक्रमांद्वारे आपत्ती जोखीम, कमी करण्याच्या धोरणे आणि सुरक्षा उपायांबद्दल जनजागृती करणे.</li>
                 <li>सतत सुधारणा आणि शिक्षण: पोर्टल अभिप्राय गोळा करून, मूल्यमापन आयोजित करून आणि भविष्यातील आपत्ती व्यवस्थापन प्रयत्नांना बळ देण्यासाठी भूतकाळातील आपत्तींमधून शिकलेल्या धड्यांचा समावेश करून सतत सुधारणा करण्याची संस्कृती वाढवण्याचा प्रयत्न करते.</li>
                  </ul> ',
-                'url' => 'goals',
+                // 'url' => 'goals',
+                'english_image' => 'test_english1.jpeg',
+                'marathi_image' => 'test_marathi1.jpeg',
                 'is_deleted' => false,
                 'is_active' => true,
                
@@ -129,13 +133,59 @@ class AboutUsSeeder extends Seeder
             StateDisasterManagementAuthority::create([
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
-                'english_title' => 'English Title',
-                'marathi_title' => 'Marathi Title',
-                'english_description' => 'English Description',
-                'marathi_description' => 'Marathi Description',
-                'english_image' => 'English Image',
-                'marathi_image' => 'Marathi Image',
-                'url' => 'state',
+                'english_title' => ' State disaster management authority  (SDMA)',
+                'marathi_title' => 'राज्य आपत्ती व्यवस्थापन प्राधिकरण (SDMA)',
+                'english_description' => 'The State Disaster Management Authority (SDMA) in Maharashtra is a government body responsible for disaster management at the state level. It is established under the Disaster Management Act, 2005, which mandates the creation of disaster management authorities at both the national and state levels.<br>
+                The SDMA in Maharashtra is tasked with formulating policies, plans, and guidelines for effective disaster management in the state. It coordinates and monitors various disaster management activities and ensures their implementation across different departments and agencies. The authority works towards enhancing the states preparedness, response, and recovery capabilities in the face of disasters.<br> 
+                The SDMA Maharashtra is headed by the Chief Minister of the state as the Chairperson and consists of members from different government departments, experts, and representatives from relevant sectors. It works closely with district-level disaster management authorities, local authorities, and other stakeholders to ensure a coordinated and integrated approach to disaster management.<br>
+                The primary objectives of the SDMA Maharashtra include:<br> 
+                <ul>
+                <li>Formulating state-level disaster management policies, plans, and guidelines.
+                </li>
+                <li>Facilitating capacity building and training programs for disaster management.
+                </li>
+                <li>Coordinating and integrating efforts of various departments and agencies involved in disaster management.
+                </li>
+                <li>Ensuring the implementation of disaster risk reduction measures and promoting resilience.
+                </li>
+                <li>Providing technical support and guidance to district-level disaster management authorities.
+                </li>
+                <li>Enhancing public awareness and promoting community participation in disaster management.
+                </li>
+                <li>Coordinating response and relief operations during disasters.
+                </li>
+                <li>Conducting post-disaster assessments and facilitating recovery and reconstruction efforts.
+                </li>
+                </ul>
+                               ',
+                'marathi_description' => 'महाराष्ट्रातील राज्य आपत्ती व्यवस्थापन प्राधिकरण (SDMA) ही राज्य पातळीवर आपत्ती व्यवस्थापनासाठी जबाबदार असलेली सरकारी संस्था आहे. हे आपत्ती व्यवस्थापन कायदा, 2005 अंतर्गत स्थापित केले गेले आहे, जे राष्ट्रीय आणि राज्य दोन्ही स्तरांवर आपत्ती व्यवस्थापन प्राधिकरणांची निर्मिती अनिवार्य करते.<br>
+                महाराष्ट्रातील SDMA कडे राज्यातील प्रभावी आपत्ती व्यवस्थापनासाठी धोरणे, योजना आणि मार्गदर्शक तत्त्वे तयार करण्याचे काम आहे. हे विविध आपत्ती व्यवस्थापन क्रियाकलापांचे समन्वय आणि निरीक्षण करते आणि विविध विभाग आणि एजन्सींमध्ये त्यांची अंमलबजावणी सुनिश्चित करते. आपत्तींचा सामना करताना राज्याची तयारी, प्रतिसाद आणि पुनर्प्राप्ती क्षमता वाढविण्याच्या दिशेने प्राधिकरण कार्य करते.<br>
+                SDMA महाराष्ट्र चे अध्यक्ष राज्याचे मुख्यमंत्री असतात आणि त्यामध्ये विविध सरकारी विभागांचे सदस्य, तज्ञ आणि संबंधित क्षेत्रातील प्रतिनिधी असतात. हे आपत्ती व्यवस्थापनासाठी समन्वित आणि एकात्मिक दृष्टीकोन सुनिश्चित करण्यासाठी जिल्हा-स्तरीय आपत्ती व्यवस्थापन प्राधिकरणे, स्थानिक प्राधिकरणे आणि इतर भागधारकांशी जवळून कार्य करते.<br>
+                SDMA महाराष्ट्राच्या प्राथमिक उद्दिष्टांमध्ये हे समाविष्ट आहे:<br>
+                <ul>
+                <li>राज्यस्तरीय आपत्ती व्यवस्थापन धोरणे, योजना आणि मार्गदर्शक तत्त्वे तयार करणे.
+                </li>
+                <li>आपत्ती व्यवस्थापनासाठी क्षमता निर्माण आणि प्रशिक्षण कार्यक्रमांची सोय करणे.
+                </li>
+                <li>आपत्ती व्यवस्थापनामध्ये गुंतलेल्या विविध विभाग आणि एजन्सींच्या प्रयत्नांचे समन्वय आणि एकत्रीकरण.
+                </li>
+                <li>आपत्ती जोखीम कमी करण्याच्या उपायांची अंमलबजावणी सुनिश्चित करणे आणि लवचिकतेस प्रोत्साहन देणे.
+                </li>
+                <li>जिल्हास्तरीय आपत्ती व्यवस्थापन प्राधिकरणांना तांत्रिक सहाय्य आणि मार्गदर्शन प्रदान करणे.
+                </li>
+                <li>सार्वजनिक जागरूकता वाढवणे आणि आपत्ती व्यवस्थापनामध्ये समुदायाच्या सहभागास प्रोत्साहन देणे.
+                </li>
+                <li>आपत्ती दरम्यान प्रतिसाद आणि मदत कार्यात समन्वय साधणे.
+                </li>
+                <li>आपत्तीनंतरचे मूल्यांकन आयोजित करणे आणि पुनर्प्राप्ती आणि पुनर्बांधणीच्या प्रयत्नांना मदत करणे.
+                </li>
+                </ul>
+                ',
+                'english_image' => 'slide_english.jpeg',
+                'marathi_image' => 'slide_marathi.jpeg',
+                // 'url' => 'state',
+                'english_image' => 'test_english.jpeg',
+            'marathi_image' => 'test_marathi.jpeg',
                 'is_deleted'=>false,
                 'is_active'=>true,
             
