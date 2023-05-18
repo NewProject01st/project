@@ -136,6 +136,9 @@
                           <li class="nav-item d-none d-lg-block"> <a class="nav-link"
                                   href="{{ route('list-capacity-building-and-training') }}">Capacity training</a>
                           </li>
+                          <li class="nav-item d-none d-lg-block"> <a class="nav-link"
+                                  href="{{ route('list-public-awareness-and-education') }}">Awareness And Education </a>
+                          </li>
 
                       </ul>
                   </div>

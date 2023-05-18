@@ -5,13 +5,14 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Objective Goals List <a href='{{ route('add-objectivegoals') }}' class="btn btn-sm btn-primary ml-3">+
+                Report a Incident: Crowdsourcing <a href="{{ route('add-report-crowdsourcing') }}"
+                    class="btn btn-sm btn-primary ml-3">+
                     Add</a>
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Master Management</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Objective Goals</li>
+                    <li class="breadcrumb-item"><a href="#"> Report a Incident: Crowdsourcing</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Report a Incident: Crowdsourcing</li>
                 </ol>
             </nav>
         </div>
@@ -30,27 +31,27 @@
                                                 <th>Title Marathi</th>
                                                 <th>Description English</th>
                                                 <th>Description Marathi</th>
-                                                <th>Image English</th>
-                                                <th>Image Marathi</th>
-
-                                                <!-- <th>Status</th> -->
+                                                <th>English Image</th>
+                                                <th>Marathi Image</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($objectivegoals as $item)
+                                            @foreach ($crowdsourcing as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td><?php echo $item->english_title; ?></td>
                                                 <td><?php echo $item->marathi_title; ?></td>
                                                 <td><?php echo $item->english_description; ?></td>
                                                 <td><?php echo $item->marathi_description; ?></td>
-                                                <td><img
-                                                        src="{{ asset('storage/images/objective-goals/' . $item->english_image) }}" />
+
+                                                <td> <img
+                                                        src="{{ asset('storage/images/citizen-action/' . $item->english_image) }}" />
                                                 </td>
-                                                <td><img
-                                                        src="{{ asset('storage/images/objective-goals/' . $item->marathi_image) }}" />
+                                                <td> <img
+                                                        src="{{ asset('storage/images/citizen-action/' . $item->marathi_image) }}" />
                                                 </td>
+
                                                 <td class="d-flex">
                                                     <a data-id="{{ $item->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
@@ -60,7 +61,8 @@
                                                             class="fas fa-eye"></i></a>
                                                     <a data-id="{{ $item->id }}"
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                        title="Delete Tender"><i class="fas fa-archive"></i></a>
+                                                        title="Delete Disaster News"><i class="fas fa-archive"></i></a>
+
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -75,16 +77,19 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('/delete-objectivegoals') }}" id="deleteform">
+    <form method="POST" action="{{ url('/delete-report-crowdsourcing') }}" id="deleteform">
         @csrf
         <input type="hidden" name="delete_id" id="delete_id" value="">
     </form>
-    <form method="POST" action="{{ url('/show-objectivegoals') }}" id="showform">
+    <form method="POST" action="{{ url('/show-report-crowdsourcing') }}" id="showform">
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-objectivegoals') }}" id="editform">
+    <form method="POST" action="{{ url('/edit-report-crowdsourcing') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>
+
+    <!-- content-wrapper ends -->
+
     @endsection
