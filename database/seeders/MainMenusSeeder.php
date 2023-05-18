@@ -133,6 +133,7 @@ class MainMenusSeeder extends Seeder
             'menu_name_english' => 'Contact Us',
             'menu_name_marathi' => 'आमच्याशी संपर्क साधा',
             'order_no' => 11,
+            'url'=> 'contact',
             'is_static'=>true,
             'is_active' => true,
            

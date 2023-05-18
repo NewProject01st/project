@@ -8,9 +8,8 @@
     </title>
 
     <?php 
-    $metadata = App\Http\Repository\MetadataRepository::getAll();
+    $metadata = App\Models\Metadata::first()
      ?>
-   
      <meta name="english_name" content="{{ $metadata->english_name}}">
      
      <meta name="keywords" content="{{ $metadata->keywords}}">

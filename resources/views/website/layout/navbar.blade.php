@@ -121,8 +121,8 @@
   
       <div class="container-fluid">
           <div class="row nav-pd">
-              <div class="col-md-12 nav-pd-col">
-                  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="col-md-12 nav-pd-col navbar_bg-color">
+                  <nav class="navbar navbar-expand-lg">
                       
                       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                           <span class="navbar-toggler-icon"></span>

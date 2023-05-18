@@ -37,6 +37,7 @@ Route::get('/list-disastermanagementportal-web', ['as' => 'list-disastermanageme
 Route::get('/list-objectivegoals-web', ['as' => 'list-objectivegoals-web', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllObjectiveGoals']);
 Route::get('/state-disaster-management-authority-web', ['as' => 'state-disaster-management-authority-web', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllStateDisasterManagementAuthority']);
 Route::get('/index', ['as' => 'index', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
+Route::get('/contact', ['as' => 'contact', 'uses' => 'App\Http\Controllers\Website\ContactUs\ContactController@index']);
 
 
 Route::group(['middleware' => ['admin']], function () {
