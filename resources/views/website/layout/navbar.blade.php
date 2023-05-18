@@ -30,36 +30,52 @@
                                     style="width: 50%;"></a></div>
                     </div>
                     <div class="col-md-4 col-sm-4">
-                        <ul class="header-contact">
-                            <li><span>Toll Free:</span> <strong>0000 00000</strong></li>
-                            <li class="city-exp"> <i class="fas fa-street-view"></i> <strong>City<br>
-                                    Name</strong> </li>
-                            <li class="header-weather"> <i class="fas fa-cloud-sun"></i> 24°C / 75°F </li>
-                            <li>
-                                <form method="post" action="">
-                                    <span>
-                                        @if (session('language') == 'mar')
-                                            {{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
-                                        @else
-                                            {{ Config::get('english.HOME_PAGE.SELECT_LANGUAGE') }}
-                                        @endif
-                                    </span>
-                                    <strong>
-                                        <select name="language" id="language">
-                                            <option value="">Slect language</option>
-                                            <option value="en" <?php if ($language == 'en') {
-                                                echo 'selected';
-                                            }
-                                            ?>>English</option>
-                                            <option value="mar"<?php if ($language == 'mar') {
-                                                echo 'selected';
-                                            }
-                                            ?>>Marathi</option>
-                                        </select>
-                                    </strong>
-                                </form>
-                            </li>
-                        </ul>
+                        <div class="row">
+                            <div class="col-md-9 col-sm-9">
+
+                                <ul class="header-contact">
+                                    <li><span>Toll Free:</span> <strong>0000 00000</strong></li>
+                                    <li class="city-exp"> <i class="fas fa-street-view"></i> <strong>City<br>Name</strong> </li>
+                                    <li class="header-weather"> <i class="fas fa-cloud-sun"></i> 24°C / 75°F </li>
+                                    
+                                </ul>
+
+                            </div>
+
+                            <div class="col-md-3 col-sm-3">
+
+                                <ul class="header-contact">
+                                    
+                                    <li class="set_lang">
+                                        <form method="post" action="">
+                                            <span>
+                                                @if (session('language') == 'mar')
+                                                    {{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
+                                                @else
+                                                    {{ Config::get('english.HOME_PAGE.SELECT_LANGUAGE') }}
+                                                @endif
+                                            </span>
+                                            <strong>
+                                                <select name="language" id="language">
+                                                    <option value="">Slect language</option>
+                                                    <option value="en" <?php if ($language == 'en') {
+                                                        echo 'selected';
+                                                    }
+                                                    ?>>English</option>
+                                                    <option value="mar"<?php if ($language == 'mar') {
+                                                        echo 'selected';
+                                                    }
+                                                    ?>>Marathi</option>
+                                                </select>
+                                            </strong>
+                                        </form>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            
+                        </div>
+
                     </div>
                 </div>
             </div>
