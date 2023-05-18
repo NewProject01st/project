@@ -25,8 +25,8 @@ class PublicAwarenessEducationRepository{
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/awareness-education', $englishImageName);
-        $request->marathi_image->storeAs('public/images/awareness-education', $marathiImageName);
+        $request->english_image->storeAs('public/images/preparedness/awareness-education', $englishImageName);
+        $request->marathi_image->storeAs('public/images/preparedness/awareness-education', $marathiImageName);
 
         
         $awareness_data = new PublicAwarenessEducation();
@@ -78,15 +78,15 @@ public function updateAll($request)
         }
          // Delete existing files
          Storage::delete([
-            'public/images/awareness-education/' . $awareness_data->english_image,
-            'public/images/awareness-education/' . $awareness_data->marathi_image
+            'public/images/preparedness/awareness-education/' . $awareness_data->english_image,
+            'public/images/preparedness/awareness-education/' . $awareness_data->marathi_image
         ]);
         
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/awareness-education/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/awareness-education/', $marathiImageName);
+        $request->english_image->storeAs('public/images/preparedness/awareness-education/', $englishImageName);
+        $request->marathi_image->storeAs('public/images/preparedness/awareness-education/', $marathiImageName);
 
                 
         $awareness_data->english_title = $request['english_title'];
@@ -117,8 +117,8 @@ public function deleteById($id)
         if ($awareness) {
               // Delete the images from the storage folder
               Storage::delete([
-                'public/images/awareness-education/'.$awareness->english_image,
-                'public/images/awareness-education/'.$awareness->marathi_image
+                'public/images/preparedness/awareness-education/'.$awareness->english_image,
+                'public/images/preparedness/awareness-education/'.$awareness->marathi_image
             ]);
 
             // Delete the record from the database

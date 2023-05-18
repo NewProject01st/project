@@ -43,5 +43,14 @@ class PreparednessServices
         } catch (\Exception $e) {
             return $e;
         }
-    }    
+    } 
+    public function getAllPublicAwarenessEducation()
+    {
+        try {
+            return $this->repo->getAllPublicAwarenessEducation();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }   
+     
 }

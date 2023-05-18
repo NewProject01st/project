@@ -89,9 +89,9 @@ class IndexRepository  {
         try {
             $data_output = EmergencyContact::where('is_active','=',true);
             if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('marathi_name','marathi_address','email','marathi_number','marathi_landline_no');
+                $data_output =  $data_output->select('marathi_title','marathi_name','marathi_address','email','marathi_number','marathi_landline_no');
             } else {
-                $data_output = $data_output->select('english_name','english_address','email','english_number','english_landline_no');
+                $data_output = $data_output->select('english_title','english_name','english_address','email','english_number','english_landline_no');
             }
             $data_output =  $data_output->get()
                             ->toArray();

@@ -79,4 +79,22 @@ class PreparednessController extends Controller
         return view('website.pages.preparedness.list-capacity-training-web',compact('language','menu', 'data_output'));
     }
 
+    public function getAllPublicAwarenessEducation()
+    {
+        try {
+
+            $menu = $this->menu;
+            $data_output = $this->service->getAllPublicAwarenessEducation();
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+
+        } catch (\Exception $e) {
+            return $e;
+        }
+        return view('website.pages.preparedness.list-capacity-training-web',compact('language','menu', 'data_output'));
+    }
+
 }

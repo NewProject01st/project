@@ -7,7 +7,7 @@
                 <h2>Preparedness </h2>
                 <ul>
                     <li> <a href="{{ route('index') }}">Home</a> </li>
-                    <li> Preparedness </li>
+                    <li> Capacity Training </li>
                 </ul>
             </div>
         </section>
