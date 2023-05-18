@@ -25,8 +25,8 @@ class HazardVulnerabilitiesRepository{
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/hazard-vulnerability', $englishImageName);
-        $request->marathi_image->storeAs('public/images/hazard-vulnerability', $marathiImageName);
+        $request->english_image->storeAs('public/images/preparedness/hazard-vulnerability', $englishImageName);
+        $request->marathi_image->storeAs('public/images/preparedness/hazard-vulnerability', $marathiImageName);
 
         
         $hazard_data = new HazardVulnerability();
@@ -78,15 +78,15 @@ public function updateAll($request)
         }
          // Delete existing files
          Storage::delete([
-            'public/images/hazard-vulnerability/' . $hazard_data->english_image,
-            'public/images/hazard-vulnerability/' . $hazard_data->marathi_image
+            'public/images/preparedness/hazard-vulnerability/' . $hazard_data->english_image,
+            'public/images/preparedness/hazard-vulnerability/' . $hazard_data->marathi_image
         ]);
         
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/hazard-vulnerability/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/hazard-vulnerability/', $marathiImageName);
+        $request->english_image->storeAs('public/images/preparedness/hazard-vulnerability/', $englishImageName);
+        $request->marathi_image->storeAs('public/images/preparedness/hazard-vulnerability/', $marathiImageName);
 
                 
         $hazard_data->english_title = $request['english_title'];
@@ -117,8 +117,8 @@ public function deleteById($id)
         if ($hazard) {
               // Delete the images from the storage folder
               Storage::delete([
-                'public/images/hazard-vulnerability/'.$hazard->english_image,
-                'public/images/hazard-vulnerability/'.$hazard->marathi_image
+                'public/images/preparedness/hazard-vulnerability/'.$hazard->english_image,
+                'public/images/preparedness/hazard-vulnerability/'.$hazard->marathi_image
             ]);
 
             // Delete the record from the database

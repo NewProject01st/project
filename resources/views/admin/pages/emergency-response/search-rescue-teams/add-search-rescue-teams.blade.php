@@ -5,12 +5,12 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Disaster Management Portal
+                    Search Rescue Team
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Disaster Management Portal</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Search Rescue Team</li>
                     </ol>
                 </nav>
             </div>
@@ -18,7 +18,7 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action='{{ route('add-disastermanagementportal') }}'
+                            <form class="forms-sample" action='{{ route('add-search-rescue-teams') }}'
                                 method="POST" enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
@@ -83,7 +83,7 @@
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                         <button type="submit" class="btn btn-danger">Cancel</button>
-                                        <span><a href="{{ route('list-disastermanagementportal') }}"
+                                        <span><a href="{{ route('list-search-rescue-teams') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
                                 </div>

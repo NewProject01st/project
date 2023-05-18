@@ -4,7 +4,8 @@ namespace App\Http\Controllers\EmergencyResponse;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Http\Services\EmergencyResponse\StateEmergencyOperationsCenterServices;
+use Validator;
 class StateEmergencyOperationsCenterController extends Controller
 {
     public function __construct()
@@ -22,7 +23,7 @@ class StateEmergencyOperationsCenterController extends Controller
     }
     public function add()
     {
-        return view('admin.pages.emergency-response.state-emergency-operations-center.add-stateemergencyoperationscenter');
+        return view('admin.pages.emergency-response.state-emergency-operations-center.add-state-emergency-operations-center');
     }
 
     public function store(Request $request) {
@@ -49,13 +50,15 @@ class StateEmergencyOperationsCenterController extends Controller
         $validation = Validator::make($request->all(),$rules,$messages);
         if($validation->fails() )
         {
-            return redirect('add-stateemergencyoperationscenter')
+            return redirect('add-state-emergency-operations-center')
                 ->withInput()
                 ->withErrors($validation);
         }
         else
         {
             $add_stateemergencyoperationscenter = $this->service->addAll($request);
+            // dd($add_stateemergencyoperationscenter);
+            // die();
             if($add_stateemergencyoperationscenter)
             {
 
@@ -65,13 +68,13 @@ class StateEmergencyOperationsCenterController extends Controller
                     return redirect('list-state-emergency-operations-center')->with(compact('msg','status'));
                 }
                 else {
-                    return redirect('add-stateemergencyoperationscenter')->withInput()->with(compact('msg','status'));
+                    return redirect('add-state-emergency-operations-center')->withInput()->with(compact('msg','status'));
                 }
             }
 
         }
     } catch (Exception $e) {
-        return redirect('add-stateemergencyoperationscenter')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+        return redirect('add-state-emergency-operations-center')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
 }
     public function show(Request $request)
@@ -79,7 +82,7 @@ class StateEmergencyOperationsCenterController extends Controller
         try {
             //  dd($request->show_id);
             $stateemergencyoperationscenter = $this->service->getById($request->show_id);
-            return view('admin.pages.emergency-response.state-emergency-operations-center.show-stateemergencyoperationscenter', compact('stateemergencyoperationscenter'));
+            return view('admin.pages.emergency-response.state-emergency-operations-center.show-state-emergency-operations-center', compact('stateemergencyoperationscenter'));
         } catch (\Exception $e) {
             return $e;
         }
@@ -88,7 +91,7 @@ class StateEmergencyOperationsCenterController extends Controller
     {
         $edit_data_id = $request->edit_id;
         $stateemergencyoperationscenter = $this->service->getById($edit_data_id);
-        return view('admin.pages.emergency-response.state-emergency-operations-center.edit-stateemergencyoperationscenter', compact('stateemergencyoperationscenter'));
+        return view('admin.pages.emergency-response.state-emergency-operations-center.edit-state-emergency-operations-center', compact('stateemergencyoperationscenter'));
     }
     public function update(Request $request)
 {

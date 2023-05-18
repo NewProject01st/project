@@ -25,8 +25,8 @@ class EarlyWarningSystemRepository{
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/early-warning', $englishImageName);
-        $request->marathi_image->storeAs('public/images/early-warning', $marathiImageName);
+        $request->english_image->storeAs('public/images/preparedness/early-warning', $englishImageName);
+        $request->marathi_image->storeAs('public/images/preparedness/early-warning', $marathiImageName);
 
         
         $warning_data = new EarlyWarningSystem();
@@ -78,15 +78,15 @@ public function updateAll($request)
         }
          // Delete existing files
          Storage::delete([
-            'public/images/early-warning/' . $warning_data->english_image,
-            'public/images/early-warning/' . $warning_data->marathi_image
+            'public/images/preparedness/early-warning/' . $warning_data->english_image,
+            'public/images/preparedness/early-warning/' . $warning_data->marathi_image
         ]);
         
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/early-warning/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/early-warning/', $marathiImageName);
+        $request->english_image->storeAs('public/images/preparedness/early-warning/', $englishImageName);
+        $request->marathi_image->storeAs('public/images/preparedness/early-warning/', $marathiImageName);
 
                 
         $warning_data->english_title = $request['english_title'];
@@ -117,8 +117,8 @@ public function deleteById($id)
         if ($warning) {
               // Delete the images from the storage folder
               Storage::delete([
-                'public/images/early-warning/'.$hazard->english_image,
-                'public/images/early-warning/'.$hazard->marathi_image
+                'public/images/preparedness/early-warning/'.$warning->english_image,
+                'public/images/preparedness/early-warning/'.$warning->marathi_image
             ]);
 
             // Delete the record from the database
