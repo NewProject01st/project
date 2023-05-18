@@ -290,10 +290,10 @@
                                                 <div class="panel-body">
                                                     <ul>
                                                         <li> <i class="fas fa-user-tie"></i> <?php echo $item['english_name']; ?> </li>
-                                                        <li> <i class="far fa-building"></i> <?php echo $item['english_address']; ?> </li>
+                                                        <li> <i class="fas fa-building"></i> <?php echo $item['english_address']; ?> </li>
                                                         <li> <i class="fas fa-phone"></i> <?php echo $item['english_number']; ?></li>
                                                         <li> <i class="fas fa-fax"></i> <?php echo $item['english_landline_no']; ?> </li>
-                                                        <li> <i class="far fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                        <li> <i class="fas fa-envelope"></i> <?php echo $item['email']; ?></li>
                                                     </ul>
                                                 </div>
                                             </div>
