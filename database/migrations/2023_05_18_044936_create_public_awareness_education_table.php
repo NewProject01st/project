@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ObjectiveGoals extends Migration
+class CreatePublicAwarenessEducationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class ObjectiveGoals extends Migration
      */
     public function up()
     {
-        Schema::create('objective-goals', function (Blueprint $table) {
+        Schema::create('public_awareness_education', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('english_title');
             $table->text('marathi_title');
@@ -21,10 +21,8 @@ class ObjectiveGoals extends Migration
             $table->text('marathi_description');
             $table->string('english_image');
             $table->string('marathi_image');
-            $table->string('url');
             $table->string('is_deleted')->default(true);
             $table->boolean('is_active')->default(true);
-            // Add more columns here
             $table->timestamps();
         });
     }
@@ -36,6 +34,6 @@ class ObjectiveGoals extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('public_awareness_education');
     }
 }

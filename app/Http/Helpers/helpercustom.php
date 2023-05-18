@@ -38,10 +38,11 @@ function getMenuItems() {
     $menu_data = array();
     $main_menu_data =  MainMenus::where('is_active', '=',true)
                         ->select( 
-                            'menu_name_marathi', 
-                            'menu_name_english',
-                            'url',
-                            'id'
+                            'main_menuses.menu_name_marathi', 
+                            'main_menuses.menu_name_english',
+                            'main_menuses.id',
+                            'main_menuses.url', 
+                            'main_menuses.is_static', 
                         )
                         ->get()
                         ->toArray();

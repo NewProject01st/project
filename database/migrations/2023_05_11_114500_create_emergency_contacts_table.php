@@ -22,10 +22,10 @@ class CreateEmergencyContactsTable extends Migration
             $table->text('english_address');
             $table->text('marathi_address');
             $table->string('email');
-            $table->bigInteger('english_number');
-            $table->bigInteger('marathi_number');
-            $table->bigInteger('english_landline_no');
-            $table->bigInteger('marathi_landline_no');
+            $table->string('english_number');
+            $table->string('marathi_number');
+            $table->string('english_landline_no');
+            $table->string('marathi_landline_no');
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

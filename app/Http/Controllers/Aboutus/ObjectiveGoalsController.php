@@ -33,7 +33,9 @@ class ObjectiveGoalsController extends Controller
             'english_title' => 'required',
             'marathi_title' => 'required',
             'english_description' => 'required',
-            'marathi_description' => 'required'
+            'marathi_description' => 'required',
+            'english_image' => 'required',
+            'marathi_image' => 'required',
             
          ];
     $messages = [   
@@ -41,6 +43,8 @@ class ObjectiveGoalsController extends Controller
         'marathi_title.required' => 'Please enter marathi title.',
         'english_description.required' => 'Please enter english description.',
         'marathi_description.required' => 'Please enter marathi description.',
+        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ];
     // print_r($messages);
     // die();
@@ -95,7 +99,9 @@ class ObjectiveGoalsController extends Controller
         'english_title' => 'required',
         'marathi_title' => 'required',
         'english_description' => 'required',
-        'marathi_description' => 'required'
+        'marathi_description' => 'required',
+        'english_image' => 'required',
+        'marathi_image' => 'required',
         
      ];
 
@@ -104,6 +110,8 @@ class ObjectiveGoalsController extends Controller
         'marathi_title.required' => 'Please enter Marathi title.',
         'english_description.required' => 'Please enter English description.',
         'marathi_description.required' => 'Please enter Marathi description.',
+        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ];
 
     try {
