@@ -35,7 +35,7 @@
 
                                 <ul class="header-contact">
                                     <li><span>Toll Free:</span> <strong>0000 00000</strong></li>
-                                    <li class="city-exp"> <i class="fas fa-street-view"></i> <strong>City<br>Name</strong> </li>
+                                    <li class="city-exp"> <i class="fas fa-street-view"></i> <strong>City<br>Nashik</strong> </li>
                                     <li class="header-weather"> <i class="fas fa-cloud-sun"></i> 24°C / 75°F </li>
                                     
                                 </ul>
