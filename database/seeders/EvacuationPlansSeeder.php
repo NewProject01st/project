@@ -71,8 +71,8 @@ class EvacuationPlansSeeder extends Seeder
              आणीबाणीच्या काळात लोकसंख्येची सुरक्षितता आणि कल्याण सुनिश्चित करून, महाराष्ट्रात प्रभावी निर्वासन योजना विकसित करण्यासाठी हे घटक एकत्रितपणे योगदान देतात.
             
             ',   
-            'english_image' => 'slide2_english.jpeg',
-            'marathi_image' => 'slide2_marathi.jpeg',
+            'english_image' => 'test_english.jpeg',
+            'marathi_image' => 'test_marathi.jpeg',
             'is_deleted'=>false,
             'is_active'=>true, 
         ]);

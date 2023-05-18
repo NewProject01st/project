@@ -5,12 +5,12 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Disaster Management Portal
+                    Emergency Contact Numbers
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Disaster Management Portal</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Emergency Contact Numbers</li>
                     </ol>
                 </nav>
             </div>
@@ -18,7 +18,7 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action='{{ route('add-disastermanagementportal') }}'
+                            <form class="forms-sample" action='{{ route('add-emergency-contact-numbers') }}'
                                 method="POST" enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">

@@ -51,8 +51,8 @@ class DistrictEmergencyOperationsCenterSeeder extends Seeder
             </li>
             </ul>
             ',
-            'english_image' => 'slide_english.jpeg',
-            'marathi_image' => 'slide_marathi.jpeg',
+            'english_image' => 'test_english.jpeg',
+            'marathi_image' => 'test_marathi.jpeg',
             'is_deleted'=>false,
             'is_active'=>true,
         ]);

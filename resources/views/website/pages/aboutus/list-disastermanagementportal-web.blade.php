@@ -6,7 +6,7 @@
             <div class="container">
                 <h2>About Us </h2>
                 <ul>
-                    <li> <a href="index.html">Home</a> </li>
+                    <li> <a href="{{ route('index') }}">Home</a> </li>
                     <li> About Us </li>
                 </ul>
             </div>

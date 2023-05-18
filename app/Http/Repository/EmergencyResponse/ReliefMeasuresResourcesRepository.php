@@ -25,8 +25,8 @@ class ReliefMeasuresResourcesRepository  {
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/relief-measures-resources', $englishImageName);
-        $request->marathi_image->storeAs('public/images/relief-measures-resources', $marathiImageName);
+        $request->english_image->storeAs('public/images/emergency-response/relief-measures-resources', $englishImageName);
+        $request->marathi_image->storeAs('public/images/emergency-response/relief-measures-resources', $marathiImageName);
 
         $reliefmeasuresresources_data = new ReliefMeasuresResources();
         $reliefmeasuresresources_data->english_title = $request['english_title'];
@@ -36,9 +36,7 @@ class ReliefMeasuresResourcesRepository  {
         $reliefmeasuresresources_data->english_image = $englishImageName; // Save the image filename to the database
         $reliefmeasuresresources_data->marathi_image = $marathiImageName; // Save the image filename to the database
         $reliefmeasuresresources_data->save();       
-
-        echo $reliefmeasuresresources_data;
-        die();
+        
         return $reliefmeasuresresources_data;
 
     } catch (\Exception $e) {
@@ -81,15 +79,15 @@ public function updateAll($request)
         
         // Delete existing files
         Storage::delete([
-            'public/images/relief-measures-resources/' . $reliefmeasuresresources_data->english_image,
-            'public/images/relief-measures-resources/' . $reliefmeasuresresources_data->marathi_image
+            'public/images/emergency-response/relief-measures-resources/' . $reliefmeasuresresources_data->english_image,
+            'public/images/emergency-response/relief-measures-resources/' . $reliefmeasuresresources_data->marathi_image
         ]);
         
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/relief-measures-resources', $englishImageName);
-        $request->marathi_image->storeAs('public/images/relief-measures-resources', $marathiImageName);
+        $request->english_image->storeAs('public/images/emergency-response/relief-measures-resources', $englishImageName);
+        $request->marathi_image->storeAs('public/images/emergency-response/relief-measures-resources', $marathiImageName);
 
 
         $reliefmeasuresresources_data = ReliefMeasuresResources::find($request->id);
@@ -121,8 +119,8 @@ public function deleteById($id)
         if ($reliefmeasuresresources) {
             // Delete the images from the storage folder
             Storage::delete([
-                'public/images/relief-measures-resources/'.$reliefmeasuresresources->english_image,
-                'public/images/relief-measures-resources/'.$reliefmeasuresresources->marathi_image
+                'public/images/emergency-response/relief-measures-resources/'.$reliefmeasuresresources->english_image,
+                'public/images/emergency-response/relief-measures-resources/'.$reliefmeasuresresources->marathi_image
             ]);
 
             // Delete the record from the database

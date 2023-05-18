@@ -62,7 +62,7 @@
                                             <label>Image English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <img src="{{ asset('storage/images/disaster-management-portal/' . $districtemergencyoperationscenter->english_image) }}"
+                                            <img src="{{ asset('storage/images/emergency-response/district-emergency-operations-center/' . $districtemergencyoperationscenter->english_image) }}"
                                                 style="width:70px; height:70px;" />
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@
                                             <label>Image Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
-                                            <img src="{{ asset('storage/images/disaster-management-portal/' . $districtemergencyoperationscenter->marathi_image) }}"
+                                            <img src="{{ asset('storage/images/emergency-response/district-emergency-operations-center/' . $districtemergencyoperationscenter->marathi_image) }}"
                                                 style="width:70px; height:70px;" />
                                         </div>
                                     </div>
