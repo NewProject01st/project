@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Repository\AboutUs;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\QueryException;
 use DB;
 use Illuminate\Support\Carbon;
@@ -29,16 +29,16 @@ class ObjectiveGoalsRepository  {
         $request->english_image->storeAs('public/images/objective-goals', $englishImageName);
         $request->marathi_image->storeAs('public/images/objective-goals', $marathiImageName);
 
-        $objectivegoals_data = new ObjectiveGoals();
-        $objectivegoals_data->english_title = $request['english_title'];
-        $objectivegoals_data->marathi_title = $request['marathi_title'];
-        $objectivegoals_data->english_description = $request['english_description'];
-        $objectivegoals_data->marathi_description = $request['marathi_description'];
-        $objectivegoals_data->english_image = $request['english_image'];
-        $objectivegoals_data->marathi_image = $request['marathi_image'];
-        $objectivegoals_data->save();       
+        $objective_data = new ObjectiveGoals();
+        $objective_data->english_title = $request['english_title'];
+        $objective_data->marathi_title = $request['marathi_title'];
+        $objective_data->english_description = $request['english_description'];
+        $objective_data->marathi_description = $request['marathi_description'];
+        $objective_data->english_image =  $englishImageName;
+        $objective_data->marathi_image =  $marathiImageName;
+        $objective_data->save();       
      
-		return $objectivegoals_data;
+		return $objective_data;
     } catch (\Exception $e) {
         return [
             'msg' => $e,
@@ -50,9 +50,9 @@ class ObjectiveGoalsRepository  {
 public function getById($id)
 {
     try {
-        $budget = ObjectiveGoals::find($id);
-        if ($budget) {
-            return $budget;
+        $objective = ObjectiveGoals::find($id);
+        if ($objective) {
+            return $objective;
         } else {
             return null;
         }
@@ -94,8 +94,8 @@ public function updateAll($request)
         $objectivegoals_data->marathi_title = $request['marathi_title'];
         $objectivegoals_data->english_description = $request['english_description'];
         $objectivegoals_data->marathi_description = $request['marathi_description'];
-        $objectivegoals_data->english_image = $request['english_image'];
-        $objectivegoals_data->marathi_image = $request['marathi_image'];
+        $objectivegoals_data->english_image =  $englishImageName;
+        $objectivegoals_data->marathi_image =  $marathiImageName;
         $objectivegoals_data->update();  
         
     //    dd($objectivegoals_data);
@@ -119,9 +119,17 @@ public function updateAll($request)
 public function deleteById($id)
 {
     try {
-        $budget = ObjectiveGoals::destroy($id);
-        if ($budget) {
-            return $budget;
+        $objectivegoals = ObjectiveGoals::destroy($id);
+        if ($objectivegoals) {
+            Storage::delete([
+                'public/images/objective-goals/'.$objectivegoals->marathi_image,
+                'public/images/objective-goals/'.$objectivegoals->english_image,
+            ]);
+
+            // Delete the record from the database
+            $objectivegoals->delete();
+            
+            return $objectivegoals;
         } else {
             return null;
         }

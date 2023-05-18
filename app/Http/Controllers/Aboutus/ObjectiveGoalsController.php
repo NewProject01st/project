@@ -39,10 +39,10 @@ class ObjectiveGoalsController extends Controller
             
          ];
     $messages = [   
-        'english_title.required' => 'Please  enter english title.',
-        'marathi_title.required' => 'Please enter marathi title.',
-        'english_description.required' => 'Please enter english description.',
-        'marathi_description.required' => 'Please enter marathi description.',
+        'english_title' => 'Please  enter english title.',
+        'marathi_title' => 'Please enter marathi title.',
+        'english_description' => 'Please enter english description.',
+        'marathi_description' => 'Please enter marathi description.',
         'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ];
@@ -106,10 +106,10 @@ class ObjectiveGoalsController extends Controller
      ];
 
     $messages = [   
-        'english_title.required' => 'Please enter English title.',
-        'marathi_title.required' => 'Please enter Marathi title.',
-        'english_description.required' => 'Please enter English description.',
-        'marathi_description.required' => 'Please enter Marathi description.',
+        'english_title' => 'Please enter English title.',
+        'marathi_title' => 'Please enter Marathi title.',
+        'english_description' => 'Please enter English description.',
+        'marathi_description' => 'Please enter Marathi description.',
         'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ];

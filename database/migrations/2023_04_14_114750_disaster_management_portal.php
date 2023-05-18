@@ -21,7 +21,7 @@ class  DisasterManagementPortal extends Migration
             $table->text('marathi_description');
             $table->string('english_image');
             $table->string('marathi_image');
-            $table->string('url');
+            // $table->string('url');
             $table->string('is_deleted')->default(true);
             $table->boolean('is_active')->default(true);
             // Add more columns here
