@@ -60,7 +60,8 @@
                                                             class="fas fa-eye"></i></a>
                                                     <a data-id="{{ $item->id }}"
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                        title="Delete Tender"><i class="fas fa-archive"></i></a>
+                                                        title="Delete Objective Goals"><i
+                                                            class="fas fa-archive"></i></a>
                                                 </td>
                                             </tr>
                                             @endforeach

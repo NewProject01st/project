@@ -22,7 +22,7 @@ class HomeTenderSeeder extends Seeder
             'english_description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ',
             'marathi_description' => 'Lorem Ipsum हा मुद्रण आणि टाइपसेटिंग उद्योगाचा फक्त डमी मजकूर आहे.',
             'tender_date' => '2023-05-11',
-            'english_url'   => 'tenders',
+            'url'   => 'tenders',
             'english_pdf' => 'English pdf',
             'marathi_pdf' => 'Marathi pdf',
             'is_deleted'=>false,

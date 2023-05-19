@@ -81,12 +81,11 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_url">English URL</label>
-                                        <input type="text" name="english_url" id="english_url" class="form-control"
-                                            id="english_url" placeholder="">
-                                        @if ($errors->has('english_url'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('english_url', ':message'); ?></span>
+                                        <label for="url">English URL</label>
+                                        <input type="text" name="url" id="url" class="form-control" id="url"
+                                            placeholder="">
+                                        @if ($errors->has('url'))
+                                        <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                         @endif
                                     </div>
                                 </div>

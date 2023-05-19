@@ -37,7 +37,7 @@ class HomeTenderRepository  {
         $tender_data->english_description = $request['english_description'];
         $tender_data->marathi_description = $request['marathi_description'];
         $tender_data->tender_date = $request['tender_date'];
-        $tender_data->english_url = $request['english_url'];
+        $tender_data->url = $request['url'];
         $tender_data->english_pdf = $englishPdf;
         $tender_data->marathi_pdf = $marathiPdf;
         $tender_data->save();       
@@ -98,7 +98,7 @@ public function updateAll($request)
         $update_data->english_description = $request['english_description'];
         $update_data->marathi_description = $request['marathi_description'];
         $update_data->tender_date = $request['tender_date'];
-        $update_data->english_url = $request['english_url'];
+        $update_data->url = $request['url'];
         $update_data->english_pdf = $englishPdf;
         $update_data->marathi_pdf = $marathiPdf;
         $update_data->save();        

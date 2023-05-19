@@ -71,7 +71,7 @@
                                         <label>English URL :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $tenders->english_url ?></label>
+                                        <label><?php echo $tenders->url ?></label>
                                     </div>
                                 </div>
 

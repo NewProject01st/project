@@ -20,7 +20,7 @@ class CreateHomeTendersTable extends Migration
             $table->text('english_description');
             $table->text('marathi_description');
             $table->string('tender_date');
-            $table->string('english_url');
+            $table->string('url');
             $table->string('english_pdf');
             $table->string('marathi_pdf');            
             $table->string('is_deleted')->default(false);

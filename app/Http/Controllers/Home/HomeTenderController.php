@@ -35,8 +35,8 @@ class HomeTenderController extends Controller
             'marathi_title' => 'required',
             'english_description' => 'required',
             'marathi_description' => 'required', 
-            'english_url' => 'required',
-            'disaster_date' => 'required',
+            'url' => 'required',
+            'tender_date' => 'required',
             'english_pdf' => 'required',
             'marathi_pdf' => 'required',
             
@@ -46,8 +46,8 @@ class HomeTenderController extends Controller
         'marathi_title' => 'required',
         'english_description' => 'required',
         'marathi_description' => 'required', 
-        'english_url' => 'required',
-        'disaster_date' => 'required',
+        'url' => 'required',
+        'tender_date' => 'required',
         'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'marathi_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ];
@@ -99,7 +99,8 @@ public function update(Request $request)
             'marathi_title' => 'required',
             'english_description' => 'required',
             'marathi_description' => 'required', 
-            'english_url' => 'required',
+            'url' => 'required',
+            'tender_date' => 'required',
             'english_pdf' => 'required',
             'marathi_pdf' => 'required',
      ];
@@ -108,7 +109,8 @@ public function update(Request $request)
         'marathi_title' => 'required',
         'english_description' => 'required',
         'marathi_description' => 'required', 
-        'english_url' => 'required',
+        'url' => 'required',
+        'tender_date' => 'required',
         'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'marathi_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         

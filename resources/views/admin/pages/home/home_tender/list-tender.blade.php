@@ -45,7 +45,7 @@
                                                 <td><?php echo $item->english_description; ?></td>
                                                 <td><?php echo $item->marathi_description; ?></td>
                                                 <td>{{ $item->tender_date }}</td>
-                                                <td>{{ $item->english_url }}</td>
+                                                <td>{{ $item->url }}</td>
                                                 <td>{{ $item->english_pdf }}</td>
                                                 <td>{{ $item->marathi_pdf }}</td>
                                                 <td class="d-flex">
