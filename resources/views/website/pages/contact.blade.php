@@ -73,20 +73,27 @@
                <div class="container">
                     <div class="row">
                         <div class="col-md-12 contact-form m80">
-                            <h3 class="stitle text-center">Feedback</h3>
+                            <h3 class="stitle text-center">Feedback/Suggestions</h3>
                             <form>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input class="gap-text" type="text" placeholder="Full Name" required>
+                                    <input class="gap-text" type="text" placeholder="Enter Full Name" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="gap-text" type="text" placeholder="Enter Email" required>
+                                    <input class="gap-text form_text_set" type="email" placeholder="Enter Email Id" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="gap-text" type="text" placeholder="Phone" required>
+                                    <input class="gap-text" type="text" placeholder="Enter Mobile Number" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="gap-text" type="text" placeholder="Subject" required>
+                                    <select class="form_text_set select_box_set" name="cars" id="cars">
+                                        <option value="">Select</option>
+                                        <option value="Feedback">Feedback</option>
+                                        <option value="Suggestion">Suggestion</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <input class="gap-text" type="text" placeholder="Enter Subject" required>
                                 </div>
                                 <div class="col-md-12">
                                     <textarea class="gap-text" placeholder="Write Any Suggestion" required></textarea>

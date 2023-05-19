@@ -33,7 +33,6 @@ class SliderController extends Controller
     $rules = [
         'english_image' => 'required',
         'marathi_image' => 'required'
-        
         ];
     $messages = [   
         'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
