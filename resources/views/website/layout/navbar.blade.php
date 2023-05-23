@@ -4,8 +4,17 @@
         <div id="closetopbar" class="topbar wf100">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-sm-7">
-                        <p>Become a <a href="#">Volunteer</a> <a href="#">Now !</a></p>
+                    <div class="col-md-6 col-sm-7 d-flex align-items-center">
+                        
+                            <ul class="footer-social">
+                                <li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#" class="tw"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#" class="insta"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#" class="linken"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="#" class="yt"><i class="fab fa-youtube"></i></a></li>
+                            </ul>
+                      
+                        {{-- <p>Become a <a href="#">Volunteer</a> <a href="#">Now !</a></p> --}}
                     </div>
                     <div class="col-md-6 col-sm-5"> <a id="closebtn" href="#" class="cross-btn"><i
                                 class="fa fa-times"></i></a> <a href="#" class="become-vol">Become a Volunteer</a>

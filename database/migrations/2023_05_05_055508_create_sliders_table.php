@@ -17,6 +17,13 @@ class CreateSlidersTable extends Migration
             $table->id();
             $table->string('english_image');
             $table->string('marathi_image');
+            $table->text('english_title');
+            $table->text('marathi_title');
+            $table->text('english_description');
+            $table->text('marathi_description');
+            // $table->string('english_scrolltime');
+            // $table->string('marathi_scrolltime');
+            $table->string('url')->default('null');
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             // Add more columns here

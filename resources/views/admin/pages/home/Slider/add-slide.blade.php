@@ -21,7 +21,56 @@
                                 enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
-
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="english_title">Title English</label>
+                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title"
+                                                name="english_title"></textarea>
+                                            @if ($errors->has('english_title'))
+                                                <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="marathi_title">Title Marathi</label>
+                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title"
+                                                name="marathi_title"></textarea>
+                                            @if ($errors->has('marathi_title'))
+                                                <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="english_description">Description English</label>
+                                            <textarea class="form-control english_description" name="english_description" id="english_description"
+                                                placeholder="Enter the Description" name="description"></textarea>
+                                            @if ($errors->has('english_description'))
+                                                <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="marathi_description"> Description Marathi</label>
+                                            <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
+                                                placeholder="Enter the Description"></textarea>
+                                            @if ($errors->has('marathi_description'))
+                                                <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="url"> URL</label>
+                                            <input  class="form-control url" name="url" id="url"
+                                            placeholder="Enter the URL">
+                                            @if ($errors->has('url'))
+                                                <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="english_image">Image English</label><br>

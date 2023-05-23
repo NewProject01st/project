@@ -25,6 +25,12 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
+                                                    <th>Title English</th>
+                                                    <th>Title Marathi</th>
+                                                    <th>Description English</th>
+                                                    <th>Description Marathi</th>
+                                                    <th>URL</th>
+                                                    <th>Status</th>
                                                     <th>Image English</th>
                                                     <th>Image Marathi</th>
                                                     <!-- <th>Status</th> -->
@@ -35,15 +41,46 @@
                                                 @foreach ($slider as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
+                                                        <td><?php echo $item->english_title; ?></td>
+                                                        <td><?php echo $item->marathi_title; ?></td>
+                                                        <td><?php echo $item->english_description; ?></td>
+                                                        <td><?php echo $item->marathi_description; ?></td>
+                                                        <td><?php echo $item->url; ?></td>
+
+
+
                                                         <td> <img
                                                                 src="{{ asset('storage/images/slides/' . $item->english_image) }}" />
                                                         </td>
                                                         <td> <img
                                                                 src="{{ asset('storage/images/slides/' . $item->marathi_image) }}" />
                                                         </td>
-                                                        <!-- <td>
-                                                                <span class="badge badge-success">Active</span>
-                                                            </td> -->
+
+                                                        <td>
+                                                            {{-- <a data-id="{{ $item->id }}"
+                                                                class="active-btn btn btn-sm btn-outline-primary m-1">
+                                                                <span class="status-icon {{ $item->is_active ? 'active' : 'inactive' }}">
+                                                                <i class="fa {{ $item->is_active ? 'fa-thumbs-up' : 'fa-thumbs-down' }}"></i>
+                                                            </span>
+                                                                </a> --}}
+
+                                                                {{-- <input data-id="{{$item->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $item->is_active ? 'checked' : '' }}> --}}
+
+                                                                {{-- <button data-id="{{ $item->id }}" type="submit" class="active-btn btn btn-sm btn-outline-primary m-1">
+                                                                    <span class="status-icon {{ $item->is_active ? '1' : '0' }}">
+                                                                        <i class="fa {{ $item->is_active ? 'fa-thumbs-up' : 'fa-thumbs-down' }}"></i>
+                                                                    </span>
+                                                                </button> --}}
+
+                                                                <button data-id="{{ $item->id }}" type="submit" class="active-btn btn btn-sm btn-outline-primary m-1">
+                                                                    <span class="status-icon {{ $item->is_active ? '1' : '0' }}">
+                                                                        <i class="fa {{ $item->is_active ? 'fa-thumbs-up' : 'fa-thumbs-down' }}"></i>
+                                                                    </span>
+                                                                </button>
+                                                                
+
+                                                            </td>
+
                                                         <td class="d-flex">
                                                             <a data-id="{{ $item->id }}"
                                                                 class="edit-btn btn btn-sm btn-outline-primary m-1"><i
@@ -84,7 +121,29 @@
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>
+        <form method="POST" action="{{ url('/updateone-slide') }}" id="activeform">
+            @csrf
+            <input type="hidden" name="active_id" id="active_id" value="">
+        </form>
 
         <!-- content-wrapper ends -->
 
+        {{-- <script>
+            $(function() {
+              $('.toggle-class').change(function() {
+                  var status = $(this).prop('checked') == true ? 1 : 0; 
+                  var active_id = $(this).data('id'); 
+                   
+                  $.ajax({
+                      type: "GET",
+                      dataType: "json",
+                      url: '/updateOne',
+                      data: {'is_active': status, 'id': active_id},
+                      success: function(data){
+                        console.log(data.success)
+                      }
+                  });
+              })
+            })
+          </script> --}}
     @endsection

@@ -24,14 +24,53 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
-
+                                    <div class="row ">
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <label>Title English :</label>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label><?php echo $slider->english_title; ?></label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <label>Title Marathi :</label>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label><?php echo $slider->marathi_title; ?></label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <label>Description English :</label>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label><?php echo $slider->english_description; ?></label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <label>URL :</label>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label><?php echo $slider->url; ?></label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <label>Description Marathi :</label>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label><?php echo $slider->marathi_description; ?></label>
+                                        </div>
+                                    </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
                                             <label> English Image :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <img src="{{ asset('storage/images/slides/' . $slider->english_image) }}"
-                                                style="width:70px; height:70px;" />
+                                                style="width:100px; height:100px;" />
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -40,7 +79,7 @@
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
                                             <img src="{{ asset('storage/images/slides/' . $slider->marathi_image) }}"
-                                                style="width:70px; height:70px;" />
+                                                style="width:100px; height:100px;" />
                                         </div>
                                     </div>
                                 </div>

@@ -16,6 +16,28 @@ use App\Models\ {
 
 class IndexRepository  {
 
+//     public function getAllMarquee()
+// {
+//     try {
+//         $data_output = Marquee::where('is_active', true);
+        
+//         if (Session::get('language') == 'mar') {
+//             $data_output =  $data_output->select('marathi_title');
+//         } else {
+//             $data_output = $data_output->select('english_title');
+//         }
+        
+//         $data_output = $data_output->get()->pluck('marathi_title', 'english_title')->toArray();
+        
+//         $titles = implode(', ', $data_output); // Concatenate titles using implode
+//         // dd($titles);
+       
+//         return $titles;
+//     } catch (\Exception $e) {
+//         return $e;
+//     }
+// }
+
 
 	public function getAllMarquee()
     {
@@ -40,9 +62,9 @@ class IndexRepository  {
         try {
             $data_output = Slider::where('is_active','=',true);
             if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('marathi_image');
+                $data_output =  $data_output->select('marathi_title','marathi_description','marathi_image','url');
             } else {
-                $data_output = $data_output->select('english_image');
+                $data_output = $data_output->select('english_title','english_description','english_image','url');
             }
             $data_output =  $data_output->get()
                             ->toArray();

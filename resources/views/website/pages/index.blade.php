@@ -23,6 +23,10 @@
                 @endforeach
             </div>
         </section>
+
+        
+        
+        
         {{-- End Marquee --}}
         @include('website.layout.crouseler')
         {{-- Start Disaster Management --}}
@@ -75,62 +79,59 @@
                     <p>Read the News Updates and Articles from Government </p>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <!--News Box Start-->
-                            @foreach ($data_output_disastermanagementnews as $item)
-                                @if (session('language') == 'mar')
-                                    <div class="col-md-3 col-sm-6">
-                                        <div class="news-box">
-                                            {{-- <div class="new-thumb"> <span class="cat c1">Fire</span> --}}
-                                                <img src="{{ asset('storage/images/disaster-news/' . $item['marathi_image']) }}"
-                                                    class="d-block w-100">
-                                            </div>
-                                            <div class="new-txt">
-                                                <ul class="news-meta">
-                                                    <li>
-                                                        {{-- 05 MAY, 2023  --}}
-                                                        <?php echo $item['disaster_date']; ?></li>
-                                                    {{-- <li>176 Comments</li> --}}
-                                                </ul>
-                                                <h6><a href="#"><?php echo $item['marathi_title']; ?></a></h6>
-                                                <p> <?php echo $item['marathi_description']; ?></p>
-                                            </div>
-                                            <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
-                                                    alt=""> Read more <a href="#"><i
-                                                        class="fas fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
+                    <!--News Box Start-->
+                    @foreach ($data_output_disastermanagementnews as $item)
+                        @if (session('language') == 'mar')
+                            <div class="col-md-3 col-sm-6">
+                                <div class="news-box">
+                                    {{-- <div class="new-thumb"> <span class="cat c1">Fire</span> --}}
+                                        <img src="{{ asset('storage/images/disaster-news/' . $item['marathi_image']) }}"
+                                            class="d-block w-100">
                                     </div>
-                                @else
-                                    <div class="col-md-3 col-sm-6">
-                                        <div class="news-box">
-                                            <div class="new-thumb">
-                                                 {{-- <span class="cat c1">Fire</span> --}}
-                                                <img src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
-                                                    class="d-block w-100">
-                                            </div>
-                                            <div class="new-txt">
-                                                <ul class="news-meta">
-                                                    <li>
-                                                        {{-- 05 MAY, 2023  --}}
-                                                        <?php echo $item['disaster_date']; ?></li>
-                                                    {{-- <li>176 Comments</li> --}}
-                                                </ul>
-                                                <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
-                                                <p> <?php echo $item['english_description']; ?></p>
-                                            </div>
-                                            <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
-                                                    alt=""> Read more <a href="#"><i
-                                                        class="fas fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
+                                    <div class="new-txt">
+                                        <ul class="news-meta">
+                                            <li>
+                                                {{-- 05 MAY, 2023  --}}
+                                                <?php echo $item['disaster_date']; ?></li>
+                                            {{-- <li>176 Comments</li> --}}
+                                        </ul>
+                                        <h6><a href="#"><?php echo $item['marathi_title']; ?></a></h6>
+                                        <p> <?php echo $item['marathi_description']; ?></p>
                                     </div>
-                                @endif
-                            @endforeach
-                            <!--News Box End-->
-                        </div> 
-                    </div>
+                                    <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
+                                            alt=""> Read more <a href="#"><i
+                                                class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            <div class="col-md-3 col-sm-6">
+                                <div class="news-box">
+                                    <div class="new-thumb">
+                                         {{-- <span class="cat c1">Fire</span> --}}
+                                        <img src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
+                                            class="d-block w-100">
+                                    </div>
+                                    <div class="new-txt">
+                                        <ul class="news-meta">
+                                            <li>
+                                                {{-- 05 MAY, 2023  --}}
+                                                <?php echo $item['disaster_date']; ?></li>
+                                            {{-- <li>176 Comments</li> --}}
+                                        </ul>
+                                        <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
+                                        <p> <?php echo $item['english_description']; ?></p>
+                                    </div>
+                                    <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
+                                            alt=""> Read more <a href="#"><i
+                                                class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                    <!--News Box End-->
+
                 </div>
             </div>
         </section>
@@ -291,10 +292,10 @@
                                                 <div class="panel-body">
                                                     <ul>
                                                         <li> <i class="fas fa-user-tie"></i> <?php echo $item['english_name']; ?> </li>
-                                                        <li> <i class="fas fa-building"></i> <?php echo $item['english_address']; ?> </li>
+                                                        <li> <i class="far fa-building"></i> <?php echo $item['english_address']; ?> </li>
                                                         <li> <i class="fas fa-phone"></i> <?php echo $item['english_number']; ?></li>
                                                         <li> <i class="fas fa-fax"></i> <?php echo $item['english_landline_no']; ?> </li>
-                                                        <li> <i class="fas fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                        <li> <i class="far fa-envelope"></i> <?php echo $item['email']; ?></li>
                                                     </ul>
                                                 </div>
                                             </div>

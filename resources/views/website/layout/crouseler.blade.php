@@ -12,21 +12,22 @@
                         @if (session('language') == 'mar')
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
                                 <img src="{{ asset('storage/images/slides/' . $slider['marathi_image']) }}"
-                                    class="d-block w-100" alt="...">
-
-                                {{-- <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
-                    </div> --}}
+                                    class="d-block w-100" alt="...">                              
                             </div>
                         @elseif (array_key_exists('english_title', $item))
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
                                 <img src="{{ asset('storage/images/slides/' . $slider['english_image']) }}"
                                     class="d-block w-100" alt="...">
-                                {{-- <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
-                    </div> --}}
+                                <div class="carousel-caption d-none d-md-block">
+                                    <div class="Mayor-welcome">
+                        <h5><?php echo $slider['english_title']; ?> </h5>
+                        <p><?php echo $slider['english_description']; ?> </p>
+                                    </div>
+                   
+                            
+                            <a class="read-more p-2" href="{{ $slider['url'] }}" target="_blank">Read More</a>
+                     
+                    </div>
                             </div>
                         @endif
                     @endforeach

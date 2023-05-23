@@ -50,6 +50,7 @@ class SliderController extends Controller
         else
         {
             $add_slide = $this->service->addAll($request);
+            // dd($add_slide);
             if($add_slide)
             {
 
@@ -122,6 +123,40 @@ class SliderController extends Controller
             ->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
  }
+
+
+//  public function updateOne(Request $request)
+//  {
+//      $slide = Slider::find($request->id);
+//      $slide->is_active = $request->is_active;
+//      $slide->save();
+
+//      return response()->json(['success'=>'Status change successfully.']);
+//  }
+
+//  public function updateOne(Request $request)
+//  {
+//     $active_id =$request->active_id;
+//     //  $isActive = $request->input('is_active', false);
+  
+//      $result = $this->service->updateOne($active_id);
+//      dd($result);
+//      if ($result['status'] === 'success') {
+//          return redirect()->back()->with('success', $result['msg']);
+//      } else {
+//          return redirect()->back()->with('error', $result['msg']);
+//      }
+//  }
+ 
+
+public function updateOne(Request $request)
+{
+    $active_id = $request->active_id;
+    $result = $this->service->updateOne($active_id);
+
+    // Rest of the code remains the same
+}
+
     public function destroy(Request $request)
     {
         try {

@@ -265,6 +265,12 @@
         $("#editform").submit();
     })
 </script>
+<script>
+    $('.active-btn').click(function(e) {
+        $("#active_id").val($(this).attr("data-id"));
+        $("#activeform").submit();
+    })
+</script>
 
 <script type="text/javascript">
     function submitRegister() {

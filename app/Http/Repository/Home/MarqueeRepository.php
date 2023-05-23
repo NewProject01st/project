@@ -26,8 +26,7 @@ class MarqueeRepository  {
         $marquee_data->english_title = $request['english_title'];
         $marquee_data->marathi_title = $request['marathi_title'];
         $marquee_data->save();       
-        // print_r($marquee_data);
-        // die();
+     
 		return $marquee_data;
     } catch (\Exception $e) {
         return [
