@@ -4,28 +4,28 @@ namespace App\Http\Controllers\CitizenAction;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\ReportIncidentCrowdsourcing;
-use App\Http\Services\CitizenAction\ReportIncidentCrowdsourcingServices;
+use App\Models\CitizenFeedbackSuggestion;
+use App\Http\Services\CitizenAction\CitizenFeedbackSuggestionServices;
 use Validator;
-class ReportIncidentCrowdsourcingController extends Controller
+class CitizenFeedbackSuggestionsController extends Controller
 {
 
    public function __construct()
     {
-        $this->service = new ReportIncidentCrowdsourcingServices();
+        $this->service = new CitizenFeedbackSuggestionServices();
     }
     public function index()
     {
         try {
-            $crowdsourcing = $this->service->getAll();
-            return view('admin.pages.citizen-action.report-crowdsourcing.list-report-crowdsourcing', compact('crowdsourcing'));
+            $feedback_data = $this->service->getAll();
+            return view('admin.pages.citizen-action.feedback-suggestion.list-feedback-suggestion', compact('feedback_data'));
         } catch (\Exception $e) {
             return $e;
         }
     }
     public function add()
     {
-        return view('admin.pages.citizen-action.report-crowdsourcing.add-report-crowdsourcing');
+        return view('admin.pages.citizen-action.feedback-suggestion.add-feedback-suggestion');
     }
 
     public function store(Request $request) {
@@ -52,39 +52,39 @@ class ReportIncidentCrowdsourcingController extends Controller
         $validation = Validator::make($request->all(),$rules,$messages);
         if($validation->fails() )
         {
-            return redirect('add-report-crowdsourcing')
+            return redirect('add-citizen-feedback-and-suggestion')
                 ->withInput()
                 ->withErrors($validation);
         }
         else
         {
-            $add_crowdsourcing = $this->service->addAll($request);
+            $add_feedback_data = $this->service->addAll($request);
             // print_r($add_tenders);
             // die();
-            if($add_crowdsourcing)
+            if($add_feedback_data)
             {
 
-                $msg = $add_crowdsourcing['msg'];
-                $status = $add_crowdsourcing['status'];
+                $msg = $add_feedback_data['msg'];
+                $status = $add_feedback_data['status'];
                 if($status=='success') {
-                    return redirect('list-report-crowdsourcing')->with(compact('msg','status'));
+                    return redirect('list-citizen-feedback-and-suggestion')->with(compact('msg','status'));
                 }
                 else {
-                    return redirect('add-report-crowdsourcing')->withInput()->with(compact('msg','status'));
+                    return redirect('add-citizen-feedback-and-suggestion')->withInput()->with(compact('msg','status'));
                 }
             }
 
         }
     } catch (Exception $e) {
-        return redirect('add-report-crowdsourcing')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+        return redirect('add-citizen-feedback-and-suggestion')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
 }
     
     public function edit(Request $request)
     {
         $edit_data_id = $request->edit_id;
-        $crowdsourcing = $this->service->getById($edit_data_id);
-        return view('admin.pages.citizen-action.report-crowdsourcing.edit-report-crowdsourcing', compact('crowdsourcing'));
+        $feedback_data = $this->service->getById($edit_data_id);
+        return view('admin.pages.citizen-action.feedback-suggestion.edit-feedback-suggestion', compact('feedback_data'));
     }
     public function update(Request $request)
 {
@@ -114,12 +114,12 @@ class ReportIncidentCrowdsourcingController extends Controller
                 ->withInput()
                 ->withErrors($validation);
         } else {
-            $update_crowdsourcing = $this->service->updateAll($request);
-            if ($update_crowdsourcing) {
-                $msg = $update_crowdsourcing['msg'];
-                $status = $update_crowdsourcing['status'];
+            $update_feedback_data = $this->service->updateAll($request);
+            if ($update_feedback_data) {
+                $msg = $update_feedback_data['msg'];
+                $status = $update_feedback_data['status'];
                 if ($status == 'success') {
-                    return redirect('list-report-crowdsourcing')->with(compact('msg', 'status'));
+                    return redirect('list-citizen-feedback-and-suggestion')->with(compact('msg', 'status'));
                 } else {
                     return redirect()->back()
                         ->withInput()
@@ -137,8 +137,8 @@ public function show(Request $request)
     {
         try {
             //  dd($request->show_id);
-            $crowdsourcing = $this->service->getById($request->show_id);
-            return view('admin.pages.citizen-action.report-crowdsourcing.show-report-crowdsourcing', compact('crowdsourcing'));
+            $feedback_suggestion = $this->service->getById($request->show_id);
+            return view('admin.pages.citizen-action.feedback-suggestion.show-feedback-suggestion', compact('feedback_suggestion'));
         } catch (\Exception $e) {
             return $e;
         }
@@ -148,8 +148,8 @@ public function show(Request $request)
     {
         try {
             // dd($request->delete_id);
-            $crowdsourcing = $this->service->deleteById($request->delete_id);
-            return redirect('list-report-crowdsourcing')->with('flash_message', 'Deleted!');  
+            $feedback = $this->service->deleteById($request->delete_id);
+            return redirect('list-citizen-feedback-and-suggestion')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {
             return $e;
         }

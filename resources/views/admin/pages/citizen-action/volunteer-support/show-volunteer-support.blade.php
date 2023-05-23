@@ -10,12 +10,12 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
                         <h3 class="page-title">
-                            Report a Incident: Crowdsourcing
+                            Volunteer : Citizen Support
                         </h3>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
                         <div>
-                            <a href="{{ route('list-report-crowdsourcing') }}"
+                            <a href="{{ route('list-volunteer-citizen-support') }}"
                                 class="btn btn-sm btn-primary ml-3">Back</a>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                                         <label>Title English :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $crowdsourcing->english_title ?></label>
+                                        <label><?php echo $volunteer_support->english_title ?></label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -39,7 +39,7 @@
                                         <label>Title Marathi :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $crowdsourcing->marathi_title ?></label>
+                                        <label><?php echo $volunteer_support->marathi_title ?></label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -47,7 +47,7 @@
                                         <label>Description English :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $crowdsourcing->english_description ?></label>
+                                        <label><?php echo $volunteer_support->english_description ?></label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -55,7 +55,7 @@
                                         <label>Description Marathi :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $crowdsourcing->marathi_description ?></label>
+                                        <label><?php echo $volunteer_support->marathi_description ?></label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -63,7 +63,7 @@
                                         <label> English Image :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $crowdsourcing->english_image) }}"
+                                        <img src="{{ asset('storage/images/citizen-action/volunteer/' . $volunteer_support->english_image) }}"
                                             style="width:70px; height:70px;" />
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@
                                         <label> Marathi Image:</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
-                                        <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $crowdsourcing->marathi_image) }}"
+                                        <img src="{{ asset('storage/images/citizen-action/volunteer/' . $volunteer_support->marathi_image) }}"
                                             style="width:70px; height:70px;" />
                                     </div>
                                 </div>

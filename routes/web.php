@@ -309,7 +309,34 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-search-rescue-teams', ['as' => 'show-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@show']);
     Route::post('/delete-search-rescue-teams', ['as' => 'delete-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@destroy']);
 
+// ===== Citizen Action=======
 
-    Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
+Route::get('/list-report-crowdsourcing', ['as' => 'list-report-crowdsourcing', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentCrowdsourcingController@index']);
+Route::get('/add-report-crowdsourcing', ['as' => 'add-report-crowdsourcing', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentCrowdsourcingController@add']);
+Route::post('/add-report-crowdsourcing', ['as' => 'add-report-crowdsourcing', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentCrowdsourcingController@store']);
+Route::post('/edit-report-crowdsourcing', ['as' => 'edit-report-crowdsourcing', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentCrowdsourcingController@edit']);
+Route::post('/update-report-crowdsourcing', ['as' => 'update-report-crowdsourcing', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentCrowdsourcingController@update']);
+Route::post('/show-report-crowdsourcing', ['as' => 'show-report-crowdsourcing', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentCrowdsourcingController@show']);
+Route::post('/delete-report-crowdsourcing', ['as' => 'delete-report-crowdsourcing', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentCrowdsourcingController@destroy']);
+
+
+Route::get('/list-volunteer-citizen-support', ['as' => 'list-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@index']);
+Route::get('/add-volunteer-citizen-support', ['as' => 'add-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@add']);
+Route::post('/add-volunteer-citizen-support', ['as' => 'add-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@store']);
+Route::post('/edit-volunteer-citizen-support', ['as' => 'edit-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@edit']);
+Route::post('/update-volunteer-citizen-support', ['as' => 'update-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@update']);
+Route::post('/show-volunteer-citizen-support', ['as' => 'show-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@show']);
+Route::post('/delete-volunteer-citizen-support', ['as' => 'delete-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@destroy']);
+
+Route::get('/list-citizen-feedback-and-suggestion', ['as' => 'list-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@index']);
+Route::get('/add-citizen-feedback-and-suggestion', ['as' => 'add-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@add']);
+Route::post('/add-citizen-feedback-and-suggestion', ['as' => 'add-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@store']);
+Route::post('/edit-citizen-feedback-and-suggestion', ['as' => 'edit-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@edit']);
+Route::post('/update-citizen-feedback-and-suggestion', ['as' => 'update-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@update']);
+Route::post('/show-citizen-feedback-and-suggestion', ['as' => 'show-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@show']);
+Route::post('/delete-citizen-feedback-and-suggestion', ['as' => 'delete-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@destroy']);
+
+
+Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
 
 });

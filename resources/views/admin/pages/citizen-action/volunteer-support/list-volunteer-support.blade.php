@@ -5,14 +5,14 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Report a Incident: Crowdsourcing <a href="{{ route('add-report-crowdsourcing') }}"
+                Volunteer : Citizen Support <a href="{{ route('add-volunteer-citizen-support') }}"
                     class="btn btn-sm btn-primary ml-3">+
                     Add</a>
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#"> Report a Incident: Crowdsourcing</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Report a Incident: Crowdsourcing</li>
+                    <li class="breadcrumb-item"><a href="#"> Volunteer : Citizen Support</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Volunteer : Citizen Support</li>
                 </ol>
             </nav>
         </div>
@@ -37,7 +37,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($crowdsourcing as $item)
+                                            @foreach ($volunteer_support as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td><?php echo $item->english_title; ?></td>
@@ -46,10 +46,10 @@
                                                 <td><?php echo $item->marathi_description; ?></td>
 
                                                 <td> <img
-                                                        src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $item->english_image) }}" />
+                                                        src="{{ asset('storage/images/citizen-action/volunteer/' . $item->english_image) }}" />
                                                 </td>
                                                 <td> <img
-                                                        src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $item->marathi_image) }}" />
+                                                        src="{{ asset('storage/images/citizen-action/volunteer/' . $item->marathi_image) }}" />
                                                 </td>
 
                                                 <td class="d-flex">
@@ -77,15 +77,15 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('/delete-report-crowdsourcing') }}" id="deleteform">
+    <form method="POST" action="{{ url('/delete-volunteer-citizen-support') }}" id="deleteform">
         @csrf
         <input type="hidden" name="delete_id" id="delete_id" value="">
     </form>
-    <form method="POST" action="{{ url('/show-report-crowdsourcing') }}" id="showform">
+    <form method="POST" action="{{ url('/show-volunteer-citizen-support') }}" id="showform">
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-report-crowdsourcing') }}" id="editform">
+    <form method="POST" action="{{ url('/edit-volunteer-citizen-support') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>
