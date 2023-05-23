@@ -110,7 +110,8 @@
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-objectivegoals') }}">Objective Goals</a></li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-statedisastermanagementauthority') }}">State Disaster Management Authority</a></li>
+                                  href="{{ route('list-statedisastermanagementauthority') }}">State Disaster Management
+                                  Authority</a></li>
 
                       </ul>
                   </div>
@@ -146,6 +147,31 @@
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                       aria-controls="page-layouts">
                       <i class="fa fa-th-large menu-icon"></i>
+                      <span class="menu-title">Citizen Action</span>
+                      <i class="menu-arrow"></i>
+                  </a>
+
+                  <div class="collapse" id="page-layouts">
+                      <ul class="nav flex-column sub-menu">
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-report-crowdsourcing') }}">Report Incident Crowdsourcing
+                              </a>
+                          </li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-volunteer-citizen-support') }}">Volunteer Citizen Support
+                              </a>
+                          </li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-citizen-feedback-and-suggestion') }}">Feedback and suggestions
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
+                      aria-controls="page-layouts">
+                      <i class="fa fa-th-large menu-icon"></i>
                       <span class="menu-title">Emergency Response</span>
                       <i class="menu-arrow"></i>
                   </a>
@@ -153,15 +179,17 @@
                   <div class="collapse" id="page-layouts">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-state-emergency-operations-center') }}">State Emergency Operations Center (EOC)
+                                  href="{{ route('list-state-emergency-operations-center') }}">State Emergency
+                                  Operations Center (EOC)
                               </a>
                           </li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-district-emergency-operations-center') }}">District Emergency Operations Center (DEOC)</a>
+                                  href="{{ route('list-district-emergency-operations-center') }}">District Emergency
+                                  Operations Center (DEOC)</a>
                           </li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                            href="{{ route('list-emergency-contact-numbers') }}">Emergency Contact Numbers</a>
-                    </li>
+                                  href="{{ route('list-emergency-contact-numbers') }}">Emergency Contact Numbers</a>
+                          </li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-evacuation-plans') }}">Evacuation Plans</a>
                           </li>
@@ -173,49 +201,49 @@
                           </li>
                       </ul>
                   </div>
-                          <li class="nav-item">
-                              <a class="nav-link" href="{{ route('list-tenders') }}">
-                                  <i class="fas fa-window-restore menu-icon"></i>
-                                  <span class="menu-title">Tender</span>
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="{{ route('list-policiesacts') }}">
-                                  <i class="fas fa-window-restore menu-icon"></i>
-                                  <span class="menu-title">Policies & Acts</span>
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="{{ route('list-projects') }}">
-                                  <i class="fas fa-window-restore menu-icon"></i>
-                                  <span class="menu-title">Projects</span>
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="{{ route('list-metadata') }}">
-                                  <i class="fas fa-window-restore menu-icon"></i>
-                                  <span class="menu-title">Metadata</span>
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                                  aria-controls="page-layouts">
-                                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                                      aria-controls="page-layouts">
-                                      <i class="fa fa-th-large menu-icon"></i>
-                                      <span class="menu-title">Master Management</span>
-                                      <i class="menu-arrow"></i>
-                                  </a>
-                                  @if (getRouteDetailsPresentOrNot('list-users', session('permissions')))
-                                  <?php $currenturl = Request::url(); ?>
-                                  <div class="collapse" id="page-layouts">
-                                      <ul class="nav flex-column sub-menu">
-                                          <li class="nav-item d-none d-lg-block"> <a class="nav-link"
-                                                  href="{{ route('list-users') }}">Users Master</a></li>
-                                      </ul>
-                                  </div>
-                                  @endif
-                          </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('list-tenders') }}">
+                      <i class="fas fa-window-restore menu-icon"></i>
+                      <span class="menu-title">Tender</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('list-policiesacts') }}">
+                      <i class="fas fa-window-restore menu-icon"></i>
+                      <span class="menu-title">Policies & Acts</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('list-projects') }}">
+                      <i class="fas fa-window-restore menu-icon"></i>
+                      <span class="menu-title">Projects</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('list-metadata') }}">
+                      <i class="fas fa-window-restore menu-icon"></i>
+                      <span class="menu-title">Metadata</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
+                      aria-controls="page-layouts">
+                      <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
+                          aria-controls="page-layouts">
+                          <i class="fa fa-th-large menu-icon"></i>
+                          <span class="menu-title">Master Management</span>
+                          <i class="menu-arrow"></i>
+                      </a>
+                      @if (getRouteDetailsPresentOrNot('list-users', session('permissions')))
+                      <?php $currenturl = Request::url(); ?>
+                      <div class="collapse" id="page-layouts">
+                          <ul class="nav flex-column sub-menu">
+                              <li class="nav-item d-none d-lg-block"> <a class="nav-link"
+                                      href="{{ route('list-users') }}">Users Master</a></li>
+                          </ul>
+                      </div>
+                      @endif
+              </li>
 
-                      </ul>
+          </ul>
       </nav><!-- partial -->

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CitizenFeedbackSuggestion extends Model
 {
     use HasFactory;
-    protected $table = 'volunteer_citizen_supports';
+    protected $table = 'citizen_feedback_suggestions';
     protected $primaryKey = 'id';
     protected $fillable = ['english_title', 'marathi_title','english_description','marathi_description','english_image','marathi_image'];
 }

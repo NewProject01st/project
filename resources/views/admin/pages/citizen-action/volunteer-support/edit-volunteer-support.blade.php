@@ -5,12 +5,12 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Report a Incident: Crowdsourcing
+                Volunteer : Citizen Support
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Update Report a Incident: Crowdsourcing
+                    <li class="breadcrumb-item active" aria-current="page"> Update Volunteer : Citizen Support
                     </li>
                 </ol>
             </nav>
@@ -19,8 +19,8 @@
             <div class="col-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <form class="forms-sample" action="{{ route('update-report-crowdsourcing') }}" method="post"
-                            id="regForm" enctype="multipart/form-data">
+                        <form class="forms-sample" action="{{ route('update-volunteer-citizen-support') }}"
+                            method="post" id="regForm" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
@@ -28,7 +28,7 @@
                                         <label for="english_title">Title English</label>
                                         <textarea class="form-control english_title" name="english_title"
                                             id="english_title"
-                                            placeholder="Enter the Title">{{$crowdsourcing->english_title }}</textarea>
+                                            placeholder="Enter the Title">{{$volunteer_support->english_title }}</textarea>
                                         @if ($errors->has('english_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
@@ -40,7 +40,7 @@
                                         <label for="marathi_title">Title Marathi</label>
                                         <textarea class="form-control marathi_title" name="marathi_title"
                                             id="marathi_title"
-                                            placeholder="Enter the Title">{{$crowdsourcing->marathi_title }}</textarea>
+                                            placeholder="Enter the Title">{{$volunteer_support->marathi_title }}</textarea>
                                         @if ($errors->has('marathi_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
@@ -52,7 +52,7 @@
                                         <label for="english_description">Description English</label>
                                         <textarea class="form-control english_description" name="english_description"
                                             id="english_description"
-                                            placeholder="Enter the Description">{{ $crowdsourcing->english_description }}</textarea>
+                                            placeholder="Enter the Description">{{ $volunteer_support->english_description }}</textarea>
                                         @if ($errors->has('english_description'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
@@ -64,7 +64,7 @@
                                         <label> Description Marathi</label>
                                         <textarea class="form-control marathi_description" name="marathi_description"
                                             id="marathi_description"
-                                            placeholder="Enter the Description">{{ $crowdsourcing->marathi_description }}</textarea>
+                                            placeholder="Enter the Description">{{ $volunteer_support->marathi_description }}</textarea>
                                         @if ($errors->has('marathi_description'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
@@ -81,7 +81,7 @@
                                             class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $crowdsourcing->english_image) }}"
+                                    <img src="{{ asset('storage/images/citizen-action/volunteer/' . $volunteer_support->english_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                 </div>
                                 <div class="col-md-6">
@@ -94,7 +94,7 @@
                                             class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $crowdsourcing->marathi_image) }}"
+                                    <img src="{{ asset('storage/images/citizen-action/volunteer/' . $volunteer_support->marathi_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                 </div>
 
@@ -103,8 +103,8 @@
                                     <button type="submit" class="btn btn-danger">Cancel</button>
                                 </div>
                             </div>
-                            <input type="hidden" name="id" id="id" class="form-control" value="{{ $crowdsourcing->id }}"
-                                placeholder="">
+                            <input type="hidden" name="id" id="id" class="form-control"
+                                value="{{ $volunteer_support->id }}" placeholder="">
                         </form>
                     </div>
                 </div>

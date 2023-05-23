@@ -25,8 +25,8 @@ class ReportIncidentCrowdsourcingRepository{
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/citizen-action', $englishImageName);
-        $request->marathi_image->storeAs('public/images/citizen-action', $marathiImageName);
+        $request->english_image->storeAs('public/images/citizen-action/crowdsourcing', $englishImageName);
+        $request->marathi_image->storeAs('public/images/citizen-action/crowdsourcing', $marathiImageName);
 
         
         $crowdsourcing_data = new ReportIncidentCrowdsourcing();
@@ -78,15 +78,15 @@ public function updateAll($request)
         }
          // Delete existing files
          Storage::delete([
-            'public/images/capacity-training/' . $training_data->english_image,
-            'public/images/capacity-training/' . $training_data->marathi_image
+            'public/images/citizen-action/crowdsourcing/' . $crowdsourcing_data->english_image,
+            'public/images/citizen-action/crowdsourcing/' . $crowdsourcing_data->marathi_image
         ]);
         
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/citizen-action/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/citizen-action/', $marathiImageName);
+        $request->english_image->storeAs('public/images/citizen-action/crowdsourcing/', $englishImageName);
+        $request->marathi_image->storeAs('public/images/citizen-action/crowdsourcing/', $marathiImageName);
 
                 
         $crowdsourcing_data->english_title = $request['english_title'];
@@ -117,8 +117,8 @@ public function deleteById($id)
         if ($crowdsourcing) {
               // Delete the images from the storage folder
               Storage::delete([
-                'public/images/citizen-action/'.$crowdsourcing->english_image,
-                'public/images/citizen-action/'.$crowdsourcing->marathi_image
+                'public/images/citizen-action/crowdsourcing/'.$crowdsourcing->english_image,
+                'public/images/citizen-action/crowdsourcing/'.$crowdsourcing->marathi_image
             ]);
 
             // Delete the record from the database
