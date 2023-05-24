@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Services\EmergencyResponse\EmergencyContactNumbersServices;
 use Validator;
+use App\Models\ {
+    AddMoreEmergencyContactNumbers
+};
 
 class EmergencyContactNumbersController extends Controller
 {
@@ -24,11 +27,15 @@ class EmergencyContactNumbersController extends Controller
     }
     public function add()
     {
-        return view('admin.pages.emergency-response.emergency-contact-numbers.add-emergency-contact-numbers');
+        $contacts = AddMoreEmergencyContactNumbers::all();
+        return view('admin.pages.emergency-response.emergency-contact-numbers.add-emergency-contact-numbers',  ['contacts' => $contacts]);
+        // return view('admin.pages.emergency-response.emergency-contact-numbers.add-emergency-contact-numbers');
     }
 
     public function store(Request $request) {
         // dd($request);
+    //   echo $request;
+    //   die();
     $rules = [
         'english_title' => 'required',
         'marathi_title' => 'required',
@@ -58,6 +65,9 @@ class EmergencyContactNumbersController extends Controller
         else
         {
             $add_emergencycontactnumbers = $this->service->addAll($request);
+           
+            //   dd($add_emergencycontactnumbers);
+
             if($add_emergencycontactnumbers)
             {
 

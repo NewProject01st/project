@@ -18,8 +18,8 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action='{{ route('add-emergency-contact-numbers') }}'
-                                method="POST" enctype="multipart/form-data" id="regForm">
+                            <form class="forms-sample" action='{{ route('add-emergency-contact-numbers') }}' method="POST"
+                                enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
@@ -80,17 +80,114 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-success">Save &amp; Submit</button>
-                                        <button type="submit" class="btn btn-danger">Cancel</button>
-                                        <span><a href="{{ route('list-disastermanagementportal') }}"
-                                                class="btn btn-sm btn-primary ">Back</a></span>
+                                    
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary" id="add-item">Add More</button>
+                                </div>
+                                <div id="items">
+                                    <div class="item">
+                                        <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="english_emergency_contact_title">English Emergency Contact Title</label><br>
+                                                <input class="form-control" type="text" name="english_emergency_contact_title"
+                                                    placeholder="Emergency Contact Title">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="marathi_emergency_contact_title">Marathi English Emergency Contact Title</label><br>
+                                                <input class="form-control" type="text" name="marathi_emergency_contact_title"
+                                                    placeholder="Emergency Contact Title">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="english_emergency_contact_number">English Emergency Contact Number</label><br>
+                                                <input class="form-control" type="text" name="english_emergency_contact_number"
+                                                    placeholder="Emergency Contact Number">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="marathi_emergency_contact_number">Marathi English Emergency Contact Number</label><br>
+                                                <input class="form-control" type="text" name="marathi_emergency_contact_number"
+                                                    placeholder="Emergency Contact Number">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="marathi_image"></label><br>
+                                        <button type="button" class="btn btn-danger remove-item">Remove</button>
+                                        </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </form>
+                                <div class="col-md-12 col-sm-12 text-center">
+                                    <button type="submit" class="btn btn-success">Save &amp; Submit</button>
+                                    <button type="submit" class="btn btn-danger">Cancel</button>
+                                    <span><a href="{{ route('list-disastermanagementportal') }}"
+                                            class="btn btn-sm btn-primary ">Back</a></span>
+                                </div>
+                           
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+        {{-- <script>
+            $(document).ready(function() {
+                // Add more items
+                $("#add-item").click(function() {
+                    var item = `
+                    <div id="items">
+                                    <div class="item">
+                                        <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="english_emergency_contact_title">English Emergency Contact Title</label><br>
+                                                <input class="form-control" type="text" name="english_emergency_contact_title[]"
+                                                    placeholder="Emergency Contact Title">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="marathi_emergency_contact_title">Marathi English Emergency Contact Title</label><br>
+                                                <input class="form-control" type="text" name="marathi_emergency_contact_title[]"
+                                                    placeholder="Emergency Contact Title">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="english_emergency_contact_number">English Emergency Contact Number</label><br>
+                                                <input class="form-control" type="text" name="english_emergency_contact_number[]"
+                                                    placeholder="Emergency Contact Number">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="marathi_emergency_contact_number">Marathi English Emergency Contact Number</label><br>
+                                                <input class="form-control" type="text" name="marathi_emergency_contact_number[]"
+                                                    placeholder="Emergency Contact Number">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="marathi_image"></label><br>
+                                        <button type="button" class="btn btn-danger remove-item">Remove</button>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>        
+            `;
+                    $("#items").append(item);
+                });
+
+                // Remove item
+                $(document).on("click", ".remove-item", function() {
+                    $(this).closest(".item").remove();
+                });
+            });
+        </script> --}}
     @endsection

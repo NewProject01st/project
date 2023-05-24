@@ -108,9 +108,9 @@ class IndexRepository  {
         try {
             $data_output = DisasterManagementNews::where('is_active','=',true);
             if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('marathi_title','marathi_description','english_url','disaster_date','marathi_image');
+                $data_output =  $data_output->select('marathi_title','marathi_description','english_url','disaster_date','marathi_image','id');
             } else {
-                $data_output = $data_output->select('english_title','english_description','english_url','disaster_date','english_image');
+                $data_output = $data_output->select('english_title','english_description','english_url','disaster_date','english_image','id');
             }
             $data_output =  $data_output->get()
                             ->toArray();
@@ -136,4 +136,22 @@ class IndexRepository  {
             return $e;
         }
     }
+
+    public function getById($id)
+{
+    try {
+        $disaster = DisasterManagementNews::find($id);
+        if ($disaster) {
+            return $disaster;
+        } else {
+            return null;
+        }
+    } catch (\Exception $e) {
+        return $e;
+		return [
+            'msg' => 'Failed to get by id Disaster.',
+            'status' => 'error'
+        ];
+    }
+}
 }

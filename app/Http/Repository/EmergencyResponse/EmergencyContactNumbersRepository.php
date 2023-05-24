@@ -6,7 +6,8 @@ use DB;
 use Illuminate\Support\Carbon;
 // use Session;
 use App\Models\ {
-	EmergencyContactNumbers
+	EmergencyContactNumbers,
+    AddMoreEmergencyContactNumbers
 };
 
 class EmergencyContactNumbersRepository  {
@@ -19,32 +20,85 @@ class EmergencyContactNumbersRepository  {
         }
     }
 
-	public function addAll($request)
+// 	public function addAll($request)
+// {
+//     try {
+//         $englishImageName = time() . '_english.' . $request->english_image->extension();
+//         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
+        
+//         $request->english_image->storeAs('public/images/emergency-response/emergency-contact-numbers', $englishImageName);
+//         $request->marathi_image->storeAs('public/images/emergency-response/emergency-contact-numbers', $marathiImageName);
+
+//         $emergencycontactnumbers_data = new EmergencyContactNumbers();
+//         $emergencycontactnumbers_data->english_title = $request['english_title'];
+//         $emergencycontactnumbers_data->marathi_title = $request['marathi_title'];
+//         $emergencycontactnumbers_data->english_description = $request['english_description'];
+//         $emergencycontactnumbers_data->marathi_description = $request['marathi_description'];
+//         $emergencycontactnumbers_data->english_image = $englishImageName; // Save the image filename to the database
+//         $emergencycontactnumbers_data->marathi_image = $marathiImageName; // Save the image filename to the database
+      
+//         foreach ($emergencycontactnumbers_data as $addressData) {
+//             $address = new AddMoreEmergencyContactNumbers([
+//                 'english_emergency_contact_title' => $addressData['english_emergency_contact_title'],
+//                 'marathi_emergency_contact_title' => $addressData['marathi_emergency_contact_title'],
+//                 'english_emergency_contact_number' => $addressData['english_emergency_contact_number'],
+//                 'marathi_emergency_contact_number' => $addressData['marathi_emergency_contact_number'],
+//             ]);
+
+//             $emergencycontactnumbers_data->addresses()->save($address);
+//         }
+      
+      
+      
+//         // $emergencycontactnumbers_data->save();       
+     
+//         return $emergencycontactnumbers_data;
+//     } catch (\Exception $e) {
+//         return [
+//             'msg' => $e,
+//             'status' => 'error'
+//         ];
+//     }
+// }
+
+public function addAll($request)
 {
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/emergency-response/emergency-contact-numbers', $englishImageName);
-        $request->marathi_image->storeAs('public/images/emergency-response/emergency-contact-numbers', $marathiImageName);
+      
+        $request->file('english_image')->storeAs('public/images/emergency-response/emergency-contact-numbers', $englishImageName);
+        $request->file('marathi_image')->storeAs('public/images/emergency-response/emergency-contact-numbers', $marathiImageName);
+    
+        $emergencyContactNumbers = new EmergencyContactNumbers();
+        $emergencyContactNumbers->english_title = $request->input('english_title');
+        $emergencyContactNumbers->marathi_title = $request->input('marathi_title');
+        $emergencyContactNumbers->english_description = $request->input('english_description');
+        $emergencyContactNumbers->marathi_description = $request->input('marathi_description');
+        $emergencyContactNumbers->english_image = $englishImageName;
+        $emergencyContactNumbers->marathi_image = $marathiImageName;
 
-        $emergencycontactnumbers_data = new EmergencyContactNumbers();
-        $emergencycontactnumbers_data->english_title = $request['english_title'];
-        $emergencycontactnumbers_data->marathi_title = $request['marathi_title'];
-        $emergencycontactnumbers_data->english_description = $request['english_description'];
-        $emergencycontactnumbers_data->marathi_description = $request['marathi_description'];
-        $emergencycontactnumbers_data->english_image = $englishImageName; // Save the image filename to the database
-        $emergencycontactnumbers_data->marathi_image = $marathiImageName; // Save the image filename to the database
-        $emergencycontactnumbers_data->save();       
-     
-        return $emergencycontactnumbers_data;
+        $emergencyContactNumbers->save();
+ 
+
+        $addressesData = new AddMoreEmergencyContactNumbers();
+        $addressesData->emergency_contact_id = $emergencyContactNumbers->id; // Assuming there's a foreign key relationship between the two models
+        $addressesData->english_emergency_contact_title = $request->input('english_emergency_contact_title');
+        $addressesData->marathi_emergency_contact_title = $request->input('marathi_emergency_contact_title');
+        $addressesData->english_emergency_contact_number = $request->input('english_emergency_contact_number');
+        $addressesData->marathi_emergency_contact_number = $request->input('marathi_emergency_contact_number');
+        $addressesData->save();
+
+        return $emergencyContactNumbers;
+
     } catch (\Exception $e) {
         return [
-            'msg' => $e,
+            'msg' => $e->getMessage(),
             'status' => 'error'
         ];
     }
+    
+    
 }
+
 
 public function getById($id)
 {

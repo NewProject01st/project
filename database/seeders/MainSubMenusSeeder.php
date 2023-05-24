@@ -354,6 +354,8 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Upcoming events and trainings',
             'menu_name_marathi' => 'आगामी कार्यक्रम आणि प्रशिक्षण',
             'order_no' => 1,
+            'url'=>'/list-event-web',
+           
             'is_static'=>true,
             'is_active' => true,
            
