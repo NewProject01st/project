@@ -1,13 +1,13 @@
 <?php
-namespace App\Http\Services\Home;
+namespace App\Http\Services\Header;
 
-use App\Http\Repository\Home\GeneralContactRepository;
+use App\Http\Repository\Header\SocialIconRepository;
 
-use App\GeneralContact;
+use App\SocialIcon;
 use Carbon\Carbon;
 
 
-class GeneralContactServices
+class SocialIconServices
 {
 
 	protected $repo;
@@ -17,7 +17,7 @@ class GeneralContactServices
      */
     public function __construct()
     {
-        $this->repo = new GeneralContactRepository();
+        $this->repo = new SocialIconRepository();
     }
     public function getAll()
     {
@@ -31,11 +31,11 @@ class GeneralContactServices
     public function addAll($request)
     {
         try {
-            $add_contact = $this->repo->addAll($request);
-            if ($add_contact) {
-                return ['status' => 'success', 'msg' => 'Contact Added Successfully.'];
+            $add_social_icon = $this->repo->addAll($request);
+            if ($add_social_icon) {
+                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing  Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Contact Not Added.'];
+                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -54,21 +54,18 @@ class GeneralContactServices
     public function updateAll($request)
     {
         try {
-            $update_contact = $this->repo->updateAll($request);
-            if ($update_contact) {
-                return ['status' => 'success', 'msg' => 'Contact Updated Successfully.'];
+            $update_social_icon = $this->repo->updateAll($request);
+            if ($update_social_icon) {
+                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Contact Not Updated.'];
+                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
 
-    public function updateOne($id)
-    {
-        return $this->repo->updateOne($id);
-    }
+    
    
     public function deleteById($id)
     {

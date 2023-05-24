@@ -37,6 +37,7 @@
                                                 <th>Marathi No</th>
                                                 <th>English Landline No</th>
                                                 <th>Marathi Landline No</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -55,7 +56,17 @@
                                                 <td>{{ $item->marathi_number }}</td>
                                                 <td>{{ $item->english_landline_no }}</td>
                                                 <td>{{ $item->marathi_landline_no }}</td>
-
+                                                <td>
+                                                    <button data-id="{{ $item->id }}" type="submit"
+                                                        class="active-btn btn btn-sm btn-outline-primary m-1"
+                                                        data-toggle="tooltip" data-placement="top"
+                                                        title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
+                                                        <span class="status-icon {{ $item->is_active ? '1' : '0' }}">
+                                                            <i
+                                                                class="fa {{ $item->is_active ? 'fa-thumbs-up' : 'fa-thumbs-down' }}"></i>
+                                                        </span>
+                                                    </button>
+                                                </td>
                                                 <td class="d-flex">
                                                     <a data-id="{{ $item->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
@@ -92,6 +103,10 @@
     <form method="POST" action="{{ url('/edit-emergency-contact') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
+    </form>
+    <form method="POST" action="{{ url('/update-one-emergency-contact') }}" id="activeform">
+        @csrf
+        <input type="hidden" name="active_id" id="active_id" value="">
     </form>
 
     <!-- content-wrapper ends -->

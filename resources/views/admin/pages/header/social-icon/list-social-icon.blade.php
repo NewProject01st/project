@@ -5,13 +5,13 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                General Contact <a href="{{ route('add-general-contact') }}" class="btn btn-sm btn-primary ml-3">+
+                Social Icon <a href="{{ route('add-social-icon') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#"> General Contact </a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Contact list </li>
+                    <li class="breadcrumb-item"><a href="#"> Social Icon</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Social Icon</li>
                 </ol>
             </nav>
         </div>
@@ -26,42 +26,24 @@
                                         <thead>
                                             <tr>
                                                 <th>S. No.</th>
-                                                <th>English Name</th>
-                                                <th>Marathi Name</th>
-                                                <th>English No</th>
-                                                <th>Marathi No</th>
                                                 <th>English Icon</th>
                                                 <th>Marathi Icon</th>
-                                                <th>Status</th>
+                                                <th>Url</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($general_contact as $item)
+                                            @foreach ($social_icon as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><?php echo $item->english_name ?></td>
-                                                <td><?php echo $item->marathi_name ?></td>
-                                                <td>{{ $item->english_number }}</td>
-                                                <td>{{ $item->marathi_number }}</td>
-                                                <td> <img
-                                                        src="{{ asset('storage/images/general_contact/' . $item->english_icon) }}" />
-                                                </td>
-                                                <td> <img
-                                                        src="{{ asset('storage/images/general_contact/' . $item->marathi_icon) }}" />
-                                                </td>
-                                                <td>
-                                                    <button data-id="{{ $item->id }}" type="submit"
-                                                        class="active-btn btn btn-sm btn-outline-primary m-1"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
-                                                        <span class="status-icon {{ $item->is_active ? '1' : '0' }}">
-                                                            <i
-                                                                class="fa {{ $item->is_active ? 'fa-thumbs-up' : 'fa-thumbs-down' }}"></i>
-                                                        </span>
-                                                    </button>
-                                                </td>
 
+                                                <td> <img
+                                                        src="{{ asset('storage/images/header/social-icon/' . $item->english_image) }}" />
+                                                </td>
+                                                <td> <img
+                                                        src="{{ asset('storage/images/header/social-icon/' . $item->marathi_image) }}" />
+                                                </td>
+                                                <td>{{ $item->url }}</td>
                                                 <td class="d-flex">
                                                     <a data-id="{{ $item->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
@@ -71,7 +53,7 @@
                                                             class="fas fa-eye"></i></a>
                                                     <a data-id="{{ $item->id }}"
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                        title="Delete  Contact"><i class="fas fa-archive"></i></a>
+                                                        title="Delete Disaster News"><i class="fas fa-archive"></i></a>
 
                                                 </td>
                                             </tr>
@@ -87,21 +69,17 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('/delete-general-contact') }}" id="deleteform">
+    <form method="POST" action="{{ url('/delete-social-icon') }}" id="deleteform">
         @csrf
         <input type="hidden" name="delete_id" id="delete_id" value="">
     </form>
-    <form method="POST" action="{{ url('/show-general-contact') }}" id="showform">
+    <form method="POST" action="{{ url('/show-social-icon') }}" id="showform">
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-general-contact') }}" id="editform">
+    <form method="POST" action="{{ url('/edit-social-icon') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
-    </form>
-    <form method="POST" action="{{ url('/update-one-general-contact') }}" id="activeform">
-        @csrf
-        <input type="hidden" name="active_id" id="active_id" value="">
     </form>
 
     <!-- content-wrapper ends -->

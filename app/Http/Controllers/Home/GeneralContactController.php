@@ -146,6 +146,19 @@ public function show(Request $request)
         }
     }
 
+    
+public function updateOne(Request $request)
+{
+    try {
+        $active_id = $request->active_id;
+    $result = $this->service->updateOne($active_id);
+        return redirect('list-general-contact')->with('flash_message', 'Updated!');  
+    } catch (\Exception $e) {
+        return $e;
+    }
+}
+
+
     public function destroy(Request $request)
     {
         try {

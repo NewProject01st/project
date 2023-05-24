@@ -5,13 +5,13 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                General Contact <a href="{{ route('add-general-contact') }}" class="btn btn-sm btn-primary ml-3">+
+                Sub Header Info <a href="{{ route('add-sub-header-info') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#"> General Contact </a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Contact list </li>
+                    <li class="breadcrumb-item"><a href="#">Sub Header Info </a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Sub Header Info </li>
                 </ol>
             </nav>
         </div>
@@ -26,42 +26,37 @@
                                         <thead>
                                             <tr>
                                                 <th>S. No.</th>
-                                                <th>English Name</th>
-                                                <th>Marathi Name</th>
-                                                <th>English No</th>
-                                                <th>Marathi No</th>
-                                                <th>English Icon</th>
-                                                <th>Marathi Icon</th>
-                                                <th>Status</th>
+                                                <th>English Toll Free Title</th>
+                                                <th>Marathi Toll Free Title</th>
+                                                <th>English Toll Free No</th>
+                                                <th>Marathi Toll Free No</th>
+                                                <th>English City Title</th>
+                                                <th>Marathi City Title</th>
+                                                <th>English City </th>
+                                                <th>Marathi City </th>
+                                                <th>English Image</th>
+                                                <th>Marathi Image</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($general_contact as $item)
+                                            @foreach ($subheader_info as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><?php echo $item->english_name ?></td>
-                                                <td><?php echo $item->marathi_name ?></td>
-                                                <td>{{ $item->english_number }}</td>
-                                                <td>{{ $item->marathi_number }}</td>
+                                                <td>{{ $item->english_tollfree_title }}</td>
+                                                <td>{{ $item->marathi_tollfree_title }}</td>
+                                                <td>{{ $item->english_tollfree_no }}</td>
+                                                <td>{{ $item->marathi_tollfree_no }}</td>
+                                                <td>{{ $item->english_city_title }}</td>
+                                                <td>{{ $item->marathi_city_title }}</td>
+                                                <td>{{ $item->english_city }}</td>
+                                                <td>{{ $item->marathi_city }}</td>
                                                 <td> <img
-                                                        src="{{ asset('storage/images/general_contact/' . $item->english_icon) }}" />
+                                                        src="{{ asset('storage/images/header/sub-header/' . $item->english_logo) }}" />
                                                 </td>
                                                 <td> <img
-                                                        src="{{ asset('storage/images/general_contact/' . $item->marathi_icon) }}" />
+                                                        src="{{ asset('storage/images/header/sub-header/' . $item->marathi_logo) }}" />
                                                 </td>
-                                                <td>
-                                                    <button data-id="{{ $item->id }}" type="submit"
-                                                        class="active-btn btn btn-sm btn-outline-primary m-1"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
-                                                        <span class="status-icon {{ $item->is_active ? '1' : '0' }}">
-                                                            <i
-                                                                class="fa {{ $item->is_active ? 'fa-thumbs-up' : 'fa-thumbs-down' }}"></i>
-                                                        </span>
-                                                    </button>
-                                                </td>
-
                                                 <td class="d-flex">
                                                     <a data-id="{{ $item->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
@@ -71,7 +66,7 @@
                                                             class="fas fa-eye"></i></a>
                                                     <a data-id="{{ $item->id }}"
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                        title="Delete  Contact"><i class="fas fa-archive"></i></a>
+                                                        title="Delete Header Info"><i class="fas fa-archive"></i></a>
 
                                                 </td>
                                             </tr>
@@ -87,21 +82,17 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('/delete-general-contact') }}" id="deleteform">
+    <form method="POST" action="{{ url('/delete-sub-header-info') }}" id="deleteform">
         @csrf
         <input type="hidden" name="delete_id" id="delete_id" value="">
     </form>
-    <form method="POST" action="{{ url('/show-general-contact') }}" id="showform">
+    <form method="POST" action="{{ url('/show-sub-header-info') }}" id="showform">
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-general-contact') }}" id="editform">
+    <form method="POST" action="{{ url('/edit-sub-header-info') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
-    </form>
-    <form method="POST" action="{{ url('/update-one-general-contact') }}" id="activeform">
-        @csrf
-        <input type="hidden" name="active_id" id="active_id" value="">
     </form>
 
     <!-- content-wrapper ends -->

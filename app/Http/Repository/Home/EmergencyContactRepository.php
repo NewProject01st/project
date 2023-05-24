@@ -101,6 +101,35 @@ public function updateAll($request)
     }
 }
 
+public function updateOne($request)
+{
+    try {
+        $contact = EmergencyContact::find($request); // Assuming $request directly contains the ID        
+        if ($contact) {
+            $is_active = $contact->is_active === 1 ? 0 : 1;
+            $contact->is_active = $is_active;
+            // dd($marquee);
+            $contact->save();
+
+            return [
+                'msg' => 'Contact updated successfully.',
+                'status' => 'success'
+            ];
+        }
+
+        return [
+            'msg' => 'Contact not found.',
+            'status' => 'error'
+        ];
+    } catch (\Exception $e) {
+        return [
+            'msg' => 'Failed to update Contact.',
+            'status' => 'error'
+        ];
+    }
+}
+
+
 public function deleteById($id)
 {
     try {

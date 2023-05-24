@@ -195,6 +195,8 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/update-emergency-contact', ['as' => 'update-emergency-contact', 'uses' => 'App\Http\Controllers\Home\EmergencyContactController@update']);
     Route::post('/show-emergency-contact', ['as' => 'show-emergency-contact', 'uses' => 'App\Http\Controllers\Home\EmergencyContactController@show']);
     Route::post('/delete-emergency-contact', ['as' => 'delete-emergency-contact', 'uses' => 'App\Http\Controllers\Home\EmergencyContactController@destroy']);
+    Route::post('/update-one-emergency-contact', ['as' => 'update-one-emergency-contact', 'uses' => 'App\Http\Controllers\Home\EmergencyContactController@updateOne']);
+
 
     Route::get('/list-disaster-management-news', ['as' => 'list-disaster-management-news', 'uses' => 'App\Http\Controllers\Home\DisasterManagementNewsController@index']);
     Route::get('/add-disaster-management-news', ['as' => 'add-disaster-management-news', 'uses' => 'App\Http\Controllers\Home\DisasterManagementNewsController@add']);
@@ -220,6 +222,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/update-general-contact', ['as' => 'update-general-contact', 'uses' => 'App\Http\Controllers\Home\GeneralContactController@update']);
     Route::post('/show-general-contact', ['as' => 'show-general-contact', 'uses' => 'App\Http\Controllers\Home\GeneralContactController@show']);
     Route::post('/delete-general-contact', ['as' => 'delete-general-contact', 'uses' => 'App\Http\Controllers\Home\GeneralContactController@destroy']);
+    Route::post('/update-one-general-contact', ['as' => 'update-one-general-contact', 'uses' => 'App\Http\Controllers\Home\GeneralContactController@updateOne']);
 
     
     Route::get('/list-disaster-management-web-portal', ['as' => 'list-disaster-management-web-portal', 'uses' => 'App\Http\Controllers\Home\DisasterManagementWebPortalController@index']);
@@ -342,6 +345,23 @@ Route::post('/edit-citizen-feedback-and-suggestion', ['as' => 'edit-citizen-feed
 Route::post('/update-citizen-feedback-and-suggestion', ['as' => 'update-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@update']);
 Route::post('/show-citizen-feedback-and-suggestion', ['as' => 'show-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@show']);
 Route::post('/delete-citizen-feedback-and-suggestion', ['as' => 'delete-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@destroy']);
+
+//=======Header=======
+Route::get('/list-social-icon', ['as' => 'list-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@index']);
+Route::get('/add-social-icon', ['as' => 'add-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@add']);
+Route::post('/add-social-icon', ['as' => 'add-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@store']);
+Route::post('/edit-social-icon', ['as' => 'edit-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@edit']);
+Route::post('/update-social-icon', ['as' => 'update-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@update']);
+Route::post('/show-social-icon', ['as' => 'show-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@show']);
+Route::post('/delete-social-icon', ['as' => 'delete-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@destroy']);
+
+Route::get('/list-sub-header-info', ['as' => 'list-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@index']);
+Route::get('/add-sub-header-info', ['as' => 'add-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@add']);
+Route::post('/add-sub-header-info', ['as' => 'add-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@store']);
+Route::post('/edit-sub-header-info', ['as' => 'edit-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@edit']);
+Route::post('/update-sub-header-info', ['as' => 'update-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@update']);
+Route::post('/show-sub-header-info', ['as' => 'show-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@show']);
+Route::post('/delete-sub-header-info', ['as' => 'delete-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@destroy']);
 
 
 Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
