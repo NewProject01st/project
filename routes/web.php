@@ -51,6 +51,11 @@ Route::get('/list-emergency-contact-numbers-web', ['as' => 'list-emergency-conta
 Route::get('/list-search-rescue-teams-web', ['as' => 'list-search-rescue-teams-web', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllSearchRescueTeams']);
 Route::get('/list-relief-measures-resources-web', ['as' => 'list-relief-measures-resources-web', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllReliefMeasuresResources']);
 Route::get('/list-evacuation-plans-web', ['as' => 'list-evacuation-plans-web', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllEvacuationPlans']);
+
+Route::get('/list-report-incident-crowdsourcing-web', ['as' => 'list-report-incident-crowdsourcing-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllReportIncidentCrowdsourcing']);
+Route::get('/volunteer-citizen-support-web', ['as' => 'volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllVolunteerCitizenSupport']);
+Route::get('/citizen-feedback-suggestions-web', ['as' => 'citizen-feedback-suggestions-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllCitizenFeedbackSuggestions']);
+
 // ================================================
 Route::group(['middleware' => ['admin']], function () {
     Route::get('/dashboard', ['as' => '/dashboard', 'uses' => 'App\Http\Controllers\Dashboard\DashboardController@index']);
@@ -91,6 +96,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/update-marquee', ['as' => 'update-marquee', 'uses' => 'App\Http\Controllers\Home\MarqueeController@update']);
     Route::post('/show-marquee', ['as' => 'show-marquee', 'uses' => 'App\Http\Controllers\Home\MarqueeController@show']);
     Route::post('/delete-marquee', ['as' => 'delete-marquee', 'uses' => 'App\Http\Controllers\Home\MarqueeController@destroy']);
+    Route::post('/update-one', ['as' => 'update-one', 'uses' => 'App\Http\Controllers\Home\MarqueeController@updateOne']);
 
     Route::get('/list-slide', ['as' => 'list-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@index']);
     Route::get('/add-slide', ['as' => 'add-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@add']);
@@ -99,7 +105,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/update-slide', ['as' => 'update-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@update']);
     Route::post('/show-slide', ['as' => 'show-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@show']);
     Route::post('/delete-slide', ['as' => 'delete-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@destroy']);
-    Route::post('/updateone-slide', ['as' => 'updateone-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@updateOne']);
+    Route::post('/update-slide', ['as' => 'update-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@updateOne']);
     
     Route::get('/list-weather', ['as' => 'list-weather', 'uses' => 'App\Http\Controllers\Home\WeatherController@index']);
     Route::get('/add-weather', ['as' => 'add-weather', 'uses' => 'App\Http\Controllers\Home\WeatherController@add']);
@@ -197,6 +203,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/update-disaster-management-news', ['as' => 'update-disaster-management-news', 'uses' => 'App\Http\Controllers\Home\DisasterManagementNewsController@update']);
     Route::post('/show-disaster-management-news', ['as' => 'show-disaster-management-news', 'uses' => 'App\Http\Controllers\Home\DisasterManagementNewsController@show']);
     Route::post('/delete-disaster-management-news', ['as' => 'delete-disaster-management-news', 'uses' => 'App\Http\Controllers\Home\DisasterManagementNewsController@destroy']);
+    Route::post('/update-one', ['as' => 'update-one', 'uses' => 'App\Http\Controllers\Home\DisasterManagementNewsController@updateOne']);
 
     Route::get('/list-home-tender', ['as' => 'list-home-tender', 'uses' => 'App\Http\Controllers\Home\HomeTenderController@index']);
     Route::get('/add-home-tender', ['as' => 'add-home-tender', 'uses' => 'App\Http\Controllers\Home\HomeTenderController@add']);

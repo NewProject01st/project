@@ -144,43 +144,6 @@ public function updateOne($request)
         ];
     }
 }
-
-
-
-
-// public function updateOne($request)
-// {
-//     try {
-        
-//         $slide = Slider::find($request->$id)->first();  
-//         $slides->is_active = $request->$slide; // Assuming 'is_active' is a field in the Slider model
-
-//         if($request->get('is_active')==='on'){
-//             $is_active=1;
-//         } else{
-//             $is_active=0;
-//         }
-//         $function->update([
-//             'is_active' => $is_active
-//         ]);
-//     //    dd($slides);
-//         $slide->save();
-
-//         return [
-//             'msg' => 'Slide updated successfully.',
-//             'status' => 'success'
-//         ];
-//     } catch (\Exception $e) {
-//         return [
-//             'msg' => 'Failed to update slide.',
-//             'status' => 'error'
-//         ];
-//     }
-// }
-
-
-
-
 public function deleteById($id)
 {
     try {

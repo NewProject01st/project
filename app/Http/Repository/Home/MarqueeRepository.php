@@ -79,6 +79,33 @@ public function updateMarquee($request)
         ];
     }
 }
+public function updateOne($request)
+{
+    try {
+        $marquee = Marquee::find($request); // Assuming $request directly contains the ID        
+        if ($marquee) {
+            $is_active = $marquee->is_active === 1 ? 0 : 1;
+            $marquee->is_active = $is_active;
+            // dd($marquee);
+            $marquee->save();
+
+            return [
+                'msg' => 'Marquee updated successfully.',
+                'status' => 'success'
+            ];
+        }
+
+        return [
+            'msg' => 'Marquee not found.',
+            'status' => 'error'
+        ];
+    } catch (\Exception $e) {
+        return [
+            'msg' => 'Failed to update slide.',
+            'status' => 'error'
+        ];
+    }
+}
 
 
 public function deleteById($id)

@@ -315,6 +315,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Report a Incident : Crowdsourcing',
             'menu_name_marathi' => 'एका घटनेची तक्रार करा: क्राउडसोर्सिंग',
             'order_no' => 1,
+            'url'=>'/list-report-incident-crowdsourcing-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -327,6 +328,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Be a Volunteer : Citizen Support',
             'menu_name_marathi' => 'स्वयंसेवक व्हा: नागरिक समर्थन',
             'order_no' => 2,
+            'url'=>'/volunteer-citizen-support-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -339,6 +341,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Feedback and suggestions',
             'menu_name_marathi' => 'अभिप्राय आणि सूचना',
             'order_no' => 3,
+            'url'=>'/citizen-feedback-suggestions-web',
             'is_static'=>true,
             'is_active' => true,
            

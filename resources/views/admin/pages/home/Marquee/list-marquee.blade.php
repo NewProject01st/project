@@ -5,12 +5,12 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Marquee List <a href="{{ route('add-marquee') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
+                    News Bar List <a href="{{ route('add-marquee') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Master Management</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Marquee List</li>
+                        <li class="breadcrumb-item active" aria-current="page">News Bar List</li>
                     </ol>
                 </nav>
             </div>
@@ -27,8 +27,7 @@
                                                     <th>S. No.</th>
                                                     <th>Title English</th>
                                                     <th>Title Marathi</th>
-
-                                                    <!-- <th>Status</th> -->
+                                                    <th>Status</th> 
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -38,6 +37,17 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td><?php echo $item->english_title; ?></td>
                                                         <td><?php echo $item->marathi_title; ?></td>
+                                                        <td>
+                                                            <button data-id="{{ $item->id }}" type="submit"
+                                                                class="active-btn btn btn-sm btn-outline-primary m-1"
+                                                                data-toggle="tooltip"
+                                                                data-placement="top"
+                                                                title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
+                                                                <span class="status-icon {{ $item->is_active ? '1' : '0' }}">
+                                                                    <i class="fa {{ $item->is_active ? 'fa-thumbs-up' : 'fa-thumbs-down' }}"></i>
+                                                                </span>
+                                                            </button>
+                                                        </td>
                                                         <td class="d-flex">
                                                             <a data-id="{{ $item->id }}"
                                                                 class="edit-btn btn btn-sm btn-outline-primary m-1"><i
@@ -73,5 +83,9 @@
         <form method="POST" action="{{ url('/edit-marquee') }}" id="editform">
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
+        </form>
+        <form method="POST" action="{{ url('/update-one') }}" id="activeform">
+            @csrf
+            <input type="hidden" name="active_id" id="active_id" value="">
         </form>
     @endsection

@@ -27,48 +27,94 @@ class SliderController extends Controller
     {
         return view('admin.pages.home.slider.add-slide');
     }
-
-    public function store(Request $request) {
-        // dd($request);
+public function store(Request $request)
+{
     $rules = [
-        'english_image' => 'required',
-        'marathi_image' => 'required'
-        ];
+        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:max_width=2000,max_height=1000',
+        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:max_width=2000,max_height=1000',
+    ];
+
     $messages = [   
-        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'english_image.required' => 'The English image is required.',
+        'english_image.image' => 'The English image must be a valid image file.',
+        'english_image.mimes' => 'The English image must be in JPEG, PNG, JPG, GIF, or SVG format.',
+        'english_image.max' => 'The English image size must not exceed 2MB.',
+        'english_image.dimensions' => 'The English image dimensions must be maximum 2000x1000 pixels.',
+        'marathi_image.required' => 'The Marathi image is required.',
+        'marathi_image.image' => 'The Marathi image must be a valid image file.',
+        'marathi_image.mimes' => 'The Marathi image must be in JPEG, PNG, JPG, GIF, or SVG format.',
+        'marathi_image.max' => 'The Marathi image size must not exceed 2MB.',
+        'marathi_image.dimensions' => 'The Marathi image dimensions must be maximum 2000x1000 pixels.',
     ];
 
     try {
-        $validation = Validator::make($request->all(),$rules,$messages);
-        if($validation->fails() )
-        {
+        $validation = Validator::make($request->all(), $rules, $messages);
+        
+        if ($validation->fails()) {
             return redirect('add-slide')
                 ->withInput()
                 ->withErrors($validation);
-        }
-        else
-        {
+        } else {
             $add_slide = $this->service->addAll($request);
-            // dd($add_slide);
-            if($add_slide)
-            {
 
+            if ($add_slide) {
                 $msg = $add_slide['msg'];
                 $status = $add_slide['status'];
-                if($status=='success') {
-                    return redirect('list-slide')->with(compact('msg','status'));
-                }
-                else {
-                    return redirect('add-slide')->withInput()->with(compact('msg','status'));
+
+                if ($status == 'success') {
+                    return redirect('list-slide')->with(compact('msg', 'status'));
+                } else {
+                    return redirect('add-slide')->withInput()->with(compact('msg', 'status'));
                 }
             }
-
         }
     } catch (Exception $e) {
         return redirect('add-slide')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
 }
+
+
+//     public function store(Request $request) {
+//         // dd($request);
+//     $rules = [
+//         'english_image' => 'required',
+//         'marathi_image' => 'required'
+//         ];
+//     $messages = [   
+//         'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//         'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//     ];
+
+//     try {
+//         $validation = Validator::make($request->all(),$rules,$messages);
+//         if($validation->fails() )
+//         {
+//             return redirect('add-slide')
+//                 ->withInput()
+//                 ->withErrors($validation);
+//         }
+//         else
+//         {
+//             $add_slide = $this->service->addAll($request);
+//             // dd($add_slide);
+//             if($add_slide)
+//             {
+
+//                 $msg = $add_slide['msg'];
+//                 $status = $add_slide['status'];
+//                 if($status=='success') {
+//                     return redirect('list-slide')->with(compact('msg','status'));
+//                 }
+//                 else {
+//                     return redirect('add-slide')->withInput()->with(compact('msg','status'));
+//                 }
+//             }
+
+//         }
+//     } catch (Exception $e) {
+//         return redirect('add-slide')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+//     }
+// }
     public function show(Request $request)
     {
         try {
@@ -123,38 +169,15 @@ class SliderController extends Controller
             ->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
  }
-
-
-//  public function updateOne(Request $request)
-//  {
-//      $slide = Slider::find($request->id);
-//      $slide->is_active = $request->is_active;
-//      $slide->save();
-
-//      return response()->json(['success'=>'Status change successfully.']);
-//  }
-
-//  public function updateOne(Request $request)
-//  {
-//     $active_id =$request->active_id;
-//     //  $isActive = $request->input('is_active', false);
-  
-//      $result = $this->service->updateOne($active_id);
-//      dd($result);
-//      if ($result['status'] === 'success') {
-//          return redirect()->back()->with('success', $result['msg']);
-//      } else {
-//          return redirect()->back()->with('error', $result['msg']);
-//      }
-//  }
- 
-
 public function updateOne(Request $request)
 {
-    $active_id = $request->active_id;
+    try {
+        $active_id = $request->active_id;
     $result = $this->service->updateOne($active_id);
-
-    // Rest of the code remains the same
+        return redirect('list-slide')->with('flash_message', 'Updated!');  
+    } catch (\Exception $e) {
+        return $e;
+    }
 }
 
     public function destroy(Request $request)

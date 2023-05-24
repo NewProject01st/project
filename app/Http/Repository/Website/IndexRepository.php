@@ -16,47 +16,61 @@ use App\Models\ {
 
 class IndexRepository  {
 
-//     public function getAllMarquee()
-// {
-//     try {
-//         $data_output = Marquee::where('is_active', true);
+    public function getAllMarquee()
+{
+    try {
+        $data_output = Marquee::where('is_active', true);
         
-//         if (Session::get('language') == 'mar') {
-//             $data_output =  $data_output->select('marathi_title');
-//         } else {
-//             $data_output = $data_output->select('english_title');
-//         }
-        
-//         $data_output = $data_output->get()->pluck('marathi_title', 'english_title')->toArray();
-        
-//         $titles = implode(', ', $data_output); // Concatenate titles using implode
-//         // dd($titles);
-       
-//         return $titles;
-//     } catch (\Exception $e) {
-//         return $e;
-//     }
-// }
-
-
-	public function getAllMarquee()
-    {
-        try {
-            $data_output = Marquee::where('is_active','=',true);
-            if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('marathi_title');
-            } else {
-                $data_output = $data_output->select('english_title');
-            }
-            $data_output =  $data_output->get()
-                            ->toArray();
-            return  $data_output;
-        //    echo $data_output;
-        //    die();
-        } catch (\Exception $e) {
-            return $e;
+        if (Session::get('language') == 'mar') {
+            $data_output =  $data_output->select('marathi_title');
+        } else {
+            $data_output = $data_output->select('english_title');
         }
+        
+        $data_output_marquee = $data_output->get();
+
+
+        
+  
+        if (Session::get('language') == 'mar') {
+            $output = $data_output_marquee->implode('marathi_title', '|| ');
+        } else {
+            $output = $data_output_marquee->implode('english_title', ' ||  ');
+        }
+        //dd($output);
+
+        //   dd($data_output1);
+        // $final_output = implode(',', $data_output_marquee); // Concatenate titles using implode
+        // dd($final_output);
+        // print_r($titles);
+        // die();
+        return $output ;
+    } catch (\Exception $e) {
+        return $e;
     }
+}
+
+
+
+
+	// public function getAllMarquee()
+    // {
+    //     try {
+    //         $data_output = Marquee::where('is_active','=',true);
+    //         if (Session::get('language') == 'mar') {
+    //             $data_output =  $data_output->select('marathi_title');
+    //         } else {
+    //             $data_output = $data_output->select('english_title');
+    //         }
+    //         $data_output =  $data_output->get()
+    //                         ->toArray();
+    //         return  $data_output;
+    //     //    echo $data_output;
+    //     //    die();
+    //     } catch (\Exception $e) {
+    //         return $e;
+    //     }
+    // }
     public function getAllSlider()
     {
         try {

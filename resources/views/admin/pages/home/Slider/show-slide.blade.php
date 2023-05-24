@@ -70,7 +70,7 @@
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <img src="{{ asset('storage/images/slides/' . $slider->english_image) }}"
-                                                style="width:100px; height:100px;" />
+                                                style="width:500px; height:300px;" />
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -79,7 +79,7 @@
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
                                             <img src="{{ asset('storage/images/slides/' . $slider->marathi_image) }}"
-                                                style="width:100px; height:100px;" />
+                                            style="width:500px; height:300px;" />
                                         </div>
                                     </div>
                                 </div>
