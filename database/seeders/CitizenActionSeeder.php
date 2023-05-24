@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\ReportIncidentCrowdsourcing;
 use App\Models\VolunteerCitizenSupport;
+use App\Models\CitizenFeedbackSuggestion;
+
 
 class CitizenActionSeeder extends Seeder
 {
@@ -124,6 +126,64 @@ class CitizenActionSeeder extends Seeder
             'is_deleted'=>false,
             'is_active'=>true,
         
+        ]);
+
+        CitizenFeedbackSuggestion::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'english_title' => '<b>Feedback and suggestions</b>',
+            'marathi_title' => '<b>अभिप्राय आणि सूचना</b>',
+            'english_description' => 'Feedback and suggestions play a vital role in improving disaster management strategies and enhancing overall preparedness and response capabilities. Here are some feedback and suggestions that can contribute to effective disaster management:<br>
+            <ul>
+            <li>Regular Assessment and Evaluation: Conduct regular assessments and evaluations of disaster management plans, policies, and procedures. This helps identify strengths, weaknesses, and areas for improvement. Feedback from stakeholders, including emergency responders, community members, and government agencies, should be considered during these assessments.
+            </li>
+            <li>Community Engagement and Participation: Encourage active participation and engagement of local communities in disaster management efforts. Involve community members in decision-making processes, awareness campaigns, and training programs. Seek feedback from the community to understand their needs and perspectives, and incorporate their input into disaster management plans.
+            </li>
+            <li>Enhanced Early Warning Systems: Continuously improve early warning systems to provide timely and accurate information to at-risk populations. Evaluate the effectiveness of existing systems and explore new technologies for early detection and warning dissemination. Ensure that warning messages are clear, accessible, and easily understood by the public.
+            </li>
+            <li>Training and Capacity Building: Invest in training and capacity building programs for emergency responders, volunteers, and community members. Provide regular training sessions on disaster response protocols, first aid, search and rescue techniques, and other relevant skills. Continuous skill development ensures that responders are prepared to handle various types of disasters effectively.
+            </li>
+            <li>Integration of Technology: Embrace technological advancements to enhance disaster management capabilities. Utilize geographic information systems (GIS), remote sensing, data analytics, and other technologies to improve situational awareness, early detection, and response coordination. Explore the use of mobile applications and social media platforms for effective communication during emergencies.
+            </li>
+            <li>Collaboration and Coordination: Strengthen collaboration and coordination among different stakeholders involved in disaster management. Foster partnerships between government agencies, non-governmental organizations, private sector entities, and community-based organizations. Promote information sharing, resource pooling, and joint planning to enhance overall preparedness and response efforts.
+            </li>
+            <li>Continuous Improvement and Learning: Foster a culture of continuous improvement and learning in disaster management. Regularly review and update disaster management plans based on lessons learned from past incidents. Conduct post-disaster assessments to identify areas for improvement and incorporate these findings into future planning and response strategies.
+            </li>
+            <li>Public Awareness and Education: Enhance public awareness and education campaigns to ensure that communities are well-informed about potential risks, preparedness measures, and response protocols. Use multiple channels, including social media, websites, and public meetings, to disseminate information. Tailor messages to address the specific needs and cultural sensitivities of diverse populations.
+            </li>
+            <li>Resource Allocation and Funding: Allocate adequate resources and funding for disaster management initiatives. Ensure that funding is allocated equitably and prioritized based on risk assessments. Explore partnerships with international organizations, development agencies, and the private sector to leverage additional resources and expertise.
+            </li>
+            <li>Continuous Communication and Feedback Loop: Establish a feedback mechanism to allow stakeholders to provide input, suggestions, and concerns regarding disaster management efforts. Regularly communicate updates, progress, and challenges to stakeholders, fostering transparency and accountability.
+            </li>
+            </ul>',
+            'marathi_description' => 'आपत्ती व्यवस्थापन धोरणे सुधारण्यात आणि एकूण तयारी आणि प्रतिसाद क्षमता वाढवण्यात अभिप्राय आणि सूचना महत्त्वाची भूमिका बजावतात. येथे काही अभिप्राय आणि सूचना आहेत ज्या प्रभावी आपत्ती व्यवस्थापनात योगदान देऊ शकतात:<br>
+            <ul>
+            <li>नियमित मूल्यांकन आणि मूल्यमापन: आपत्ती व्यवस्थापन योजना, धोरणे आणि कार्यपद्धती यांचे नियमित मूल्यांकन आणि मूल्यमापन करा. हे सामर्थ्य, कमकुवतपणा आणि सुधारण्यासाठी क्षेत्रे ओळखण्यात मदत करते. आपत्कालीन प्रतिसादकर्ते, समुदाय सदस्य आणि सरकारी संस्थांसह भागधारकांच्या अभिप्रायाचा या मूल्यांकनादरम्यान विचार केला पाहिजे.
+            </li>
+            <li>सामुदायिक सहभाग आणि सहभाग: आपत्ती व्यवस्थापनाच्या प्रयत्नांमध्ये स्थानिक समुदायांचा सक्रिय सहभाग आणि सहभागास प्रोत्साहन द्या. निर्णय प्रक्रिया, जागरूकता मोहिम आणि प्रशिक्षण कार्यक्रमांमध्ये समुदाय सदस्यांना सामील करा. त्यांच्या गरजा आणि दृष्टीकोन समजून घेण्यासाठी समुदायाकडून अभिप्राय घ्या आणि आपत्ती व्यवस्थापन योजनांमध्ये त्यांचे इनपुट समाविष्ट करा.
+            </li>
+            <li>वर्धित पूर्व चेतावणी प्रणाली: जोखीम असलेल्या लोकसंख्येला वेळेवर आणि अचूक माहिती प्रदान करण्यासाठी प्रारंभिक चेतावणी प्रणालींमध्ये सतत सुधारणा करा. विद्यमान प्रणालींच्या परिणामकारकतेचे मूल्यांकन करा आणि लवकर ओळख आणि चेतावणी प्रसारासाठी नवीन तंत्रज्ञानाचा शोध घ्या. चेतावणी संदेश स्पष्ट, प्रवेश करण्यायोग्य आणि लोकांद्वारे सहज समजतील याची खात्री करा.
+            </li>
+            <li>प्रशिक्षण आणि क्षमता निर्माण: आपत्कालीन प्रतिसादकर्ते, स्वयंसेवक आणि समुदाय सदस्यांसाठी प्रशिक्षण आणि क्षमता निर्माण कार्यक्रमांमध्ये गुंतवणूक करा. आपत्ती प्रतिसाद प्रोटोकॉल, प्रथमोपचार, शोध आणि बचाव तंत्र आणि इतर संबंधित कौशल्यांवर नियमित प्रशिक्षण सत्रे द्या. सतत कौशल्य विकास हे सुनिश्चित करतो की प्रतिसादकर्ते विविध प्रकारच्या आपत्तींना प्रभावीपणे हाताळण्यासाठी तयार आहेत.
+            </li>
+            <li>तंत्रज्ञानाचे एकत्रीकरण: आपत्ती व्यवस्थापन क्षमता वाढविण्यासाठी तांत्रिक प्रगती स्वीकारा. परिस्थितीजन्य जागरूकता, लवकर ओळख आणि प्रतिसाद समन्वय सुधारण्यासाठी भौगोलिक माहिती प्रणाली (GIS), रिमोट सेन्सिंग, डेटा विश्लेषणे आणि इतर तंत्रज्ञानाचा वापर करा. आणीबाणीच्या काळात प्रभावी संप्रेषणासाठी मोबाईल ऍप्लिकेशन्स आणि सोशल मीडिया प्लॅटफॉर्मचा वापर एक्सप्लोर करा.
+            </li>
+            <li>सहयोग आणि समन्वय: आपत्ती व्यवस्थापनात गुंतलेल्या विविध भागधारकांमधील सहकार्य आणि समन्वय मजबूत करा. सरकारी संस्था, गैर-सरकारी संस्था, खाजगी क्षेत्रातील संस्था आणि समुदाय-आधारित संस्था यांच्यातील भागीदारी वाढवणे. माहितीची देवाणघेवाण, संसाधने एकत्र करणे आणि एकूण तयारी आणि प्रतिसाद प्रयत्न वाढविण्यासाठी संयुक्त नियोजनाला प्रोत्साहन द्या.
+            </li>
+            <li>सतत सुधारणा आणि शिक्षण: आपत्ती व्यवस्थापनामध्ये सतत सुधारणा आणि शिकण्याची संस्कृती वाढवणे. भूतकाळातील घटनांमधून शिकलेल्या धड्यांवर आधारित आपत्ती व्यवस्थापन योजनांचे नियमितपणे पुनरावलोकन करा आणि अद्ययावत करा. सुधारणेसाठी क्षेत्रे ओळखण्यासाठी आपत्तीनंतरचे मूल्यांकन करा आणि हे निष्कर्ष भविष्यातील नियोजन आणि प्रतिसाद धोरणांमध्ये समाविष्ट करा.
+            </li>
+            <li>सार्वजनिक जागरुकता आणि शिक्षण: संभाव्य धोके, सज्जतेचे उपाय आणि प्रतिसाद प्रोटोकॉल याविषयी समुदायांना चांगली माहिती आहे याची खात्री करण्यासाठी सार्वजनिक जागरूकता आणि शिक्षण मोहिमेला वर्धित करा. माहिती प्रसारित करण्यासाठी सोशल मीडिया, वेबसाइट्स आणि सार्वजनिक सभांसह अनेक चॅनेल वापरा. विविध लोकसंख्येच्या विशिष्ट गरजा आणि सांस्कृतिक संवेदनशीलता पूर्ण करण्यासाठी संदेश तयार करा.
+            </li>
+            <li>संसाधन वाटप आणि निधी: आपत्ती व्यवस्थापन उपक्रमांसाठी पुरेशी संसाधने आणि निधीचे वाटप करा. जोखीम मुल्यांकनाच्या आधारे निधीचे वाटप समन्यायी आणि प्राधान्याने केले आहे याची खात्री करा. अतिरिक्त संसाधने आणि कौशल्याचा लाभ घेण्यासाठी आंतरराष्ट्रीय संस्था, विकास संस्था आणि खाजगी क्षेत्रासह भागीदारी एक्सप्लोर करा.
+            </li>
+            <li>सतत संप्रेषण आणि फीडबॅक लूप: आपत्ती व्यवस्थापनाच्या प्रयत्नांबाबत संबंधितांना इनपुट, सूचना आणि चिंता प्रदान करण्यासाठी फीडबॅक यंत्रणा स्थापित करा. पारदर्शकता आणि उत्तरदायित्व वाढवून, भागधारकांना अद्यतने, प्रगती आणि आव्हाने नियमितपणे संप्रेषण करा.
+            </li>
+            </ul>
+            ',
+            'english_image' => 'test_english.jpeg',
+            'marathi_image' => 'test_marathi.jpeg',
+            'is_deleted'=>false,
+            'is_active'=>true, 
         ]);
 
     }
