@@ -29,10 +29,17 @@ class SliderRepository  {
         $request->marathi_image->storeAs('public/images/slides', $marathiImageName);
 
         $slides = new Slider();
+        $slides->english_title = $request['english_title'];
+        $slides->marathi_title = $request['marathi_title'];
+        $slides->english_description = $request['english_description'];
+        $slides->marathi_description = $request['marathi_description'];
+        $slides->url = $request['url'];
+        // $slides->english_scrolltime = $request['english_scrolltime'];
+        // $slides->marathi_scrolltime = $request['marathi_scrolltime'];
         $slides->english_image = $englishImageName; // Save the image filename to the database
         $slides->marathi_image = $marathiImageName; // Save the image filename to the database
         $slides->save();       
-     
+        dd($slide_data);
         return $slides;
     } catch (\Exception $e) {
         return [
@@ -86,10 +93,15 @@ public function updateAll($request)
 
 
         $slide_data = Slider::find($request->id);
+        $slides->english_title = $request['english_title'];
+        $slides->marathi_title = $request['marathi_title'];
+        $slides->english_description = $request['english_description'];
+        $slides->marathi_description = $request['marathi_description'];
+        $slides->url = $request['url'];
         $slide_data->english_image = $englishImageName; // Save the image filename to the database
         $slide_data->marathi_image = $marathiImageName; // Save the image filename to the database
         $slide_data->save();       
-     
+   
         return [
             'msg' => 'Slide updated successfully.',
             'status' => 'success'
@@ -103,6 +115,35 @@ public function updateAll($request)
     }
 }
 
+public function updateOne($request)
+{
+    try {
+        $slide = Slider::find($request); // Assuming $request directly contains the ID
+
+        // Assuming 'is_active' is a field in the Slider model
+        if ($slide) {
+            $is_active = $slide->is_active === 1 ? 0 : 1;
+            $slide->is_active = $is_active;
+            // dd($slide);
+            $slide->save();
+
+            return [
+                'msg' => 'Slide updated successfully.',
+                'status' => 'success'
+            ];
+        }
+
+        return [
+            'msg' => 'Slide not found.',
+            'status' => 'error'
+        ];
+    } catch (\Exception $e) {
+        return [
+            'msg' => 'Failed to update slide.',
+            'status' => 'error'
+        ];
+    }
+}
 public function deleteById($id)
 {
     try {

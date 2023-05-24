@@ -26,8 +26,7 @@ class MarqueeRepository  {
         $marquee_data->english_title = $request['english_title'];
         $marquee_data->marathi_title = $request['marathi_title'];
         $marquee_data->save();       
-        // print_r($marquee_data);
-        // die();
+     
 		return $marquee_data;
     } catch (\Exception $e) {
         return [
@@ -76,6 +75,33 @@ public function updateMarquee($request)
         return $e;
         return [
             'msg' => 'Failed to update marquee.',
+            'status' => 'error'
+        ];
+    }
+}
+public function updateOne($request)
+{
+    try {
+        $marquee = Marquee::find($request); // Assuming $request directly contains the ID        
+        if ($marquee) {
+            $is_active = $marquee->is_active === 1 ? 0 : 1;
+            $marquee->is_active = $is_active;
+            // dd($marquee);
+            $marquee->save();
+
+            return [
+                'msg' => 'Marquee updated successfully.',
+                'status' => 'success'
+            ];
+        }
+
+        return [
+            'msg' => 'Marquee not found.',
+            'status' => 'error'
+        ];
+    } catch (\Exception $e) {
+        return [
+            'msg' => 'Failed to update slide.',
             'status' => 'error'
         ];
     }

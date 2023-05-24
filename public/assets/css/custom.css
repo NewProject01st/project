@@ -11,7 +11,7 @@ p {
 }
 body h1, body h2, body h3, body h4, body h5, body h6 {
 	font-family: 'Montserrat', sans-serif;
-	color: #333333;
+	/* color: #333333; */
 	margin: 0px;
 }
 body h1 {
@@ -1073,3 +1073,119 @@ button.btn.btn-outline-warning.btn-fw {  display: block;   width: 100%;   margin
 
 
   
+/******** + ========== + Main Slider Start + ========== + ********/
+
+.main-slider img {
+	width: 100%;
+	height: auto;
+}
+.item {
+	position: relative;
+}
+.carousel-caption h5 {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	top: 175px !important;
+	text-align: center;
+    color: red !important;
+}
+.owl-carousel .owl-item .slider-caption img {
+	display: inline-block;
+	width: auto;
+	margin: 0 0 20px;
+}
+.slide-content-box h1, .slider-caption strong {
+	color: #12498a;
+	font-size: 60px;
+	font-family: 'Montserrat', sans-serif;
+	line-height: 70px;
+	display: block;
+	margin: 0 0 15px;
+	font-weight: 700;
+}
+
+
+.slide-content-boxCalisma h1 {
+	color: white;
+	font-size: 60px;
+	font-family: 'Montserrat', sans-serif;
+	line-height: 70px;
+	display: block;
+	margin: 0 0 15px;
+	font-weight: 700;
+}
+
+
+.slider-caption strong span {
+	font-weight: 400;
+}
+.slide-content-box p, .slider-caption p {
+	font-size: 30px;
+	font-weight:600;
+	color: #40407e;
+	line-height: 34px;
+	margin: 0 0 30px;
+}
+.slide-content-box a, .slider-caption a {
+	background: #d94148;
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: 600;
+	line-height: 50px;
+	display: inline-block;
+	border-radius: 25px;
+	padding: 0 35px;
+	letter-spacing: 1px;
+}
+.slide-content-box a:hover, .slider-caption a:hover {
+	background: #40407e;
+	color: #fff;
+}
+.main-slider .owl-dots {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	z-index: 999;
+}
+.main-slider .owl-carousel button.owl-dot {
+	margin-left: 5px;
+}
+.main-slider .owl-carousel button.owl-dot span {
+	width: 12px;
+	height: 12px;
+	background: rgba(255,255,255,.7);
+	display: block;
+	border-radius: 15px;
+}
+.banner-tags {
+	margin: 0 0 15px;
+	padding: 0;
+	list-style: none;
+	width: 100%;
+	float: left;
+}
+.banner-tags li {
+	display: inline-block;
+	color: #bbbbbb;
+	background: rgba(150,35,57,.70);
+	margin-right: 2px;
+	line-height: 25px;
+	padding: 0 20px;
+	border-radius: 13px;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 600;
+}
+.banner-tags li:hover {
+	background: #40407e;
+	color: #fff;
+}
+/******** + ========== + Main Slider End + ========== + ********/
+
+/* =================satrt marquee=========== */
+
+/* =================end marquee=========== */

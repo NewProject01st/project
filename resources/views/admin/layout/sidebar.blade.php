@@ -66,7 +66,7 @@
                   <div class="collapse" id="page-layouts">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-marquee') }}">Marquee</a></li>
+                                  href="{{ route('list-marquee') }}">News Bar</a></li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-slide') }}">Slider</a></li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"

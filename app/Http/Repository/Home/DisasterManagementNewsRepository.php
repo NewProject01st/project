@@ -114,6 +114,33 @@ public function updateAll($request)
     }
 }
 
+public function updateOne($request)
+{
+    try {
+        $marquee = DisasterManagementNews::find($request); // Assuming $request directly contains the ID        
+        if ($marquee) {
+            $is_active = $marquee->is_active === 1 ? 0 : 1;
+            $marquee->is_active = $is_active;
+            // dd($marquee);
+            $marquee->save();
+
+            return [
+                'msg' => 'Disaster updated successfully.',
+                'status' => 'success'
+            ];
+        }
+
+        return [
+            'msg' => 'Disaster not found.',
+            'status' => 'error'
+        ];
+    } catch (\Exception $e) {
+        return [
+            'msg' => 'Failed to update slide.',
+            'status' => 'error'
+        ];
+    }
+}
 public function deleteById($id)
 {
     try {

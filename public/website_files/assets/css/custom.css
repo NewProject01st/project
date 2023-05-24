@@ -336,18 +336,124 @@ header {
 /******** + ========== + Main Marquee Start + ========== + ********/
 .marquee-main{
 	background-color: #144b8b;
-	
 	padding: 10px 0px 10px 0px;
 	font-family: 'Montserrat', sans-serif;
+	
 }
-.marquee-main h6{
+
+.marquee-scroll span{
+	display: block;
 	color: #fff !important;
+	line-height: 26px !important ;
+    font-size: 20px  !important;
+    font-weight: 600;
+	align-items: center !important;
+	cursor: pointer;
+}
+.marquee-scroll span p{
+	display:contents !important;
+	color: #fff !important;
+	line-height: 26px !important;
+    font-size: 20px !important;
+    font-weight: 600;
+	padding: 0px 10px !important;
+	align-items: center !important;
+	cursor: pointer;
+	
+}
+.marquee-scroll span p a{
+	display: block !important;
+	color: #fff !important;
+	line-height: 26px !important;
+    font-size: 20px !important;
+    font-weight: 600;
+	padding: 0px 10px !important;
+	align-items:center !important;
+	cursor: pointer;
+	
 }
 /******** + ========== + Main Marquee End + ========== + ********/
 
 /******** + ========== + Main Slider Start + ========== + ********/
 
+.carousel-caption h1, .slider-caption strong {
+	color: #fff;
+	font-size: 50px;
+	font-family: 'Montserrat', sans-serif;
+	line-height: 70px;
+	display: block;
+	margin: 0 0 15px;
+	font-weight: 700;
+}
 
+.slider-caption strong span {
+	font-weight: 400;
+}
+.slide-content-box p, .slider-caption p {
+	font-size: 30px;
+	font-weight:600;
+	color: #d94148;
+	line-height: 34px;
+	margin: 0 0 30px;
+}
+.slide-content-box a, .slider-caption a {
+	background: #40407e;
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: 600;
+	line-height: 50px;
+	display: inline-block;
+	border-radius: 25px;
+	padding: 0 35px;
+	letter-spacing: 1px;
+}
+.slide-content-box a:hover, .slider-caption a:hover {
+	background: #40407e;
+	color: #fff;
+}
+
+.carousel-caption {
+	position: absolute;
+	right: 15%;
+	top: 6.25rem;
+	left: 15%;
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
+	color: #fff !important;
+	text-align: left;
+  }
+  .carousel-caption h5 {
+	color: #fff !important;
+	
+  }
+  .carousel-caption p {
+	color: #fff !important;
+	font-style: italic !important;
+    line-height: 24px;
+    border-width: 0px;
+    margin: 0px;
+    padding: 0px;
+    letter-spacing: 0px;
+    font-weight: 400;
+    font-size: 17px;
+  }
+  /* a.read-more {
+	background: #144b8b;
+	display: inline-block;
+	border-radius: 10px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 12px;
+	font-weight: 600;
+	color: #fff !important;
+	margin: 0 0 20px 35px;
+	padding: 10 30px !important;
+}
+a.read-more:hover {
+	background: #d94148;
+	color: #fff !important;
+} */
 /******** + ========== + Main Slider End + ========== + ********/
 
 

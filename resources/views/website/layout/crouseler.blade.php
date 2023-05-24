@@ -12,21 +12,25 @@
                         @if (session('language') == 'mar')
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
                                 <img src="{{ asset('storage/images/slides/' . $slider['marathi_image']) }}"
-                                    class="d-block w-100" alt="...">
-
-                                {{-- <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
-                    </div> --}}
+                                    class="d-block w-100" alt="No Image">
+                                    <div class="carousel-caption">
+                                        <h1><?php echo $slider['marathi_title']; ?></h1>
+                                        <p><?php echo $slider['marathi_description']; ?> </p>
+                                        <div class="slide-content-box pt-3"> <a href="{{ $slider['url'] }}" class="con"
+                                                target="_blank">Read More</a> </div>
+                                    </div>
                             </div>
-                        @elseif (array_key_exists('english_title', $item))
+                        @elseif (array_key_exists('english_title', $slider))
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
                                 <img src="{{ asset('storage/images/slides/' . $slider['english_image']) }}"
-                                    class="d-block w-100" alt="...">
-                                {{-- <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
-                    </div> --}}
+                                    class="d-block w-100" alt="No Image">
+                                <div class="carousel-caption">
+                                    <h1><?php echo $slider['english_title']; ?></h1>
+                                    <p><?php echo $slider['english_description']; ?> </p>
+                                    <div class="slide-content-box pt-3"> <a href="{{ $slider['url'] }}" class="con"
+                                            target="_blank">Read More</a> </div>
+                                </div>
+
                             </div>
                         @endif
                     @endforeach
@@ -44,3 +48,6 @@
             </div>
         </section>
         {{-- End Slider --}}
+
+
+        

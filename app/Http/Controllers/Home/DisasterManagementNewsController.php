@@ -150,7 +150,16 @@ public function show(Request $request)
             return $e;
         }
     }
-
+    public function updateOne(Request $request)
+    {
+        try {
+            $active_id = $request->active_id;
+        $result = $this->service->updateOne($active_id);
+            return redirect('list-disaster-management-news')->with('flash_message', 'Updated!');  
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
     public function destroy(Request $request)
     {
         try {

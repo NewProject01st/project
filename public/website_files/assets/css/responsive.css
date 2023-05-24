@@ -849,11 +849,20 @@ ul.funds li strong, .event-counter .countdown-period {
 	width: 100%;
 	height: auto;
 }
+.carousel-caption {
+	position: absolute;
+	right: 15%;
+	top: 1.25rem;
+	left: 15%;
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
+	color: #fff !important;
+	text-align: left;
+  }
+.carousel-caption h1 {font-size:14px !important; line-height:20px !important; margin:0 0 10px !important;}
+.carousel-caption p {display:none;}
 
-.slide-content-box h1 {font-size:14px !important; line-height:20px !important; margin:0 0 10px !important;}
-.slide-content-box p {display:none;}
-
-.slide-content-box a {
+.carousel-caption a {
     font-size: 12px !important;
     line-height: 24px !important;
     padding: 0 20px !important;
