@@ -126,4 +126,6 @@ class EmergencyResponseController extends Controller
         }
         return view('website.pages.emergency-response.list-evacuation-plans-web',compact('language','menu', 'data_output'));
     }
+
+    
 }

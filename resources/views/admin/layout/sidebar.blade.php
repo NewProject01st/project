@@ -147,31 +147,6 @@
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                       aria-controls="page-layouts">
                       <i class="fa fa-th-large menu-icon"></i>
-                      <span class="menu-title">Citizen Action</span>
-                      <i class="menu-arrow"></i>
-                  </a>
-
-                  <div class="collapse" id="page-layouts">
-                      <ul class="nav flex-column sub-menu">
-                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-report-crowdsourcing') }}">Report Incident Crowdsourcing
-                              </a>
-                          </li>
-                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-volunteer-citizen-support') }}">Volunteer Citizen Support
-                              </a>
-                          </li>
-                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-citizen-feedback-and-suggestion') }}">Feedback and suggestions
-                              </a>
-                          </li>
-                      </ul>
-                  </div>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                      aria-controls="page-layouts">
-                      <i class="fa fa-th-large menu-icon"></i>
                       <span class="menu-title">Emergency Response</span>
                       <i class="menu-arrow"></i>
                   </a>
@@ -201,6 +176,38 @@
                           </li>
                       </ul>
                   </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
+                    aria-controls="page-layouts">
+                    <i class="fa fa-th-large menu-icon"></i>
+                    <span class="menu-title">Citizen Action</span>
+                    <i class="menu-arrow"></i>
+                </a>
+
+                <div class="collapse" id="page-layouts">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                href="{{ route('list-report-crowdsourcing') }}">Report Incident Crowdsourcing
+                            </a>
+                        </li>
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                href="{{ route('list-volunteer-citizen-support') }}">Volunteer Citizen Support
+                            </a>
+                        </li>
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                href="{{ route('list-citizen-feedback-and-suggestion') }}">Feedback and suggestions
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('list-event') }}">
+                  <i class="fas fa-window-restore menu-icon"></i>
+                  <span class="menu-title">Event</span>
+              </a>
+          </li>
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('list-tenders') }}">
                       <i class="fas fa-window-restore menu-icon"></i>

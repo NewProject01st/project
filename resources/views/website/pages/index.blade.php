@@ -78,6 +78,9 @@
                 </div>
                 <div class="row d-flex flex-wrap">
                     <!--News Box Start-->
+                    <?php //print_r($data_output_disastermanagementnews);
+                    //die();
+                    ?>
                     @foreach ($data_output_disastermanagementnews as $item)
                         @if (session('language') == 'mar')
                             <div class="col-md-3 col-sm-6">
@@ -99,8 +102,8 @@
                                 <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
                                         alt=""> Read more <a href="#"><i class="fas fa-arrow-right"></i></a>
                                 </div>
-                               </div>
                             </div>
+                </div>
             @else
                 <div class="col-md-3 col-sm-6 mt-4">
                     <div class="news-box">
@@ -119,8 +122,18 @@
                             <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
                             <p> <?php echo $item['english_description']; ?></p>
                         </div>
-                        <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
-                                alt=""> Read more <a href="#"><i class="fas fa-arrow-right"></i></a>
+                        {{-- <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
+                                alt=""> Read more <a href="/show-disaster-management-news/"><i class="fas fa-arrow-right"></i></a>
+                        </div> --}}
+
+                        <div class="news-box-f">
+                            <img src="{{ asset('website_files/images/home/tuser1.jpg') }}" alt="">
+                            Read more
+                            <a 
+                            data-id="{{ $item['id'] }}" 
+                            href="{{ route('new-paricular-data-web', ['id' => $item['id']]) }}"
+                            ><i
+                            class="fas fa-arrow-right show-btn btn btn-sm btn-outline-primary m-1" id="show_id"></i></a>
                         </div>
                     </div>
                 </div>
@@ -130,6 +143,10 @@
 
             </div>
     </div>
+    <form method="POST" action="{{ url('/new-paricular-data-web') }}" id="showform">
+        @csrf
+        <input type="hidden" name="show_id" id="show_id" value="">
+    </form>
     </section>
     <!--End News End-->
 
@@ -181,8 +198,8 @@
                         <!--Icon Box End-->
                         <!--Icon Box Start-->
                         <div class="col-md-4 col-sm-4">
-                            <div class="deprt-icon-box"> <img src="{{ asset('website_files/images/home/deprticon5.png') }}"
-                                    alt="">
+                            <div class="deprt-icon-box"> <img
+                                    src="{{ asset('website_files/images/home/deprticon5.png') }}" alt="">
                                 <h6> <a href="#">National Guard </a> </h6>
                                 <a class="rm" href="#">Read More</a>
                             </div>

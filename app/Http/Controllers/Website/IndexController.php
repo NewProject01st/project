@@ -44,6 +44,26 @@ class IndexController extends Controller
         return view('website.pages.index',compact('language','menu','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact'));
     }
 
+
+    public function show(Request $request)
+    {
+        try {
+              //dd($request->show_id);
+            $disaster_news = $this->service->getById($request->show_id);
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+
+        } catch (\Exception $e) {
+            return $e;
+        }
+            return view('website.pages.new-paricular-data-web', compact('disaster_news'));
+        } 
+    
+
+
     public function changeLanguage(Request $request) {
         Session::put('language', $request->language);
     }    
