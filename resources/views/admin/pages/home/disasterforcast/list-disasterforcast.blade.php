@@ -48,11 +48,11 @@
                                                 <td>{{ $item->forcast_date }}</td>
                                                 <td>{{ $item->expired_date }}</td>
                                                 {{-- <td> <img
-                                                            src="{{ asset('websitedocument/images/disaster-forcast/' . $item->english_image) }}"
+                                                            src="{{ asset('storage/images/disaster-forcast/' . $item->english_image) }}"
                                                 />
                                                 </td>
                                                 <td> <img
-                                                        src="{{ asset('websitedocument/images/disaster-forcast/' . $item->marathi_image) }}" />
+                                                        src="{{ asset('storage/images/disaster-forcast/' . $item->marathi_image) }}" />
                                                 </td> --}}
 
 

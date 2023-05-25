@@ -81,7 +81,7 @@
                                             class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <img src="{{ asset('websitedocument/images/preparedness/capacity-training/' . $capacity_training->english_image) }}"
+                                    <img src="{{ asset('storage/images/preparedness/capacity-training/' . $capacity_training->english_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                 </div>
                                 <div class="col-md-6">
@@ -94,7 +94,7 @@
                                             class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <img src="{{ asset('websitedocument/images/preparedness/capacity-training/' . $capacity_training->marathi_image) }}"
+                                    <img src="{{ asset('storage/images/preparedness/capacity-training/' . $capacity_training->marathi_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                 </div>
 

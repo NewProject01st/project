@@ -47,10 +47,10 @@
                                                         <td>{{ $item->weather_date }}</td>
                                                         <td>{{ $item->expired_date }}</td>                                                        
                                                         {{-- <td> <img
-                                                            src="{{ asset('websitedocument/images/weather/' . $item->english_image) }}" />
+                                                            src="{{ asset('storage/images/weather/' . $item->english_image) }}" />
                                                         </td>
                                                         <td> <img
-                                                                src="{{ asset('websitedocument/images/weather/' . $item->marathi_image) }}" />
+                                                                src="{{ asset('storage/images/weather/' . $item->marathi_image) }}" />
                                                         </td> --}}
                                                       
 

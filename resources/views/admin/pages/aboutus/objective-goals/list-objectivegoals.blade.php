@@ -46,10 +46,10 @@
                                                 <td><?php echo $item->english_description; ?></td>
                                                 <td><?php echo $item->marathi_description; ?></td>
                                                 <td><img
-                                                        src="{{ asset('websitedocument/images/aboutus/objective-goals/' . $item->english_image) }}" />
+                                                        src="{{ asset('storage/images/aboutus/objective-goals/' . $item->english_image) }}" />
                                                 </td>
                                                 <td><img
-                                                        src="{{ asset('websitedocument/images/aboutus/objective-goals/' . $item->marathi_image) }}" />
+                                                        src="{{ asset('storage/images/aboutus/objective-goals/' . $item->marathi_image) }}" />
                                                 </td>
                                                 <td class="d-flex">
                                                     <a data-id="{{ $item->id }}"

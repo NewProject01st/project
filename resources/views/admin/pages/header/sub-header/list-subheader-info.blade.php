@@ -52,10 +52,10 @@
                                                 <td>{{ $item->english_city }}</td>
                                                 <td>{{ $item->marathi_city }}</td>
                                                 <td> <img
-                                                        src="{{ asset('websitedocument/images/header/sub-header/' . $item->english_logo) }}" />
+                                                        src="{{ asset('storage/images/header/sub-header/' . $item->english_logo) }}" />
                                                 </td>
                                                 <td> <img
-                                                        src="{{ asset('websitedocument/images/header/sub-header/' . $item->marathi_logo) }}" />
+                                                        src="{{ asset('storage/images/header/sub-header/' . $item->marathi_logo) }}" />
                                                 </td>
                                                 <td class="d-flex">
                                                     <a data-id="{{ $item->id }}"

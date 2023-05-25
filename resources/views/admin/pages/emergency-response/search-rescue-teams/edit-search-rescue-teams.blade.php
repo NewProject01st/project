@@ -69,7 +69,7 @@
                                                 <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <img src="{{ asset('websitedocument/images/emergency-response/search-rescue-teams/' . $searchrescueteams->english_image) }}"
+                                        <img src="{{ asset('storage/images/emergency-response/search-rescue-teams/' . $searchrescueteams->english_image) }}"
                                             class="img-fluid img-thumbnail" width="150">
                                     </div>
                                     <div class="col-md-6">
@@ -81,7 +81,7 @@
                                                 <span class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <img src="{{ asset('websitedocument/images/emergency-response/search-rescue-teams/' . $searchrescueteams->marathi_image) }}"
+                                        <img src="{{ asset('storage/images/emergency-response/search-rescue-teams/' . $searchrescueteams->marathi_image) }}"
                                             class="img-fluid img-thumbnail" width="150">
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">

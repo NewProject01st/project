@@ -121,7 +121,7 @@
                                                 <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <a href="{{ asset('websitedocument/pdf/tenders/' . $tenders->marathi_pdf) }}"
+                                        <a href="{{ asset('storage/pdf/tenders/' . $tenders->marathi_pdf) }}"
                                             ></a>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">

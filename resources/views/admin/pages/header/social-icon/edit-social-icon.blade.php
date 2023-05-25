@@ -36,7 +36,7 @@
                                             class="red-text"><?php echo $errors->first('icon', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <img src="{{ asset('websitedocument/images/header/social-icon/' . $social_icon->english_image) }}"
+                                    <img src="{{ asset('storage/images/header/social-icon/' . $social_icon->english_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                 </div>
                                

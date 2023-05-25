@@ -45,10 +45,10 @@
                                                  <td><?php echo $item->english_description; ?></td>
                                                  <td><?php echo $item->marathi_description; ?></td>
                                                  <td> <img
-                                                         src="{{ asset('websitedocument/images/emergency-response/evacuation-plans/' . $item->english_image) }}" />
+                                                         src="{{ asset('storage/images/emergency-response/evacuation-plans/' . $item->english_image) }}" />
                                                  </td>
                                                  <td> <img
-                                                         src="{{ asset('websitedocument/images/emergency-response/evacuation-plans/' . $item->marathi_image) }}" />
+                                                         src="{{ asset('storage/images/emergency-response/evacuation-plans/' . $item->marathi_image) }}" />
                                                  </td>
                                                  <!-- <td>
                                                                 <span class="badge badge-success">Active</span>

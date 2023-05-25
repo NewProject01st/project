@@ -58,7 +58,7 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-5">
                                 <div class="city-tour gallery"> <strong> Disaster Management Head </strong>
-                                    <img src="{{ asset('websitedocument/images/disaster-webportal/' . $item['marathi_image']) }}"
+                                    <img src="{{ asset('storage/images/disaster-webportal/' . $item['marathi_image']) }}"
                                         class="d-block w-100">
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-5">
                                 <div class="city-tour gallery"> <strong> Disaster Management Head </strong>
-                                    <img src="{{ asset('websitedocument/images/disaster-webportal/' . $item['english_image']) }}"
+                                    <img src="{{ asset('storage/images/disaster-webportal/' . $item['english_image']) }}"
                                         class="d-block w-100">
                                 </div>
                             </div>
@@ -106,7 +106,7 @@
                             <div class="col-md-3 col-sm-6">
                                 <div class="news-box">
                                     {{-- <div class="new-thumb"> <span class="cat c1">Fire</span> --}}
-                                    <img src="{{ asset('websitedocument/images/disaster-news/' . $item['marathi_image']) }}"
+                                    <img src="{{ asset('storage/images/disaster-news/' . $item['marathi_image']) }}"
                                         class="d-block w-100">
                                 </div>
                                 <div class="new-txt">
@@ -129,7 +129,7 @@
                             <div class="news-box">
                                 <div class="new-thumb">
                                     {{-- <span class="cat c1">Fire</span> --}}
-                                    <img src="{{ asset('websitedocument/images/disaster-news/' . $item['english_image']) }}"
+                                    <img src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
                                         class="d-block w-100">
                                 </div>
                                 <div class="new-txt">

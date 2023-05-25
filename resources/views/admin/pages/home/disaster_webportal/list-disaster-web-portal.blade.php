@@ -53,10 +53,10 @@
                                                         <td><?php echo $item->english_designation; ?></td>
                                                         <td><?php echo $item->marathi_designation; ?></td>
                                                         <td> <img
-                                                                src="{{ asset('websitedocument/images/disaster-webportal/' . $item->english_image) }}" />
+                                                                src="{{ asset('storage/images/disaster-webportal/' . $item->english_image) }}" />
                                                         </td>
                                                         <td> <img
-                                                                src="{{ asset('websitedocument/images/disaster-webportal/' . $item->marathi_image) }}" />
+                                                                src="{{ asset('storage/images/disaster-webportal/' . $item->marathi_image) }}" />
                                                         </td>
 
                                                         <td class="d-flex">

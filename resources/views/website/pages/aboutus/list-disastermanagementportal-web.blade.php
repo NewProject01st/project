@@ -24,12 +24,12 @@
                                 <div class="deprt-txt">
                                     @if (session('language') == 'mar')
                                         <h3><?php echo $item['marathi_title']; ?> : </h3>
-                                        <img src="{{ asset('websitedocument/images/aboutus/disaster-management-portal/' . $item['marathi_image']) }}"
+                                        <img src="{{ asset('storage/images/aboutus/disaster-management-portal/' . $item['marathi_image']) }}"
                                     class="d-block w-100" alt="...">
                                         <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                     @else
                                         <h3><?php echo $item['english_title']; ?> : </h3>
-                                        <img src="{{ asset('websitedocument/images/aboutus/disaster-management-portal/' . $item['english_image']) }}"
+                                        <img src="{{ asset('storage/images/aboutus/disaster-management-portal/' . $item['english_image']) }}"
                                     class="d-block w-100" alt="...">
                                         <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
                                     @endif

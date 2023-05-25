@@ -112,7 +112,7 @@
                                                 <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <img src="{{ asset('websitedocument/images/disaster-webportal/' . $disaster_web_portal->english_image) }}"
+                                        <img src="{{ asset('storage/images/disaster-webportal/' . $disaster_web_portal->english_image) }}"
                                             class="img-fluid img-thumbnail" width="150">
                                     </div>
                                     <div class="col-md-6">
@@ -124,7 +124,7 @@
                                                 <span class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <img src="{{ asset('websitedocument/images/disaster-webportal/' . $disaster_web_portal->marathi_image) }}"
+                                        <img src="{{ asset('storage/images/disaster-webportal/' . $disaster_web_portal->marathi_image) }}"
                                             class="img-fluid img-thumbnail" width="150">
                                     </div>
 

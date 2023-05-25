@@ -96,7 +96,7 @@
                                         <span
                                             class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
                                         @endif
-                                        <a href="{{ asset('websitedocument/pdf/tenders/' . $tender->english_pdf) }}"></a>
+                                        <a href="{{ asset('storage/pdf/tenders/' . $tender->english_pdf) }}"></a>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -109,7 +109,7 @@
                                             class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <a href="{{ asset('websitedocument/pdf/tenders/' . $tender->marathi_pdf) }}"></a>
+                                    <a href="{{ asset('storage/pdf/tenders/' . $tender->marathi_pdf) }}"></a>
                                 </div>
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Update</button>

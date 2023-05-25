@@ -77,7 +77,7 @@
                                             <label>Image English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <img src="{{ asset('websitedocument/images/weather/' . $weather->english_image) }}"
+                                            <img src="{{ asset('storage/images/weather/' . $weather->english_image) }}"
                                                 style="width:70px; height:70px;" />
                                         </div>
                                     </div>
@@ -86,7 +86,7 @@
                                             <label>Image Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
-                                            <img src="{{ asset('websitedocument/images/weather/' . $weather->marathi_image) }}"
+                                            <img src="{{ asset('storage/images/weather/' . $weather->marathi_image) }}"
                                                 style="width:70px; height:70px;" />
                                         </div>
                                     </div>
@@ -96,8 +96,8 @@
                                             <label>English Pdf :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <a href="{{ asset('/websitedocument/pdf/weather/' . $weather->english_pdf) }}"
-                                                target="_blank"><img src="public/websitedocument/pdf/pdf.png" width="50px"
+                                            <a href="{{ asset('/storage/pdf/weather/' . $weather->english_pdf) }}"
+                                                target="_blank"><img src="public/storage/pdf/pdf.png" width="50px"
                                                     height="50px"></a>
                                         </div>
                                     </div>
@@ -106,8 +106,8 @@
                                             <label>Marathi Pdf :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <a href="{{ asset('/websitedocument/pdf/weather/' . $weather->marathi_pdf) }}"
-                                                target="_blank"><img src="public/websitedocument/pdf/pdf.png" width="50px"
+                                            <a href="{{ asset('/storage/pdf/weather/' . $weather->marathi_pdf) }}"
+                                                target="_blank"><img src="public/storage/pdf/pdf.png" width="50px"
                                                     height="50px"></a>
                                         </div>
                                     </div>

@@ -9,11 +9,11 @@
                             @foreach ($data_output_socialicon as $item)
                                 @if (session('language') == 'mar')
                                     <li><a href="#" class="fb"><img
-                                                src="{{ asset('websitedocument/images/header/social-icon/' . $item['icon']) }}"
+                                                src="{{ asset('storage/images/header/social-icon/' . $item['icon']) }}"
                                                 class="d-block w-100"></a></li>
                                 @else
                                     <li><a href="#" class="fb"><img
-                                                src="{{ asset('websitedocument/images/header/social-icon/' . $item['icon']) }}"
+                                                src="{{ asset('storage/images/header/social-icon/' . $item['icon']) }}"
                                                 class="d-block w-100"></a></li>
                                 @endif
                             @endforeach

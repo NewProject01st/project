@@ -45,10 +45,10 @@
                                                 <td>{{ $item->english_number }}</td>
                                                 <td>{{ $item->marathi_number }}</td>
                                                 <td> <img
-                                                        src="{{ asset('websitedocument/images/general_contact/' . $item->english_icon) }}" />
+                                                        src="{{ asset('storage/images/general_contact/' . $item->english_icon) }}" />
                                                 </td>
                                                 <td> <img
-                                                        src="{{ asset('websitedocument/images/general_contact/' . $item->marathi_icon) }}" />
+                                                        src="{{ asset('storage/images/general_contact/' . $item->marathi_icon) }}" />
                                                 </td>
                                                 <td>
                                                     <button data-id="{{ $item->id }}" type="submit"

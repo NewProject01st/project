@@ -63,7 +63,7 @@
                                         <label> English Image :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <img src="{{ asset('websitedocument/images/preparedness/capacity-training/' . $capacity_training->english_image) }}"
+                                        <img src="{{ asset('storage/images/preparedness/capacity-training/' . $capacity_training->english_image) }}"
                                             style="width:70px; height:70px;" />
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@
                                         <label> Marathi Image:</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
-                                        <img src="{{ asset('websitedocument/images/preparedness/capacity-training/' . $capacity_training->marathi_image) }}"
+                                        <img src="{{ asset('storage/images/preparedness/capacity-training/' . $capacity_training->marathi_image) }}"
                                             style="width:70px; height:70px;" />
                                     </div>
                                 </div>

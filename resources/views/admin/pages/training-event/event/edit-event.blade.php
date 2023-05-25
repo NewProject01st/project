@@ -103,7 +103,7 @@
                                             class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <img src="{{ asset('websitedocument/images/training-event/event/' . $event->english_image) }}"
+                                    <img src="{{ asset('storage/images/training-event/event/' . $event->english_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                 </div>
                                 <div class="col-md-6">
@@ -116,7 +116,7 @@
                                             class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <img src="{{ asset('websitedocument/images/training-event/event/' . $event->marathi_image) }}"
+                                    <img src="{{ asset('storage/images/training-event/event/' . $event->marathi_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                 </div>
 

@@ -79,7 +79,7 @@
                                                 <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <img src="{{ asset('websitedocument/images/slides/' . $slider->english_image) }}"
+                                        <img src="{{ asset('storage/images/slides/' . $slider->english_image) }}"
                                             class="img-fluid img-thumbnail" width="150">
                                     </div>
                                     <div class="col-md-6">
@@ -91,7 +91,7 @@
                                                 <span class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <img src="{{ asset('websitedocument/images/slides/' . $slider->marathi_image) }}"
+                                        <img src="{{ asset('storage/images/slides/' . $slider->marathi_image) }}"
                                             class="img-fluid img-thumbnail" width="150">
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
