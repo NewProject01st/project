@@ -39,6 +39,14 @@
                                             <label><?php echo $marquees->marathi_title; ?></label>
                                         </div>
                                     </div>
+                                    <div class="row ">
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <label>URL :</label>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label><?php echo $marquees->url; ?></label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

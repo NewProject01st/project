@@ -97,6 +97,8 @@ class DisasterManagementNewsController extends Controller
         'marathi_title' => 'required',
         'english_description' => 'required',
         'marathi_description' => 'required',
+        // 'english_image' => 'required',
+        // 'marathi_image' => 'required',
         'english_url' => 'required',
         'disaster_date' => 'required',
         
@@ -105,7 +107,9 @@ class DisasterManagementNewsController extends Controller
         'english_title'=>'Please  enter english title.',
         'marathi_title'=>'Please  enter marathi title.',
         'english_description' => 'required',
-        'marathi_description' => 'required',       
+        'marathi_description' => 'required',
+        // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // 'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'english_url'=>'required',
         'disaster_date' => 'required',
     ];

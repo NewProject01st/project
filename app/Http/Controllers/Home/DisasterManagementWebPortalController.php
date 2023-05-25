@@ -106,8 +106,8 @@ class DisasterManagementWebPortalController extends Controller
             'marathi_description' => 'required',
             'english_designation' => 'required',
             'marathi_designation' => 'required',
-            'english_image' => 'required',
-            'marathi_image' => 'required',
+            // 'english_image' => 'required',
+            // 'marathi_image' => 'required',
         
      ];
     $messages = [   
@@ -119,8 +119,8 @@ class DisasterManagementWebPortalController extends Controller
         'marathi_description' => 'required',
         'english_designation' => 'required',
         'marathi_designation' => 'required',
-        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // 'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         
     ];
 

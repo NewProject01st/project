@@ -18,8 +18,7 @@ class HeaderSeeder extends Seeder
         SocialIcon::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_image' => 'facebook.jpeg',
-            'marathi_image' => 'facebook.jpeg',
+            'icon' => 'facebook.jpeg',
             'url' => 'facebook.com',
             'is_deleted'=>false,
             'is_active'=>true,
@@ -28,8 +27,7 @@ class HeaderSeeder extends Seeder
         SocialIcon::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_image' => 'tweeter.jpeg',
-            'marathi_image' => 'tweeter.jpeg',
+            'icon' => 'tweeter.jpeg',
             'url' => 'tweeter.com',
             'is_deleted'=>false,
             'is_active'=>true,
@@ -38,8 +36,7 @@ class HeaderSeeder extends Seeder
         SocialIcon::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_image' => 'insta.jpeg',
-            'marathi_image' => 'insta.jpeg',
+            'icon' => 'insta.jpeg',
             'url' => 'insta.com',
             'is_deleted'=>false,
             'is_active'=>true,
@@ -48,8 +45,7 @@ class HeaderSeeder extends Seeder
         SocialIcon::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_image' => 'indeed.jpeg',
-            'marathi_image' => 'indeed.jpeg',
+            'icon' => 'indeed.jpeg',
             'url' => 'indeed.com',
             'is_deleted'=>false,
             'is_active'=>true,

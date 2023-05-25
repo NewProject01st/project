@@ -71,24 +71,26 @@ public function updateAll($request)
 {
     try {
         $disaster_data = DisasterManagementNews::find($request->id);
-        
+
         if (!$disaster_data) {
             return [
-                'msg' => 'Disaster not found.',
+                'msg' => 'Disaster Management News not found.',
                 'status' => 'error'
             ];
         }
-         // stores the previous images name
-        
-           $previousEnglishImage = $disaster_data->english_image;
-           $previousMarathiImage = $disaster_data->marathi_image;
-    
 
-        // update the fields from request     
+        // Store the previous image names
+        $previousEnglishImage = $disaster_data->english_image;
+        $previousMarathiImage = $disaster_data->marathi_image;
+
+        // Update the fields from the request
         $disaster_data->english_title = $request['english_title'];
         $disaster_data->marathi_title = $request['marathi_title'];
         $disaster_data->english_description = $request['english_description'];
         $disaster_data->marathi_description = $request['marathi_description'];
+        $disaster_data->english_url = $request['english_url'];
+        $disaster_data->disaster_date = $request['disaster_date'];
+
         if ($request->hasFile('english_image')) {
             // Delete previous English image if it exists
             if ($previousEnglishImage) {
@@ -112,23 +114,21 @@ public function updateAll($request)
             $request->marathi_image->storeAs('public/images/disaster-news/', $marathiImageName);
             $disaster_data->marathi_image = $marathiImageName;
         }
-        $disaster_data->english_url = $request['english_url'];
-        $disaster_data->disaster_date = $request['disaster_date'];
-        $disaster_data->save();        
-     
+
+        $disaster_data->save();
+
         return [
-            'msg' => 'Disaster updated successfully.',
+            'msg' => 'Disaster News updated successfully.',
             'status' => 'success'
         ];
     } catch (\Exception $e) {
-        return $e;
         return [
-            'msg' => 'Failed to update Disaster.',
-            'status' => 'error'
+            'msg' => 'Failed to update Disaster News.',
+            'status' => 'error',
+            'error' => $e->getMessage() // Return the error message for debugging purposes
         ];
     }
 }
-
 public function updateOne($request)
 {
     try {

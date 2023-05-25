@@ -27,6 +27,8 @@ class IndexController extends Controller
         try {
 
             $menu = $this->menu;
+            // $data_output_subheader = $this->service->getAllSubHeader();
+            // $data_output_socialicon = $this->service->getAllSocialIcon();
             $data_output_slider = $this->service->getAllSlider();
             $data_output_marquee = $this->service->getAllMarquee();
             $data_output_disastermangwebportal = $this->service->getAllDisasterManagementWebPortal();
@@ -41,15 +43,17 @@ class IndexController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
+        // 'data_output_subheader','data_output_socialicon',
         return view('website.pages.index',compact('language','menu','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact'));
     }
-
-
     public function show(Request $request)
     {
         try {
-              //dd($request->show_id);
+           
+            //  dd($request->show_id);
+              $menu = $this->menu;
             $disaster_news = $this->service->getById($request->show_id);
+            //  dd($disaster_news);
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -59,7 +63,7 @@ class IndexController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-            return view('website.pages.new-paricular-data-web', compact('disaster_news'));
+            return view('website.pages.new-paricular-data-web', compact('language','menu','disaster_news'));
         } 
     
 

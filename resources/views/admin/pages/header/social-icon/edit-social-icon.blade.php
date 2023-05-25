@@ -28,30 +28,18 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_image">English Image</label>
-                                        <input type="file" name="english_image" class="form-control"
+                                        <label for="icon">Social Icon</label>
+                                        <input type="file" name="icon" class="form-control"
                                             placeholder="image">
-                                        @if ($errors->has('english_image'))
+                                        @if ($errors->has('icon'))
                                         <span
-                                            class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
+                                            class="red-text"><?php echo $errors->first('icon', ':message'); ?></span>
                                         @endif
                                     </div>
                                     <img src="{{ asset('storage/images/header/social-icon/' . $social_icon->english_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="marathi_image">Marathi Image</label>
-                                        <input type="file" name="marathi_image" id="marathi_image" accept="image/*"
-                                            class="form-control">
-                                        @if ($errors->has('marathi_image'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                    <img src="{{ asset('storage/images/header/social-icon/' . $social_icon->marathi_image) }}"
-                                        class="img-fluid img-thumbnail" width="150">
-                                </div>
+                               
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="url">English URL</label>
