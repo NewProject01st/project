@@ -27,25 +27,17 @@
 
                                 <div class="row ">
                                     <div class="col-lg-3 col-md-3 col-sm-3">
-                                        <label> English Image :</label>
+                                        <label> Social Icon :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <img src="{{ asset('storage/images/header/social-icon/' . $social_icon->english_image) }}"
+                                        <img src="{{ asset('storage/images/header/social-icon/' . $social_icon->icon) }}"
                                             style="width:70px; height:70px;" />
                                     </div>
                                 </div>
-                                <div class="row ">
-                                    <div class="col-lg-3 col-md-3 col-sm-3">
-                                        <label> Marathi Image:</label>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
-                                        <img src="{{ asset('storage/images/header/social-icon/' . $social_icon->marathi_image) }}"
-                                            style="width:70px; height:70px;" />
-                                    </div>
-                                </div>
+                                
                                 <div class="row ">
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label>English URL :</label>
+                                        <label>URL :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label><?php echo $social_icon->url ?></label>

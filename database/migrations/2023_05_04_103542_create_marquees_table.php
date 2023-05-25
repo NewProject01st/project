@@ -17,6 +17,7 @@ class CreateMarqueesTable extends Migration
             $table->id();
             $table->string('english_title');
             $table->string('marathi_title');
+            $table->string('url')->default('null');
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

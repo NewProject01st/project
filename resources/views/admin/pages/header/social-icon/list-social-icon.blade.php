@@ -26,8 +26,7 @@
                                         <thead>
                                             <tr>
                                                 <th>S. No.</th>
-                                                <th>English Icon</th>
-                                                <th>Marathi Icon</th>
+                                                <th>Icon</th>
                                                 <th>Url</th>
                                                 <th>Action</th>
                                             </tr>
@@ -38,11 +37,9 @@
                                                 <td>{{ $loop->iteration }}</td>
 
                                                 <td> <img
-                                                        src="{{ asset('storage/images/header/social-icon/' . $item->english_image) }}" />
+                                                        src="{{ asset('storage/images/header/social-icon/' . $item->icon) }}" />
                                                 </td>
-                                                <td> <img
-                                                        src="{{ asset('storage/images/header/social-icon/' . $item->marathi_image) }}" />
-                                                </td>
+                                                
                                                 <td>{{ $item->url }}</td>
                                                 <td class="d-flex">
                                                     <a data-id="{{ $item->id }}"

@@ -5,15 +5,27 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-sm-7 d-flex align-items-center">
-                        
-                            <ul class="footer-social">
-                                <li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#" class="tw"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#" class="insta"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#" class="linken"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#" class="yt"><i class="fab fa-youtube"></i></a></li>
-                            </ul>
-                      
+                        {{-- <ul class="footer-social">
+                            @foreach ($data_output_socialicon as $item)
+                                @if (session('language') == 'mar')
+                                    <li><a href="#" class="fb"><img
+                                                src="{{ asset('storage/images/header/social-icon/' . $item['icon']) }}"
+                                                class="d-block w-100"></a></li>
+                                @else
+                                    <li><a href="#" class="fb"><img
+                                                src="{{ asset('storage/images/header/social-icon/' . $item['icon']) }}"
+                                                class="d-block w-100"></a></li>
+                                @endif
+                            @endforeach
+                        </ul> --}}
+                        <ul class="footer-social">
+                            <li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#" class="tw"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#" class="insta"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#" class="linken"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#" class="yt"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+
                         {{-- <p>Become a <a href="#">Volunteer</a> <a href="#">Now !</a></p> --}}
                     </div>
                     <div class="col-md-6 col-sm-5"> <a id="closebtn" href="#" class="cross-btn"><i
@@ -44,9 +56,10 @@
 
                                 <ul class="header-contact">
                                     <li><span>Toll Free:</span> <strong>0000 00000</strong></li>
-                                    <li class="city-exp"> <i class="fas fa-street-view"></i> <strong>City<br>Nashik</strong> </li>
+                                    <li class="city-exp"> <i class="fas fa-street-view"></i>
+                                        <strong>City<br>Nashik</strong> </li>
                                     <li class="header-weather"> <i class="fas fa-cloud-sun"></i> 24°C / 75°F </li>
-                                    
+
                                 </ul>
 
                             </div>
@@ -54,7 +67,7 @@
                             <div class="col-md-3 col-sm-3">
 
                                 <ul class="header-contact">
-                                    
+
                                     <li class="set_lang">
                                         <form method="post" action="">
                                             <span>
@@ -82,7 +95,7 @@
                                 </ul>
 
                             </div>
-                            
+
                         </div>
 
                     </div>

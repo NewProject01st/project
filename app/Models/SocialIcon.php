@@ -10,6 +10,6 @@ class SocialIcon extends Model
     use HasFactory;
     protected $table = 'social_icons';
     protected $primaryKey = 'id';
-    protected $fillable = ['english_image','marathi_image', 'url'];
+    protected $fillable = ['icon', 'url'];
 
 }

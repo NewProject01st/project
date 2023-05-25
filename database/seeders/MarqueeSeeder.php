@@ -20,6 +20,7 @@ class MarqueeSeeder extends Seeder
             'updated_at' => \Carbon\Carbon::now(),
             'english_title' => 'In February 2021, Maharashtra battled forest fires in 2021 using firefighting teams, helicopters, and the Indian Army.',
             'marathi_title' => 'फेब्रुवारी 2021 मध्ये, महाराष्ट्राने 2021 मध्ये अग्निशामक दल, हेलिकॉप्टर आणि भारतीय सैन्याचा वापर करून जंगलातील आगीशी लढा दिला.',
+            'url' => 'https://www.google.com/',
             'is_deleted' => false,
             'is_active' => true,
            
