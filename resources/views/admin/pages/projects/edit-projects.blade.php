@@ -86,7 +86,7 @@
                                             @if ($errors->has('english_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
                                             @endif
-                                            <a href="{{ asset('storage/pdf/projects/' . $projects->english_pdf) }}"
+                                            <a href="{{ asset('websitedocument/pdf/projects/' . $projects->english_pdf) }}"
                                                 ></a>
                                         </div>
                                     </div>
@@ -99,7 +99,7 @@
                                                 <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <a href="{{ asset('storage/pdf/projects/' . $projects->marathi_pdf) }}"
+                                        <a href="{{ asset('websitedocument/pdf/projects/' . $projects->marathi_pdf) }}"
                                             ></a>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">

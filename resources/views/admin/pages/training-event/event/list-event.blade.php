@@ -49,10 +49,10 @@
                                                 <td><?php echo $item->start_date; ?></td>
                                                 <td><?php echo $item->end_date; ?></td>
                                                 {{-- <td> <img
-                                                        src="{{ asset('storage/images/training-event/event/' . $item->english_image) }}" />
+                                                        src="{{ asset('websitedocument/images/training-event/event/' . $item->english_image) }}" />
                                                 </td>
                                                 <td> <img
-                                                        src="{{ asset('storage/images/training-event/event/' . $item->marathi_image) }}" />
+                                                        src="{{ asset('websitedocument/images/training-event/event/' . $item->marathi_image) }}" />
                                                 </td> --}}
 
                                                 <td class="d-flex">

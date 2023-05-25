@@ -55,7 +55,7 @@
                                                         <td>{{ $item->tender_number }}</td>
                                                         {{-- <td>{{ $item->english_pdf }}</td>
                                                         <td>{{ $item->marathi_pdf }}</td> --}}
-                                                        <!-- <td> <img src="{{ asset('storage/pdf/tenders/' . $item->marathi_image) }}" /> </td> -->
+                                                        <!-- <td> <img src="{{ asset('websitedocument/pdf/tenders/' . $item->marathi_image) }}" /> </td> -->
 
 
                                                         <!-- <td>

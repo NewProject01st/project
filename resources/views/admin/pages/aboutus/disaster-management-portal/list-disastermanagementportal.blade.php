@@ -46,10 +46,10 @@
                                                  <td><?php echo $item->english_description; ?></td>
                                                  <td><?php echo $item->marathi_description; ?></td>
                                                  <td> <img
-                                                         src="{{ asset('storage/images/aboutus/disaster-management-portal/' . $item->english_image) }}" />
+                                                         src="{{ asset('websitedocument/images/aboutus/disaster-management-portal/' . $item->english_image) }}" />
                                                  </td>
                                                  <td> <img
-                                                         src="{{ asset('storage/images/aboutus/disaster-management-portal/' . $item->marathi_image) }}" />
+                                                         src="{{ asset('websitedocument/images/aboutus/disaster-management-portal/' . $item->marathi_image) }}" />
                                                  </td>
                                                  <!-- <td>
                                                                 <span class="badge badge-success">Active</span>

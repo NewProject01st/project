@@ -61,7 +61,7 @@
                                         <label> English Icon :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <img src="{{ asset('storage/images/general_contact/' . $general_contacts->english_icon) }}"
+                                        <img src="{{ asset('websitedocument/images/general_contact/' . $general_contacts->english_icon) }}"
                                             style="width:70px; height:70px;" />
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
                                         <label> Marathi Icon:</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
-                                        <img src="{{ asset('storage/images/general_contact/' . $general_contacts->marathi_icon) }}"
+                                        <img src="{{ asset('websitedocument/images/general_contact/' . $general_contacts->marathi_icon) }}"
                                             style="width:70px; height:70px;" />
                                     </div>
                                 </div>

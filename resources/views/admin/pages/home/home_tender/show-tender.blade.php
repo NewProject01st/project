@@ -80,8 +80,8 @@
                                         <label>English Pdf :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <a href="{{ asset('/storage/pdf/home-tenders/' . $tenders->english_pdf) }}"
-                                            target="_blank"><img src="public/storage/pdf/home-tenders/pdf.png"
+                                        <a href="{{ asset('/websitedocument/pdf/home-tenders/' . $tenders->english_pdf) }}"
+                                            target="_blank"><img src="public/websitedocument/pdf/home-tenders/pdf.png"
                                                 width="50px" height="50px"></a>
                                     </div>
                                 </div>
@@ -90,8 +90,8 @@
                                         <label>Marathi Pdf :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <a href="{{ asset('/storage/pdf/home-tenders/' . $tenders->marathi_pdf) }}"
-                                            target="_blank"><img src="public/storage/pdf/home-tenders/pdf.png"
+                                        <a href="{{ asset('/websitedocument/pdf/home-tenders/' . $tenders->marathi_pdf) }}"
+                                            target="_blank"><img src="public/websitedocument/pdf/home-tenders/pdf.png"
                                                 width="50px" height="50px"></a>
                                     </div>
                                 </div>

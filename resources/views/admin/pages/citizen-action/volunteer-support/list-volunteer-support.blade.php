@@ -46,10 +46,10 @@
                                                 <td><?php echo $item->marathi_description; ?></td>
 
                                                 <td> <img
-                                                        src="{{ asset('storage/images/citizen-action/volunteer/' . $item->english_image) }}" />
+                                                        src="{{ asset('websitedocument/images/citizen-action/volunteer/' . $item->english_image) }}" />
                                                 </td>
                                                 <td> <img
-                                                        src="{{ asset('storage/images/citizen-action/volunteer/' . $item->marathi_image) }}" />
+                                                        src="{{ asset('websitedocument/images/citizen-action/volunteer/' . $item->marathi_image) }}" />
                                                 </td>
 
                                                 <td class="d-flex">

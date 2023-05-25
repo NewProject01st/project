@@ -46,10 +46,10 @@
                                                 <td><?php echo $item->marathi_description; ?></td>
                                                 <td><?php echo $item->url; ?></td>
                                                 <td> <img
-                                                        src="{{ asset('storage/images/slides/' . $item->english_image) }}" />
+                                                        src="{{ asset('websitedocument/images/slides/' . $item->english_image) }}" />
                                                 </td>
                                                 <td> <img
-                                                        src="{{ asset('storage/images/slides/' . $item->marathi_image) }}" />
+                                                        src="{{ asset('websitedocument/images/slides/' . $item->marathi_image) }}" />
                                                 </td>
                                                 <td>
                                                     <button data-id="{{ $item->id }}" type="submit"

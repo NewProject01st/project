@@ -15,21 +15,19 @@ class MainSubMenusSeeder extends Seeder
      */
     public function run()
     {
-
-        
-
-        // MainSubMenus::create([
-        //     'created_at' => \Carbon\Carbon::now(),
-        //     'updated_at' => \Carbon\Carbon::now(),
-        //     'main_menu_id' => 1,
-        //     'menu_name_english' => 'Index',
-        //     'menu_name_marathi' => 'Index',
-        //     'order_no' => 1,
-        //     // 'url'=>'/index',
-        //     'is_static'=>true,
-        //     'is_active' => true,
+       
+        MainSubMenus::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'main_menu_id' => 1,
+            'menu_name_english' => 'Index',
+            'menu_name_marathi' => 'Index',
+            'order_no' => 1,
+            'url'=>'/index',
+            'is_static'=>true,
+            'is_active' => true,
            
-        // ]);       
+        ]);       
         MainSubMenus::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
