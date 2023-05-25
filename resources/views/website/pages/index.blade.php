@@ -1,8 +1,11 @@
 @extends('website.layout.master')
 @section('content')
     <div class="main-content">
+        <style>
+
+        </style>
         {{-- Start Marquee --}}
-        <section class="marquee-main">
+        {{-- <section class="marquee-main">
             <div class="container">
                 <?php //print_r($data_output_marquee);
                 //die();
@@ -10,19 +13,40 @@
                 <div class="deprt-txt">
                     @if (session('language') == 'mar')
                         <marquee class="marquee-scroll" behavior="scroll" direction="left" scrollamount="10">
-                            <span class="d-flex" target="_blank"><?php echo $data_output_marquee; ?></span>
+                            <span class="d-flex" target="_blank"><?php //echo $data_output_marquee;
+                            ?></span>
                         </marquee>
                     @else
                         <marquee class="marquee-scroll" behavior="scroll" direction="left" scrollamount="10">
                             <span class="d-flex">
-                                <?php //echo $data_output_marquee['english_title'];
+                                <a href="{{ $data_output_marquee->url }}" class="con"
+                                            target="_blank">
+                                <?php //echo $data_output_marquee;
                                 ?>
-                                {{-- {{ $data_output_marquee->english_title}} --}}
-                                <?php echo $data_output_marquee; ?>
+                                </a>
                             </span>
                         </marquee>
                     @endif
                 </div>
+            </div>
+        </section> --}}
+        <section class="marquee-main">
+            <div class="container">
+                @foreach ($data_output_marquee as $item)
+                    @if (session('language') == 'mar')
+                        <marquee class="marquee-scroll" behavior="scroll" direction="left" scrollamount="10">
+                            <span class="d-flex" target="_blank"><?php echo $item['marathi_title']; ?></span>
+                        </marquee>
+                    @else
+                        <div class="maindiv">
+                            <div class="div1">
+                                <a href="{{ $item['url'] }}" target="_blank">
+                                    &nbsp;<?php echo $item['english_title']; ?>
+                                </a>
+
+                            </div>
+                    @endif
+                @endforeach
             </div>
         </section>
         {{-- End Marquee --}}
@@ -77,10 +101,7 @@
                     <p>Read the News Updates and Articles from Government </p>
                 </div>
                 <div class="row d-flex flex-wrap">
-                    <!--News Box Start-->
-                    <?php //print_r($data_output_disastermanagementnews);
-                    //die();
-                    ?>
+                    
                     @foreach ($data_output_disastermanagementnews as $item)
                         @if (session('language') == 'mar')
                             <div class="col-md-3 col-sm-6">
@@ -100,44 +121,34 @@
                                     <p> <?php echo $item['marathi_description']; ?></p>
                                 </div>
                                 <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
-                                        alt=""> Read more <a href="#"><i class="fas fa-arrow-right"></i></a>
-                                </div>
+                                    alt=""> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i class="fas fa-arrow-right"></i></a>
                             </div>
-                </div>
-            @else
-                <div class="col-md-3 col-sm-6 mt-4">
-                    <div class="news-box">
-                        <div class="new-thumb">
-                            {{-- <span class="cat c1">Fire</span> --}}
-                            <img src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
-                                class="d-block w-100">
+                            </div>
+                           </div>
+                        @else                        
+                        <div class="col-md-3 col-sm-6 mt-4">
+                            <div class="news-box">
+                                <div class="new-thumb">
+                                    {{-- <span class="cat c1">Fire</span> --}}
+                                    <img src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
+                                        class="d-block w-100">
+                                </div>
+                                <div class="new-txt">
+                                    <ul class="news-meta">
+                                        <li>
+                                            {{-- 05 MAY, 2023  --}}
+                                            <?php echo $item['disaster_date']; ?></li>
+                                        {{-- <li>176 Comments</li> --}}
+                                    </ul>
+                                    <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
+                                    <p> <?php echo $item['english_description']; ?></p>
+                                </div>
+                                <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
+                                    alt=""> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            </div>
                         </div>
-                        <div class="new-txt">
-                            <ul class="news-meta">
-                                <li>
-                                    {{-- 05 MAY, 2023  --}}
-                                    <?php echo $item['disaster_date']; ?></li>
-                                {{-- <li>176 Comments</li> --}}
-                            </ul>
-                            <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
-                            <p> <?php echo $item['english_description']; ?></p>
-                        </div>
-                        {{-- <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
-                                alt=""> Read more <a href="/show-disaster-management-news/"><i class="fas fa-arrow-right"></i></a>
-                        </div> --}}
-
-                        <div class="news-box-f">
-                            <img src="{{ asset('website_files/images/home/tuser1.jpg') }}" alt="">
-                            Read more
-                            <a 
-                            data-id="{{ $item['id'] }}" 
-                            href="{{ route('new-paricular-data-web', ['id' => $item['id']]) }}"
-                            ><i
-                            class="fas fa-arrow-right show-btn btn btn-sm btn-outline-primary m-1" id="show_id"></i></a>
-                        </div>
-                    </div>
-                </div>
-                @endif
+                      @endif
                 @endforeach
                 <!--News Box End-->
 
@@ -609,10 +620,13 @@
 
     </div>
     <script>
+        $('.maindiv ').width($('.div1').width());
+    </script>
+    {{-- <script>
         $(".marquee-scroll span p a").each(function() { // use $.each to loop through all a tags inside div
             $(this).attr("target", "_blank"); // use .attr() to add attribute
         });
-    </script>
+    </script> --}}
 @endsection
 {{-- @extends('website.layout.navbar')
 @extends('website.layout.header') --}}

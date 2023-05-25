@@ -25,21 +25,11 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_image">Image English</label><br>
-                                        <input type="file" name="english_image" id="english_image" accept="image/*">
-                                        @if ($errors->has('english_image'))
+                                        <label for="icon">Social Icon</label><br>
+                                        <input type="file" name="icon" id="icon" accept="image/*">
+                                        @if ($errors->has('icon'))
                                         <span
-                                            class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="marathi_image">Image Marathi</label><br>
-                                        <input type="file" name="marathi_image" id="marathi_image" accept="image/*">
-                                        @if ($errors->has('marathi_image'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
+                                            class="red-text"><?php echo $errors->first('icon', ':message'); ?></span>
                                         @endif
                                     </div>
                                 </div>

@@ -34,7 +34,7 @@ Route::post('/submitLogin', ['as' => 'submitLogin', 'uses' => 'App\Http\Controll
 Route::get('/pages/{page}', ['as' => 'pages', 'uses' => 'App\Http\Controllers\Website\DynamicPages\DynamicPagesController@index']);
 // Website
 Route::get('/index', ['as' => 'index', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
-Route::get('/new-paricular-data-web', ['as' => 'new-paricular-data-web', 'uses' => 'App\Http\Controllers\Website\IndexController@show']);
+Route::post('/new-paricular-data-web', ['as' => 'new-paricular-data-web', 'uses' => 'App\Http\Controllers\Website\IndexController@show']);
 
 
 Route::get('/list-disastermanagementportal-web', ['as' => 'list-disastermanagementportal-web', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllDisasterManagmentPortal']);
@@ -101,7 +101,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/update-marquee', ['as' => 'update-marquee', 'uses' => 'App\Http\Controllers\Home\MarqueeController@update']);
     Route::post('/show-marquee', ['as' => 'show-marquee', 'uses' => 'App\Http\Controllers\Home\MarqueeController@show']);
     Route::post('/delete-marquee', ['as' => 'delete-marquee', 'uses' => 'App\Http\Controllers\Home\MarqueeController@destroy']);
-    Route::post('/update-one', ['as' => 'update-one', 'uses' => 'App\Http\Controllers\Home\MarqueeController@updateOne']);
+    Route::post('/update-one_marquee', ['as' => 'update-one_marquee', 'uses' => 'App\Http\Controllers\Home\MarqueeController@updateOne']);
 
     Route::get('/list-slide', ['as' => 'list-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@index']);
     Route::get('/add-slide', ['as' => 'add-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@add']);
@@ -110,7 +110,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/update-slide', ['as' => 'update-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@update']);
     Route::post('/show-slide', ['as' => 'show-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@show']);
     Route::post('/delete-slide', ['as' => 'delete-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@destroy']);
-    Route::post('/update-slide', ['as' => 'update-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@updateOne']);
+    Route::post('/update-active-slide', ['as' => 'update-active-slide', 'uses' => 'App\Http\Controllers\Home\SliderController@updateOne']);
     
     Route::get('/list-weather', ['as' => 'list-weather', 'uses' => 'App\Http\Controllers\Home\WeatherController@index']);
     Route::get('/add-weather', ['as' => 'add-weather', 'uses' => 'App\Http\Controllers\Home\WeatherController@add']);
@@ -367,6 +367,8 @@ Route::post('/edit-sub-header-info', ['as' => 'edit-sub-header-info', 'uses' => 
 Route::post('/update-sub-header-info', ['as' => 'update-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@update']);
 Route::post('/show-sub-header-info', ['as' => 'show-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@show']);
 Route::post('/delete-sub-header-info', ['as' => 'delete-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@destroy']);
+
+
 Route::get('/list-event', ['as' => 'list-event', 'uses' => 'App\Http\Controllers\TrainingEvent\EventController@index']);
 Route::get('/add-event', ['as' => 'add-event', 'uses' => 'App\Http\Controllers\TrainingEvent\EventController@add']);
 Route::post('/add-event', ['as' => 'add-event', 'uses' => 'App\Http\Controllers\TrainingEvent\EventController@store']);

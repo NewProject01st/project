@@ -125,6 +125,15 @@
         });
     });
     </script>
+
+<script>
+    $('.show-btn').click(function(e) {
+        // alert("hiii");
+        // alert($(this).attr("data-id"));
+        $("#show_id").val($(this).attr("data-id"));
+        $("#showform").submit();
+    })
+</script>
 </body>
 
 </html>

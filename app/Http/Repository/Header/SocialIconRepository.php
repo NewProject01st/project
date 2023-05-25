@@ -22,16 +22,13 @@ class SocialIconRepository{
 	public function addAll($request)
 {
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
+        $englishImageName = time() . '_english.' . $request->icon->extension();
         
-        $request->english_image->storeAs('public/images/header/social-icon', $englishImageName);
-        $request->marathi_image->storeAs('public/images/header/social-icon', $marathiImageName);
+        $request->icon->storeAs('public/images/header/social-icon', $englishImageName);
 
         
         $social_icon = new SocialIcon();
-        $social_icon->english_image = $englishImageName;
-        $social_icon->marathi_image =   $marathiImageName;
+        $social_icon->icon = $englishImageName;
         $social_icon->url = $request['url'];
         $social_icon->save();       
               
@@ -75,19 +72,15 @@ public function updateAll($request)
         }
          // Delete existing files
          Storage::delete([
-            'public/images/header/social-icon/' . $social_icon->english_image,
-            'public/images/header/social-icon/' . $social_icon->marathi_image
+            'public/images/header/social-icon/' . $social_icon->icon,
         ]);
         
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
+        $englishImageName = time() . '_english.' . $request->icon->extension();
         
-        $request->english_image->storeAs('public/images/header/social-icon/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/header/social-icon/', $marathiImageName);
+        $request->icon->storeAs('public/images/header/social-icon/', $englishImageName);
 
                 
-        $social_icon->english_image = $englishImageName;
-        $social_icon->marathi_image =   $marathiImageName;
+        $social_icon->icon = $englishImageName;
         $social_icon->url =   $request['url'];
 
         $social_icon->save();        
@@ -112,7 +105,7 @@ public function deleteById($id)
         if ($social_icon) {
               // Delete the images from the storage folder
               Storage::delete([
-                'public/images/header/social-icon/'.$social_icon->english_image,
+                'public/images/header/social-icon/'.$social_icon->icon,
                 'public/images/header/social-icon/'.$social_icon->marathi_image
             ]);
 

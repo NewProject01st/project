@@ -133,14 +133,14 @@ public function store(Request $request)
     public function update(Request $request)
 {
     $rules = [
-        'english_image' => 'required',
-        'marathi_image' => 'required'
+        // 'english_image' => 'required',
+        // 'marathi_image' => 'required'
         
      ];
 
     $messages = [   
-        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // 'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ];
 
     try {

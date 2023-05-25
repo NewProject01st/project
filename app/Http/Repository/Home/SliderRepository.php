@@ -68,49 +68,61 @@ public function getById($id)
 }
 public function updateAll($request)
 {
-   
     try {
         $slide_data = Slider::find($request->id);
-        
+
         if (!$slide_data) {
             return [
-                'msg' => 'Slide not found.',
+                'msg' => 'Report Incident Crowdsourcing not found.',
                 'status' => 'error'
             ];
         }
-        
-        // Delete existing files
-        Storage::delete([
-            'public/images/slides/' . $slide_data->english_image,
-            'public/images/slides/' . $slide_data->marathi_image
-        ]);
-        
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/slides/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/slides/', $marathiImageName);
 
+        // Store the previous image names
+        $previousEnglishImage = $slide_data->english_image;
+        $previousMarathiImage = $slide_data->marathi_image;
 
-        $slide_data = Slider::find($request->id);
-        $slides->english_title = $request['english_title'];
-        $slides->marathi_title = $request['marathi_title'];
-        $slides->english_description = $request['english_description'];
-        $slides->marathi_description = $request['marathi_description'];
-        $slides->url = $request['url'];
-        $slide_data->english_image = $englishImageName; // Save the image filename to the database
-        $slide_data->marathi_image = $marathiImageName; // Save the image filename to the database
-        $slide_data->save();       
-   
+        // Update the fields from the request
+        $slide_data->english_title = $request['english_title'];
+        $slide_data->marathi_title = $request['marathi_title'];
+        $slide_data->english_description = $request['english_description'];
+        $slide_data->marathi_description = $request['marathi_description'];
+
+        if ($request->hasFile('english_image')) {
+            // Delete previous English image if it exists
+            if ($previousEnglishImage) {
+                Storage::delete('public/images/slides/' . $previousEnglishImage);
+            }
+
+            // Store the new English image
+            $englishImageName = time() . '_english.' . $request->english_image->extension();
+            $request->english_image->storeAs('public/images/slides/', $englishImageName);
+            $slide_data->english_image = $englishImageName;
+        }
+
+        if ($request->hasFile('marathi_image')) {
+            // Delete previous Marathi image if it exists
+            if ($previousMarathiImage) {
+                Storage::delete('public/images/slides/' . $previousMarathiImage);
+            }
+
+            // Store the new Marathi image
+            $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
+            $request->marathi_image->storeAs('public/images/slides/', $marathiImageName);
+            $slide_data->marathi_image = $marathiImageName;
+        }
+        $slide_data->url = $request['url'];
+        $slide_data->save();
+
         return [
-            'msg' => 'Slide updated successfully.',
+            'msg' => 'Report Incident Crowdsourcing updated successfully.',
             'status' => 'success'
         ];
     } catch (\Exception $e) {
-        return $e;
         return [
-            'msg' => 'Failed to update slide.',
-            'status' => 'error'
+            'msg' => 'Failed to update Report Incident Crowdsourcing.',
+            'status' => 'error',
+            'error' => $e->getMessage() // Return the error message for debugging purposes
         ];
     }
 }

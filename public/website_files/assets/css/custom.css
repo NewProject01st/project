@@ -334,14 +334,57 @@ header {
 
 
 /******** + ========== + Main Marquee Start + ========== + ********/
-.marquee-main{
+
+.marquee-main {
+	background-color: #144b8b;
+	padding: 10px 0px 5px 0px;
+	font-family: 'Montserrat', sans-serif;
+	color: #fff !important;
+}
+.marquee-main p {
+
+	color: #fff !important;
+	align-items: center !important;
+	display: block ruby !important;
+}
+
+.maindiv {
+	/* overflow: hidden;
+  white-space: nowrap; */
+	display: flex;
+	color: #fff !important;
+	line-height: 8px !important;
+	font-size: 18px !important;
+	font-weight: 600;
+	align-items: center !important;
+	cursor: pointer;
+	width: 100% !important;
+}
+
+.div1 {
+	display: inline-block;
+	animation: marquee 20s linear infinite;
+	width: 100% !important;
+
+}
+
+@keyframes marquee {
+	from {
+		transform: translateX(100%);
+	}
+
+	to {
+		transform: translateX(-100%);
+	}
+}
+/* .marquee-main{
 	background-color: #144b8b;
 	padding: 10px 0px 10px 0px;
 	font-family: 'Montserrat', sans-serif;
 	
-}
+} */
 
-.marquee-scroll span{
+/* .marquee-scroll span{
 	display: block;
 	color: #fff !important;
 	line-height: 26px !important ;
@@ -371,7 +414,7 @@ header {
 	align-items:center !important;
 	cursor: pointer;
 	
-}
+} */
 /******** + ========== + Main Marquee End + ========== + ********/
 
 /******** + ========== + Main Slider Start + ========== + ********/

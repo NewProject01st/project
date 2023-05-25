@@ -71,49 +71,64 @@ public function updateAll($request)
 {
     try {
         $disaster_data = DisasterManagementNews::find($request->id);
-        
+
         if (!$disaster_data) {
             return [
-                'msg' => 'Disaster not found.',
+                'msg' => 'Disaster Management News not found.',
                 'status' => 'error'
             ];
         }
-         // Delete existing files
-         Storage::delete([
-            'public/images/disaster-news/' . $disaster_data->english_image,
-            'public/images/disaster-news/' . $disaster_data->marathi_image
-        ]);
-        
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/disaster-news/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/disaster-news/', $marathiImageName);
 
-                
+        // Store the previous image names
+        $previousEnglishImage = $disaster_data->english_image;
+        $previousMarathiImage = $disaster_data->marathi_image;
+
+        // Update the fields from the request
         $disaster_data->english_title = $request['english_title'];
         $disaster_data->marathi_title = $request['marathi_title'];
         $disaster_data->english_description = $request['english_description'];
         $disaster_data->marathi_description = $request['marathi_description'];
-        $disaster_data->english_image = $englishImageName;
-        $disaster_data->marathi_image =   $marathiImageName;
         $disaster_data->english_url = $request['english_url'];
         $disaster_data->disaster_date = $request['disaster_date'];
-        $disaster_data->save();        
-     
+
+        if ($request->hasFile('english_image')) {
+            // Delete previous English image if it exists
+            if ($previousEnglishImage) {
+                Storage::delete('public/images/disaster-news/' . $previousEnglishImage);
+            }
+
+            // Store the new English image
+            $englishImageName = time() . '_english.' . $request->english_image->extension();
+            $request->english_image->storeAs('public/images/disaster-news/', $englishImageName);
+            $disaster_data->english_image = $englishImageName;
+        }
+
+        if ($request->hasFile('marathi_image')) {
+            // Delete previous Marathi image if it exists
+            if ($previousMarathiImage) {
+                Storage::delete('public/images/disaster-news/' . $previousMarathiImage);
+            }
+
+            // Store the new Marathi image
+            $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
+            $request->marathi_image->storeAs('public/images/disaster-news/', $marathiImageName);
+            $disaster_data->marathi_image = $marathiImageName;
+        }
+
+        $disaster_data->save();
+
         return [
-            'msg' => 'Disaster updated successfully.',
+            'msg' => 'Disaster News updated successfully.',
             'status' => 'success'
         ];
     } catch (\Exception $e) {
-        return $e;
         return [
-            'msg' => 'Failed to update Disaster.',
-            'status' => 'error'
+            'msg' => 'Failed to update Disaster News.',
+            'status' => 'error',
+            'error' => $e->getMessage() // Return the error message for debugging purposes
         ];
     }
 }
-
 public function updateOne($request)
 {
     try {

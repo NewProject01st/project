@@ -19,6 +19,23 @@ class IndexServices
     {
         $this->repo = new IndexRepository();
     }
+    
+    public function getAllSocialIcon()
+    {
+        try {
+            return $this->repo->getAllSocialIcon();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }  
+    public function getAllSubHeader()
+    {
+        try {
+            return $this->repo->getAllSubHeader();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }  
     public function getAllMarquee()
     {
         try {

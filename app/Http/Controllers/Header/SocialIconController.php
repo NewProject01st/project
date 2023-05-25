@@ -31,15 +31,14 @@ class SocialIconController extends Controller
     public function store(Request $request) {
         $rules = [
            
-            'english_image' => 'required',
-            'marathi_image' => 'required',
+            'icon' => 'required',
+            
             
             
          ];
     $messages = [   
        
-        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
     ];
 
@@ -85,14 +84,12 @@ class SocialIconController extends Controller
 {
     $rules = [
        
-        'english_image' => 'required',
-        'marathi_image' => 'required',
+        'icon' => 'required',
         
      ];
     $messages = [   
        
-        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
       
     ];
 

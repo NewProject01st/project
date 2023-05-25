@@ -21,7 +21,7 @@ class MainMenusSeeder extends Seeder
             'menu_name_english' => 'Home',
             'menu_name_marathi' => 'मुख्यपृष्ठ',
             'order_no' => 1,
-            // 'url'=>'/',
+            'url'=>'/',
             'is_static'=>true,
             'is_active' => true,
            

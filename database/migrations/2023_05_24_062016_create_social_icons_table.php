@@ -16,8 +16,7 @@ class CreateSocialIconsTable extends Migration
         Schema::create('social_icons', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('url')->default('null');
-            $table->string('english_image');
-            $table->string('marathi_image');
+            $table->string('icon');
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
