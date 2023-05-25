@@ -76,26 +76,43 @@ public function updateAll($request)
                 'status' => 'error'
             ];
         }
+        //Store the previous image name
+        $previousEnglishImage = $objectivegoals_data->english_image;
+        $previousMarathiImage = $objectivegoals_data->marathi_image;
 
-        // Delete existing files
-        Storage::delete([
-            'public/images/aboutus/objective-goals/' . $objectivegoals_data->english_image,
-            'public/images/aboutus/objective-goals/' . $objectivegoals_data->marathi_image
-        ]);
-        
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/aboutus/objective-goals', $englishImageName);
-        $request->marathi_image->storeAs('public/images/aboutus/objective-goals', $marathiImageName);
-
-
+        //Update the fields from request
         $objectivegoals_data->english_title = $request['english_title'];
         $objectivegoals_data->marathi_title = $request['marathi_title'];
         $objectivegoals_data->english_description = $request['english_description'];
         $objectivegoals_data->marathi_description = $request['marathi_description'];
-        $objectivegoals_data->english_image =  $englishImageName;
-        $objectivegoals_data->marathi_image =  $marathiImageName;
+        if($request->hasFile('english_image'))
+        {
+            if($previousEnglishImage)
+            {
+                //delete the image if exist
+                Storage::delete('public/images/aboutus/objective-goals/' .$previousEnglishImage);
+            }
+
+            //store and update new image
+            $englishImageName = time() . '_english.' . $request->english_image->extension();
+            $request->english_image->storeAs('public/images/aboutus/objective-goals', $englishImageName);
+            $objectivegoals_data->english_image =  $englishImageName;
+
+        }
+        if($request->hasFile('marathi_image'))
+        {
+            if($previousMarathiImage)
+            {
+                //delete the image if exist
+                Storage::delete('public/images/aboutus/objective-goals/' .$previousMarathiImage);
+            }
+
+            //store and update new image
+            $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
+            $request->marathi_image->storeAs('public/images/aboutus/objective-goals', $marathiImageName);
+            $objectivegoals_data->marathi_image =  $marathiImageName;
+
+        }
         $objectivegoals_data->update();  
         
     //    dd($objectivegoals_data);

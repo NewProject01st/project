@@ -78,25 +78,40 @@ public function updateAll($request)
                 'status' => 'error'
             ];
         }
-         // Delete existing files
-         Storage::delete([
-            'public/images/disaster-news/' . $disaster_data->english_image,
-            'public/images/disaster-news/' . $disaster_data->marathi_image
-        ]);
+         // stores the previous images name
         
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/disaster-news/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/disaster-news/', $marathiImageName);
+           $previousEnglishImage = $disaster_data->english_image;
+           $previousMarathiImage = $disaster_data->marathi_image;
+    
 
-                
+        // update the fields from request     
         $disaster_data->english_title = $request['english_title'];
         $disaster_data->marathi_title = $request['marathi_title'];
         $disaster_data->english_description = $request['english_description'];
         $disaster_data->marathi_description = $request['marathi_description'];
-        $disaster_data->english_image = $englishImageName;
-        $disaster_data->marathi_image =   $marathiImageName;
+        if ($request->hasFile('english_image')) {
+            // Delete previous English image if it exists
+            if ($previousEnglishImage) {
+                Storage::delete('public/images/disaster-news/' . $previousEnglishImage);
+            }
+
+            // Store the new English image
+            $englishImageName = time() . '_english.' . $request->english_image->extension();
+            $request->english_image->storeAs('public/images/disaster-news/', $englishImageName);
+            $disaster_data->english_image = $englishImageName;
+        }
+
+        if ($request->hasFile('marathi_image')) {
+            // Delete previous Marathi image if it exists
+            if ($previousMarathiImage) {
+                Storage::delete('public/images/disaster-news/' . $previousMarathiImage);
+            }
+
+            // Store the new Marathi image
+            $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
+            $request->marathi_image->storeAs('public/images/disaster-news/', $marathiImageName);
+            $disaster_data->marathi_image = $marathiImageName;
+        }
         $disaster_data->english_url = $request['english_url'];
         $disaster_data->disaster_date = $request['disaster_date'];
         $disaster_data->save();        

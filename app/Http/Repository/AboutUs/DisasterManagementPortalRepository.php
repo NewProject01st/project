@@ -75,27 +75,43 @@ public function updateAll($request)
                 'status' => 'error'
             ];
         }
+        // Store the previous images name
+        $previousEnglishImage = $disastermanagementportal_data->english_image;
+        $previousMarathiImage = $disastermanagementportal_data->marathi_image;
         
-        // Delete existing files
-        Storage::delete([
-            'public/images/aboutus/' . $disastermanagementportal_data->english_image,
-            'public/images/aboutus/' . $disastermanagementportal_data->marathi_image
-        ]);
-        
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/aboutus/disaster-management-portal', $englishImageName);
-        $request->marathi_image->storeAs('public/images/aboutus/disaster-management-portal', $marathiImageName);
-
-
-        $disastermanagementportal_data = DisasterManagementPortal::find($request->id);
+       // update the fields from request
         $disastermanagementportal_data->english_title = $request['english_title'];
         $disastermanagementportal_data->marathi_title = $request['marathi_title'];
         $disastermanagementportal_data->english_description = $request['english_description'];
         $disastermanagementportal_data->marathi_description = $request['marathi_description'];
-        $disastermanagementportal_data->english_image = $englishImageName; // Save the image filename to the database
-        $disastermanagementportal_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        if($request->hasFile('english_image'))
+        {
+            if($previousEnglishImage)
+            {
+                //delete the image if it is exist
+                Storage::delete('public/images/aboutus/disaster-management-portal/'.$previousEnglishImage);
+            }
+
+            //update and store new image
+            $englishImageName = time(). '_english.' .$request->english_image->extension();
+            $request->english_image->storeAs('public/images/aboutus/disaster-management-portal', $englishImageName);
+            $disastermanagementportal_data->english_image = $englishImageName; // Save the image filename to the database
+
+        }
+        if($request->hasFile('marathi_image'))
+        {
+            if($previousMarathiImage)
+            {
+                //delete the image if it is exist
+                Storage::delete('public/images/aboutus/disaster-management-portal/'.$previousMarathiImage);
+            }
+
+            //update and store new image
+            $marathiImageName = time(). '_marathi.' .$request->marathi_image->extension();
+            $request->marathi_image->storeAs('public/images/aboutus/disaster-management-portal', $marathiImageName);
+            $disastermanagementportal_data->marathi_image = $marathiImageName; // Save the image filename to the database
+
+        }
         $disastermanagementportal_data->save();       
      
         return [
