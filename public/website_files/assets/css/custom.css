@@ -5396,3 +5396,14 @@ a[data-toggle="collapse"] {
 	padding: 0 20px;
 	margin-top: 20px;
 }
+
+/* for modal */
+.modal-backdrop.show{
+	opacity: 0 !important;
+}
+
+.modal_lable{
+	font-size: 16px;
+    color: #000;
+    /* font-weight: 600; */
+}
