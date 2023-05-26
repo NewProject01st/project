@@ -43,7 +43,6 @@
                                 <a href="{{ $item['url'] }}" target="_blank">
                                     &nbsp;<?php echo $item['english_title']; ?>
                                 </a>
-
                             </div>
                     @endif
                 @endforeach

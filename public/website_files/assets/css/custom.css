@@ -337,7 +337,7 @@ header {
 
 .marquee-main {
 	background-color: #144b8b;
-	padding: 10px 0px 5px 0px;
+	padding:20px 0px 20px 0px !important;
 	font-family: 'Montserrat', sans-serif;
 	color: #fff !important;
 }
@@ -368,6 +368,9 @@ header {
 
 }
 
+.div1 a{
+	color: #fff !important;
+}
 @keyframes marquee {
 	from {
 		transform: translateX(100%);
@@ -5438,4 +5441,15 @@ a[data-toggle="collapse"] {
 	line-height: 51px;
 	padding: 0 20px;
 	margin-top: 20px;
+}
+
+/* for modal */
+.modal-backdrop.show{
+	opacity: 0 !important;
+}
+
+.modal_lable{
+	font-size: 16px;
+    color: #000;
+    /* font-weight: 600; */
 }
