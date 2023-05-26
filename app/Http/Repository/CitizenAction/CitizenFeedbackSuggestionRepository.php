@@ -76,25 +76,39 @@ public function updateAll($request)
                 'status' => 'error'
             ];
         }
-         // Delete existing files
-         Storage::delete([
-            'public/images/citizen-action/feedback-suggestion/' . $feedback_data->english_image,
-            'public/images/citizen-action/feedback-suggestion/' . $feedback_data->marathi_image
-        ]);
-        
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/citizen-action/feedback-suggestion/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/citizen-action/feedback-suggestion/', $marathiImageName);
+       // Store the previous image names
+       $previousEnglishImage = $feedback_data->english_image;
+       $previousMarathiImage = $feedback_data->marathi_image;
 
-                
         $feedback_data->english_title = $request['english_title'];
         $feedback_data->marathi_title = $request['marathi_title'];
         $feedback_data->english_description = $request['english_description'];
         $feedback_data->marathi_description = $request['marathi_description'];
-        $feedback_data->english_image = $englishImageName;
-        $feedback_data->marathi_image =   $marathiImageName;
+       
+        if ($request->hasFile('english_image')) {
+            // Delete previous English image if it exists
+            if ($previousEnglishImage) {
+                Storage::delete('public/images/citizen-action/feedback-suggestion/' . $previousEnglishImage);
+            }
+
+            // Store the new English image
+            $englishImageName = time() . '_english.' . $request->english_image->extension();
+            $request->english_image->storeAs('public/images/citizen-action/feedback-suggestion/', $englishImageName);
+            $feedback_data->english_image = $englishImageName;
+        }
+
+        if ($request->hasFile('marathi_image')) {
+            // Delete previous Marathi image if it exists
+            if ($previousMarathiImage) {
+                Storage::delete('public/images/citizen-action/feedback-suggestion/' . $previousMarathiImage);
+            }
+
+            // Store the new Marathi image
+            $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
+            $request->marathi_image->storeAs('public/images/citizen-action/feedback-suggestion/', $marathiImageName);
+            $feedback_data->marathi_image = $marathiImageName;
+        }
+
         $feedback_data->save();        
      
         return [

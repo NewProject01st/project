@@ -77,26 +77,47 @@ public function updateAll($request)
             ];
         }
         
-        // Delete existing files
-        Storage::delete([
-            'public/images/emergency-response/relief-measures-resources/' . $reliefmeasuresresources_data->english_image,
-            'public/images/emergency-response/relief-measures-resources/' . $reliefmeasuresresources_data->marathi_image
-        ]);
-        
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/emergency-response/relief-measures-resources', $englishImageName);
-        $request->marathi_image->storeAs('public/images/emergency-response/relief-measures-resources', $marathiImageName);
-
+         
+        //Store the previous image name
+        $previousEnglishImage = $reliefmeasuresresources_data->english_image;
+        $previousMarathiImage = $reliefmeasuresresources_data->marathi_image;
+  
 
         $reliefmeasuresresources_data = ReliefMeasuresResources::find($request->id);
         $reliefmeasuresresources_data->english_title = $request['english_title'];
         $reliefmeasuresresources_data->marathi_title = $request['marathi_title'];
         $reliefmeasuresresources_data->english_description = $request['english_description'];
         $reliefmeasuresresources_data->marathi_description = $request['marathi_description'];
-        $reliefmeasuresresources_data->english_image = $englishImageName; // Save the image filename to the database
-        $reliefmeasuresresources_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        if($request->hasFile('english_image'))
+        {
+            if($previousEnglishImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/emergency-response/relief-measures-resources/' . $previousEnglishImage);
+            }
+            
+            //Store and update new image
+             
+        $englishImageName = time() . '_english.' . $request->english_image->extension(); 
+        $request->english_image->storeAs('public/images/emergency-response/relief-measures-resources/', $englishImageName);
+        $reliefmeasuresresources_data->english_image = $englishImageName;
+
+        }
+        if($request->hasFile('marathi_image'))
+        {
+            if($previousMarathiImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/emergency-response/relief-measures-resources/' . $previousMarathiImage);
+            }
+            
+            //Store and update new image
+             
+        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension(); 
+        $request->marathi_image->storeAs('public/images/emergency-response/relief-measures-resources/', $marathiImageName);
+        $reliefmeasuresresources_data->marathi_image = $marathiImageName;
+
+        }
         $reliefmeasuresresources_data->save();       
      
         return [
@@ -137,5 +158,3 @@ public function deleteById($id)
 
 
 }
-
-

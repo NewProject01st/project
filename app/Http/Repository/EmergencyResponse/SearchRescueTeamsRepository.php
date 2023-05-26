@@ -76,17 +76,11 @@ public function updateAll($request)
             ];
         }
         
-        // Delete existing files
-        Storage::delete([
-            'public/images/emergency-response/search-rescue-teams/' . $searchrescueteams_data->english_image,
-            'public/images/emergency-response/search-rescue-teams/' . $searchrescueteams_data->marathi_image
-        ]);
-        
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/emergency-response/search-rescue-teams', $englishImageName);
-        $request->marathi_image->storeAs('public/images/emergency-response/search-rescue-teams', $marathiImageName);
+         
+        //Store the previous image name
+        $previousEnglishImage = $searchrescueteams_data->english_image;
+        $previousMarathiImage = $searchrescueteams_data->marathi_image;
+  
 
 
         $searchrescueteams_data = SearchRescueTeams::find($request->id);
@@ -94,8 +88,36 @@ public function updateAll($request)
         $searchrescueteams_data->marathi_title = $request['marathi_title'];
         $searchrescueteams_data->english_description = $request['english_description'];
         $searchrescueteams_data->marathi_description = $request['marathi_description'];
-        $searchrescueteams_data->english_image = $englishImageName; // Save the image filename to the database
-        $searchrescueteams_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        if($request->hasFile('english_image'))
+        {
+            if($previousEnglishImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/emergency-response/search-rescue-teams/' . $previousEnglishImage);
+            }
+            
+            //Store and update new image
+             
+        $englishImageName = time() . '_english.' . $request->english_image->extension(); 
+        $request->english_image->storeAs('public/images/emergency-response/search-rescue-teams/', $englishImageName);
+        $searchrescueteams_data->english_image = $englishImageName;
+
+        }
+        if($request->hasFile('marathi_image'))
+        {
+            if($previousMarathiImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/emergency-response/search-rescue-teams/' . $previousMarathiImage);
+            }
+            
+            //Store and update new image
+             
+        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension(); 
+        $request->marathi_image->storeAs('public/images/emergency-response/search-rescue-teams/', $marathiImageName);
+        $searchrescueteams_data->marathi_image = $marathiImageName;
+
+        }
         $searchrescueteams_data->save();       
      
         return [
@@ -136,5 +158,3 @@ public function deleteById($id)
 
 
 }
-
-

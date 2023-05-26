@@ -130,17 +130,11 @@ public function updateAll($request)
             ];
         }
         
-        // Delete existing files
-        Storage::delete([
-            'public/images/emergency-response/emergency-contact-numbers/' . $emergencycontactnumbers_data->english_image,
-            'public/images/emergency-response/emergency-contact-numbers/' . $emergencycontactnumbers_data->marathi_image
-        ]);
-        
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/emergency-response/emergency-contact-numbers', $englishImageName);
-        $request->marathi_image->storeAs('public/images/emergency-response/emergency-contact-numbers', $marathiImageName);
+          
+        //Store the previous image name
+        $previousEnglishImage = $emergencycontactnumbers_data->english_image;
+        $previousMarathiImage = $emergencycontactnumbers_data->marathi_image;
+  
 
 
         $emergencycontactnumbers_data = EmergencyContactNumbers::find($request->id);
@@ -148,8 +142,36 @@ public function updateAll($request)
         $emergencycontactnumbers_data->marathi_title = $request['marathi_title'];
         $emergencycontactnumbers_data->english_description = $request['english_description'];
         $emergencycontactnumbers_data->marathi_description = $request['marathi_description'];
-        $emergencycontactnumbers_data->english_image = $englishImageName; // Save the image filename to the database
-        $emergencycontactnumbers_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        if($request->hasFile('english_image'))
+        {
+            if($previousEnglishImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/emergency-response/emergency-contact-numbers/' . $previousEnglishImage);
+            }
+            
+            //Store and update new image
+             
+        $englishImageName = time() . '_english.' . $request->english_image->extension(); 
+        $request->english_image->storeAs('public/images/emergency-response/emergency-contact-numbers/', $englishImageName);
+        $emergencycontactnumbers_data->english_image = $englishImageName;
+
+        }
+        if($request->hasFile('marathi_image'))
+        {
+            if($previousMarathiImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/emergency-response/emergency-contact-numbers/' . $previousMarathiImage);
+            }
+            
+            //Store and update new image
+             
+        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension(); 
+        $request->marathi_image->storeAs('public/images/emergency-response/emergency-contact-numbers/', $marathiImageName);
+        $emergencycontactnumbers_data->marathi_image = $marathiImageName;
+
+        }
         $emergencycontactnumbers_data->save();       
      
         return [
@@ -190,5 +212,3 @@ public function deleteById($id)
 
 
 }
-
-

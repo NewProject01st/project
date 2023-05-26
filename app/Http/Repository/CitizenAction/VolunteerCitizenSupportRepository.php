@@ -76,25 +76,39 @@ public function updateAll($request)
                 'status' => 'error'
             ];
         }
-         // Delete existing files
-         Storage::delete([
-            'public/images/citizen-action/volunteer/' . $volunteer_data->english_image,
-            'public/images/citizen-action/volunteer/' . $volunteer_data->marathi_image
-        ]);
-        
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/citizen-action/volunteer/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/citizen-action/volunteer/', $marathiImageName);
-
+        // Store the previous image names
+        $previousEnglishImage = $volunteer_data->english_image;
+        $previousMarathiImage = $volunteer_data->marathi_image;
                 
         $volunteer_data->english_title = $request['english_title'];
         $volunteer_data->marathi_title = $request['marathi_title'];
         $volunteer_data->english_description = $request['english_description'];
         $volunteer_data->marathi_description = $request['marathi_description'];
-        $volunteer_data->english_image = $englishImageName;
-        $volunteer_data->marathi_image =   $marathiImageName;
+       
+        if ($request->hasFile('english_image')) {
+            // Delete previous English image if it exists
+            if ($previousEnglishImage) {
+                Storage::delete('public/images/citizen-action/volunteer/' . $previousEnglishImage);
+            }
+
+            // Store the new English image
+            $englishImageName = time() . '_english.' . $request->english_image->extension();
+            $request->english_image->storeAs('public/images/citizen-action/volunteer/', $englishImageName);
+            $volunteer_data->english_image = $englishImageName;
+        }
+
+        if ($request->hasFile('marathi_image')) {
+            // Delete previous Marathi image if it exists
+            if ($previousMarathiImage) {
+                Storage::delete('public/images/citizen-action/volunteer/' . $previousMarathiImage);
+            }
+
+            // Store the new Marathi image
+            $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
+            $request->marathi_image->storeAs('public/images/citizen-action/volunteer/', $marathiImageName);
+            $volunteer_data->marathi_image = $marathiImageName;
+        }
+
         $volunteer_data->save();        
      
         return [
