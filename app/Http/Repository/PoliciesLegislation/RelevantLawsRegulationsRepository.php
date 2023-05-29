@@ -105,7 +105,7 @@ public function updateAll($request)
 
             // Store the new Marathi image
             $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-            $request->marathi_image->storeAs('public/images/policies-legislation/state-policy/', $marathiImageName);
+            $request->marathi_image->storeAs('public/images/policies-legislation/relevant-laws/', $marathiImageName);
             $relevant_laws->marathi_image = $marathiImageName;
         }
 

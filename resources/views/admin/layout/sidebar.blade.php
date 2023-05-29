@@ -246,6 +246,10 @@
                                   Policy
                               </a>
                           </li>
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-relevant-laws-and-regulations') }}">Relevant-Laws-And-Regulations
+                              </a>
+                          </li>
                       </ul>
                   </div>
               </li>

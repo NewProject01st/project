@@ -5,14 +5,14 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Disaster Management News <a href="{{ route('add-disaster-management-news') }}"
+                Relevant Laws And Regulation <a href="{{ route('add-relevant-laws-and-regulations') }}"
                     class="btn btn-sm btn-primary ml-3">+
                     Add</a>
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Disaster Management News</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Disaster Management News</li>
+                    <li class="breadcrumb-item"><a href="#"> Relevant Laws And Regulation</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Relevant Laws And Regulation</li>
                 </ol>
             </nav>
         </div>
@@ -31,41 +31,27 @@
                                                 <th>Title Marathi</th>
                                                 <th>Description English</th>
                                                 <th>Description Marathi</th>
-                                                <th>Url</th>
-                                                <th>Date</th>
                                                 <th>English Image</th>
                                                 <th>Marathi Image</th>
-                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($disaster_news as $item)
+                                            @foreach ($relevant_laws as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td><?php echo $item->english_title; ?></td>
                                                 <td><?php echo $item->marathi_title; ?></td>
                                                 <td><?php echo $item->english_description; ?></td>
                                                 <td><?php echo $item->marathi_description; ?></td>
-                                                <td>{{ $item->english_url }}</td>
-                                                <td>{{ $item->disaster_date }}</td>
-                                                <td> <img
-                                                        src="{{ asset('storage/images/disaster-news/' . $item->english_image) }}" />
-                                                </td>
-                                                <td> <img
-                                                        src="{{ asset('storage/images/disaster-news/' . $item->marathi_image) }}" />
-                                                </td>
-                                                <td>
-                                                    <label class="switch">
-                                                        <input data-id="{{ $item->id }}" type="checkbox"
-                                                            {{ $item->is_active ? 'checked' : '' }}
-                                                            class="active-btn btn btn-sm btn-outline-primary m-1"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
-                                                        <span class="slider round "></span>
-                                                    </label>
 
+                                                <td> <img
+                                                        src="{{ asset('storage/images/policies-legislation/relevant-laws/' . $item->english_image) }}" />
                                                 </td>
+                                                <td> <img
+                                                        src="{{ asset('storage/images/policies-legislation/relevant-laws/' . $item->marathi_image) }}" />
+                                                </td>
+
                                                 <td class="d-flex">
                                                     <a data-id="{{ $item->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
@@ -91,21 +77,17 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('/delete-disaster-management-news') }}" id="deleteform">
+    <form method="POST" action="{{ url('/delete-relevant-laws-and-regulations') }}" id="deleteform">
         @csrf
         <input type="hidden" name="delete_id" id="delete_id" value="">
     </form>
-    <form method="POST" action="{{ url('/show-disaster-management-news') }}" id="showform">
+    <form method="POST" action="{{ url('/show-relevant-laws-and-regulations') }}" id="showform">
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-disaster-management-news') }}" id="editform">
+    <form method="POST" action="{{ url('/edit-relevant-laws-and-regulations') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
-    </form>
-    <form method="POST" action="{{ url('/update-one') }}" id="activeform">
-        @csrf
-        <input type="hidden" name="active_id" id="active_id" value="">
     </form>
 
     <!-- content-wrapper ends -->

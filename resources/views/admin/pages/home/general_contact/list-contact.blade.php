@@ -51,15 +51,15 @@
                                                         src="{{ asset('storage/images/general_contact/' . $item->marathi_icon) }}" />
                                                 </td>
                                                 <td>
-                                                    <button data-id="{{ $item->id }}" type="submit"
-                                                        class="active-btn btn btn-sm btn-outline-primary m-1"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
-                                                        <span class="status-icon {{ $item->is_active ? '1' : '0' }}">
-                                                            <i
-                                                                class="fa {{ $item->is_active ? 'fa-thumbs-up' : 'fa-thumbs-down' }}"></i>
-                                                        </span>
-                                                    </button>
+                                                    <label class="switch">
+                                                        <input data-id="{{ $item->id }}" type="checkbox"
+                                                            {{ $item->is_active ? 'checked' : '' }}
+                                                            class="active-btn btn btn-sm btn-outline-primary m-1"
+                                                            data-toggle="tooltip" data-placement="top"
+                                                            title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
+                                                        <span class="slider round "></span>
+                                                    </label>
+
                                                 </td>
 
                                                 <td class="d-flex">

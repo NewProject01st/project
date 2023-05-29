@@ -51,18 +51,19 @@
                                                 <td> <img
                                                         src="{{ asset('storage/images/slides/' . $item->marathi_image) }}" />
                                                 </td>
+
                                                 <td>
-                                                    <button data-id="{{ $item->id }}" type="submit"
-                                                        class="active-btn btn btn-sm btn-outline-primary m-1"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
-                                                        <span class="status-icon {{ $item->is_active ? '1' : '0' }}">
-                                                            <i
-                                                                class="fa {{ $item->is_active ? 'fa-thumbs-up' : 'fa-thumbs-down' }}"></i>
-                                                        </span>
-                                                    </button>
+                                                    <label class="switch">
+                                                        <input data-id="{{ $item->id }}" type="checkbox"
+                                                            {{ $item->is_active ? 'checked' : '' }}
+                                                            class="active-btn btn btn-sm btn-outline-primary m-1"
+                                                            data-toggle="tooltip" data-placement="top"
+                                                            title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
+                                                        <span class="slider round "></span>
+                                                    </label>
+
                                                 </td>
-                                                <td class="d-flex">
+                                                <td class=" d-flex">
                                                     <a data-id="{{ $item->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-pencil-alt"></i></a>
@@ -104,4 +105,5 @@
         @csrf
         <input type="hidden" name="active_id" id="active_id" value="">
     </form>
+
     @endsection
