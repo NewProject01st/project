@@ -19,6 +19,7 @@ class CitizenActionController extends Controller
         // self::$loginServe = new LoginService();
         $this->service = new CitizenActionServices();
         $this->menu = getMenuItems();
+        $this->socialicon = getSocialIcon();
 
        
     }
@@ -32,6 +33,7 @@ class CitizenActionController extends Controller
         try {
 
             $menu = $this->menu;
+            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllReportIncidentCrowdsourcing();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -41,13 +43,14 @@ class CitizenActionController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.citizen-action.list-report-incident-crowdsourcing-web',compact('language','menu', 'data_output'));
+        return view('website.pages.citizen-action.list-report-incident-crowdsourcing-web',compact('language','menu','socialicon', 'data_output'));
     }  
     public function getAllVolunteerCitizenSupport()
     {
         try {
 
             $menu = $this->menu;
+            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllVolunteerCitizenSupport();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -58,7 +61,7 @@ class CitizenActionController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.preparedness.list-warning-system-web',compact('language','menu', 'data_output'));
+        return view('website.pages.preparedness.list-warning-system-web',compact('language','menu','socialicon', 'data_output'));
     }
 
     public function getAllCitizenFeedbackSuggestions()
@@ -66,6 +69,7 @@ class CitizenActionController extends Controller
         try {
 
             $menu = $this->menu;
+            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllCitizenFeedbackSuggestions();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -76,7 +80,7 @@ class CitizenActionController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.preparedness.list-capacity-training-web',compact('language','menu', 'data_output'));
+        return view('website.pages.preparedness.list-capacity-training-web',compact('language','menu','socialicon', 'data_output'));
     }
 
     // public function getAllPublicAwarenessEducation()

@@ -26,16 +26,16 @@
                                         <thead>
                                             <tr>
                                                 <th>S. No.</th>
-                                                <th>English Toll Free Title</th>
-                                                <th>Marathi Toll Free Title</th>
+                                                {{-- <th>English Toll Free Title</th>
+                                                <th>Marathi Toll Free Title</th> --}}
                                                 <th>English Toll Free No</th>
                                                 <th>Marathi Toll Free No</th>
-                                                <th>English City Title</th>
-                                                <th>Marathi City Title</th>
+                                                {{-- <th>English City Title</th>
+                                                <th>Marathi City Title</th> --}}
                                                 <th>English City </th>
                                                 <th>Marathi City </th>
-                                                <th>English Image</th>
-                                                <th>Marathi Image</th>
+                                                <th>Logo</th>
+                                             
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -43,19 +43,16 @@
                                             @foreach ($subheader_info as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->english_tollfree_title }}</td>
-                                                <td>{{ $item->marathi_tollfree_title }}</td>
+                                                {{-- <td>{{ $item->english_tollfree_title }}</td>
+                                                <td>{{ $item->marathi_tollfree_title }}</td> --}}
                                                 <td>{{ $item->english_tollfree_no }}</td>
                                                 <td>{{ $item->marathi_tollfree_no }}</td>
-                                                <td>{{ $item->english_city_title }}</td>
-                                                <td>{{ $item->marathi_city_title }}</td>
+                                                {{-- <td>{{ $item->english_city_title }}</td>
+                                                <td>{{ $item->marathi_city_title }}</td> --}}
                                                 <td>{{ $item->english_city }}</td>
                                                 <td>{{ $item->marathi_city }}</td>
                                                 <td> <img
-                                                        src="{{ asset('storage/images/header/sub-header/' . $item->english_logo) }}" />
-                                                </td>
-                                                <td> <img
-                                                        src="{{ asset('storage/images/header/sub-header/' . $item->marathi_logo) }}" />
+                                                        src="{{ asset('storage/images/header/sub-header/' . $item->logo) }}" />
                                                 </td>
                                                 <td class="d-flex">
                                                     <a data-id="{{ $item->id }}"

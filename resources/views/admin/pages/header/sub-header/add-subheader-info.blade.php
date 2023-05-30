@@ -22,14 +22,14 @@
                             enctype="multipart/form-data" id="regForm">
                             @csrf
                             <div class="row">
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="english_tollfree_title">English Toll Free Title</label>
                                         <input type="text" name="english_tollfree_title" id="english_tollfree_title"
                                             class="form-control" placeholder="">
                                         @if ($errors->has('english_tollfree_title'))
                                         <span
-                                            class="red-text"><?php echo $errors->first('english_tollfree_title', ':message'); ?></span>
+                                            class="red-text"><?php //echo $errors->first('english_tollfree_title', ':message'); ?></span>
                                         @endif
                                     </div>
                                 </div>
@@ -40,10 +40,10 @@
                                             class="form-control" placeholder="">
                                         @if ($errors->has('marathi_tollfree_title'))
                                         <span
-                                            class="red-text"><?php echo $errors->first('marathi_tollfree_title', ':message'); ?></span>
+                                            class="red-text"><?php //echo $errors->first('marathi_tollfree_title', ':message'); ?></span>
                                         @endif
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="english_tollfree_no">English Toll Free No</label>
@@ -66,14 +66,14 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="english_city_title">English City Title</label>
                                         <input type="text" name="english_city_title" id="english_city_title"
                                             class="form-control" placeholder="">
                                         @if ($errors->has('english_city_title'))
                                         <span
-                                            class="red-text"><?php echo $errors->first('english_city_title', ':message'); ?></span>
+                                            class="red-text"><?php //echo $errors->first('english_city_title', ':message'); ?></span>
                                         @endif
                                     </div>
                                 </div>
@@ -84,10 +84,10 @@
                                             class="form-control" placeholder="">
                                         @if ($errors->has('marathi_city_title'))
                                         <span
-                                            class="red-text"><?php echo $errors->first('marathi_city_title', ':message'); ?></span>
+                                            class="red-text"><?php //echo $errors->first('marathi_city_title', ':message'); ?></span>
                                         @endif
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="english_city">English City Name</label>
@@ -112,24 +112,24 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_logo">Logo English</label><br>
-                                        <input type="file" name="english_logo" id="english_logo" accept="image/*">
-                                        @if ($errors->has('english_logo'))
+                                        <label for="logo">Logo</label><br>
+                                        <input type="file" name="logo" id="logo" accept="image/*">
+                                        @if ($errors->has('logo'))
                                         <span
-                                            class="red-text"><?php echo $errors->first('english_logo', ':message'); ?></span>
+                                            class="red-text"><?php echo $errors->first('logo', ':message'); ?></span>
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="marathi_logo">Image Marathi</label><br>
                                         <input type="file" name="marathi_logo" id="marathi_logo" accept="image/*">
                                         @if ($errors->has('marathi_logo'))
                                         <span
-                                            class="red-text"><?php echo $errors->first('marathi_logo', ':message'); ?></span>
+                                            class="red-text"><?php //echo $errors->first('marathi_logo', ':message'); ?></span>
                                         @endif
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                     <button type="submit" class="btn btn-danger">Cancel</button>

@@ -54,16 +54,16 @@ class HeaderSeeder extends Seeder
         SubHeaderInfo::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_tollfree_title' => 'Toll Free:',
-            'marathi_tollfree_title' => 'कर मुक्त:',
+            // 'english_tollfree_title' => 'Toll Free:',
+            // 'marathi_tollfree_title' => 'कर मुक्त:',
             'english_tollfree_no' => '0000 00000',
             'marathi_tollfree_no' => '0000 00000',
-            'english_city_title' => 'City',
-            'marathi_city_title' => 'शहर',
+            // 'english_city_title' => 'City',
+            // 'marathi_city_title' => 'शहर',
             'english_city' => 'Nashik',
             'marathi_city' => 'नाशिक',
-            'english_logo' => 'youtube.jpeg',
-            'marathi_logo' => 'youtube.jpeg',
+            'logo' => 'youtube.jpeg',
+           
           
             'is_deleted'=>false,
             'is_active'=>true,

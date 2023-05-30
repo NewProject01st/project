@@ -20,6 +20,7 @@ class DynamicPagesController extends Controller
         // $this->service = new DynamicPagesServices();
         $this->menu = getMenuItems();
         $this->language = getLanguageSelected();
+        $this->socialicon = getSocialIcon();
     }
     public function index(Request $request)
     {
@@ -29,6 +30,7 @@ class DynamicPagesController extends Controller
             $path_new = 'admin.pages.dynamic-pages-created.';
 
             $menu = $this->menu;
+            $socialicon = $this->socialicon;
             $language = $this->language;
             $dynamic_web_page_name = DynamicWebPages::where('slug',$path_final)->first();
             if (Session::get('language') == 'mar') {

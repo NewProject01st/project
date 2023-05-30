@@ -513,7 +513,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Contact information for SDMA',
             'menu_name_marathi' => 'SDMA साठी संपर्क माहिती',
             'order_no' => 1,
-            'url'=>'/contact',
+            'url'=>'/contact-information',
             'is_static'=>true,
             'is_active' => true,
            
@@ -527,7 +527,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Feedback and suggestions',
             'menu_name_marathi' => 'अभिप्राय आणि सूचना',
             'order_no' => 2,
-            'url'=>'/contact',
+            'url'=>'/feedback-suggestions',
             'is_static'=>true,
             'is_active' => true,
            
