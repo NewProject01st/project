@@ -44,6 +44,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PublicAwarenessEducationSeeder::class);   
         $this->call(CitizenActionSeeder::class);   
         $this->call(HeaderSeeder::class);   
+        $this->call(PoliciesLegislationSeeder::class);   
+
    
         
     }

@@ -77,17 +77,11 @@ public function updateAll($request)
             ];
         }
         
-        // Delete existing files
-        Storage::delete([
-            'public/images/emergency-response/state-emergency-operations-center/' . $stateemergencyoperationscenter_data->english_image,
-            'public/images/emergency-response/state-emergency-operations-center/' . $stateemergencyoperationscenter_data->marathi_image
-        ]);
         
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/emergency-response/state-emergency-operations-center', $englishImageName);
-        $request->marathi_image->storeAs('public/images/emergency-response/state-emergency-operations-center', $marathiImageName);
+        //Store the previous image name
+        $previousEnglishImage = $stateemergencyoperationscenter_data->english_image;
+        $previousMarathiImage = $stateemergencyoperationscenter_data->marathi_image;
+  
 
 
         $stateemergencyoperationscenter_data = StateEmergencyOperationsCenter::find($request->id);
@@ -95,8 +89,36 @@ public function updateAll($request)
         $stateemergencyoperationscenter_data->marathi_title = $request['marathi_title'];
         $stateemergencyoperationscenter_data->english_description = $request['english_description'];
         $stateemergencyoperationscenter_data->marathi_description = $request['marathi_description'];
-        $stateemergencyoperationscenter_data->english_image = $englishImageName; // Save the image filename to the database
-        $stateemergencyoperationscenter_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        if($request->hasFile('english_image'))
+        {
+            if($previousEnglishImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/emergency-response/state-emergency-operations-center/' . $previousEnglishImage);
+            }
+            
+            //Store and update new image
+             
+        $englishImageName = time() . '_english.' . $request->english_image->extension(); 
+        $request->english_image->storeAs('public/images/emergency-response/state-emergency-operations-center/', $englishImageName);
+        $stateemergencyoperationscenter_data->english_image = $englishImageName;
+
+        }
+        if($request->hasFile('marathi_image'))
+        {
+            if($previousMarathiImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/emergency-response/state-emergency-operations-center/' . $previousMarathiImage);
+            }
+            
+            //Store and update new image
+             
+        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension(); 
+        $request->marathi_image->storeAs('public/images/emergency-response/state-emergency-operations-center/', $marathiImageName);
+        $stateemergencyoperationscenter_data->marathi_image = $marathiImageName;
+
+        }
         $stateemergencyoperationscenter_data->save();       
      
         return [
@@ -137,5 +159,3 @@ public function deleteById($id)
 
 
 }
-
-

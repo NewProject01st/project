@@ -380,6 +380,41 @@ Route::post('/update-event', ['as' => 'update-event', 'uses' => 'App\Http\Contro
 Route::post('/show-event', ['as' => 'show-event', 'uses' => 'App\Http\Controllers\TrainingEvent\EventController@show']);
 Route::post('/delete-event', ['as' => 'delete-event', 'uses' => 'App\Http\Controllers\TrainingEvent\EventController@destroy']);
 
+//=========Policies And legislation========
+Route::get('/list-state-disaster-management-plan', ['as' => 'list-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\PoliciesLegislation\StateDisasterManagementPlanController@index']);
+Route::get('/add-state-disaster-management-plan', ['as' => 'add-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\PoliciesLegislation\StateDisasterManagementPlanController@add']);
+Route::post('/add-state-disaster-management-plan', ['as' => 'add-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\PoliciesLegislation\StateDisasterManagementPlanController@store']);
+Route::post('/edit-state-disaster-management-plan', ['as' => 'edit-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\PoliciesLegislation\StateDisasterManagementPlanController@edit']);
+Route::post('/update-state-disaster-management-plan', ['as' => 'update-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\PoliciesLegislation\StateDisasterManagementPlanController@update']);
+Route::post('/show-state-disaster-management-plan', ['as' => 'show-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\PoliciesLegislation\StateDisasterManagementPlanController@show']);
+Route::post('/delete-state-disaster-management-plan', ['as' => 'delete-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\PoliciesLegislation\StateDisasterManagementPlanController@destroy']);
+
+Route::get('/list-district-disaster-management-plan', ['as' => 'list-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\PoliciesLegislation\DistrictDisasterManagementPlanController@index']);
+Route::get('/add-district-disaster-management-plan', ['as' => 'add-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\PoliciesLegislation\DistrictDisasterManagementPlanController@add']);
+Route::post('/add-district-disaster-management-plan', ['as' => 'add-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\PoliciesLegislation\DistrictDisasterManagementPlanController@store']);
+Route::post('/edit-district-disaster-management-plan', ['as' => 'edit-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\PoliciesLegislation\DistrictDisasterManagementPlanController@edit']);
+Route::post('/update-district-disaster-management-plan', ['as' => 'update-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\PoliciesLegislation\DistrictDisasterManagementPlanController@update']);
+Route::post('/show-district-disaster-management-plan', ['as' => 'show-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\PoliciesLegislation\DistrictDisasterManagementPlanController@show']);
+Route::post('/delete-district-disaster-management-plan', ['as' => 'delete-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\PoliciesLegislation\DistrictDisasterManagementPlanController@destroy']);
+
+Route::get('/list-state-disaster-management-policy', ['as' => 'list-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\PoliciesLegislation\StateDisasterManagementPolicyController@index']);
+Route::get('/add-state-disaster-management-policy', ['as' => 'add-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\PoliciesLegislation\StateDisasterManagementPolicyController@add']);
+Route::post('/add-state-disaster-management-policy', ['as' => 'add-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\PoliciesLegislation\StateDisasterManagementPolicyController@store']);
+Route::post('/edit-state-disaster-management-policy', ['as' => 'edit-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\PoliciesLegislation\StateDisasterManagementPolicyController@edit']);
+Route::post('/update-state-disaster-management-policy', ['as' => 'update-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\PoliciesLegislation\StateDisasterManagementPolicyController@update']);
+Route::post('/show-state-disaster-management-policy', ['as' => 'show-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\PoliciesLegislation\StateDisasterManagementPolicyController@show']);
+Route::post('/delete-state-disaster-management-policy', ['as' => 'delete-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\PoliciesLegislation\StateDisasterManagementPolicyController@destroy']);
+
+
+Route::get('/list-relevant-laws-and-regulations', ['as' => 'list-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\PoliciesLegislation\RelevantLawsRegulationsController@index']);
+Route::get('/add-relevant-laws-and-regulations', ['as' => 'add-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\PoliciesLegislation\RelevantLawsRegulationsController@add']);
+Route::post('/add-relevant-laws-and-regulations', ['as' => 'add-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\PoliciesLegislation\RelevantLawsRegulationsController@store']);
+Route::post('/edit-relevant-laws-and-regulations', ['as' => 'edit-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\PoliciesLegislation\RelevantLawsRegulationsController@edit']);
+Route::post('/update-relevant-laws-and-regulations', ['as' => 'update-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\PoliciesLegislation\RelevantLawsRegulationsController@update']);
+Route::post('/show-relevant-laws-and-regulations', ['as' => 'show-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\PoliciesLegislation\RelevantLawsRegulationsController@show']);
+Route::post('/delete-relevant-laws-and-regulations', ['as' => 'delete-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\PoliciesLegislation\RelevantLawsRegulationsController@destroy']);
+
+
 
 Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
 

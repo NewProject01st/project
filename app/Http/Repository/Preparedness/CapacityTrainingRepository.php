@@ -76,25 +76,45 @@ public function updateAll($request)
                 'status' => 'error'
             ];
         }
-         // Delete existing files
-         Storage::delete([
-            'public/images/preparedness/capacity-training/' . $training_data->english_image,
-            'public/images/preparedness/capacity-training/' . $training_data->marathi_image
-        ]);
-        
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/preparedness/capacity-training/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/preparedness/capacity-training/', $marathiImageName);
+        //Store the previous image name
+        $previousEnglishImage = $training_data->english_image;
+        $previousMarathiImage = $training_data->marathi_image;
 
                 
         $training_data->english_title = $request['english_title'];
         $training_data->marathi_title = $request['marathi_title'];
         $training_data->english_description = $request['english_description'];
         $training_data->marathi_description = $request['marathi_description'];
+        if($request->hasFile('english_image'))
+        {
+            if($previousEnglishImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/preparedness/capacity-training/' . $previousEnglishImage);
+            }
+            
+            //Store and update new image
+             
+        $englishImageName = time() . '_english.' . $request->english_image->extension(); 
+        $request->english_image->storeAs('public/images/preparedness/capacity-training/', $englishImageName);
         $training_data->english_image = $englishImageName;
-        $training_data->marathi_image =   $marathiImageName;
+
+        }
+        if($request->hasFile('marathi_image'))
+        {
+            if($previousMarathiImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/preparedness/capacity-training/' . $previousMarathiImage);
+            }
+            
+            //Store and update new image
+             
+        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension(); 
+        $request->marathi_image->storeAs('public/images/preparedness/capacity-training/', $marathiImageName);
+        $training_data->marathi_image = $marathiImageName;
+
+        }
         $training_data->save();        
      
         return [
