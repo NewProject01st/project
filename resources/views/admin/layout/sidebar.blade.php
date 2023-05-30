@@ -40,16 +40,16 @@
                       </ul>
                   </div>
               </li>
-
+              @if (getRouteDetailsPresentOrNot('list-main-menu', session('permissions')) || getRouteDetailsPresentOrNot('list-sub-menu', session('permissions')))
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                      aria-controls="page-layouts">
+                  <a class="nav-link" data-toggle="collapse" href="#menu" aria-expanded="false"
+                      aria-controls="menu">
                       <i class="fa fa-th-large menu-icon"></i>
                       <span class="menu-title">Menu</span>
                       <i class="menu-arrow"></i>
                   </a>
 
-                  <div class="collapse" id="page-layouts">
+                  <div class="collapse" id="menu">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-main-menu') }}">Main Menu</a></li>
@@ -58,30 +58,44 @@
                       </ul>
                   </div>
               </li>
-
+              @endif
+              @if (getRouteDetailsPresentOrNot('list-dynamic-page', session('permissions')))
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                      aria-controls="page-layouts">
+                  <a class="nav-link" data-toggle="collapse" href="#pages" aria-expanded="false"
+                      aria-controls="pages">
                       <i class="fa fa-th-large menu-icon"></i>
                       <span class="menu-title">Pages</span>
                       <i class="menu-arrow"></i>
                   </a>
 
-                  <div class="collapse" id="page-layouts">
+                  <div class="collapse" id="pages">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-dynamic-page') }}">Dynamic Pages</a></li>
                       </ul>
                   </div>
               </li>
+              @endif
+
+              @if (
+                getRouteDetailsPresentOrNot('list-marquee', session('permissions')) ||
+                getRouteDetailsPresentOrNot('list-slide', session('permissions')) ||
+                getRouteDetailsPresentOrNot('list-disaster-management-web-portal', session('permissions')) ||
+                getRouteDetailsPresentOrNot('list-disaster-management-news', session('permissions')) ||
+                getRouteDetailsPresentOrNot('list-weather', session('permissions')) ||
+                getRouteDetailsPresentOrNot('list-disasterforcast', session('permissions')) ||
+                getRouteDetailsPresentOrNot('list-emergency-contact', session('permissions')) ||
+                getRouteDetailsPresentOrNot('list-home-tender', session('permissions')) ||
+                getRouteDetailsPresentOrNot('list-general-contact', session('permissions'))
+              )
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                      aria-controls="page-layouts">
+                  <a class="nav-link" data-toggle="collapse" href="#home" aria-expanded="false"
+                      aria-controls="home">
                       <i class="fa fa-th-large menu-icon"></i>
                       <span class="menu-title">Home</span>
                       <i class="menu-arrow"></i>
                   </a>
-                  <div class="collapse" id="page-layouts">
+                  <div class="collapse" id="home">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-marquee') }}">News Bar</a></li>
@@ -110,7 +124,7 @@
                       </ul>
                   </div>
               </li>
-
+            @endif
 
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
