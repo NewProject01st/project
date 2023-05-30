@@ -852,15 +852,23 @@ ul.funds li strong, .event-counter .countdown-period {
 .carousel-caption {
 	position: absolute;
 	right: 15%;
-	top: 1.25rem;
+	top: 2px;
 	left: 15%;
-	padding-top: 1.25rem;
+	padding-top: 0.25rem;
 	padding-bottom: 1.25rem;
 	color: #fff !important;
 	text-align: left;
   }
 .carousel-caption h1 {font-size:14px !important; line-height:20px !important; margin:0 0 10px !important;}
-.carousel-caption p {display:none;}
+.carousel-caption p {display:block;
+	font-size: 14px !important;
+	line-height: 20px !important;
+
+    white-space: nowrap;
+    width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .carousel-caption a {
     font-size: 12px !important;

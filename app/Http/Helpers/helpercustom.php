@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\ {
 	MainMenus,
     MainSubMenus,
-    DynamicWebPages
+    DynamicWebPages,
+    SocialIcon
 };
 
 function getIPAddress($req)
@@ -31,6 +32,40 @@ function getRouteDetailsPresentOrNot($data_to_search,$data_for_session) {
         }
     }
     return false;
+}
+
+function getSocialIcon() {
+    $socialicon_data = array();
+    $socialicon_data =  SocialIcon::where('is_active', '=',true)
+                        ->select( 
+                            'social_icons.url', 
+                            'social_icons.icon',
+                            'social_icons.id',
+                        )
+                        ->get()
+                        ->toArray();
+                        // dd($socialicon_data);
+
+                        return $socialicon_data ;
+                        
+}
+function getSubHeaderInfo() {
+    $subheaderinfo_data = array();
+    $subheaderinfo_data =  SubHeaderInfo::where('is_active', '=',true)
+                        ->select( 
+                            'sub_header_infos.logo', 
+                            'sub_header_infos.english_tollfree_no',
+                            'sub_header_infos.marathi_tollfree_no',
+                            'sub_header_infos.english_city',
+                            'sub_header_infos.marathi_city',
+                            'sub_header_infos.id',
+                        )
+                        ->get()
+                        ->toArray();
+                        // dd($subheaderinfo_data);
+
+                        return $subheaderinfo_data ;
+                        
 }
 
 function getMenuItems() {

@@ -15,21 +15,19 @@ class MainSubMenusSeeder extends Seeder
      */
     public function run()
     {
-
-        
-
-        // MainSubMenus::create([
-        //     'created_at' => \Carbon\Carbon::now(),
-        //     'updated_at' => \Carbon\Carbon::now(),
-        //     'main_menu_id' => 1,
-        //     'menu_name_english' => 'Index',
-        //     'menu_name_marathi' => 'Index',
-        //     'order_no' => 1,
-        //     // 'url'=>'/index',
-        //     'is_static'=>true,
-        //     'is_active' => true,
+       
+        MainSubMenus::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'main_menu_id' => 1,
+            'menu_name_english' => 'Index',
+            'menu_name_marathi' => 'Index',
+            'order_no' => 1,
+            'url'=>'/index',
+            'is_static'=>true,
+            'is_active' => true,
            
-        // ]);       
+        ]);       
         MainSubMenus::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
@@ -515,7 +513,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Contact information for SDMA',
             'menu_name_marathi' => 'SDMA साठी संपर्क माहिती',
             'order_no' => 1,
-            'url'=>'/contact',
+            'url'=>'/contact-information',
             'is_static'=>true,
             'is_active' => true,
            
@@ -529,7 +527,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Feedback and suggestions',
             'menu_name_marathi' => 'अभिप्राय आणि सूचना',
             'order_no' => 2,
-            'url'=>'/contact',
+            'url'=>'/feedback-suggestions',
             'is_static'=>true,
             'is_active' => true,
            

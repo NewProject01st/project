@@ -76,25 +76,46 @@ public function updateAll($request)
                 'status' => 'error'
             ];
         }
-         // Delete existing files
-         Storage::delete([
-            'public/images/preparedness/early-warning/' . $warning_data->english_image,
-            'public/images/preparedness/early-warning/' . $warning_data->marathi_image
-        ]);
-        
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/preparedness/early-warning/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/preparedness/early-warning/', $marathiImageName);
+          //Store the previous image name
+        $previousEnglishImage = $warning_data->english_image;
+        $previousMarathiImage = $warning_data->marathi_image;
 
+       
                 
         $warning_data->english_title = $request['english_title'];
         $warning_data->marathi_title = $request['marathi_title'];
         $warning_data->english_description = $request['english_description'];
         $warning_data->marathi_description = $request['marathi_description'];
+        if($request->hasFile('english_image'))
+        {
+            if($previousEnglishImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/preparedness/early-warning/' . $previousEnglishImage);
+            }
+            
+            //Store and update new image
+             
+        $englishImageName = time() . '_english.' . $request->english_image->extension(); 
+        $request->english_image->storeAs('public/images/preparedness/early-warning/', $englishImageName);
         $warning_data->english_image = $englishImageName;
-        $warning_data->marathi_image =   $marathiImageName;
+
+        }
+        if($request->hasFile('marathi_image'))
+        {
+            if($previousMarathiImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/preparedness/early-warning/' . $previousMarathiImage);
+            }
+            
+            //Store and update new image
+             
+        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension(); 
+        $request->marathi_image->storeAs('public/images/preparedness/early-warning/', $marathiImageName);
+        $warning_data->marathi_image = $marathiImageName;
+
+        }
         $warning_data->save();        
      
         return [

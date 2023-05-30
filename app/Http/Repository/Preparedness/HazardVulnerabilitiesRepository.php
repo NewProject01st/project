@@ -76,25 +76,46 @@ public function updateAll($request)
                 'status' => 'error'
             ];
         }
-         // Delete existing files
-         Storage::delete([
-            'public/images/preparedness/hazard-vulnerability/' . $hazard_data->english_image,
-            'public/images/preparedness/hazard-vulnerability/' . $hazard_data->marathi_image
-        ]);
-        
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/preparedness/hazard-vulnerability/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/preparedness/hazard-vulnerability/', $marathiImageName);
+        //Store the previous image name
+        $previousEnglishImage = $hazard_data->english_image;
+        $previousMarathiImage = $hazard_data->marathi_image;
 
-                
+       
+        // Update fields from request     
         $hazard_data->english_title = $request['english_title'];
         $hazard_data->marathi_title = $request['marathi_title'];
         $hazard_data->english_description = $request['english_description'];
         $hazard_data->marathi_description = $request['marathi_description'];
+        if($request->hasFile('english_image'))
+        {
+            if($previousEnglishImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/preparedness/hazard-vulnerability/' . $previousEnglishImage);
+            }
+            
+            //Store and update new image
+             
+        $englishImageName = time() . '_english.' . $request->english_image->extension(); 
+        $request->english_image->storeAs('public/images/preparedness/hazard-vulnerability/', $englishImageName);
         $hazard_data->english_image = $englishImageName;
-        $hazard_data->marathi_image =   $marathiImageName;
+
+        }
+        if($request->hasFile('marathi_image'))
+        {
+            if($previousMarathiImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/preparedness/hazard-vulnerability/' . $previousMarathiImage);
+            }
+            
+            //Store and update new image
+             
+        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension(); 
+        $request->marathi_image->storeAs('public/images/preparedness/hazard-vulnerability/', $marathiImageName);
+        $hazard_data->marathi_image = $marathiImageName;
+
+        }
         $hazard_data->save();        
      
         return [

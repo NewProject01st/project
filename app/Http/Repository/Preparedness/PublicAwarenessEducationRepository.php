@@ -76,25 +76,45 @@ public function updateAll($request)
                 'status' => 'error'
             ];
         }
-         // Delete existing files
-         Storage::delete([
-            'public/images/preparedness/awareness-education/' . $awareness_data->english_image,
-            'public/images/preparedness/awareness-education/' . $awareness_data->marathi_image
-        ]);
-        
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/preparedness/awareness-education/', $englishImageName);
-        $request->marathi_image->storeAs('public/images/preparedness/awareness-education/', $marathiImageName);
-
-                
+         //Store the previous image name
+         $previousEnglishImage = $awareness_data->english_image;
+         $previousMarathiImage = $awareness_data->marathi_image;
+ 
+       
         $awareness_data->english_title = $request['english_title'];
         $awareness_data->marathi_title = $request['marathi_title'];
         $awareness_data->english_description = $request['english_description'];
         $awareness_data->marathi_description = $request['marathi_description'];
+        if($request->hasFile('english_image'))
+        {
+            if($previousEnglishImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/preparedness/awareness-education/' . $previousEnglishImage);
+            }
+            
+            //Store and update new image
+             
+        $englishImageName = time() . '_english.' . $request->english_image->extension(); 
+        $request->english_image->storeAs('public/images/preparedness/awareness-education/', $englishImageName);
         $awareness_data->english_image = $englishImageName;
-        $awareness_data->marathi_image =   $marathiImageName;
+
+        }
+        if($request->hasFile('marathi_image'))
+        {
+            if($previousMarathiImage)
+            {
+                // Delete existing files
+                Storage::delete('public/images/preparedness/awareness-education/' . $previousMarathiImage);
+            }
+            
+            //Store and update new image
+             
+        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension(); 
+        $request->marathi_image->storeAs('public/images/preparedness/awareness-education/', $marathiImageName);
+        $awareness_data->marathi_image = $marathiImageName;
+
+        }
         $awareness_data->save();        
      
         return [

@@ -73,15 +73,18 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="english_image">English Image</label>
-                                        <input type="file" name="english_image" class="form-control"
-                                            placeholder="image">
+                                        <input type="file" name="english_image" class="form-control" id="english_image"
+                                            accept="image/*" placeholder="image">
                                         @if ($errors->has('english_image'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <img src="{{ asset('storage/images/aboutus/objective-goals/' . $objectivegoals->english_image) }}"
+                                    <img id="english"
+                                        src="{{ asset('storage/images/aboutus/objective-goals/' . $objectivegoals->english_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
+                                    <img id="english_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
+                                        width="150" style="display:none">
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -93,8 +96,11 @@
                                             class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <img src="{{ asset('storage/images/aboutus/objective-goals/' . $objectivegoals->marathi_image) }}"
+                                    <img id="marathi"
+                                        src="{{ asset('storage/images/aboutus/objective-goals/' . $objectivegoals->marathi_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
+                                    <img id="marathi_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
+                                        width="150" style="display:none">
                                 </div>
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Update</button>

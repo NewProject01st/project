@@ -100,8 +100,7 @@ class StateEmergencyOperationsCenterController extends Controller
         'marathi_title' => 'required',
         'english_description' => 'required',
         'marathi_description' => 'required',
-        'english_image' => 'required',
-        'marathi_image' => 'required'
+      
         
      ];
 
@@ -110,8 +109,7 @@ class StateEmergencyOperationsCenterController extends Controller
         'marathi_title.required' => 'Please enter Marathi title.',
         'english_description.required' => 'Please  enter english description.',
         'marathi_description.required' => 'Please enter marathi description.',
-        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+      
     ];
 
     try {
