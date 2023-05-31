@@ -69,6 +69,73 @@
 </head>
 
 <body>
+{{--
+<?php 
+
+$url =  "https://api.open-meteo.com/v1/forecast?latitude=73.7898&longitude=19.9975&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m";
+         
+         function CallAPI($method, $url, $data = false) {
+             $curl = curl_init();
+         
+             switch ($method)
+             {
+                 case "POST":
+                     curl_setopt($curl, CURLOPT_POST, 1);
+         
+                     if ($data)
+                         curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                     break;
+                 case "PUT":
+                     curl_setopt($curl, CURLOPT_PUT, 1);
+                     break;
+                 default:
+                     if ($data)
+                         $url = sprintf("%s?%s", $url, http_build_query($data));
+             }
+         
+             // Optional Authentication:
+             curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+             curl_setopt($curl, CURLOPT_USERPWD, "username:password");
+         
+             curl_setopt($curl, CURLOPT_URL, $url);
+             curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+         
+             $result = curl_exec($curl);
+         
+             curl_close($curl);
+         
+             return $result;
+         }
+         
+         $frontsliderlist = CallAPI('get',$url);
+         $frontsliderlist = json_decode($frontsliderlist, true);
+         echo "<pre>";
+
+         print_r($frontsliderlist);
+         $key_tocheck= '';
+         foreach($frontsliderlist['hourly'] as $key =>$hour) {
+            foreach($hour as $key_new =>$hour_new) {
+                if($hour_new == date("Y-m-d")."T".date("H").":00") {
+                    $key_tocheck = $key_new;
+                }
+            }
+
+            if($hour = 'temperature_2m') {
+                foreach($hour as $key_temp =>$hour_new) {
+                    if($key_temp == $key_new) {
+                        $temp = $key_new;
+                    }
+                }
+            }
+         }
+        echo "FInal key ".$key_tocheck;
+        echo "temp ".$temp;
+        echo "FInal key ".date("Y-m-d")."T".date("H").":00";
+        //$temp_final =  (9/5($temp - 273) + 32);
+
+
+?>  
+--}}
 
     <!-- <div class="header">
         <div class="container-fluid">
