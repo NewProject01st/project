@@ -1,4 +1,5 @@
       <!-- left sidebar -->
+      <?php $data_for_url  = getRouteDetailsPresentOrNot(session('permissions')); ?>
       <nav class="sidebar sidebar-offcanvas fixed-nav" id="sidebar">
           <ul class="nav">
               <li class="nav-item nav-profile">
@@ -22,7 +23,10 @@
                       <span class="menu-title">Dashboard</span>
                   </a>
               </li>
-
+            @if (
+            in_array("list-social-icon", $data_for_url) ||
+            in_array("list-sub-header-info", $data_for_url) 
+            )
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                       aria-controls="page-layouts">
@@ -40,7 +44,8 @@
                       </ul>
                   </div>
               </li>
-              @if (getRouteDetailsPresentOrNot('list-main-menu', session('permissions')) || getRouteDetailsPresentOrNot('list-sub-menu', session('permissions')))
+              @endif
+              @if (in_array("list-main-menu", $data_for_url))
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#menu" aria-expanded="false"
                       aria-controls="menu">
@@ -59,7 +64,7 @@
                   </div>
               </li>
               @endif
-              @if (getRouteDetailsPresentOrNot('list-dynamic-page', session('permissions')))
+              @if (in_array("list-dynamic-page", $data_for_url))
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#pages" aria-expanded="false"
                       aria-controls="pages">
@@ -78,15 +83,15 @@
               @endif
 
               @if (
-                getRouteDetailsPresentOrNot('list-marquee', session('permissions')) ||
-                getRouteDetailsPresentOrNot('list-slide', session('permissions')) ||
-                getRouteDetailsPresentOrNot('list-disaster-management-web-portal', session('permissions')) ||
-                getRouteDetailsPresentOrNot('list-disaster-management-news', session('permissions')) ||
-                getRouteDetailsPresentOrNot('list-weather', session('permissions')) ||
-                getRouteDetailsPresentOrNot('list-disasterforcast', session('permissions')) ||
-                getRouteDetailsPresentOrNot('list-emergency-contact', session('permissions')) ||
-                getRouteDetailsPresentOrNot('list-home-tender', session('permissions')) ||
-                getRouteDetailsPresentOrNot('list-general-contact', session('permissions'))
+                in_array('list-marquee',$data_for_url) ||
+                in_array('list-slide',$data_for_url) ||
+                in_array('list-disaster-management-web-portal',$data_for_url) ||
+                in_array('list-disaster-management-news',$data_for_url) ||
+                in_array('list-weather',$data_for_url) ||
+                in_array('list-disasterforcast',$data_for_url) ||
+                in_array('list-emergency-contact',$data_for_url) ||
+                in_array('list-home-tender',$data_for_url) ||
+                in_array('list-general-contact',$data_for_url)
               )
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#home" aria-expanded="false"
@@ -302,7 +307,7 @@
                           <span class="menu-title">Master Management</span>
                           <i class="menu-arrow"></i>
                       </a>
-                      @if (getRouteDetailsPresentOrNot('list-users', session('permissions')))
+                      @if (in_array('list-users',$data_for_url))
                       <?php $currenturl = Request::url(); ?>
                       <div class="collapse" id="page-layouts">
                           <ul class="nav flex-column sub-menu">
