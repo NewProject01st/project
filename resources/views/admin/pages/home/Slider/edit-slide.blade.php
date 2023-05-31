@@ -86,8 +86,8 @@
                                         <input type="file" name="english_image" class="form-control" id="english_image"
                                             accept="image/*" placeholder="image">
                                         @if ($errors->has('english_image'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
+                                        <div
+                                            class="red-text"><?php echo $errors->first('english_image', ':message'); ?></div>
                                         @endif
                                     </div>
                                     <img id="english"
@@ -96,14 +96,15 @@
                                     <img id="english_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">
                                 </div>
+
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="marathi_image">Marathi Image</label>
                                         <input type="file" name="marathi_image" id="marathi_image" accept="image/*"
                                             class="form-control">
                                         @if ($errors->has('marathi_image'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
+                                        <div
+                                            class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></div>
                                         @endif
                                     </div>
 

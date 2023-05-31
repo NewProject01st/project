@@ -101,7 +101,7 @@
                                             </span>
                                             <strong>
                                                 <select name="language" id="language">
-                                                    <option value="">Slect language</option>
+                                                    <option value="">Select Language</option>
                                                     <option value="en" <?php if ($language == 'en') {
                                                         echo 'selected';
                                                     }
