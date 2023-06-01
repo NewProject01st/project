@@ -159,8 +159,7 @@
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-objectivegoals') }}">Objective Goals</a></li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-statedisastermanagementauthority') }}">State Disaster Management
-                                  Authority</a></li>
+                                  href="{{ route('list-statedisastermanagementauthority') }}">State Disaster Management Authority</a></li>
 
                       </ul>
                   </div>
@@ -219,13 +218,11 @@
                   <div class="collapse" id="emergency-response">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-state-emergency-operations-center') }}">State Emergency
-                                  Operations Center (EOC)
+                                  href="{{ route('list-state-emergency-operations-center') }}">State Emergency Operations Center (EOC)
                               </a>
                           </li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-district-emergency-operations-center') }}">District Emergency
-                                  Operations Center (DEOC)</a>
+                                  href="{{ route('list-district-emergency-operations-center') }}">District Emergency Operations Center (DEOC)</a>
                           </li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-emergency-contact-numbers') }}">Emergency Contact Numbers</a>
@@ -291,19 +288,15 @@
                   <div class="collapse" id="policie-legislation">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-state-disaster-management-plan') }}">State Disaster Management
-                                  Plan
+                                  href="{{ route('list-state-disaster-management-plan') }}">State Disaster Management Plan
                               </a>
                           </li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-district-disaster-management-plan') }}">District Disaster
-                                  Management
-                                  Plan
+                                  href="{{ route('list-district-disaster-management-plan') }}">District Disaster Management Plan
                               </a>
                           </li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-state-disaster-management-policy') }}">State Disaster Management
-                                  Policy
+                                  href="{{ route('list-state-disaster-management-policy') }}">State Disaster Management Policy
                               </a>
                           </li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
