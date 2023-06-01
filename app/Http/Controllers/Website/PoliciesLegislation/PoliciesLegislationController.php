@@ -58,7 +58,7 @@ class PoliciesLegislationController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.policies-legislation.list-district-emergency-operations-center-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.policies-legislation.list-district-disaster-managementplan-web',compact('language','menu','socialicon', 'data_output'));
     }
 
     public function getAllStateDisasterManagementPolicy()
@@ -77,7 +77,7 @@ class PoliciesLegislationController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.policies-legislation.list-emergency-contact-numbers-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.policies-legislation.list-state-management-policy-web',compact('language','menu','socialicon', 'data_output'));
     }
     public function getAllRelevantLawsRegulation()
     {
@@ -95,7 +95,7 @@ class PoliciesLegislationController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.policies-legislation.list-search-rescue-teams-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.policies-legislation.list-relevant-laws-web',compact('language','menu','socialicon', 'data_output'));
     }
     
 }

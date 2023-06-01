@@ -352,7 +352,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Upcoming events and trainings',
             'menu_name_marathi' => 'आगामी कार्यक्रम आणि प्रशिक्षण',
             'order_no' => 1,
-            'url'=>'/list-event-web',
+            'url'=>'/list-training-event-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -378,7 +378,6 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_marathi' => 'राज्य आपत्ती व्यवस्थापन योजना',
             'order_no' => 1,
             'url'=>'/list-state-disaster-managementplan-web',
-            
             'is_static'=>true,
             'is_active' => true,
            
@@ -391,6 +390,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => ' District disaster management plans',
             'menu_name_marathi' => 'जिल्हा आपत्ती व्यवस्थापन योजना',
             'order_no' => 2,
+            'url'=>'/list-district-disaster-managementplan-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -403,6 +403,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => '  State disaster management policy',
             'menu_name_marathi' => 'राज्य आपत्ती व्यवस्थापन धोरण',
             'order_no' => 3,
+            'url'=>'/list-state-management-policy-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -415,6 +416,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => ' Relevant laws and regulations',
             'menu_name_marathi' => 'संबंधित कायदे आणि नियम',
             'order_no' => 4,
+            'url'=>'/list-relevant-laws-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -427,6 +429,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => ' Documents and publications',
             'menu_name_marathi' => 'दस्तऐवज आणि प्रकाशने',
             'order_no' => 1,
+            'url'=>'/list-documents-publications-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -439,6 +442,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => ' Maps and GIS data',
             'menu_name_marathi' => 'नकाशे आणि GIS डेटा',
             'order_no' => 2,
+            'url'=>'/list-maps-gis-data-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -450,6 +454,7 @@ class MainSubMenusSeeder extends Seeder
             'main_menu_id' => 9,
             'menu_name_english' => 'Videos and multimedia',
             'menu_name_marathi' => 'व्हिडिओ आणि मल्टीमीडिया',
+            'url'=>'/list-multimedia-web',
             'order_no' => 3,
             'is_static'=>true,
             'is_active' => true,
@@ -489,6 +494,7 @@ class MainSubMenusSeeder extends Seeder
             'main_menu_id' => 10,
             'menu_name_english' => ' Upcoming events and trainings',
             'menu_name_marathi' => 'आगामी कार्यक्रम आणि प्रशिक्षण',
+            'url'=>'/list-training-event-web',
             'order_no' => 2,
             'is_static'=>true,
             'is_active' => true,

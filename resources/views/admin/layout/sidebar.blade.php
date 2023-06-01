@@ -1,5 +1,11 @@
       <!-- left sidebar -->
-      <?php $data_for_url  = getRouteDetailsPresentOrNot(session('permissions')); ?>
+      <?php
+      
+     
+      $data_for_url  = getRouteDetailsPresentOrNot(session('permissions')); 
+    //   print_r($data_for_url);
+    //   die()
+      ?>
       <nav class="sidebar sidebar-offcanvas fixed-nav" id="sidebar">
           <ul class="nav">
               <li class="nav-item nav-profile">
@@ -128,15 +134,21 @@
               </li>
               @endif
 
+
+            @if (
+                in_array('list-disastermanagementportal',$data_for_url) ||
+                in_array('list-objectivegoals',$data_for_url) ||
+                in_array('list-statedisastermanagementauthority',$data_for_url) 
+              )
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                      aria-controls="page-layouts">
+                  <a class="nav-link" data-toggle="collapse" href="#aboutus" aria-expanded="false"
+                      aria-controls="aboutus">
                       <i class="fa fa-th-large menu-icon"></i>
                       <span class="menu-title">About Us</span>
                       <i class="menu-arrow"></i>
                   </a>
 
-                  <div class="collapse" id="page-layouts">
+                  <div class="collapse" id="aboutus">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-disastermanagementportal') }}">Disaster Management Portal</a>
@@ -144,21 +156,27 @@
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-objectivegoals') }}">Objective Goals</a></li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-statedisastermanagementauthority') }}">State Disaster Management
-                                  Authority</a></li>
+                                  href="{{ route('list-statedisastermanagementauthority') }}">State Disaster Management Authority</a></li>
 
                       </ul>
                   </div>
               </li>
+              @endif
+              @if (
+                in_array('list-hazard-vulnerability-assessment',$data_for_url) ||
+                in_array('list-early-warning-system',$data_for_url) ||
+                in_array('list-capacity-building-and-training',$data_for_url) ||
+                in_array('list-public-awareness-and-education',$data_for_url) 
+              )
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                      aria-controls="page-layouts">
+                  <a class="nav-link" data-toggle="collapse" href="#preparedness" aria-expanded="false"
+                      aria-controls="preparedness">
                       <i class="fa fa-th-large menu-icon"></i>
                       <span class="menu-title">Preparedness</span>
                       <i class="menu-arrow"></i>
                   </a>
 
-                  <div class="collapse" id="page-layouts">
+                  <div class="collapse" id="preparedness">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-hazard-vulnerability-assessment') }}">Hazard and Vulnerability
@@ -177,24 +195,31 @@
                       </ul>
                   </div>
               </li>
+              @endif
+              @if (
+                in_array('list-state-emergency-operations-center',$data_for_url) ||
+                in_array('list-district-emergency-operations-center',$data_for_url) ||
+                in_array('list-emergency-contact-numbers',$data_for_url) ||
+                in_array('list-evacuation-plans',$data_for_url) ||
+                in_array('list-relief-measures-resources',$data_for_url) |
+                in_array('list-search-rescue-teams',$data_for_url)
+              )
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                      aria-controls="page-layouts">
+                  <a class="nav-link" data-toggle="collapse" href="#emergency-response" aria-expanded="false"
+                      aria-controls="emergency-response">
                       <i class="fa fa-th-large menu-icon"></i>
                       <span class="menu-title">Emergency Response</span>
                       <i class="menu-arrow"></i>
                   </a>
 
-                  <div class="collapse" id="page-layouts">
+                  <div class="collapse" id="emergency-response">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-state-emergency-operations-center') }}">State Emergency
-                                  Operations Center (EOC)
+                                  href="{{ route('list-state-emergency-operations-center') }}">State Emergency Operations Center (EOC)
                               </a>
                           </li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-district-emergency-operations-center') }}">District Emergency
-                                  Operations Center (DEOC)</a>
+                                  href="{{ route('list-district-emergency-operations-center') }}">District Emergency Operations Center (DEOC)</a>
                           </li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-emergency-contact-numbers') }}">Emergency Contact Numbers</a>
@@ -211,15 +236,21 @@
                       </ul>
                   </div>
               </li>
+              @endif
+              @if (
+                in_array('list-report-crowdsourcing',$data_for_url) ||
+                in_array('list-volunteer-citizen-support',$data_for_url) ||
+                in_array('list-citizen-feedback-and-suggestion',$data_for_url) 
+              )
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                      aria-controls="page-layouts">
+                  <a class="nav-link" data-toggle="collapse" href="#citizen-action" aria-expanded="false"
+                      aria-controls="citizen-action">
                       <i class="fa fa-th-large menu-icon"></i>
                       <span class="menu-title">Citizen Action</span>
                       <i class="menu-arrow"></i>
                   </a>
 
-                  <div class="collapse" id="page-layouts">
+                  <div class="collapse" id="citizen-action">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-report-crowdsourcing') }}">Report Incident Crowdsourcing
@@ -236,30 +267,33 @@
                       </ul>
                   </div>
               </li>
+              @endif
+              @if (
+                in_array('list-state-disaster-management-plan',$data_for_url) ||
+                in_array('list-district-disaster-management-plan',$data_for_url) ||
+                in_array('list-state-disaster-management-policy',$data_for_url) ||
+                in_array('list-relevant-laws-and-regulations',$data_for_url) 
+              )
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                      aria-controls="page-layouts">
+                  <a class="nav-link" data-toggle="collapse" href="#policie-legislation" aria-expanded="false"
+                      aria-controls="policie-legislation">
                       <i class="fa fa-th-large menu-icon"></i>
                       <span class="menu-title">Policies Legislation</span>
                       <i class="menu-arrow"></i>
                   </a>
 
-                  <div class="collapse" id="page-layouts">
+                  <div class="collapse" id="policie-legislation">
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-state-disaster-management-plan') }}">State Disaster Management
-                                  Plan
+                                  href="{{ route('list-state-disaster-management-plan') }}">State Disaster Management Plan
                               </a>
                           </li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-district-disaster-management-plan') }}">District Disaster
-                                  Management
-                                  Plan
+                                  href="{{ route('list-district-disaster-management-plan') }}">District Disaster Management Plan
                               </a>
                           </li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-state-disaster-management-policy') }}">State Disaster Management
-                                  Policy
+                                  href="{{ route('list-state-disaster-management-policy') }}">State Disaster Management Policy
                               </a>
                           </li>
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
@@ -269,6 +303,10 @@
                       </ul>
                   </div>
               </li>
+              @endif
+              @if (
+                in_array('list-event',$data_for_url) 
+              )
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                       aria-controls="page-layouts">
@@ -311,42 +349,57 @@
                       <span class="menu-title">Event</span>
                   </a>
               </li>
+              @endif
+              @if (
+                in_array('list-tenders',$data_for_url) 
+              )
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('list-tenders') }}">
                       <i class="fas fa-window-restore menu-icon"></i>
                       <span class="menu-title">Tender</span>
                   </a>
               </li>
+              @endif
+              @if (
+                in_array('list-policiesacts',$data_for_url) 
+              )
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('list-policiesacts') }}">
                       <i class="fas fa-window-restore menu-icon"></i>
                       <span class="menu-title">Policies & Acts</span>
                   </a>
               </li>
+              @endif
+              @if (
+                in_array('list-projects',$data_for_url) 
+              )
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('list-projects') }}">
                       <i class="fas fa-window-restore menu-icon"></i>
                       <span class="menu-title">Projects</span>
                   </a>
               </li>
+              @endif
+              @if (
+                in_array('list-metadata',$data_for_url) 
+              )
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('list-metadata') }}">
                       <i class="fas fa-window-restore menu-icon"></i>
                       <span class="menu-title">Metadata</span>
                   </a>
               </li>
+              @endif
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                      aria-controls="page-layouts">
-                      <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                          aria-controls="page-layouts">
+                      <a class="nav-link" data-toggle="collapse" href="#master-management" aria-expanded="false"
+                          aria-controls="master-management">
                           <i class="fa fa-th-large menu-icon"></i>
                           <span class="menu-title">Master Management</span>
                           <i class="menu-arrow"></i>
                       </a>
                       @if (in_array('list-users',$data_for_url))
                       <?php $currenturl = Request::url(); ?>
-                      <div class="collapse" id="page-layouts">
+                      <div class="collapse" id="master-management">
                           <ul class="nav flex-column sub-menu">
                               <li class="nav-item d-none d-lg-block"> <a class="nav-link"
                                       href="{{ route('list-users') }}">Users Master</a></li>

@@ -92,19 +92,19 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('/delete-disaster-management-news') }}" id="deleteform">
+    <form method="POST" action="{{ url('/delete-slide') }}" id="deleteform">
         @csrf
         <input type="hidden" name="delete_id" id="delete_id" value="">
     </form>
-    <form method="POST" action="{{ url('/show-disaster-management-news') }}" id="showform">
+    <form method="POST" action="{{ url('/show-slide') }}" id="showform">
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-disaster-management-news') }}" id="editform">
+    <form method="POST" action="{{ url('/edit-slide') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>
-    <form method="POST" action="{{ url('/update-one') }}" id="activeform">
+    <form method="POST" action="{{ url('/update-active-slide') }}" id="activeform">
         @csrf
         <input type="hidden" name="active_id" id="active_id" value="">
     </form>
