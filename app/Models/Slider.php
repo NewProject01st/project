@@ -10,5 +10,5 @@ class Slider extends Model
     use HasFactory;
     protected $table = 'sliders';
     protected $primaryKey = 'id';
-    protected $fillable = ['english_title', 'marathi_title','english_description','marathi_description','english_image', 'marathi_image'];
+    protected $fillable = ['english_title', 'marathi_title','english_description','marathi_description','english_image', 'marathi_image','image_alt'];
 }
