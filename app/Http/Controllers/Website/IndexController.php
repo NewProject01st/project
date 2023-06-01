@@ -19,7 +19,8 @@ class IndexController extends Controller
         // self::$loginServe = new LoginService();
         $this->service = new IndexServices();
         $this->menu = getMenuItems();
-
+        $this->socialicon = getSocialIcon();
+        // $this->subheaderinfo = getSubHeaderInfo();
        
     }
     public function index()
@@ -27,8 +28,8 @@ class IndexController extends Controller
         try {
 
             $menu = $this->menu;
-            // $data_output_subheader = $this->service->getAllSubHeader();
-            // $data_output_socialicon = $this->service->getAllSocialIcon();
+            $socialicon = $this->socialicon;
+            // $subheaderinfo = $this->subheaderinfo;
             $data_output_slider = $this->service->getAllSlider();
             $data_output_marquee = $this->service->getAllMarquee();
             $data_output_disastermangwebportal = $this->service->getAllDisasterManagementWebPortal();
@@ -43,8 +44,7 @@ class IndexController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        // 'data_output_subheader','data_output_socialicon',
-        return view('website.pages.index',compact('language','menu','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact'));
+        return view('website.pages.index',compact('language','menu','socialicon','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact'));
     }
     public function show(Request $request)
     {
@@ -52,6 +52,8 @@ class IndexController extends Controller
            
             //  dd($request->show_id);
               $menu = $this->menu;
+              $socialicon = $this->socialicon;
+            //   $subheaderinfo = $this->subheaderinfo;
             $disaster_news = $this->service->getById($request->show_id);
             //  dd($disaster_news);
             if (Session::get('language') == 'mar') {
@@ -63,7 +65,7 @@ class IndexController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-            return view('website.pages.new-paricular-data-web', compact('language','menu','disaster_news'));
+            return view('website.pages.new-paricular-data-web', compact('language','menu','socialicon','disaster_news'));
         } 
     
 

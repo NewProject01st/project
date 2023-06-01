@@ -5,8 +5,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-sm-7 d-flex align-items-center">
-                        {{-- <ul class="footer-social">
-                            @foreach ($data_output_socialicon as $item)
+                        <ul class="footer-social">
+                            {{-- @foreach ($socialicon as $key => $socialicon_data) --}}
+                            {{-- @foreach ($socialicon_data as $key => $socialicon_data_new) --}}
+                            {{-- @foreach ($socialicon as $item)
                                 @if (session('language') == 'mar')
                                     <li><a href="#" class="fb"><img
                                                 src="{{ asset('storage/images/header/social-icon/' . $item['icon']) }}"
@@ -16,8 +18,9 @@
                                                 src="{{ asset('storage/images/header/social-icon/' . $item['icon']) }}"
                                                 class="d-block w-100"></a></li>
                                 @endif
-                            @endforeach
-                        </ul> --}}
+                            @endforeach --}}
+                            {{-- @endforeach --}}
+                        </ul>
                         <ul class="footer-social">
                             <li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>
                             <li><a href="#" class="tw"><i class="fab fa-twitter"></i></a></li>
@@ -45,11 +48,29 @@
                             <li><a href="#">RTI</a></li>
                         </ul>
                     </div>
+
+                    {{-- @foreach ($subheaderinfo as $item)
+                        @if (session('language') == 'mar')
+                            <div class="col-md-4 col-sm-4">
+                                <div class="h3-logo"> <a href="index.html"><img
+                                    src="{{ asset('storage/images/header/sub-header/' . $item['logo']) }}" alt=""
+                                            style="width: 50%;"></a></div>
+                            </div>
+                        @else
+                            <div class="col-md-4 col-sm-4">
+                                <div class="h3-logo"> <a href="index.html"><img
+                                    src="{{ asset('storage/images/header/sub-header/' . $item['logo']) }}" alt=""
+                                            style="width: 50%;"></a></div>
+                            </div>
+                        @endif
+                    @endforeach --}}
+                    
                     <div class="col-md-4 col-sm-4">
                         <div class="h3-logo"> <a href="index.html"><img
                                     src="{{ asset('website_files/images/home/DMS.png') }}" alt=""
                                     style="width: 50%;"></a></div>
                     </div>
+
                     <div class="col-md-4 col-sm-4">
                         <div class="row">
                             <div class="col-md-9 col-sm-9">
@@ -57,7 +78,8 @@
                                 <ul class="header-contact">
                                     <li><span>Toll Free:</span> <strong>0000 00000</strong></li>
                                     <li class="city-exp"> <i class="fas fa-street-view"></i>
-                                        <strong>City<br>Nashik</strong> </li>
+                                        <strong>City<br>Nashik</strong>
+                                    </li>
                                     <li class="header-weather"> <i class="fas fa-cloud-sun"></i> 24°C / 75°F </li>
 
                                 </ul>
@@ -79,7 +101,7 @@
                                             </span>
                                             <strong>
                                                 <select name="language" id="language">
-                                                    <option value="">Slect language</option>
+                                                    <option value="">Select Language</option>
                                                     <option value="en" <?php if ($language == 'en') {
                                                         echo 'selected';
                                                     }

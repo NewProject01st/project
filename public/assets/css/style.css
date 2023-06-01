@@ -18313,8 +18313,21 @@ input:focus {
 } */
 
 /* Sidebar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e17337c9; 
+  border-radius: 10px;
+}
 .sidebar {
-  min-height: calc(100vh - 70px);
+  /* min-height: calc(100vh - 70px); */
+  height: 100vh;
+  overflow-y: scroll;
   background: #130c0e;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;

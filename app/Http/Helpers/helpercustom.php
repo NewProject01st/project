@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\ {
 	MainMenus,
     MainSubMenus,
-    DynamicWebPages
+    DynamicWebPages,
+    SocialIcon
 };
 
 function getIPAddress($req)
@@ -22,15 +23,76 @@ function getLanguageSelected() {
     }
     return $language;
 }
-function getRouteDetailsPresentOrNot($data_to_search,$data_for_session) {
-    foreach ($data_for_session as $key => $value) {
-        foreach ($value as $key => $value_new) {
-            if ($key == 'route_name' && $value_new == $data_to_search) {
-                return true;
-            } 
+function getRouteDetailsPresentOrNot($data_for_session) {
+    // // dd($data_for_session);
+    // foreach ($data_for_session as $key => $value) {
+    //     // dd($value);
+    //     foreach ($value as $key => $value_new) {
+    //         // dd($value_new);
+    //         if ($key == 'url' && $value_new == $data_to_search) {
+    //             return true;
+    //         } 
+    //     }
+    // }
+    // return false;
+
+    $data =[];
+    foreach ($data_for_session as $value_new) {
+        array_push($data,$value_new['url']);
+    }
+    return $data;
+}
+
+function getPermissionForCRUDPresentOrNot($url,$data_for_session) {
+    $data =[];
+    foreach ($data_for_session as $value_new) {
+       
+        if($value_new['url'] == $url) {
+            info($value_new);
+            foreach ($value_new as $key => $value) {
+                info($value);
+                if($value == 1) {
+                    array_push($data,$key);
+                }
+            }
+            return $data;
         }
     }
-    return false;
+    return $data;
+}
+
+function getSocialIcon() {
+    $socialicon_data = array();
+    $socialicon_data =  SocialIcon::where('is_active', '=',true)
+                        ->select( 
+                            'social_icons.url', 
+                            'social_icons.icon',
+                            'social_icons.id',
+                        )
+                        ->get()
+                        ->toArray();
+                        // dd($socialicon_data);
+
+                        return $socialicon_data ;
+                        
+}
+function getSubHeaderInfo() {
+    $subheaderinfo_data = array();
+    $subheaderinfo_data =  SubHeaderInfo::where('is_active', '=',true)
+                        ->select( 
+                            'sub_header_infos.logo', 
+                            'sub_header_infos.english_tollfree_no',
+                            'sub_header_infos.marathi_tollfree_no',
+                            'sub_header_infos.english_city',
+                            'sub_header_infos.marathi_city',
+                            'sub_header_infos.id',
+                        )
+                        ->get()
+                        ->toArray();
+                        // dd($subheaderinfo_data);
+
+                        return $subheaderinfo_data ;
+                        
 }
 
 function getMenuItems() {

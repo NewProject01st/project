@@ -51,7 +51,8 @@
                                                 <td><img
                                                         src="{{ asset('storage/images/aboutus/objective-goals/' . $item->marathi_image) }}" />
                                                 </td>
-                                                <td class="d-flex">
+                                                <td>
+                                                    <div class="d-flex">
                                                     <a data-id="{{ $item->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-pencil-alt"></i></a>
@@ -62,6 +63,7 @@
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                         title="Delete Objective Goals"><i
                                                             class="fas fa-archive"></i></a>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             @endforeach

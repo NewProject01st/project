@@ -36,6 +36,7 @@ class RegisterRepository  {
 		$user_data->save();
 
 		$last_insert_id = $user_data->id;
+		// dd($last_insert_id);
 		$this->insertRolesPermissions($request, $last_insert_id);
         return $last_insert_id;
 	}

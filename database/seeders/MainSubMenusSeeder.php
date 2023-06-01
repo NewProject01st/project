@@ -353,7 +353,6 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_marathi' => 'आगामी कार्यक्रम आणि प्रशिक्षण',
             'order_no' => 1,
             'url'=>'/list-event-web',
-           
             'is_static'=>true,
             'is_active' => true,
            
@@ -378,6 +377,8 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'State disaster management plan',
             'menu_name_marathi' => 'राज्य आपत्ती व्यवस्थापन योजना',
             'order_no' => 1,
+            'url'=>'/list-state-disaster-managementplan-web',
+            
             'is_static'=>true,
             'is_active' => true,
            
@@ -513,7 +514,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Contact information for SDMA',
             'menu_name_marathi' => 'SDMA साठी संपर्क माहिती',
             'order_no' => 1,
-            'url'=>'/contact',
+            'url'=>'/contact-information',
             'is_static'=>true,
             'is_active' => true,
            
@@ -527,7 +528,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Feedback and suggestions',
             'menu_name_marathi' => 'अभिप्राय आणि सूचना',
             'order_no' => 2,
-            'url'=>'/contact',
+            'url'=>'/feedback-suggestions',
             'is_static'=>true,
             'is_active' => true,
            

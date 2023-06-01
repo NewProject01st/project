@@ -22,22 +22,16 @@ class SubHeaderInfoRepository{
 	public function addAll($request)
 {
     try {
-        $englishImageName = time() . '_english.' . $request->english_logo->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_logo->extension();
+        $englishImageName = time() . '_english.' . $request->logo->extension();
         
-        $request->english_logo->storeAs('public/images/header/sub-header', $englishImageName);
-        $request->marathi_logo->storeAs('public/images/header/sub-header', $marathiImageName);
-
+        $request->logo->storeAs('public/images/header/sub-header', $englishImageName);
         
         $sub_header_info = new SubHeaderInfo();
-        $sub_header_info->english_logo = $englishImageName;
-        $sub_header_info->marathi_logo =   $marathiImageName;
-        $sub_header_info->english_tollfree_title = $request['english_tollfree_title'];
-        $sub_header_info->marathi_tollfree_title = $request['marathi_tollfree_title'];
+        $sub_header_info->logo = $englishImageName;
+        // $sub_header_info->english_tollfree_title = $request['english_tollfree_title'];
+        // $sub_header_info->marathi_tollfree_title = $request['marathi_tollfree_title'];
         $sub_header_info->english_tollfree_no = $request['english_tollfree_no'];
         $sub_header_info->marathi_tollfree_no = $request['marathi_tollfree_no'];
-        $sub_header_info->english_city_title = $request['english_city_title'];
-        $sub_header_info->marathi_city_title = $request['marathi_city_title'];
         $sub_header_info->english_city = $request['english_city'];
         $sub_header_info->marathi_city = $request['marathi_city'];
 
@@ -83,26 +77,21 @@ public function updateAll($request)
         }
          // Delete existing files
          Storage::delete([
-            'public/images/header/sub-header/' . $subheader_info->english_logo,
-            'public/images/header/sub-header/' . $subheader_info->marathi_logo
+            'public/images/header/sub-header/' . $subheader_info->logo,
         ]);
         
-        $englishImageName = time() . '_english.' . $request->english_logo->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_logo->extension();
+        $englishImageName = time() . '_english.' . $request->logo->extension();
         
-        $request->english_logo->storeAs('public/images/header/sub-header/', $englishImageName);
-        $request->marathi_logo->storeAs('public/images/header/sub-header/', $marathiImageName);
-
-        $subheader_info->english_logo = $englishImageName;
-        $subheader_info->marathi_logo =   $marathiImageName;
-        $subheader_info->english_tollfree_title = $request['english_tollfree_title'];
-        $subheader_info->marathi_tollfree_title = $request['marathi_tollfree_title'];
-        $subheader_info->english_tollfree_no = $request['english_tollfree_no'];
-        $subheader_info->marathi_tollfree_no = $request['marathi_tollfree_no'];
-        $subheader_info->english_city_title = $request['english_city_title'];
-        $subheader_info->marathi_city_title = $request['marathi_city_title'];
-        $subheader_info->english_city = $request['english_city'];
-        $subheader_info->marathi_city = $request['marathi_city'];
+        $request->logo->storeAs('public/images/header/sub-header', $englishImageName);
+        
+        $sub_header_info = new SubHeaderInfo();
+        $sub_header_info->logo = $englishImageName;
+        // $sub_header_info->english_tollfree_title = $request['english_tollfree_title'];
+        // $sub_header_info->marathi_tollfree_title = $request['marathi_tollfree_title'];
+        $sub_header_info->english_tollfree_no = $request['english_tollfree_no'];
+        $sub_header_info->marathi_tollfree_no = $request['marathi_tollfree_no'];
+        $sub_header_info->english_city = $request['english_city'];
+        $sub_header_info->marathi_city = $request['marathi_city'];
 
 
         $subheader_info->save();       
@@ -127,8 +116,7 @@ public function deleteById($id)
         if ($subheader_info) {
               // Delete the images from the storage folder
               Storage::delete([
-                'public/images/header/sub-header/'.$subheader_info->english_logo,
-                'public/images/header/sub-header/'.$subheader_info->marathi_logo
+                'public/images/header/sub-header/'.$subheader_info->logo,
             ]);
 
             // Delete the record from the database

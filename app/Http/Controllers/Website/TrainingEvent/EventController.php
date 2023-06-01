@@ -19,6 +19,7 @@ class EventController extends Controller
         // self::$loginServe = new LoginService();
         $this->service = new EventServices();
         $this->menu = getMenuItems();
+        $this->socialicon = getSocialIcon();
 
        
     }
@@ -32,6 +33,7 @@ class EventController extends Controller
         try {
 
             $menu = $this->menu;
+            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllEvent();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -41,6 +43,6 @@ class EventController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.training-event.list-event-web',compact('language','menu', 'data_output'));
+        return view('website.pages.training-event.list-event-web',compact('language','menu','socialicon', 'data_output'));
     }  
 }

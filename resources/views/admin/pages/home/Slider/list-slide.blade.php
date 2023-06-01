@@ -5,12 +5,14 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Slides List <a href="{{ route('add-slide') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
+               Slides List <a href="{{ route('add-slide') }}"
+                    class="btn btn-sm btn-primary ml-3">+
+                    Add</a>
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Master Management</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Slides List</li>
+                    <li class="breadcrumb-item"><a href="#">Slides List</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Slides List</li>
                 </ol>
             </nav>
         </div>
@@ -48,12 +50,11 @@
                                                 <td><?php echo $item->url; ?></td>
                                                 <td><?php echo $item->image_alt; ?></td>
                                                 <td> <img
-                                                        src="{{ asset('storage/images/slides/' . $item->english_image) }}" />
-                                                </td>
-                                                <td> <img
-                                                        src="{{ asset('storage/images/slides/' . $item->marathi_image) }}" />
-                                                </td>
-
+                                                    src="{{ asset('storage/images/slides/' . $item->english_image) }}" />
+                                            </td>
+                                            <td> <img
+                                                    src="{{ asset('storage/images/slides/' . $item->marathi_image) }}" />
+                                            </td>
                                                 <td>
                                                     <label class="switch">
                                                         <input data-id="{{ $item->id }}" type="checkbox"
@@ -65,7 +66,8 @@
                                                     </label>
 
                                                 </td>
-                                                <td class=" d-flex">
+                                                <td>
+                                                    <div class="d-flex">
                                                     <a data-id="{{ $item->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-pencil-alt"></i></a>
@@ -74,10 +76,9 @@
                                                             class="fas fa-eye"></i></a>
                                                     <a data-id="{{ $item->id }}"
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                        title="Delete Slide"><i class="fas fa-archive"></i></a>
-                                                    </form>
+                                                        title="Delete Disaster News"><i class="fas fa-archive"></i></a>
+                                                    </div>
                                                 </td>
-
                                             </tr>
                                             @endforeach
 
@@ -91,21 +92,23 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('/delete-slide') }}" id="deleteform">
+    <form method="POST" action="{{ url('/delete-disaster-management-news') }}" id="deleteform">
         @csrf
         <input type="hidden" name="delete_id" id="delete_id" value="">
     </form>
-    <form method="POST" action="{{ url('/show-slide') }}" id="showform">
+    <form method="POST" action="{{ url('/show-disaster-management-news') }}" id="showform">
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-slide') }}" id="editform">
+    <form method="POST" action="{{ url('/edit-disaster-management-news') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>
-    <form method="POST" action="{{ url('/update-active-slide') }}" id="activeform">
+    <form method="POST" action="{{ url('/update-one') }}" id="activeform">
         @csrf
         <input type="hidden" name="active_id" id="active_id" value="">
     </form>
+
+    <!-- content-wrapper ends -->
 
     @endsection

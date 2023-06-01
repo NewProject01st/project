@@ -15,14 +15,13 @@ class CreateSubHeaderInfosTable extends Migration
     {
         Schema::create('sub_header_infos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('english_logo');
-            $table->string('marathi_logo');
-            $table->string('english_tollfree_title');
-            $table->string('marathi_tollfree_title');
+            $table->string('logo');
+            // $table->string('english_tollfree_title');
+            // $table->string('marathi_tollfree_title');
             $table->string('english_tollfree_no');
             $table->string('marathi_tollfree_no');
-            $table->string('english_city_title');
-            $table->string('marathi_city_title');
+            // $table->string('english_city_title');
+            // $table->string('marathi_city_title');
             $table->string('english_city');
             $table->string('marathi_city');
             $table->string('is_deleted')->default(false);
