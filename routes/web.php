@@ -60,9 +60,12 @@ Route::get('/list-report-incident-crowdsourcing-web', ['as' => 'list-report-inci
 Route::get('/volunteer-citizen-support-web', ['as' => 'volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllVolunteerCitizenSupport']);
 Route::get('/citizen-feedback-suggestions-web', ['as' => 'citizen-feedback-suggestions-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllCitizenFeedbackSuggestions']);
 
-Route::get('/list-event-web', ['as' => 'list-event-web', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllEvent']);
+Route::get('/list-training-event-web', ['as' => 'list-training-event-web', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllEvent']);
 
 Route::get('/list-state-disaster-managementplan-web', ['as' => 'list-state-disaster-managementplan-web', 'uses' => 'App\Http\Controllers\Website\PoliciesLegislation\PoliciesLegislationController@getAllStateDisasterManagementPlan']);
+Route::get('/list-district-disaster-managementplan-web', ['as' => 'list-district-disaster-managementplan-web', 'uses' => 'App\Http\Controllers\Website\PoliciesLegislation\PoliciesLegislationController@getAllDistrictDisasterManagementPlan']);
+Route::get('/list-state-management-policy-web', ['as' => 'list-state-management-policy-web', 'uses' => 'App\Http\Controllers\Website\PoliciesLegislation\PoliciesLegislationController@getAllStateDisasterManagementPolicy']);
+Route::get('/list-relevant-laws-web', ['as' => 'list-relevant-laws-web', 'uses' => 'App\Http\Controllers\Website\PoliciesLegislation\PoliciesLegislationController@getAllRelevantLawsRegulation']);
 
 // ================================================
 Route::group(['middleware' => ['admin']], function () {
