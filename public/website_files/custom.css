@@ -1973,7 +1973,7 @@ label i {
 /* **************************************** */
 ol.boxes-list {
     list-style-type: none;
-    list-style-type: decimal !ie; /*IE 7- hack*/
+    list-style-type: decimal; /*IE 7- hack*/
     margin-top: 20px;
     padding: 0;
     counter-reset: li-counter;

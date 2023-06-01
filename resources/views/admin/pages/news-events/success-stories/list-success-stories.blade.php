@@ -5,14 +5,13 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-               Slides List <a href="{{ route('add-slide') }}"
-                    class="btn btn-sm btn-primary ml-3">+
+                Success Stories <a href="{{ route('add-success-stories') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Slides List</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Slides List</li>
+                    <li class="breadcrumb-item"><a href="#">Success Stories</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Success Stories</li>
                 </ol>
             </nav>
         </div>
@@ -31,30 +30,29 @@
                                                 <th>Title Marathi</th>
                                                 <th>Description English</th>
                                                 <th>Description Marathi</th>
-                                                <th>URL</th>
-                                                <th>Image Alt Text</th>
-                                                <th>Image English</th>
-                                                <th>Image Marathi</th>
-                                                <th>Status</th>
+                                                <th>Designation English</th>
+                                                <th>Designation Marathi</th>
+                                                <th>English Image</th>
+                                                <th>Marathi Image</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($slider as $item)
+                                            @foreach ($success_stories as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td><?php echo $item->english_title; ?></td>
                                                 <td><?php echo $item->marathi_title; ?></td>
                                                 <td><?php echo $item->english_description; ?></td>
                                                 <td><?php echo $item->marathi_description; ?></td>
-                                                <td><?php echo $item->url; ?></td>
-                                                <td><?php echo $item->image_alt; ?></td>
+                                                <td>{{ $item->english_designation }}</td>
+                                                <td>{{ $item->marathi_designation }}</td>
                                                 <td> <img
-                                                    src="{{ asset('storage/images/slides/' . $item->english_image) }}" />
-                                            </td>
-                                            <td> <img
-                                                    src="{{ asset('storage/images/slides/' . $item->marathi_image) }}" />
-                                            </td>
+                                                        src="{{ asset('storage/images/news-events/success-stories/' . $item->english_image) }}" />
+                                                </td>
+                                                <td> <img
+                                                        src="{{ asset('storage/images/news-events/success-stories/' . $item->marathi_image) }}" />
+                                                </td>
                                                 <td>
                                                     <label class="switch">
                                                         <input data-id="{{ $item->id }}" type="checkbox"
@@ -68,15 +66,16 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex">
-                                                    <a data-id="{{ $item->id }}"
-                                                        class="edit-btn btn btn-sm btn-outline-primary m-1"><i
-                                                            class="fas fa-pencil-alt"></i></a>
-                                                    <a data-id="{{ $item->id }}"
-                                                        class="show-btn btn btn-sm btn-outline-primary m-1"><i
-                                                            class="fas fa-eye"></i></a>
-                                                    <a data-id="{{ $item->id }}"
-                                                        class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                        title="Delete Disaster News"><i class="fas fa-archive"></i></a>
+                                                        <a data-id="{{ $item->id }}"
+                                                            class="edit-btn btn btn-sm btn-outline-primary m-1"><i
+                                                                class="fas fa-pencil-alt"></i></a>
+                                                        <a data-id="{{ $item->id }}"
+                                                            class="show-btn btn btn-sm btn-outline-primary m-1"><i
+                                                                class="fas fa-eye"></i></a>
+                                                        <a data-id="{{ $item->id }}"
+                                                            class="delete-btn btn btn-sm btn-outline-danger m-1"
+                                                            title="Delete Disaster News"><i
+                                                                class="fas fa-archive"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -92,19 +91,19 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('/delete-slide') }}" id="deleteform">
+    <form method="POST" action="{{ url('/delete-success-stories') }}" id="deleteform">
         @csrf
         <input type="hidden" name="delete_id" id="delete_id" value="">
     </form>
-    <form method="POST" action="{{ url('/show-slide') }}" id="showform">
+    <form method="POST" action="{{ url('/show-success-stories') }}" id="showform">
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-slide') }}" id="editform">
+    <form method="POST" action="{{ url('/edit-success-stories') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>
-    <form method="POST" action="{{ url('/update-active-slide') }}" id="activeform">
+    <form method="POST" action="{{ url('/update-one-success-stories') }}" id="activeform">
         @csrf
         <input type="hidden" name="active_id" id="active_id" value="">
     </form>

@@ -43,6 +43,6 @@ class EventController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.training-event.list-event-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.training-event.list-training-event-web',compact('language','menu','socialicon', 'data_output'));
     }  
 }

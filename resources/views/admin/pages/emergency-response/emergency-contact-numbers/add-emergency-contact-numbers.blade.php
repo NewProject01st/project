@@ -80,46 +80,54 @@
                                             @endif
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="d-flex justify-content-end">
-                                <button type="button" class="btn btn-primary" id="add-item">Add More</button>
+                                    <button type="button" class="btn btn-primary" id="add-item">Add More</button>
                                 </div>
                                 <div id="items">
                                     <div class="item">
                                         <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label for="english_emergency_contact_title">English Emergency Contact Title</label><br>
-                                                <input class="form-control" type="text" name="english_emergency_contact_title"
-                                                    placeholder="Emergency Contact Title">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label for="english_emergency_contact_title">English Emergency Contact
+                                                        Title</label><br>
+                                                    <input class="form-control" type="text"
+                                                        name="english_emergency_contact_title[]"
+                                                        placeholder="Emergency Contact Title">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label for="marathi_emergency_contact_title">Marathi English Emergency Contact Title</label><br>
-                                                <input class="form-control" type="text" name="marathi_emergency_contact_title"
-                                                    placeholder="Emergency Contact Title">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label for="marathi_emergency_contact_title">Marathi English Emergency
+                                                        Contact Title</label><br>
+                                                    <input class="form-control" type="text"
+                                                        name="marathi_emergency_contact_title[]"
+                                                        placeholder="Emergency Contact Title">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label for="english_emergency_contact_number">English Emergency Contact Number</label><br>
-                                                <input class="form-control" type="text" name="english_emergency_contact_number"
-                                                    placeholder="Emergency Contact Number">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label for="english_emergency_contact_number">English Emergency Contact
+                                                        Number</label><br>
+                                                    <input class="form-control" type="text"
+                                                        name="english_emergency_contact_number[]"
+                                                        placeholder="Emergency Contact Number">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label for="marathi_emergency_contact_number">Marathi English Emergency Contact Number</label><br>
-                                                <input class="form-control" type="text" name="marathi_emergency_contact_number"
-                                                    placeholder="Emergency Contact Number">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label for="marathi_emergency_contact_number">Marathi English Emergency
+                                                        Contact Number</label><br>
+                                                    <input class="form-control" type="text"
+                                                        name="marathi_emergency_contact_number[]"
+                                                        placeholder="Emergency Contact Number">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="marathi_image"></label><br>
-                                        <button type="button" class="btn btn-danger remove-item">Remove</button>
-                                        </div>
+                                            <div class="col-md-2">
+                                                <label for="marathi_image"></label><br>
+                                                <button type="button" class="btn btn-danger remove-item">Remove</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +137,7 @@
                                     <span><a href="{{ route('list-disastermanagementportal') }}"
                                             class="btn btn-sm btn-primary ">Back</a></span>
                                 </div>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -137,7 +145,7 @@
         </div>
 
         {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
-        {{-- <script>
+        <script>
             $(document).ready(function() {
                 // Add more items
                 $("#add-item").click(function() {
@@ -189,5 +197,5 @@
                     $(this).closest(".item").remove();
                 });
             });
-        </script> --}}
+        </script>
     @endsection

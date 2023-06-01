@@ -5,14 +5,13 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-               Slides List <a href="{{ route('add-slide') }}"
-                    class="btn btn-sm btn-primary ml-3">+
-                    Add</a>
+                Documents And publications List <a href="{{ url('add-document-publications') }}"
+                    class="btn btn-sm btn-primary ml-3">+ Add</a>
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Slides List</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Slides List</li>
+                    <li class="breadcrumb-item"><a href="#">Documents And publications</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Documents And publications List</li>
                 </ol>
             </nav>
         </div>
@@ -31,43 +30,22 @@
                                                 <th>Title Marathi</th>
                                                 <th>Description English</th>
                                                 <th>Description Marathi</th>
-                                                <th>URL</th>
-                                                <th>Image Alt Text</th>
-                                                <th>Image English</th>
-                                                <th>Image Marathi</th>
-                                                <th>Status</th>
+                                                <th>English Pdf</th>
+                                                <th>Marathi Pdf</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($slider as $item)
+                                            @foreach ($documents_publications as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><?php echo $item->english_title; ?></td>
-                                                <td><?php echo $item->marathi_title; ?></td>
+                                                <td><?php echo $item->english_title ?></td>
+                                                <td><?php echo $item->marathi_title ?></td>
                                                 <td><?php echo $item->english_description; ?></td>
                                                 <td><?php echo $item->marathi_description; ?></td>
-                                                <td><?php echo $item->url; ?></td>
-                                                <td><?php echo $item->image_alt; ?></td>
-                                                <td> <img
-                                                    src="{{ asset('storage/images/slides/' . $item->english_image) }}" />
-                                            </td>
-                                            <td> <img
-                                                    src="{{ asset('storage/images/slides/' . $item->marathi_image) }}" />
-                                            </td>
-                                                <td>
-                                                    <label class="switch">
-                                                        <input data-id="{{ $item->id }}" type="checkbox"
-                                                            {{ $item->is_active ? 'checked' : '' }}
-                                                            class="active-btn btn btn-sm btn-outline-primary m-1"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
-                                                        <span class="slider round "></span>
-                                                    </label>
-
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex">
+                                                <td>{{ $item->english_pdf }}</td>
+                                                <td>{{ $item->marathi_pdf }}</td>
+                                                <td class="d-flex">
                                                     <a data-id="{{ $item->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-pencil-alt"></i></a>
@@ -76,8 +54,8 @@
                                                             class="fas fa-eye"></i></a>
                                                     <a data-id="{{ $item->id }}"
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                        title="Delete Disaster News"><i class="fas fa-archive"></i></a>
-                                                    </div>
+                                                        title="Delete Tender"><i class="fas fa-archive"></i></a>
+
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -92,21 +70,17 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('/delete-slide') }}" id="deleteform">
+    <form method="POST" action="{{ route('delete-document-publications') }}" id="deleteform">
         @csrf
         <input type="hidden" name="delete_id" id="delete_id" value="">
     </form>
-    <form method="POST" action="{{ url('/show-slide') }}" id="showform">
+    <form method="POST" action="{{ route('show-document-publications') }}" id="showform">
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-slide') }}" id="editform">
+    <form method="POST" action="{{ route('edit-document-publications') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
-    </form>
-    <form method="POST" action="{{ url('/update-active-slide') }}" id="activeform">
-        @csrf
-        <input type="hidden" name="active_id" id="active_id" value="">
     </form>
 
     <!-- content-wrapper ends -->

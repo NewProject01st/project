@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSlidersTable extends Migration
+class CreateSuccessStoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,18 @@ class CreateSlidersTable extends Migration
      */
     public function up()
     {
-        Schema::create('sliders', function (Blueprint $table) {
-            $table->id();
-            $table->string('english_image');
-            $table->string('marathi_image');
+        Schema::create('success_stories', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->text('english_title');
             $table->text('marathi_title');
             $table->text('english_description');
             $table->text('marathi_description');
-            // $table->string('english_scrolltime');
-            $table->string('image_alt');
-            $table->string('url')->default('null');
+            $table->string('english_image');
+            $table->string('marathi_image');        
+            $table->string('english_designation');
+            $table->string('marathi_designation');            
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
-            // Add more columns here
             $table->timestamps();
         });
     }
@@ -38,6 +36,6 @@ class CreateSlidersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sliders');
+        Schema::dropIfExists('success_stories');
     }
 }
