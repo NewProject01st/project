@@ -2,37 +2,20 @@
     <!--Header Start-->
     <header class="wf100 header-two">
         <div id="closetopbar" class="topbar wf100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-7 d-flex align-items-center">
-                        <ul class="footer-social">
-                            {{-- @foreach ($socialicon as $key => $socialicon_data) --}}
-                            {{-- @foreach ($socialicon_data as $key => $socialicon_data_new) --}}
-                            {{-- @foreach ($socialicon as $item)
-                                @if (session('language') == 'mar')
-                                    <li><a href="#" class="fb"><img
-                                                src="{{ asset('storage/images/header/social-icon/' . $item['icon']) }}"
-                                                class="d-block w-100"></a></li>
-                                @else
-                                    <li><a href="#" class="fb"><img
-                                                src="{{ asset('storage/images/header/social-icon/' . $item['icon']) }}"
-                                                class="d-block w-100"></a></li>
-                                @endif
-                            @endforeach --}}
-                            {{-- @endforeach --}}
-                        </ul>
-                        <ul class="footer-social">
-                            <li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#" class="tw"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#" class="insta"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#" class="linken"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#" class="yt"><i class="fab fa-youtube"></i></a></li>
+            <div class="container-fluid">
+                <div class="row head_row">
+                    <div class="col d-flex align-items-center new_head_ul">
+                        
+                        <ul class="quick-links">
+                            <li><a href="#">Site Map</a></li>
+                            <li><a href="#">Vacancies</a></li>
+                            <li><a href="#">Report It</a></li>
+                            <li><a href="#">RTI</a></li>
                         </ul>
 
-                        {{-- <p>Become a <a href="#">Volunteer</a> <a href="#">Now !</a></p> --}}
                     </div>
-                    <div class="col-md-6 col-sm-5"> <a id="closebtn" href="#" class="cross-btn"><i
-                                class="fa fa-times"></i></a> <a href="#" class="become-vol">Become a Volunteer</a>
+                    <div class="col set_volunteer"> <a id="closebtn" href="#" class="cross-btn">
+                        <i class="fa fa-times"></i></a> <a href="#" class="become-vol">Become a Volunteer</a>
                     </div>
                 </div>
             </div>
@@ -41,12 +24,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-sm-4">
-                        <ul class="quick-links">
-                            <li><a href="#">Site Map</a></li>
-                            <li><a href="#">Vacancies</a></li>
-                            <li><a href="#">Report It</a></li>
-                            <li><a href="#">RTI</a></li>
-                        </ul>
+
                     </div>
 
                     {{-- @foreach ($subheaderinfo as $item)

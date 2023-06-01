@@ -1,54 +1,31 @@
 @extends('website.layout.master')
 @section('content')
     <div class="main-content">
-        <style>
-
-        </style>
         {{-- Start Marquee --}}
-        {{-- <section class="marquee-main">
-            <div class="container">
-                <?php //print_r($data_output_marquee);
-                //die();
-                ?>
-                <div class="deprt-txt">
-                    @if (session('language') == 'mar')
-                        <marquee class="marquee-scroll" behavior="scroll" direction="left" scrollamount="10">
-                            <span class="d-flex" target="_blank"><?php //echo $data_output_marquee;
-                            ?></span>
-                        </marquee>
-                    @else
-                        <marquee class="marquee-scroll" behavior="scroll" direction="left" scrollamount="10">
-                            <span class="d-flex">
-                                <a href="{{ $data_output_marquee->url }}" class="con"
-                                            target="_blank">
-                                <?php //echo $data_output_marquee;
-                                ?>
-                                </a>
-                            </span>
-                        </marquee>
-                    @endif
-                </div>
-            </div>
-        </section> --}}
         <section class="marquee-main">
-            <div class="container">
-                @foreach ($data_output_marquee as $item)
-                    @if (session('language') == 'mar')
-                        <marquee class="marquee-scroll" behavior="scroll" direction="left" scrollamount="10">
-                            <span class="d-flex" target="_blank"><?php echo $item['marathi_title']; ?></span>
-                        </marquee>
-                    @else
-                        <div class="maindiv">
-                            <div class="div1">
-                                <a href="{{ $item['url'] }}" target="_blank">
-                                    &nbsp;<?php echo $item['english_title']; ?>
-                                </a>
-                            </div>
-                    @endif
-                @endforeach
+            <div class="container-fluid">
+                <div class=" list-group">
+
+                    <marquee width="100%" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                        <div class="list-group-item d-flex  g-2 ">
+                            @foreach ($data_output_marquee as $item)
+                                @if (session('language') == 'mar')
+                                    <p class="marquee_para px-2"><a href="{{ $item['url'] }}" target="_blank" class="marquee-scroll"><?php echo $item['marathi_title']; ?></a></p>
+                                    
+                                    @else
+                                    
+                                    <p class="marquee_para px-2"><a href="{{ $item['url'] }}" target="_blank" class="marquee-scroll"><?php echo $item['english_title']; ?></a></p>
+
+                                @endif
+                            @endforeach
+                        </div>
+                    </marquee>     
+                  
+                </div>
             </div>
         </section>
         {{-- End Marquee --}}
+
         @include('website.layout.crouseler')
         {{-- Start Disaster Management --}}
         <section class="Mayor-video-msg">
