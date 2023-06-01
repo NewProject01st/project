@@ -44,6 +44,9 @@
     <script src="{{ asset('assets/vendors/summernote/dist/summernote-bs4.min.js') }}"></script>
 
     <!-- Summernote Editor End -->
+    <script src="{{ asset('assets/js/data-table.js') }}"></script>
+
+    
 </head>
 
 

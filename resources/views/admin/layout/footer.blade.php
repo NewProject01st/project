@@ -353,6 +353,12 @@ $(document).ready(() => {
     });
 });
 </script>
+<script>
+    $(document).ready(function()
+    {
+            $('#pageDataTable').DataTable({searching: true,ordering: false,lengthChange: false,showNEntries: false});
+    });
+</script>
 
 
 </body>
