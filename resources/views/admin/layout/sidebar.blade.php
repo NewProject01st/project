@@ -23,10 +23,10 @@
                       <span class="menu-title">Dashboard</span>
                   </a>
               </li>
-            @if (
-            in_array("list-social-icon", $data_for_url) ||
-            in_array("list-sub-header-info", $data_for_url) 
-            )
+              @if (
+              in_array("list-social-icon", $data_for_url) ||
+              in_array("list-sub-header-info", $data_for_url)
+              )
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                       aria-controls="page-layouts">
@@ -47,8 +47,7 @@
               @endif
               @if (in_array("list-main-menu", $data_for_url))
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#menu" aria-expanded="false"
-                      aria-controls="menu">
+                  <a class="nav-link" data-toggle="collapse" href="#menu" aria-expanded="false" aria-controls="menu">
                       <i class="fa fa-th-large menu-icon"></i>
                       <span class="menu-title">Menu</span>
                       <i class="menu-arrow"></i>
@@ -66,8 +65,7 @@
               @endif
               @if (in_array("list-dynamic-page", $data_for_url))
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#pages" aria-expanded="false"
-                      aria-controls="pages">
+                  <a class="nav-link" data-toggle="collapse" href="#pages" aria-expanded="false" aria-controls="pages">
                       <i class="fa fa-th-large menu-icon"></i>
                       <span class="menu-title">Pages</span>
                       <i class="menu-arrow"></i>
@@ -83,19 +81,18 @@
               @endif
 
               @if (
-                in_array('list-marquee',$data_for_url) ||
-                in_array('list-slide',$data_for_url) ||
-                in_array('list-disaster-management-web-portal',$data_for_url) ||
-                in_array('list-disaster-management-news',$data_for_url) ||
-                in_array('list-weather',$data_for_url) ||
-                in_array('list-disasterforcast',$data_for_url) ||
-                in_array('list-emergency-contact',$data_for_url) ||
-                in_array('list-home-tender',$data_for_url) ||
-                in_array('list-general-contact',$data_for_url)
+              in_array('list-marquee',$data_for_url) ||
+              in_array('list-slide',$data_for_url) ||
+              in_array('list-disaster-management-web-portal',$data_for_url) ||
+              in_array('list-disaster-management-news',$data_for_url) ||
+              in_array('list-weather',$data_for_url) ||
+              in_array('list-disasterforcast',$data_for_url) ||
+              in_array('list-emergency-contact',$data_for_url) ||
+              in_array('list-home-tender',$data_for_url) ||
+              in_array('list-general-contact',$data_for_url)
               )
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#home" aria-expanded="false"
-                      aria-controls="home">
+                  <a class="nav-link" data-toggle="collapse" href="#home" aria-expanded="false" aria-controls="home">
                       <i class="fa fa-th-large menu-icon"></i>
                       <span class="menu-title">Home</span>
                       <i class="menu-arrow"></i>
@@ -129,7 +126,7 @@
                       </ul>
                   </div>
               </li>
-            @endif
+              @endif
 
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
@@ -276,7 +273,7 @@
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                       aria-controls="page-layouts">
                       <i class="fa fa-th-large menu-icon"></i>
-                      <span class="menu-title">Documents And Publications </span>
+                      <span class="menu-title">Research And Center </span>
                       <i class="menu-arrow"></i>
                   </a>
 
@@ -288,6 +285,23 @@
                           </li>
 
 
+                      </ul>
+                  </div>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
+                      aria-controls="page-layouts">
+                      <i class="fa fa-th-large menu-icon"></i>
+                      <span class="menu-title">News And Events </span>
+                      <i class="menu-arrow"></i>
+                  </a>
+
+                  <div class="collapse" id="page-layouts">
+                      <ul class="nav flex-column sub-menu">
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-success-stories') }}">Success Stories
+                              </a>
+                          </li>
                       </ul>
                   </div>
               </li>

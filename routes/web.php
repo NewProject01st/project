@@ -424,6 +424,15 @@ Route::post('/update-document-publications', ['as' => 'update-document-publicati
 Route::post('/show-document-publications', ['as' => 'show-document-publications', 'uses' => 'App\Http\Controllers\ResearchCenter\DocumentPublicationsController@show']);
 Route::post('/delete-document-publications', ['as' => 'delete-document-publications', 'uses' => 'App\Http\Controllers\ResearchCenter\DocumentPublicationsController@destroy']);
 
+//======News And Events=======
+Route::get('/list-success-stories', ['as' => 'list-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@index']);
+Route::get('/add-success-stories', ['as' => 'add-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@add']);
+Route::post('/add-success-stories', ['as' => 'add-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@store']);
+Route::post('/edit-success-stories', ['as' => 'edit-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@edit']);
+Route::post('/update-success-stories', ['as' => 'update-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@update']);
+Route::post('/show-success-stories', ['as' => 'show-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@show']);
+Route::post('/delete-success-stories', ['as' => 'delete-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@destroy']);
+Route::post('/update-one-success-stories', ['as' => 'update-one-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@updateOne']);
 
 
 Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
