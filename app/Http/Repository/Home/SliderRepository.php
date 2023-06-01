@@ -35,11 +35,10 @@ class SliderRepository  {
         $slides->marathi_description = $request['marathi_description'];
         $slides->url = $request['url'];
         // $slides->english_scrolltime = $request['english_scrolltime'];
-        // $slides->marathi_scrolltime = $request['marathi_scrolltime'];
+        $slides->image_alt = $request['image_alt'];
         $slides->english_image = $englishImageName; // Save the image filename to the database
         $slides->marathi_image = $marathiImageName; // Save the image filename to the database
         $slides->save();       
-        dd($slide_data);
         return $slides;
     } catch (\Exception $e) {
         return [
@@ -87,6 +86,9 @@ public function updateAll($request)
         $slide_data->marathi_title = $request['marathi_title'];
         $slide_data->english_description = $request['english_description'];
         $slide_data->marathi_description = $request['marathi_description'];
+        $slide_data->image_alt = $request['image_alt'];
+        $slide_data->url = $request['url'];
+
 
         if ($request->hasFile('english_image')) {
             // Delete previous English image if it exists
@@ -111,7 +113,6 @@ public function updateAll($request)
             $request->marathi_image->storeAs('public/images/slides/', $marathiImageName);
             $slide_data->marathi_image = $marathiImageName;
         }
-        $slide_data->url = $request['url'];
         $slide_data->save();
 
         return [

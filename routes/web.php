@@ -411,6 +411,16 @@ Route::post('/update-relevant-laws-and-regulations', ['as' => 'update-relevant-l
 Route::post('/show-relevant-laws-and-regulations', ['as' => 'show-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\PoliciesLegislation\RelevantLawsRegulationsController@show']);
 Route::post('/delete-relevant-laws-and-regulations', ['as' => 'delete-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\PoliciesLegislation\RelevantLawsRegulationsController@destroy']);
 
+//=======Research And Center==========
+
+Route::get('/list-document-publications', ['as' => 'list-document-publications', 'uses' => 'App\Http\Controllers\ResearchCenter\DocumentPublicationsController@index']);
+Route::get('/add-document-publications', ['as' => 'add-document-publications', 'uses' => 'App\Http\Controllers\ResearchCenter\DocumentPublicationsController@add']);
+Route::post('/add-document-publications', ['as' => 'add-document-publications', 'uses' => 'App\Http\Controllers\ResearchCenter\DocumentPublicationsController@store']);
+Route::post('/edit-document-publications', ['as' => 'edit-document-publications', 'uses' => 'App\Http\Controllers\ResearchCenter\DocumentPublicationsController@edit']);
+Route::post('/update-document-publications', ['as' => 'update-document-publications', 'uses' => 'App\Http\Controllers\ResearchCenter\DocumentPublicationsController@update']);
+Route::post('/show-document-publications', ['as' => 'show-document-publications', 'uses' => 'App\Http\Controllers\ResearchCenter\DocumentPublicationsController@show']);
+Route::post('/delete-document-publications', ['as' => 'delete-document-publications', 'uses' => 'App\Http\Controllers\ResearchCenter\DocumentPublicationsController@destroy']);
+
 
 
 Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
