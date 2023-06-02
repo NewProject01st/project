@@ -104,14 +104,23 @@ class PermissionsSeeder extends Seeder
                                 'permission_name' => 'Objective Goals',
                             ]);
 
-                        Permissions::create(
-                            [
-                                'created_at' => \Carbon\Carbon::now(),
-                                'updated_at' => \Carbon\Carbon::now(),
-                                'route_name' => 'Objective Goals',
-                                'url' => 'list-statedisastermanagementauthority',
-                                'permission_name' => 'State Disaster Management Authority',
-                            ]);
+                            Permissions::create(
+                                [
+                                    'created_at' => \Carbon\Carbon::now(),
+                                    'updated_at' => \Carbon\Carbon::now(),
+                                    'route_name' => 'State Disaster Management Authority',
+                                    'url' => 'list-statedisastermanagementauthority',
+                                    'permission_name' => 'State Disaster Management Authority',
+                                ]);
+                                Permissions::create(
+                                    [
+                                        'created_at' => \Carbon\Carbon::now(),
+                                        'updated_at' => \Carbon\Carbon::now(),
+                                        'route_name' => 'Dynamic Pages',
+                                        'url' => 'list-dynamic-page',
+                                        'permission_name' => 'Dynamic Pages',
+                                    ]);
+
                         Permissions::create(
                             [
                                 'created_at' => \Carbon\Carbon::now(),
