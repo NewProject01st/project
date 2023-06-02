@@ -24,7 +24,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_title">Title English</label>
+                                        <label for="english_title">Title English</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_title" name="english_title"
                                             id="english_title" placeholder="Enter the Title"></textarea>
                                         @if ($errors->has('english_title'))
@@ -35,7 +36,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_title">Title Marathi</label>
+                                        <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control marathi_title" name="marathi_title"
                                             id="marathi_title" placeholder="Enter the Title"></textarea>
                                         @if ($errors->has('marathi_title'))
@@ -46,7 +48,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_description">Description English</label>
+                                        <label for="english_description">Description English</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_description" name="english_description"
                                             id="english_description" placeholder="Enter the Description"
                                             name="english_description"></textarea>
@@ -58,7 +61,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label> Description Marathi</label>
+                                        <label> Description Marathi</label>&nbsp<span class="red-text">*</span>
                                         <textarea class="form-control marathi_description" name="marathi_description"
                                             id="marathi_description" placeholder="Enter the Description"></textarea>
                                         @if ($errors->has('marathi_description'))
@@ -69,7 +72,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_image">Image English</label><br>
+                                        <label for="english_image">Image English</label>&nbsp<span
+                                            class="red-text">*</span><br>
                                         <input type="file" name="english_image" id="english_image" accept="image/*">
                                         @if ($errors->has('english_image'))
                                         <span
@@ -79,7 +83,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_image">Image Marathi</label><br>
+                                        <label for="marathi_image">Image Marathi</label>&nbsp<span
+                                            class="red-text">*</span><br>
                                         <input type="file" name="marathi_image" id="marathi_image" accept="image/*">
                                         @if ($errors->has('marathi_image'))
                                         <span
@@ -89,7 +94,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_url">English URL</label>
+                                        <label for="english_url">English URL</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" name="english_url" id="english_url" class="form-control"
                                             id="english_url" placeholder="">
                                         @if ($errors->has('english_url'))
@@ -100,7 +105,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="disaster_date">Disaster Date</label>
+                                        <label for="disaster_date">Disaster Date</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <input type="date" class="form-control" placeholder="YYYY-MM-DD"
                                             name="disaster_date" id="disaster_date">
                                         @if ($errors->has('disaster_date'))

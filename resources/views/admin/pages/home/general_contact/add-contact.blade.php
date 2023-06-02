@@ -24,7 +24,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_name">English Name</label>
+                                        <label for="english_name">English Name</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_title" name="english_name"
                                             id="english_name" placeholder="Enter the Name"></textarea>
                                         @if ($errors->has('english_name'))
@@ -35,7 +36,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_name">Marathi Name</label>
+                                        <label for="marathi_name">Marathi Name</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control marathi_title" name="marathi_name"
                                             id="marathi_name" placeholder="Enter the Name"></textarea>
                                         @if ($errors->has('marathi_name'))
@@ -47,7 +49,8 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_number">English No</label>
+                                        <label for="english_number">English No</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <input type="text" name="english_number" id="english_number"
                                             class="form-control" id="english_number" placeholder="">
                                         @if ($errors->has('english_number'))
@@ -58,7 +61,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_number"> Marathi No</label>
+                                        <label for="marathi_number"> Marathi No</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <input type="text" name="marathi_number" id="marathi_number"
                                             class="form-control" id="marathi_number" placeholder="">
                                         @if ($errors->has('marathi_number'))
@@ -69,7 +73,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_icon">Icon English</label><br>
+                                        <label for="english_icon">Icon English</label>&nbsp<span
+                                            class="red-text">*</span><br>
                                         <input type="file" name="english_icon" id="english_icon" accept="image/*">
                                         @if ($errors->has('english_icon'))
                                         <span
@@ -79,7 +84,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_icon">Icon Marathi</label><br>
+                                        <label for="marathi_icon">Icon Marathi</label>&nbsp<span
+                                            class="red-text">*</span><br>
                                         <input type="file" name="marathi_icon" id="marathi_icon" accept="image/*">
                                         @if ($errors->has('marathi_icon'))
                                         <span

@@ -1,12 +1,18 @@
 @extends('admin.layout.master')
 @section('title', 'Applicant\'s Form')
 @section('content')
+<?php  $data_permission = getPermissionForCRUDPresentOrNot('list-main-menu',session('permissions')); 
+                                            ?>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Social Icon <a href="{{ route('add-social-icon') }}" class="btn btn-sm btn-primary ml-3">+
+                Social Icon
+                @if (in_array("per_add", $data_permission))
+                <a href="{{ route('add-social-icon') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
+                @endif
+
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -39,18 +45,25 @@
                                                 <td> <img
                                                         src="{{ asset('storage/images/header/social-icon/' . $item->icon) }}" />
                                                 </td>
-                                                
+
                                                 <td>{{ $item->url }}</td>
                                                 <td class="d-flex">
+                                                    @if (in_array("per_add", $data_permission))
                                                     <a data-id="{{ $item->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-pencil-alt"></i></a>
+                                                    @endif
+
                                                     <a data-id="{{ $item->id }}"
                                                         class="show-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-eye"></i></a>
+                                                    @if (in_array("per_add", $data_permission))
                                                     <a data-id="{{ $item->id }}"
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                         title="Delete Disaster News"><i class="fas fa-archive"></i></a>
+                                                    @endif
+
+
 
                                                 </td>
                                             </tr>
