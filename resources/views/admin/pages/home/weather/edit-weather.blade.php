@@ -155,7 +155,7 @@
                                 </div>
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Update</button>
-                                    <button type="submit" class="btn btn-danger"><a href="{{ route('list-weather') }}"
+                                    <button type="reset" class="btn btn-danger"><a href="{{ route('list-weather') }}"
                                             class="text-light">Cancel</a></button>
                                     <span><a href="{{ route('list-weather') }}"
                                             class="btn btn-sm btn-primary ">Back</a></span>
