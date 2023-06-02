@@ -108,33 +108,33 @@
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-slide') }}">Slider</a></li>
                           @endif
-                          @if (in_array('/list-disaster-management-web-portal', $data_for_url))
+                          @if (in_array('list-disaster-management-web-portal', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-disaster-management-web-portal') }}">Disaster Web
                                   Portal</a></li>
                           @endif
-                          @if (in_array('/list-disaster-management-news', $data_for_url))
+                          @if (in_array('list-disaster-management-news', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-disaster-management-news') }}">Disaster Management
                                   News</a></li>
                           @endif
-                          @if (in_array('/list-weather', $data_for_url))
+                          @if (in_array('list-weather', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-weather') }}">Weather</a></li>
                           @endif
-                          @if (in_array('/list-disasterforcast', $data_for_url))
+                          @if (in_array('list-disasterforcast', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-disasterforcast') }}">Disaster Forcast</a></li>
                           @endif
-                          @if (in_array('/list-emergency-contact', $data_for_url))
+                          @if (in_array('list-emergency-contact', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-emergency-contact') }}">Emergency Contact</a></li>
                           @endif
-                          @if (in_array('/list-home-tender', $data_for_url))
+                          @if (in_array('list-home-tender', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-home-tender') }}">Tenders</a></li>
                           @endif
-                          @if (in_array('/list-general-contact', $data_for_url))
+                          @if (in_array('list-general-contact', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-general-contact') }}">General Contact</a></li>
                           @endif
