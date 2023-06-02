@@ -102,7 +102,7 @@
 
                                     <div class="col-md-12">
                                         <div class="table-responsive">
-                                            <table id="order-listing" class="table table-bordered">
+                                            <table  class="table table-bordered">
                                                 <thead>
                                                     <tr>
                                                         <th>Sr. No.</th>

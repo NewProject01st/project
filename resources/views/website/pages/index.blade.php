@@ -10,23 +10,70 @@
                         <div class="list-group-item d-flex  g-2 ">
                             @foreach ($data_output_marquee as $item)
                                 @if (session('language') == 'mar')
-                                    <p class="marquee_para px-2"><a href="{{ $item['url'] }}" target="_blank" class="marquee-scroll"><?php echo $item['marathi_title']; ?></a></p>
-                                    
-                                    @else
-                                    
-                                    <p class="marquee_para px-2"><a href="{{ $item['url'] }}" target="_blank" class="marquee-scroll"><?php echo $item['english_title']; ?></a></p>
-
+                                    <p class="marquee_para px-2"><a href="{{ $item['url'] }}" target="_blank"
+                                            class="marquee-scroll"><?php echo $item['marathi_title']; ?></a></p>
+                                @else
+                                    <p class="marquee_para px-2"><a href="{{ $item['url'] }}" target="_blank"
+                                            class="marquee-scroll"><?php echo $item['english_title']; ?></a></p>
                                 @endif
                             @endforeach
                         </div>
-                    </marquee>     
-                  
+                    </marquee>
+
                 </div>
             </div>
         </section>
         {{-- End Marquee --}}
+        {{-- Start Slider --}}
+        <section>
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    @foreach ($data_output_slider as $slider)
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{ $loop->index }}"
+                            class="{{ $loop->first ? 'active' : '' }}" aria-current="true" aria-label="Slide 1"></button>
+                    @endforeach
+                </div>
+                <div class="carousel-inner">
+                    @foreach ($data_output_slider as $slider)
+                        @if (session('language') == 'mar')
+                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
+                                <img src="{{ asset('storage/images/slides/' . $slider['marathi_image']) }}"
+                                    class="d-block w-100" alt="No Image">
+                                <div class="carousel-caption">
+                                    <h1><?php echo $slider['marathi_title']; ?></h1>
+                                    <p><?php echo $slider['marathi_description']; ?> </p>
+                                    <div class="slide-content-box pt-3"> <a href="{{ $slider['url'] }}" class="con"
+                                            target="_blank">Read More</a> </div>
+                                </div>
+                            </div>
+                        @elseif (array_key_exists('english_title', $slider))
+                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
+                                <img src="{{ asset('storage/images/slides/' . $slider['english_image']) }}"
+                                    class="d-block w-100" alt="No Image">
+                                <div class="carousel-caption">
+                                    <h1><?php echo $slider['english_title']; ?></h1>
+                                    <p><?php echo $slider['english_description']; ?> </p>
+                                    <div class="slide-content-box pt-3"> <a href="{{ $slider['url'] }}" class="con"
+                                            target="_blank">Read More</a> </div>
+                                </div>
 
-        @include('website.layout.crouseler')
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        {{-- End Slider --}}
         {{-- Start Disaster Management --}}
         <section class="Mayor-video-msg">
             <div class="container">
@@ -77,7 +124,7 @@
                     <p>Read the News Updates and Articles from Government </p>
                 </div>
                 <div class="row d-flex flex-wrap">
-                    
+
                     @foreach ($data_output_disastermanagementnews as $item)
                         @if (session('language') == 'mar')
                             <div class="col-md-3 col-sm-6">
@@ -97,34 +144,36 @@
                                     <p> <?php echo $item['marathi_description']; ?></p>
                                 </div>
                                 <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
-                                    alt=""> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                            </div>
-                           </div>
-                        @else                        
-                        <div class="col-md-3 col-sm-6 mt-4">
-                            <div class="news-box">
-                                <div class="new-thumb">
-                                    {{-- <span class="cat c1">Fire</span> --}}
-                                    <img src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
-                                        class="d-block w-100">
+                                        alt=""> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i
+                                            class="fas fa-arrow-right"></i></a>
                                 </div>
-                                <div class="new-txt">
-                                    <ul class="news-meta">
-                                        <li>
-                                            {{-- 05 MAY, 2023  --}}
-                                            <?php echo $item['disaster_date']; ?></li>
-                                        {{-- <li>176 Comments</li> --}}
-                                    </ul>
-                                    <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
-                                    <p> <?php echo $item['english_description']; ?></p>
-                                </div>
-                                <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
-                                    alt=""> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i class="fas fa-arrow-right"></i></a>
                             </div>
-                            </div>
+                </div>
+            @else
+                <div class="col-md-3 col-sm-6 mt-4">
+                    <div class="news-box">
+                        <div class="new-thumb">
+                            {{-- <span class="cat c1">Fire</span> --}}
+                            <img src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
+                                class="d-block w-100">
                         </div>
-                      @endif
+                        <div class="new-txt">
+                            <ul class="news-meta">
+                                <li>
+                                    {{-- 05 MAY, 2023  --}}
+                                    <?php echo $item['disaster_date']; ?></li>
+                                {{-- <li>176 Comments</li> --}}
+                            </ul>
+                            <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
+                            <p> <?php echo $item['english_description']; ?></p>
+                        </div>
+                        <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
+                                alt=""> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                @endif
                 @endforeach
                 <!--News Box End-->
 
@@ -149,8 +198,8 @@
                     <div class="row">
                         <!--Icon Box Start-->
                         <div class="col-md-4 col-sm-4">
-                            <div class="deprt-icon-box"> <img src="{{ asset('website_files/images/home/deprticon1.png') }}"
-                                    alt="">
+                            <div class="deprt-icon-box"> <img
+                                    src="{{ asset('website_files/images/home/deprticon1.png') }}" alt="">
                                 <h6> <a href="#">Emergency Department</a> </h6>
                                 <a class="rm" href="#">Read More</a>
                             </div>
@@ -158,8 +207,8 @@
                         <!--Icon Box End-->
                         <!--Icon Box Start-->
                         <div class="col-md-4 col-sm-4">
-                            <div class="deprt-icon-box"> <img src="{{ asset('website_files/images/home/deprticon2.png') }}"
-                                    alt="">
+                            <div class="deprt-icon-box"> <img
+                                    src="{{ asset('website_files/images/home/deprticon2.png') }}" alt="">
                                 <h6> <a href="#">Public Health Department</a> </h6>
                                 <a class="rm" href="#">Read More</a>
                             </div>
@@ -167,8 +216,8 @@
                         <!--Icon Box End-->
                         <!--Icon Box Start-->
                         <div class="col-md-4 col-sm-4">
-                            <div class="deprt-icon-box"> <img src="{{ asset('website_files/images/home/deprticon3.png') }}"
-                                    alt="">
+                            <div class="deprt-icon-box"> <img
+                                    src="{{ asset('website_files/images/home/deprticon3.png') }}" alt="">
                                 <h6> <a href="#">Information Desk/Hotline</a> </h6>
                                 <a class="rm" href="#">Read More</a>
                             </div>
@@ -176,8 +225,8 @@
                         <!--Icon Box End-->
                         <!--Icon Box Start-->
                         <div class="col-md-4 col-sm-4">
-                            <div class="deprt-icon-box"> <img src="{{ asset('website_files/images/home/deprticon4.png') }}"
-                                    alt="">
+                            <div class="deprt-icon-box"> <img
+                                    src="{{ asset('website_files/images/home/deprticon4.png') }}" alt="">
                                 <h6> <a href="#">Police Department </a> </h6>
                                 <a class="rm" href="#">Read More</a>
                             </div>

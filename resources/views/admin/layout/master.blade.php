@@ -58,7 +58,7 @@
                 <a class="navbar-brand brand-logo" href="#"><img src="{{ asset('assets/images/logo.png') }}"
                         alt="logo" /></a>
                 <a class="navbar-brand brand-logo-mini" href="#"><img
-                        src="{{ asset('assets/images/logo-mini.png') }}" alt="logo" /></a>
+                        src="{{ asset('storage/images/DM.png') }}" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch pr-0">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">

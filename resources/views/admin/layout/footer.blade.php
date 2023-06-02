@@ -356,7 +356,7 @@ $(document).ready(() => {
 <script>
     $(document).ready(function()
     {
-            $('#pageDataTable').DataTable({searching: true,ordering: false,lengthChange: false,showNEntries: false});
+            $('#order-listing').DataTable({searching: true,ordering: false,lengthChange: false,showNEntries: false});
     });
 </script>
 

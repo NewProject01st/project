@@ -482,6 +482,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Latest news related to disaster management',
             'menu_name_marathi' => 'आपत्ती व्यवस्थापनाशी संबंधित ताज्या बातम्या',
             'order_no' => 1,
+            'url'=>'/list-disaster-management-news-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -507,6 +508,7 @@ class MainSubMenusSeeder extends Seeder
             'main_menu_id' => 10,
             'menu_name_english' => 'Success stories and case studies',
             'menu_name_marathi' => 'यशोगाथा आणि केस स्टडी',
+            'url'=>'/list-success-stories-web',
             'order_no' => 3,
             'is_static'=>true,
             'is_active' => true,
