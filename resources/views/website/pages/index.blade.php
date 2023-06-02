@@ -119,7 +119,7 @@
                                     <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
                                     <p> <?php echo $item['english_description']; ?></p>
                                 </div>
-                                <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
+                                <div class="news-box-f"> <img src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
                                     alt=""> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i class="fas fa-arrow-right"></i></a>
                             </div>
                             </div>
