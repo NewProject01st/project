@@ -1,11 +1,17 @@
 @extends('admin.layout.master')
 @section('title', 'Applicant\'s Form')
 @section('content')
+<?php  $data_permission = getPermissionForCRUDPresentOrNot('list-marquee',session('permissions')); 
+                                            ?>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                News Bar List <a href="{{ route('add-marquee') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
+                News Bar List
+                @if (in_array("per_add", $data_permission))
+                <a href="{{ route('add-marquee') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
+                @endif
+
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -62,15 +68,21 @@
 
                                                 </td>
                                                 <td class="d-flex">
+                                                    @if (in_array("per_add", $data_permission))
                                                     <a data-id="{{ $item->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-pencil-alt"></i></a>
+                                                    @endif
+
                                                     <a data-id="{{ $item->id }}"
                                                         class="show-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-eye"></i></a>
+                                                    @if (in_array("per_add", $data_permission))
                                                     <a data-id="{{ $item->id }}"
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                         title="Delete Marquee"><i class="fas fa-archive"></i></a>
+                                                    @endif
+
                                                 </td>
                                             </tr>
                                             @endforeach

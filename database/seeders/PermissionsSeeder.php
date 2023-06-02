@@ -37,7 +37,7 @@ class PermissionsSeeder extends Seeder
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                     'route_name' => 'News Bar',
-                    'url' => '/list-marquee',
+                    'url' => 'list-marquee',
                     'permission_name' => 'News Bar',
                 ]);
 
@@ -47,7 +47,7 @@ class PermissionsSeeder extends Seeder
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                     'route_name' => 'Slider',
-                    'url' => '/list-slide',
+                    'url' => 'list-slide',
                     'permission_name' => 'Slider',
                 ]);
                 Permissions::create(
@@ -55,7 +55,7 @@ class PermissionsSeeder extends Seeder
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                     'route_name' => 'Disaster Web Portal',
-                    'url' => '/list-disaster-management-web-portal',
+                    'url' => 'list-disaster-management-web-portal',
                     'permission_name' => 'Disaster Web Portal',
                 ]);
 
@@ -104,14 +104,23 @@ class PermissionsSeeder extends Seeder
                                 'permission_name' => 'Objective Goals',
                             ]);
 
-                        Permissions::create(
-                            [
-                                'created_at' => \Carbon\Carbon::now(),
-                                'updated_at' => \Carbon\Carbon::now(),
-                                'route_name' => 'Objective Goals',
-                                'url' => 'list-statedisastermanagementauthority',
-                                'permission_name' => 'State Disaster Management Authority',
-                            ]);
+                            Permissions::create(
+                                [
+                                    'created_at' => \Carbon\Carbon::now(),
+                                    'updated_at' => \Carbon\Carbon::now(),
+                                    'route_name' => 'State Disaster Management Authority',
+                                    'url' => 'list-statedisastermanagementauthority',
+                                    'permission_name' => 'State Disaster Management Authority',
+                                ]);
+                                Permissions::create(
+                                    [
+                                        'created_at' => \Carbon\Carbon::now(),
+                                        'updated_at' => \Carbon\Carbon::now(),
+                                        'route_name' => 'Dynamic Pages',
+                                        'url' => 'list-dynamic-page',
+                                        'permission_name' => 'Dynamic Pages',
+                                    ]);
+
                         Permissions::create(
                             [
                                 'created_at' => \Carbon\Carbon::now(),
@@ -261,7 +270,32 @@ class PermissionsSeeder extends Seeder
                                     'url' => 'list-document-publications',
                                     'permission_name' => 'Documents And Publications',
                                 ]);
+                                Permissions::create(
+                                    [
+                                        'created_at' => \Carbon\Carbon::now(),
+                                        'updated_at' => \Carbon\Carbon::now(),
+                                        'route_name' => 'Success Stories',
+                                        'url' => 'list-success-stories',
+                                        'permission_name' => 'Success Stories',
+                                    ]);
+                            Permissions::create(
+                                [
+                                    'created_at' => \Carbon\Carbon::now(),
+                                    'updated_at' => \Carbon\Carbon::now(),
+                                    'route_name' => 'Category Gallery',
+                                    'url' => 'list-gallery-category',
+                                    'permission_name' => 'Category Gallery',
+                                ]);
 
+                            Permissions::create(
+                                [
+                                    'created_at' => \Carbon\Carbon::now(),
+                                    'updated_at' => \Carbon\Carbon::now(),
+                                    'route_name' => 'Gallery',
+                                    'url' => 'list-gallery',
+                                    'permission_name' => 'Gallery',
+                                ]);
+    
                             Permissions::create(
                                 [
                                     'created_at' => \Carbon\Carbon::now(),

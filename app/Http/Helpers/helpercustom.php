@@ -24,18 +24,6 @@ function getLanguageSelected() {
     return $language;
 }
 function getRouteDetailsPresentOrNot($data_for_session) {
-    // // dd($data_for_session);
-    // foreach ($data_for_session as $key => $value) {
-    //     // dd($value);
-    //     foreach ($value as $key => $value_new) {
-    //         // dd($value_new);
-    //         if ($key == 'url' && $value_new == $data_to_search) {
-    //             return true;
-    //         } 
-    //     }
-    // }
-    // return false;
-
     $data =[];
     foreach ($data_for_session as $value_new) {
         array_push($data,$value_new['url']);

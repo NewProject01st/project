@@ -129,20 +129,28 @@
                                 <ul class="navbar-nav mr-auto">
                                     @if ($key == '0')
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle"
-                                                href="@if ($menu_data_new['is_static'] == true) {{ url($menu_data_new['url']) }} 
+                                            <a class="nav-link 
+                                            @if (sizeof($menu_data[1]) > 0)
+                                            dropdown-toggle
+                                            @endif"
+                                                href="@if($menu_data_new['is_static'] == true) {{$menu_data_new['url']}} 
                                                       @else 
-                                                          {{ url('/pages/' . $menu_data_new['url']) }} @endif 
-                                                      "
-                                                id="navbarDropdown" role="button" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
+                                                      {{url('/pages/' . $menu_data_new['url'])}} 
+                                                      @endif"
+                                                id="" role="button" 
+                                                 @if (sizeof($menu_data[1]) > 0)
+                                                 data-toggle="dropdown"
+                                                 aria-haspopup="true"
+                                                 aria-expanded="false"
+                                                 @endif
+                                                 >
                                                 @if (session('language') == 'mar')
                                                     {{ $menu_data_new['menu_name_marathi'] }}
                                                 @else
                                                     {{ $menu_data_new['menu_name_english'] }}
                                                 @endif
                                             </a>
-                                            @if (sizeof($menu_data) > 1)
+                                            @if (sizeof($menu_data[1]) > 0)
                                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                     @foreach ($menu_data[1] as $key => $menu_data_sub)
                                                         <a class="dropdown-item"

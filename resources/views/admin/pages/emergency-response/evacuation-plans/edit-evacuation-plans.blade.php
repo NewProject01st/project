@@ -24,7 +24,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_title">Title English</label>
+                                        <label for="english_title">Title English</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_title" name="english_title"
                                             id="english_title"
                                             placeholder="Enter the Title">{{ $evacuationplans->english_title }}</textarea>
@@ -36,7 +37,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_title">Title Marathi</label>
+                                        <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control marathi_title" name="marathi_title"
                                             id="marathi_title"
                                             placeholder="Enter the Title">{{ $evacuationplans->marathi_title }}</textarea>
@@ -48,7 +50,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_description">Description English</label>
+                                        <label for="english_description">Description English</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_description" name="english_description"
                                             id="english_description"
                                             placeholder="Enter the Description">{{ $evacuationplans->english_description }}</textarea>
@@ -60,7 +63,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_description"> Description Marathi</label>
+                                        <label for="marathi_description"> Description Marathi</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control marathi_description" name="marathi_description"
                                             id="marathi_description"
                                             placeholder="Enter the Description">{{ $evacuationplans->marathi_description }}</textarea>
@@ -104,7 +108,7 @@
                                 </div>
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Update</button>
-                                    <button type="submit" class="btn btn-danger">Cancel</button>
+                                    <button type="reset" class="btn btn-danger">Cancel</button>
                                     <span><a href="{{ route('list-evacuation-plans') }}"
                                             class="btn btn-sm btn-primary ">Back</a></span>
                                 </div>

@@ -24,7 +24,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_title">Title English</label>
+                                        <label for="english_title">Title English</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_title" name="english_title"
                                             id="english_title" placeholder="Enter the Title"></textarea>
                                         @if ($errors->has('english_title'))
@@ -35,7 +36,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_title">Title Marathi</label>
+                                        <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control marathi_title" name="marathi_title"
                                             id="marathi_title" placeholder="Enter the Title"></textarea>
                                         @if ($errors->has('marathi_title'))
@@ -46,7 +48,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_name">Name English</label><br>
+                                        <label for="english_name">Name English</label>&nbsp<span
+                                            class="red-text">*</span><br>
                                         <input type="text" name="english_name" id="english_name" class="form-control">
                                         @if ($errors->has('english_name'))
                                         <span
@@ -56,7 +59,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_name">Name Marathi</label><br>
+                                        <label for="marathi_name">Name Marathi</label>&nbsp<span
+                                            class="red-text">*</span><br>
                                         <input type="text" name="marathi_name" id="marathi_name" class="form-control">
                                         @if ($errors->has('marathi_name'))
                                         <span
@@ -66,7 +70,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_address">English Address</label>
+                                        <label for="english_address">English Address</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_description" name="english_address"
                                             id="english_address" placeholder="Enter the Address"></textarea>
                                         @if ($errors->has('english_address'))
@@ -77,7 +82,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_address">Marathi Address</label>
+                                        <label for="marathi_address">Marathi Address</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control marathi_description" name="marathi_address"
                                             id="marathi_address" placeholder="Enter the Address"></textarea>
                                         @if ($errors->has('marathi_address'))
@@ -88,7 +94,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_number">English No</label>
+                                        <label for="english_number">English No</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <input type="text" name="english_number" id="english_number"
                                             class="form-control" id="english_number" placeholder="">
                                         @if ($errors->has('english_number'))
@@ -99,7 +106,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_number"> Marathi No</label>
+                                        <label for="marathi_number"> Marathi No</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <input type="text" name="marathi_number" id="marathi_number"
                                             class="form-control" id="marathi_number" placeholder="">
                                         @if ($errors->has('marathi_number'))
@@ -110,7 +118,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_landline_no">English Landline No</label>
+                                        <label for="english_landline_no">English Landline No</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <input type="text" name="english_landline_no" id="english_landline_no"
                                             class="form-control" id="english_landline_no" placeholder="">
                                         @if ($errors->has('english_landline_no'))
@@ -121,7 +130,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_landline_no"> Marathi Landline No</label>
+                                        <label for="marathi_landline_no"> Marathi Landline No</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <input type="text" name="marathi_landline_no" id="marathi_landline_no"
                                             class="form-control" id="marathi_landline_no" placeholder="">
                                         @if ($errors->has('marathi_landline_no'))
@@ -132,7 +142,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="email">Email</label>
+                                        <label for="email">Email</label>&nbsp<span class="red-text">*</span>
                                         <input type="email" name="email" id="email" class="form-control" id="email"
                                             placeholder="">
                                         @if ($errors->has('email'))
@@ -143,7 +153,9 @@
 
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Submit</button>
-                                    <button type="submit" class="btn btn-danger">Cancel</button>
+                                    <button type="reset" class="btn btn-danger">Cancel</button>
+                                    <span><a href="{{ route('list-emergency-contact') }}"
+                                        class="btn btn-sm btn-primary ">Back</a></span>
                                 </div>
                             </div>
                         </form>

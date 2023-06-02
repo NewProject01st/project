@@ -32,12 +32,13 @@ class MarqueeController extends Controller
         $rules = [
             'english_title' => 'required',
             'marathi_title' => 'required',
+            'url' => 'required',
             
          ];
     $messages = [   
         'english_title.required' => 'Please  enter english title.',
         'marathi_title.required' => 'Please  enter marathi title.',
-
+        'url' => 'required',
        
     ];
     // print_r($messages);

@@ -1,12 +1,18 @@
 @extends('admin.layout.master')
 @section('title', 'Applicant\'s Form')
 @section('content')
+<?php  $data_permission = getPermissionForCRUDPresentOrNot('list-sub-header-info',session('permissions')); 
+                                            ?>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Sub Header Info <a href="{{ route('add-sub-header-info') }}" class="btn btn-sm btn-primary ml-3">+
+                Sub Header Info
+                @if (in_array("per_add", $data_permission))
+                <a href="{{ route('add-sub-header-info') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
+                @endif
+
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -35,7 +41,7 @@
                                                 <th>English City </th>
                                                 <th>Marathi City </th>
                                                 <th>Logo</th>
-                                             
+
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -55,15 +61,21 @@
                                                         src="{{ asset('storage/images/header/sub-header/' . $item->logo) }}" />
                                                 </td>
                                                 <td class="d-flex">
+                                                    @if (in_array("per_add", $data_permission))
                                                     <a data-id="{{ $item->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-pencil-alt"></i></a>
+                                                    @endif
+
                                                     <a data-id="{{ $item->id }}"
                                                         class="show-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-eye"></i></a>
+                                                    @if (in_array("per_add", $data_permission))
                                                     <a data-id="{{ $item->id }}"
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                         title="Delete Header Info"><i class="fas fa-archive"></i></a>
+                                                    @endif
+
 
                                                 </td>
                                             </tr>

@@ -18,12 +18,14 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action='{{ route('update-tenders') }}' method="post" id="regForm" enctype="multipart/form-data">
+                            <form class="forms-sample" action='{{ route('update-tenders') }}' method="post" id="regForm"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title English</label>
+                                            <label for="english_title">Title English</label>&nbsp<span
+                                                class="red-text">*</span>
                                             <input type="text" name="english_title" id="english_title"
                                                 class="form-control" value="{{ $tenders->english_title }}" placeholder="">
                                             @if ($errors->has('english_title'))
@@ -33,7 +35,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">Title Marathi</label>
+                                            <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                                class="red-text">*</span>
                                             <input type="text" name="marathi_title" id="marathi_title"
                                                 class="form-control" value="{{ $tenders->marathi_title }}" placeholder="">
                                             @if ($errors->has('marathi_title'))
@@ -43,7 +46,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="english_description">Description English</label>
+                                            <label for="english_description">Description English</label>&nbsp<span
+                                                class="red-text">*</span>
                                             <textarea class="form-control english_description" name="english_description" id="english_description"
                                                 placeholder="Enter the Description">{{ $tenders->english_description }}</textarea>
                                             @if ($errors->has('english_description'))
@@ -53,7 +57,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label> Description Marathi</label>
+                                            <label> Description Marathi</label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="Enter the Description">{{ $tenders->marathi_description }}</textarea>
                                             @if ($errors->has('marathi_description'))
@@ -63,7 +67,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="exampleInputUsername1">Tender Date</label>
+                                            <label for="exampleInputUsername1">Tender Date</label>&nbsp<span
+                                                class="red-text">*</span>
                                             <input type="date" class="form-control" placeholder="YYYY-MM-DD"
                                                 name="tender_date" id="tender_date" value="{{ $tenders->tender_date }}"
                                                 required="">
@@ -71,7 +76,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="start_date">Start Date</label>
+                                            <label for="start_date">Start Date</label>&nbsp<span class="red-text">*</span>
                                             <input type="date" class="form-control" placeholder="YYYY-MM-DD"
                                                 name="start_date" id="start_date" value="{{ $tenders->start_date }}"
                                                 required="">
@@ -79,7 +84,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="end_date">End Date</label>
+                                            <label for="end_date">End Date</label>&nbsp<span class="red-text">*</span>
                                             <input type="date" class="form-control" placeholder="YYYY-MM-DD"
                                                 name="end_date" id="end_date" value="{{ $tenders->end_date }}"
                                                 required="">
@@ -87,7 +92,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="open_date">Open Date</label>
+                                            <label for="open_date">Open Date</label>&nbsp<span class="red-text">*</span>
                                             <input type="date" class="form-control" placeholder="YYYY-MM-DD"
                                                 name="open_date" id="open_date" value="{{ $tenders->open_date }}"
                                                 required="">
@@ -95,7 +100,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="tender_number">Tender Number</label>
+                                            <label for="tender_number">Tender Number</label>&nbsp<span
+                                                class="red-text">*</span>
                                             <input type="tel" class="form-control" placeholder="Tender Number"
                                                 name="tender_number" id="tender_number"
                                                 value="{{ $tenders->tender_number }}" required="">
@@ -104,7 +110,8 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="english_pdf">Pdf English</label><br>
+                                            <label for="english_pdf">Pdf English</label>&nbsp<span
+                                                class="red-text">*</span><br>
                                             <input type="file" name="english_pdf" id="english_pdf" accept=".pdf">
                                             @if ($errors->has('english_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
@@ -114,22 +121,26 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="marathi_pdf">Pdf Marathi</label>
+                                            <label for="marathi_pdf">Pdf Marathi</label>&nbsp<span
+                                                class="red-text">*</span>
                                             <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
                                                 class="form-control">
                                             @if ($errors->has('marathi_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <a href="{{ asset('storage/pdf/tenders/' . $tenders->marathi_pdf) }}"
-                                            ></a>
+                                        <a href="{{ asset('storage/pdf/tenders/' . $tenders->marathi_pdf) }}"></a>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Update</button>
-                                        <button type="submit" class="btn btn-danger"><a href="{{ route('list-tenders') }}" class="text-light">Cancel</a></button>
+                                        <button type="reset" class="btn btn-danger"><a
+                                                href="{{ route('list-tenders') }}" class="text-light">Cancel</a></button>
+                                        <span><a href="{{ route('list-tenders') }}"
+                                                class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
                                 </div>
-                                <input type="hidden" name="id" id="id" class="form-control" value="{{ $tenders->id }}" placeholder="">
+                                <input type="hidden" name="id" id="id" class="form-control"
+                                    value="{{ $tenders->id }}" placeholder="">
                             </form>
                         </div>
                     </div>

@@ -71,6 +71,9 @@ Route::get('/list-documents-publications-web', ['as' => 'list-documents-publicat
 Route::get('/list-maps-gis-data-web', ['as' => 'list-maps-gis-data-web', 'uses' => 'App\Http\Controllers\Website\ResearchCenter\ResearchCenterController@getAllMapsGISData']);
 Route::get('/list-multimedia-web', ['as' => 'list-multimedia-web', 'uses' => 'App\Http\Controllers\Website\ResearchCenter\ResearchCenterController@getAllMultimedia']);
 
+Route::get('/list-disaster-management-news-web', ['as' => 'list-disaster-management-news-web', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@getAllDisasterManagementNews']);
+Route::get('/list-success-stories-web', ['as' => 'list-success-stories-web', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@getAllSuccessStories']);
+
 // ================================================
 Route::group(['middleware' => ['admin']], function () {
     Route::get('/dashboard', ['as' => '/dashboard', 'uses' => 'App\Http\Controllers\Dashboard\DashboardController@index']);
@@ -441,6 +444,23 @@ Route::post('/show-success-stories', ['as' => 'show-success-stories', 'uses' => 
 Route::post('/delete-success-stories', ['as' => 'delete-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@destroy']);
 Route::post('/update-one-success-stories', ['as' => 'update-one-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@updateOne']);
 
+Route::get('/list-gallery-category', ['as' => 'list-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@index']);
+Route::get('/add-gallery-category', ['as' => 'add-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@add']);
+Route::post('/add-gallery-category', ['as' => 'add-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@store']);
+Route::post('/edit-gallery-category', ['as' => 'edit-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@edit']);
+Route::post('/update-gallery-category', ['as' => 'update-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@update']);
+Route::post('/show-gallery-category', ['as' => 'show-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@show']);
+Route::post('/delete-gallery-category', ['as' => 'delete-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@destroy']);
+Route::post('/update-one-gallery-category', ['as' => 'update-one-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@updateOne']);
+
+Route::get('/list-gallery', ['as' => 'list-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@index']);
+Route::get('/add-gallery', ['as' => 'add-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@add']);
+Route::post('/add-gallery', ['as' => 'add-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@store']);
+Route::post('/edit-gallery', ['as' => 'edit-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@edit']);
+Route::post('/update-gallery', ['as' => 'update-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@update']);
+Route::post('/show-gallery', ['as' => 'show-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@show']);
+Route::post('/delete-gallery', ['as' => 'delete-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@destroy']);
+Route::post('/update-one-gallery', ['as' => 'update-one-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@updateOne']);
 
 Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
 

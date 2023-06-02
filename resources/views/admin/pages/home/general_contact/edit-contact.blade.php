@@ -25,7 +25,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_name">English Name</label>
+                                        <label for="english_name">English Name</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_title" name="english_name"
                                             id="english_name"
                                             placeholder="Enter the Name">{{$general_contact->english_name }}</textarea>
@@ -37,7 +38,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_name">Marathi Name</label>
+                                        <label for="marathi_name">Marathi Name</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control marathi_title" name="marathi_name"
                                             id="marathi_name"
                                             placeholder="Enter the Name">{{$general_contact->marathi_name }}</textarea>
@@ -49,7 +51,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_number">English No</label>
+                                        <label for="english_number">English No</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <input type="text" name="english_number" id="english_number"
                                             class="form-control" value="{{ $general_contact->english_number }}"
                                             placeholder="">
@@ -61,7 +64,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_number">Marathi No</label>
+                                        <label for="marathi_number">Marathi No</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <input type="text" name="marathi_number" id="marathi_number"
                                             class="form-control" value="{{ $general_contact->marathi_number }}"
                                             placeholder="">
@@ -73,7 +77,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_icon">Icon English</label><br>
+                                        <label for="english_icon">Icon English</label>&nbsp<span
+                                            class="red-text">*</span><br>
                                         <input type="file" name="english_icon" id="english_icon" accept="image/*">
                                         @if ($errors->has('english_icon'))
                                         <span
@@ -83,7 +88,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_icon">Icon Marathi</label><br>
+                                        <label for="marathi_icon">Icon Marathi</label>&nbsp<span
+                                            class="red-text">*</span><br>
                                         <input type="file" name="marathi_icon" id="marathi_icon" accept="image/*">
                                         @if ($errors->has('marathi_icon'))
                                         <span
@@ -93,7 +99,9 @@
                                 </div>
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Update</button>
-                                    <button type="submit" class="btn btn-danger">Cancel</button>
+                                    <button type="reset" class="btn btn-danger">Cancel</button>
+                                    <span><a href="{{ route('list-general-contact') }}"
+                                        class="btn btn-sm btn-primary ">Back</a></span>
                                 </div>
                             </div>
                             <input type="hidden" name="id" id="id" class="form-control"

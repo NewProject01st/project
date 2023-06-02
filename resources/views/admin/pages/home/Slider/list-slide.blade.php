@@ -1,13 +1,18 @@
 @extends('admin.layout.master')
 @section('title', 'Applicant\'s Form')
 @section('content')
+<?php  $data_permission = getPermissionForCRUDPresentOrNot('list-slide',session('permissions')); 
+                                            ?>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-               Slides List <a href="{{ route('add-slide') }}"
-                    class="btn btn-sm btn-primary ml-3">+
+                Slides List
+                @if (in_array("per_add", $data_permission))
+                <a href="{{ route('add-slide') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
+                @endif
+
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -50,11 +55,11 @@
                                                 <td><?php echo $item->url; ?></td>
                                                 <td><?php echo $item->image_alt; ?></td>
                                                 <td> <img
-                                                    src="{{ asset('storage/images/slides/' . $item->english_image) }}" />
-                                            </td>
-                                            <td> <img
-                                                    src="{{ asset('storage/images/slides/' . $item->marathi_image) }}" />
-                                            </td>
+                                                        src="{{ asset('storage/images/slides/' . $item->english_image) }}" />
+                                                </td>
+                                                <td> <img
+                                                        src="{{ asset('storage/images/slides/' . $item->marathi_image) }}" />
+                                                </td>
                                                 <td>
                                                     <label class="switch">
                                                         <input data-id="{{ $item->id }}" type="checkbox"
@@ -68,15 +73,22 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex">
-                                                    <a data-id="{{ $item->id }}"
-                                                        class="edit-btn btn btn-sm btn-outline-primary m-1"><i
-                                                            class="fas fa-pencil-alt"></i></a>
-                                                    <a data-id="{{ $item->id }}"
-                                                        class="show-btn btn btn-sm btn-outline-primary m-1"><i
-                                                            class="fas fa-eye"></i></a>
-                                                    <a data-id="{{ $item->id }}"
-                                                        class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                        title="Delete Disaster News"><i class="fas fa-archive"></i></a>
+                                                        @if (in_array("per_add", $data_permission))
+                                                        <a data-id="{{ $item->id }}"
+                                                            class="edit-btn btn btn-sm btn-outline-primary m-1"><i
+                                                                class="fas fa-pencil-alt"></i></a>
+                                                        @endif
+
+                                                        <a data-id="{{ $item->id }}"
+                                                            class="show-btn btn btn-sm btn-outline-primary m-1"><i
+                                                                class="fas fa-eye"></i></a>
+                                                        @if (in_array("per_add", $data_permission))
+                                                        <a data-id="{{ $item->id }}"
+                                                            class="delete-btn btn btn-sm btn-outline-danger m-1"
+                                                            title="Delete Disaster News"><i
+                                                                class="fas fa-archive"></i></a>
+                                                        @endif
+
                                                     </div>
                                                 </td>
                                             </tr>

@@ -47,26 +47,24 @@ class RegisterRepository  {
 		$permissions_data_from_table  = $this->permissionsData();
 		foreach ($permissions_data_from_table as $key => $data) {
 			$permission_id  = 'permission_id_'.$data['id'];
-			if($request->has($permission_id)) {
+			$per_add  = 'per_add_'.$data['id'];
+			$per_update  = 'per_update_'.$data['id'];
+			$per_delete  = 'per_delete_'.$data['id'];
+			if($request->has($permission_id) && ($request->has($per_add) || $request->has($per_update) || $request->has($per_delete))) {
 				// dd("I am here for permission");
 				$permissions_data = new RolesPermissions();
 				$permissions_data->permission_id = $data['id'];
 				$permissions_data->role_id = $request->role_id;
 				$permissions_data->user_id = $last_insert_id;
-
-				$per_add  = 'per_add_'.$data['id'];
+				
 				if($request->has($per_add)) {
 					$permissions_data->per_add  = true;
 				}
-				// $per_delete  = 'per_delete_'.$data['id'];
-				// if($request->has($per_delete)) {
-				// 	$permissions_data->per_edit  = $request->;
-				// }
-				$per_update  = 'per_update_'.$data['id'];
+				
 				if($request->has($per_update)) {
 					$permissions_data->per_update  = true;
 				}
-				$per_delete  = 'per_delete_'.$data['id'];
+				
 				if($request->has($per_delete)) {
 					$permissions_data->per_delete  = true;
 				}

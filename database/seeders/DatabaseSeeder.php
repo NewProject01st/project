@@ -45,6 +45,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CitizenActionSeeder::class);   
         $this->call(HeaderSeeder::class);   
         $this->call(PoliciesLegislationSeeder::class);   
+        $this->call(GalleryCategorySeeder::class);   
+        
 
    
         

@@ -74,7 +74,7 @@
                                     <div class="form-group">
                                         <label for="english_image">Image English</label>&nbsp<span
                                             class="red-text">*</span><br>
-                                        <input type="file" name="english_image" id="english_image" accept="image/*">
+                                        <input type="file" name="english_image" id="english_image" accept="image/*"><br>
                                         @if ($errors->has('english_image'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
@@ -85,7 +85,7 @@
                                     <div class="form-group">
                                         <label for="marathi_image">Image Marathi</label>&nbsp<span
                                             class="red-text">*</span><br>
-                                        <input type="file" name="marathi_image" id="marathi_image" accept="image/*">
+                                        <input type="file" name="marathi_image" id="marathi_image" accept="image/*"><br>
                                         @if ($errors->has('marathi_image'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
@@ -118,7 +118,9 @@
                                 </div>
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Submit</button>
-                                    <button type="submit" class="btn btn-danger">Cancel</button>
+                                    <button type="reset" class="btn btn-danger">Cancel</button>
+                                    <span><a href="{{ route('list-success-stories') }}"
+                                        class="btn btn-sm btn-primary ">Back</a></span>
                                 </div>
                             </div>
                         </form>
