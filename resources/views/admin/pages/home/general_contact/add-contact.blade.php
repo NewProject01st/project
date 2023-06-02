@@ -75,7 +75,7 @@
                                     <div class="form-group">
                                         <label for="english_icon">Icon English</label>&nbsp<span
                                             class="red-text">*</span><br>
-                                        <input type="file" name="english_icon" id="english_icon" accept="image/*">
+                                        <input type="file" name="english_icon" id="english_icon" accept="image/*"><br>
                                         @if ($errors->has('english_icon'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_icon', ':message'); ?></span>
@@ -86,7 +86,7 @@
                                     <div class="form-group">
                                         <label for="marathi_icon">Icon Marathi</label>&nbsp<span
                                             class="red-text">*</span><br>
-                                        <input type="file" name="marathi_icon" id="marathi_icon" accept="image/*">
+                                        <input type="file" name="marathi_icon" id="marathi_icon" accept="image/*"><br>
                                         @if ($errors->has('marathi_icon'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_icon', ':message'); ?></span>

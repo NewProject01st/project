@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 @section('title', 'Applicant\'s Form')
 @section('content')
-<?php  $data_permission = getPermissionForCRUDPresentOrNot('list-main-menu',session('permissions')); 
+<?php  $data_permission = getPermissionForCRUDPresentOrNot('list-sub-header-info',session('permissions')); 
                                             ?>
 <div class="main-panel">
     <div class="content-wrapper">

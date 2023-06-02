@@ -94,8 +94,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_pdf"> English Pdf</label>&nbsp<span
-                                            class="red-text">*</span><br>
+                                        <label for="english_pdf"> English Pdf</label><br>
                                         <input type="file" name="english_pdf" id="english_pdf" accept=".pdf">
                                         @if ($errors->has('english_pdf'))
                                         <span
@@ -105,8 +104,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_pdf"> Marathi Pdf</label>&nbsp<span
-                                            class="red-text">*</span><br>
+                                        <label for="marathi_pdf"> Marathi Pdf</label><br>
                                         <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf">
                                         @if ($errors->has('marathi_pdf'))
                                         <span

@@ -25,7 +25,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_title">Title English</label>
+                                        <label for="english_title">Title English</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_title" name="english_title"
                                             id="english_title"
                                             placeholder="Enter the Title">{{$relevant_laws->english_title }}</textarea>
@@ -37,7 +38,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_title">Title Marathi</label>
+                                        <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control marathi_title" name="marathi_title"
                                             id="marathi_title"
                                             placeholder="Enter the Title">{{$relevant_laws->marathi_title }}</textarea>
@@ -49,7 +51,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_description">Description English</label>
+                                        <label for="english_description">Description English</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_description" name="english_description"
                                             id="english_description"
                                             placeholder="Enter the Description">{{ $relevant_laws->english_description }}</textarea>
@@ -61,7 +64,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label> Description Marathi</label>
+                                        <label> Description Marathi</label>&nbsp<span class="red-text">*</span>
                                         <textarea class="form-control marathi_description" name="marathi_description"
                                             id="marathi_description"
                                             placeholder="Enter the Description">{{ $relevant_laws->marathi_description }}</textarea>
