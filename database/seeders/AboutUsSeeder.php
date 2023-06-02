@@ -20,7 +20,7 @@ class AboutUsSeeder extends Seeder
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
             'english_title' => 'Introduction to the Disaster Management Portal',
-            'marathi_title' => '<b>आपत्ती व्यवस्थापन पोर्टलची ओळख</b>',
+            'marathi_title' => 'आपत्ती व्यवस्थापन पोर्टलची ओळख',
             'english_description' => 'The Disaster Management Portal is a comprehensive online platform designed to facilitate efficient and organized management of disasters. It serves as a centralized hub for disaster-related information, coordination, and collaboration among various stakeholders involved in disaster management, including government agencies, relief organizations, emergency services, and the general public. The portal aims to enhance preparedness, response, and recovery efforts by providing timely and accurate information, tools, and resources.<br>
 
             The primary objective of the Disaster Management Portal is to ensure effective disaster management by enabling quick and coordinated actions during emergencies. It serves as a vital communication channel, delivering real-time alerts, notifications, and updates to users about disasters occurring in their area. This feature helps individuals and communities stay informed and take necessary precautions or actions to ensure their safety.<br>
@@ -42,8 +42,8 @@ class AboutUsSeeder extends Seeder
         ObjectiveGoals::create([
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
-                'english_title' => '<b>Objectives of Disaster Management</b>',
-                'marathi_title' => '<b>आपत्ती व्यवस्थापनाची उद्दिष्टे</b>',
+                'english_title' => 'Objectives of Disaster Management',
+                'marathi_title' => 'आपत्ती व्यवस्थापनाची उद्दिष्टे',
                 'english_description' => '
                 The objectives of a disaster  management portal are the specific goals and purposes it aims to achieve in order to effectively manage and respond to disasters. These objectives can vary depending on the context and requirements of the portal, but some common objectives include:<br>
                 
@@ -88,8 +88,8 @@ class AboutUsSeeder extends Seeder
             ObjectiveGoals::create([
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now(),
-                'english_title' => '<b>Goals of Disaster Management</b>',
-                'marathi_title' => '<b>आपत्ती व्यवस्थापनाची उद्दिष्टे</b>',
+                'english_title' => 'Goals of Disaster Management',
+                'marathi_title' => 'आपत्ती व्यवस्थापनाची उद्दिष्टे',
                 'english_description' => '
                 The goals of a disaster management portal refer to the overarching objectives or desired outcomes that the portal aims to achieve. These goals typically revolve around improving disaster preparedness, response, and recovery efforts by providing access to information, resources to support effective disaster management. Some common goals of a disaster management portal include:<br>
                 
