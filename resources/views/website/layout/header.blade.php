@@ -54,13 +54,13 @@
     <script src="{{ asset('website_files/assets/bootstrap-5.0.2-dist/js/jquery.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     
-    <script src="{{ asset('website_files/assets/js/custom.js') }}"></script>
+    {{-- <script src="{{ asset('website_files/assets/js/custom.js') }}"></script>
 
 
     <script src="{{ asset('website_files/assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('website_files/assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('website_files/assets/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('website_files/assets/js/jquery.prettyPhoto.js') }}"></script>
+    <script src="{{ asset('website_files/assets/js/jquery.prettyPhoto.js') }}"></script> --}}
 
      
 

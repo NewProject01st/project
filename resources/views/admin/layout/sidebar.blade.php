@@ -103,7 +103,7 @@
                       <div class="collapse" id="home">
                           <ul class="nav flex-column sub-menu">
 
-                              @if (in_array('list-marquee', $data_for_url))
+                              @if (in_array('/list-marquee', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                           href="{{ route('list-marquee') }}">News Bar</a></li>
                               @endif
