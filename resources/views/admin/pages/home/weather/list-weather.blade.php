@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('title', 'Applicant\'s Form')
-@section('content')<?php  $data_permission = getPermissionForCRUDPresentOrNot('list-main-menu',session('permissions')); 
+@section('content')<?php  $data_permission = getPermissionForCRUDPresentOrNot('list-weather',session('permissions')); 
                                             ?>
 
 <div class="main-panel">

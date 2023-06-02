@@ -24,7 +24,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_title">Title English</label>
+                                        <label for="english_title">Title English</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_title" name="english_title"
                                             id="english_title" placeholder="Enter the Title"></textarea>
                                         @if ($errors->has('english_title'))
@@ -35,7 +36,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_title">Title Marathi</label>
+                                        <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control marathi_title" name="marathi_title"
                                             id="marathi_title" placeholder="Enter the Title"></textarea>
                                         @if ($errors->has('marathi_title'))
@@ -46,7 +48,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_description">Description English</label>
+                                        <label for="english_description">Description English</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_description" name="english_description"
                                             id="english_description" placeholder="Enter the Description"
                                             name="english_description"></textarea>
@@ -59,7 +62,7 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label> Description Marathi</label>
+                                        <label> Description Marathi</label>&nbsp<span class="red-text">*</span>
                                         <textarea class="form-control marathi_description" name="marathi_description"
                                             id="marathi_description" placeholder="Enter the Description"></textarea>
                                         @if ($errors->has('english_description'))
@@ -71,7 +74,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="english_pdf"> English Pdf</label><br>
-                                        <input type="file" name="english_pdf" id="english_pdf" accept=".pdf">
+                                        <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"><br>
                                         @if ($errors->has('english_pdf'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
@@ -81,7 +84,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="marathi_pdf"> Marathi Pdf</label><br>
-                                        <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf">
+                                        <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"><br>
                                         @if ($errors->has('marathi_pdf'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>

@@ -117,7 +117,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="logo">Logo</label>&nbsp<span class="red-text">*</span><br>
-                                        <input type="file" name="logo" id="logo" accept="image/*">
+                                        <input type="file" name="logo" id="logo" accept="image/*"><br>
                                         @if ($errors->has('logo'))
                                         <span class="red-text"><?php echo $errors->first('logo', ':message'); ?></span>
                                         @endif
@@ -126,7 +126,7 @@
                                 {{-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="marathi_logo">Image Marathi</label>&nbsp<span class="red-text">*</span><br>
-                                        <input type="file" name="marathi_logo" id="marathi_logo" accept="image/*">
+                                        <input type="file" name="marathi_logo" id="marathi_logo" accept="image/*"><br>
                                         @if ($errors->has('marathi_logo'))
                                         <span
                                             class="red-text"><?php //echo $errors->first('marathi_logo', ':message'); ?></span>
