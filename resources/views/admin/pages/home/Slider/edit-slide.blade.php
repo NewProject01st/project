@@ -24,7 +24,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_title">Title English</label>
+                                        <label for="english_title">Title English</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_title" name="english_title"
                                             id="english_title"
                                             placeholder="Enter the Title">{{ $slider->english_title }}</textarea>
@@ -36,7 +37,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_title">Title Marathi</label>
+                                        <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control marathi_title" name="marathi_title"
                                             id="marathi_title"
                                             placeholder="Enter the Title">{{ $slider->marathi_title }}</textarea>
@@ -48,7 +50,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_description">Description English</label>
+                                        <label for="english_description">Description English</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_description" name="english_description"
                                             id="english_description"
                                             placeholder="Enter the Description">{{ $slider->english_description }}</textarea>
@@ -60,7 +63,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_description"> Description Marathi</label>
+                                        <label for="marathi_description"> Description Marathi</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control marathi_description" name="marathi_description"
                                             id="marathi_description"
                                             placeholder="Enter the Description">{{ $slider->marathi_description }}</textarea>
@@ -72,7 +76,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="url"> URL</label>
+                                        <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" class="form-control" placeholder="Enter the URL"
                                             value="{{ $slider->url }}" name="url" id="url">
                                         @if ($errors->has('url'))
@@ -82,7 +86,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="image_alt"> Image Alt Text</label>
+                                        <label for="image_alt"> Image Alt Text</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <input type="text" class="form-control" placeholder="Enter the URL"
                                             value="{{ $slider->image_alt }}" name="image_alt" id="image_alt">
                                         @if ($errors->has('image_alt'))
@@ -97,8 +102,8 @@
                                         <input type="file" name="english_image" class="form-control" id="english_image"
                                             accept="image/*" placeholder="image">
                                         @if ($errors->has('english_image'))
-                                        <div
-                                            class="red-text"><?php echo $errors->first('english_image', ':message'); ?></div>
+                                        <div class="red-text"><?php echo $errors->first('english_image', ':message'); ?>
+                                        </div>
                                         @endif
                                     </div>
                                     <img id="english"
@@ -114,8 +119,8 @@
                                         <input type="file" name="marathi_image" id="marathi_image" accept="image/*"
                                             class="form-control">
                                         @if ($errors->has('marathi_image'))
-                                        <div
-                                            class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></div>
+                                        <div class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?>
+                                        </div>
                                         @endif
                                     </div>
 

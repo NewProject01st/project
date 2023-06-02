@@ -24,7 +24,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_title">Title English</label>
+                                        <label for="english_title">Title English</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_title" name="english_title"
                                             id="english_title"
                                             placeholder="Enter the Title">{{$success_stories->english_title }}</textarea>
@@ -36,7 +37,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_title">Title Marathi</label>
+                                        <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control marathi_title" name="marathi_title"
                                             id="marathi_title"
                                             placeholder="Enter the Title">{{$success_stories->marathi_title }}</textarea>
@@ -48,7 +50,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_description">Description English</label>
+                                        <label for="english_description">Description English</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_description" name="english_description"
                                             id="english_description"
                                             placeholder="Enter the Description">{{ $success_stories->english_description }}</textarea>
@@ -60,7 +63,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label> Description Marathi</label>
+                                        <label> Description Marathi</label>&nbsp<span class="red-text">*</span>
                                         <textarea class="form-control marathi_description" name="marathi_description"
                                             id="marathi_description"
                                             placeholder="Enter the Description">{{ $success_stories->marathi_description }}</textarea>
@@ -105,7 +108,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_designation">English Designation</label>
+                                        <label for="english_designation">English Designation</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <input type="text" name="english_designation" id="english_designation"
                                             class="form-control" value="{{ $success_stories->english_designation }}"
                                             placeholder="">
@@ -117,7 +121,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_designation">Marathi Designation</label>
+                                        <label for="marathi_designation">Marathi Designation</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <input type="text" class="form-control" placeholder=""
                                             name="marathi_designation" id="marathi_designation"
                                             value="{{ $success_stories->marathi_designation }}" required="">
