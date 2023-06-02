@@ -64,12 +64,12 @@ class EmergencyContactNumbersRepository  {
 public function addAll($request)
 {
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
+        $englishImageName = time() . '_english.' . $request->file('english_image')->extension();
+        $marathiImageName = time() . '_marathi.' . $request->file('marathi_image')->extension();
 
         $request->file('english_image')->storeAs('public/images/emergency-response/emergency-contact-numbers', $englishImageName);
         $request->file('marathi_image')->storeAs('public/images/emergency-response/emergency-contact-numbers', $marathiImageName);
-    
+
         $emergencyContactNumbers = new EmergencyContactNumbers();
         $emergencyContactNumbers->english_title = $request->input('english_title');
         $emergencyContactNumbers->marathi_title = $request->input('marathi_title');
@@ -78,13 +78,15 @@ public function addAll($request)
         $emergencyContactNumbers->english_image = $englishImageName;
         $emergencyContactNumbers->marathi_image = $marathiImageName;
 
-        // dd($emergencyContactNumbers);
         $emergencyContactNumbers->save();
- 
-        $emergencyContactId = $emergencyContactNumbers->id; // Get the ID of the saved emergency contact
-        
-        $data = $request->data; // Assuming the additional emergency contact numbers are sent as an array in the 'data' field of the request
-        
+
+        $emergencyContactId = $emergencyContactNumbers->id;
+
+        $data = $request->input('data');
+
+        dd($data);
+// print_r( $data);
+// die();
         foreach ($data as $contact) {
             $addressesData = new AddMoreEmergencyContactNumbers();
             $addressesData->emergency_contact_id = $emergencyContactId;
@@ -92,10 +94,12 @@ public function addAll($request)
             $addressesData->marathi_emergency_contact_title = $contact['marathi_emergency_contact_title'];
             $addressesData->english_emergency_contact_number = $contact['english_emergency_contact_number'];
             $addressesData->marathi_emergency_contact_number = $contact['marathi_emergency_contact_number'];
+// dd($addressesData);
+// print_r($addressesData);
+// die();
             $addressesData->save();
         }
 
-         print_r($addressesData);
         return $emergencyContactNumbers;
 
     } catch (\Exception $e) {
@@ -103,8 +107,9 @@ public function addAll($request)
             'msg' => $e->getMessage(),
             'status' => 'error'
         ];
-    }    
+    }
 }
+
 
 
 

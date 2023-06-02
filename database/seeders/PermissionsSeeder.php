@@ -37,7 +37,7 @@ class PermissionsSeeder extends Seeder
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                     'route_name' => 'News Bar',
-                    'url' => '/list-marquee',
+                    'url' => 'list-marquee',
                     'permission_name' => 'News Bar',
                 ]);
 
@@ -47,7 +47,7 @@ class PermissionsSeeder extends Seeder
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                     'route_name' => 'Slider',
-                    'url' => '/list-slide',
+                    'url' => 'list-slide',
                     'permission_name' => 'Slider',
                 ]);
                 Permissions::create(
@@ -55,7 +55,7 @@ class PermissionsSeeder extends Seeder
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                     'route_name' => 'Disaster Web Portal',
-                    'url' => '/list-disaster-management-web-portal',
+                    'url' => 'list-disaster-management-web-portal',
                     'permission_name' => 'Disaster Web Portal',
                 ]);
 
