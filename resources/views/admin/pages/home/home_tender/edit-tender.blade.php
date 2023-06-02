@@ -24,7 +24,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_title">Title English</label>
+                                        <label for="english_title">Title English</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_title" name="english_title"
                                             id="english_title"
                                             placeholder="Enter the Title">{{$tender->english_title }}</textarea>
@@ -36,7 +37,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_title">Title Marathi</label>
+                                        <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control marathi_title" name="marathi_title"
                                             id="marathi_title"
                                             placeholder="Enter the Title">{{$tender->marathi_title }}</textarea>
@@ -48,7 +50,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_description">Description English</label>
+                                        <label for="english_description">Description English</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <textarea class="form-control english_description" name="english_description"
                                             id="english_description"
                                             placeholder="Enter the Description">{{ $tender->english_description }}</textarea>
@@ -60,7 +63,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label> Description Marathi</label>
+                                        <label> Description Marathi</label>&nbsp<span class="red-text">*</span>
                                         <textarea class="form-control marathi_description" name="marathi_description"
                                             id="marathi_description"
                                             placeholder="Enter the Description">{{ $tender->marathi_description }}</textarea>
@@ -72,7 +75,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="exampleInputUsername1">Tender Date</label>
+                                        <label for="exampleInputUsername1">Tender Date</label>&nbsp<span
+                                            class="red-text">*</span>
                                         <input type="date" class="form-control" placeholder="YYYY-MM-DD"
                                             name="tender_date" id="tender_date" value="{{ $tender->tender_date }}"
                                             required="">
@@ -80,7 +84,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="url">English URL</label>
+                                        <label for="url">English URL</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" name="url" id="url" class="form-control"
                                             value="{{ $tender->url }}" placeholder="">
                                         @if ($errors->has('url'))

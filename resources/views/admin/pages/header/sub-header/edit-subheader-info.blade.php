@@ -25,111 +25,106 @@
                             <div class="row">
                                 {{-- <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_tollfree_title">English Toll Free Title</label>
+                                        <label for="english_tollfree_title">English Toll Free Title</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" name="english_tollfree_title" id="english_tollfree_title"
                                             value="{{ $subheader_info->english_tollfree_title }}" class="form-control"
-                                            placeholder="">
-                                        @if ($errors->has('english_tollfree_title'))
-                                        <span
-                                            class="red-text"><?php //echo $errors->first('english_tollfree_title', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
+                                placeholder="">
+                                @if ($errors->has('english_tollfree_title'))
+                                <span
+                                    class="red-text"><?php //echo $errors->first('english_tollfree_title', ':message'); ?></span>
+                                @endif
+                            </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="marathi_tollfree_title">Marathi Toll Free Title</label>&nbsp<span
+                                class="red-text">*</span>
+                            <input type="text" name="marathi_tollfree_title" id="marathi_tollfree_title"
+                                value="{{ $subheader_info->marathi_tollfree_title }}" class="form-control"
+                                placeholder="">
+                            @if ($errors->has('marathi_tollfree_title'))
+                            <span
+                                class="red-text"><?php //echo $errors->first('marathi_tollfree_title', ':message'); ?></span>
+                            @endif
+                        </div>
+                    </div> --}}
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="english_tollfree_no">English Toll Free No</label>&nbsp<span
+                                class="red-text">*</span>
+                            <input type="text" name="english_tollfree_no" id="english_tollfree_no"
+                                value="{{ $subheader_info->english_tollfree_no }}" class="form-control" placeholder="">
+                            @if ($errors->has('english_tollfree_no'))
+                            <span
+                                class="red-text"><?php echo $errors->first('english_tollfree_no', ':message'); ?></span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="marathi_tollfree_no">Marathi Toll Free No</label>&nbsp<span
+                                class="red-text">*</span>
+                            <input type="text" name="marathi_tollfree_no" id="marathi_tollfree_no"
+                                value="{{ $subheader_info->marathi_tollfree_no }}" class="form-control" placeholder="">
+                            @if ($errors->has('marathi_tollfree_no'))
+                            <span
+                                class="red-text"><?php echo $errors->first('marathi_tollfree_no', ':message'); ?></span>
+                            @endif
+                        </div>
+                    </div>
+                    {{-- <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_tollfree_title">Marathi Toll Free Title</label>
-                                        <input type="text" name="marathi_tollfree_title" id="marathi_tollfree_title"
-                                            value="{{ $subheader_info->marathi_tollfree_title }}" class="form-control"
-                                            placeholder="">
-                                        @if ($errors->has('marathi_tollfree_title'))
-                                        <span
-                                            class="red-text"><?php //echo $errors->first('marathi_tollfree_title', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div> --}}
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="english_tollfree_no">English Toll Free No</label>
-                                        <input type="text" name="english_tollfree_no" id="english_tollfree_no"
-                                            value="{{ $subheader_info->english_tollfree_no }}" class="form-control"
-                                            placeholder="">
-                                        @if ($errors->has('english_tollfree_no'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('english_tollfree_no', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="marathi_tollfree_no">Marathi Toll Free No</label>
-                                        <input type="text" name="marathi_tollfree_no" id="marathi_tollfree_no"
-                                            value="{{ $subheader_info->marathi_tollfree_no }}" class="form-control"
-                                            placeholder="">
-                                        @if ($errors->has('marathi_tollfree_no'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('marathi_tollfree_no', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                {{-- <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="english_city_title">English City Title</label>
+                                        <label for="english_city_title">English City Title</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" name="english_city_title" id="english_city_title"
                                             value="{{ $subheader_info->english_city_title }}" class="form-control"
-                                            placeholder="">
-                                        @if ($errors->has('english_city_title'))
-                                        <span
-                                            class="red-text"><?php //echo $errors->first('english_city_title', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
+                    placeholder="">
+                    @if ($errors->has('english_city_title'))
+                    <span class="red-text"><?php //echo $errors->first('english_city_title', ':message'); ?></span>
+                    @endif
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="marathi_city_title">Marathi City Title</label>&nbsp<span class="red-text">*</span>
+                    <input type="text" name="marathi_city_title" id="marathi_city_title"
+                        value="{{ $subheader_info->marathi_city_title }}" class="form-control" placeholder="">
+                    @if ($errors->has('marathi_city_title'))
+                    <span class="red-text"><?php //echo $errors->first('marathi_city_title', ':message'); ?></span>
+                    @endif
+                </div>
+            </div> --}}
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="english_city">English City Name</label>&nbsp<span class="red-text">*</span>
+                    <input type="text" name="english_city" id="english_city" class="form-control"
+                        value="{{ $subheader_info->english_city }}" placeholder="">
+                    @if ($errors->has('english_city'))
+                    <span class="red-text"><?php echo $errors->first('english_city', ':message'); ?></span>
+                    @endif
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="marathi_city">Marathi City Name</label>&nbsp<span class="red-text">*</span>
+                    <input type="text" name="marathi_city" id="marathi_city" class="form-control"
+                        value="{{ $subheader_info->marathi_city }}" placeholder="">
+                    @if ($errors->has('marathi_city'))
+                    <span class="red-text"><?php echo $errors->first('marathi_city', ':message'); ?></span>
+                    @endif
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="logo">Logo</label>&nbsp<span class="red-text">*</span><br>
+                    <input type="file" name="logo" id="logo" accept="image/*">
+                    @if ($errors->has('logo'))
+                    <span class="red-text"><?php echo $errors->first('logo', ':message'); ?></span>
+                    @endif
+                </div>
+            </div>
+            {{-- <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_city_title">Marathi City Title</label>
-                                        <input type="text" name="marathi_city_title" id="marathi_city_title"
-                                            value="{{ $subheader_info->marathi_city_title }}" class="form-control"
-                                            placeholder="">
-                                        @if ($errors->has('marathi_city_title'))
-                                        <span
-                                            class="red-text"><?php //echo $errors->first('marathi_city_title', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div> --}}
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="english_city">English City Name</label>
-                                        <input type="text" name="english_city" id="english_city" class="form-control"
-                                            value="{{ $subheader_info->english_city }}" placeholder="">
-                                        @if ($errors->has('english_city'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('english_city', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="marathi_city">Marathi City Name</label>
-                                        <input type="text" name="marathi_city" id="marathi_city" class="form-control"
-                                            value="{{ $subheader_info->marathi_city }}" placeholder="">
-                                        @if ($errors->has('marathi_city'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('marathi_city', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="logo">Logo</label><br>
-                                        <input type="file" name="logo" id="logo" accept="image/*">
-                                        @if ($errors->has('logo'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('logo', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                {{-- <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="marathi_logo">Image Marathi</label><br>
+                                        <label for="marathi_logo">Image Marathi</label>&nbsp<span class="red-text">*</span><br>
                                         <input type="file" name="marathi_logo" id="marathi_logo" accept="image/*">
                                         @if ($errors->has('marathi_logo'))
                                         <span
@@ -137,17 +132,16 @@
                                         @endif
                                     </div>
                                 </div> --}}
-                                <div class="col-md-12 col-sm-12 text-center">
-                                    <button type="submit" class="btn btn-success">Save &amp; Update</button>
-                                    <button type="submit" class="btn btn-danger">Cancel</button>
-                                </div>
-                            </div>
-                            <input type="hidden" name="id" id="id" class="form-control"
-                                value="{{ $subheader_info->id }}" placeholder="">
-                        </form>
-                    </div>
-                </div>
+            <div class="col-md-12 col-sm-12 text-center">
+                <button type="submit" class="btn btn-success">Save &amp; Update</button>
+                <button type="submit" class="btn btn-danger">Cancel</button>
             </div>
         </div>
+        <input type="hidden" name="id" id="id" class="form-control" value="{{ $subheader_info->id }}" placeholder="">
+        </form>
     </div>
-    @endsection
+</div>
+</div>
+</div>
+</div>
+@endsection

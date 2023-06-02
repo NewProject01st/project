@@ -28,21 +28,19 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="icon">Social Icon</label>
-                                        <input type="file" name="icon" class="form-control"
-                                            placeholder="image">
+                                        <label for="icon">Social Icon</label><br>
+                                        <input type="file" name="icon" class="form-control" placeholder="image">
                                         @if ($errors->has('icon'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('icon', ':message'); ?></span>
+                                        <span class="red-text"><?php echo $errors->first('icon', ':message'); ?></span>
                                         @endif
                                     </div>
                                     <img src="{{ asset('storage/images/header/social-icon/' . $social_icon->english_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                 </div>
-                               
+
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="url">English URL</label>
+                                        <label for="url">English URL</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" name="url" id="url" class="form-control"
                                             value="{{ $social_icon->url }}" placeholder="">
                                         @if ($errors->has('url'))
