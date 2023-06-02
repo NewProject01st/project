@@ -7,17 +7,17 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Success Stories
+                Gallery Category
                 @if (in_array("per_add", $data_permission))
-                <a href="{{ route('add-success-stories') }}" class="btn btn-sm btn-primary ml-3">+
+                <a href="{{ route('add-gallery-category') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
                 @endif
 
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Success Stories</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Success Stories</li>
+                    <li class="breadcrumb-item"><a href="#">Gallery Category</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Gallery Category</li>
                 </ol>
             </nav>
         </div>
@@ -34,12 +34,6 @@
                                                 <th>S. No.</th>
                                                 <th>Title English</th>
                                                 <th>Title Marathi</th>
-                                                <th>Description English</th>
-                                                <th>Description Marathi</th>
-                                                <th>Designation English</th>
-                                                <th>Designation Marathi</th>
-                                                <th>English Image</th>
-                                                <th>Marathi Image</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -48,18 +42,8 @@
                                             @foreach ($success_stories as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><?php echo $item->english_title; ?></td>
-                                                <td><?php echo $item->marathi_title; ?></td>
-                                                <td><?php echo $item->english_description; ?></td>
-                                                <td><?php echo $item->marathi_description; ?></td>
-                                                <td>{{ $item->english_designation }}</td>
-                                                <td>{{ $item->marathi_designation }}</td>
-                                                <td> <img
-                                                        src="{{ asset('storage/images/news-events/success-stories/' . $item->english_image) }}" />
-                                                </td>
-                                                <td> <img
-                                                        src="{{ asset('storage/images/news-events/success-stories/' . $item->marathi_image) }}" />
-                                                </td>
+                                                <td><?php echo $item->english_name; ?></td>
+                                                <td><?php echo $item->marathi_name; ?></td>
                                                 <td>
                                                     <label class="switch">
                                                         <input data-id="{{ $item->id }}" type="checkbox"
@@ -104,19 +88,19 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('/delete-success-stories') }}" id="deleteform">
+    <form method="POST" action="{{ url('/delete-gallery-category') }}" id="deleteform">
         @csrf
         <input type="hidden" name="delete_id" id="delete_id" value="">
     </form>
-    <form method="POST" action="{{ url('/show-success-stories') }}" id="showform">
+    <form method="POST" action="{{ url('/show-gallery-category') }}" id="showform">
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-success-stories') }}" id="editform">
+    <form method="POST" action="{{ url('/edit-gallery-category') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>
-    <form method="POST" action="{{ url('/update-one-success-stories') }}" id="activeform">
+    <form method="POST" action="{{ url('/update-one-gallery-category') }}" id="activeform">
         @csrf
         <input type="hidden" name="active_id" id="active_id" value="">
     </form>

@@ -31,8 +31,8 @@
                     <div class="col-lg-6 d-flex align-items-center justify-content-center">
                         <div class="auth-form-transparent text-left p-3">
                             <!--  Brand Logo -->
-                            <div class="brand-logo">
-                                <img src="{{ asset('assets/images/logo.png') }}" alt="logo">
+                            <div class="brand-logo d-flex justify-content-center">
+                                <img src="{{ asset('assets/images/DMS.png') }}" alt="logo">
                             </div>
                             <!--  Login Form -->
 

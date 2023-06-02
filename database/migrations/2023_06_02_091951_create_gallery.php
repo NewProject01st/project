@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCapacityTrainingsTable extends Migration
+class CreateGallery extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateCapacityTrainingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('capacity_trainings', function (Blueprint $table) {
+        Schema::create('gallery', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('english_title');
-            $table->text('marathi_title');
-            $table->text('english_description');
-            $table->text('marathi_description');
+            $table->unsignedBigInteger('category_id');
             $table->string('english_image');
             $table->string('marathi_image');
             $table->string('is_deleted')->default(false);
@@ -34,6 +31,6 @@ class CreateCapacityTrainingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('capacity_trainings');
+        Schema::dropIfExists('gallery');
     }
 }

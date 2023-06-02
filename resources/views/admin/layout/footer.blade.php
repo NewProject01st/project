@@ -259,6 +259,34 @@ $('.show-btn').click(function(e) {
     $("#showform").submit();
 })
 </script>
+{{-- <script>
+    $('.edit-btn').click(function(e) {
+    
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Update it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $("#edit_id").val($(this).attr("data-id"));
+                $("#editform").submit();
+    
+                // Swal.fire(
+                //     'Deleted!',
+                //     'Your file has been deleted.',
+                //     'success'
+                // )
+            }
+        })
+    
+    });
+    </script> --}}
+
+
 <script>
 $('.edit-btn').click(function(e) {
     $("#edit_id").val($(this).attr("data-id"));

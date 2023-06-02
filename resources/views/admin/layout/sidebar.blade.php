@@ -405,7 +405,18 @@
                                       </a>
                                   </li>
                               @endif
-
+                              @if (in_array('list-gallery-category', $data_for_url))
+                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                      href="{{ route('list-gallery-category') }}">Gallery Category
+                                  </a>
+                              </li>
+                          @endif
+                          @if (in_array('list-gallery', $data_for_url))
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-gallery') }}">Gallery
+                              </a>
+                          </li>
+                      @endif
                           </ul>
                       </div>
                   </li>

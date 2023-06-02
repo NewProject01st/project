@@ -4,7 +4,7 @@
         <div class="row">
             <!--Footer Widget Start-->
             <div class="col-md-3 col-sm-6">
-                <div class="textwidget"> <img src="images/footer_logo.png" alt=""
+                <div class="textwidget"> <img src="images/footer_" alt=""
                         width="80%"><br><br>
                     <address>
                         <ul>
