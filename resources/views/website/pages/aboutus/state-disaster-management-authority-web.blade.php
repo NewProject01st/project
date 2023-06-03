@@ -31,7 +31,7 @@
                                     <h3><?php echo $item['english_title']; ?> : </h3>
                                     <img src="{{ asset('storage/images/aboutus/state-disaster-management-authority/' . $item['english_image']) }}"
                                     class="d-block w-100" alt="...">
-                                    <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
+                                    <p style="text-align: justify;" class="mt-p2"> <?php echo $item['english_description']; ?></p>
                                 @endif
                             </div>
                         @endforeach

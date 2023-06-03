@@ -131,8 +131,8 @@ class CitizenActionSeeder extends Seeder
         CitizenFeedbackSuggestion::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => '<b>Feedback and suggestions</b>',
-            'marathi_title' => '<b>अभिप्राय आणि सूचना</b>',
+            'english_title' => 'Feedback and suggestions',
+            'marathi_title' => 'अभिप्राय आणि सूचना',
             'english_description' => 'Feedback and suggestions play a vital role in improving disaster management strategies and enhancing overall preparedness and response capabilities. Here are some feedback and suggestions that can contribute to effective disaster management:<br>
             <ul>
             <li>Regular Assessment and Evaluation: Conduct regular assessments and evaluations of disaster management plans, policies, and procedures. This helps identify strengths, weaknesses, and areas for improvement. Feedback from stakeholders, including emergency responders, community members, and government agencies, should be considered during these assessments.

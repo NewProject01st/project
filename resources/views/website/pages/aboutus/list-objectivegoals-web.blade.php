@@ -24,14 +24,18 @@
                             <div class="deprt-txt">
                                 @if (session('language') == 'mar')
                                     <h3><?php echo $item['marathi_title']; ?> : </h3>
+                                    
+                                    <p style="text-align: justify;">
                                     <img src="{{ asset('storage/images/aboutus/objective-goals/' . $item['marathi_image']) }}"
-                                    class="d-block w-100" alt="...">
-                                    <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
+                                    class="d-block w-100 to_set_img" alt="...">
+                                    <?php echo $item['marathi_description']; ?></p>
                                 @else
                                     <h3><?php echo $item['english_title']; ?> : </h3>
+                                    
+                                    <p style="text-align: justify;" class="mt-p2"> 
                                     <img src="{{ asset('storage/images/aboutus/objective-goals/' . $item['english_image']) }}"
-                                    class="d-block w-100" alt="...">
-                                    <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
+                                    class="d-block w-100 to_set_img" alt="...">
+                                    <?php echo $item['english_description']; ?></p>
                                 @endif
                             </div>
                         @endforeach

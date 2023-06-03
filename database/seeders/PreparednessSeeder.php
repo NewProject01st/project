@@ -23,8 +23,8 @@ class PreparednessSeeder extends Seeder
         HazardVulnerability::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => '<b>Hazard and vulnerability assessment</b>',
-            'marathi_title' => '<b>धोका आणि असुरक्षा मूल्यांकन</b>',
+            'english_title' => 'Hazard and Vulnerability Assessment',
+            'marathi_title' => 'धोका आणि असुरक्षा मूल्यांकन',
             'english_description' => 'Hazard and vulnerability assessment is a crucial component of preparedness. It involves identifying and evaluating the potential hazards that a particular region or community is exposed to and assessing the vulnerabilities that may amplify the impact of those hazards. This assessment helps in understanding the specific risks and challenges associated with different types of disasters.<br><br>
             The process of hazard and vulnerability assessment typically involves the following steps:<br>
             <ul>
@@ -54,8 +54,8 @@ class PreparednessSeeder extends Seeder
         EarlyWarningSystem::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => '<b>Early warning systems</b>',
-            'marathi_title' => '<b>पूर्व चेतावणी प्रणाली</b>',
+            'english_title' => 'Early Warning Systems',
+            'marathi_title' => 'पूर्व चेतावणी प्रणाली',
             'english_description' => 'Early warning systems play a crucial role in preparedness by providing timely and accurate information about potential hazards, allowing communities and authorities to take appropriate actions to protect lives and property.<br><br>
              Early warning systems involve the following key components:<br>
             <ul>
@@ -86,7 +86,7 @@ class PreparednessSeeder extends Seeder
         CapacityTraining::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => 'Capacity building and training',
+            'english_title' => 'Capacity Building and Training',
             'marathi_title' => 'क्षमता निर्माण आणि प्रशिक्षण',
             'english_description' => 'Capacity building and training play a crucial role in preparedness efforts. Here an explanation of preparedness through capacity building and training in the context of disaster management:<br><br>
              <b>Capacity Building:</b> Capacity building refers to the process of strengthening the knowledge, skills, resources, and capabilities of individuals, organizations, and systems involved in disaster management. It involves activities aimed at enhancing preparedness, response, and recovery capacities at various levels. Capacity building initiatives may include:<br>
@@ -130,7 +130,7 @@ class PreparednessSeeder extends Seeder
         PublicAwarenessEducation::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => 'Public awareness and education',
+            'english_title' => 'Public Awareness and Education',
             'marathi_title' => 'जनजागृती आणि शिक्षण',
             'english_description' => 'Public awareness and education play a crucial role in preparedness efforts. Heres an explanation of how public awareness and education contribute to disaster preparedness:<br>
             <ul>

@@ -41,10 +41,11 @@ class DatabaseSeeder extends Seeder
         $this->call(ReliefMeasuresResourcesSeeder::class);    
         $this->call(EvacuationPlansSeeder::class);       
         $this->call(PrimaryEmergencyContactNumbersSeeder::class);   
-        $this->call(PublicAwarenessEducationSeeder::class);   
         $this->call(CitizenActionSeeder::class);   
         $this->call(HeaderSeeder::class);   
         $this->call(PoliciesLegislationSeeder::class);   
+        $this->call(GalleryCategorySeeder::class);   
+        
 
    
         

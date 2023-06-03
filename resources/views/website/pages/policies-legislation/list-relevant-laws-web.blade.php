@@ -7,7 +7,7 @@
                 <h2>Policies Legislation </h2>
                 <ul>
                     <li> <a href="{{ route('index') }}">Home</a> </li>
-                    <li> State Disaster Management Plan </li>
+                    <li>Relevant Laws And Regulations </li>
                 </ul>
             </div>
         </section>

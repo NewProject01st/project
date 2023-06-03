@@ -40,6 +40,7 @@
                                                 <th>Designation Marathi</th>
                                                 <th>English Image</th>
                                                 <th>Marathi Image</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>

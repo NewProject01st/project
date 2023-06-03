@@ -23,7 +23,7 @@ class CreateEvent extends Migration
             $table->string('marathi_image');
             $table->string('start_date');
             $table->string('end_date');
-            $table->string('is_deleted')->default(true);
+            $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

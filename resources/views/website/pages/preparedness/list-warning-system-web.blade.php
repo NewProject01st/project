@@ -7,7 +7,7 @@
             <h2>Preparedness </h2>
             <ul>
                 <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li> Warning System </li>
+                <li> Early Warning Systems </li>
             </ul>
         </div>
     </section>

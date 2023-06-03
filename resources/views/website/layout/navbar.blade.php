@@ -4,7 +4,7 @@
         <div id="closetopbar" class="topbar wf100">
             <div class="container-fluid">
                 <div class="row head_row">
-                    <div class="col d-flex align-items-center new_head_ul">
+                    <div class="col-6 d-flex align-items-center new_head_ul">
                         
                         <ul class="quick-links">
                             <li><a href="#">Site Map</a></li>
@@ -14,8 +14,15 @@
                         </ul>
 
                     </div>
-                    <div class="col set_volunteer"> <a id="closebtn" href="#" class="cross-btn">
-                        <i class="fa fa-times"></i></a> <a href="#" class="become-vol">Become a Volunteer</a>
+                    <div class="col-4 d-flex align-items-center new_head_ul2">
+                        
+                        <ul class="quick-links">
+                            <li><a href="#">Toll Free: 000 0000 000</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="col-2 set_volunteer"> 
+                        <a href="#" class="become-vol">Become a Volunteer</a>
                     </div>
                 </div>
             </div>
@@ -53,14 +60,14 @@
                         <div class="row">
                             <div class="col-md-9 col-sm-9">
 
-                                <ul class="header-contact">
+                                <!-- <ul class="header-contact">
                                     <li><span>Toll Free:</span> <strong>0000 00000</strong></li>
                                     <li class="city-exp"> <i class="fas fa-street-view"></i>
                                         <strong>City<br>Nashik</strong>
                                     </li>
                                     <li class="header-weather"> <i class="fas fa-cloud-sun"></i> 24°C / 75°F </li>
 
-                                </ul>
+                                </ul> -->
 
                             </div>
 

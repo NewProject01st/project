@@ -20,7 +20,7 @@ class PoliciesLegislationSeeder extends Seeder
         StateDisasterManagementPlan::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => ' State disaster management plan',
+            'english_title' => ' State Disaster Management Plan',
             'marathi_title' => 'राज्य आपत्ती व्यवस्थापन योजना',
             'english_description' => 'The Maharashtra State Disaster Management Plan is a comprehensive document that outlines the policies and strategies for disaster management in the state of Maharashtra, India. It serves as a guideline for various government departments, agencies, and stakeholders involved in disaster response, mitigation, and recovery efforts. The plan is designed to ensure an effective and coordinated approach to managing disasters in Maharashtra.<br>
             The key components of the Maharashtra State Disaster Management Plan include:
@@ -74,7 +74,7 @@ class PoliciesLegislationSeeder extends Seeder
         DistrictDisasterManagementPlan::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => ' District disaster management plans',
+            'english_title' => ' District Disaster Management Plans',
             'marathi_title' => 'जिल्हा आपत्ती व्यवस्थापन योजना',
             'english_description' => 'District Disaster Management Plans (DDMPs) are an integral part of the states policies and legislation for disaster management. These plans are designed to ensure preparedness, response, and recovery in the event of a disaster at the district level. Heres an overview of DDMPs according to Maharashtras policies and legislation:
             <ul>
@@ -140,7 +140,7 @@ class PoliciesLegislationSeeder extends Seeder
         StateDisasterManagementPolicy::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => ' State disaster management policy',
+            'english_title' => ' State Disaster Management Policy',
             'marathi_title' => 'राज्य आपत्ती व्यवस्थापन धोरण',
             'english_description' => 'The State Disaster Management Policy of Maharashtra outlines the framework and guidelines for disaster management within the state. It establishes the objectives, principles, and strategies to be followed in order to effectively prevent, mitigate, and respond to disasters. The policy is based on national disaster management policies and guidelines, while also considering the unique geographical, environmental, and socio-economic factors specific to Maharashtra.<br>
             The key components of the State Disaster Management Policy include:
@@ -188,7 +188,7 @@ class PoliciesLegislationSeeder extends Seeder
         RelevantLawsRegulation::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => 'Relevant laws and regulations',
+            'english_title' => 'Relevant Laws And Regulations',
             'marathi_title' => 'संबंधित कायदे आणि नियम',
             'english_description' => 'In Maharashtra, there are several relevant laws and regulations pertaining to disaster management. These policies and legislation aim to ensure preparedness, response, recovery, and mitigation measures are in place to effectively manage disasters. Here are some key laws and regulations in Maharashtra:<br>            ',
             'marathi_description' => 'महाराष्ट्रात, आपत्ती व्यवस्थापनाशी संबंधित अनेक कायदे आणि नियम आहेत. ही धोरणे आणि कायदे आपत्तींचे प्रभावीपणे व्यवस्थापन करण्यासाठी सज्जता, प्रतिसाद, पुनर्प्राप्ती आणि शमन उपाय आहेत याची खात्री करणे हा आहे. महाराष्ट्रातील काही प्रमुख कायदे आणि नियम येथे आहेत:<br>            ',

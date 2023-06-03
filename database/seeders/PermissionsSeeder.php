@@ -270,7 +270,32 @@ class PermissionsSeeder extends Seeder
                                     'url' => 'list-document-publications',
                                     'permission_name' => 'Documents And Publications',
                                 ]);
+                                Permissions::create(
+                                    [
+                                        'created_at' => \Carbon\Carbon::now(),
+                                        'updated_at' => \Carbon\Carbon::now(),
+                                        'route_name' => 'Success Stories',
+                                        'url' => 'list-success-stories',
+                                        'permission_name' => 'Success Stories',
+                                    ]);
+                            Permissions::create(
+                                [
+                                    'created_at' => \Carbon\Carbon::now(),
+                                    'updated_at' => \Carbon\Carbon::now(),
+                                    'route_name' => 'Category Gallery',
+                                    'url' => 'list-gallery-category',
+                                    'permission_name' => 'Category Gallery',
+                                ]);
 
+                            Permissions::create(
+                                [
+                                    'created_at' => \Carbon\Carbon::now(),
+                                    'updated_at' => \Carbon\Carbon::now(),
+                                    'route_name' => 'Gallery',
+                                    'url' => 'list-gallery',
+                                    'permission_name' => 'Gallery',
+                                ]);
+    
                             Permissions::create(
                                 [
                                     'created_at' => \Carbon\Carbon::now(),

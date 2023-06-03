@@ -21,7 +21,7 @@ class CreateRelevantLawsRegulationsTable extends Migration
             $table->text('marathi_description');
             $table->string('english_image');
             $table->string('marathi_image');
-            $table->string('is_deleted')->default(true);
+            $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

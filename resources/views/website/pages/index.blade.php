@@ -147,6 +147,19 @@
                                         alt=""> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i
                                             class="fas fa-arrow-right"></i></a>
                                 </div>
+                                <div class="new-txt">
+                                    <ul class="news-meta">
+                                        <li>
+                                            {{-- 05 MAY, 2023  --}}
+                                            <?php echo $item['disaster_date']; ?></li>
+                                        {{-- <li>176 Comments</li> --}}
+                                    </ul>
+                                    <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
+                                    <p> <?php echo $item['english_description']; ?></p>
+                                </div>
+                                <div class="news-box-f"> <img src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
+                                    alt=""> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i class="fas fa-arrow-right"></i></a>
+                            </div>
                             </div>
                 </div>
             @else
