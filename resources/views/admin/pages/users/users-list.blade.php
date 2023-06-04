@@ -1,6 +1,8 @@
 @extends('admin.layout.master')
 @section('title', 'Applicant\'s Form')
 @section('content')
+<?php  $data_permission = getPermissionForCRUDPresentOrNot('list-users',session('permissions')); 
+                                            ?>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
@@ -34,22 +36,27 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($register_user as $item)
                                             <tr>
-                                                <td>1</td>
-                                                <td>XYZ Company Ltd.</td>
-                                                <td>Technical</td>
-                                                
-                                                <td>
-                                                    <a href="designation_master.php"
-                                                        class="btn btn-sm btn-outline-info"><i
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{$item->f_name}} {{$item->m_name}} {{$item->l_name}} ({{$item->u_email}})</td>
+                                                <td>{{$item->role_name}}</td>
+                                                <td class="d-flex">
+                                                    <a data-id="{{ $item->id }}"
+                                                        class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-pencil-alt"></i></a>
+                                                    <a data-id="{{ $item->id }}"
+                                                        class="show-btn btn btn-sm btn-outline-primary m-1"><i
+                                                            class="fas fa-eye"></i></a>
+                                                    <a data-id="{{ $item->id }}"
+                                                        class="delete-btn btn btn-sm btn-outline-danger m-1"
+                                                        title="Delete Tender"><i class="fas fa-archive"></i></a>
 
-                                                    <!--                                <button class="btn btn-sm btn-outline-info"><i class="fas fa-pencil-alt"></i></button>-->
-                                                    <button class="btn btn-sm btn-outline-primary"><i
-                                                            class="fa fa-eye"></i></button>
+
                                                 </td>
                                             </tr>
-                                           
+                                            @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -62,8 +69,20 @@
             </div>
         </div>
     </div>
-
+    <form method="POST" action="{{ url('/delete-users') }}" id="deleteform">
+        @csrf
+        <input type="hidden" name="delete_id" id="delete_id" value="">
+    </form>
+    <form method="POST" action="{{ url('/show-users') }}" id="showform">
+        @csrf
+        <input type="hidden" name="show_id" id="show_id" value="">
+    </form>
+    <form method="POST" action="{{ url('/edit-users') }}" id="editform">
+        @csrf
+        <input type="hidden" name="edit_id" id="edit_id" value="">
+    </form>
 
     <!-- content-wrapper ends -->
+
 
     @endsection
