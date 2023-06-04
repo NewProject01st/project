@@ -188,6 +188,7 @@ return array(
     'App\\Models\\CapacityTraining' => $baseDir . '/app/Models/CapacityTraining.php',
     'App\\Models\\CitizenFeedbackSuggestion' => $baseDir . '/app/Models/CitizenFeedbackSuggestion.php',
     'App\\Models\\Contact' => $baseDir . '/app/Models/Contact.php',
+    'App\\Models\\DepartmentInformation' => $baseDir . '/app/Models/DepartmentInformation.php',
     'App\\Models\\DisasterForcast' => $baseDir . '/app/Models/DisasterForcast.php',
     'App\\Models\\DisasterManagementNews' => $baseDir . '/app/Models/DisasterManagementNews.php',
     'App\\Models\\DisasterManagementPortal' => $baseDir . '/app/Models/DisasterManagementPortal.php',

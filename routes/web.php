@@ -141,6 +141,14 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-disasterforcast', ['as' => 'show-disasterforcast', 'uses' => 'App\Http\Controllers\Home\DisasterForcastController@show']);
     Route::post('/delete-disasterforcast', ['as' => 'delete-disasterforcast', 'uses' => 'App\Http\Controllers\Home\DisasterForcastController@destroy']);
 
+    Route::get('/list-department-information', ['as' => 'list-department-information', 'uses' => 'App\Http\Controllers\Home\DepartmentInformationController@index']);
+    Route::get('/add-department-information', ['as' => 'add-department-information', 'uses' => 'App\Http\Controllers\Home\DepartmentInformationController@add']);
+    Route::post('/add-department-information', ['as' => 'add-department-information', 'uses' => 'App\Http\Controllers\Home\DepartmentInformationController@store']);
+    Route::post('/edit-department-information', ['as' => 'edit-department-information', 'uses' => 'App\Http\Controllers\Home\DepartmentInformationController@edit']);
+    Route::post('/update-department-information', ['as' => 'update-department-information', 'uses' => 'App\Http\Controllers\Home\DepartmentInformationController@update']);
+    Route::post('/show-department-information', ['as' => 'show-department-information', 'uses' => 'App\Http\Controllers\Home\DepartmentInformationController@show']);
+    Route::post('/delete-department-information', ['as' => 'delete-department-information', 'uses' => 'App\Http\Controllers\Home\DepartmentInformationController@destroy']);
+
     Route::get('/list-objectivegoals', ['as' => 'list-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@index']);
     Route::get('/add-objectivegoals', ['as' => 'add-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@add']);
     Route::post('/add-objectivegoals', ['as' => 'add-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@store']);
