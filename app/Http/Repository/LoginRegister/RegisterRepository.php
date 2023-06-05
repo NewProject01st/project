@@ -108,17 +108,29 @@ class RegisterRepository  {
 			}
 			info('$update_data');
 			info($update_data);
-			if($request->has($permission_id) && ($request->has($per_add) || $request->has($per_update) || $request->has($per_delete))) {
+			// if($request->has($permission_id) && ($request->has($per_add) || $request->has($per_update) || $request->has($per_delete))) {
 				// dd("I am here for permission");
 				\DB::enableQueryLog(); // Enable query log
 
-				$permissions_data = RolesPermissions::where([
+				$permissions_data_all = RolesPermissions::where([
 					'user_id' =>$request['edit_id'],
 					'permission_id' =>$data['id']
-				])->update($update_data);
+				])->get()->toArray();
+				if(count($permissions_data_all)>0) {
+
+					$permissions_data = RolesPermissions::where([
+						'user_id' =>$request['edit_id'],
+						'permission_id' =>$data['id']
+					])->update($update_data);
+				} else {
+					$update_data['user_id']  = $request['edit_id'];
+					$update_data['permission_id']  = $data['id'];
+					$permissions_data = RolesPermissions::insert($update_data);
+				}
+				
 				info(\DB::getQueryLog()); // Show results of log
 
-			}
+			// }
 			
 		}
 		return "ok";
