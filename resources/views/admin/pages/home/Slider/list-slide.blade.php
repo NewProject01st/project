@@ -37,7 +37,6 @@
                                                 <th>Description English</th>
                                                 <th>Description Marathi</th>
                                                 <th>URL</th>
-                                                <th>Image Alt Text</th>
                                                 <th>Image English</th>
                                                 <th>Image Marathi</th>
                                                 <th>Status</th>
@@ -53,7 +52,6 @@
                                                 <td><?php echo $item->english_description; ?></td>
                                                 <td><?php echo $item->marathi_description; ?></td>
                                                 <td><?php echo $item->url; ?></td>
-                                                <td><?php echo $item->image_alt; ?></td>
                                                 <td> <img
                                                         src="{{ asset('storage/images/slides/' . $item->english_image) }}" />
                                                 </td>
@@ -73,7 +71,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        @if (in_array("per_add", $data_permission))
+                                                        @if (in_array("per_update", $data_permission))
                                                         <a data-id="{{ $item->id }}"
                                                             class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                                 class="fas fa-pencil-alt"></i></a>
@@ -82,7 +80,7 @@
                                                         <a data-id="{{ $item->id }}"
                                                             class="show-btn btn btn-sm btn-outline-primary m-1"><i
                                                                 class="fas fa-eye"></i></a>
-                                                        @if (in_array("per_add", $data_permission))
+                                                        @if (in_array("per_delete", $data_permission))
                                                         <a data-id="{{ $item->id }}"
                                                             class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                             title="Delete Disaster News"><i

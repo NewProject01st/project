@@ -26,7 +26,7 @@ class DepartmentInfoSeeder extends Seeder
             'english_image' => 'deprticon1',
             'marathi_image' => 'deprticon1',
             'url'   => 'READ MORE',
-            'date'   => '04-06-2023',
+            // 'date'   => '04-06-2023',
             'is_deleted'=>false,
             'is_active'=>true,
         
@@ -42,7 +42,7 @@ class DepartmentInfoSeeder extends Seeder
             'english_image' => 'deprticon2',
             'marathi_image' => 'deprticon2',
             'url'   => 'READ MORE',
-            'date'   => '04-06-2023',
+            // 'date'   => '04-06-2023',
             'is_deleted'=>false,
             'is_active'=>true,
         
@@ -58,7 +58,7 @@ class DepartmentInfoSeeder extends Seeder
             'english_image' => 'deprticon3',
             'marathi_image' => 'deprticon3',
             'url'   => 'READ MORE',
-            'date'   => '04-06-2023',
+            // 'date'   => '04-06-2023',
             'is_deleted'=>false,
             'is_active'=>true,
         
@@ -74,7 +74,7 @@ class DepartmentInfoSeeder extends Seeder
             'english_image' => 'deprticon4',
             'marathi_image' => 'deprticon4',
             'url'   => 'READ MORE',
-            'date'   => '04-06-2023',
+            // 'date'   => '04-06-2023',
             'is_deleted'=>false,
             'is_active'=>true,
         
@@ -90,7 +90,7 @@ class DepartmentInfoSeeder extends Seeder
             'english_image' => 'deprticon5',
             'marathi_image' => 'deprticon5',
             'url'   => 'READ MORE',
-            'date'   => '04-06-2023',
+            // 'date'   => '04-06-2023',
             'is_deleted'=>false,
             'is_active'=>true,
         
@@ -106,7 +106,7 @@ class DepartmentInfoSeeder extends Seeder
             'english_image' => 'deprticon6',
             'marathi_image' => 'deprticon6',
             'url'   => 'READ MORE',
-            'date'   => '04-06-2023',
+            // 'date'   => '04-06-2023',
             'is_deleted'=>false,
             'is_active'=>true,
         

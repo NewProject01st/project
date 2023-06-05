@@ -7,7 +7,7 @@
                 <div class=" list-group">
 
                     <marquee width="100%" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-                        <div class="list-group-item d-flex  g-2 ">
+                        <div class="d-flex  g-2 ">
                             @foreach ($data_output_marquee as $item)
                                 @if (session('language') == 'mar')
                                     <p class="marquee_para px-2"><a href="{{ $item['url'] }}" target="_blank"
@@ -38,7 +38,7 @@
                         @if (session('language') == 'mar')
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
                                 <img src="{{ asset('storage/images/slides/' . $slider['marathi_image']) }}"
-                                    class="d-block w-100" alt="No Image">
+                                    class="d-block w-100" alt="{{ $slider['marathi_title'] }}">
                                 <div class="carousel-caption">
                                     <h1><?php echo $slider['marathi_title']; ?></h1>
                                     <p><?php echo $slider['marathi_description']; ?> </p>
@@ -49,7 +49,7 @@
                         @elseif (array_key_exists('english_title', $slider))
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
                                 <img src="{{ asset('storage/images/slides/' . $slider['english_image']) }}"
-                                    class="d-block w-100" alt="No Image">
+                                    class="d-block w-100" alt="{{ $slider['english_title'] }}">
                                 <div class="carousel-caption">
                                     <h1><?php echo $slider['english_title']; ?></h1>
                                     <p><?php echo $slider['english_description']; ?> </p>
@@ -131,7 +131,7 @@
                                 <div class="news-box">
                                     {{-- <div class="new-thumb"> <span class="cat c1">Fire</span> --}}
                                     <img src="{{ asset('storage/images/disaster-news/' . $item['marathi_image']) }}"
-                                        class="d-block w-100">
+                                        class="d-block w-100" alt="{{ $item['marathi_title'] }}">
                                 </div>
                                 <div class="new-txt">
                                     <ul class="news-meta">
@@ -154,12 +154,16 @@
                                             <?php echo $item['disaster_date']; ?></li>
                                         {{-- <li>176 Comments</li> --}}
                                     </ul>
-                                    <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
-                                    <p> <?php echo $item['english_description']; ?></p>
+                                    <h6><a href="#"><?php echo $item['english_title'];
+                                    ?></a></h6>
+                                    <p> <?php echo $item['english_description'];
+                                    ?></p>
                                 </div>
-                                <div class="news-box-f"> <img src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
-                                    alt=""> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i class="fas fa-arrow-right"></i></a>
-                            </div>
+                                <div class="news-box-f"> <img
+                                        src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
+                                        alt="{{ $item['english_title'] }}"> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i
+                                            class="fas fa-arrow-right"></i></a>
+                                </div>
                             </div>
                 </div>
             @else
@@ -209,62 +213,37 @@
                         <p>Read the News Updates and Articles about Disaster Management </p>
                     </div>
                     <div class="row">
-                        <!--Icon Box Start-->
-                        <div class="col-md-4 col-sm-4">
-                            <div class="deprt-icon-box"> <img
-                                    src="{{ asset('website_files/images/home/deprticon1.png') }}" alt="">
-                                <h6> <a href="#">Emergency Department</a> </h6>
-                                <a class="rm" href="#">Read More</a>
-                            </div>
-                        </div>
-                        <!--Icon Box End-->
-                        <!--Icon Box Start-->
-                        <div class="col-md-4 col-sm-4">
-                            <div class="deprt-icon-box"> <img
-                                    src="{{ asset('website_files/images/home/deprticon2.png') }}" alt="">
-                                <h6> <a href="#">Public Health Department</a> </h6>
-                                <a class="rm" href="#">Read More</a>
-                            </div>
-                        </div>
-                        <!--Icon Box End-->
-                        <!--Icon Box Start-->
-                        <div class="col-md-4 col-sm-4">
-                            <div class="deprt-icon-box"> <img
-                                    src="{{ asset('website_files/images/home/deprticon3.png') }}" alt="">
-                                <h6> <a href="#">Information Desk/Hotline</a> </h6>
-                                <a class="rm" href="#">Read More</a>
-                            </div>
-                        </div>
-                        <!--Icon Box End-->
-                        <!--Icon Box Start-->
-                        <div class="col-md-4 col-sm-4">
-                            <div class="deprt-icon-box"> <img
-                                    src="{{ asset('website_files/images/home/deprticon4.png') }}" alt="">
-                                <h6> <a href="#">Police Department </a> </h6>
-                                <a class="rm" href="#">Read More</a>
-                            </div>
-                        </div>
-                        <!--Icon Box End-->
-                        <!--Icon Box Start-->
-                        <div class="col-md-4 col-sm-4">
-                            <div class="deprt-icon-box"> <img
-                                    src="{{ asset('website_files/images/home/deprticon5.png') }}" alt="">
-                                <h6> <a href="#">National Guard </a> </h6>
-                                <a class="rm" href="#">Read More</a>
-                            </div>
-                        </div>
-                        <!--Icon Box End-->
-                        <!--Icon Box Start-->
-                        <div class="col-md-4 col-sm-4">
-                            <div class="deprt-icon-box"> <img
-                                    src="{{ asset('website_files/images/home/deprticon6.png') }}" alt="">
-                                <h6> <a href="#">Fire Department</a> </h6>
-                                <a class="rm" href="#">Read More</a>
-                            </div>
-                        </div>
-                        <!--Icon Box End-->
+                        @foreach ($data_output_departmentinformation as $item)
+                            @if (session('language') == 'mar')
+                                <!--Icon Box Start-->
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="deprt-icon-box"> <img
+                                            src="{{ asset('storage/images/home/department-information/' . $item['marathi_image']) }}"
+                                            alt="">
+                                        <h6> <a href="#"><?php echo $item['marathi_title']; ?></a> </h6>
+                                        <a class="rm" href="{{ $item['url'] }}">Read More</a>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="deprt-icon-box"> <img
+                                            src="{{ asset('storage/images/home/department-information/' . $item['english_image']) }}"
+                                            alt="">
+                                        <h6> <a href="#"><?php echo $item['english_title']; ?></a> </h6>
+                                        <a data-id="{{ $item['id'] }}" class="department-show-btn rm">Read More</a>
+                                    </div>
+                                </div>
+                                <!--Icon Box End-->
+                            @endif
+                        @endforeach
+                        <form method="POST" action="{{ url('/particular-department-information') }}"
+                            id="departmentshowform">
+                            @csrf
+                            <input type="hidden" name="department_show_id" id="department_show_id" value="">
+                        </form>
                     </div>
                 </div>
+
                 <div class="col-md-3">
                     <div class="emergency-info">
                         <h5>Helplines &

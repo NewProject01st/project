@@ -438,6 +438,12 @@
                               </a>
                           </li>
                           @endif
+                          @if (in_array('list-video', $data_for_url))
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-video') }}">Video
+                              </a>
+                          </li>
+                          @endif
                       </ul>
                   </div>
               </li>
@@ -468,30 +474,6 @@
                   <a class="nav-link" href="{{ route('list-event') }}">
                       <i class="fas fa-window-restore menu-icon"></i>
                       <span class="menu-title">Event</span>
-                  </a>
-              </li>
-              @endif
-              @if (in_array('list-tenders', $data_for_url))
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('list-tenders') }}">
-                      <i class="fas fa-window-restore menu-icon"></i>
-                      <span class="menu-title">Tender</span>
-                  </a>
-              </li>
-              @endif
-              @if (in_array('list-policiesacts', $data_for_url))
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('list-policiesacts') }}">
-                      <i class="fas fa-window-restore menu-icon"></i>
-                      <span class="menu-title">Policies & Acts</span>
-                  </a>
-              </li>
-              @endif
-              @if (in_array('list-projects', $data_for_url))
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('list-projects') }}">
-                      <i class="fas fa-window-restore menu-icon"></i>
-                      <span class="menu-title">Projects</span>
                   </a>
               </li>
               @endif

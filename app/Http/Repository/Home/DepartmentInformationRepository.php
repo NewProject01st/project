@@ -37,7 +37,8 @@ class DepartmentInformationRepository  {
         $department_data->english_image = $englishImageName;
         $department_data->marathi_image =   $marathiImageName;
         $department_data->url = $request['url'];
-        $department_data->date = $request['date'];
+        // $department_data->date = $request['date'];
+        dd($department_data);
         $department_data->save();       
               
 		return $department_data;
@@ -89,7 +90,7 @@ public function updateAll($request)
         $department_data->english_description = $request['english_description'];
         $department_data->marathi_description = $request['marathi_description'];
         $department_data->url = $request['url'];
-        $department_data->date = $request['date'];
+        // $department_data->date = $request['date'];
 
         if ($request->hasFile('english_image')) {
             // Delete previous English image if it exists

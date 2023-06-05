@@ -12,79 +12,45 @@
             </div>
         </section>
         <!--Subheader End-->
-
         <!--Main Content Start-->
-        <div class="main-content p60">
-            <!--Department Details Page Start-->
-            <div class="department-details">
+        <div class="main-content">
+            <!--Testimonials Start-->
+            <section class="testimonials-section wf100 p80 graybg">
+                <h2 class="text-center">What People Says</h2>
                 <div class="container">
                     <div class="row">
-                        <!--Start News Start-->
-                        <section class="wf100 city-news p75">
-                            <div class="container ">
-                                <div class="title-style-3">
-                                    <h3>Be Updated with Disaster Management News</h3>
-                                    <p>Read the News Updates and Articles from Government </p>
-                                </div>
-                                <div class="row d-flex flex-wrap">
-
-                                    @foreach ($data_output as $item)
-                                        @if (session('language') == 'mar')
-                                            <div class="col-md-3 col-sm-6">
-                                                <div class="news-box">
-                                                    {{-- <div class="new-thumb"> <span class="cat c1">Fire</span> --}}
-                                                    <img src="{{ asset('storage/images/disaster-news/' . $item['marathi_image']) }}"
-                                                        class="d-block w-100">
-                                                </div>
-                                                <div class="new-txt">
-                                                    <ul class="news-meta">
-                                                        <li>
-                                                            {{-- 05 MAY, 2023  --}}
-                                                            <?php echo $item['disaster_date']; ?></li>
-                                                        {{-- <li>176 Comments</li> --}}
-                                                    </ul>
-                                                    <h6><a href="#"><?php echo $item['marathi_title']; ?></a></h6>
-                                                    <p> <?php echo $item['marathi_description']; ?></p>
-                                                </div>
-                                                <div class="news-box-f"> <img
-                                                        src="{{ asset('website_files/images/home/tuser1.jpg') }}"
-                                                        alt=""> Read more <a data-id="{{ $item['id'] }}"
-                                                        class="show-btn"><i class="fas fa-arrow-right"></i></a>
-                                                </div>
+                        <div class="col-md-12">
+                            <div id="h3testimonials" class="owl-carousel owl-theme">
+                                <!--testimonials box start-->
+                                @foreach ($data_output as $item)
+                                    @if (session('language') == 'mar')
+                                        <div class="item">
+                                            <?php echo $item['marathi_description']; ?>
+                                            <div class="tuser">
+                                                <img src="{{ asset('storage/images/news-events/success-stories/' . $item['marathi_image']) }}"
+                                                    class="d-block w-25">
+                                                <strong><?php echo $item['marathi_title']; ?></strong><?php echo $item['marathi_designation']; ?>
                                             </div>
-                                </div>
-                            @else
-                                <div class="col-md-3 col-sm-6 mt-4">
-                                    <div class="news-box">
-                                        <div class="new-thumb">
-                                            {{-- <span class="cat c1">Fire</span> --}}
-                                            <img src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
-                                                class="d-block w-100">
                                         </div>
-                                        <div class="new-txt">
-                                            <ul class="news-meta">
-                                                <li>
-                                                    {{-- 05 MAY, 2023  --}}
-                                                    <?php echo $item['disaster_date']; ?></li>
-                                                {{-- <li>176 Comments</li> --}}
-                                            </ul>
-                                            <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
-                                            <p> <?php echo $item['english_description']; ?></p>
+                                    @else
+                                        <div class="item">
+                                            <?php echo $item['english_description']; ?>
+                                            <div class="tuser">
+                                                <img src="{{ asset('storage/images/news-events/success-stories/' . $item['english_image']) }}"
+                                                    class="d-block w-25">
+                                                <strong><?php echo $item['english_title']; ?></strong><?php echo $item['english_designation']; ?>
+                                            </div>
                                         </div>
-                                        <div class="news-box-f"> <img
-                                                src="{{ asset('website_files/images/home/tuser1.jpg') }}" alt="">
-                                            Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i
-                                                    class="fas fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endif
+                                    @endif
                                 @endforeach
-                                <!--News Box End-->
+                                <!--testimonials box End-->
+
                             </div>
+                        </div>
                     </div>
                 </div>
-                <!--Department Details Page End-->
-            </div>
-            <!--Main Content End-->
-        @endsection
+            </section>
+            <!--Testimonials End-->
+        </div>
+        <!--Main Content End-->
+    @endsection

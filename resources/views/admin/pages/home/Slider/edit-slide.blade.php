@@ -86,18 +86,6 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="image_alt"> Image Alt Text</label>&nbsp<span
-                                            class="red-text">*</span>
-                                        <input type="text" class="form-control" placeholder="Enter the URL"
-                                            value="{{ $slider->image_alt }}" name="image_alt" id="image_alt">
-                                        @if ($errors->has('image_alt'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('image_alt', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
                                         <label for="english_image">English Image</label>
                                         <input type="file" name="english_image" class="form-control" id="english_image"
                                             accept="image/*" placeholder="image">

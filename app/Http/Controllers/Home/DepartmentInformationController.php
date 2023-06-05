@@ -63,6 +63,7 @@ class DepartmentInformationController extends Controller
         else
         {
             $add_department_info = $this->service->addAll($request);
+            dd($add_department_info);
             // print_r($add_tenders);
             // die();
             if($add_department_info)

@@ -67,7 +67,7 @@
                                                          <a data-id="{{ $item->id }}"
                                                              class="show-btn btn btn-sm btn-outline-primary m-1"><i
                                                                  class="fas fa-eye"></i></a>
-                                                         @if (in_array("per_update", $data_permission))
+                                                         @if (in_array("per_delete", $data_permission))
                                                          <a data-id="{{ $item->id }}"
                                                              class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                              title="Delete Disaster Management Portal"><i
