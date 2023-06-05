@@ -320,9 +320,21 @@
                               </a>
                           </li>
                           @endif
-                          @if (in_array('list-model-info', $data_for_url))
+                          @if (in_array('list-incident-model-info', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-model-info') }}">Report Incident MOdal Info
+                                  href="{{ route('list-incident-model-info') }}">Report Incident Modal Info
+                              </a>
+                          </li>
+                          @endif
+                          @if (in_array('list-volunteer-model-info', $data_for_url))
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-volunteer-model-info') }}">Report Volunteer Modal Info
+                              </a>
+                          </li>
+                          @endif
+                          @if (in_array('list-feedback-model-info', $data_for_url))
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-feedback-model-info') }}">Report Feedback Modal Info
                               </a>
                           </li>
                           @endif

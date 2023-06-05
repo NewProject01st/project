@@ -6,45 +6,45 @@ use DB;
 use Illuminate\Support\Carbon;
 // use Session;
 use App\Models\ {
-	ReportIncidentModal
+	CitizenFeedbackSuggestionModal
 };
 
-class ReportIncidentModalRepository{
+class FeedbackCitizenModalRepository{
 	public function getAll()
     {
         try {
-            return ReportIncidentModal::all();
+            return CitizenFeedbackSuggestionModal::all();
         } catch (\Exception $e) {
             return $e;
         }
     }
 
-	public function addAll($request)
-{
-    try {
-        $englishImageName = time() . '_media.' . $request->media_upload->extension();
+// 	public function addAll($request)
+// {
+//     try {
+//         $englishImageName = time() . '_media.' . $request->media_upload->extension();
         
-        $request->media_upload->storeAs('public/images/citizen-action/modal/incident-modal', $englishImageName);
+//         $request->media_upload->storeAs('public/images/citizen-action/volunteer-modal', $englishImageName);
 
         
-        $modal_data = new ReportIncidentModal();
-        $modal_data->incident = $request['incident'];
-        $modal_data->location = $request['location'];
-        $modal_data->datetime = $request['datetime'];
-        $modal_data->mobile_number = $request['mobile_number'];
-        $modal_data->description =   $request['description'];
-        $modal_data->media_upload = $englishImageName;
-        $modal_data->save();       
+//         $modal_data = new ReportIncidentModal();
+//         $modal_data->volunteer = $request['volunteer'];
+//         $modal_data->location = $request['location'];
+//         $modal_data->datetime = $request['datetime'];
+//         $modal_data->mobile_number = $request['mobile_number'];
+//         $modal_data->description =   $request['description'];
+//         $modal_data->media_upload = $englishImageName;
+//         $modal_data->save();       
               
-		return $modal_data;
+// 		return $modal_data;
 
-    } catch (\Exception $e) {
-        return [
-            'msg' => $e,
-            'status' => 'error'
-        ];
-    }
-}
+//     } catch (\Exception $e) {
+//         return [
+//             'msg' => $e,
+//             'status' => 'error'
+//         ];
+//     }
+// }
 
 // public function getById($id)
 // {

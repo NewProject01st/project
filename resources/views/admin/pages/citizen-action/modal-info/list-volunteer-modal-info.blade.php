@@ -1,23 +1,23 @@
 @extends('admin.layout.master')
 @section('title', 'Applicant\'s Form')
 @section('content')
-<?php  $data_permission = getPermissionForCRUDPresentOrNot('list-model-info',session('permissions')); 
+<?php  $data_permission = getPermissionForCRUDPresentOrNot('list-volunteer-model-info',session('permissions')); 
                                             ?>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Report a Incident: Modal Information
+                Be Volunteer: Modal Information
                 @if (in_array("per_add", $data_permission))
-                <a href="{{ route('add-model-info') }}" class="btn btn-sm btn-primary ml-3">+
+                <a href="{{ route('add-volunteer-model-info') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
                 @endif
 
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#"> Report a Incident: Modal Information</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Report a Incident: Modal Information</li>
+                    <li class="breadcrumb-item"><a href="#"> Be Volunteer: Modal Information</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Be Volunteer: Modal Information</li>
                 </ol>
             </nav>
         </div>
@@ -32,7 +32,7 @@
                                         <thead>
                                             <tr>
                                                 <th>S. No.</th>
-                                                <th>Incident</th>
+                                                <th>Volunteer</th>
                                                 <th>Location</th>
                                                 <th>Datetime</th>
                                                 <th>mobile_number</th>
@@ -45,13 +45,13 @@
                                             @foreach ($modal_data as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->incident }}</td>
+                                                <td>{{ $item->volunteer }}</td>
                                                 <td>{{ $item->location }}</td>
                                                 <td>{{ $item->datetime }}</td>
                                                 <td>{{ $item->mobile_number }}</td>
                                                 <td><?php echo $item->description ?></td>
                                                 <td> <img
-                                                        src="{{ asset('storage/images/citizen-action/modal/' . $item->media_upload) }}" />
+                                                        src="{{ asset('storage/images/citizen-action/modal/volunteer-modal/' . $item->media_upload) }}" />
                                                 </td>
 
 
@@ -87,15 +87,15 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('/delete-model-info') }}" id="deleteform">
+    <form method="POST" action="{{ url('/delete-volunteer-model-info') }}" id="deleteform">
         @csrf
         <input type="hidden" name="delete_id" id="delete_id" value="">
     </form>
-    <form method="POST" action="{{ url('/show-model-info') }}" id="showform">
+    <form method="POST" action="{{ url('/show-volunteer-model-info') }}" id="showform">
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-model-info') }}" id="editform">
+    <form method="POST" action="{{ url('/edit-volunteer-model-info') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>

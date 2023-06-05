@@ -114,7 +114,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <form method="post" action="{{ url('report-modal') }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ url('feedback-modal') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="col-md-12">
 
