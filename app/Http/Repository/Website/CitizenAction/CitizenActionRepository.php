@@ -10,7 +10,8 @@ use App\Models\ {
 	VolunteerCitizenSupport,
     CitizenFeedbackSuggestion,
     ReportIncidentModal,
-    CitizenVolunteerModal
+    CitizenVolunteerModal,
+    CitizenFeedbackSuggestionModal
 
 };
 
@@ -75,7 +76,7 @@ class CitizenActionRepository  {
                 // dd($request);
                 $englishImageName = time() . '_media.' . $request->media_upload->extension();
         
-                $request->media_upload->storeAs('public/images/citizen-action/modal', $englishImageName);
+                $request->media_upload->storeAs('public/images/citizen-action/modal/incident-modal', $englishImageName);
         
                 $modal_data = new ReportIncidentModal();
                 $modal_data->incident = $request['incident'];
@@ -104,10 +105,38 @@ class CitizenActionRepository  {
                 // dd($request);
                 $englishImageName = time() . '_media.' . $request->media_upload->extension();
         
-                $request->media_upload->storeAs('public/images/citizen-action/volunteer-modal', $englishImageName);
+                $request->media_upload->storeAs('public/images/citizen-action/modal/volunteer-modal', $englishImageName);
         
                 $modal_data = new CitizenVolunteerModal();
                 $modal_data->volunteer = $request['volunteer'];
+                $modal_data->location = $request['location'];
+                $modal_data->datetime = $request['datetime'];
+                $modal_data->mobile_number = $request['mobile_number'];
+                $modal_data->description =   $request['description'];
+                $modal_data->media_upload = $englishImageName;
+                $modal_data->save();       
+                    
+                return $modal_data;
+        
+        
+            } catch (\Exception $e) {
+                return [
+                    'msg' => $e,
+                    'status' => 'error'
+                ];
+            }
+        }       
+
+        public function addFeedbackModalInfo($request)
+        {
+            try {
+                // dd($request);
+                $englishImageName = time() . '_media.' . $request->media_upload->extension();
+        
+                $request->media_upload->storeAs('public/images/citizen-action/modal/feedback-modal', $englishImageName);
+        
+                $modal_data = new CitizenFeedbackSuggestionModal();
+                $modal_data->feedback = $request['feedback'];
                 $modal_data->location = $request['location'];
                 $modal_data->datetime = $request['datetime'];
                 $modal_data->mobile_number = $request['mobile_number'];

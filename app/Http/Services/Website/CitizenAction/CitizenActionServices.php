@@ -72,4 +72,18 @@ class CitizenActionServices
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
+
+    public function addFeedbackModalInfo($request)
+    {
+        try {
+            $add_modal = $this->repo->addFeedbackModalInfo($request);
+            if ($add_modal) {
+                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing  Added Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Added.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        }      
+    }
 }

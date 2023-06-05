@@ -60,7 +60,9 @@ Route::get('/list-report-incident-crowdsourcing-web', ['as' => 'list-report-inci
 Route::get('/volunteer-citizen-support-web', ['as' => 'volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllVolunteerCitizenSupport']);
 Route::get('/citizen-feedback-suggestions-web', ['as' => 'citizen-feedback-suggestions-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllCitizenFeedbackSuggestions']);
 // Route::get('/report-modal', ['as' => 'report-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@add']);
-Route::post('/report-modal', ['as' => 'report-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@store']);
+Route::post('/report-modal', ['as' => 'report-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeIncidentModalInfo']);
+Route::post('/volunteer-modal', ['as' => 'volunteer-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeVolunteerModalInfo']);
+Route::post('/feedback-modal', ['as' => 'feedback-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeFeedbackModalInfo']);
 
 Route::get('/list-training-event-web', ['as' => 'list-training-event-web', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllEvent']);
 
@@ -376,7 +378,9 @@ Route::post('/update-citizen-feedback-and-suggestion', ['as' => 'update-citizen-
 Route::post('/show-citizen-feedback-and-suggestion', ['as' => 'show-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@show']);
 Route::post('/delete-citizen-feedback-and-suggestion', ['as' => 'delete-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@destroy']);
 
-Route::get('/list-modal-info', ['as' => 'list-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentModalController@index']);
+Route::get('/list-incident-modal-info', ['as' => 'list-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentModalController@index']);
+Route::get('/list-volunteer-modal-info', ['as' => 'list-volunteer-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenModalController@index']);
+Route::get('/list-feedback-modal-info', ['as' => 'list-feedback-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\FeedbackCitizenModalController@index']);
 
 //=======Header=======
 Route::get('/list-social-icon', ['as' => 'list-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@index']);

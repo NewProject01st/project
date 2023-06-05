@@ -108,7 +108,7 @@
                                                 <label for="english_emergency_contact_title">English Emergency Contact
                                                     Title</label>&nbsp<span class="red-text">*</span><br>
                                                 <input class="form-control" type="text"
-                                                    name="english_emergency_contact_title[]"
+                                                    name="english_emergency_contact_title_1"
                                                     placeholder="Emergency Contact Title">
                                             </div>
                                         </div>
@@ -117,7 +117,7 @@
                                                 <label for="marathi_emergency_contact_title">Marathi English Emergency
                                                     Contact Title</label>&nbsp<span class="red-text">*</span><br>
                                                 <input class="form-control" type="text"
-                                                    name="marathi_emergency_contact_title[]"
+                                                    name="marathi_emergency_contact_title_1"
                                                     placeholder="Emergency Contact Title">
                                             </div>
                                         </div>
@@ -126,7 +126,7 @@
                                                 <label for="english_emergency_contact_number">English Emergency Contact
                                                     Number</label>&nbsp<span class="red-text">*</span><br>
                                                 <input class="form-control" type="text"
-                                                    name="english_emergency_contact_number[]"
+                                                    name="english_emergency_contact_number_1"
                                                     placeholder="Emergency Contact Number">
                                             </div>
                                         </div>
@@ -135,7 +135,7 @@
                                                 <label for="marathi_emergency_contact_number">Marathi English Emergency
                                                     Contact Number</label>&nbsp<span class="red-text">*</span><br>
                                                 <input class="form-control" type="text"
-                                                    name="marathi_emergency_contact_number[]"
+                                                    name="marathi_emergency_contact_number_1"
                                                     placeholder="Emergency Contact Number">
                                             </div>
                                         </div>
@@ -151,8 +151,10 @@
                                 <button type="reset" class="btn btn-danger">Cancel</button>
                                 <span><a href="{{ route('list-disastermanagementportal') }}"
                                         class="btn btn-sm btn-primary ">Back</a></span>
+                                <input class="form-control" type="text" name="no_of_text_boxes" id="no_of_text_boxes"
+                                    value="1">
                             </div>
-
+                        </form>
                     </div>
                 </div>
             </div>
@@ -161,38 +163,49 @@
 
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     <script>
+    let i = 1;
     $(document).ready(function() {
-        // Add more items
+
         $("#add-item").click(function() {
-            var item = `
+            i = parseInt($("#no_of_text_boxes").val()) + 1;
+            $("#no_of_text_boxes").val(i);
+            var item =
+                `
                     <div id="items">
                                     <div class="item">
                                         <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="english_emergency_contact_title">English Emergency Contact Title</label><br>
-                                                <input class="form-control" type="text" name="english_emergency_contact_title[]"
+                                                <input class="form-control" type="text" name="english_emergency_contact_title_` +
+                i +
+                `"
                                                     placeholder="Emergency Contact Title">
                                             </div>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="marathi_emergency_contact_title">Marathi English Emergency Contact Title</label><br>
-                                                <input class="form-control" type="text" name="marathi_emergency_contact_title[]"
+                                                <input class="form-control" type="text" name="marathi_emergency_contact_title_` +
+                i +
+                `"
                                                     placeholder="Emergency Contact Title">
                                             </div>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="english_emergency_contact_number">English Emergency Contact Number</label><br>
-                                                <input class="form-control" type="text" name="english_emergency_contact_number[]"
+                                                <input class="form-control" type="text" name="english_emergency_contact_number_` +
+                i +
+                `"
                                                     placeholder="Emergency Contact Number">
                                             </div>
                                         </div>
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="marathi_emergency_contact_number">Marathi English Emergency Contact Number</label><br>
-                                                <input class="form-control" type="text" name="marathi_emergency_contact_number[]"
+                                                <input class="form-control" type="text" name="marathi_emergency_contact_number_` +
+                i + `"
                                                     placeholder="Emergency Contact Number">
                                             </div>
                                         </div>

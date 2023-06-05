@@ -4,21 +4,21 @@ namespace App\Http\Controllers\CitizenAction;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\ReportIncidentModal;
-use App\Http\Services\CitizenAction\ReportIncidentModalServices;
+use App\Models\CitizenFeedbackSuggestionModal;
+use App\Http\Services\CitizenAction\FeedbackCitizenModalServices;
 use Validator;
-class ReportIncidentModalController extends Controller
+class FeedbackCitizenModalController extends Controller
 {
 
    public function __construct()
     {
-        $this->service = new ReportIncidentModalServices();
+        $this->service = new FeedbackCitizenModalServices();
     }
     public function index()
     {
         try {
             $modal_data = $this->service->getAll();
-            return view('admin.pages.citizen-action.modal-info.list-incident-modal-info', compact('modal_data'));
+            return view('admin.pages.citizen-action.modal-info.list-feedback-modal-info', compact('modal_data'));
         } catch (\Exception $e) {
             return $e;
         }
@@ -28,57 +28,57 @@ class ReportIncidentModalController extends Controller
     //     return view('admin.pages.citizen-action.report-crowdsourcing.add-report-crowdsourcing');
     // }
 
-    public function store(Request $request) {
-        $rules = [
-            'incident' => 'required',
-            'location' => 'required',
-            'datetime' => 'required',
-            'mobile_number' => 'required',
-            'description' => 'required',
-            'media_upload' => 'required',
+//     public function store(Request $request) {
+//         $rules = [
+//             'incident' => 'required',
+//             'location' => 'required',
+//             'datetime' => 'required',
+//             'mobile_number' => 'required',
+//             'description' => 'required',
+//             'media_upload' => 'required',
             
-         ];
-    $messages = [   
-        'incident' => 'required',
-        'location' => 'required',
-        'datetime' => 'required',
-        'mobile_number' => 'required',
-        'description' => 'required',
-        'media_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//          ];
+//     $messages = [   
+//         'incident' => 'required',
+//         'location' => 'required',
+//         'datetime' => 'required',
+//         'mobile_number' => 'required',
+//         'description' => 'required',
+//         'media_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
-    ];
+//     ];
 
-    try {
-        $validation = Validator::make($request->all(),$rules,$messages);
-        if($validation->fails() )
-        {
-            return redirect('add-incident-modal-info')
-                ->withInput()
-                ->withErrors($validation);
-        }
-        else
-        {
-            $add_modal = $this->service->addAll($request);
-            // print_r($add_tenders);
-            // die();
-            if($add_modal)
-            {
+//     try {
+//         $validation = Validator::make($request->all(),$rules,$messages);
+//         if($validation->fails() )
+//         {
+//             return redirect('add-modal-info')
+//                 ->withInput()
+//                 ->withErrors($validation);
+//         }
+//         else
+//         {
+//             $add_modal = $this->service->addAll($request);
+//             // print_r($add_tenders);
+//             // die();
+//             if($add_modal)
+//             {
 
-                $msg = $add_modal['msg'];
-                $status = $add_modal['status'];
-                if($status=='success') {
-                    return redirect('list-incident-modal-info')->with(compact('msg','status'));
-                }
-                else {
-                    return redirect('add-incident-modal-info')->withInput()->with(compact('msg','status'));
-                }
-            }
+//                 $msg = $add_modal['msg'];
+//                 $status = $add_modal['status'];
+//                 if($status=='success') {
+//                     return redirect('list-modal-info')->with(compact('msg','status'));
+//                 }
+//                 else {
+//                     return redirect('add-modal-info')->withInput()->with(compact('msg','status'));
+//                 }
+//             }
 
-        }
-    } catch (Exception $e) {
-        return redirect('add-incident-modal-info')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
-    }
-}
+//         }
+//     } catch (Exception $e) {
+//         return redirect('add-modal-info')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+//     }
+// }
     
 //     public function edit(Request $request)
 //     {

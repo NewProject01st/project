@@ -82,21 +82,17 @@ public function addAll($request)
 
         $emergencyContactId = $emergencyContactNumbers->id;
 
-        $data = $request->input('data');
+        $data = $request->input('no_of_text_boxes');
 
-        dd($data);
-// print_r( $data);
-// die();
-        foreach ($data as $contact) {
+        // dd($data);
+
+        foreach ($data as $key => $no) {
             $addressesData = new AddMoreEmergencyContactNumbers();
             $addressesData->emergency_contact_id = $emergencyContactId;
-            $addressesData->english_emergency_contact_title = $contact['english_emergency_contact_title'];
-            $addressesData->marathi_emergency_contact_title = $contact['marathi_emergency_contact_title'];
-            $addressesData->english_emergency_contact_number = $contact['english_emergency_contact_number'];
-            $addressesData->marathi_emergency_contact_number = $contact['marathi_emergency_contact_number'];
-// dd($addressesData);
-// print_r($addressesData);
-// die();
+            $english_emergency_contact_title  = 'english_emergency_contact_title_'.$no;
+            $marathi_emergency_contact_title  = 'marathi_emergency_contact_title_'.$no;
+            $english_emergency_contact_number  = 'english_emergency_contact_number_'.$no;
+            $marathi_emergency_contact_number  = 'marathi_emergency_contact_number_'.$no;
             $addressesData->save();
         }
 

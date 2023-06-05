@@ -23,7 +23,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Index',
             'menu_name_marathi' => 'Index',
             'order_no' => 1,
-            'url'=>'index',
+            // 'url'=>'index',
             'is_static'=>true,
             'is_active' => true,
            
