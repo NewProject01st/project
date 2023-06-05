@@ -17,8 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionsSeeder::class);
         $this->call(RolesSeeder::class);
         $this->call(AboutUsSeeder::class);
-        $this->call(TendersSeeder::class);
-        $this->call(PoliciesActsSeeder::class);
         $this->call(UsersSeeder::class);
         $this->call(RolesPermissionSeeder::class);
         $this->call(MainMenusSeeder::class);
@@ -45,9 +43,8 @@ class DatabaseSeeder extends Seeder
         $this->call(HeaderSeeder::class);   
         $this->call(PoliciesLegislationSeeder::class);   
         $this->call(GalleryCategorySeeder::class);   
-        
+        $this->call(DepartmentInfoSeeder::class);   
 
-   
         
     }
 }

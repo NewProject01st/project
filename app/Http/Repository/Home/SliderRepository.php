@@ -35,7 +35,6 @@ class SliderRepository  {
         $slides->marathi_description = $request['marathi_description'];
         $slides->url = $request['url'];
         // $slides->english_scrolltime = $request['english_scrolltime'];
-        $slides->image_alt = $request['image_alt'];
         $slides->english_image = $englishImageName; // Save the image filename to the database
         $slides->marathi_image = $marathiImageName; // Save the image filename to the database
         $slides->save();       
@@ -86,7 +85,6 @@ public function updateAll($request)
         $slide_data->marathi_title = $request['marathi_title'];
         $slide_data->english_description = $request['english_description'];
         $slide_data->marathi_description = $request['marathi_description'];
-        $slide_data->image_alt = $request['image_alt'];
         $slide_data->url = $request['url'];
 
 

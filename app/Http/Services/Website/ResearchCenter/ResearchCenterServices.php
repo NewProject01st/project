@@ -27,5 +27,22 @@ class ResearchCenterServices
             return $e;
         }
     } 
+    public function getAllVideo()
+    {
+        try {
+            return $this->repo->getAllVideo();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
+    public function getAllGallery()
+    {
+        try {
+            return $this->repo->getAllGallery();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
+    
      
 }

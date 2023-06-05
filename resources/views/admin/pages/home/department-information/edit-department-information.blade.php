@@ -117,13 +117,13 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="date"> Date</label>&nbsp<span class="red-text">*</span>
                                         <input type="date" class="form-control" placeholder="YYYY-MM-DD" name="date"
                                             id="date" value="{{ $department_info->date }}" required="">
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Update</button>
                                     <button type="submit" class="btn btn-danger">Cancel</button>

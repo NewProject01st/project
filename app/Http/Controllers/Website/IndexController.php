@@ -35,6 +35,7 @@ class IndexController extends Controller
             $data_output_disastermangwebportal = $this->service->getAllDisasterManagementWebPortal();
             $data_output_disastermanagementnews = $this->service->getAllDisasterManagementNews();
             $data_output_emergencycontact = $this->service->getAllEmergencyContact();
+            $data_output_departmentinformation = $this->service->getAllDepartmentInformation();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -44,7 +45,7 @@ class IndexController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.index',compact('language','menu','socialicon','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact'));
+        return view('website.pages.index',compact('language','menu','socialicon','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact', 'data_output_departmentinformation'));
     }
     public function show(Request $request)
     {
@@ -67,6 +68,30 @@ class IndexController extends Controller
         }
             return view('website.pages.new-paricular-data-web', compact('language','menu','socialicon','disaster_news'));
         } 
+
+        public function showDepartmentInformation(Request $request)
+        {
+            try {
+               
+                // dd($request->department_show_id);
+                  $menu = $this->menu;
+                  $socialicon = $this->socialicon;
+                //   $subheaderinfo = $this->subheaderinfo;
+                $department_information = $this->service->getByIdDepartmentInformation($request->department_show_id);
+                //  dd($department_information);
+                if (Session::get('language') == 'mar') {
+                    $language = Session::get('language');
+                } else {
+                    $language = 'en';
+                }
+    
+            } catch (\Exception $e) {
+                return $e;
+            }
+                return view('website.pages.particular-department-information', compact('language','menu','socialicon','department_information'));
+            } 
+
+        
     
 
 

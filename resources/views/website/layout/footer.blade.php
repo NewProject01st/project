@@ -134,6 +134,17 @@
         $("#showform").submit();
     })
 </script>
+<script>
+    $('.department-show-btn').click(function(e) {
+        // alert("hiii");
+        // alert($(this).attr("data-id"));
+        $("#department_show_id").val($(this).attr("data-id"));
+        $("#departmentshowform").submit();
+    })
+</script>
+
+
+
 </body>
 
 </html>

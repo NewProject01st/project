@@ -68,7 +68,8 @@ class ResearchCenterController extends Controller
 
             $menu = $this->menu;
             $socialicon = $this->socialicon;
-            // $data_output = $this->service->getAllDocumentspublications();
+            $data_getallvideo = $this->service->getAllVideo();
+            $data_output = $this->service->getAllGallery();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -77,9 +78,33 @@ class ResearchCenterController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.research-center.list-multimedia-web',compact('language','menu','socialicon'));
+        return view('website.pages.research-center.list-multimedia-web',compact('language','menu','socialicon', 'data_getallvideo', 'data_output'));
     }  
 
-
+    // public function getAllMultimedia()
+    // {
+    //     try {
+    //         $menu = $this->menu;
+    //         $socialicon = $this->socialicon;
+    //         $galleryData = $this->service->getAllGallery();
+    //         // dd($galleryData);
+    //         if ($galleryData instanceof \Exception) {
+    //             throw $galleryData; // Rethrow the exception
+    //         }
+    
+    //         $data_output = $galleryData['data_output'];
+    //         $categories = $galleryData['categories'];
+   
+    //         if (Session::get('language') == 'mar') {
+    //             $language = Session::get('language');
+    //         } else {
+    //             $language = 'en';
+    //         }
+    //     } catch (\Exception $e) {
+    //         return $e;
+    //     }
+    //     return view('website.pages.research-center.list-multimedia-web', compact('language', 'menu', 'socialicon', 'data_output', 'categories'));
+    // }
+     
     
 }

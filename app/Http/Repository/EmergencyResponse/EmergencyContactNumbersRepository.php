@@ -84,9 +84,6 @@ public function addAll($request)
 
         $data = $request->input('data');
 
-        dd($data);
-// print_r( $data);
-// die();
         foreach ($data as $contact) {
             $addressesData = new AddMoreEmergencyContactNumbers();
             $addressesData->emergency_contact_id = $emergencyContactId;
@@ -95,8 +92,6 @@ public function addAll($request)
             $addressesData->english_emergency_contact_number = $contact['english_emergency_contact_number'];
             $addressesData->marathi_emergency_contact_number = $contact['marathi_emergency_contact_number'];
 // dd($addressesData);
-// print_r($addressesData);
-// die();
             $addressesData->save();
         }
 

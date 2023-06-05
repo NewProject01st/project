@@ -45,4 +45,31 @@ class CitizenActionServices
         }
     } 
     
+    public function addIncidentModalInfo($request)
+    {
+        try {
+            $add_modal = $this->repo->addIncidentModalInfo($request);
+            if ($add_modal) {
+                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing  Added Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Added.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        }      
+    }
+
+    public function addVolunteerModalInfo($request)
+    {
+        try {
+            $add_modal = $this->repo->addVolunteerModalInfo($request);
+            if ($add_modal) {
+                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing  Added Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Added.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        }      
+    }
 }

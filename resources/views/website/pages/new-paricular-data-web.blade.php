@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-md-9">
                         <!--Department Details Txt Start-->
-                        @foreach ($disaster_news as $item)
+                        @foreach ($department_information as $item)
                             <div class="deprt-txt">
                                 @if (session('language') == 'mar')
                                     <h3><?php echo $item['marathi_title']; ?> : </h3>
