@@ -26,7 +26,7 @@
                                     <div class="add-box-2 contact-new-design">
                                         <i class="fas fa-map-marker-alt"></i>
                                         <h5>Our Location</h5>
-                                        <p>Street # 75, Borne Block, <br>
+                                        <p class="set_text">Street # 75, Borne Block, <br>
                                             5th Avenue, West Road, NY.
                                         </p>
                                     </div>
@@ -34,15 +34,15 @@
                                     <div class="add-box-2 contact-new-design">
                                         <i class="fas fa-phone"></i>
                                         <h5>Call us</h5>
-                                        <p>Phone: 080 4576 392</p>
-                                        <p>Mobile: 0800 4567 890</p>
+                                        <p class="set_text">Phone: 080 4576 392</p>
+                                        <p class="set_text">Mobile: 0800 4567 890</p>
                                     </div>
 
                                     <div class="add-box-2 contact-new-design">
                                         <i class="fas fa-envelope"></i>
                                         <h5>Mail us</h5>
-                                        <p><a href="mailto:contact@alex.com">contact@balad.com</a></p>
-                                        <p><a href="mailto:info@alex.com">info@balad.com</a></p>
+                                        <p class="set_text"><a href="mailto:contact@alex.com">contact@balad.com</a></p>
+                                        <p class="set_text"><a href="mailto:info@alex.com">info@balad.com</a></p>
                                     </div>
                                 </div>
                             </div>
