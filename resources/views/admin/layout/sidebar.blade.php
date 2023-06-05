@@ -286,7 +286,9 @@
               @endif
               @if (in_array('list-report-crowdsourcing', $data_for_url) ||
               in_array('list-volunteer-citizen-support', $data_for_url) ||
-              in_array('list-citizen-feedback-and-suggestion', $data_for_url))
+              in_array('list-citizen-feedback-and-suggestion', $data_for_url) ||
+              in_array('list-model-info', $data_for_url)
+              )
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#citizen-action" aria-expanded="false"
                       aria-controls="citizen-action">
@@ -315,6 +317,12 @@
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-citizen-feedback-and-suggestion') }}">Feedback and
                                   suggestions
+                              </a>
+                          </li>
+                          @endif
+                          @if (in_array('list-model-info', $data_for_url))
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-model-info') }}">Report Incident MOdal Info
                               </a>
                           </li>
                           @endif
@@ -415,6 +423,27 @@
                           @if (in_array('list-gallery', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-gallery') }}">Gallery
+                              </a>
+                          </li>
+                          @endif
+                      </ul>
+                  </div>
+              </li>
+              @endif
+              @if (in_array('list-contact-suggestion', $data_for_url))
+              <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
+                      aria-controls="page-layouts">
+                      <i class="fa fa-th-large menu-icon"></i>
+                      <span class="menu-title">Contact Us</span>
+                      <i class="menu-arrow"></i>
+                  </a>
+
+                  <div class="collapse" id="page-layouts">
+                      <ul class="nav flex-column sub-menu">
+                          @if (in_array('list-contact-suggestion', $data_for_url))
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-contact-suggestion') }}">Feedback And Suggestion
                               </a>
                           </li>
                           @endif

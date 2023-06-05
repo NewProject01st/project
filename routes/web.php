@@ -59,6 +59,8 @@ Route::get('/list-evacuation-plans-web', ['as' => 'list-evacuation-plans-web', '
 Route::get('/list-report-incident-crowdsourcing-web', ['as' => 'list-report-incident-crowdsourcing-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllReportIncidentCrowdsourcing']);
 Route::get('/volunteer-citizen-support-web', ['as' => 'volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllVolunteerCitizenSupport']);
 Route::get('/citizen-feedback-suggestions-web', ['as' => 'citizen-feedback-suggestions-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllCitizenFeedbackSuggestions']);
+// Route::get('/report-modal', ['as' => 'report-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@add']);
+Route::post('/report-modal', ['as' => 'report-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@store']);
 
 Route::get('/list-training-event-web', ['as' => 'list-training-event-web', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllEvent']);
 
@@ -372,6 +374,8 @@ Route::post('/update-citizen-feedback-and-suggestion', ['as' => 'update-citizen-
 Route::post('/show-citizen-feedback-and-suggestion', ['as' => 'show-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@show']);
 Route::post('/delete-citizen-feedback-and-suggestion', ['as' => 'delete-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@destroy']);
 
+Route::get('/list-modal-info', ['as' => 'list-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentModalController@index']);
+
 //=======Header=======
 Route::get('/list-social-icon', ['as' => 'list-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@index']);
 Route::get('/add-social-icon', ['as' => 'add-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@add']);
@@ -469,6 +473,18 @@ Route::post('/update-gallery', ['as' => 'update-gallery', 'uses' => 'App\Http\Co
 Route::post('/show-gallery', ['as' => 'show-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@show']);
 Route::post('/delete-gallery', ['as' => 'delete-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@destroy']);
 Route::post('/update-one-gallery', ['as' => 'update-one-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@updateOne']);
+
+// =======Contact Us==========
+
+Route::get('/list-contact-suggestion', ['as' => 'list-contact-suggestion', 'uses' => 'App\Http\Controllers\ContactUs\ContactUsController@index']);
+Route::get('/add-contact-suggestion', ['as' => 'add-contact-suggestion', 'uses' => 'App\Http\Controllers\ContactUs\ContactUsController@add']);
+Route::post('/add-contact-suggestion', ['as' => 'add-contact-suggestion', 'uses' => 'App\Http\Controllers\ContactUs\ContactUsController@store']);
+Route::post('/edit-contact-suggestion', ['as' => 'edit-contact-suggestion', 'uses' => 'App\Http\Controllers\ContactUs\ContactUsController@edit']);
+Route::post('/update-contact-suggestion', ['as' => 'update-contact-suggestion', 'uses' => 'App\Http\Controllers\ContactUs\ContactUsController@update']);
+Route::post('/show-contact-suggestion', ['as' => 'show-contact-suggestion', 'uses' => 'App\Http\Controllers\ContactUs\ContactUsController@show']);
+Route::post('/delete-contact-suggestion', ['as' => 'delete-contact-suggestion', 'uses' => 'App\Http\Controllers\ContactUs\ContactUsController@destroy']);
+// Route::post('/update-one-contact-suggestion', ['as' => 'update-one-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@updateOne']);
+
 
 Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
 
