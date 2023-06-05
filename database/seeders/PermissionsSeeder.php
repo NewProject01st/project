@@ -304,33 +304,6 @@ class PermissionsSeeder extends Seeder
                                     'url' => 'list-event',
                                     'permission_name' => 'Event',
                                 ]);
-
-                            Permissions::create(
-                                [
-                                    'created_at' => \Carbon\Carbon::now(),
-                                    'updated_at' => \Carbon\Carbon::now(),
-                                    'route_name' => 'Tender',
-                                    'url' => 'list-tenders',
-                                    'permission_name' => 'Tender',
-                                ]);
-
-                            Permissions::create(
-                                [
-                                    'created_at' => \Carbon\Carbon::now(),
-                                    'updated_at' => \Carbon\Carbon::now(),
-                                    'route_name' => 'Policies & Acts',
-                                    'url' => 'list-policiesacts',
-                                    'permission_name' => 'Policies & Acts',
-                                ]);
-
-                            Permissions::create(
-                                [
-                                    'created_at' => \Carbon\Carbon::now(),
-                                    'updated_at' => \Carbon\Carbon::now(),
-                                    'route_name' => 'Projects',
-                                    'url' => 'list-projects',
-                                    'permission_name' => 'Projects',
-                                ]);
                             Permissions::create(
                                 [
                                     'created_at' => \Carbon\Carbon::now(),

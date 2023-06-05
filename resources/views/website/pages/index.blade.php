@@ -7,7 +7,7 @@
                 <div class=" list-group">
 
                     <marquee width="100%" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-                        <div class="list-group-item d-flex  g-2 ">
+                        <div class="d-flex  g-2 ">
                             @foreach ($data_output_marquee as $item)
                                 @if (session('language') == 'mar')
                                     <p class="marquee_para px-2"><a href="{{ $item['url'] }}" target="_blank"
@@ -38,7 +38,7 @@
                         @if (session('language') == 'mar')
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
                                 <img src="{{ asset('storage/images/slides/' . $slider['marathi_image']) }}"
-                                    class="d-block w-100" alt="No Image">
+                                    class="d-block w-100" alt="{{ $slider['marathi_title'] }}">
                                 <div class="carousel-caption">
                                     <h1><?php echo $slider['marathi_title']; ?></h1>
                                     <p><?php echo $slider['marathi_description']; ?> </p>
@@ -49,7 +49,7 @@
                         @elseif (array_key_exists('english_title', $slider))
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
                                 <img src="{{ asset('storage/images/slides/' . $slider['english_image']) }}"
-                                    class="d-block w-100" alt="No Image">
+                                    class="d-block w-100" alt="{{ $slider['english_title'] }}">
                                 <div class="carousel-caption">
                                     <h1><?php echo $slider['english_title']; ?></h1>
                                     <p><?php echo $slider['english_description']; ?> </p>
@@ -131,7 +131,7 @@
                                 <div class="news-box">
                                     {{-- <div class="new-thumb"> <span class="cat c1">Fire</span> --}}
                                     <img src="{{ asset('storage/images/disaster-news/' . $item['marathi_image']) }}"
-                                        class="d-block w-100">
+                                        class="d-block w-100" alt="{{ $item['marathi_title'] }}">
                                 </div>
                                 <div class="new-txt">
                                     <ul class="news-meta">
@@ -161,7 +161,7 @@
                                 </div>
                                 <div class="news-box-f"> <img
                                         src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
-                                        alt=""> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i
+                                        alt="{{ $item['english_title'] }}"> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i
                                             class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>

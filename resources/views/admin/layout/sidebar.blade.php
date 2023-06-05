@@ -436,30 +436,6 @@
                   </a>
               </li>
               @endif
-              @if (in_array('list-tenders', $data_for_url))
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('list-tenders') }}">
-                      <i class="fas fa-window-restore menu-icon"></i>
-                      <span class="menu-title">Tender</span>
-                  </a>
-              </li>
-              @endif
-              @if (in_array('list-policiesacts', $data_for_url))
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('list-policiesacts') }}">
-                      <i class="fas fa-window-restore menu-icon"></i>
-                      <span class="menu-title">Policies & Acts</span>
-                  </a>
-              </li>
-              @endif
-              @if (in_array('list-projects', $data_for_url))
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('list-projects') }}">
-                      <i class="fas fa-window-restore menu-icon"></i>
-                      <span class="menu-title">Projects</span>
-                  </a>
-              </li>
-              @endif
               @if (in_array('list-metadata', $data_for_url))
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('list-metadata') }}">

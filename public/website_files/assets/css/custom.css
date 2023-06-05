@@ -385,6 +385,13 @@ header {
 	font-family: 'Montserrat', sans-serif;
 	color: #fff !important;
 }
+.marquee-main a {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: -1px; 
+  color: #fff;
+}
 .marquee_para{
 	white-space: nowrap;
 	display: inline;

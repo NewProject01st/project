@@ -37,7 +37,6 @@
                                                 <th>Description English</th>
                                                 <th>Description Marathi</th>
                                                 <th>URL</th>
-                                                <th>Image Alt Text</th>
                                                 <th>Image English</th>
                                                 <th>Image Marathi</th>
                                                 <th>Status</th>
@@ -53,7 +52,6 @@
                                                 <td><?php echo $item->english_description; ?></td>
                                                 <td><?php echo $item->marathi_description; ?></td>
                                                 <td><?php echo $item->url; ?></td>
-                                                <td><?php echo $item->image_alt; ?></td>
                                                 <td> <img
                                                         src="{{ asset('storage/images/slides/' . $item->english_image) }}" />
                                                 </td>

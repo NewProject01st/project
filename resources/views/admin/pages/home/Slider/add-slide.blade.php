@@ -83,18 +83,6 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="image_alt">Image Alt Text</label>&nbsp<span
-                                            class="red-text">*</span>
-                                        <input class="form-control image_alt" name="image_alt" id="image_alt"
-                                            placeholder="Enter the image altetnative text">
-                                        @if ($errors->has('image_alt'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('image_alt', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
                                         <label for="english_image">Image English</label>&nbsp<span
                                             class="red-text">*</span><br>
                                         <input type="file" name="english_image" id="english_image" accept="image/*"><br>
