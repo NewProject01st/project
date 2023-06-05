@@ -16,7 +16,7 @@ Version:		1.0
 		margin-top: 0; 
 		/* border: #fff; */
 		border: none;
-		margin-left: -42%;
+		/* margin-left: -42%; */
 	 }
 	 .navbar-expand-lg .navbar-nav .nav-link{
 		padding: 0px 10px !important;
@@ -41,6 +41,45 @@ Version:		1.0
 		margin-top: auto; 
 	}
   }
+
+  @media (min-width: 767px) and (max-width: 912px){
+	.widget .upcoming-events h6, .widget .recent-posts h6{
+		font-size: 13px !important;
+	}
+	.sidebar .widget .inner{
+		padding: 5px !important;
+	}
+	.widget .upcoming-events li {
+		padding-left: 68px !important;
+	}
+	.widget .upcoming-events .edate {
+		width: 51px !important;
+		left: 5px !important;
+	}
+	/* ------------footer------------------------- */
+	.tw-txt {
+		padding: 25px 13px 17px 13px !important;
+	}
+	.twitter-widget a.reply-tw {
+		right: 15px !important;
+	}
+	.twitter-widget p {
+		font-size: 13px !important;
+	}
+	.tw-footer {
+		padding: 10px 15px !important;
+	}
+	/* ---------traning workshop---------- */
+	.widget .recent-posts li {
+		padding-left: 75px !important;
+	}
+	.widget .recent-posts li img {
+		width: 65px !important;
+		height: 70px !important;
+	}
+
+  }
+
 
   @media (min-width: 1023px) and (max-width: 1025px){
 	.navbar-expand-lg .navbar-nav .nav-link {
@@ -93,6 +132,17 @@ Version:		1.0
 ::marker {
 	color: #d94148;
 	font-size: 19px;
+}
+
+.set_text{
+	text-align: center !important;
+}
+
+.card_h_set, .card-title a:hover{
+	color: #bd081b !important;
+}
+.new_img_ho a .card-img:hover{
+	filter: brightness(0.5) !important;
 }
 
 /* for dynamic about */
@@ -3562,7 +3612,7 @@ a.join-now {
 }
 .widget .archives a:before, .widget .categories a:before {
 	content: "\f0da";
-	font-family: FontAwesome;
+	font-family: 'Font Awesome 5 Free';
 	font-size: 12px;
 	margin-right: 10px;
 	font-weight: 700;
@@ -3575,7 +3625,7 @@ a.join-now {
 .widget .upcoming-events li {
 	position: relative;
 	padding-left: 78px;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 .widget .upcoming-events .edate {
 	width: 62px;
@@ -5577,3 +5627,135 @@ a[data-toggle="collapse"] {
 	background-color: #000;
 
   }
+
+
+/* ----- testimonial css -------- */
+
+.carousel-item i {
+	font-size: 1.6rem;
+	color: rgb(235 90 90);;
+  }
+
+.testimonial_section_header{
+    position: relative;
+    padding-bottom: 10px;
+    text-align: center;
+    font-weight: 900;
+    padding-bottom: 25px;
+    color: #000;
+}
+.testimonial_section_header:after{
+    content: '';
+    height: 3px;
+    width: 200px;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 100px);
+    background: #fff;
+}
+.testimonial_section_header span {
+	display: block;
+	font-size: 15px;
+	font-weight: 300;
+}
+.testimonials{
+    width: 100%;
+    padding: 0 0px 0px;
+    margin: 0 auto 80px auto;
+	border: 1px solid #dddddd;
+}
+.single-item{
+    background: #fff;
+    color: #111;
+    padding: 10px;
+    margin: 5px 5px;
+}
+.profile{
+    margin-bottom: 30px;
+    text-align: center;    
+}
+.img-area {
+	margin: 25px 15px 15px 15px;
+}
+.img-area img {
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	border: 7px solid #d94148;
+}
+.content{
+    font-size: 18px;
+	margin-top: 10%;
+}
+.content p {
+	text-align: justify;
+}
+.content p span {
+	font-size: 48px;
+	margin-right: 20px;
+    color: #d94148;
+}
+.next_pre_testo_icon{
+	background-size: 70% 70% !important;
+	border-radius: 20px;
+}
+.socials i {
+	margin-right: 25px;
+}
+/* .bio h4 {
+	font-family: 'Berkshire Swash', cursive;
+} */
+.next_pre_testo_icon {
+	background-color: #d94148;
+}
+.next_testo_icon{
+	margin-left: 25%;
+}
+.pre_testo_icon{
+	margin-right: 25%;
+}
+
+/* gallery */
+
+.gallery_container {
+	max-width: 80rem;
+	width: 100%;
+	padding: 2rem 2rem;
+	margin: 0 auto;
+}
+.main .gallery_container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 1rem;
+	justify-content: center;
+	align-items: center;
+}
+.main .card {
+	color: #252a32;
+	border-radius: 2px;
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
+}
+.main .card-image {
+	position: relative;
+	display: block;
+	width: 100%;
+	padding-top: 70%;
+	background: #fff;
+}
+.main .card-image img {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+@media only screen and (max-width: 600px) {
+	.main .gallery_container {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 1rem;
+   }
+}
