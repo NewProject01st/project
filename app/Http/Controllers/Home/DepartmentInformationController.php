@@ -37,7 +37,7 @@ class DepartmentInformationController extends Controller
             'english_image' => 'required',
             'marathi_image' => 'required',
             'url' => 'required',
-            'date' => 'required',
+            // 'date' => 'required',
             
          ];
     $messages = [   
@@ -48,7 +48,7 @@ class DepartmentInformationController extends Controller
         'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'url'=>'required',
-        'date' => 'required',
+        // 'date' => 'required',
 
     ];
 
@@ -63,7 +63,7 @@ class DepartmentInformationController extends Controller
         else
         {
             $add_department_info = $this->service->addAll($request);
-            dd($add_department_info);
+            // dd($add_department_info);
             // print_r($add_tenders);
             // die();
             if($add_department_info)
@@ -101,7 +101,7 @@ class DepartmentInformationController extends Controller
         // 'english_image' => 'required',
         // 'marathi_image' => 'required',
         'url' => 'required',
-        'date' => 'required',
+        // 'date' => 'required',
         
      ];
     $messages = [   
@@ -112,7 +112,7 @@ class DepartmentInformationController extends Controller
         // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         // 'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'url'=>'required',
-        'date' => 'required',
+        // 'date' => 'required',
     ];
 
     try {
