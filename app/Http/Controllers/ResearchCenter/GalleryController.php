@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\NewsAndEvents;
+namespace App\Http\Controllers\ResearchCenter;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Gallery;
-use App\Http\Services\NewsAndEvents\GalleryServices;
+use App\Http\Services\ResearchCenter\GalleryServices;
+use App\Http\Services\ResearchCenter\GalleryCategoryServices;
 use Validator;
 class GalleryController extends Controller
 {
@@ -13,19 +14,23 @@ class GalleryController extends Controller
    public function __construct()
     {
         $this->service = new GalleryServices();
+        $this->servicecategory = new GalleryCategoryServices();
     }
     public function index()
     {
         try {
-            $success_stories = $this->service->getAll();
-            return view('admin.pages.news-events.gallery.list-gallery', compact('success_stories'));
+            $gallery = $this->service->getAll();
+            return view('admin.pages.research-center.gallery.list-gallery', compact('gallery'));
         } catch (\Exception $e) {
             return $e;
         }
     }
     public function add()
     {
-        return view('admin.pages.news-events.gallery.add-gallery');
+        $category_gallery = $this->servicecategory->getAll();
+        return view('admin.pages.research-center.gallery.add-gallery', compact('category_gallery'));
+
+        return view('admin.pages.research-center.gallery.add-gallery');
     }
 
     public function store(Request $request) {
@@ -52,14 +57,13 @@ class GalleryController extends Controller
         }
         else
         {
-            $add_success_stories = $this->service->addAll($request);
-            // print_r($add_tenders);
-            // die();
-            if($add_success_stories)
+            $add_gallery = $this->service->addAll($request);
+            // dd($add_gallery);
+            if($add_gallery)
             {
 
-                $msg = $add_success_stories['msg'];
-                $status = $add_success_stories['status'];
+                $msg = $add_gallery['msg'];
+                $status = $add_gallery['status'];
                 if($status=='success') {
                     return redirect('list-gallery')->with(compact('msg','status'));
                 }
@@ -77,8 +81,8 @@ class GalleryController extends Controller
     public function edit(Request $request)
     {
         $edit_data_id = $request->edit_id;
-        $success_stories = $this->service->getById($edit_data_id);
-        return view('admin.pages.news-events.gallery.edit-gallery', compact('success_stories'));
+        $gallery = $this->service->getById($edit_data_id);
+        return view('admin.pages.research-center.gallery.edit-gallery', compact('gallery'));
     }
     public function update(Request $request)
 {
@@ -101,10 +105,10 @@ class GalleryController extends Controller
                 ->withInput()
                 ->withErrors($validation);
         } else {
-            $update_success_stories = $this->service->updateAll($request);
-            if ($update_success_stories) {
-                $msg = $update_success_stories['msg'];
-                $status = $update_success_stories['status'];
+            $update_gallery = $this->service->updateAll($request);
+            if ($update_gallery) {
+                $msg = $update_gallery['msg'];
+                $status = $update_gallery['status'];
                 if ($status == 'success') {
                     return redirect('list-gallery')->with(compact('msg', 'status'));
                 } else {
@@ -124,8 +128,8 @@ public function show(Request $request)
     {
         try {
             //  dd($request->show_id);
-            $success_stories = $this->service->getById($request->show_id);
-            return view('admin.pages.news-events.gallery.show-gallery', compact('success_stories'));
+            $gallery = $this->service->getById($request->show_id);
+            return view('admin.pages.research-center.gallery.show-gallery', compact('gallery'));
         } catch (\Exception $e) {
             return $e;
         }
@@ -144,7 +148,7 @@ public function show(Request $request)
     {
         try {
             // dd($request->delete_id);
-            $success_stories = $this->service->deleteById($request->delete_id);
+            $gallery = $this->service->deleteById($request->delete_id);
             return redirect('list-gallery')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {
             return $e;

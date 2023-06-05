@@ -1739,7 +1739,230 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 }
 /*** + === + Read Some Facts End + === + ***/
 
+/*** + === + Event Festivals & News Articles Start + === + ***/
 
+
+.h2-news-articles {
+	background: #fafafa;
+}
+.event-post-full {
+	background: #fff;
+	width: 100%;
+	float: left;
+	box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.07);
+	overflow: hidden;
+	border-radius: 3px;
+	margin-bottom: 30px;
+}
+.event-post-full .thumb {
+	width: 360px;
+	float: left;
+	position: relative;
+	overflow: hidden;
+}
+.event-post-full .event-post-content {
+	width: 390px;
+	float: left;
+}
+.event-post-full .event-post-txt {
+	padding: 20px 30px 0;
+	width: 100%;
+}
+.event-post-full .event-post-txt p {
+	margin: 0 0 20px;
+}
+.event-post-full:hover .event-post-loc a, .event-post-full:hover .event-post-txt h5 a {
+	color: #f63859;
+}
+span.ecat {
+	background: #d94148;
+	display: inline-block;
+	color: #fff;
+	line-height: 24px;
+	border-radius: 15px;
+	padding: 0 12px;
+	font-size: 12px;
+	text-transform: uppercase;
+	margin: 0 0 17px;
+}
+.btn-group.share-post {
+	float: right;
+}
+.btn-group.share-post button.dropdown-toggle {
+	background: none;
+	border: 0;
+	font-size: 12px;
+	color: #cccccc;
+	text-transform: uppercase;
+}
+.btn-group.share-post button.dropdown-toggle:hover {
+	color: #d94148;
+}
+.btn-group.share-post .dropdown-menu {
+	border: 0px;
+	width: 35px;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	min-width: inherit;
+	left: 0;
+	right: 0;
+	margin: 5px auto;
+}
+.btn-group.share-post .dropdown-menu>li>a {
+	padding: 5px 0;
+}
+body .btn-group.open .dropdown-toggle {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+.share-post .fb {
+	color: #3b5998;
+}
+.share-post .tw {
+	color: #38a1f3;
+}
+.share-post .insta {
+	color: #e1306c;
+}
+.share-post .yt {
+	color: #ff0000;
+}
+.share-post .linked {
+	color: #0077b5;
+}
+.share-post .pin {
+	color: #bd081b;
+}
+.news-post {
+	width: 100%;
+	float: left;
+	border-radius: 5px;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 30px;
+	box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.07);
+	background: #fff;
+}
+.event-post-full:hover, .news-post:hover {
+	box-shadow: 0px 10px 25px 0px rgba(0,0,0,0.07);
+}
+.image-post .thumb:before {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: rgba(0,0,0,.60);
+	width: 100%;
+	height: 100%;
+	content: "";
+}
+.image-post .news-post-txt {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 99;
+	width: 100%;
+	height: 100%;
+}
+.image-post .news-meta li, .image-post .news-post-txt p, .image-post .news-post-txt h5 a {
+	color: #fff;
+}
+.news-post-txt h5 {
+	font-weight: 700;
+	margin: 0 0 15px;
+	line-height: 30px;
+	letter-spacing: -.5px;
+}
+.news-post-txt h5 a {
+	color: #333333;
+}
+.news-post-txt p {
+	margin: 0 0 30px;
+	font-size: 16px;
+	color: #777777;
+	line-height: 22px;
+	letter-spacing: -0.1px;
+}
+.news-meta {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+.news-meta li {
+	display: inline-block;
+	color: #999999;
+	font-size: 14px;
+}
+.news-meta li:after {
+	content: "|";
+	margin: 0 5px;
+	color: #999999;
+	font-style: normal;
+}
+.news-meta li:last-child:after {
+	display: none;
+}
+.news-meta .post-user {
+	color: #d94148;
+	font-style: italic;
+}
+.post-user img {
+	border-radius: 100%;
+	width: 30px;
+	height: 30px;
+	border: 1px solid #fff;
+	margin-right: 3px;
+}
+.news-post .news-post-txt {
+	padding: 20px 30px;
+}
+.thumb .ecat {
+	position: absolute;
+	left: 30px;
+	top: 20px;
+	z-index: 99;
+}
+.thumb .share-post {
+	position: absolute;
+	right: 30px;
+	top: 20px;
+	z-index: 99;
+}
+.ecat.c1 {
+	background-color: #d94148;
+}
+.ecat.c2 {
+	background-color: #f7941d;
+}
+.ecat.c3 {
+	background-color: #40407e;
+}
+.ecat.c4 {
+	background-color: #72bf44;
+}
+.ecat.c5 {
+	background-color: #00a98f;
+}
+.ecat.c6 {
+	background-color: #74d2e7;
+}
+.ecat.c7 {
+	background-color: #c2c0bf;
+}
+.ecat.c8 {
+	background-color: #ff8100;
+}
+.ecat.c9 {
+	background-color: #168de2;
+}
+.news-post:hover .news-post-txt h5 a {
+	color: #f63859;
+}
+.event-post-full:hover .thumb a {
+	left: 0;
+	opacity: 1;
+}
+/*** + === + Event Festivals & News Articles End + === + ***/
 
 
 
@@ -5577,3 +5800,87 @@ a[data-toggle="collapse"] {
 	background-color: #000;
 
   }
+
+/*********************************
+Testimonials Start
+*********************************/
+
+.testimonials-section h2.text-center {
+	margin: 0 0 30px;
+	font-weight: 600;
+}
+.testimonials-section p, .h3testimonials p {
+	background: #fff;
+	border: 1px solid #dddddd;
+	font-size: 18px;
+	color: #555555;
+	line-height: 30px;
+	padding: 25px;
+	position: relative;
+}
+.testimonials-section .center p, .h3testimonials .center p {
+	background: #f9f9f9;
+}
+.testimonials-section .center p:after, .h3testimonials .center p:after {
+	border-top: 20px solid #f9f9f9;
+}
+.testimonials-section p:after, .h3testimonials p:after {
+	width: 0;
+	height: 0;
+	border-top: 20px solid #fff;
+	border-left: 20px solid transparent;
+	content: "";
+	position: absolute;
+	left: 20px;
+	bottom: -19px;
+}
+.testimonials-section p:before, .h3testimonials p:before {
+	width: 0;
+	height: 0;
+	border-top: 22px solid #dddddd;
+	border-left: 22px solid transparent;
+	content: "";
+	position: absolute;
+	left: 19px;
+	bottom: -22px;
+}
+.tuser {
+	margin: 30px 0 0;
+	color: #888888;
+	font-size: 14px;
+}
+.tuser strong {
+	color: #222;
+	font-weight: 400;
+	font-family: 'Montserrat', sans-serif;
+	display: block;
+	font-size: 20px;
+}
+.owl-carousel .owl-item .tuser img {
+	width: 55px;
+	height: 55px;
+	border: 1px solid #dddddd;
+	border-radius: 100%;
+	float: left;
+	margin-right: 15px;
+}
+.testimonials-section .owl-theme .owl-dots .owl-dot span {
+	width: 20px;
+	height: 5px;
+	margin: 5px 7px;
+	background: #D6D6D6;
+	display: block;
+	-webkit-backface-visibility: visible;
+	transition: opacity 200ms ease;
+	border-radius: 30px;
+}
+.testimonials-section .owl-theme .owl-dots .owl-dot.active span, .testimonials-section .owl-theme .owl-dots .owl-dot span:hover {
+	background: #d94148;
+}
+.testimonials-section .owl-dots {
+	text-align: center;
+	margin: 30px 0 0 0;
+}
+/*********************************
+Testimonials End
+*********************************/

@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Repository\NewsAndEvents;
+namespace App\Http\Repository\ResearchCenter;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\QueryException;
 use DB;

@@ -102,16 +102,16 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="date"> Date</label>&nbsp<span class="red-text">*</span>
                                         <input type="date" class="form-control" placeholder="YYYY-MM-DD" name="date"
                                             id="date">
                                         @if ($errors->has('date'))
-                                        <span class="red-text"><?php echo $errors->first('date', ':message'); ?></span>
+                                        <span class="red-text"><?php//echo $errors->first('date', ':message'); ?></span>
                                         @endif
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                     <button type="submit" class="btn btn-danger">Cancel</button>

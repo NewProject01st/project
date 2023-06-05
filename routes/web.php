@@ -35,6 +35,8 @@ Route::get('/pages/{page}', ['as' => 'pages', 'uses' => 'App\Http\Controllers\We
 // Website
 Route::get('/index', ['as' => 'index', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
 Route::post('/new-paricular-data-web', ['as' => 'new-paricular-data-web', 'uses' => 'App\Http\Controllers\Website\IndexController@show']);
+Route::post('/particular-department-information', ['as' => 'particular-department-information', 'uses' => 'App\Http\Controllers\Website\IndexController@showDepartmentInformation']);
+
 
 
 Route::get('/list-disastermanagementportal-web', ['as' => 'list-disastermanagementportal-web', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllDisasterManagmentPortal']);
@@ -452,23 +454,31 @@ Route::post('/show-success-stories', ['as' => 'show-success-stories', 'uses' => 
 Route::post('/delete-success-stories', ['as' => 'delete-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@destroy']);
 Route::post('/update-one-success-stories', ['as' => 'update-one-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@updateOne']);
 
-Route::get('/list-gallery-category', ['as' => 'list-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@index']);
-Route::get('/add-gallery-category', ['as' => 'add-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@add']);
-Route::post('/add-gallery-category', ['as' => 'add-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@store']);
-Route::post('/edit-gallery-category', ['as' => 'edit-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@edit']);
-Route::post('/update-gallery-category', ['as' => 'update-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@update']);
-Route::post('/show-gallery-category', ['as' => 'show-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@show']);
-Route::post('/delete-gallery-category', ['as' => 'delete-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@destroy']);
-Route::post('/update-one-gallery-category', ['as' => 'update-one-gallery-category', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryCategoryController@updateOne']);
+Route::get('/list-gallery-category', ['as' => 'list-gallery-category', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryCategoryController@index']);
+Route::get('/add-gallery-category', ['as' => 'add-gallery-category', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryCategoryController@add']);
+Route::post('/add-gallery-category', ['as' => 'add-gallery-category', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryCategoryController@store']);
+Route::post('/edit-gallery-category', ['as' => 'edit-gallery-category', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryCategoryController@edit']);
+Route::post('/update-gallery-category', ['as' => 'update-gallery-category', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryCategoryController@update']);
+Route::post('/show-gallery-category', ['as' => 'show-gallery-category', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryCategoryController@show']);
+Route::post('/delete-gallery-category', ['as' => 'delete-gallery-category', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryCategoryController@destroy']);
+Route::post('/update-one-gallery-category', ['as' => 'update-one-gallery-category', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryCategoryController@updateOne']);
 
-Route::get('/list-gallery', ['as' => 'list-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@index']);
-Route::get('/add-gallery', ['as' => 'add-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@add']);
-Route::post('/add-gallery', ['as' => 'add-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@store']);
-Route::post('/edit-gallery', ['as' => 'edit-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@edit']);
-Route::post('/update-gallery', ['as' => 'update-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@update']);
-Route::post('/show-gallery', ['as' => 'show-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@show']);
-Route::post('/delete-gallery', ['as' => 'delete-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@destroy']);
-Route::post('/update-one-gallery', ['as' => 'update-one-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@updateOne']);
+Route::get('/list-gallery', ['as' => 'list-gallery', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryController@index']);
+Route::get('/add-gallery', ['as' => 'add-gallery', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryController@add']);
+Route::post('/add-gallery', ['as' => 'add-gallery', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryController@store']);
+Route::post('/edit-gallery', ['as' => 'edit-gallery', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryController@edit']);
+Route::post('/update-gallery', ['as' => 'update-gallery', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryController@update']);
+Route::post('/show-gallery', ['as' => 'show-gallery', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryController@show']);
+Route::post('/delete-gallery', ['as' => 'delete-gallery', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryController@destroy']);
+Route::post('/update-one-gallery', ['as' => 'update-one-gallery', 'uses' => 'App\Http\Controllers\ResearchCenter\GalleryController@updateOne']);
+
+Route::get('/list-video', ['as' => 'list-video', 'uses' => 'App\Http\Controllers\ResearchCenter\VideoController@index']);
+Route::get('/add-video', ['as' => 'add-video', 'uses' => 'App\Http\Controllers\ResearchCenter\VideoController@add']);
+Route::post('/add-video', ['as' => 'add-video', 'uses' => 'App\Http\Controllers\ResearchCenter\VideoController@store']);
+Route::post('/edit-video', ['as' => 'edit-video', 'uses' => 'App\Http\Controllers\ResearchCenter\VideoController@edit']);
+Route::post('/update-video', ['as' => 'update-video', 'uses' => 'App\Http\Controllers\ResearchCenter\VideoController@update']);
+Route::post('/show-video', ['as' => 'show-video', 'uses' => 'App\Http\Controllers\ResearchCenter\VideoController@show']);
+Route::post('/delete-video', ['as' => 'delete-video', 'uses' => 'App\Http\Controllers\ResearchCenter\VideoController@destroy']);
 
 Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
 

@@ -12,8 +12,8 @@ use App\Models\ {
     Slider,
     DisasterManagementWebPortal,
     DisasterManagementNews,
-    EmergencyContact
-
+    EmergencyContact,
+DepartmentInformation
 };
 
 class IndexRepository  {
@@ -158,11 +158,45 @@ class IndexRepository  {
             return $e;
         }
     }
+    public function getAllDepartmentInformation()
+    {
+        try {
+            $data_output = DepartmentInformation::where('is_active','=',true);
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->select('marathi_title','marathi_description','url','marathi_image','id');
+            } else {
+                $data_output = $data_output->select('english_title','english_description','url','english_image','id');
+            }
+            $data_output =  $data_output->get()
+                            ->toArray();
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
 
     public function getById($id)
     {
         try {
             $data_output = DisasterManagementNews::where('is_active','=',true);
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->select('marathi_title','marathi_description','marathi_image');
+            } else {
+                $data_output = $data_output->select('english_title','english_description','english_image');
+            }
+            // $data_output =  $data_output->get()
+            //                 ->toArray();
+                            $data_output = $data_output->where('id', $id)->get()->toArray();
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
+    public function getByIdDepartmentInformation($id)
+    {
+        try {
+            $data_output = DepartmentInformation::where('is_active','=',true);
             if (Session::get('language') == 'mar') {
                 $data_output =  $data_output->select('marathi_title','marathi_description','marathi_image');
             } else {

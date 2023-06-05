@@ -32,6 +32,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
+                                                    <th>Gallery Category</th>
                                                     <th>English Image</th>
                                                     <th>Marathi Image</th>
                                                     <th>Status</th>
@@ -39,9 +40,10 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($success_stories as $item)
+                                                @foreach ($gallery as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
+                                                        <td><?php echo $item->english_name; ?></td>
                                                         <td> <img
                                                                 src="{{ asset('storage/images/news-events/gallery/' . $item->english_image) }}" />
                                                         </td>

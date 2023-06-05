@@ -22,6 +22,22 @@
                                 enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
+                                    
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="category_id">Gallery Category</label>&nbsp<span class="red-text">*</span>
+                                        <select class="form-control" id="category_id" name="category_id">
+                                            <option>Select</option>
+                                            @foreach ($category_gallery as $item)
+                                            <option value="{{ $item['id'] }}">{{ $item['english_name'] }}</option>
+                                            @endforeach
+                                        </select>
+                                        @if ($errors->has('category_id'))
+                                        <span
+                                            class="red-text"><?php echo $errors->first('category_id', ':message'); ?></span>
+                                        @endif
+                                    </div>
+                                </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="english_image">Image English</label>&nbsp<span

@@ -26,9 +26,8 @@
                                     <div class="form-group">
                                         <label for="english_title">Title English</label>&nbsp<span
                                             class="red-text">*</span>
-                                        <textarea class="form-control english_title" name="english_title"
-                                            id="english_title"
-                                            placeholder="Enter the Title">{{$success_stories->english_title }}</textarea>
+                                            <input type="text" class="form-control" name="english_title" id="english_title"
+                                            placeholder="Enter the Title" value="{{$success_stories->english_title }}">
                                         @if ($errors->has('english_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
@@ -39,9 +38,9 @@
                                     <div class="form-group">
                                         <label for="marathi_title">Title Marathi</label>&nbsp<span
                                             class="red-text">*</span>
-                                        <textarea class="form-control marathi_title" name="marathi_title"
+                                            <input class="form-control" name="marathi_title"
                                             id="marathi_title"
-                                            placeholder="Enter the Title">{{$success_stories->marathi_title }}</textarea>
+                                            placeholder="Enter the Title" value="{{$success_stories->marathi_title }}">
                                         @if ($errors->has('marathi_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>

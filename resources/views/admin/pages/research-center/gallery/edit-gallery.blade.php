@@ -33,7 +33,7 @@
                                         </div>
 
                                         <img id="english"
-                                            src="{{ asset('storage/images/news-events/gallery/' . $success_stories->english_image) }}"
+                                            src="{{ asset('storage/images/news-events/gallery/' . $gallery->english_image) }}"
                                             class="img-fluid img-thumbnail" width="150">
                                         <img id="english_imgPreview" src="#" alt="pic"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
@@ -48,7 +48,7 @@
                                             @endif
                                         </div>
                                         <img id="marathi"
-                                            src="{{ asset('storage/images/news-events/gallery/' . $success_stories->marathi_image) }}"
+                                            src="{{ asset('storage/images/news-events/gallery/' . $gallery->marathi_image) }}"
                                             class="img-fluid img-thumbnail" width="150">
                                         <img id="marathi_imgPreview" src="#" alt="pic"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                                 <input type="hidden" name="id" id="id" class="form-control"
-                                    value="{{ $success_stories->id }}" placeholder="">
+                                    value="{{ $gallery->id }}" placeholder="">
                             </form>
                         </div>
                     </div>

@@ -1,13 +1,13 @@
 <?php
-namespace App\Http\Services\NewsAndEvents;
+namespace App\Http\Services\ResearchCenter;
 
-use App\Http\Repository\NewsAndEvents\GalleryCategoryRepository;
+use App\Http\Repository\ResearchCenter\GalleryRepository;
 
-use App\GalleryCategory;
+use App\SuccessStories;
 use Carbon\Carbon;
 
 
-class GalleryCategoryServices
+class GalleryServices
 {
 
 	protected $repo;
@@ -17,7 +17,7 @@ class GalleryCategoryServices
      */
     public function __construct()
     {
-        $this->repo = new GalleryCategoryRepository();
+        $this->repo = new GalleryRepository();
     }
     public function getAll()
     {
@@ -33,9 +33,9 @@ class GalleryCategoryServices
         try {
             $add_news = $this->repo->addAll($request);
             if ($add_news) {
-                return ['status' => 'success', 'msg' => ' Gallery Category Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Gallery Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => ' Gallery Category get Not Added.'];
+                return ['status' => 'error', 'msg' => ' Gallery get Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -57,9 +57,9 @@ class GalleryCategoryServices
         try {
             $update_news = $this->repo->updateAll($request);
             if ($update_news) {
-                return ['status' => 'success', 'msg' => 'Gallery Category Updated Successfully.'];
+                return ['status' => 'success', 'msg' => 'Gallery Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Gallery Category  Not Updated.'];
+                return ['status' => 'error', 'msg' => 'Gallery  Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -79,8 +79,4 @@ class GalleryCategoryServices
             return $e;
         }
     }
-   
-
-
-
 }

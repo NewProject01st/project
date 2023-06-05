@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\NewsAndEvents;
+namespace App\Http\Controllers\ResearchCenter;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SuccessStories;
-use App\Http\Services\NewsAndEvents\GalleryCategoryServices;
+use App\Http\Services\ResearchCenter\GalleryCategoryServices;
 use Validator;
 class GalleryCategoryController extends Controller
 {
@@ -18,14 +18,14 @@ class GalleryCategoryController extends Controller
     {
         try {
             $success_stories = $this->service->getAll();
-            return view('admin.pages.news-events.gallery-category.list-gallery-category', compact('success_stories'));
+            return view('admin.pages.research-center.gallery-category.list-gallery-category', compact('success_stories'));
         } catch (\Exception $e) {
             return $e;
         }
     }
     public function add()
     {
-        return view('admin.pages.news-events.gallery-category.add-gallery-category');
+        return view('admin.pages.research-center.gallery-category.add-gallery-category');
     }
 
     public function store(Request $request) {
@@ -49,6 +49,7 @@ class GalleryCategoryController extends Controller
         else
         {
             $add_success_stories = $this->service->addAll($request);
+         
             // print_r($add_tenders);
             // die();
             if($add_success_stories)
@@ -74,7 +75,7 @@ class GalleryCategoryController extends Controller
     {
         $edit_data_id = $request->edit_id;
         $success_stories = $this->service->getById($edit_data_id);
-        return view('admin.pages.news-events.gallery-category.edit-gallery-category', compact('success_stories'));
+        return view('admin.pages.research-center.gallery-category.edit-gallery-category', compact('success_stories'));
     }
     public function update(Request $request)
 {
@@ -118,7 +119,7 @@ public function show(Request $request)
         try {
             //  dd($request->show_id);
             $success_stories = $this->service->getById($request->show_id);
-            return view('admin.pages.news-events.gallery-category.show-gallery-category', compact('success_stories'));
+            return view('admin.pages.research-center.gallery-category.show-gallery-category', compact('success_stories'));
         } catch (\Exception $e) {
             return $e;
         }

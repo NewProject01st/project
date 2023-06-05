@@ -37,7 +37,7 @@
                                                 <th>Description English</th>
                                                 <th>Description Marathi</th>
                                                 <th>Url</th>
-                                                <th>Date</th>
+                                                {{-- <th>Date</th> --}}
                                                 <th>English Icon</th>
                                                 <th>Marathi Icon</th>
                                                 <th>Status</th>
@@ -53,7 +53,7 @@
                                                 <td><?php echo $item->english_description; ?></td>
                                                 <td><?php echo $item->marathi_description; ?></td>
                                                 <td>{{ $item->url }}</td>
-                                                <td>{{ $item->date }}</td>
+                                                {{-- <td>{{ $item->date }}</td> --}}
                                                 <td> <img
                                                         src="{{ asset('storage/images/home/department-information/' . $item->english_image) }}" />
                                                 </td>

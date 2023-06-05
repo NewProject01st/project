@@ -1,13 +1,13 @@
 <?php
-namespace App\Http\Services\NewsAndEvents;
+namespace App\Http\Services\ResearchCenter;
 
-use App\Http\Repository\NewsAndEvents\GalleryRepository;
+use App\Http\Repository\ResearchCenter\VideoRepository;
 
-use App\SuccessStories;
+use App\GalleryCategory;
 use Carbon\Carbon;
 
 
-class GalleryServices
+class VideoServices
 {
 
 	protected $repo;
@@ -17,7 +17,7 @@ class GalleryServices
      */
     public function __construct()
     {
-        $this->repo = new GalleryRepository();
+        $this->repo = new VideoRepository();
     }
     public function getAll()
     {
@@ -33,9 +33,9 @@ class GalleryServices
         try {
             $add_news = $this->repo->addAll($request);
             if ($add_news) {
-                return ['status' => 'success', 'msg' => 'Gallery Added Successfully.'];
+                return ['status' => 'success', 'msg' => ' Video Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => ' Gallery get Not Added.'];
+                return ['status' => 'error', 'msg' => ' Video get Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -57,9 +57,9 @@ class GalleryServices
         try {
             $update_news = $this->repo->updateAll($request);
             if ($update_news) {
-                return ['status' => 'success', 'msg' => 'Gallery Updated Successfully.'];
+                return ['status' => 'success', 'msg' => 'Video Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Gallery  Not Updated.'];
+                return ['status' => 'error', 'msg' => 'Video  Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -79,4 +79,8 @@ class GalleryServices
             return $e;
         }
     }
+   
+
+
+
 }

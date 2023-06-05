@@ -76,6 +76,14 @@ class IndexServices
             return $e;
         }
     } 
+    public function getAllDepartmentInformation()
+    {
+        try {
+            return $this->repo->getAllDepartmentInformation();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
     public function getById($id)
     {
         try {
@@ -84,4 +92,13 @@ class IndexServices
             return $e;
         }
     }   
+    public function getByIdDepartmentInformation($id)
+    {
+        try {
+            return $this->repo->getByIdDepartmentInformation($id);
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }   
+    
 }

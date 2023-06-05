@@ -418,6 +418,12 @@
                               </a>
                           </li>
                           @endif
+                          @if (in_array('list-video', $data_for_url))
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-video') }}">Video
+                              </a>
+                          </li>
+                          @endif
                       </ul>
                   </div>
               </li>

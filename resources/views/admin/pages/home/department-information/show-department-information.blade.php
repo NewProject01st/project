@@ -65,17 +65,17 @@
                                         <label>English URL :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $department_info->english_url ?></label>
+                                        <label><?php echo $department_info->url ?></label>
                                     </div>
                                 </div>
-                                <div class="row ">
+                                {{-- <div class="row ">
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label> Date :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $department_info->disaster_date ?></label>
+                                        <label><?php //echo $department_info->disaster_date ?></label>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="row ">
                                     <div class="col-lg-3 col-md-3 col-sm-3">
                                         <label> English Icon :</label>

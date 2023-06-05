@@ -10,5 +10,5 @@ class Gallery extends Model
     use HasFactory;
     protected $table = 'gallery';
     protected $primaryKey = 'id';
-    protected $fillable = ['english_image', 'marathi_image'];
+    protected $fillable = ['category_id','english_image', 'marathi_image'];
 }
