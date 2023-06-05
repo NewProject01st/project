@@ -22,7 +22,8 @@ class RegisterController extends Controller {
 
     public function index()
     {
-        return view('admin.pages.users.users-list');
+        $register_user = $this->service->index();
+        return view('admin.pages.users.users-list',compact('register_user'));
     }
 
 
@@ -37,6 +38,66 @@ class RegisterController extends Controller {
                             ->get()
                             ->toArray();
     	return view('admin.pages.users.add-users',compact('roles','permissions'));
+    }
+
+    public function editUsers(Request $request) {
+        $user_data = $this->service->editUsers($request);
+        // dd($user_data);
+        return view('admin.pages.users.edit-users',compact('user_data'));
+    }
+
+    public function update(Request $request) {
+        // $user_data = $this->service->editUsers($request);
+        // return view('admin.pages.users.users-list',compact('user_data'));
+
+        $rules = [
+            // 'u_email' => 'required',
+            'u_uname' => 'required',
+            // 'u_password' => 'required',
+            'role_id' => 'required',
+            'f_name' => 'required',
+            'm_name' => 'required',
+            'l_name' => 'required'
+         ];       
+
+        $messages = [   
+                        // 'u_email.required' => 'Please enter email.',
+                        // 'u_email.email' => 'Please enter valid email.',
+                        'u_uname.required' => 'Please enter user uname.',
+                        // 'u_password.required' => 'Please enter password.',
+                        'role_id.required' => 'Select role',
+                        'f_name.required' => 'Please enter first name.',
+                        'm_name.required' =>'Please enter middle name.',
+                        'l_name.required' => 'Please enter last name.',
+                    ];
+
+
+        $validation = Validator::make($request->all(),$rules,$messages);
+        if($validation->fails() )
+        {
+            return redirect('edit-users')
+            ->withInput()
+            ->withErrors($validation);
+        }
+        else
+        {
+            $register_user = $this->service->update($request);
+
+            if($register_user)
+            {
+            
+                $msg = $register_user['msg'];
+                $status = $register_user['status'];
+                if($status=='success') {
+                    return redirect('list-users')->with(compact('msg','status'));
+                }
+                else {
+                    return redirect('list-users')->withInput()->with(compact('msg','status'));
+                }
+            }
+            
+        }
+
     }
 
 

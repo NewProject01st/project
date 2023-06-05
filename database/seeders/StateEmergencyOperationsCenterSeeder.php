@@ -17,8 +17,8 @@ class StateEmergencyOperationsCenterSeeder extends Seeder
         StateEmergencyOperationsCenter::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => '<b>State Emergency Operations Center (EOC)</b>',
-            'marathi_title' => '<b>राज्य आपत्कालीन ऑपरेशन केंद्र (EOC)</b>',
+            'english_title' => 'State Emergency Operations Center (EOC)',
+            'marathi_title' => 'राज्य आपत्कालीन ऑपरेशन केंद्र (EOC)',
             'english_description' => '
             The State Emergency Operations Center (EOC) is a centralized facility established by the government to coordinate and manage emergency response activities during disasters or major emergencies. It serves as the nerve center for disaster management and brings together key agencies, departments, and stakeholders involved in emergency response at the state level. Heres an explanation of the State EOC and its role in disaster emergency response:<br>
              <ul>

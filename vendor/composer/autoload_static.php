@@ -684,6 +684,7 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'App\\Models\\CapacityTraining' => __DIR__ . '/../..' . '/app/Models/CapacityTraining.php',
         'App\\Models\\CitizenFeedbackSuggestion' => __DIR__ . '/../..' . '/app/Models/CitizenFeedbackSuggestion.php',
         'App\\Models\\Contact' => __DIR__ . '/../..' . '/app/Models/Contact.php',
+        'App\\Models\\DepartmentInformation' => __DIR__ . '/../..' . '/app/Models/DepartmentInformation.php',
         'App\\Models\\DisasterForcast' => __DIR__ . '/../..' . '/app/Models/DisasterForcast.php',
         'App\\Models\\DisasterManagementNews' => __DIR__ . '/../..' . '/app/Models/DisasterManagementNews.php',
         'App\\Models\\DisasterManagementPortal' => __DIR__ . '/../..' . '/app/Models/DisasterManagementPortal.php',

@@ -17,8 +17,8 @@ class DistrictEmergencyOperationsCenterSeeder extends Seeder
         DistrictEmergencyOperationsCenter::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => '<b> District Emergency Operations Center(DEOC)</b>',
-            'marathi_title' => '<b>जिल्हा आपत्कालीन ऑपरेशन केंद्र (DEOC)</b>',
+            'english_title' => 'District Emergency Operations Center(DEOC)',
+            'marathi_title' => 'जिल्हा आपत्कालीन ऑपरेशन केंद्र (DEOC)',
             'english_description' => 'A District Emergency Operations Center (DEOC) is a key component of the disaster emergency response system. It serves as a centralized coordination and decision-making hub at the district level during emergencies or disasters. The DEOC plays a crucial role in facilitating effective emergency response, resource management, and communication among various stakeholders involved in disaster management. Here are some important aspects of a DEOC and its functions:<br>
             <ul>
             <li><b>Coordination:</b> The DEOC acts as a central coordination point for all emergency response activities within the district. It brings together representatives from relevant government departments, emergency services, non-governmental organizations, and other stakeholders involved in disaster management. The DEOC ensures seamless coordination among these entities to ensure a well-coordinated and efficient response.

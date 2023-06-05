@@ -17,8 +17,8 @@ class PrimaryEmergencyContactNumbersSeeder extends Seeder
         EmergencyContactNumbers::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => '<b>Primary Emergency Contact Numbers</b>',
-            'marathi_title' => '<b>प्राथमिक आपत्कालीन संपर्क क्रमांक</b>',
+            'english_title' => 'Primary Emergency Contact Numbers',
+            'marathi_title' => 'प्राथमिक आपत्कालीन संपर्क क्रमांक',
             'english_description' => 'During emergencies, it is crucial to have access to reliable and immediate assistance. Here are some commonly used emergency contact numbers in various disaster situations:<br>
             <ul>
              <li>Police: The police emergency helpline number is typically 100. You can contact the police in case of any criminal activities, emergencies, or threats to personal safety.

@@ -17,8 +17,8 @@ class ReliefMeasuresResourcesSeeder extends Seeder
         ReliefMeasuresResources::create([
         'created_at' => \Carbon\Carbon::now(),
         'updated_at' => \Carbon\Carbon::now(),
-        'english_title' => '<b>Relief Measures and Resources</b>',
-        'marathi_title' => '<b>मदत उपाय आणि संसाधने</b>',
+        'english_title' => 'Relief Measures and Resources',
+        'marathi_title' => 'मदत उपाय आणि संसाधने',
         'english_description' => 'In Maharashtra, the state government and various agencies implement relief measures and provide resources as part of their emergency response efforts during disasters. Here are some key relief measures and resources available in Maharashtra for disaster response:<br>
         <ul>
         <li><b>Emergency Helpline Numbers:</b> The government sets up dedicated helpline numbers to provide immediate assistance and support during emergencies. These helpline numbers are widely publicized to ensure that affected individuals can easily access help when needed.

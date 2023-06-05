@@ -18,8 +18,8 @@ class SearchRescueTeamsSeeder extends Seeder
         SearchRescueTeams::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => '<b>Search and Rescue Teams</b>',
-            'marathi_title' => '<b>शोध आणि बचाव पथके</b>',
+            'english_title' => 'Search and Rescue Teams',
+            'marathi_title' => 'शोध आणि बचाव पथके',
             'english_description' => 'In the event of a disaster or emergency situation in Maharashtra, various search and rescue teams are mobilized as part of the emergency response efforts. These teams are trained and equipped to carry out search and rescue operations in different environments and scenarios. Here are some of the search and rescue teams commonly involved in emergency response in Maharashtra:<br>
             <ul>
             <li><b>National Disaster Response Force (NDRF):</b>  The NDRF is a specialized force under the Ministry of Home Affairs, Government of India. It consists of highly trained personnel skilled in various aspects of search, rescue, and relief operations. NDRF teams are deployed during natural disasters such as earthquakes, floods, cyclones, and building collapses.</li>
