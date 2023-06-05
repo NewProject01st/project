@@ -41,7 +41,7 @@
                                                 <td><?php echo $key + 1; ?></td>
                                                 <td>{{ $item['menu_name'] }}</td>
                                                 <td class="d-flex">
-                                                    @if (in_array("per_add", $data_permission))
+                                                    @if (in_array("per_update", $data_permission))
                                                     <a data-id="{{ $item['id'] }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-pencil-alt"></i></a>
