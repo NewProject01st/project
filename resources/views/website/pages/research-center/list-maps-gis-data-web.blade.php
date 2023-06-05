@@ -13,7 +13,7 @@
         <!--Subheader Start-->
         <section class="wf100 subheader">
             <div class="container">
-                <h2>Research Center </h2>
+                <h2>Resource Center</h2>
                 <ul>
                     <li> <a href="{{ route('index') }}">Home</a> </li>
                     <li> Maps and GIS data </li>
@@ -25,7 +25,7 @@
         <div class="main-content p60">
             <!--Department Details Page Start-->
 
-            <div class="container">
+            {{-- <div class="container">
                 <h1>Gallery</h1>
                 
                 <ul class="nav nav-pills mb-4">
@@ -62,7 +62,7 @@
                   <li class="page-item"><a class="page-link" href="#">3</a></li>
                   <!-- Add more page links here -->
                 </ul>
-              </div>
+              </div> --}}
             
               <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
               <script>

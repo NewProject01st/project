@@ -21,7 +21,41 @@
             <div class="row">
                <div class="col-md-9 col-sm-8">
                   <!--Event List Box Start-->
+                  @foreach ($data_output as $item)
                   <div class="event-post-full d-flex">
+                     @if (session('language') == 'mar')
+                     <div class="thumb"> <a href="#"><i class="fas fa-link"></i></a> <img src="{{ asset('storage/training-event/event/' . $item['marathi_image']) }}" alt="<?php echo $item['marathi_title']; ?>"> </div>
+                     <div class="event-post-content">
+                        <div class="event-post-txt">
+                           <h5><a href="#"><?php echo $item['marathi_title']; ?></a></h5>
+                           <ul class="event-meta">
+                              <li><i class="far fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
+                           </ul>
+                           <p><?php echo $item['marathi_description']; ?></p>
+                        </div>
+                        <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando, USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div>
+                     </div>
+                     @else
+                     <div class="thumb"> <a href="#"><i class="fas fa-link"></i></a> <img src="{{ asset('storage/training-event/event/' . $item['english_image']) }}" alt="<?php echo $item['english_title']; ?>"> </div>
+                     <div class="event-post-content">
+                        <div class="event-post-txt">
+                           <h5><a href="#"><?php echo $item['english_title']; ?></a></h5>
+                           <ul class="event-meta">
+                              <li><i class="far fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
+                           </ul>
+                           <p><?php echo $item['english_description']; ?></p>
+                        </div>
+                        <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando, USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div>
+                     </div>
+                     @endif
+                  </div>
+                  @endforeach
+                  <!--Event List Box End--> 
+
+
+                  <!--Event List Box Start-->
+                  
+                  {{-- <div class="event-post-full d-flex">
                      <div class="thumb"> <a href="#"><i class="fas fa-link"></i></a> <img src="{{ asset('website_files/images/home/event.jpg') }}"  alt="..."> </div>
                      <div class="event-post-content">
                         <div class="event-post-txt">
@@ -47,7 +81,7 @@
                         </div>
                         <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando, USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div>
                      </div>
-                  </div>
+                  </div> --}}
                   <!--Event List Box End--> 
                    <!--Event List Box End--> 
                  </div>

@@ -27,9 +27,10 @@ class EmergencyContactNumbersController extends Controller
     }
     public function add()
     {
-        $contacts = AddMoreEmergencyContactNumbers::all();
+        // $contacts = AddMoreEmergencyContactNumbers::all();
         // $emergencycontactnumbers = $this->service->addAll($request->$id);
-        return view('admin.pages.emergency-response.emergency-contact-numbers.add-emergency-contact-numbers',  ['contacts' => $contacts]);
+        return view('admin.pages.emergency-response.emergency-contact-numbers.add-emergency-contact-numbers');
+        // return view('admin.pages.emergency-response.emergency-contact-numbers.add-emergency-contact-numbers',  ['contacts' => $contacts]);
         // return view('admin.pages.emergency-response.emergency-contact-numbers.add-emergency-contact-numbers', compact('emergencycontactnumbers'));
     }
 
@@ -68,7 +69,7 @@ class EmergencyContactNumbersController extends Controller
         {
             $add_emergencycontactnumbers = $this->service->addAll($request);
            
-            //  dd($add_emergencycontactnumbers);
+            //   dd($add_emergencycontactnumbers);
 
             if($add_emergencycontactnumbers)
             {

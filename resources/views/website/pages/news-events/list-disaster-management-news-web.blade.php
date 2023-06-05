@@ -4,10 +4,10 @@
         <!--Subheader Start-->
         <section class="wf100 subheader">
             <div class="container">
-                <h2>Preparedness </h2>
+                <h2>News & Events </h2>
                 <ul>
                     <li> <a href="{{ route('index') }}">Home</a> </li>
-                    <li> Capacity Training </li>
+                    <li> Disaster Management News </li>
                 </ul>
             </div>
         </section>
