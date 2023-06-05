@@ -15,14 +15,18 @@ class RegisterServices
     /**
      * TopicService constructor.
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->repo = new RegisterRepository();
     }
 
 
-    public function register($request)
-    {
+    public function index() {
+        $data_users = $this->repo->getUsersList();
+        return $data_users;
+    }
+
+
+    public function register($request) {
        // $academicYear = 1;
         $chk_dup = $this->repo->checkDupCredentials($request);
         if(sizeof($chk_dup)>0)
@@ -32,8 +36,20 @@ class RegisterServices
         else
         {
             $user_register_id = $this->repo->register($request);
-            return ['status'=>'success','msg'=>'Registration Successful. Please login to complete admission process with credentials sent to your mobile and/or email.'];
+            return ['status'=>'success','msg'=>'User Data Added Successful.'];
         }
+    }
+
+    public function update($request) {
+            $user_register_id = $this->repo->update($request);
+            return ['status'=>'success','msg'=>'Data Updated Successful.'];
+    }
+
+    
+
+    public function editUsers($request) {
+        $data_users = $this->repo->editUsers($request);
+        return $data_users;
     }
 
 
