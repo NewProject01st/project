@@ -254,6 +254,49 @@
   </div>
 </main>
 
+<div class="container photo_g">
+  <div class="row">
+    <div class="col-12">
+    <meta name="viewport" content="width=device-width">
+  <input type="radio" name="filter" id="all" checked><label for="all">All</label>
+  <input type="radio" name="filter" id="animals"><label for="animals">Animals</label>
+  <input type="radio" name="filter" id="nature"><label for="nature">Nature</label>
+  <input type="radio" name="filter" id="people"><label for="people">People</label>
+  <input type="radio" name="filter" id="tech"><label for="tech">Tech</label>
+  <div class="gallery">
+    <figure class="card tech">
+      <img class="card__image" loading="lazy" src="https://picsum.photos/id/0/300" alt="">
+    </figure>
+    <figure class="card nature">
+      <img class="card__image" loading="lazy" src="https://picsum.photos/id/10/300" alt="">
+    </figure>
+    <figure class="card animals">
+      <img class="card__image" loading="lazy" src="https://picsum.photos/id/1003/300" alt="">
+    </figure>
+    <figure class="card people">
+      <img class="card__image" loading="lazy" src="https://picsum.photos/id/1005/300" alt="">
+    </figure>
+    <figure class="card nature">
+      <img class="card__image" loading="lazy" src="https://picsum.photos/id/218/300" alt="">
+    </figure>
+    <figure class="card people">
+      <img class="card__image" loading="lazy" src="https://picsum.photos/id/1012/300" alt="">
+    </figure>
+    <figure class="card animals">
+      <img class="card__image" loading="lazy" src="https://picsum.photos/id/1020/300" alt="">
+    </figure>
+    <figure class="card people">
+      <img class="card__image" loading="lazy" src="https://picsum.photos/id/1027/300" alt="">
+    </figure>
+   
+    </div>
+
+
+    </div>
+  </div>
+</div>
+
+
 
 <script>
     // Fancybox Configuration
