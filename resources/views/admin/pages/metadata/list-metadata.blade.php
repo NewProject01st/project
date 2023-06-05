@@ -41,7 +41,7 @@
                                                 <td><?php echo  $metadata->english_name; ?></td>
                                                 <td><?php echo  $metadata->keywords; ?></td>
                                                 <td class="d-flex">
-                                                    @if (in_array("per_add", $data_permission))
+                                                    @if (in_array("per_update", $data_permission))
                                                     <a data-id="{{ $metadata->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-pencil-alt"></i></a>
@@ -49,7 +49,7 @@
                                                     <a data-id="{{ $metadata->id }}"
                                                         class="show-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-eye"></i></a>
-                                                    @if (in_array("per_add", $data_permission))
+                                                    @if (in_array("per_delete", $data_permission))
                                                     <a data-id="{{ $metadata->id }}"
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                         title="Delete Tender"><i class="fas fa-archive"></i></a>
