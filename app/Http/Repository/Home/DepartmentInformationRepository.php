@@ -38,7 +38,7 @@ class DepartmentInformationRepository  {
         $department_data->marathi_image =   $marathiImageName;
         $department_data->url = $request['url'];
         // $department_data->date = $request['date'];
-        dd($department_data);
+        // dd($department_data);
         $department_data->save();       
               
 		return $department_data;
