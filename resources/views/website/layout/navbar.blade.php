@@ -15,7 +15,7 @@
 
                     </div>
                     <div class="col-4 d-flex align-items-center new_head_ul2">
-                        
+
                         <ul class="quick-links">
                             <li><a href="#">Toll Free: 000 0000 000</a></li>
                         </ul>

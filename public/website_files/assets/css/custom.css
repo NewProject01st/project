@@ -4,6 +4,7 @@ Project:		DM
 Version:		1.0
 
 -------------------------------------------------------------------*/
+
 @media only screen and (max-width: 375px){ 
 	.head_row .set_volunteer{
 		padding: 7px 0px !important;
@@ -6072,3 +6073,62 @@ Testimonials End
 		grid-gap: 1rem;
    }
 }
+
+/*  */
+
+
+.photo_g{
+	padding: 2em 1rem;
+	text-align: center;
+}
+[type="radio"]{
+  display: none;
+}
+label{
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: 0.25s;
+}
+[type="radio"]:checked + label{
+	background: gold;
+}
+[type="radio"]:nth-of-type(2):checked ~ .gallery .card:not(.animals),
+[type="radio"]:nth-of-type(3):checked ~ .gallery .card:not(.nature),
+[type="radio"]:nth-of-type(4):checked ~ .gallery .card:not(.people),
+[type="radio"]:nth-of-type(5):checked ~ .gallery .card:not(.tech)
+{
+  display: none;
+}
+.gallery{
+  display: grid;
+	justify-content: center;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-auto-rows: 1fr;
+  grid-gap: 1rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+.card{
+  margin: 0;
+  background: darkslateblue;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: 0 0 10px silver;
+  transition: box-shadow 0.35s;
+}
+.card:hover{
+  box-shadow: 0 0 25px #0009;
+}
+.card__image{
+  width: 100%;
+  object-fit: cover;
+}
+.card__caption{
+	font-weight: bold;
+  font-variant: small-caps;
+  padding: 0.5rem;
+  text-align: center;
+  color: gold;
+}
+
