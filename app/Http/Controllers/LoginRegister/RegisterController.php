@@ -154,5 +154,12 @@ class RegisterController extends Controller {
 
 
     }
+
+    public function delete(Request $request) {
+        $delete_user = $this->service->delete($request);
+        $msg = 'User deleted successfully';
+        $status = 'success';
+        return redirect('list-users')->with(compact('msg','status'));
+    }
    
 }

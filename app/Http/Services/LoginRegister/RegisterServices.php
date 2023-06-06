@@ -52,6 +52,12 @@ class RegisterServices
         return $data_users;
     }
 
+    
+    public function delete($request) {
+        $delete_user = $this->repo->delete($request);
+        return $delete_user;
+    }
+   
 
 
 }
