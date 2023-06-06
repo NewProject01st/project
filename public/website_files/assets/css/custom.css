@@ -44,6 +44,9 @@ Version:		1.0
 	.dropdown-toggle::after {
 		top: 5% !important;
 	}
+	.become-vol {
+		padding: 0 7px !important;
+	}
   }
 
   @media (min-width: 767px) and (max-width: 912px){
@@ -2272,12 +2275,12 @@ body .btn-group.open .dropdown-toggle {
 .become-vol {
 	float: right;
 	background: #d94148;
-	line-height: 40px;
+	line-height: 35px;
 	color: #fff;
 	/* text-transform: uppercase;*/
 	font-weight: 600;
 	padding: 0 20px;
-	font-size: 14px;
+	font-size: 12px;
 }
 .cross-btn {
 	float: right;
@@ -2322,7 +2325,7 @@ body .btn-group.open .dropdown-toggle {
 	background: #572668;
 	color: #fff;
 	font-size: 12px;
-	padding: 0 10px;
+	padding: 0 8px;
 }
 .new_head_ul ul.quick-links li a:hover {
 	background: #f54337;

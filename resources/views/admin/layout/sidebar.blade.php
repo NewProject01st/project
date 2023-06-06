@@ -68,7 +68,7 @@
               in_array('list-sub-menu', $data_for_url))
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#menu" aria-expanded="false" aria-controls="menu">
-                      <i class="fa fa-th-large menu-icon"></i>
+                      <i class="fas fa-bars fa-lg menu-icon"></i>
                       <span class="menu-title">Menu</span>
                       <i class="menu-arrow"></i>
                   </a>
@@ -91,7 +91,7 @@
               @if (in_array('list-dynamic-page', $data_for_url))
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#pages" aria-expanded="false" aria-controls="pages">
-                      <i class="fa fa-th-large menu-icon"></i>
+                      <i class="fas fa-file-alt fa-lg menu-icon"></i>
                       <span class="menu-title">Pages</span>
                       <i class="menu-arrow"></i>
                   </a>
@@ -116,7 +116,7 @@
               in_array('list-general-contact', $data_for_url))
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#home" aria-expanded="false" aria-controls="home">
-                      <i class="fa fa-th-large menu-icon"></i>
+                      <i class="fas fa-home fa-lg menu-icon"></i>
                       <span class="menu-title">Home</span>
                       <i class="menu-arrow"></i>
                   </a>
@@ -179,7 +179,7 @@
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#aboutus" aria-expanded="false"
                       aria-controls="aboutus">
-                      <i class="fa fa-th-large menu-icon"></i>
+                      <i class="fas fa-address-card fa-lg menu-icon"></i>
                       <span class="menu-title">About Us</span>
                       <i class="menu-arrow"></i>
                   </a>
@@ -215,7 +215,7 @@
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#preparedness" aria-expanded="false"
                       aria-controls="preparedness">
-                      <i class="fa fa-th-large menu-icon"></i>
+                      <i class="fas fa-toolbox fa-lg menu-icon"></i>
                       <span class="menu-title">Preparedness</span>
                       <i class="menu-arrow"></i>
                   </a>
@@ -259,7 +259,7 @@
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#emergency-response" aria-expanded="false"
                       aria-controls="emergency-response">
-                      <i class="fa fa-th-large menu-icon"></i>
+                      <i class="fas fa-first-aid fa-lg menu-icon"></i>
                       <span class="menu-title">Emergency Response</span>
                       <i class="menu-arrow"></i>
                   </a>
@@ -313,7 +313,7 @@
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#citizen-action" aria-expanded="false"
                       aria-controls="citizen-action">
-                      <i class="fa fa-th-large menu-icon"></i>
+                      <i class="fas fa-building fa-lg menu-icon"></i>
                       <span class="menu-title">Citizen Action</span>
                       <i class="menu-arrow"></i>
                   </a>
@@ -370,7 +370,7 @@
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#policie-legislation" aria-expanded="false"
                       aria-controls="policie-legislation">
-                      <i class="fa fa-th-large menu-icon"></i>
+                      <i class="fa fa-th-large menu-icon menu-icon"></i>
                       <span class="menu-title">Policies Legislation</span>
                       <i class="menu-arrow"></i>
                   </a>
@@ -413,7 +413,7 @@
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                       aria-controls="page-layouts">
-                      <i class="fa fa-th-large menu-icon"></i>
+                      <i class="fas fa-search fa-lg menu-icon"></i>
                       <span class="menu-title">Research And Center </span>
                       <i class="menu-arrow"></i>
                   </a>
@@ -434,7 +434,7 @@
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                       aria-controls="page-layouts">
-                      <i class="fa fa-th-large menu-icon"></i>
+                      <i class="fas fa-newspaper fa-lg"></i>
                       <span class="menu-title">News And Events </span>
                       <i class="menu-arrow"></i>
                   </a>
