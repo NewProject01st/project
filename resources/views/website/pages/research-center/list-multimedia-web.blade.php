@@ -1,6 +1,7 @@
 @extends('website.layout.master')
 @section('title', 'Applicant\'s Form')
 @section('content')
+
 <!--Subheader Start-->
 <section class="wf100 subheader">
     <div class="container">
@@ -14,13 +15,21 @@
 <!--Subheader End-->
 <!--Main Content Start-->
 <div class="main-content">
-    <!--Testimonials Start-->
+    <!--Video Start-->
+
+
+   
+
+
     <section class="testimonials-section wf100 p80 graybg">
         <div class="container">
+          <div class="title-style-3">
+            <h3>Video</h3>
+         </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div id="h3testimonials" class="owl-carousel owl-theme">
-                        <!--testimonials box start-->
+                    <div id="h3testimonials p-3" class="owl-carousel owl-theme">
+                        <!--Video box start-->
                         @foreach ($data_getallvideo as $item)
                         @if (session('language') == 'mar')
                         <div class="item">
@@ -40,139 +49,121 @@
                         </div>
                         @endif
                         @endforeach
-                        <!--testimonials box End-->
+                        <!--Video box End-->
 
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--Testimonials End-->
-    <main class="main">
-        <div class="container gallery_container">
-          <div class="card">
-            <div class="card-image">
-              <a href="{{ asset('website_files/images/home/slide1.jpeg') }}" data-fancybox="gallery" data-caption="Caption Images 1">
-                <img src="{{ asset('website_files/images/home/slide1.jpeg') }}" alt="Image Gallery">
-              </a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image">
-              <a href="{{ asset('website_files/images/home/slide2.jpeg') }}" data-fancybox="gallery" data-caption="Caption Images 1">
-                <img src="{{ asset('website_files/images/home/slide2.jpeg') }}" alt="Image Gallery">
-              </a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image">
-              <a href="{{ asset('website_files/images/home/slide3.jpeg') }}" data-fancybox="gallery" data-caption="Caption Images 1">
-                <img src="{{ asset('website_files/images/home/slide3.jpeg') }}" alt="Image Gallery">
-              </a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image">
-              <a href="{{ asset('website_files/images/home/slide2.jpeg') }}" data-fancybox="gallery" data-caption="Caption Images 1">
-                <img src="{{ asset('website_files/images/home/slide2.jpeg') }}" alt="Image Gallery">
-              </a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image">
-              <a href="{{ asset('website_files/images/home/slide3.jpeg') }}" data-fancybox="gallery" data-caption="Caption Images 1">
-                <img src="{{ asset('website_files/images/home/slide3.jpeg') }}" alt="Image Gallery">
-              </a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-image">
-              <a href="{{ asset('website_files/images/home/slide1.jpeg') }}" data-fancybox="gallery" data-caption="Caption Images 1">
-                <img src="{{ asset('website_files/images/home/slide1.jpeg') }}" alt="Image Gallery">
-              </a>
-            </div>
-          </div>
-          
-          </div>
-        </div>
-      </main>
-      
-      <div class="container photo_g">
-        <div class="row">
-          <div class="col-12">
-          <meta name="viewport" content="width=device-width">
-        <input type="radio" name="filter" id="all" checked><label for="all">All</label>
-        <input type="radio" name="filter" id="animals"><label for="animals">Animals</label>
-        <input type="radio" name="filter" id="nature"><label for="nature">Nature</label>
-        <input type="radio" name="filter" id="people"><label for="people">People</label>
-        <input type="radio" name="filter" id="tech"><label for="tech">Tech</label>
-        <div class="gallery">
-          <figure class="card tech">
-            <img class="card__image" loading="lazy" src="https://picsum.photos/id/0/300" alt="">
-          </figure>
-          <figure class="card nature">
-            <img class="card__image" loading="lazy" src="https://picsum.photos/id/10/300" alt="">
-          </figure>
-          <figure class="card animals">
-            <img class="card__image" loading="lazy" src="https://picsum.photos/id/1003/300" alt="">
-          </figure>
-          <figure class="card people">
-            <img class="card__image" loading="lazy" src="https://picsum.photos/id/1005/300" alt="">
-          </figure>
-          <figure class="card nature">
-            <img class="card__image" loading="lazy" src="https://picsum.photos/id/218/300" alt="">
-          </figure>
-          <figure class="card people">
-            <img class="card__image" loading="lazy" src="https://picsum.photos/id/1012/300" alt="">
-          </figure>
-          <figure class="card animals">
-            <img class="card__image" loading="lazy" src="https://picsum.photos/id/1020/300" alt="">
-          </figure>
-          <figure class="card people">
-            <img class="card__image" loading="lazy" src="https://picsum.photos/id/1027/300" alt="">
-          </figure>
-         
-          </div>
-      
-      
-          </div>
-        </div>
+    <!--Video End-->
+  
+<div class="container photo_g">
+  <div class="row">
+    <div class="col-12">
+    <meta name="viewport" content="width=device-width">
+  <input type="radio" name="filter" id="all" checked><label for="all">All</label>
+  <input type="radio" name="filter" id="animals"><label for="animals">Animals</label>
+  <input type="radio" name="filter" id="nature"><label for="nature">Nature</label>
+  <input type="radio" name="filter" id="people"><label for="people">People</label>
+  <input type="radio" name="filter" id="tech"><label for="tech">Tech</label>
+  <div class="gallery">
+    <figure class="card tech">
+      <img class="card__image toZoom" loading="lazy" src="https://picsum.photos/id/0/300" alt="">
+            <!-- The Modal -->
+      <div class="idMyModal modal">
+        <span class="close">&times;</span>
+        <img class="modal-content">
       </div>
-      
-      
-      
-      <script>
-          // Fancybox Configuration
-      $('[data-fancybox="gallery"]').fancybox({
-        buttons: [
-          "slideShow",
-          "thumbs",
-          "zoom",
-          "fullScreen",
-          "share",
-          "close"
-        ],
-        loop: false,
-        protect: true
-      });
-      
-      </script>
+    </figure>
+    <figure class="card nature">
+      <img class="card__image toZoom" loading="lazy" src="https://picsum.photos/id/10/300" alt="">
+      <!-- The Modal -->
+      <div class="idMyModal modal">
+        <span class="close">&times;</span>
+        <img class="modal-content">
+      </div>
+    </figure>
+    <figure class="card animals">
+      <img class="card__image toZoom" loading="lazy" src="https://picsum.photos/id/1003/300" alt="">
+      <!-- The Modal -->
+      <div class="idMyModal modal">
+        <span class="close">&times;</span>
+        <img class="modal-content">
+      </div>
+    </figure>
+    <figure class="card people">
+      <img class="card__image toZoom" loading="lazy" src="https://picsum.photos/id/1005/300" alt="">
+      <!-- The Modal -->
+      <div class="idMyModal modal">
+        <span class="close">&times;</span>
+        <img class="modal-content">
+      </div>
+    </figure>
+    <figure class="card nature">
+      <img class="card__image toZoom" loading="lazy" src="https://picsum.photos/id/218/300" alt="">
+      <!-- The Modal -->
+      <div class="idMyModal modal">
+        <span class="close">&times;</span>
+        <img class="modal-content">
+      </div>
+    </figure>
+    <figure class="card people">
+      <img class="card__image toZoom" loading="lazy" src="https://picsum.photos/id/1012/300" alt="">
+      <!-- The Modal -->
+      <div class="idMyModal modal">
+        <span class="close">&times;</span>
+        <img class="modal-content">
+      </div>
+    </figure>
+    <figure class="card animals">
+      <img class="card__image toZoom" loading="lazy" src="https://picsum.photos/id/1020/300" alt="">
+      <!-- The Modal -->
+      <div class="idMyModal modal">
+        <span class="close">&times;</span>
+        <img class="modal-content">
+      </div>
+    </figure>
+    <figure class="card people">
+      <img class="card__image toZoom" loading="lazy" src="https://picsum.photos/id/1027/300" alt="">
+      <!-- The Modal -->
+      <div class="idMyModal modal">
+        <span class="close">&times;</span>
+        <img class="modal-content">
+      </div>
+    </figure>
+   
+    </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+
+  const modal = document.getElementsByClassName('idMyModal');
+  const img = document.getElementsByClassName('toZoom');
+  const modalImg = document.getElementsByClassName('modal-content');
+  for ( let i = 0; i < img.length; i++ ) {
+    img[i].onclick = function () {
+      modal[i].style.display = "block";
+      modalImg[i].src = this.src;
+    }
+  }
+
+  var span = document.getElementsByClassName("close");
+  for ( let i = 0; i < span.length; i++ ) {
+    span[i].onclick = function() { 
+      modal[i].style.display = "none";
+    }
+  }
+
+</script>
 </div>
 <!--Main Content End-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!--Main Content Start-->
 <div class="main-content p60">
@@ -181,16 +172,7 @@
         <div class="container">
             <div class="row">
                 <div class="container">
-                    <h3>Multimedia</h3>
-
-
-
-
-
-
-
-
-
+                  
                     <!-- Category buttons -->
                     {{-- <div class="mb-3 d-flex justify-content-center">
                           <button class="btn btn-primary filter-button m-1" data-filter="all">All</button>

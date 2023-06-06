@@ -401,7 +401,7 @@ class MainSubMenusSeeder extends Seeder
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
             'main_menu_id' => 8,
-            'menu_name_english' => 'State Disaster Management Plan',
+            'menu_name_english' => 'State Disaster Management Policy',
             'menu_name_marathi' => 'राज्य आपत्ती व्यवस्थापन धोरण',
             'order_no' => 3,
             'url'=>'list-state-management-policy-web',
