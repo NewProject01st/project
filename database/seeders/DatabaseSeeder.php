@@ -48,8 +48,11 @@ class DatabaseSeeder extends Seeder
         $this->call(ResearchCenterDocumentSeeder::class);   
         $this->call(RTISeeder::class);   
         $this->call(VacanciesSeeder::class);   
+        $this->call(ResearchCenterSuccessStoriesSeeder::class);  
+        $this->call(FooterImportantLinksSeeder::class);   
+        $this->call(WebsiteContactSeeder::class);   
 
-
+ 
         
     }
 }
