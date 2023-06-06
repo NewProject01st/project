@@ -1,5 +1,4 @@
 @extends('website.layout.master')
-@section('title', 'Applicant\'s Form')
 @section('content')
     <!--Subheader Start-->
     <section class="wf100 subheader">
@@ -14,6 +13,7 @@
     <!--Subheader End-->
     <!--Main Content Start-->
     <div class="main-content p60">
+        
         <!--Objective Goals Start-->
         <div class="department-details">
             <div class="container">

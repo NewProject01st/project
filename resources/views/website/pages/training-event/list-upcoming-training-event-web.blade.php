@@ -7,7 +7,7 @@
             <h2>Training Workshops</h2>
             <ul>
                 <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li> Training Workshops </li>
+                <li>Upcoming Events And Trainings</li>
             </ul>
         </div>
     </section>
