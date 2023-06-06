@@ -162,7 +162,12 @@
 </script>
 
 <!-- end webpage A+ A- button script -->
-
+<script>
+    $(document).ready(function()
+    {
+            $('#order-listing').DataTable({searching: true,ordering: false,lengthChange: false,showNEntries: false});
+    });
+</script>
 </body>
 
 </html>
