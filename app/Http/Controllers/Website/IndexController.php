@@ -27,7 +27,7 @@ class IndexController extends Controller
        
     }
 
-    public function getWebsiteContact() {
+    Static function getWebsiteContact() {
         $websitecontact_data = array();
         $websitecontact_data =  WebsiteContact::where('is_active', '=',true)
                             ->select( 
