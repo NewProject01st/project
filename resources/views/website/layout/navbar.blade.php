@@ -8,9 +8,9 @@
 
                         <ul class="quick-links">
                             <li><a href="#">Site Map</a></li>
-                            <li><a href="{{route('list-vacancies')}}">Vacancies</a></li>
+                            <li><a href="{{ route('list-vacancies') }}">Vacancies</a></li>
                             <li><a href="{{ route('list-report-incident-crowdsourcing-web') }}">Report It</a></li>
-                            <li><a href="{{route('list-rti')}}">RTI</a></li>
+                            <li><a href="{{ route('list-rti') }}">RTI</a></li>
                         </ul>
 
                     </div>
@@ -133,17 +133,12 @@
                         @if ($key == '0')
                         <li class="nav-item dropdown">
                             <a class="nav-link 
-                                            @if (sizeof($menu_data[1]) > 0)
-                                            dropdown-toggle
-                                            @endif" href="@if($menu_data_new['is_static'] == true) {{$menu_data_new['url']}} 
+                                            @if (sizeof($menu_data[1]) > 0) dropdown-toggle @endif" href="@if ($menu_data_new['is_static'] == true) {{ $menu_data_new['url'] }} 
                                                       @else 
-                                                      {{url('/pages/' . $menu_data_new['url'])}} 
-                                                      @endif" id="" role="button" @if (sizeof($menu_data[1])> 0)
-                                data-toggle="dropdown"
+                                                      {{ url('/pages/' . $menu_data_new['url']) }} @endif" id=""
+                                role="button" @if (sizeof($menu_data[1])> 0) data-toggle="dropdown"
                                 aria-haspopup="true"
-                                aria-expanded="false"
-                                @endif
-                                >
+                                aria-expanded="false" @endif>
                                 @if (session('language') == 'mar')
                                 {{ $menu_data_new['menu_name_marathi'] }}
                                 @else
