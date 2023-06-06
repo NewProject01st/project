@@ -45,6 +45,9 @@ class DatabaseSeeder extends Seeder
         $this->call(GalleryCategorySeeder::class);   
         $this->call(DepartmentInfoSeeder::class);   
         $this->call(TrainingEventSeeder::class);   
+        $this->call(ResearchCenterDocumentSeeder::class);   
+        $this->call(RTISeeder::class);   
+        $this->call(VacanciesSeeder::class);   
 
 
         
