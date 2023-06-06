@@ -6,7 +6,7 @@
             <h2>Contact Us </h2>
             <ul>
                 <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li> Feedback Suggestions </li>
+                <li>Feedback And Suggestions </li>
             </ul>
         </div>
     </section>
@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 contact-form m80">
-                        <h3 class="stitle text-center">Feedback/Suggestions</h3>
+                        <h3 class="stitle text-center">Feedback and Suggestions</h3>
                         @if (Session::has('success_message'))
                             <div class="alert alert-success">
                                 {{ Session::get('success_message') }}
@@ -67,7 +67,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-12">
-                                    <textarea class="gap-text" name="suggestion" placeholder="Write Any Suggestion"></textarea>
+                                    <textarea class="gap-text" name="suggestion" placeholder="Write Any Feedback/Suggestion"></textarea>
                                     @if ($errors->has('suggestion'))
                                         <span class="red-text"><?php echo $errors->first('suggestion', ':message'); ?></span>
                                     @endif

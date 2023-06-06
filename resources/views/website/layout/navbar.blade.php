@@ -56,7 +56,7 @@
             @endforeach --}}
 
                     <div class="col-md-4 col-sm-4">
-                        <div class="h3-logo"> <a href="index.html"><img
+                        <div class="h3-logo"> <a href="#"><img
                                     src="{{ asset('website_files/images/home/DMS.png') }}" alt=""
                                     style="width: 50%;"></a></div>
                     </div>

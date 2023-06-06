@@ -469,6 +469,7 @@ class MainSubMenusSeeder extends Seeder
             'main_menu_id' => 9,
             'menu_name_english' => 'Training Materials And Workshops',
             'menu_name_marathi' => 'प्रशिक्षण साहित्य आणि कार्यशाळा',
+            'url'=>'list-training-materials-workshops-web',
             'order_no' => 4,
             'is_static'=>true,
             'is_active' => true,

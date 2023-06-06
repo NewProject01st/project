@@ -81,6 +81,25 @@ class ResearchCenterController extends Controller
         return view('website.pages.research-center.list-multimedia-web',compact('language','menu','socialicon', 'data_getallvideo', 'data_output'));
     }  
 
+    public function getAllTraningMaterial()
+    {
+        try {
+
+            $menu = $this->menu;
+            $socialicon = $this->socialicon;
+            $data_output = $this->service->getAllTrainingMaterial();
+            
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+        } catch (\Exception $e) {
+            return $e;
+        }
+        return view('website.pages.research-center.list-training-materials-workshops-web',compact('language','menu','socialicon','data_output'));
+    }  
+
     // public function getAllMultimedia()
     // {
     //     try {

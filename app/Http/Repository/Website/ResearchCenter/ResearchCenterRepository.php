@@ -8,7 +8,8 @@ use Session;
 use App\Models\ {
 	Documentspublications,
     Video,
-    Gallery
+    Gallery,
+    TrainingMaterialsWorkshops
     
 
 };
@@ -73,7 +74,28 @@ class ResearchCenterRepository  {
     //         return $e;
     //     }
     // }
-    public function getAllGallery()
+
+    public function getAllTrainingMaterial()
+    {
+        try {
+            $data_output = TrainingMaterialsWorkshops::where('is_active','=',true);
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->select('marathi_title', 'marathi_pdf');
+            } else {
+                $data_output = $data_output->select('english_title', 'english_pdf');
+            }
+            $data_output =  $data_output->get()
+                            ->toArray();
+            return  $data_output;
+        //    echo $data_output;
+        //    die();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
+
+public function getAllGallery()
 {
     try {
         $query = Gallery::where('is_active', true);

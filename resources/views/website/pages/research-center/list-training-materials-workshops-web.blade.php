@@ -4,10 +4,10 @@
 <!--Subheader Start-->
 <section class="wf100 subheader">
     <div class="container">
-        <h2>Vacancies </h2>
+        <h2>Training Materials And Workshops </h2>
         <ul>
             <li> <a href="{{ route('index') }}">Home</a> </li>
-            <li> Vacancies </li>
+            <li> Training Materials And Workshops </li>
         </ul>
     </div>
 </section>
@@ -18,7 +18,6 @@
     <div class="department-details">
         <div class="container">
             <div class="row">
-                <h3 class="stitle text-center">Vacancies</h3>
                 <table class="table table-striped table-hover table-bordered border-dark">
                     <thead class="" style="background-color: #47194a; color:#fff">
                         <tr>

@@ -16,8 +16,10 @@
 <div class="main-content p60">
     <!--Department Details Page Start-->
     <div class="department-details">
+
         <div class="container">
             <div class="row">
+                <h3 class="stitle text-center">RTI</h3>
                 <table class="table table-striped table-hover table-bordered border-dark">
                     <thead class="" style="background-color: #47194a; color:#fff">
                         <tr>
@@ -30,20 +32,21 @@
                         @foreach ($data_output as $item)
                         <tr class="">
                             @if (session('language') == 'mar')
-                            <h3><?php echo $item['marathi_title']; ?> : </h3>
-                            <img src="{{ asset('storage/pdf/header/rti/' . $item['marathi_pdf']) }}"
-                                class="d-block w-100" alt="...">
-                            <!-- <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p> -->
+                            <td>{{ $loop->iteration }}</td>
+                            <td><?php echo $item['marathi_title']; ?></td>
+                            <td> <a href="{{ asset('/storage/pdf/header/vacancy/' . $item['marathi_pdf']) }}"
+                                    target="_blank"><img src="{{ asset('storage/pdf/pdf.png/') }}"
+                                        width="35px" height="35px"></a></td>
                             @else
                             <td>{{ $loop->iteration }}</td>
                             <td><?php echo $item['english_title']; ?></td>
-                            <td> <a href="{{ asset('/storage/pdf/header/rti/' . $item['english_pdf']) }}"
-                                    target="_blank"><img src="{{ asset('storage/pdf/header/rti/pdf.png/') }}"
+                            <td> <a href="{{ asset('/storage/pdf/header/vacancy/' . $item['english_pdf']) }}"
+                                    target="_blank"><img src="{{ asset('storage/pdf/pdf.png/') }}"
                                         width="35px" height="35px"></a></td>
                             @endif
                         </tr>
                         @endforeach
-                    </tbody>
+                    </tbody>>
                 </table>
             </div>
         </div>

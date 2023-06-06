@@ -47,9 +47,10 @@ class DatabaseSeeder extends Seeder
         $this->call(TrainingEventSeeder::class);   
         $this->call(ResearchCenterDocumentSeeder::class);   
         $this->call(RTISeeder::class);   
-        $this->call(VacanciesSeeder::class);   
-
-
+        $this->call(VacanciesSeeder::class); 
+        $this->call(VideoSeeder::class);     
+         $this->call(TrainingMaterialsWorkshopsSeeder::class);  
+       
         
     }
 }

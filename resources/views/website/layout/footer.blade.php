@@ -23,7 +23,7 @@
             <!--Footer Widget Start-->
             <div class="col-md-3 col-sm-6">
                 <div class="footer-widget">
-                    <h6>Sub-Departments</h6>
+                    <h6>Departments</h6>
                     <ul>
                         <li><a href="#"><i class="fas fa-star"></i> Emergency Management</a></li>
                         <li><a href="#"><i class="fas fa-star"></i> Public Health</a></li>
