@@ -143,7 +143,7 @@ class RegisterController extends Controller {
                 $msg = $register_user['msg'];
                 $status = $register_user['status'];
                 if($status=='success') {
-                    return redirect('add-users')->with(compact('msg','status'));
+                    return redirect('list-users')->with(compact('msg','status'));
                 }
                 else {
                     return redirect('add-users')->withInput()->with(compact('msg','status'));
