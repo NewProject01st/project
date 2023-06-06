@@ -67,11 +67,8 @@
     <script src="{{ asset('website_files/assets/js/owl.carousel.min.js') }}"></script> 
     <script src="{{ asset('website_files/assets/js/query.prettyPhoto.js') }}"></script> 
     <script src="{{ asset('website_files/assets/js/custom.js') }}"></script>
-
-
-    
-
-
+    <script src="{{ asset('website_files/assets/js/jquery.dataTables.min.js') }}"></script>
+    <link href="{{ asset('website_files/assets/css/jquery.dataTables.min.css')}}"  rel="stylesheet">
 </head>
 
 <body>

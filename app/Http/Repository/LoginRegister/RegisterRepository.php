@@ -55,7 +55,6 @@ class RegisterRepository  {
 		$user_data->save();
 
 		$last_insert_id = $user_data->id;
-		// dd($last_insert_id);
 		$this->insertRolesPermissions($request, $last_insert_id);
         return $last_insert_id;
 	}
@@ -106,31 +105,22 @@ class RegisterRepository  {
 			} else {
 				$update_data['per_delete']  = false;
 			}
-			info('$update_data');
-			info($update_data);
-			// if($request->has($permission_id) && ($request->has($per_add) || $request->has($per_update) || $request->has($per_delete))) {
-				// dd("I am here for permission");
-				\DB::enableQueryLog(); // Enable query log
 
-				$permissions_data_all = RolesPermissions::where([
+			$permissions_data_all = RolesPermissions::where([
+				'user_id' =>$request['edit_id'],
+				'permission_id' =>$data['id']
+			])->get()->toArray();
+			if(count($permissions_data_all)>0) {
+
+				$permissions_data = RolesPermissions::where([
 					'user_id' =>$request['edit_id'],
 					'permission_id' =>$data['id']
-				])->get()->toArray();
-				if(count($permissions_data_all)>0) {
-
-					$permissions_data = RolesPermissions::where([
-						'user_id' =>$request['edit_id'],
-						'permission_id' =>$data['id']
-					])->update($update_data);
-				} else {
-					$update_data['user_id']  = $request['edit_id'];
-					$update_data['permission_id']  = $data['id'];
-					$permissions_data = RolesPermissions::insert($update_data);
-				}
-				
-				info(\DB::getQueryLog()); // Show results of log
-
-			// }
+				])->update($update_data);
+			} else {
+				$update_data['user_id']  = $request['edit_id'];
+				$update_data['permission_id']  = $data['id'];
+				$permissions_data = RolesPermissions::insert($update_data);
+			}
 			
 		}
 		return "ok";
@@ -209,8 +199,8 @@ class RegisterRepository  {
 							'users.is_active',
 						)->get()
 						->toArray();
-	$data_users['data_users'] = $data_users_data[0];
-	$data_users['permissions_user'] = User::join('roles_permissions', function($join) {
+		$data_users['data_users'] = $data_users_data[0];
+		$data_users['permissions_user'] = User::join('roles_permissions', function($join) {
 							$join->on('users.id', '=', 'roles_permissions.user_id');
 						})
 						->join('permissions', function($join) {
@@ -227,8 +217,17 @@ class RegisterRepository  {
 							)->get()
 							->toArray();
 
-	return $data_users;
-}
+		return $data_users;
+	}
+
+	public function delete($request) {
+		$user = User::where([ 'id' => $request->delete_id ])
+		-> update([ 'is_active' => false ]);
+		$rolesPermissions = RolesPermissions::where([ 'user_id' => $request->delete_id ])
+							-> update([ 'is_active' => false ]);
+
+		return "ok";
+	}
 
 
 
