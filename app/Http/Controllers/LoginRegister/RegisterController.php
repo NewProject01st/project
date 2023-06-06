@@ -107,7 +107,7 @@ class RegisterController extends Controller {
         $rules = [
                     'u_email' => 'required',
                     'u_uname' => 'required',
-                    'u_password' => 'required|regex:/[A-Z]{5}[0-9]{4}[A-Z]{1}/|min:6',
+                    'u_password' => 'required|regex:/[A-Z]{3}[0-9]{2}[a-z]{3}/|min:8',
                     'role_id' => 'required',
                     'f_name' => 'required',
                     'm_name' => 'required',
@@ -119,7 +119,7 @@ class RegisterController extends Controller {
                         'u_email.email' => 'Please enter valid email.',
                         'u_uname.required' => 'Please enter user uname.',
                         'u_password.required' => 'Please enter password.',
-                        'u_password.regex' => 'Please enter password.',
+                        'u_password.regex' => 'Please enter 3 capital letter, 3 small letter, 2 special character and 2 numbers in password.',
                         'u_password.min' => 'Please combination of number character of 8 char.',
                         'role_id.required' => 'Select role',
                         'f_name.required' => 'Please enter first name.',

@@ -25,7 +25,7 @@
                                     <div class="form-group">
                                         <label for="u_email">Email ID</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" class="form-control" name="u_email" id="u_email"
-                                            placeholder="">
+                                            placeholder="" value="{{ old('u_email') }}">
                                         @if ($errors->has('u_email'))
                                         <span
                                             class="red-text"><?php echo $errors->first('u_email', ':message'); ?></span>
@@ -36,7 +36,7 @@
                                     <div class="form-group">
                                         <label for="u_uname">User Name</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" class="form-control" name="u_uname" id="u_uname"
-                                            placeholder="">
+                                            placeholder="" value="{{ old('u_uname') }}">
                                         @if ($errors->has('u_uname'))
                                         <span
                                             class="red-text"><?php echo $errors->first('u_uname', ':message'); ?></span>
@@ -47,7 +47,7 @@
                                     <div class="form-group">
                                         <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" class="form-control" name="u_password" id="u_password"
-                                            placeholder="">
+                                            placeholder="" value="{{ old('u_password') }}">
                                         @if ($errors->has('u_password'))
                                         <span
                                             class="red-text"><?php echo $errors->first('u_password', ':message'); ?></span>
@@ -75,7 +75,7 @@
                                     <div class="form-group">
                                         <label for="f_name">First Name</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" class="form-control" name="f_name" id="f_name"
-                                            placeholder="">
+                                            placeholder="" value="{{ old('f_name') }}">
                                         @if ($errors->has('f_name'))
                                         <span
                                             class="red-text"><?php echo $errors->first('f_name', ':message'); ?></span>
@@ -87,7 +87,7 @@
                                     <div class="form-group">
                                         <label for="m_name">Middle Name</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" class="form-control" name="m_name" id="m_name"
-                                            placeholder="">
+                                            placeholder="" value="{{ old('m_name') }}">
                                         @if ($errors->has('m_name'))
                                         <span
                                             class="red-text"><?php echo $errors->first('m_name', ':message'); ?></span>
@@ -99,7 +99,7 @@
                                     <div class="form-group">
                                         <label for="l_name">Last Name</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" class="form-control" name="l_name" id="l_name"
-                                            placeholder="">
+                                            placeholder="" value="{{ old('l_name') }}">
                                         @if ($errors->has('l_name'))
                                         <span
                                             class="red-text"><?php echo $errors->first('l_name', ':message'); ?></span>
