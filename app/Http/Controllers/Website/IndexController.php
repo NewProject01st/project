@@ -36,6 +36,9 @@ class IndexController extends Controller
             $data_output_disastermanagementnews = $this->service->getAllDisasterManagementNews();
             $data_output_emergencycontact = $this->service->getAllEmergencyContact();
             $data_output_departmentinformation = $this->service->getAllDepartmentInformation();
+            $data_output_contact = $this->service->getWebContact();
+            // dd(  $data_output_contact);
+
             // $data_output_vacancies = $this->service->getAllVacancies();            
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -46,7 +49,7 @@ class IndexController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.index',compact('language','menu','socialicon','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact', 'data_output_departmentinformation'));
+        return view('website.pages.index',compact('language','menu','socialicon','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact', 'data_output_departmentinformation','data_output_contact'));
     }
     public function show(Request $request)
     {
@@ -129,6 +132,9 @@ class IndexController extends Controller
                     }
                     return view('website.pages.home.list-rti',compact('language','menu','socialicon', 'data_output'));
                     } 
+        
+                    
+              
         
     
 

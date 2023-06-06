@@ -49,8 +49,12 @@ class DatabaseSeeder extends Seeder
         $this->call(RTISeeder::class);   
         $this->call(VacanciesSeeder::class); 
         $this->call(VideoSeeder::class);     
-         $this->call(TrainingMaterialsWorkshopsSeeder::class);  
-       
+         $this->call(TrainingMaterialsWorkshopsSeeder::class);            
+        $this->call(ResearchCenterSuccessStoriesSeeder::class);  
+        $this->call(FooterImportantLinksSeeder::class);   
+        $this->call(WebsiteContactSeeder::class);   
+
+ 
         
     }
 }

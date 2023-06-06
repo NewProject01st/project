@@ -119,4 +119,13 @@ class IndexServices
         }
     }  
     
+    public function getWebContact()
+    {
+        try {
+            return $this->repo->getWebContact();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }  
+    
 }

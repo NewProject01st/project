@@ -970,7 +970,7 @@ button.btn.btn-outline-warning.btn-fw {  display: block;   width: 100%;   margin
       padding: 11px 13px;
         font-size: 13px !important;
   }
-  .table.table-bordered>thead{background-color:aliceblue;}
+  .table.table-bordered>thead{background-color:#e5eff8;}
 /* =========================== */
 .emergency-info {
 	background: #40407e;
