@@ -15,8 +15,12 @@ class EventRepository  {
 
 	public function getAllUpcomingEvent()
     {
+        
         try {
-            $data_output = Event::where('is_active','=',true);
+            $date_now = date("d-m-Y");
+            $data_output = Event::where('is_active','=', true)
+                        ->where('start_date','<=', $date_now)
+                        ->where('end_date','>', $date_now);
             // dd($data_output);
             if (Session::get('language') == 'mar') {
                 $data_output =  $data_output->select('marathi_title', 'marathi_description','marathi_image','start_date', 'end_date');
@@ -35,7 +39,9 @@ class EventRepository  {
     public function getAllPastEvent()
     {
         try {
-            $data_output = Event::where('is_active','=',true);
+            $date_now = date("d-m-Y");
+            $data_output = Event::where('is_active','=',true)
+                            ->where('end_date','<', $date_now);
             // dd($data_output);
             if (Session::get('language') == 'mar') {
                 $data_output =  $data_output->select('marathi_title', 'marathi_description','marathi_image','start_date', 'end_date');
