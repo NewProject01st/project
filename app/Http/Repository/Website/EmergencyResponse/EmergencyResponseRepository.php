@@ -11,7 +11,8 @@ use App\Models\ {
     EmergencyContactNumbers,
     SearchRescueTeams,
     ReliefMeasuresResources,
-    EvacuationPlans
+    EvacuationPlans,
+    AddMoreEmergencyContactNumbers
 
 };
 
@@ -54,14 +55,21 @@ class EmergencyResponseRepository  {
     {
         try {
             $data_output = EmergencyContactNumbers::where('is_active','=',true);
+            $data_output_array = AddMoreEmergencyContactNumbers::where('is_active','=',true);
             if (Session::get('language') == 'mar') {
                 $data_output =  $data_output->select('marathi_title','marathi_description', 'marathi_image');
+                $data_output = $data_output_array->select('marathi_emergency_contact_title', 'marathi_emergency_contact_number');
             } else {
                 $data_output = $data_output->select('english_title', 'english_description','english_image');
+                $data_output = $data_output_array->select('english_emergency_contact_title', 'english_emergency_contact_number');
             }
-            $data_output =  $data_output->get()
-                            ->toArray();
-            return  $data_output;
+            $data_output = $data_output->get()->toArray();
+            $data_output_array = $data_output_array->get()->toArray();
+            // dd($data_output_array);
+            return ['data_output' => $data_output, 'data_output_array' => $data_output_array];
+            // $data_output =  $data_output->get()
+            //                 ->toArray();
+            // return  $data_output;
         } catch (\Exception $e) {
             return $e;
         }

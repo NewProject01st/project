@@ -155,14 +155,14 @@
                                             <?php echo $item['disaster_date']; ?></li>
                                         {{-- <li>176 Comments</li> --}}
                                     </ul>
-                                    <h6><a href="#"><?php echo $item['english_title'];
+                                    <h6><a href="#"><?php echo $item['marathi_title'];
                                     ?></a></h6>
-                                    <p> <?php echo $item['english_description'];
+                                    <p> <?php echo $item['marathi_description'];
                                     ?></p>
                                 </div>
                                 <div class="news-box-f"> <img
-                                        src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
-                                        alt="{{ $item['english_title'] }}"> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i
+                                        src="{{ asset('storage/images/disaster-news/' . $item['marathi_image']) }}"
+                                        alt="{{ $item['marathi_title'] }}"> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i
                                             class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -228,7 +228,7 @@
                             @else
                                 <div class="col-md-4 col-sm-4">
                                     <div class="deprt-icon-box"> <img
-                                            src="{{ asset('storage/images/home/department-information/' . $item['english_image']) }}"
+                                            src="{{ asset('storage//images/home/department-information/' . $item['english_image']) }}"
                                             alt="">
                                         <h6> <a href="#"><?php echo $item['english_title']; ?></a> </h6>
                                         <a data-id="{{ $item['id'] }}" class="department-show-btn rm">Read More</a>

@@ -27,9 +27,10 @@ class EmergencyContactNumbersController extends Controller
     }
     public function add()
     {
-        $contacts = AddMoreEmergencyContactNumbers::all();
+        // $contacts = AddMoreEmergencyContactNumbers::all();
         // $emergencycontactnumbers = $this->service->addAll($request->$id);
-        return view('admin.pages.emergency-response.emergency-contact-numbers.add-emergency-contact-numbers',  ['contacts' => $contacts]);
+        return view('admin.pages.emergency-response.emergency-contact-numbers.add-emergency-contact-numbers');
+        // return view('admin.pages.emergency-response.emergency-contact-numbers.add-emergency-contact-numbers',  ['contacts' => $contacts]);
         // return view('admin.pages.emergency-response.emergency-contact-numbers.add-emergency-contact-numbers', compact('emergencycontactnumbers'));
     }
 
@@ -44,7 +45,12 @@ class EmergencyContactNumbersController extends Controller
         'english_description' => 'required',
         'marathi_description' => 'required',
         'english_image' => 'required',
-        'marathi_image' => 'required'
+        'marathi_image' => 'required',
+        'english_emergency_contact_title_1'=>'required',
+        'marathi_emergency_contact_title_1'=>'required',
+        'english_emergency_contact_number_1'=>'required',
+        'marathi_emergency_contact_number_1'=>'required',
+        
         
         ];
     $messages = [   
@@ -54,6 +60,10 @@ class EmergencyContactNumbersController extends Controller
         'marathi_description.required' => 'Please enter marathi description.',
         'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'english_emergency_contact_title_1.required' => 'Please enter english title.',
+        'marathi_emergency_contact_title_1.required' => 'Please enter marathi title.',
+        'english_emergency_contact_number_1.required' => 'Please enter english contact number.',
+        'marathi_emergency_contact_number_1.required' => 'Please enter marathi contact number.',
     ];
 
     try {
@@ -68,7 +78,7 @@ class EmergencyContactNumbersController extends Controller
         {
             $add_emergencycontactnumbers = $this->service->addAll($request);
            
-            //  dd($add_emergencycontactnumbers);
+            //   dd($add_emergencycontactnumbers);
 
             if($add_emergencycontactnumbers)
             {

@@ -7,7 +7,7 @@
             <h2>Disaster Management News </h2>
             <ul>
                 <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li> Capacity Training </li>
+               
             </ul>
         </div>
     </section>
@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-md-9">
                         <!--Department Details Txt Start-->
-                        @foreach ($department_information as $item)
+                        @foreach ($disaster_news as $item)
                             <div class="deprt-txt">
                                 @if (session('language') == 'mar')
                                     <h3><?php echo $item['marathi_title']; ?> : </h3>
@@ -41,34 +41,12 @@
                     <!--Sidebar Start-->
                     <div class="col-md-3">
                         <div class="sidebar">
-                            <!--Widget Start-->
-                            <div class="widget">
-                                <h4>Upcoming Events</h4>
-                                <div class="upcoming-events inner">
-                                    <ul>
-                                        <li>
-                                            <div class="edate"> <strong>01</strong> May <span
-                                                    class="year">2023</span> </div>
-                                            <h6> <a href="#">Maharashtra battles forest fires</a> </h6>
-                                            <span class="loc">Maharashtra, India</span>
-                                        </li>
-                                        <li>
-                                            <div class="edate"> <strong>03</strong> May <span
-                                                    class="year">2023</span> </div>
-                                            <h6> <a href="#">Kerala floods displace thousands</a> </h6>
-                                            <span class="loc">Maharashtra, India</span>
-                                        </li>
-                                        <li>
-                                            <div class="edate"> <strong>06</strong> May <span
-                                                    class="year">2023</span> </div>
-                                            <h6> <a href="#">Odisha prepares for Cyclone Yaas.</a>
-                                            </h6>
-                                            <span class="loc">Maharashtra, India</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="pb-3">
+                                <button type="button" class="btn back-btn-color" 
+                                ><a href="{{ route('/') }}">
+                                Back</a>
+                            </button>
                             </div>
-                            <!--Widget End-->
                             <!--Widget Start-->
                             <div class="widget">
                                 <h4>Important Links</h4>

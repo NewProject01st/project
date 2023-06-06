@@ -352,7 +352,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Upcoming events and trainings',
             'menu_name_marathi' => 'आगामी कार्यक्रम आणि प्रशिक्षण',
             'order_no' => 1,
-            'url'=>'list-training-event-web',
+            'url'=>'list-upcoming-training-event-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -365,6 +365,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => ' Past Events and Trainings',
             'menu_name_marathi' => 'आगामी कार्यक्रम आणि प्रशिक्षण',
             'order_no' => 2,
+            'url'=>'list-past-training-event-web',
             'is_static'=>true,
             'is_active' => true,
            
@@ -495,7 +496,7 @@ class MainSubMenusSeeder extends Seeder
             'main_menu_id' => 10,
             'menu_name_english' => ' Upcoming events and trainings',
             'menu_name_marathi' => 'आगामी कार्यक्रम आणि प्रशिक्षण',
-            'url'=>'list-training-event-web',
+            'url'=>'list-upcoming-training-event-web',
             'order_no' => 2,
             'is_static'=>true,
             'is_active' => true,

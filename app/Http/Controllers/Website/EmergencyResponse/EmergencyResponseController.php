@@ -68,6 +68,7 @@ class EmergencyResponseController extends Controller
             $menu = $this->menu;
             $socialicon = $this->socialicon;
             $data_output = $this->service->getAllEmergencyContactNumbers();
+            // dd($data_output);
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
