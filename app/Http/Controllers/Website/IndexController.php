@@ -36,6 +36,7 @@ class IndexController extends Controller
             $data_output_disastermanagementnews = $this->service->getAllDisasterManagementNews();
             $data_output_emergencycontact = $this->service->getAllEmergencyContact();
             $data_output_departmentinformation = $this->service->getAllDepartmentInformation();
+            // $data_output_vacancies = $this->service->getAllVacancies();            
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -91,10 +92,47 @@ class IndexController extends Controller
                 return view('website.pages.particular-department-information', compact('language','menu','socialicon','department_information'));
             } 
 
+            public function showVacancies(Request $request)
+            {
+                try {
+
+                    $menu = $this->menu;
+                    $socialicon = $this->socialicon;
+                    $data_output = $this->service->getAllVacancies();
+                    if (Session::get('language') == 'mar') {
+                        $language = Session::get('language');
+                    } else {
+                        $language = 'en';
+                    }
+                } catch (\Exception $e) {
+                    return $e;
+                }
+                return view('website.pages.home.list-vacancies',compact('language','menu','socialicon', 'data_output'));
+                } 
+
+                
+    
+                public function showRTI(Request $request)
+                {
+                    try {
+    
+                        $menu = $this->menu;
+                        $socialicon = $this->socialicon;
+                        $data_output = $this->service->getAllRTI();
+                        if (Session::get('language') == 'mar') {
+                            $language = Session::get('language');
+                        } else {
+                            $language = 'en';
+                        }
+                    } catch (\Exception $e) {
+                        return $e;
+                    }
+                    return view('website.pages.home.list-rti',compact('language','menu','socialicon', 'data_output'));
+                    } 
         
     
 
-
+                
     public function changeLanguage(Request $request) {
         Session::put('language', $request->language);
     }    

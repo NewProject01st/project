@@ -13,7 +13,9 @@ use App\Models\ {
     DisasterManagementWebPortal,
     DisasterManagementNews,
     EmergencyContact,
-DepartmentInformation
+    DepartmentInformation,
+    VacanciesHeader,
+    RTI
 };
 
 class IndexRepository  {
@@ -210,6 +212,42 @@ class IndexRepository  {
             return $e;
         }
     }
+
+    public function getAllVacancies()
+    {
+        try {
+            $data_output = VacanciesHeader::where('is_active','=',true);
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->select('marathi_title','marathi_pdf');
+            } else {
+                $data_output = $data_output->select('english_title','english_pdf');
+            }
+            $data_output =  $data_output->get()
+                            ->toArray();
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
+    
+    public function getAllRTI()
+    {
+        try {
+            $data_output = RTI::where('is_active','=',true);
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->select('marathi_title','marathi_pdf');
+            } else {
+                $data_output = $data_output->select('english_title','english_pdf');
+            }
+            $data_output =  $data_output->get()
+                            ->toArray();
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
 
 //     public function getById($id)
 // {

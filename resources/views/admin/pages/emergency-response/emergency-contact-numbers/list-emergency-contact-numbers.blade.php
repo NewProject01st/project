@@ -42,10 +42,12 @@
                                              </tr>
                                          </thead>
                                          <tbody>
-                                             @foreach ($emergencycontactnumbers as $item)
+                                           
+                                             @foreach ($data_output_new as $item)
                                              <tr>
                                                  <td>{{ $loop->iteration }}</td>
-                                                 <td><?php echo $item->english_title; ?></td>
+                                                 <td><?php echo $item->english_title; ?>
+                                                </td>
                                                  <td><?php echo $item->marathi_title; ?></td>
                                                  <td><?php echo $item->english_description; ?></td>
                                                  <td><?php echo $item->marathi_description; ?></td>
@@ -58,6 +60,8 @@
                                                  <!-- <td>
                                                                 <span class="badge badge-success">Active</span>
                                                             </td> -->
+
+                                                            
                                                  <td>
                                                      <div class="d-flex">
                                                          @if (in_array("per_update", $data_permission))

@@ -20,7 +20,12 @@ class EmergencyContactNumbersController extends Controller
     {
         try {
             $emergencycontactnumbers = $this->service->getAll();
-            return view('admin.pages.emergency-response.emergency-contact-numbers.list-emergency-contact-numbers', compact('emergencycontactnumbers'));
+            $data_output_new = $emergencycontactnumbers['data_output'];
+            $data_output_array = $emergencycontactnumbers['data_output_array'];
+            // dd($data_output_array);
+            return view('admin.pages.emergency-response.emergency-contact-numbers.list-emergency-contact-numbers',compact('data_output_new', 'data_output_array'));
+
+            // return view('admin.pages.emergency-response.emergency-contact-numbers.list-emergency-contact-numbers', compact('emergencycontactnumbers'));
         } catch (\Exception $e) {
             return $e;
         }
