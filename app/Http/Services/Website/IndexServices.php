@@ -100,5 +100,23 @@ class IndexServices
             return $e;
         }
     }   
+
+    public function getallVacancies()
+    {
+        try {
+            return $this->repo->getallVacancies();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }  
+    
+    public function getAllRTI()
+    {
+        try {
+            return $this->repo->getAllRTI();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }  
     
 }
