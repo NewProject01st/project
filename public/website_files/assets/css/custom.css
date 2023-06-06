@@ -41,6 +41,9 @@ Version:		1.0
 		display: block;
 		margin-top: auto; 
 	}
+	.dropdown-toggle::after {
+		top: 5% !important;
+	}
   }
 
   @media (min-width: 767px) and (max-width: 912px){
@@ -6029,52 +6032,28 @@ Testimonials End
 	margin-right: 25%;
 }
 
-/* gallery */
 
-.gallery_container {
-	max-width: 80rem;
-	width: 100%;
-	padding: 2rem 2rem;
-	margin: 0 auto;
+/* Web page zoom btn */
+
+.webpage_zoom_btn{
+	border: 1px solid #e1e1e1;
+    line-height: 20px;
+    display: block;
+    border-radius: 3px;
+    background: #572668;
+    color: #fff;
+    font-size: 12px;
+    padding: 0 10px;
+    margin-bottom: 1%;
+	margin-right: 1%;
 }
-.main .gallery_container {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 1rem;
-	justify-content: center;
-	align-items: center;
-}
-.main .card {
-	color: #252a32;
-	border-radius: 2px;
-	background: #fff;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
-}
-.main .card-image {
-	position: relative;
-	display: block;
-	width: 100%;
-	padding-top: 70%;
-	background: #fff;
-}
-.main .card-image img {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-@media only screen and (max-width: 600px) {
-	.main .gallery_container {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-gap: 1rem;
-   }
+.webpage_zoom_btn:hover{
+	background-color: #F54337;
+
 }
 
-/*  */
+
+/* image galllery */
 
 
 .photo_g{
@@ -6091,7 +6070,8 @@ label{
   transition: 0.25s;
 }
 [type="radio"]:checked + label{
-	background: gold;
+	background: #d94148;
+	color: #fff;
 }
 [type="radio"]:nth-of-type(2):checked ~ .gallery .card:not(.animals),
 [type="radio"]:nth-of-type(3):checked ~ .gallery .card:not(.nature),
@@ -6111,7 +6091,7 @@ label{
 }
 .card{
   margin: 0;
-  background: darkslateblue;
+  background: #d94148;
   border-radius: 0.25rem;
   overflow: hidden;
   box-shadow: 0 0 10px silver;
@@ -6123,6 +6103,7 @@ label{
 .card__image{
   width: 100%;
   object-fit: cover;
+  height: 100%;
 }
 .card__caption{
 	font-weight: bold;
@@ -6132,3 +6113,74 @@ label{
   color: gold;
 }
 
+/* ====== gallery zooom==== */
+.toZoom {
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.3s;
+  }
+  
+  .toZoom:hover {opacity: 0.7;}
+  
+  .modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1000; /* Sit on top */
+	padding-top: 65px; 
+	/* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	/* height: 100%;  */
+	/* Full height */
+	overflow: hidden; 
+	/* overflow: auto;  */
+	/* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  }
+  
+  /* Modal Content (image) */
+  .modal-content {
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+	height: 90%;
+  }
+  
+  /* Add Animation */
+  .modal-content {  
+	animation-name: zoom;
+	animation-duration: 0.6s;
+  }
+  
+  @keyframes zoom {
+	from {transform: scale(0.1)} 
+	to {transform: scale(1)}
+  }
+  
+  /* The Close Button */
+  .close {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+  }
+  
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 700px){
+	.modal-content {
+	  width: 100%;
+	}
+  }
