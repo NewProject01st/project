@@ -38,6 +38,30 @@
 
                             <!--Department Details Txt End-->
                         </div>
+                        <table class="table table-striped table-hover table-bordered border-dark">
+                            <thead class="" style="background-color: #47194a; color:#fff">
+                                <tr>
+                                    <th scope="col">Sr. No.</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Download File</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($data_output_array as $item)
+                                    <tr class="">
+                                        @if (session('language') == 'mar')
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td><?php echo $item['marathi_emergency_contact_title']; ?></td>
+                                        <td><?php echo $item['marathi_emergency_contact_number']; ?></td>
+                                        @else
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td><?php echo $item['english_emergency_contact_title']; ?></td>
+                                            <td><?php echo $item['english_emergency_contact_number']; ?></td>
+                                        @endif
+                                            </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                         <!--Sidebar Start-->
                         <div class="col-md-3">
                             <div class="sidebar">

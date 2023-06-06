@@ -4,7 +4,7 @@
         <!--Subheader Start-->
         <section class="wf100 subheader">
             <div class="container">
-                <h2>Research Center </h2>
+                <h2>Resource Center</h2>
                 <ul>
                     <li> <a href="{{ route('index') }}">Home</a> </li>
                     <li> Documents Publications </li>
@@ -30,10 +30,11 @@
                                 @foreach ($data_output as $item)
                                     <tr class="">
                                         @if (session('language') == 'mar')
-                                            <h3><?php echo $item['marathi_title']; ?> : </h3>
-                                            <img src="{{ asset('storage/pdf/research-center/documents/' . $item['marathi_image']) }}"
-                                                class="d-block w-100" alt="...">
-                                            <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td><?php echo $item['marathi_title']; ?></td>
+                                        <td> <a href="{{ asset('/storage/pdf/research-center/documents/' . $item['marathi_pdf']) }}"
+                                                target="_blank"><img src="{{ asset('storage/pdf/pdf.png/') }}"
+                                                    width="35px" height="35px"></a></td>
                                         @else
                                             <td>{{ $loop->iteration }}</td>
                                             <td><?php echo $item['english_title']; ?></td>

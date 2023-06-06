@@ -1,8 +1,9 @@
 @extends('website.layout.master')
 @section('content')
+
     <div class="main-content">
         {{-- Start Marquee --}}
-        <section class="marquee-main">
+        <section class="marquee-main" id="zoomtext">
             <div class="container-fluid">
                 <div class=" list-group">
 
@@ -154,14 +155,14 @@
                                             <?php echo $item['disaster_date']; ?></li>
                                         {{-- <li>176 Comments</li> --}}
                                     </ul>
-                                    <h6><a href="#"><?php echo $item['english_title'];
+                                    <h6><a href="#"><?php echo $item['marathi_title'];
                                     ?></a></h6>
-                                    <p> <?php echo $item['english_description'];
+                                    <p> <?php echo $item['marathi_description'];
                                     ?></p>
                                 </div>
                                 <div class="news-box-f"> <img
-                                        src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
-                                        alt="{{ $item['english_title'] }}"> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i
+                                        src="{{ asset('storage/images/disaster-news/' . $item['marathi_image']) }}"
+                                        alt="{{ $item['marathi_title'] }}"> Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i
                                             class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -227,7 +228,7 @@
                             @else
                                 <div class="col-md-4 col-sm-4">
                                     <div class="deprt-icon-box"> <img
-                                            src="{{ asset('storage/images/home/department-information/' . $item['english_image']) }}"
+                                            src="{{ asset('storage//images/home/department-information/' . $item['english_image']) }}"
                                             alt="">
                                         <h6> <a href="#"><?php echo $item['english_title']; ?></a> </h6>
                                         <a data-id="{{ $item['id'] }}" class="department-show-btn rm">Read More</a>
@@ -264,10 +265,10 @@
                                                 <div class="panel-body">
                                                     <ul>
                                                         <li> <i class="fas fa-user-tie"></i> <?php echo $item['marathi_name']; ?> </li>
-                                                        <li> <i class="far fa-building"></i> <?php echo $item['marathi_address']; ?> </li>
+                                                        <li> <i class="fas fa-building"></i> <?php echo $item['marathi_address']; ?> </li>
                                                         <li> <i class="fas fa-phone"></i> <?php echo $item['marathi_number']; ?></li>
                                                         <li> <i class="fas fa-fax"></i> <?php echo $item['marathi_landline_no']; ?> </li>
-                                                        <li> <i class="far fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                        <li> <i class="fas fa-envelope"></i> <?php echo $item['email']; ?></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -284,10 +285,10 @@
                                                 <div class="panel-body">
                                                     <ul>
                                                         <li> <i class="fas fa-user-tie"></i> <?php echo $item['english_name']; ?> </li>
-                                                        <li> <i class="far fa-building"></i> <?php echo $item['english_address']; ?> </li>
+                                                        <li> <i class="fas fa-building"></i> <?php echo $item['english_address']; ?> </li>
                                                         <li> <i class="fas fa-phone"></i> <?php echo $item['english_number']; ?></li>
                                                         <li> <i class="fas fa-fax"></i> <?php echo $item['english_landline_no']; ?> </li>
-                                                        <li> <i class="far fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                        <li> <i class="fas fa-envelope"></i> <?php echo $item['email']; ?></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -314,10 +315,10 @@
                                             <div class="panel-body">
                                                 <ul>
                                                     <li> <i class="fas fa-user-tie"></i> <?php echo $item['marathi_name']; ?> </li>
-                                                    <li> <i class="far fa-building"></i> <?php echo $item['marathi_address']; ?> </li>
+                                                    <li> <i class="fas fa-building"></i> <?php echo $item['marathi_address']; ?> </li>
                                                     <li> <i class="fas fa-phone"></i> <?php echo $item['marathi_number']; ?></li>
                                                     <li> <i class="fas fa-fax"></i> <?php echo $item['marathi_landline_no']; ?> </li>
-                                                    <li> <i class="far fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                    <li> <i class="fas fa-envelope"></i> <?php echo $item['email']; ?></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -335,10 +336,10 @@
                                             <div class="panel-body">
                                                 <ul>
                                                     <li> <i class="fas fa-user-tie"></i> <?php echo $item['english_name']; ?> </li>
-                                                    <li> <i class="far fa-building"></i> <?php echo $item['english_address']; ?> </li>
+                                                    <li> <i class="fas fa-building"></i> <?php echo $item['english_address']; ?> </li>
                                                     <li> <i class="fas fa-phone"></i> <?php echo $item['english_number']; ?></li>
                                                     <li> <i class="fas fa-fax"></i> <?php echo $item['english_landline_no']; ?> </li>
-                                                    <li> <i class="far fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                    <li> <i class="fas fa-envelope"></i> <?php echo $item['email']; ?></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -636,6 +637,7 @@
 
 
     </div>
+
     <script>
         $('.maindiv ').width($('.div1').width());
     </script>

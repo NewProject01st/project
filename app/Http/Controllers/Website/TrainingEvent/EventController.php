@@ -28,13 +28,13 @@ class EventController extends Controller
     }  
 
 
-    public function getAllEvent()
+    public function getAllUpcomingEvent()
     {
         try {
 
             $menu = $this->menu;
             $socialicon = $this->socialicon;
-            $data_output = $this->service->getAllEvent();
+            $data_output = $this->service->getAllUpcomingEvent();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -43,6 +43,23 @@ class EventController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.training-event.list-training-event-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.training-event.list-upcoming-training-event-web',compact('language','menu','socialicon', 'data_output'));
     }  
+    public function getAllPastEvent()
+    {
+        try {
+
+            $menu = $this->menu;
+            $socialicon = $this->socialicon;
+            $data_output = $this->service->getAllPastEvent();
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+        } catch (\Exception $e) {
+            return $e;
+        }
+        return view('website.pages.training-event.list-past-training-event-web',compact('language','menu','socialicon', 'data_output'));
+    } 
 }

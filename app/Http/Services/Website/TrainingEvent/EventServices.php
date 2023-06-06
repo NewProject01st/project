@@ -19,14 +19,21 @@ class EventServices
     {
         $this->repo = new EventRepository();
     }
-    public function getAllEvent()
+    public function getAllUpcomingEvent()
     {
         try {
-            return $this->repo->getAllEvent();
+            return $this->repo->getAllUpcomingEvent();
         } catch (\Exception $e) {
             return $e;
         }
     } 
-    
+    public function getAllPastEvent()
+    {
+        try {
+            return $this->repo->getAllPastEvent();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
    
 }
