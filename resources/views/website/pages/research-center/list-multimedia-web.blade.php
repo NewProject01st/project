@@ -16,13 +16,7 @@
 <div class="main-content">
     <!--Testimonials Start-->
     <section class="testimonials-section wf100 p80 graybg">
-        <h2 class="text-center">What People Says</h2>
         <div class="container">
-            <h2>Resource Center</h2>
-            <ul>
-                <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li> Maps and GIS data </li>
-            </ul>
             <div class="row">
                 <div class="col-md-12">
                     <div id="h3testimonials" class="owl-carousel owl-theme">
@@ -54,6 +48,115 @@
         </div>
     </section>
     <!--Testimonials End-->
+    <main class="main">
+        <div class="container gallery_container">
+          <div class="card">
+            <div class="card-image">
+              <a href="{{ asset('website_files/images/home/slide1.jpeg') }}" data-fancybox="gallery" data-caption="Caption Images 1">
+                <img src="{{ asset('website_files/images/home/slide1.jpeg') }}" alt="Image Gallery">
+              </a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-image">
+              <a href="{{ asset('website_files/images/home/slide2.jpeg') }}" data-fancybox="gallery" data-caption="Caption Images 1">
+                <img src="{{ asset('website_files/images/home/slide2.jpeg') }}" alt="Image Gallery">
+              </a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-image">
+              <a href="{{ asset('website_files/images/home/slide3.jpeg') }}" data-fancybox="gallery" data-caption="Caption Images 1">
+                <img src="{{ asset('website_files/images/home/slide3.jpeg') }}" alt="Image Gallery">
+              </a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-image">
+              <a href="{{ asset('website_files/images/home/slide2.jpeg') }}" data-fancybox="gallery" data-caption="Caption Images 1">
+                <img src="{{ asset('website_files/images/home/slide2.jpeg') }}" alt="Image Gallery">
+              </a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-image">
+              <a href="{{ asset('website_files/images/home/slide3.jpeg') }}" data-fancybox="gallery" data-caption="Caption Images 1">
+                <img src="{{ asset('website_files/images/home/slide3.jpeg') }}" alt="Image Gallery">
+              </a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-image">
+              <a href="{{ asset('website_files/images/home/slide1.jpeg') }}" data-fancybox="gallery" data-caption="Caption Images 1">
+                <img src="{{ asset('website_files/images/home/slide1.jpeg') }}" alt="Image Gallery">
+              </a>
+            </div>
+          </div>
+          
+          </div>
+        </div>
+      </main>
+      
+      <div class="container photo_g">
+        <div class="row">
+          <div class="col-12">
+          <meta name="viewport" content="width=device-width">
+        <input type="radio" name="filter" id="all" checked><label for="all">All</label>
+        <input type="radio" name="filter" id="animals"><label for="animals">Animals</label>
+        <input type="radio" name="filter" id="nature"><label for="nature">Nature</label>
+        <input type="radio" name="filter" id="people"><label for="people">People</label>
+        <input type="radio" name="filter" id="tech"><label for="tech">Tech</label>
+        <div class="gallery">
+          <figure class="card tech">
+            <img class="card__image" loading="lazy" src="https://picsum.photos/id/0/300" alt="">
+          </figure>
+          <figure class="card nature">
+            <img class="card__image" loading="lazy" src="https://picsum.photos/id/10/300" alt="">
+          </figure>
+          <figure class="card animals">
+            <img class="card__image" loading="lazy" src="https://picsum.photos/id/1003/300" alt="">
+          </figure>
+          <figure class="card people">
+            <img class="card__image" loading="lazy" src="https://picsum.photos/id/1005/300" alt="">
+          </figure>
+          <figure class="card nature">
+            <img class="card__image" loading="lazy" src="https://picsum.photos/id/218/300" alt="">
+          </figure>
+          <figure class="card people">
+            <img class="card__image" loading="lazy" src="https://picsum.photos/id/1012/300" alt="">
+          </figure>
+          <figure class="card animals">
+            <img class="card__image" loading="lazy" src="https://picsum.photos/id/1020/300" alt="">
+          </figure>
+          <figure class="card people">
+            <img class="card__image" loading="lazy" src="https://picsum.photos/id/1027/300" alt="">
+          </figure>
+         
+          </div>
+      
+      
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      <script>
+          // Fancybox Configuration
+      $('[data-fancybox="gallery"]').fancybox({
+        buttons: [
+          "slideShow",
+          "thumbs",
+          "zoom",
+          "fullScreen",
+          "share",
+          "close"
+        ],
+        loop: false,
+        protect: true
+      });
+      
+      </script>
 </div>
 <!--Main Content End-->
 

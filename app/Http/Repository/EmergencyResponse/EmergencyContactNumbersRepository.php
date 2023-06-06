@@ -275,7 +275,37 @@ public function updateAll($request)
         $emergencycontactnumbers_data->marathi_image = $marathiImageName;
 
         }
-        $emergencycontactnumbers_data->save();       
+        $emergencycontactnumbers_data->save();   
+        $emergencyContactId = $emergencyContactNumbers->id;
+
+        $data = $request->input('no_of_text_boxes');
+          //   dd($data);
+        for ($i = 1; $i<=$data; $i++) {
+           // dd("hey in loop");
+            $english_emergency_contact_title  = 'english_emergency_contact_title_'.$i;
+            $marathi_emergency_contact_title  = 'marathi_emergency_contact_title_'.$i;
+            $english_emergency_contact_number  = 'english_emergency_contact_number_'.$i;
+            $marathi_emergency_contact_number  = 'marathi_emergency_contact_number_'.$i;
+            // dd($request->$marathi_emergency_contact_title);
+            $addressesData = new AddMoreEmergencyContactNumbers();
+            $addressesData->emergency_contact_id = $emergencyContactId;
+            
+           
+
+            // Assign values to the new object
+            $addressesData->english_emergency_contact_title = $request->$english_emergency_contact_title;
+            $addressesData->marathi_emergency_contact_title = $request->$marathi_emergency_contact_title;
+            $addressesData->english_emergency_contact_number = $request->$english_emergency_contact_number;
+            $addressesData->marathi_emergency_contact_number = $request->$marathi_emergency_contact_number;
+
+            // dd($addressesData);
+
+            $addressesData->save();
+        }
+        // dd("hi");
+
+
+        return  $emergencyContactNumbers;    
      
         return [
             'msg' => 'Emergency Contact Numbers updated successfully.',

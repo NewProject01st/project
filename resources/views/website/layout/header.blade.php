@@ -36,7 +36,7 @@
      
         <link href="{{ asset('website_files/assets/css/owl.carousel.min.css') }}" rel="stylesheet">
 
-        {{-- <link href="{{ asset('website_files/assets/css/bootstrap.min.css') }}"  rel="stylesheet"> --}}
+        <link href="{{ asset('website_files/assets/css/bootstrap.min.css') }}"  rel="stylesheet">
 
         <link href="{{ asset('website_files/assets/css/prettyPhoto.css') }}" rel="stylesheet">
 

@@ -11,16 +11,16 @@
           <ul class="nav">
               <li class="nav-item nav-profile">
                   <div class="nav-link">
-                      <div class="profile-image">
+                      {{-- <div class="profile-image">
                           <img src="images/faces/face5.jpg" alt="image" />
-                      </div>
+                      </div> --}}
                       <div class="profile-name">
                           <p class="name">
                               Welcome Admin
                           </p>
-                          <p class="designation">
+                          {{-- <p class="designation">
                               Super Admin
-                          </p>
+                          </p> --}}
                       </div>
                   </div>
               </li>

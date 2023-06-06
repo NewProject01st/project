@@ -6132,3 +6132,18 @@ label{
   color: gold;
 }
 
+.modal-btn-color{
+	background-color: #d94148 !important;
+	color: #fff;
+   }
+   .back-btn-color {
+	background-color: #572668 !important;
+	color: #fff;
+   }
+   .back-btn-color a{
+	color: #fff;
+   }
+   .back-btn-color a .hover{
+	background-color: #572668 !important;
+	color: #fff;
+   }

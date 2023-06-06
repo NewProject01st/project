@@ -77,6 +77,10 @@
                         </div>
                         @endif
                         @endforeach
+                        <form method="POST" action="{{ url('/new-paricular-data-web') }}" id="showform">
+                            @csrf
+                            <input type="hidden" name="show_id" id="show_id" value="">
+                        </form>
                         <!--News Box End-->
                     </div>
             </div>

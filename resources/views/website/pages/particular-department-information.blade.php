@@ -7,7 +7,7 @@
             <h2>Department </h2>
             <ul>
                 <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li> Capacity Training </li>
+               
             </ul>
         </div>
     </section>
@@ -25,12 +25,12 @@
                                 @if (session('language') == 'mar')
                                     <h3><?php echo $item['marathi_title']; ?> : </h3>
                                     <img src="{{ asset('storage/images/home/department-information/' . $item['marathi_image']) }}"
-                                class="d-block w-100"  alt="..."> 
+                                class="d-block w-25"  alt="..."> 
                                   <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                 @else
                                     <h3><?php echo $item['english_title']; ?> : </h3>
                                     <img src="{{ asset('storage/images/home/department-information/' . $item['english_image']) }}"
-                                class="d-block w-50" alt="{{ $item['english_title'] }}">
+                                class="d-block w-25" alt="{{ $item['english_title'] }}">
                                     <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
                                 @endif
                             </div>
@@ -41,35 +41,13 @@
                     <!--Sidebar Start-->
                     <div class="col-md-3">
                         <div class="sidebar">
-                            <!--Widget Start-->
-                            <div class="widget">
-                                <h4>Upcoming Events</h4>
-                                <div class="upcoming-events inner">
-                                    <ul>
-                                        <li>
-                                            <div class="edate"> <strong>01</strong> May <span
-                                                    class="year">2023</span> </div>
-                                            <h6> <a href="#">Maharashtra battles forest fires</a> </h6>
-                                            <span class="loc">Maharashtra, India</span>
-                                        </li>
-                                        <li>
-                                            <div class="edate"> <strong>03</strong> May <span
-                                                    class="year">2023</span> </div>
-                                            <h6> <a href="#">Kerala floods displace thousands</a> </h6>
-                                            <span class="loc">Maharashtra, India</span>
-                                        </li>
-                                        <li>
-                                            <div class="edate"> <strong>06</strong> May <span
-                                                    class="year">2023</span> </div>
-                                            <h6> <a href="#">Odisha prepares for Cyclone Yaas.</a>
-                                            </h6>
-                                            <span class="loc">Maharashtra, India</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="pb-3">
+                                <button type="button" class="btn back-btn-color" 
+                                ><a href="{{ route('/') }}">
+                                Back</a>
+                            </button>
                             </div>
-                            <!--Widget End-->
-                            <!--Widget Start-->
+                           <!--Widget Start-->
                             <div class="widget">
                                 <h4>Important Links</h4>
                                 <div class="archives inner">
