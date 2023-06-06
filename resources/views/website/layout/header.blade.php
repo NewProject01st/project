@@ -30,13 +30,19 @@
         <link href="{{ asset('website_files/assets/css/responsive.css') }}" type="text/css" rel="stylesheet">
         <link href="{{ asset('website_files/assets/css/color.css') }}" type="text/css" rel="stylesheet">
         <link href="{{ asset('website_files/assets/css/slick.css') }}" type="text/css" rel="stylesheet">
-        
-       
+    <!-- webpage A+ A- button script -->
+    <style type="text/css">
+        #zoomtext {
+        transform: scale(1);
+        transition: transform 0.2s ease-in-out;
+        }
+    </style>
+    <!-- end webpage A+ A- button script -->
      
      
         <link href="{{ asset('website_files/assets/css/owl.carousel.min.css') }}" rel="stylesheet">
 
-        {{-- <link href="{{ asset('website_files/assets/css/bootstrap.min.css') }}"  rel="stylesheet"> --}}
+        <link href="{{ asset('website_files/assets/css/bootstrap.min.css') }}"  rel="stylesheet">
 
         <link href="{{ asset('website_files/assets/css/prettyPhoto.css') }}" rel="stylesheet">
 

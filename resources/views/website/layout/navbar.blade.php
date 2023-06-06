@@ -9,7 +9,7 @@
                         <ul class="quick-links">
                             <li><a href="#">Site Map</a></li>
                             <li><a href="{{route('list-vacancies')}}">Vacancies</a></li>
-                            <li><a href="#">Report It</a></li>
+                            <li><a href="{{ route('list-report-incident-crowdsourcing-web') }}">Report It</a></li>
                             <li><a href="{{route('list-rti')}}">RTI</a></li>
                         </ul>
 
@@ -19,11 +19,18 @@
                         <ul class="quick-links">
                             <li><a href="#">Toll Free: 000 0000 000</a></li>
                         </ul>
+                        <button class="webpage_zoom_btn" id="zoomOut">A-</button>
+                        <button class="webpage_zoom_btn" id="zoomIn">A+</button>
 
                     </div>
-                    <div class="col-2 set_volunteer">
+                    <<<<<<< HEAD <div class="col-2 set_volunteer">
                         <a href="#" class="become-vol">Become a Volunteer</a>
-                    </div>
+                        =======
+                        <div class="col-2 set_volunteer">
+                            <a href="{{ route('volunteer-citizen-support-web') }}" class="become-vol">Become a
+                                Volunteer</a>
+                            >>>>>>> e1d9c2efaf8bd523d01d7beb633c0917809e57f8
+                        </div>
                 </div>
             </div>
         </div>

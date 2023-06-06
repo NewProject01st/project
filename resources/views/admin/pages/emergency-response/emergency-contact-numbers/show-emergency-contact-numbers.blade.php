@@ -59,6 +59,14 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <label>Description Marathi :</label>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label><?php echo $data_output_array->english_emergency_contact_title; ?></label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
                                             <label>Image English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">

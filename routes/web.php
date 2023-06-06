@@ -68,7 +68,8 @@ Route::post('/report-modal', ['as' => 'report-modal', 'uses' => 'App\Http\Contro
 Route::post('/volunteer-modal', ['as' => 'volunteer-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeVolunteerModalInfo']);
 Route::post('/feedback-modal', ['as' => 'feedback-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeFeedbackModalInfo']);
 
-Route::get('/list-training-event-web', ['as' => 'list-training-event-web', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllEvent']);
+Route::get('/list-upcoming-training-event-web', ['as' => 'list-upcoming-training-event-web', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllUpcomingEvent']);
+Route::get('/list-past-training-event-web', ['as' => 'list-past-training-event-web', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllPastEvent']);
 
 Route::get('/list-state-disaster-managementplan-web', ['as' => 'list-state-disaster-managementplan-web', 'uses' => 'App\Http\Controllers\Website\PoliciesLegislation\PoliciesLegislationController@getAllStateDisasterManagementPlan']);
 Route::get('/list-district-disaster-managementplan-web', ['as' => 'list-district-disaster-managementplan-web', 'uses' => 'App\Http\Controllers\Website\PoliciesLegislation\PoliciesLegislationController@getAllDistrictDisasterManagementPlan']);

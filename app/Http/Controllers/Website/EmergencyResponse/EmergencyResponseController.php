@@ -45,10 +45,10 @@ class EmergencyResponseController extends Controller
     public function getAllDistrictEmergencyOperationsCenter()
     {
         try {
-
             $menu = $this->menu;
             $socialicon = $this->socialicon;
             $data_output = $this->service->getAllDistrictEmergencyOperationsCenter();
+            
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -68,6 +68,9 @@ class EmergencyResponseController extends Controller
             $menu = $this->menu;
             $socialicon = $this->socialicon;
             $data_output = $this->service->getAllEmergencyContactNumbers();
+            $data_output_new = $data_output['data_output'];
+            $data_output_array = $data_output['data_output_array'];
+            // dd($data_output);
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -77,7 +80,7 @@ class EmergencyResponseController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.emergency-response.list-emergency-contact-numbers-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.emergency-response.list-emergency-contact-numbers-web',compact('language','menu','socialicon', 'data_output_new','data_output_array'));
     }
     public function getAllSearchRescueTeams()
     {
