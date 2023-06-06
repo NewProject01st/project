@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Dashboard;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Services\DashboardServices;
+// use App\Http\Services\DashboardServices;
 use App\Models\ {
     Roles,
     Permissions
@@ -17,7 +17,7 @@ class DashboardController extends Controller {
      */
     public function __construct()
     {
-        $this->service = new DashboardServices();
+        // $this->service = new DashboardServices();
     }
 
     public function index()

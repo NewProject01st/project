@@ -25,7 +25,7 @@ class LoginController extends Controller
         // $this->validateLogin($request);
         $resp  = self::$loginServe->checkLogin($request);
         if($resp['status']=='success') {
-              return view('admin.pages.dashboard');
+              return redirect('/dashboard');
         } else {
               return redirect('/login')->with('error', $resp['msg']);
         }
