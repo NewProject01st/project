@@ -5,12 +5,12 @@
             <div class="container-fluid">
                 <div class="row head_row">
                     <div class="col-6 d-flex align-items-center new_head_ul">
-                        
+
                         <ul class="quick-links">
                             <li><a href="#">Site Map</a></li>
-                            <li><a href="#">Vacancies</a></li>
+                            <li><a href="{{ route('list-vacancies') }}">Vacancies</a></li>
                             <li><a href="{{ route('list-report-incident-crowdsourcing-web') }}">Report It</a></li>
-                            <li><a href="#">RTI</a></li>
+                            <li><a href="{{ route('list-rti') }}">RTI</a></li>
                         </ul>
 
                     </div>
@@ -23,8 +23,10 @@
                         <button class="webpage_zoom_btn" id="zoomIn">A+</button>
 
                     </div>
-                    <div class="col-2 set_volunteer"> 
-                        <a href="{{ route('volunteer-citizen-support-web') }}" class="become-vol">Become a Volunteer</a>
+                    <div class="col-2 set_volunteer">
+                        <a href="{{ route('volunteer-citizen-support-web') }}" class="become-vol">Become a
+                            Volunteer</a>
+
                     </div>
                 </div>
             </div>
@@ -41,17 +43,18 @@
                             <div class="col-md-4 col-sm-4">
                                 <div class="h3-logo"> <a href="index.html"><img
                                     src="{{ asset('storage/images/header/sub-header/' . $item['logo']) }}" alt=""
-                                            style="width: 50%;"></a></div>
-                            </div>
-                        @else
-                            <div class="col-md-4 col-sm-4">
-                                <div class="h3-logo"> <a href="index.html"><img
-                                    src="{{ asset('storage/images/header/sub-header/' . $item['logo']) }}" alt=""
-                                            style="width: 50%;"></a></div>
-                            </div>
-                        @endif
-                    @endforeach --}}
-                    
+                    style="width: 50%;"></a>
+                </div>
+            </div>
+            @else
+            <div class="col-md-4 col-sm-4">
+                <div class="h3-logo"> <a href="index.html"><img
+                            src="{{ asset('storage/images/header/sub-header/' . $item['logo']) }}" alt=""
+                            style="width: 50%;"></a></div>
+            </div>
+            @endif
+            @endforeach --}}
+
                     <div class="col-md-4 col-sm-4">
                         <div class="h3-logo"> <a href="index.html"><img
                                     src="{{ asset('website_files/images/home/DMS.png') }}" alt=""
@@ -93,7 +96,7 @@
                                                         echo 'selected';
                                                     }
                                                     ?>>English</option>
-                                                    <option value="mar"<?php if ($language == 'mar') {
+                                                    <option value="mar" <?php if ($language == 'mar') {
                                                         echo 'selected';
                                                     }
                                                     ?>>Marathi</option>
@@ -132,20 +135,14 @@
                                     @if ($key == '0')
                                         <li class="nav-item dropdown">
                                             <a class="nav-link 
-                                            @if (sizeof($menu_data[1]) > 0)
-                                            dropdown-toggle
-                                            @endif"
-                                                href="@if($menu_data_new['is_static'] == true) {{$menu_data_new['url']}} 
+                                            @if (sizeof($menu_data[1]) > 0) dropdown-toggle @endif"
+                                                href="@if ($menu_data_new['is_static'] == true) {{ $menu_data_new['url'] }} 
                                                       @else 
-                                                      {{url('/pages/' . $menu_data_new['url'])}} 
-                                                      @endif"
-                                                id="" role="button" 
-                                                 @if (sizeof($menu_data[1]) > 0)
-                                                 data-toggle="dropdown"
-                                                 aria-haspopup="true"
-                                                 aria-expanded="false"
-                                                 @endif
-                                                 >
+                                                      {{ url('/pages/' . $menu_data_new['url']) }} @endif"
+                                                id="" role="button"
+                                                @if (sizeof($menu_data[1]) > 0) data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false" @endif>
                                                 @if (session('language') == 'mar')
                                                     {{ $menu_data_new['menu_name_marathi'] }}
                                                 @else

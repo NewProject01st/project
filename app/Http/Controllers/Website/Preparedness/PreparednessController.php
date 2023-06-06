@@ -40,10 +40,11 @@ class PreparednessController extends Controller
             } else {
                 $language = 'en';
             }
+            return view('website.pages.preparedness.list-hazard-vulnerability-web',compact('language','menu','socialicon', 'data_output'));
+
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.preparedness.list-hazard-vulnerability-web',compact('language','menu','socialicon', 'data_output'));
     }  
     public function getAllEarlyWarningSystem()
     {
@@ -57,11 +58,10 @@ class PreparednessController extends Controller
             } else {
                 $language = 'en';
             }
-
+            return view('website.pages.preparedness.list-warning-system-web',compact('language','menu','socialicon','data_output'));
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.preparedness.list-warning-system-web',compact('language','menu','socialicon','data_output'));
     }
 
     public function getAllCapacityTraining()
@@ -76,11 +76,10 @@ class PreparednessController extends Controller
             } else {
                 $language = 'en';
             }
-
+            return view('website.pages.preparedness.list-capacity-training-web',compact('language','menu','socialicon', 'data_output'));
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.preparedness.list-capacity-training-web',compact('language','menu','socialicon', 'data_output'));
     }
 
     public function getAllPublicAwarenessEducation()
@@ -95,11 +94,11 @@ class PreparednessController extends Controller
             } else {
                 $language = 'en';
             }
-
+            return view('website.pages.preparedness.list-public-awareness-education-web',compact('language','menu','socialicon', 'data_output'));
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.preparedness.list-capacity-training-web',compact('language','menu','socialicon', 'data_output'));
+        
     }
 
 }

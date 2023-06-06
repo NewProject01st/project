@@ -7,7 +7,7 @@
             <h2>Training Workshops</h2>
             <ul>
                 <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li> Training Workshops </li>
+                <li>Past Events And Trainings</li>
             </ul>
         </div>
     </section>
@@ -89,57 +89,7 @@
                    <!--Event List Box End--> 
                  </div>
                <div class="col-md-3 col-sm-4">
-                  <div class="sidebar">
-                     <!--Widget Start-->
-                     <div class="widget">
-                      <h4>Recent Posts</h4>
-                        <div class="recent-posts inner">
-                           <ul>
-                              <li>
-                                 <img src="images/rp1.jpg" alt=""> <strong>28 August, 2019</strong>
-                                 <h6> <a href="#">Fake News may be worrisome, but the </a> </h6>
-                              </li>
-                              <li>
-                                 <img src="images/rp2.jpg" alt=""> <strong>28 August, 2019</strong>
-                                 <h6> <a href="#">Republic Faces Political Turmoil</a> </h6>
-                              </li>
-                              <li>
-                                 <img src="images/rp3.jpg" alt=""> <strong>28 August, 2019</strong>
-                                 <h6> <a href="#">Improve Police and Justice System</a> </h6>
-                              </li>
-                           </ul>
-                        </div>
-                     </div>
-                     <!--Widget End--> 
-                    
-                     <!--Widget Start-->
-                     <div class="widget">
-                     <h4>Upcoming Events</h4>
-                        <div class="upcoming-events inner">
-                           
-                           <ul>
-                              <li>
-                                 <div class="edate"> <strong>30</strong> Sep <span class="year">2019</span> </div>
-                                 <h6> <a href="#">Violence against women</a> </h6>
-                                 <span class="loc">150 / G iii, Newyork, USA</span> 
-                              </li>
-                              <li>
-                                 <div class="edate"> <strong>30</strong> Sep <span class="year">2019</span> </div>
-                                 <h6> <a href="#">New Year Cultural Festival</a> </h6>
-                                 <span class="loc">150 / G iii, Newyork, USA</span> 
-                              </li>
-                              <li>
-                                 <div class="edate"> <strong>30</strong> Sep <span class="year">2019</span> </div>
-                                 <h6> <a href="#">Corner Meetings for
-                                    Next Elections.</a> 
-                                 </h6>
-                                 <span class="loc">150 / G iii, Newyork, USA</span> 
-                              </li>
-                           </ul>
-                        </div>
-                     </div>
-                     <!--Widget End--> 
-                  </div>
+                  @include('website.pages.recent-posts')
             </div>
          </div>
       </div>
