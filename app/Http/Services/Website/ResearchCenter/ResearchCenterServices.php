@@ -43,6 +43,14 @@ class ResearchCenterServices
             return $e;
         }
     } 
+    public function getAllTrainingMaterial()
+    {
+        try {
+            return $this->repo->getAllTrainingMaterial();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
     
      
 }

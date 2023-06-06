@@ -79,6 +79,7 @@ Route::get('/list-relevant-laws-web', ['as' => 'list-relevant-laws-web', 'uses' 
 Route::get('/list-documents-publications-web', ['as' => 'list-documents-publications-web', 'uses' => 'App\Http\Controllers\Website\ResearchCenter\ResearchCenterController@getAllDocumentspublications']);
 Route::get('/list-maps-gis-data-web', ['as' => 'list-maps-gis-data-web', 'uses' => 'App\Http\Controllers\Website\ResearchCenter\ResearchCenterController@getAllMapsGISData']);
 Route::get('/list-multimedia-web', ['as' => 'list-multimedia-web', 'uses' => 'App\Http\Controllers\Website\ResearchCenter\ResearchCenterController@getAllMultimedia']);
+Route::get('/list-training-materials-workshops-web', ['as' => 'list-training-materials-workshops-web', 'uses' => 'App\Http\Controllers\Website\ResearchCenter\ResearchCenterController@getAllTraningMaterial']);
 
 Route::get('/list-disaster-management-news-web', ['as' => 'list-disaster-management-news-web', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@getAllDisasterManagementNews']);
 Route::get('/list-success-stories-web', ['as' => 'list-success-stories-web', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@getAllSuccessStories']);
@@ -91,6 +92,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/add-users', ['as' => 'add-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@register']);
     Route::post('/edit-users', ['as' => 'edit-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@editUsers']);
     Route::post('/update-users', ['as' => 'update-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@update']);
+    Route::post('/delete-users', ['as' => 'delete-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@delete']);
 
 
     Route::get('/list-main-menu', ['as' => 'list-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@index']);

@@ -26,7 +26,6 @@
                     <div class="col-2 set_volunteer">
                         <a href="{{ route('volunteer-citizen-support-web') }}" class="become-vol">Become a
                             Volunteer</a>
-
                     </div>
                 </div>
             </div>
@@ -56,16 +55,16 @@
             @endforeach --}}
 
                     <div class="col-md-4 col-sm-4">
-                        <div class="h3-logo"> <a href="index.html"><img
+                        <div class="h3-logo"> <a href="#"><img
                                     src="{{ asset('website_files/images/home/DMS.png') }}" alt=""
                                     style="width: 50%;"></a></div>
                     </div>
 
-                    <div class="col-md-4 col-sm-4">
-                        <div class="row">
-                            <div class="col-md-9 col-sm-9">
+            <div class="col-md-4 col-sm-4">
+                <div class="row">
+                    <div class="col-md-9 col-sm-9">
 
-                                <!-- <ul class="header-contact">
+                        <!-- <ul class="header-contact">
                                     <li><span>Toll Free:</span> <strong>0000 00000</strong></li>
                                     <li class="city-exp"> <i class="fas fa-street-view"></i>
                                         <strong>City<br>Nashik</strong>
@@ -74,110 +73,106 @@
 
                                 </ul> -->
 
-                            </div>
+                    </div>
 
-                            <div class="col-md-3 col-sm-3">
+                    <div class="col-md-3 col-sm-3">
 
-                                <ul class="header-contact">
+                        <ul class="header-contact">
 
-                                    <li class="set_lang">
-                                        <form method="post" action="">
-                                            <span>
-                                                @if (session('language') == 'mar')
-                                                    {{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
-                                                @else
-                                                    {{ Config::get('english.HOME_PAGE.SELECT_LANGUAGE') }}
-                                                @endif
-                                            </span>
-                                            <strong>
-                                                <select name="language" id="language">
-                                                    <option value="">Select Language</option>
-                                                    <option value="en" <?php if ($language == 'en') {
+                            <li class="set_lang">
+                                <form method="post" action="">
+                                    <span>
+                                        @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
+                                        @else
+                                        {{ Config::get('english.HOME_PAGE.SELECT_LANGUAGE') }}
+                                        @endif
+                                    </span>
+                                    <strong>
+                                        <select name="language" id="language">
+                                            <option value="">Select Language</option>
+                                            <option value="en" <?php if ($language == 'en') {
                                                         echo 'selected';
                                                     }
                                                     ?>>English</option>
-                                                    <option value="mar" <?php if ($language == 'mar') {
+                                            <option value="mar" <?php if ($language == 'mar') {
                                                         echo 'selected';
                                                     }
                                                     ?>>Marathi</option>
-                                                </select>
-                                            </strong>
-                                        </form>
-                                    </li>
-                                </ul>
-
-                            </div>
-
-                        </div>
+                                        </select>
+                                    </strong>
+                                </form>
+                            </li>
+                        </ul>
 
                     </div>
+
                 </div>
+
             </div>
         </div>
-    </header>
-    <!--Header End-->
+</div>
+</div>
+</header>
+<!--Header End-->
 
-    <div class="container-fluid">
-        <div class="row nav-pd">
-            <div class="col-md-12 nav-pd-col navbar_bg-color">
-                <nav class="navbar navbar-expand-lg">
+<div class="container-fluid">
+    <div class="row nav-pd">
+        <div class="col-md-12 nav-pd-col navbar_bg-color">
+            <nav class="navbar navbar-expand-lg">
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <div class="collapse navbar-collapse nav-center" id="navbarSupportedContent">
-                        @foreach ($menu as $key => $menu_data)
-                            @foreach ($menu_data as $key => $menu_data_new)
-                                <ul class="navbar-nav mr-auto">
-                                    @if ($key == '0')
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link 
-                                            @if (sizeof($menu_data[1]) > 0) dropdown-toggle @endif"
-                                                href="@if ($menu_data_new['is_static'] == true) {{ $menu_data_new['url'] }} 
+                <div class="collapse navbar-collapse nav-center" id="navbarSupportedContent">
+                    @foreach ($menu as $key => $menu_data)
+                    @foreach ($menu_data as $key => $menu_data_new)
+                    <ul class="navbar-nav mr-auto">
+                        @if ($key == '0')
+                        <li class="nav-item dropdown">
+                            <a class="nav-link 
+                                            @if (sizeof($menu_data[1]) > 0) dropdown-toggle @endif" href="@if ($menu_data_new['is_static'] == true) {{ $menu_data_new['url'] }} 
                                                       @else 
-                                                      {{ url('/pages/' . $menu_data_new['url']) }} @endif"
-                                                id="" role="button"
-                                                @if (sizeof($menu_data[1]) > 0) data-toggle="dropdown"
+                                                      {{ url('/pages/' . $menu_data_new['url']) }} @endif" id=""
+                                role="button" @if (sizeof($menu_data[1])> 0) data-toggle="dropdown"
                                 aria-haspopup="true"
                                 aria-expanded="false" @endif>
-                                                @if (session('language') == 'mar')
-                                                    {{ $menu_data_new['menu_name_marathi'] }}
-                                                @else
-                                                    {{ $menu_data_new['menu_name_english'] }}
-                                                @endif
-                                            </a>
-                                            @if (sizeof($menu_data[1]) > 0)
-                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                    @foreach ($menu_data[1] as $key => $menu_data_sub)
-                                                        <a class="dropdown-item"
-                                                            href="@if ($menu_data_sub['is_static'] == true) {{ url($menu_data_sub['url']) }} 
+                                @if (session('language') == 'mar')
+                                {{ $menu_data_new['menu_name_marathi'] }}
+                                @else
+                                {{ $menu_data_new['menu_name_english'] }}
+                                @endif
+                            </a>
+                            @if (sizeof($menu_data[1]) > 0)
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @foreach ($menu_data[1] as $key => $menu_data_sub)
+                                <a class="dropdown-item" href="@if ($menu_data_sub['is_static'] == true) {{ url($menu_data_sub['url']) }} 
                                                       @else 
                                                           {{ url('/pages/' . $menu_data_sub['url']) }} @endif 
-                                                      "
-                                                            target="_self" title="">
-                                                            @if (session('language') == 'mar')
-                                                                {{ $menu_data_sub['menu_name_marathi'] }}
-                                                            @else
-                                                                {{ $menu_data_sub['menu_name_english'] }}
-                                                            @endif
-                                                        </a>
-                                                        <!-- <hr class="gap-drop-menu"> -->
-                                                    @endforeach
-
-                                                </div>
-                                            @endif
-                                        </li>
+                                                      " target="_self" title="">
+                                    @if (session('language') == 'mar')
+                                    {{ $menu_data_sub['menu_name_marathi'] }}
+                                    @else
+                                    {{ $menu_data_sub['menu_name_english'] }}
                                     @endif
-                                </ul>
-                            @endforeach
-                        @endforeach
-                    </div>
-                </nav>
+                                </a>
+                                <!-- <hr class="gap-drop-menu"> -->
+                                @endforeach
 
-            </div>
+                            </div>
+                            @endif
+                        </li>
+                        @endif
+                    </ul>
+                    @endforeach
+                    @endforeach
+                </div>
+            </nav>
+
         </div>
     </div>
+</div>
 </div>

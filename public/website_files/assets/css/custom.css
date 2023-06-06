@@ -5868,10 +5868,18 @@ a[data-toggle="collapse"] {
 /*********************************
 Testimonials Start
 *********************************/
-
+.owl-carousel {
+	display: ruby-base !important;
+	width: 100%;
+	z-index: 1;
+  }
 .testimonials-section h2.text-center {
 	margin: 0 0 30px;
 	font-weight: 600;
+}
+#h3testimonials{
+display: flex !important;
+
 }
 .testimonials-section p, .h3testimonials p {
 	background: #fff;
