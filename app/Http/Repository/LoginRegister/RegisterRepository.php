@@ -25,6 +25,7 @@ class RegisterRepository  {
 								'users.m_name',
 								'users.l_name',
 								'users.id',
+								'users.is_active'
 							)->get();
 							// ->toArray();
 
@@ -52,6 +53,7 @@ class RegisterRepository  {
 		$user_data->m_name = $request['m_name'];
 		$user_data->l_name = $request['l_name'];
 		$user_data->ip_address = $ipAddress;
+		$user_data->is_active = isset($request['is_active']) ? true :false;
 		$user_data->save();
 
 		$last_insert_id = $user_data->id;
