@@ -2,6 +2,8 @@
  <footer class="home3 main-footer wf100">
      <div class="container">
          <div class="row">
+            <?php $data_output_contact = App\Http\Controllers\Website\IndexController::getWebsiteContact(); 
+            //print_r($data_output_contact);?>
              <!--Footer Widget Start-->
              @foreach ($data_output_contact as $item)
              @if (session('language') == 'mar')

@@ -15,8 +15,7 @@ use App\Models\ {
     EmergencyContact,
     DepartmentInformation,
     VacanciesHeader,
-    RTI,
-    WebsiteContact
+    RTI
 };
 
 class IndexRepository  {
@@ -249,22 +248,22 @@ class IndexRepository  {
         }
     }
 
-    public function getWebContact()
-    {
-        try {
-            $data_output = WebsiteContact::where('is_active','=',true);
-            if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('address_marathi_title','marathi_address','email_title','email','contact_marathi_title','marathi_contact');
-            } else {
-                $data_output = $data_output->select('address_english_title','english_address','email_title','email','contact_english_title','english_contact');
-            }
-            $data_output =  $data_output->get()
-                            ->toArray();
-            return  $data_output;
-        } catch (\Exception $e) {
-            return $e;
-        }
-    }
+    // public function getWebContact()
+    // {
+    //     try {
+    //         $data_output = WebsiteContact::where('is_active','=',true);
+    //         if (Session::get('language') == 'mar') {
+    //             $data_output =  $data_output->select('address_marathi_title','marathi_address','email_title','email','contact_marathi_title','marathi_contact');
+    //         } else {
+    //             $data_output = $data_output->select('address_english_title','english_address','email_title','email','contact_english_title','english_contact');
+    //         }
+    //         $data_output =  $data_output->get()
+    //                         ->toArray();
+    //         return  $data_output;
+    //     } catch (\Exception $e) {
+    //         return $e;
+    //     }
+    // }
 
 
 //     public function getById($id)

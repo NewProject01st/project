@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
                 <h3 class="stitle text-center">Vacancies</h3>
-                <table class="table table-striped table-hover table-bordered border-dark">
+                <table id="order-listing" class="table table-striped table-hover table-bordered border-dark">
                     <thead class="" style="background-color: #47194a; color:#fff">
                         <tr>
                             <th scope="col">Sr. No.</th>

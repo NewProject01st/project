@@ -8,8 +8,9 @@ use App\Http\Services\Website\IndexServices;
 // use App\Http\Services\LoginRegister\LoginService;
 use Session;
 
-// use App\Models\ {
-// };
+use App\Models\ {
+    WebsiteContact
+};
 
 class IndexController extends Controller
 {
@@ -20,23 +21,49 @@ class IndexController extends Controller
         $this->service = new IndexServices();
         $this->menu = getMenuItems();
         $this->socialicon = getSocialIcon();
+        // $this->websitecontact = getWebsiteContact();
+        
         // $this->subheaderinfo = getSubHeaderInfo();
        
     }
+
+    public function getWebsiteContact() {
+        $websitecontact_data = array();
+        $websitecontact_data =  WebsiteContact::where('is_active', '=',true)
+                            ->select( 
+                                'website_contacts.address_marathi_title', 
+                                'website_contacts.address_english_title',
+                                'website_contacts.marathi_address',
+                                'website_contacts.english_address',
+                                'website_contacts.email_title',
+                                'website_contacts.email',
+                                'website_contacts.contact_marathi_title',
+                                'website_contacts.contact_english_title',
+                                'website_contacts.marathi_contact',
+                                'website_contacts.english_contact',
+                                'website_contacts.id',
+                            )
+                            ->get()
+                            ->toArray();
+    
+                            return $websitecontact_data ;
+                            
+    }
+
     public function index()
     {
         try {
 
             $menu = $this->menu;
             $socialicon = $this->socialicon;
-            // $subheaderinfo = $this->subheaderinfo;
+            // $websitecontact = $this->websitecontact;
             $data_output_slider = $this->service->getAllSlider();
             $data_output_marquee = $this->service->getAllMarquee();
             $data_output_disastermangwebportal = $this->service->getAllDisasterManagementWebPortal();
             $data_output_disastermanagementnews = $this->service->getAllDisasterManagementNews();
             $data_output_emergencycontact = $this->service->getAllEmergencyContact();
             $data_output_departmentinformation = $this->service->getAllDepartmentInformation();
-            $data_output_contact = $this->service->getWebContact();
+            // $data_output_contact = $this->service->getWebContact();
             // dd(  $data_output_contact);
 
             // $data_output_vacancies = $this->service->getAllVacancies();            
@@ -49,7 +76,7 @@ class IndexController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.index',compact('language','menu','socialicon','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact', 'data_output_departmentinformation','data_output_contact'));
+        return view('website.pages.index',compact('language','menu','socialicon','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact', 'data_output_departmentinformation'));
     }
     public function show(Request $request)
     {
