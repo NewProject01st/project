@@ -195,12 +195,6 @@ class IndexController extends Controller
                     return view('website.pages.home.list-rti',compact('language','menu','socialicon', 'data_output'));
                     } 
         
-                    
-              
-        
-    
-
-                
     public function changeLanguage(Request $request) {
         Session::put('language', $request->language);
     }    
