@@ -112,7 +112,6 @@
               in_array('list-weather', $data_for_url) ||
               in_array('list-disasterforcast', $data_for_url) ||
               in_array('list-emergency-contact', $data_for_url) ||
-              in_array('list-home-tender', $data_for_url) ||
               in_array('list-general-contact', $data_for_url))
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#home" aria-expanded="false" aria-controls="home">

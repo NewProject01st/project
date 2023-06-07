@@ -67,7 +67,14 @@ class PermissionsSeeder extends Seeder
                         'url' => 'list-disaster-management-news',
                         'permission_name' => 'Disaster Management News',
                     ]);
-
+                    Permissions::create(
+                        [
+                            'created_at' => \Carbon\Carbon::now(),
+                            'updated_at' => \Carbon\Carbon::now(),
+                            'route_name' => 'Emergency Contact',
+                            'url' => 'list-emergency-contact',
+                            'permission_name' => 'Emergency Contact',
+                        ]);
                 Permissions::create(
                     [
                         'created_at' => \Carbon\Carbon::now(),
@@ -176,7 +183,7 @@ class PermissionsSeeder extends Seeder
                                     'created_at' => \Carbon\Carbon::now(),
                                     'updated_at' => \Carbon\Carbon::now(),
                                     'route_name' => 'Emergency Contact Numbers',
-                                    'url' => 'list-emergency-contact-numbers',
+                                    'url' => 'July-numbers',
                                     'permission_name' => 'Emergency Contact Numbers',
                                 ]);
                             Permissions::create(
