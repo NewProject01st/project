@@ -41,10 +41,10 @@ class EventController extends Controller
             } else {
                 $language = 'en';
             }
+            return view('website.pages.training-event.list-upcoming-training-event-web',compact('language','menu','socialicon', 'data_output'));
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.training-event.list-upcoming-training-event-web',compact('language','menu','socialicon', 'data_output'));
     }  
     public function getAllPastEvent()
     {
