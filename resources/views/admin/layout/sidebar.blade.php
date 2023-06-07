@@ -299,8 +299,8 @@
               in_array('list-volunteer-citizen-support', $data_for_url) ||
               in_array('list-citizen-feedback-and-suggestion', $data_for_url) ||
               in_array('list-incident-modal-info', $data_for_url) ||
-              in_array('list-volunteer-model-info', $data_for_url) ||
-              in_array('list-feedback-model-info', $data_for_url) 
+              in_array('list-volunteer-modal-info', $data_for_url) ||
+              in_array('list-feedback-modal-info', $data_for_url) 
               )
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#citizen-action" aria-expanded="false"
@@ -336,15 +336,15 @@
                               </a>
                           </li>
                           @endif
-                          @if (in_array('list-volunteer-model-info', $data_for_url))
+                          @if (in_array('list-volunteer-modal-info', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-volunteer-model-info') }}">List Report Volunteer 
+                                  href="{{ route('list-volunteer-modal-info') }}">List Report Volunteer 
                               </a>
                           </li>
                           @endif
-                          @if (in_array('list-feedback-model-info', $data_for_url))
+                          @if (in_array('list-feedback-modal-info', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-feedback-model-info') }}">List Report Feedback 
+                                  href="{{ route('list-feedback-modal-info') }}">List Report Feedback 
                               </a>
                           </li>
                           @endif
@@ -461,28 +461,7 @@
                     <i class="fas fa-window-restore menu-icon"></i>
                     <span class="menu-title">Contact Us</span>
                 </a>
-            </li>
-
-
-              {{-- <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                      aria-controls="page-layouts">
-                      <i class="fa fa-th-large menu-icon"></i>
-                      <span class="menu-title">Contact Us</span>
-                      <i class="menu-arrow"></i>
-                  </a>
-
-                  <div class="collapse" id="page-layouts">
-                      <ul class="nav flex-column sub-menu">
-                          @if (in_array('list-contact-suggestion', $data_for_url))
-                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-contact-suggestion') }}">Feedback And Suggestion
-                              </a>
-                          </li>
-                          @endif
-                      </ul>
-                  </div>
-              </li> --}}
+              </li>
               @endif
               @if (in_array('list-event', $data_for_url))
               <li class="nav-item">

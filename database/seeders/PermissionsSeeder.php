@@ -320,6 +320,14 @@ class PermissionsSeeder extends Seeder
                                     'url' => 'list-gallery',
                                     'permission_name' => 'Gallery',
                                 ]);
+                                Permissions::create(
+                                    [
+                                        'created_at' => \Carbon\Carbon::now(),
+                                        'updated_at' => \Carbon\Carbon::now(),
+                                        'route_name' => 'Contact Us',
+                                        'url' => 'list-contact-suggestion',
+                                        'permission_name' => 'Contact Us',
+                                    ]);
     
                             Permissions::create(
                                 [

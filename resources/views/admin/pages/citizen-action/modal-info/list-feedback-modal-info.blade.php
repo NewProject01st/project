@@ -88,7 +88,7 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('/delete-volunteer-model-info') }}" id="deleteform">
+    {{-- <form method="POST" action="{{ url('/delete-volunteer-model-info') }}" id="deleteform">
         @csrf
         <input type="hidden" name="delete_id" id="delete_id" value="">
     </form>
@@ -99,7 +99,7 @@
     <form method="POST" action="{{ url('/edit-volunteer-model-info') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
-    </form>
+    </form> --}}
 
     <!-- content-wrapper ends -->
 
