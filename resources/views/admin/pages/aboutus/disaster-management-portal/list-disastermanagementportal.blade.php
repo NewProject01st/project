@@ -1,8 +1,11 @@
  @extends('admin.layout.master')
  @section('title', 'Applicant\'s Form')
  @section('content')
- <?php  $data_permission = getPermissionForCRUDPresentOrNot('list-disastermanagementportal',session('permissions')); 
-                                            ?>
+ <?php
+
+ $data_permission = getPermissionForCRUDPresentOrNot('list-disastermanagementportal',session('permissions')); 
+//  print_r($data_permission);
+//  die();                                        ?>
  <div class="main-panel">
      <div class="content-wrapper">
          <div class="page-header">

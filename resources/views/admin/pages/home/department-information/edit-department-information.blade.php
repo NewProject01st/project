@@ -109,6 +109,39 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label for="english_image_new">English Image</label>
+                                        <input type="file" name="english_image_new" class="form-control" id="english_image_new"
+                                            accept="image/*" placeholder="image">
+                                        @if ($errors->has('english_image_new'))
+                                        <span
+                                            class="red-text"><?php echo $errors->first('english_image_new', ':message'); ?></span>
+                                        @endif
+                                    </div>
+
+                                    <img id="english"
+                                        src="{{ asset('storage/images/home/department-information/' . $department_info->english_image_new) }}"
+                                        class="img-fluid img-thumbnail" width="150">
+                                    <img id="english_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
+                                        width="150" style="display:none">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="marathi_image_new">Marathi Icon</label>
+                                        <input type="file" name="marathi_image_new" id="marathi_image_new" accept="image/*"
+                                            class="form-control">
+                                        @if ($errors->has('marathi_image_new'))
+                                        <span
+                                            class="red-text"><?php echo $errors->first('marathi_image_new', ':message'); ?></span>
+                                        @endif
+                                    </div>
+                                    <img id="marathi"
+                                        src="{{ asset('storage/images/home/department-information/' . $department_info->marathi_image_new) }}"
+                                        class="img-fluid img-thumbnail" width="150">
+                                    <img id="marathi_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
+                                        width="150" style="display:none">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" name="url" id="url" class="form-control"
                                             value="{{ $department_info->url }}" placeholder="">

@@ -32,23 +32,25 @@
     <!-- Summernote Editor -->
 
 
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  
-   <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-      {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> --}}
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> --}}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
     {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>  --}}
 
-    <link rel="stylesheet" href="{{ asset('assets/vendors/summernote/dist/summernote-bs4.css') }}" >
+    <link rel="stylesheet" href="{{ asset('assets/vendors/summernote/dist/summernote-bs4.css') }}">
     <script src="{{ asset('assets/vendors/summernote/dist/summernote-bs4.min.js') }}"></script>
 
     <!-- Summernote Editor End -->
     <script src="{{ asset('assets/js/data-table.js') }}"></script>
 
-    
+
 </head>
 
 
@@ -57,8 +59,8 @@
         <!-- top navigation -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="#"><img src="{{ asset('website_files/images/home/DMS.png') }}"
-                        alt="logo" /></a>
+                <a class="navbar-brand brand-logo" href="#"><img
+                        src="{{ asset('website_files/images/home/DMS.png') }}" alt="logo" /></a>
                 <a class="navbar-brand brand-logo-mini" href="#"><img
                         src="{{ asset('website_files/images/home/DM.png') }}" alt="logo" /></a>
             </div>
@@ -75,7 +77,7 @@
                 <ul class="navbar-nav navbar-nav-right">
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                        {{-- <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
                             data-toggle="dropdown">
                             <i class="fas fa-bell mx-0"></i>
                             <span class="count">13</span>
@@ -159,18 +161,20 @@
 
 
                         </div>
+                        --}}
                     </li>
                     <li class="nav-item nav-profile dropdown mr-0">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
-                            id="profileDropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img src="{{ asset('assets/images/faces/face4.jp') }}g" alt="profile" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
+                            {{--
                             <a class="dropdown-item">
                                 <i class="fas fa-cog text-primary"></i>
                                 Settings
                             </a>
+                            --}}
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('log-out') }}">
                                 <i class="fas fa-power-off text-primary"></i>

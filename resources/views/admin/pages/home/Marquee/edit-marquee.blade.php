@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="url">URL</label>&nbsp<span class="red-text">*</span>
+                                        <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                         <input class="form-control url" name="url" id="url"
                                             placeholder="Enter the Title" name="url" value="{{ $marquees->url }}">
                                         @if ($errors->has('url'))
@@ -61,8 +61,7 @@
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Update</button>
                                     <button type="reset" class="btn btn-danger">Cancel</button>
-                                    <span><a href="{{ route('list-marquee') }}"
-                                            class="btn btn-sm btn-primary ">Back</a></span>
+                                    <span><a href="{{ route('list-marquee') }}" class="btn btn-sm btn-primary ">Back</a></span>
                                 </div>
                             </div>
                             <input type="hidden" name="id" id="id" class="form-control" value="{{ $marquees->id }}"

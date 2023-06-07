@@ -18,7 +18,7 @@
     <div class="department-details">
         <div class="container">
             <div class="row">
-                <h3 class="stitle text-center">Vacancies</h3>
+                <h3 class="stitle text-center d-flex justify-content-start">Vacancies</h3>
                 <table id="order-listing" class="table table-striped table-hover table-bordered border-dark">
                     <thead class="" style="background-color: #47194a; color:#fff">
                         <tr>

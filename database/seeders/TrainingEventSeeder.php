@@ -23,8 +23,8 @@ class TrainingEventSeeder extends Seeder
             'marathi_description' => 'फेब्रुवारी 2021 मध्ये, महाराष्ट्राने 2021 मध्ये अग्निशामक दल, हेलिकॉप्टर आणि भारतीय सैन्याचा वापर करून जंगलातील आगीशी लढा दिला.',
             'english_image' => 'slide1_english.jpeg',
             'marathi_image' => 'slide1_marathi.jpeg',
-            'start_date' => '05-07-2022',
-            'end_date' => '19-09-2022',
+            'start_date' => '05-07-2023',
+            'end_date' => '19-09-2023',
             'is_deleted'=>false,
             'is_active'=>true,
         

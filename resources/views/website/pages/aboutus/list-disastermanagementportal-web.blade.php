@@ -47,4 +47,5 @@
             <!--Department Details Page End-->
         </div>
         <!--Main Content End-->
+
     @endsection

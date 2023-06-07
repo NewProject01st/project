@@ -259,6 +259,9 @@ body a:focus {
 	background: url(../images/newsbg.jpg) no-repeat;
 	background-size: cover;
 }
+.cursor-pointer{
+	cursor: pointer;
+}
 /******** + ========== + Header Start + ========== + ********/
 
 header {
@@ -990,7 +993,7 @@ ul.team-social a:hover {
 
 .footer {
 	background: #333333;
-	padding: 20px 0;
+	padding: 10px 0;
 }
 .footer p.copyr {
 	color: #888888;
@@ -2082,7 +2085,7 @@ body .btn-group.open .dropdown-toggle {
 .main-footer {
 	/* background: url(../images/footerbg.jpg) no-repeat; */
 	background-size: cover;
-	padding: 60px 0;
+	padding: 25px 0;
 }
 .home3.main-footer {
 	background: url(../images/footer.jpeg) no-repeat;
@@ -6124,77 +6127,7 @@ label{
   color: gold;
 }
 
-/* ====== gallery zooom==== */
-.toZoom {
-	border-radius: 5px;
-	cursor: pointer;
-	transition: 0.3s;
-  }
-  
-  .toZoom:hover {opacity: 0.7;}
-  
-  .modal {
-	display: none; /* Hidden by default */
-	position: fixed; /* Stay in place */
-	z-index: 1000; /* Sit on top */
-	padding-top: 65px; 
-	/* Location of the box */
-	left: 0;
-	top: 0;
-	width: 100%; /* Full width */
-	/* height: 100%;  */
-	/* Full height */
-	overflow: hidden; 
-	/* overflow: auto;  */
-	/* Enable scroll if needed */
-	background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-  }
-  
-  /* Modal Content (image) */
-  .modal-content {
-	margin: auto;
-	display: block;
-	width: 80%;
-	max-width: 700px;
-	height: 90%;
-  }
-  
-  /* Add Animation */
-  .modal-content {  
-	animation-name: zoom;
-	animation-duration: 0.6s;
-  }
-  
-  @keyframes zoom {
-	from {transform: scale(0.1)} 
-	to {transform: scale(1)}
-  }
-  
-  /* The Close Button */
-  .close {
-	position: absolute;
-	top: 15px;
-	right: 35px;
-	color: #f1f1f1;
-	font-size: 40px;
-	font-weight: bold;
-	transition: 0.3s;
-  }
-  
-  .close:hover,
-  .close:focus {
-	color: #bbb;
-	text-decoration: none;
-	cursor: pointer;
-  }
-  
-  /* 100% Image Width on Smaller Screens */
-  @media only screen and (max-width: 700px){
-	.modal-content {
-	  width: 100%;
-	}
-  }
+
 .modal-btn-color{
 	background-color: #d94148 !important;
 	color: #fff;
@@ -6210,3 +6143,62 @@ label{
 	background-color: #572668 !important;
 	color: #fff;
    }
+
+   /*  */
+
+.card_video {
+	overflow: hidden;
+}
+.card-img {
+	height: 20rem;
+}
+.card-img-container img {
+	object-fit: cover;
+	object-position: center;
+	max-height: 100%;
+	height: 20rem;
+}
+.card-img-overlay {
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 0 0 3px #f00, 0 0 5px #00f;
+}
+/* small and extra-small screens */
+@media (max-width: 767px) {
+	.carousel-inner-video .carousel-item > div {
+		display: none;
+   }
+	.carousel-inner-video .carousel-item > div:first-child {
+		display: block;
+   }
+	.carousel-inner-video .carousel-item > div .card-img-container img {
+		max-width: 100%;
+   }
+}
+/* medium and up screens */
+@media (min-width: 768px) {
+	.carousel-inner-video .carousel-item-end.active, .carousel-inner-video .carousel-item-next {
+		transform: translateX(25%);
+   }
+	.carousel-inner-video .carousel-item-start.active, .carousel-inner-video .carousel-item-prev {
+		transform: translateX(-25%);
+   }
+	.carousel-inner-video .carousel-item.active, .carousel-inner-video .carousel-item-next, .carousel-inner-video .carousel-item-prev {
+		display: flex;
+   }
+	.carousel-inner-video .carousel-item-end, .carousel-inner-video .carousel-item-start {
+		transform: translateX(0);
+   }
+	.card-img-container {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+   }
+	.card-img-container img {
+		display: inline-block;
+		max-height: 100%;
+		margin: 0 -50%;
+   }
+}

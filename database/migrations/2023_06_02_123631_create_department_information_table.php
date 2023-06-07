@@ -21,6 +21,8 @@ class CreateDepartmentInformationTable extends Migration
             $table->text('marathi_description');
             $table->string('english_image');
             $table->string('marathi_image');
+            $table->string('english_image_new');
+            $table->string('marathi_image_new');
             $table->string('url');
             // $table->string('date');
             $table->string('is_deleted')->default(true);

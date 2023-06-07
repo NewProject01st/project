@@ -19,6 +19,24 @@ class RolesSeeder extends Seeder
                 'updated_at' => \Carbon\Carbon::now(),
                 'role_name' => 'Admin',
             ]);
+            Roles::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'role_name' => 'Teacher',
+                ]);
+            Roles::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'role_name' => 'Doctor',
+                ]);
+                Roles::create(
+                    [
+                        'created_at' => \Carbon\Carbon::now(),
+                        'updated_at' => \Carbon\Carbon::now(),
+                        'role_name' => 'Engineer',
+                    ]);
 
            
     }

@@ -34,7 +34,7 @@
                                         <div class="event-post-txt">
                                             <h5><a href="#"><?php echo $item['marathi_title']; ?></a></h5>
                                             <ul class="event-meta">
-                                                <li><i class="far fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
+                                                <li><i class="fas fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
                                             </ul>
                                             <p><?php echo $item['marathi_description']; ?></p>
                                         </div>
@@ -49,7 +49,7 @@
                                         <div class="event-post-txt">
                                             <h5><a href="#"><?php echo $item['english_title']; ?></a></h5>
                                             <ul class="event-meta">
-                                                <li><i class="far fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
+                                                <li><i class="fas fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
                                             </ul>
                                             <p><?php echo $item['english_description']; ?></p>
                                         </div>
@@ -62,7 +62,53 @@
                         <!--Event List Box End-->
                     </div>
                     <div class="col-md-3 col-sm-4">
-                        @include('website.pages.recent-posts')
+                        <div class="sidebar">
+                            <!--Widget Start-->
+                            <div class="widget">
+                                <h4>Upcoming Events</h4>
+                                <div class="upcoming-events inner">
+                                    <ul>
+                                        <li>
+                                            <div class="edate"> <strong>01</strong> July <span class="year">2023</span>
+                                            </div>
+                                            <h6> <a href="#">Maharashtra battles forest fires</a> </h6>
+                                            <span class="loc">Maharashtra, India</span>
+                                        </li>
+                                        <li>
+                                            <div class="edate"> <strong>03</strong> July <span class="year">2023</span>
+                                            </div>
+                                            <h6> <a href="#">Kerala floods displace thousands</a> </h6>
+                                            <span class="loc">Maharashtra, India</span>
+                                        </li>
+                                        <li>
+                                            <div class="edate"> <strong>06</strong> July <span class="year">2023</span>
+                                            </div>
+                                            <h6> <a href="#">Odisha prepares for Cyclone Yaas.</a>
+                                            </h6>
+                                            <span class="loc">Maharashtra, India</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--Widget End-->
+                            <!--Widget Start-->
+                            <div class="widget">
+                                <h4>Important Links</h4>
+                                <div class="archives inner">
+                                    <ul>
+                                        <li><a href="#">Emergency Services</a></li>
+                                        <li><a href="#">Environmental Conditions</a></li>
+                                        <li><a href="#">Disaster Preparedness</a></li>
+                                        <li><a href="#">Disaster Response</a></li>
+                                        <li><a href="#">Disaster Recovery</a></li>
+                                        <li><a href="#">Volunteer Opportunities</a></li>
+                                        <li><a href="#">Donations and Aid</a></li>
+                                        <li><a href="#">Local Resources</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--Widget End-->
+                        </div>
                     </div>
                 </div>
             </div>

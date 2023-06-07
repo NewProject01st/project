@@ -63,6 +63,7 @@ Route::get('/list-evacuation-plans-web', ['as' => 'list-evacuation-plans-web', '
 Route::get('/list-report-incident-crowdsourcing-web', ['as' => 'list-report-incident-crowdsourcing-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllReportIncidentCrowdsourcing']);
 Route::get('/volunteer-citizen-support-web', ['as' => 'volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllVolunteerCitizenSupport']);
 Route::get('/citizen-feedback-suggestions-web', ['as' => 'citizen-feedback-suggestions-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllCitizenFeedbackSuggestions']);
+
 // Route::get('/report-modal', ['as' => 'report-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@add']);
 Route::post('/report-modal', ['as' => 'report-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeIncidentModalInfo']);
 Route::post('/volunteer-modal', ['as' => 'volunteer-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeVolunteerModalInfo']);
@@ -361,7 +362,7 @@ Route::post('/update-citizen-feedback-and-suggestion', ['as' => 'update-citizen-
 Route::post('/show-citizen-feedback-and-suggestion', ['as' => 'show-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@show']);
 Route::post('/delete-citizen-feedback-and-suggestion', ['as' => 'delete-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@destroy']);
 
-Route::get('/list-incident-modal-info', ['as' => 'list-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentModalController@index']);
+Route::get('/list-incident-modal-info', ['as' => 'list-incident-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentModalController@index']);
 Route::get('/list-volunteer-modal-info', ['as' => 'list-volunteer-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenModalController@index']);
 Route::get('/list-feedback-modal-info', ['as' => 'list-feedback-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\FeedbackCitizenModalController@index']);
 

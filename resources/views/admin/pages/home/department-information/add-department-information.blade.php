@@ -94,6 +94,28 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label for="english_image_new">Image English</label>&nbsp<span
+                                            class="red-text">*</span><br>
+                                        <input type="file" name="english_image_new" id="english_image_new" accept="image/*"><br>
+                                        @if ($errors->has('english_image_new'))
+                                        <span
+                                            class="red-text"><?php echo $errors->first('english_image_new', ':message'); ?></span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="marathi_image_new">Image Marathi</label>&nbsp<span
+                                            class="red-text">*</span><br>
+                                        <input type="file" name="marathi_image_new" id="marathi_image_new" accept="image/*"><br>
+                                        @if ($errors->has('marathi_image_new'))
+                                        <span
+                                            class="red-text"><?php echo $errors->first('marathi_image_new', ':message'); ?></span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" name="url" id="url" class="form-control" id="url"
                                             placeholder="">
@@ -102,6 +124,7 @@
                                         @endif
                                     </div>
                                 </div>
+                                
                                 {{-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="date"> Date</label>&nbsp<span class="red-text">*</span>
