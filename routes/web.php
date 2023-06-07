@@ -498,6 +498,16 @@ Route::post('/show-contact-suggestion', ['as' => 'show-contact-suggestion', 'use
 Route::post('/delete-contact-suggestion', ['as' => 'delete-contact-suggestion', 'uses' => 'App\Http\Controllers\ContactUs\ContactUsController@destroy']);
 // Route::post('/update-one-contact-suggestion', ['as' => 'update-one-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@updateOne']);
 
+//=====Roles Route======
+Route::get('/list-role', ['as' => 'list-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@index']);
+Route::get('/add-role', ['as' => 'add-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@add']);
+Route::post('/add-role', ['as' => 'add-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@store']);
+Route::post('/edit-role', ['as' => 'edit-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@edit']);
+Route::post('/update-role', ['as' => 'update-role-','uses' => 'App\Http\Controllers\Menu\RoleController@update']);
+Route::post('/show-role', ['as' => 'show-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@show']);
+Route::post('/delete-role', ['as' => 'delete-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@destroy']);
+Route::post('/update-one-role', ['as' => 'update-one-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@updateOneRole']);
+
 
 Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
 
