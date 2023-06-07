@@ -990,7 +990,7 @@ ul.team-social a:hover {
 
 .footer {
 	background: #333333;
-	padding: 20px 0;
+	padding: 10px 0;
 }
 .footer p.copyr {
 	color: #888888;
@@ -2082,7 +2082,7 @@ body .btn-group.open .dropdown-toggle {
 .main-footer {
 	/* background: url(../images/footerbg.jpg) no-repeat; */
 	background-size: cover;
-	padding: 60px 0;
+	padding: 25px 0;
 }
 .home3.main-footer {
 	background: url(../images/footer.jpeg) no-repeat;
