@@ -7,7 +7,7 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Feedback And Suggestions: Modal Information
+                Feedback And Suggestions
                 {{-- @if (in_array("per_add", $data_permission))
                 <a href="{{ route('add-feedback-model-info') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>

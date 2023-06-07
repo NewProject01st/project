@@ -27,22 +27,22 @@
                         @foreach ($data_output as $item)
                             <div class="event-post-full d-flex">
                                 @if (session('language') == 'mar')
-                                    <div class="thumb"> <a href="#"><i class="fas fa-link"></i></a> <img
+                                    <div class="thumb"><img
                                             src="{{ asset('storage/training-event/event/' . $item['marathi_image']) }}"
                                             alt="<?php echo $item['marathi_title']; ?>"> </div>
                                     <div class="event-post-content">
                                         <div class="event-post-txt">
                                             <h5><a href="#"><?php echo $item['marathi_title']; ?></a></h5>
                                             <ul class="event-meta">
-                                                <li><i class="far fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
+                                                <li><i class="fas fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
                                             </ul>
                                             <p><?php echo $item['marathi_description']; ?></p>
                                         </div>
-                                        <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
-                                            USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div>
+                                        {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
+                                            USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div> --}}
                                     </div>
                                 @else
-                                    <div class="thumb"> <a href="#"><i class="fas fa-link"></i></a> <img
+                                    <div class="thumb"><img
                                             src="{{ asset('storage/images/training-event/event/' . $item['english_image']) }}"
                                             alt="<?php echo $item['english_title']; ?>"> </div>
                                     <div class="event-post-content">
@@ -53,8 +53,8 @@
                                             </ul>
                                             <p><?php echo $item['english_description']; ?></p>
                                         </div>
-                                        <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
-                                            USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div>
+                                        {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
+                                            USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div> --}}
                                     </div>
                                 @endif
                             </div>

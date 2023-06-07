@@ -253,6 +253,7 @@ $('.delete-btn').click(function(e) {
 
 });
 </script>
+
 <script>
 $('.show-btn').click(function(e) {
     $("#show_id").val($(this).attr("data-id"));

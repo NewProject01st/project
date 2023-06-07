@@ -30,6 +30,33 @@
                       <span class="menu-title">Dashboard</span>
                   </a>
               </li>
+              @if (in_array('list-state-disaster-management-plan', $data_for_url) ||
+              in_array('list-district-disaster-management-plan', $data_for_url) ||
+              in_array('list-state-disaster-management-policy', $data_for_url) ||
+              in_array('list-relevant-laws-and-regulations', $data_for_url))
+              <li class="nav-item">
+                  <a class="nav-link" data-toggle="collapse" href="#master" aria-expanded="false"
+                      aria-controls="master">
+                      <i class="fa fa-th-large menu-icon menu-icon"></i>
+                      <span class="menu-title">Master</span>
+                      <i class="menu-arrow"></i>
+                  </a>
+
+                  <div class="collapse" id="master">
+                      <ul class="nav flex-column sub-menu">
+                        @if (in_array('list-role', $data_for_url))
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                href="{{ route('list-role') }}">Role</a></li>
+                        @endif
+                        @if (in_array('list-incident-type', $data_for_url))
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                href="{{ route('list-incident-type') }}">Incident Type</a></li>
+                        @endif
+                      </ul>
+                  </div>
+              </li>
+              @endif
+
               @if (in_array('list-social-icon', $data_for_url) ||
               in_array('list-sub-header-info', $data_for_url) ||
               in_array('list-header-vacancies', $data_for_url) )
@@ -83,7 +110,6 @@
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-sub-menu') }}">Sub Menu</a></li>
                           @endif
-
                       </ul>
                   </div>
               </li>
@@ -112,7 +138,10 @@
               in_array('list-weather', $data_for_url) ||
               in_array('list-disasterforcast', $data_for_url) ||
               in_array('list-emergency-contact', $data_for_url) ||
+              in_array('list-department-information', $data_for_url)
+              ||
               in_array('list-general-contact', $data_for_url))
+              
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#home" aria-expanded="false" aria-controls="home">
                       <i class="fas fa-home fa-lg menu-icon"></i>
@@ -142,23 +171,23 @@
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-emergency-contact') }}">Emergency Contact</a></li>
                           @endif
-                          {{-- @if (in_array('list-weather', $data_for_url))
+                          @if (in_array('list-weather', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-weather') }}">Weather</a></li>
-                          @endif --}}
-                          {{-- @if (in_array('list-disasterforcast', $data_for_url))
+                          @endif 
+                           @if (in_array('list-disasterforcast', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-disasterforcast') }}">Disaster Forcast</a></li>
-                          @endif --}}
+                          @endif
                          
-                          @if (in_array('list-home-tender', $data_for_url))
+                          {{-- @if (in_array('list-home-tender', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-home-tender') }}">Tenders</a></li>
                           @endif
                           @if (in_array('list-general-contact', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-general-contact') }}">General Contact</a></li>
-                          @endif
+                          @endif --}}
                           @if (in_array('list-department-information', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-department-information') }}">Department Information</a></li>
