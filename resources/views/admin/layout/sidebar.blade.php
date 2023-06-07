@@ -332,7 +332,7 @@
                           @endif
                           @if (in_array('list-incident-modal-info', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-incident-model-info') }}">List Report Incident 
+                                  href="{{ route('list-incident-modal-info') }}">List Report Incident 
                               </a>
                           </li>
                           @endif
