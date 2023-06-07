@@ -8,10 +8,10 @@
         <div class="page-header">
             <h3 class="page-title">
                 Be Volunteer: Modal Information
-                @if (in_array("per_add", $data_permission))
+                {{-- @if (in_array("per_add", $data_permission))
                 <a href="{{ route('add-volunteer-model-info') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
-                @endif
+                @endif --}}
 
             </h3>
             <nav aria-label="breadcrumb">

@@ -227,7 +227,32 @@ class PermissionsSeeder extends Seeder
                                     'url' => 'list-citizen-feedback-and-suggestion',
                                     'permission_name' => 'Feedback and suggestions',
                                 ]);
+                                Permissions::create(
+                                    [
+                                        'created_at' => \Carbon\Carbon::now(),
+                                        'updated_at' => \Carbon\Carbon::now(),
+                                        'route_name' => 'Incident Crowdsourcing',
+                                        'url' => 'list-incident-modal-info',
+                                        'permission_name' => 'Incident Crowdsourcing',
+                                    ]);
 
+                                    Permissions::create(
+                                        [
+                                            'created_at' => \Carbon\Carbon::now(),
+                                            'updated_at' => \Carbon\Carbon::now(),
+                                            'route_name' => 'Volunteer Citizen Support',
+                                            'url' => 'list-volunteer-modal-info',
+                                            'permission_name' => 'Volunteer Citizen Support',
+                                        ]);
+
+                                        Permissions::create(
+                                            [
+                                                'created_at' => \Carbon\Carbon::now(),
+                                                'updated_at' => \Carbon\Carbon::now(),
+                                                'route_name' => 'Feedback and suggestions List',
+                                                'url' => 'list-feedback-modal-info',
+                                                'permission_name' => 'Feedback and suggestions List',
+                                            ]);
                             Permissions::create(
                                 [
                                     'created_at' => \Carbon\Carbon::now(),

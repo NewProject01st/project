@@ -18,8 +18,8 @@ class GalleryCategorySeeder extends Seeder
         GalleryCategory::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_name' => 'Education',
-            'marathi_name' => 'शिक्षण',
+            'english_name' => 'Disaster',
+            'marathi_name' => 'आपत्ती',
             'is_deleted' => false,
             'is_active' => true,
            
@@ -27,8 +27,8 @@ class GalleryCategorySeeder extends Seeder
         GalleryCategory::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_name' => 'Bussiness',
-            'marathi_name' => 'व्यवसाय',
+            'english_name' => 'Preparedness',
+            'marathi_name' => 'तयारी',
             'is_deleted' => false,
             'is_active' => true,
            
@@ -36,8 +36,8 @@ class GalleryCategorySeeder extends Seeder
         GalleryCategory::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_name' => 'Sport',
-            'marathi_name' => 'खेळ',
+            'english_name' => 'Citizen',
+            'marathi_name' => 'नागरिक',
             'is_deleted' => false,
             'is_active' => true,
            
