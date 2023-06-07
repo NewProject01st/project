@@ -96,11 +96,11 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div id="h3testimonials p-3" class="owl-carousel owl-theme">
+                        <div class="d-flex justify-content-center">
                             <!--Video box start-->
                             @foreach ($data_getallvideo as $item)
                                 @if (session('language') == 'mar')
-                                    <div class="item">
+                                    <div class="item p-1">
                                         <div class="embed-responsive embed-responsive-16by9">
                                             <iframe class="embed-responsive-item"
                                                 src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
@@ -108,7 +108,7 @@
                                         </div>
                                     </div>
                                 @else
-                                    <div class="item">
+                                    <div class="item p-1">
                                         <div class="embed-responsive embed-responsive-16by9">
                                             <iframe class="embed-responsive-item"
                                                 src="https://www.youtube.com/embed/{{ $item['video_name'] }}"

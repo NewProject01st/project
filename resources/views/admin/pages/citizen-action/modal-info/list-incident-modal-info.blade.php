@@ -8,10 +8,10 @@
         <div class="page-header">
             <h3 class="page-title">
                 Report a Incident: Modal Information
-                @if (in_array("per_add", $data_permission))
+                {{-- @if (in_array("per_add", $data_permission))
                 <a href="{{ route('add-incident-model-info') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
-                @endif
+                @endif --}}
 
             </h3>
             <nav aria-label="breadcrumb">
@@ -56,7 +56,7 @@
 
 
                                                 <td class="d-flex">
-                                                    @if (in_array("per_add", $data_permission))
+                                                    @if (in_array("per_update", $data_permission))
                                                     <a data-id="{{ $item->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-pencil-alt"></i></a>
@@ -65,7 +65,7 @@
                                                     <a data-id="{{ $item->id }}"
                                                         class="show-btn btn btn-sm btn-outline-primary m-1"><i
                                                             class="fas fa-eye"></i></a>
-                                                    @if (in_array("per_add", $data_permission))
+                                                    @if (in_array("per_delete", $data_permission))
 
                                                     <a data-id="{{ $item->id }}"
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
@@ -87,7 +87,7 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('/delete-incident-model-info') }}" id="deleteform">
+    {{-- <form method="POST" action="{{ url('/delete-incident-model-info') }}" id="deleteform">
         @csrf
         <input type="hidden" name="delete_id" id="delete_id" value="">
     </form>
@@ -98,7 +98,7 @@
     <form method="POST" action="{{ url('/edit-incident-model-info') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
-    </form>
+    </form> --}}
 
     <!-- content-wrapper ends -->
 
