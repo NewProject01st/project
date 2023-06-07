@@ -15,7 +15,6 @@ class EventRepository  {
 
 	public function getAllUpcomingEvent()
     {
-        
         try {
             $date_now = date("d-m-Y");
             $data_output = Event::where('is_active','=', true)
@@ -30,8 +29,6 @@ class EventRepository  {
             $data_output =  $data_output->get()
                             ->toArray();
             return  $data_output;
-        //    echo $data_output;
-        //    die();
         } catch (\Exception $e) {
             return $e;
         }

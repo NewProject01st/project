@@ -6,9 +6,11 @@
     <title>
         My Website
     </title>
-
+  <?php 
+    $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData(); 
+  ?>
     <?php 
-    $metadata = App\Models\Metadata::first()
+        $metadata = App\Models\Metadata::first()
      ?>
      <meta name="english_name" content="{{ $metadata->english_name}}">
      <meta name="keywords" content="{{ $metadata->keywords}}">
