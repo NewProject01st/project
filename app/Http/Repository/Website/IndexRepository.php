@@ -200,9 +200,9 @@ class IndexRepository  {
         try {
             $data_output = DepartmentInformation::where('is_active','=',true);
             if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('marathi_title','marathi_description','marathi_image');
+                $data_output =  $data_output->select('marathi_title','marathi_description','marathi_image','marathi_image_new');
             } else {
-                $data_output = $data_output->select('english_title','english_description','english_image');
+                $data_output = $data_output->select('english_title','english_description','english_image','english_image_new');
             }
             // $data_output =  $data_output->get()
             //                 ->toArray();

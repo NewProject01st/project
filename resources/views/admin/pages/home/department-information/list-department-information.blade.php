@@ -40,6 +40,7 @@
                                                 {{-- <th>Date</th> --}}
                                                 <th>English Icon</th>
                                                 <th>Marathi Icon</th>
+                                                <th>English New Icon</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -59,6 +60,9 @@
                                                 </td>
                                                 <td> <img
                                                         src="{{ asset('storage/images/home/department-information/' . $item->marathi_image) }}" />
+                                                </td>
+                                                <td> <img
+                                                        src="{{ asset('storage/images/home/department-information/' . $item->english_image_new) }}" />
                                                 </td>
                                                 <td>
                                                     <label class="switch">

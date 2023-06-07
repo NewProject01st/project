@@ -24,13 +24,11 @@ class DepartmentInformationRepository  {
     try {
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/home/department-information', $englishImageName);
-        $request->marathi_image->storeAs('public/images/home/department-information', $marathiImageName);
-
         $englishImageName1 = time() . '_english.' . $request->english_image_new->extension();
         $marathiImageName1 = time() . '_marathi.' . $request->marathi_image_new->extension();
         
+        $request->english_image->storeAs('public/images/home/department-information', $englishImageName);
+        $request->marathi_image->storeAs('public/images/home/department-information', $marathiImageName); 
         $request->english_image_new->storeAs('public/images/home/department-information', $englishImageName1);
         $request->marathi_image_new->storeAs('public/images/home/department-information', $marathiImageName1);
         
