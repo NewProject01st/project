@@ -19,7 +19,7 @@
         <div class="map-form p80">
             <div class="container">
                 <div class="row">
-                    <h3 class="stitle text-center">Contact Information For SDMA</h3>
+                    <h3 class="stitle text-center d-flex justify-content-start">Contact Information For SDMA</h3>
                     <div class="col-md-12">
                         <div class="row graybg">
                             <div class="col-md-5 br contact-new-design-b">

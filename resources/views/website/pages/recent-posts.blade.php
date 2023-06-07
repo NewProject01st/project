@@ -1,6 +1,6 @@
 <div class="sidebar">
     <!--Widget Start-->
-    <div class="widget">
+    {{-- <div class="widget">
         <h4>Recent Posts</h4>
         <div class="recent-posts inner">
             <ul>
@@ -18,7 +18,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> --}}
     <!--Widget End-->
 
     <!--Widget Start-->

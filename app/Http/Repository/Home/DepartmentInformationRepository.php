@@ -28,6 +28,11 @@ class DepartmentInformationRepository  {
         $request->english_image->storeAs('public/images/home/department-information', $englishImageName);
         $request->marathi_image->storeAs('public/images/home/department-information', $marathiImageName);
 
+        $englishImageName1 = time() . '_english.' . $request->english_image_new->extension();
+        $marathiImageName1 = time() . '_marathi.' . $request->marathi_image_new->extension();
+        
+        $request->english_image_new->storeAs('public/images/home/department-information', $englishImageName1);
+        $request->marathi_image_new->storeAs('public/images/home/department-information', $marathiImageName1);
         
         $department_data = new DepartmentInformation();
         $department_data->english_title = $request['english_title'];
@@ -36,6 +41,8 @@ class DepartmentInformationRepository  {
         $department_data->marathi_description = $request['marathi_description'];
         $department_data->english_image = $englishImageName;
         $department_data->marathi_image =   $marathiImageName;
+        $department_data->english_image_new = $englishImageName1;
+        $department_data->marathi_image_new =   $marathiImageName1;
         $department_data->url = $request['url'];
         // $department_data->date = $request['date'];
         // dd($department_data);
@@ -84,6 +91,9 @@ public function updateAll($request)
         $previousEnglishImage = $department_data->english_image;
         $previousMarathiImage = $department_data->marathi_image;
 
+        $previousEnglishImage1 = $department_data->english_image_new;
+        $previousMarathiImage1 = $department_data->marathi_image_new;
+
         // Update the fields from the request
         $department_data->english_title = $request['english_title'];
         $department_data->marathi_title = $request['marathi_title'];
@@ -114,6 +124,30 @@ public function updateAll($request)
             $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
             $request->marathi_image->storeAs('public/images/home/department-information/', $marathiImageName);
             $department_data->marathi_image = $marathiImageName;
+        }
+
+        if ($request->hasFile('english_image_new')) {
+            // Delete previous English image if it exists
+            if ($previousEnglishImage1) {
+                Storage::delete('public/images/home/department-information/' . $previousEnglishImage1);
+            }
+
+            // Store the new English image
+            $englishImageName1 = time() . '_english.' . $request->english_image_new->extension();
+            $request->english_image_new->storeAs('public/images/home/department-information/', $englishImageName1);
+            $department_data->english_image_new = $englishImageName1;
+        }
+
+        if ($request->hasFile('marathi_image')) {
+            // Delete previous Marathi image if it exists
+            if ($previousMarathiImage) {
+                Storage::delete('public/images/home/department-information/' . $previousMarathiImage1);
+            }
+
+            // Store the new Marathi image
+            $marathiImageName1 = time() . '_marathi.' . $request->marathi_image_new->extension();
+            $request->marathi_image_new->storeAs('public/images/home/department-information/', $marathiImageName1);
+            $department_data->marathi_image_new = $marathiImageName1;
         }
 
         $department_data->save();

@@ -3,7 +3,9 @@
      <div class="container">
          <div class="row">
             <?php $data_output_contact = App\Http\Controllers\Website\IndexController::getWebsiteContact(); 
-            //print_r($data_output_contact);?>
+              $data_output_department = App\Http\Controllers\Website\IndexController::getWebAllDepartment();
+              $data_output_footerlink = App\Http\Controllers\Website\IndexController::getWebAllDepartment();  
+             ?>
              <!--Footer Widget Start-->
              @foreach ($data_output_contact as $item)
              @if (session('language') == 'mar')
@@ -44,17 +46,21 @@
              <!--Footer Widget Start-->
              <div class="col-md-3 col-sm-6">
                  <div class="footer-widget">
-                     <h6>Sub-Departments</h6>
+                     <h6>Departments</h6>
                      <ul>
-                         <li><a href="#"><i class="fas fa-star"></i> Emergency Management</a></li>
-                         <li><a href="#"><i class="fas fa-star"></i> Public Health</a></li>
-                         <li><a href="#"><i class="fas fa-star"></i> Transportation</a></li>
-                         <li><a href="#"><i class="fas fa-star"></i> Communications</a></li>
-                         <li><a href="#"><i class="fas fa-star"></i> Infrastructure</a></li>
-                         <li><a href="#"><i class="fas fa-star"></i> Law Enforcement</a></li>
-                         <li><a href="#"><i class="fas fa-star"></i> Finance and Administration</a></li>
-                         <li><a href="#"><i class="fas fa-star"></i> Volunteer Management</a></li>
+                        @foreach ($data_output_department as $item)
+             @if (session('language') == 'mar')
+                         <li><a href="#"><i class="fas fa-star"></i><?php echo $item['marathi_title'] ?></a></li>
+                         @else
+                         <li><a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer"><i class="fas fa-star"></i><?php echo $item['english_title'] ?></a></li>
+                         @endif
+                         @endforeach 
                      </ul>
+                     <form method="POST" action="{{ url('/particular-department-information') }}"
+                     id="departmentshowform">
+                     @csrf
+                     <input type="hidden" name="department_show_id" id="department_show_id" value="">
+                 </form>
                  </div>
              </div>
              <!--Footer Widget End-->
@@ -63,14 +69,13 @@
                  <div class="footer-widget">
                      <h6>Important Links</h6>
                      <ul>
-                         <li><a href="#"><i class="fas fa-star"></i> Emergency Services</a></li>
-                         <li><a href="#"><i class="fas fa-star"></i> Environmental Conditions</a></li>
-                         <li><a href="#"><i class="fas fa-star"></i> Disaster Preparedness</a></li>
-                         <li><a href="#"><i class="fas fa-star"></i> Disaster Response</a></li>
-                         <li><a href="#"><i class="fas fa-star"></i> Disaster Recovery</a></li>
-                         <li><a href="#"><i class="fas fa-star"></i> Volunteer Opportunities</a></li>
-                         <li><a href="#"><i class="fas fa-star"></i> Donations and Aid</a></li>
-                         <li><a href="#"><i class="fas fa-star"></i> Local Resources</a></li>
+                        @foreach ($data_output_footerlink as $item)
+                        @if (session('language') == 'mar')
+                         <li><a href="https://www.google.com/" target="_blank"><i class="fas fa-star"></i><?php echo $item['marathi_title'] ?></a></li>
+                         @else
+                         <li><a href="https://www.google.com/" target="_blank"><i class="fas fa-star"></i><?php echo $item['english_title'] ?></a></li>
+                         @endif
+                         @endforeach 
                      </ul>
                  </div>
              </div>

@@ -27,9 +27,10 @@
 
                             @foreach ($data_output as $item)
                                 @if (session('language') == 'mar')
-                                    <div class="col-md-3 col-sm-6">
-                                        <div class="news-box">
-                                            {{-- <div class="new-thumb"> <span class="cat c1">Fire</span> --}}
+                                <div class="col-md-3 col-sm-6 mt-4">
+                                    <div class="news-box">
+                                        <div class="new-thumb">
+                                            {{-- <span class="cat c1">Fire</span> --}}
                                             <img src="{{ asset('storage/images/disaster-news/' . $item['marathi_image']) }}"
                                                 class="d-block w-100">
                                         </div>
@@ -43,13 +44,12 @@
                                             <h6><a href="#"><?php echo $item['marathi_title']; ?></a></h6>
                                             <p> <?php echo $item['marathi_description']; ?></p>
                                         </div>
-                                        <div class="news-box-f"> <img
-                                                src="{{ asset('website_files/images/home/tuser1.jpg') }}" alt="">
-                                            Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i
+                                        <div class="news-box-f cursor-pointer">
+                                             <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
                                                     class="fas fa-arrow-right"></i></a>
                                         </div>
                                     </div>
-                        </div>
+                                </div>
                     @else
                         <div class="col-md-3 col-sm-6 mt-4">
                             <div class="news-box">
@@ -68,9 +68,7 @@
                                     <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
                                     <p> <?php echo $item['english_description']; ?></p>
                                 </div>
-                                <div class="news-box-f"> <img src="{{ asset('website_files/images/home/tuser1.jpg') }}"
-                                        alt="">
-                                    Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i
+                                <div class="news-box-f"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more <a data-id="{{ $item['id'] }}" class="show-btn"><i
                                             class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>

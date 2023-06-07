@@ -6,7 +6,7 @@
             <h2>Preparedness </h2>
             <ul>
                 <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li> Public Awareness Education </li>
+                <li> Public Awareness and Education </li>
             </ul>
         </div>
     </section>

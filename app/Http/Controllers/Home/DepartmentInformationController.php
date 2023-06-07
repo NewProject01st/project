@@ -36,6 +36,8 @@ class DepartmentInformationController extends Controller
             'marathi_description' => 'required',
             'english_image' => 'required',
             'marathi_image' => 'required',
+            'english_image_new' => 'required',
+            'marathi_image_new' => 'required',
             'url' => 'required',
             // 'date' => 'required',
             
@@ -47,6 +49,8 @@ class DepartmentInformationController extends Controller
         'marathi_description' => 'required',
         'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'english_image_new' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'marathi_image_new' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'url'=>'required',
         // 'date' => 'required',
 

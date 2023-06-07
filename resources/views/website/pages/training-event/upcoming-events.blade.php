@@ -6,19 +6,19 @@
               <div class="upcoming-events inner">
                   <ul>
                       <li>
-                          <div class="edate"> <strong>01</strong> May <span class="year">2023</span>
+                          <div class="edate"> <strong>01</strong> July <span class="year">2023</span>
                           </div>
                           <h6> <a href="#">Maharashtra battles forest fires</a> </h6>
                           <span class="loc">Maharashtra, India</span>
                       </li>
                       <li>
-                          <div class="edate"> <strong>03</strong> May <span class="year">2023</span>
+                          <div class="edate"> <strong>03</strong> July <span class="year">2023</span>
                           </div>
                           <h6> <a href="#">Kerala floods displace thousands</a> </h6>
                           <span class="loc">Maharashtra, India</span>
                       </li>
                       <li>
-                          <div class="edate"> <strong>06</strong> May <span class="year">2023</span>
+                          <div class="edate"> <strong>06</strong> July <span class="year">2023</span>
                           </div>
                           <h6> <a href="#">Odisha prepares for Cyclone Yaas.</a>
                           </h6>

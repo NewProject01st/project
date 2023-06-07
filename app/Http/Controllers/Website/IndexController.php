@@ -9,7 +9,9 @@ use App\Http\Services\Website\IndexServices;
 use Session;
 
 use App\Models\ {
-    WebsiteContact
+    WebsiteContact,
+    DepartmentInformation,
+    FooterImportantLinks
 };
 
 class IndexController extends Controller
@@ -49,7 +51,40 @@ class IndexController extends Controller
                             return $websitecontact_data ;
                             
     }
+    Static function getWebAllDepartment() {
+        $weballdepartment_data = array();
+        $weballdepartment_data =  DepartmentInformation::where('is_active', '=',true)
+                            ->select( 
+                                'department_information.english_title', 
+                                'department_information.marathi_title',
+                                'department_information.english_description',
+                                'department_information.marathi_description',
+                                'department_information.english_image',
+                                'department_information.marathi_image',
+                                'department_information.id',
+                            )
+                            ->get()
+                            ->toArray();
+    
+                            return $weballdepartment_data ;
+                            
+    }
 
+    Static function getWebAllFooterLink() {
+        $weballfooterlink_data = array();
+        $weballfooterlink_data =  FooterImportantLinks::where('is_active', '=',true)
+                            ->select( 
+                                'footer_important_links.english_title', 
+                                'footer_important_links.marathi_title',
+                                'footer_important_links.url',
+                                'footer_important_links.id',
+                            )
+                            ->get()
+                            ->toArray();
+    
+                            return $weballfooterlink_data ;
+                            
+    }
     public function index()
     {
         try {
