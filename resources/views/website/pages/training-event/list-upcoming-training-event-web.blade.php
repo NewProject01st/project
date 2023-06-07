@@ -34,7 +34,7 @@
                                         <div class="event-post-txt">
                                             <h5><a href="#"><?php echo $item['marathi_title']; ?></a></h5>
                                             <ul class="event-meta">
-                                                <li><i class="far fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
+                                                <li><i class="fas fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
                                             </ul>
                                             <p><?php echo $item['marathi_description']; ?></p>
                                         </div>
@@ -49,7 +49,7 @@
                                         <div class="event-post-txt">
                                             <h5><a href="#"><?php echo $item['english_title']; ?></a></h5>
                                             <ul class="event-meta">
-                                                <li><i class="far fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
+                                                <li><i class="fas fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
                                             </ul>
                                             <p><?php echo $item['english_description']; ?></p>
                                         </div>
