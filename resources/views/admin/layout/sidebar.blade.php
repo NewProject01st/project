@@ -298,7 +298,9 @@
               @if (in_array('list-report-crowdsourcing', $data_for_url) ||
               in_array('list-volunteer-citizen-support', $data_for_url) ||
               in_array('list-citizen-feedback-and-suggestion', $data_for_url) ||
-              in_array('list-model-info', $data_for_url)
+              in_array('list-incident-modal-info', $data_for_url) ||
+              in_array('list-volunteer-model-info', $data_for_url) ||
+              in_array('list-feedback-model-info', $data_for_url) 
               )
               <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#citizen-action" aria-expanded="false"
@@ -455,6 +457,14 @@
               @endif
               @if (in_array('list-contact-suggestion', $data_for_url))
               <li class="nav-item">
+                <a class="nav-link" href="{{ route('list-contact-suggestion') }}">
+                    <i class="fas fa-window-restore menu-icon"></i>
+                    <span class="menu-title">Contact Us</span>
+                </a>
+            </li>
+
+
+              {{-- <li class="nav-item">
                   <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                       aria-controls="page-layouts">
                       <i class="fa fa-th-large menu-icon"></i>
@@ -472,7 +482,7 @@
                           @endif
                       </ul>
                   </div>
-              </li>
+              </li> --}}
               @endif
               @if (in_array('list-event', $data_for_url))
               <li class="nav-item">
