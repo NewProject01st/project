@@ -1,13 +1,15 @@
 @extends('website.layout.master')
 
 @section('content')
-    <style>
-        /* ====== gallery zooom==== */
-        .toZoom {
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">  
+<style>
+/* ====== gallery zooom==== */
+.toZoom {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
         .toZoom:hover {
             opacity: 0.7;
