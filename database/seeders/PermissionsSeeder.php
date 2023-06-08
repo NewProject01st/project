@@ -221,6 +221,14 @@ class PermissionsSeeder extends Seeder
                     'url' => 'list-district-emergency-operations-center',
                     'permission_name' => 'District Emergency Operations Center (DEOC)',
                 ]);
+                Permissions::create(
+                    [
+                        'created_at' => \Carbon\Carbon::now(),
+                        'updated_at' => \Carbon\Carbon::now(),
+                        'route_name' => 'Emergency Contact Numbers',
+                        'url' => 'list-emergency-contact-numbers',
+                        'permission_name' => 'Emergency Contact Numbers',
+                    ]);
             Permissions::create(
                 [
                     'created_at' => \Carbon\Carbon::now(),
@@ -369,6 +377,22 @@ class PermissionsSeeder extends Seeder
                     'route_name' => 'Gallery',
                     'url' => 'list-gallery',
                     'permission_name' => 'Gallery',
+                ]);
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'Video',
+                    'url' => 'list-video',
+                    'permission_name' => 'Video',
+                ]);
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'Training Materials And Workshops',
+                    'url' => 'list-training-workshop',
+                    'permission_name' => 'Training Materials And Workshops',
                 ]);
             Permissions::create(
                 [

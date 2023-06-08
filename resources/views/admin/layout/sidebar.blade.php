@@ -143,13 +143,11 @@
                               @endif
                               @if (in_array('list-disaster-management-web-portal', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-disaster-management-web-portal') }}">Disaster Web
-                                          Portal</a></li>
+                                          href="{{ route('list-disaster-management-web-portal') }}">Disaster Web Portal</a></li>
                               @endif
                               @if (in_array('list-disaster-management-news', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-disaster-management-news') }}">Disaster Management
-                                          News</a></li>
+                                          href="{{ route('list-disaster-management-news') }}">Disaster Management News</a></li>
                               @endif
                               @if (in_array('list-emergency-contact', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
@@ -164,26 +162,23 @@
                                           href="{{ route('list-disasterforcast') }}">Disaster Forcast</a></li>
                               @endif
 
-                              {{-- @if (in_array('list-home-tender', $data_for_url))
+                              @if (in_array('list-home-tender', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-home-tender') }}">Tenders</a></li>
                           @endif
                           @if (in_array('list-general-contact', $data_for_url))
                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                   href="{{ route('list-general-contact') }}">General Contact</a></li>
-                          @endif --}}
+                          @endif
                               @if (in_array('list-department-information', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                           href="{{ route('list-department-information') }}">Department Information</a>
                                   </li>
                               @endif
-
-
                           </ul>
                       </div>
                   </li>
               @endif
-
 
               @if (in_array('list-disastermanagementportal', $data_for_url) ||
                       in_array('list-objectivegoals', $data_for_url) ||
@@ -200,8 +195,7 @@
                           <ul class="nav flex-column sub-menu">
                               @if (in_array('list-disastermanagementportal', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-disastermanagementportal') }}">Disaster Management
-                                          Portal</a>
+                                          href="{{ route('list-disastermanagementportal') }}">Disaster Management Portal</a>
                                   </li>
                               @endif
                               @if (in_array('list-objectivegoals', $data_for_url))
@@ -211,8 +205,7 @@
 
                               @if (in_array('list-statedisastermanagementauthority', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-statedisastermanagementauthority') }}">State Disaster
-                                          Management Authority</a></li>
+                                          href="{{ route('list-statedisastermanagementauthority') }}">State Disaster Management Authority</a></li>
                               @endif
 
 
@@ -236,8 +229,7 @@
                           <ul class="nav flex-column sub-menu">
                               @if (in_array('list-hazard-vulnerability-assessment', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-hazard-vulnerability-assessment') }}">Hazard and
-                                          Vulnerability
+                                          href="{{ route('list-hazard-vulnerability-assessment') }}">Hazard and Vulnerability
                                       </a>
                                   </li>
                               @endif
@@ -248,14 +240,12 @@
                               @endif
                               @if (in_array('list-capacity-building-and-training', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"> <a class="nav-link"
-                                          href="{{ route('list-capacity-building-and-training') }}">Capacity
-                                          Training</a>
+                                          href="{{ route('list-capacity-building-and-training') }}">Capacity Training</a>
                                   </li>
                               @endif
                               @if (in_array('list-public-awareness-and-education', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"> <a class="nav-link"
-                                          href="{{ route('list-public-awareness-and-education') }}">Awareness And
-                                          Education </a>
+                                          href="{{ route('list-public-awareness-and-education') }}">Awareness And Education </a>
                                   </li>
                               @endif
                           </ul>
@@ -280,21 +270,18 @@
                           <ul class="nav flex-column sub-menu">
                               @if (in_array('list-state-emergency-operations-center', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-state-emergency-operations-center') }}">State Emergency
-                                          Operations Center (EOC)
+                                          href="{{ route('list-state-emergency-operations-center') }}">State Emergency Operations Center (EOC)
                                       </a>
                                   </li>
                               @endif
                               @if (in_array('list-district-emergency-operations-center', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-district-emergency-operations-center') }}">District
-                                          Emergency Operations Center (DEOC)</a>
+                                          href="{{ route('list-district-emergency-operations-center') }}">District Emergency Operations Center (DEOC)</a>
                                   </li>
                               @endif
                               @if (in_array('list-emergency-contact-numbers', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-emergency-contact-numbers') }}">Emergency Contact
-                                          Numbers</a>
+                                          href="{{ route('list-emergency-contact-numbers') }}">Emergency Contact Numbers</a>
                                   </li>
                               @endif
                               @if (in_array('list-evacuation-plans', $data_for_url))
@@ -304,8 +291,7 @@
                               @endif
                               @if (in_array('list-relief-measures-resources', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-relief-measures-resources') }}">Relief Measures
-                                          Resources</a>
+                                          href="{{ route('list-relief-measures-resources') }}">Relief Measures Resources</a>
                                   </li>
                               @endif
                               @if (in_array('list-search-rescue-teams', $data_for_url))
@@ -335,22 +321,19 @@
                           <ul class="nav flex-column sub-menu">
                               @if (in_array('list-report-crowdsourcing', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-report-crowdsourcing') }}">Report Incident
-                                          Crowdsourcing
+                                          href="{{ route('list-report-crowdsourcing') }}">Report Incident Crowdsourcing
                                       </a>
                                   </li>
                               @endif
                               @if (in_array('list-volunteer-citizen-support', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-volunteer-citizen-support') }}">Volunteer Citizen
-                                          Support
+                                          href="{{ route('list-volunteer-citizen-support') }}">Volunteer Citizen Support
                                       </a>
                                   </li>
                               @endif
                               @if (in_array('list-citizen-feedback-and-suggestion', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-citizen-feedback-and-suggestion') }}">Feedback and
-                                          Suggestions
+                                          href="{{ route('list-citizen-feedback-and-suggestion') }}">Feedback and Suggestions
                                       </a>
                                   </li>
                               @endif
@@ -377,6 +360,14 @@
                       </div>
                   </li>
               @endif
+              @if (in_array('list-event', $data_for_url))
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('list-event') }}">
+                          <i class="fas fa-window-restore menu-icon"></i>
+                          <span class="menu-title">Training Workshops</span>
+                      </a>
+                  </li>
+              @endif
               @if (in_array('list-state-disaster-management-plan', $data_for_url) ||
                       in_array('list-district-disaster-management-plan', $data_for_url) ||
                       in_array('list-state-disaster-management-policy', $data_for_url) ||
@@ -393,22 +384,19 @@
                           <ul class="nav flex-column sub-menu">
                               @if (in_array('list-state-disaster-management-plan', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-state-disaster-management-plan') }}">State Disaster
-                                          Management Plan
+                                          href="{{ route('list-state-disaster-management-plan') }}">State Disaster Management Plan
                                       </a>
                                   </li>
                               @endif
                               @if (in_array('list-district-disaster-management-plan', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-district-disaster-management-plan') }}">District
-                                          Disaster Management Plan
+                                          href="{{ route('list-district-disaster-management-plan') }}">District Disaster Management Plan
                                       </a>
                                   </li>
                               @endif
                               @if (in_array('list-state-disaster-management-policy', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-state-disaster-management-policy') }}">State Disaster
-                                          Management Policy
+                                          href="{{ route('list-state-disaster-management-policy') }}">State Disaster Management Policy
                                       </a>
                                   </li>
                               @endif
@@ -422,16 +410,20 @@
                       </div>
                   </li>
               @endif
-              @if (in_array('list-event', $data_for_url))
+              @if (in_array('list-document-publications', $data_for_url) ||
+              in_array('list-gallery', $data_for_url) ||
+              in_array('list-gallery-category', $data_for_url) ||
+              in_array('list-video', $data_for_url)||
+              in_array('list-training-workshop', $data_for_url))
                   <li class="nav-item">
-                      <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                          aria-controls="page-layouts">
+                      <a class="nav-link" data-toggle="collapse" href="#resource-center" aria-expanded="false"
+                          aria-controls="resource-center">
                           <i class="fas fa-search fa-lg menu-icon"></i>
-                          <span class="menu-title">Research And Center </span>
+                          <span class="menu-title">Resource Center</span>
                           <i class="menu-arrow"></i>
                       </a>
 
-                      <div class="collapse" id="page-layouts">
+                      <div class="collapse" id="resource-center">
                           <ul class="nav flex-column sub-menu">
                               @if (in_array('list-document-publications', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
@@ -439,20 +431,43 @@
                                       </a>
                                   </li>
                               @endif
+                              @if (in_array('list-gallery-category', $data_for_url))
+                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                      href="{{ route('list-gallery-category') }}">Gallery Category
+                                  </a>
+                              </li>
+                          @endif
+                          @if (in_array('list-gallery', $data_for_url))
+                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                      href="{{ route('list-gallery') }}">Gallery
+                                  </a>
+                              </li>
+                          @endif
+                          @if (in_array('list-video', $data_for_url))
+                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                      href="{{ route('list-video') }}">Video
+                                  </a>
+                              </li>
+                          @endif
+                          @if (in_array('list-training-workshop', $data_for_url))
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-training-workshop') }}">Training Materials And Workshops
+                              </a>
+                          </li>
+                      @endif
                           </ul>
                       </div>
                   </li>
               @endif
               @if (in_array('list-success-stories', $data_for_url))
                   <li class="nav-item">
-                      <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                          aria-controls="page-layouts">
+                      <a class="nav-link" data-toggle="collapse" href="#news-events" aria-expanded="false"
+                          aria-controls="news-events">
                           <i class="fas fa-newspaper fa-lg"></i>
                           <span class="menu-title">News And Events </span>
                           <i class="menu-arrow"></i>
                       </a>
-
-                      <div class="collapse" id="page-layouts">
+                      <div class="collapse" id="news-events">
                           <ul class="nav flex-column sub-menu">
                               @if (in_array('list-success-stories', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
@@ -460,24 +475,7 @@
                                       </a>
                                   </li>
                               @endif
-                              @if (in_array('list-gallery-category', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-gallery-category') }}">Gallery Category
-                                      </a>
-                                  </li>
-                              @endif
-                              @if (in_array('list-gallery', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-gallery') }}">Gallery
-                                      </a>
-                                  </li>
-                              @endif
-                              @if (in_array('list-video', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-video') }}">Video
-                                      </a>
-                                  </li>
-                              @endif
+                            
                           </ul>
                       </div>
                   </li>
@@ -487,14 +485,6 @@
                       <a class="nav-link" href="{{ route('list-contact-suggestion') }}">
                           <i class="fas fa-window-restore menu-icon"></i>
                           <span class="menu-title">Contact Us</span>
-                      </a>
-                  </li>
-              @endif
-              @if (in_array('list-event', $data_for_url))
-                  <li class="nav-item">
-                      <a class="nav-link" href="{{ route('list-event') }}">
-                          <i class="fas fa-window-restore menu-icon"></i>
-                          <span class="menu-title">Event</span>
                       </a>
                   </li>
               @endif
