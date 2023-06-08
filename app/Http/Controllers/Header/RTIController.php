@@ -92,15 +92,15 @@ public function update(Request $request)
             'english_title' => 'required',
             'marathi_title' => 'required',
             'url' => 'required',
-            'english_pdf' => 'required',
-            'marathi_pdf' => 'required',
+            // 'english_pdf' => 'required',
+            // 'marathi_pdf' => 'required',
      ];
     $messages = [   
         'english_title' => 'required',
         'marathi_title' => 'required',
         'url' => 'required',
-        'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // 'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // 'marathi_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         
     ];
 

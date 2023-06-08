@@ -504,10 +504,40 @@ Route::get('/list-role', ['as' => 'list-role', 'uses' => 'App\Http\Controllers\M
 Route::get('/add-role', ['as' => 'add-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@add']);
 Route::post('/add-role', ['as' => 'add-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@store']);
 Route::post('/edit-role', ['as' => 'edit-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@edit']);
-Route::post('/update-role', ['as' => 'update-role-','uses' => 'App\Http\Controllers\Menu\RoleController@update']);
+Route::post('/update-role', ['as' => 'update-role','uses' => 'App\Http\Controllers\Menu\RoleController@update']);
 Route::post('/show-role', ['as' => 'show-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@show']);
 Route::post('/delete-role', ['as' => 'delete-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@destroy']);
 Route::post('/update-one-role', ['as' => 'update-one-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@updateOneRole']);
+
+//=====Footer Route======
+Route::get('/list-important-link', ['as' => 'list-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@index']);
+Route::get('/add-important-link', ['as' => 'add-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@add']);
+Route::post('/add-important-link', ['as' => 'add-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@store']);
+Route::post('/edit-important-link', ['as' => 'edit-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@edit']);
+Route::post('/update-important-link', ['as' => 'update-important-link','uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@update']);
+Route::post('/show-important-link', ['as' => 'show-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@show']);
+Route::post('/delete-important-link', ['as' => 'delete-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@destroy']);
+Route::post('/update-one-important-link', ['as' => 'update-one-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@updateOne']);
+
+//====Header Vacancies=====
+Route::get('/list-header-vacancies', ['as' => 'list-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@index']);
+Route::get('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@add']);
+Route::post('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@store']);
+Route::post('/edit-header-vacancies', ['as' => 'edit-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@edit']);
+Route::post('/update-header-vacancies', ['as' => 'update-header-vacancies','uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@update']);
+Route::post('/show-header-vacancies', ['as' => 'show-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@show']);
+Route::post('/delete-header-vacancies', ['as' => 'delete-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@destroy']);
+// Route::post('/update-one-header-vacancies', ['as' => 'update-one-header-vacancies', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@updateOne']);
+
+
+Route::get('/list-header-rti', ['as' => 'list-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@index']);
+Route::get('/add-header-rti', ['as' => 'add-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@add']);
+Route::post('/add-header-rti', ['as' => 'add-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@store']);
+Route::post('/edit-header-rti', ['as' => 'edit-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@edit']);
+Route::post('/update-header-rti', ['as' => 'update-header-rti','uses' => 'App\Http\Controllers\Header\RTIController@update']);
+Route::post('/show-header-rti', ['as' => 'show-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@show']);
+Route::post('/delete-header-rti', ['as' => 'delete-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@destroy']);
+// Route::post('/update-one-header-vacancies', ['as' => 'update-one-header-vacancies', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@updateOne']);
 
 
 Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);

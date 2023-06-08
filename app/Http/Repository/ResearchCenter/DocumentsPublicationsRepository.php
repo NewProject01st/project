@@ -80,24 +80,47 @@ public function updateAll($request)
             ];
         }
 
-        Storage::delete([
-            'public/pdf/research-center/documents' . $update_document->english_pdf,
-            'public/pdf/research-center/documents' . $update_document->marathi_pdf,
-        ]);
-
-        $englishPdf = time() . '_english.' . $request->english_pdf->extension();
-        $marathiPdf = time() . '_marathi.' . $request->marathi_pdf->extension();
-        
-        $request->english_pdf->storeAs('public/pdf/research-center/documents', $englishPdf);
-        $request->marathi_pdf->storeAs('public/pdf/research-center/documents', $marathiPdf);
-                
         $update_document->english_title = $request['english_title'];
         $update_document->marathi_title = $request['marathi_title'];
         $update_document->english_description = $request['english_description'];
         $update_document->marathi_description = $request['marathi_description'];
-        $update_document->english_pdf = $englishPdf;
-        $update_document->marathi_pdf = $marathiPdf;
-        $update_documents->save();        
+
+        $previousEnglishPdf = $update_document->english_pdf;
+        $previousMarathiPdf = $update_document->marathi_pdf;
+
+        if($request->hasFile('english_pdf'))
+       
+        {
+            if($previousEnglishPdf)
+            {
+                //delete previous stored pdf
+                Storage::delete('public/pdf/research-center/documents/' . $previousEnglishPdf );
+
+                //insert new pdf
+                $englishPdf = time() . '_english.' . $request->english_pdf->extension();
+                $request->english_pdf->storeAs('public/pdf/research-center/documents/', $englishPdf);
+                $update_document->english_pdf = $englishPdf;
+            }
+
+        }
+
+        if($request->hasFile('marathi_pdf'))
+       
+        {
+            if($previousMarathiPdf)
+            {
+                //delete previous stored pdf
+                Storage::delete('public/pdf/research-center/documents/' . $previousMarathiPdf );
+
+                //insert new pdf
+                $marathiPdf = time() . '_marathi.' . $request->marathi_pdf->extension();
+                $request->marathi_pdf->storeAs('public/pdf/research-center/documents/', $marathiPdf);
+                $update_document->marathi_pdf = $marathiPdf;
+            }
+
+        }
+                
+        $update_document->save();        
      
         return [
             'msg' => 'Tender updated successfully.',
