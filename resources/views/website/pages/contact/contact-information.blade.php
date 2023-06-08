@@ -27,16 +27,16 @@
                                     <div class="add-box-2 contact-new-design">
                                         <i class="fas fa-map-marker-alt"></i>
                                         <h5>Our Location</h5>
-                                        <p class="set_text">Street # 75, Borne Block, <br>
-                                            5th Avenue, West Road, NY.
+                                        <p class="set_text">
+                                            DMS Office, Maharshtra, INDIA
                                         </p>
                                     </div>
 
                                     <div class="add-box-2 contact-new-design">
                                         <i class="fas fa-phone"></i>
                                         <h5>Call us</h5>
-                                        <p class="set_text">Phone: 080 4576 392</p>
-                                        <p class="set_text">Mobile: 0800 4567 890</p>
+                                        {{-- <p class="set_text">Phone: 080 4576 392</p> --}}
+                                        <p class="set_text">Mobile:+91 000 0000 000</p>
                                     </div>
 
                                     <div class="add-box-2 contact-new-design">

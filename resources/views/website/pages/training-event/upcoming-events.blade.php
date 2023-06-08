@@ -1,35 +1,41 @@
-  <div class="col-md-3">
+  <?php 
+    $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData(); 
+  ?>
+
       <div class="sidebar">
           <!--Widget Start-->
           <div class="widget">
               <h4>Upcoming Events</h4>
               <div class="upcoming-events inner">
                   <ul>
+                  @forelse($common_data['upcoming_event']  as $event)
+                    <?php  
+                        $date_event = explode("-",$event['start_date']); 
+                        $monthNum  = $date_event[2];
+                        $monthName = date('F', mktime(0, 0, 0, $monthNum, 10)); // March    
+                    ?>
                       <li>
-                          <div class="edate"> <strong>01</strong> July <span class="year">2023</span>
+                      <div class="edate"> <strong>{{$date_event[0]}}</strong> {{$monthName}} <span class="year">{{$date_event[2]}}</span>
                           </div>
-                          <h6> <a href="#">Maharashtra battles forest fires</a> </h6>
-                          <span class="loc">Maharashtra, India</span>
+                       @if (session('language') == 'mar')
+                          
+                          <h6> <a href="#">{{$event['marathi_title']}}</a>
+                          
+                          @else
+                          <h6> <a href="#">{{$event['english_title']}}</a>
+                          
+                          @endif </h6>
+                          {{--<span class="loc">Maharashtra, India</span>--}}
                       </li>
-                      <li>
-                          <div class="edate"> <strong>03</strong> July <span class="year">2023</span>
-                          </div>
-                          <h6> <a href="#">Kerala floods displace thousands</a> </h6>
-                          <span class="loc">Maharashtra, India</span>
-                      </li>
-                      <li>
-                          <div class="edate"> <strong>06</strong> July <span class="year">2023</span>
-                          </div>
-                          <h6> <a href="#">Odisha prepares for Cyclone Yaas.</a>
-                          </h6>
-                          <span class="loc">Maharashtra, India</span>
-                      </li>
+                      @empty
+                            <p>No Upcoming Event</p>
+                        @endforelse
                   </ul>
               </div>
           </div>
           <!--Widget End-->
-          <!--Widget Start-->
-          <div class="widget">
+
+{{--          <div class="widget">
               <h4>Important Links</h4>
               <div class="archives inner">
                   <ul>
@@ -44,6 +50,7 @@
                   </ul>
               </div>
           </div>
+          --}}
           <!--Widget End-->
       </div>
   </div>

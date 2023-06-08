@@ -250,27 +250,7 @@ function getMenuItemsDynamicPageDetailsById($id) {
        
                 
 }
-function getUpcomingEvent() {
-    $upcomingevent_data = array();
-    $upcomingevent_data =  Event::where('is_active', '=',true)
-                        ->select( 
-                            'event.english_title', 
-                            'event.marathi_title',
-                            'event.english_description',
-                            'event.marathi_description',
-                            'event.english_image',
-                            'event.marathi_image',
-                            'event.start_date',
-                            'event.end_date',
-                            'event.id',
-                        )
-                        ->get()
-                        ->toArray();
-                         dd($upcomingevent_data);
 
-                        return $upcomingevent_data ;
-                        
-}
 
 
 

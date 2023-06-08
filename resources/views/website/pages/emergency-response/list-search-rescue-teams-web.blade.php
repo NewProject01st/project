@@ -39,7 +39,9 @@
                             <!--Department Details Txt End-->
                         </div>
                         <!--Sidebar Start-->
-                        @include('website.pages.training-event.upcoming-events')
+                        <div class="col-md-3">
+                            @include('website.pages.training-event.upcoming-events')
+                        </div>
                         <!--Sidebar End-->
                     </div>
                 </div>

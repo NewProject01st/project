@@ -13,7 +13,7 @@
     <!--Subheader End-->
     <!--Main Content Start-->
     <div class="main-content p60">
-        
+
         <!--Objective Goals Start-->
         <div class="department-details">
             <div class="container">
@@ -25,12 +25,12 @@
                                 @if (session('language') == 'mar')
                                     <h3><?php echo $item['marathi_title']; ?> : </h3>
                                     <img src="{{ asset('storage/images/preparedness/awareness-education/' . $item['marathi_image']) }}"
-                                    class="d-block w-100" alt="...">
+                                        class="d-block w-100" alt="...">
                                     <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                 @else
                                     <h3><?php echo $item['english_title']; ?> : </h3>
                                     <img src="{{ asset('storage/images/preparedness/awareness-education/' . $item['english_image']) }}"
-                                    class="d-block w-100" alt="...">
+                                        class="d-block w-100" alt="...">
                                     <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
                                 @endif
                             </div>
@@ -39,7 +39,9 @@
                         <!--Department Details Txt End-->
                     </div>
                     <!--Sidebar Start-->
-                     @include('website.pages.training-event.upcoming-events')
+                    <div class="col-md-3">
+                        @include('website.pages.training-event.upcoming-events')
+                    </div>
                     <!--Sidebar End-->
                 </div>
             </div>

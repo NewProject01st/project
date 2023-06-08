@@ -35,6 +35,7 @@
                                         @endif
                                     </div>
                                 </div>
+                                
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="marathi_title">Title Marathi</label>&nbsp<span

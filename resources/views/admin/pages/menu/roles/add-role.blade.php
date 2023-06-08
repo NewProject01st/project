@@ -5,12 +5,12 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Roles
+                Role
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Roles</li>
+                    <li class="breadcrumb-item active" aria-current="page">Role</li>
                 </ol>
             </nav>
         </div>

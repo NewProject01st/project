@@ -7,7 +7,7 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Roles List
+                Role List
                 @if (in_array("per_add", $data_permission))
                 <a href="{{ route('add-role') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
                 @endif
@@ -16,7 +16,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Master Management</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Roles List</li>
+                    <li class="breadcrumb-item active" aria-current="page"> Role List</li>
                 </ol>
             </nav>
         </div>

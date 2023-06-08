@@ -354,6 +354,14 @@ Route::post('/update-volunteer-citizen-support', ['as' => 'update-volunteer-citi
 Route::post('/show-volunteer-citizen-support', ['as' => 'show-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@show']);
 Route::post('/delete-volunteer-citizen-support', ['as' => 'delete-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@destroy']);
 
+Route::get('/list-incident-type', ['as' => 'list-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@index']);
+Route::get('/add-incident-type', ['as' => 'add-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@add']);
+Route::post('/add-incident-type', ['as' => 'add-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@store']);
+Route::post('/edit-incident-type', ['as' => 'edit-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@edit']);
+Route::post('/update-incident-type', ['as' => 'update-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@update']);
+Route::post('/show-incident-type', ['as' => 'show-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@show']);
+Route::post('/delete-incident-type', ['as' => 'delete-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@destroy']);
+
 Route::get('/list-citizen-feedback-and-suggestion', ['as' => 'list-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@index']);
 Route::get('/add-citizen-feedback-and-suggestion', ['as' => 'add-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@add']);
 Route::post('/add-citizen-feedback-and-suggestion', ['as' => 'add-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@store']);
