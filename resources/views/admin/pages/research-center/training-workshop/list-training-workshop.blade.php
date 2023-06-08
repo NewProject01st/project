@@ -32,7 +32,7 @@
                                                     <th>S. No.</th>
                                                     <th>Title English</th>
                                                     <th>Title Marathi</th>
-                                                    <th>URL</th>
+                                                    {{-- <th>URL</th> --}}
                                                     <th>English Pdf</th>
                                                     <th>Marathi Pdf</th>
                                                     <th>Action</th>
@@ -44,7 +44,6 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td><?php echo $item->english_title; ?></td>
                                                         <td><?php echo $item->marathi_title; ?></td>
-                                                        <td><?php echo $item->url; ?></td>
                                                         <td> <a href="{{ asset('/storage/pdf/research-center/training/' . $item['english_pdf']) }}"
                                                                 target="_blank"><img
                                                                     src="{{ asset('storage/pdf/pdf.png/') }}" width="35px"

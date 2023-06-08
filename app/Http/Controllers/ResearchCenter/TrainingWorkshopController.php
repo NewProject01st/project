@@ -33,7 +33,7 @@ class TrainingWorkshopController extends Controller
         $rules = [
             'english_title' => 'required',
             'marathi_title' => 'required',
-            'url' => 'required',
+            // 'url' => 'required',
             // 'english_description' => 'required',
             // 'marathi_description' => 'required', 
             'english_pdf' => 'required',
@@ -43,7 +43,7 @@ class TrainingWorkshopController extends Controller
     $messages = [   
         'english_title' => 'required',
         'marathi_title' => 'required',
-        'url' => 'required',
+        // 'url' => 'required',
         // 'english_description' => 'required',
         // 'marathi_description' => 'required', 
         'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -95,7 +95,7 @@ public function update(Request $request)
     $rules = [
         'english_title' => 'required',
             'marathi_title' => 'required',
-            'url' => 'required',
+            // 'url' => 'required',
             // 'english_description' => 'required',
             // 'marathi_description' => 'required', 
             // 'english_pdf' => 'required',
@@ -104,7 +104,7 @@ public function update(Request $request)
     $messages = [   
         'english_title' => 'required',
         'marathi_title' => 'required',
-        'url' => 'required',
+        // 'url' => 'required',
         // 'english_description' => 'required',
         // 'marathi_description' => 'required', 
         // 'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
