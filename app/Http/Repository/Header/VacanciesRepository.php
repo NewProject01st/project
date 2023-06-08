@@ -78,23 +78,45 @@ public function updateAll($request)
                 'status' => 'error'
             ];
         }
-
-        Storage::delete([
-            'public/pdf/header/vacancy/' . $vacancy_data->english_pdf,
-            'public/pdf/header/vacancy/' . $vacancy_data->marathi_pdf,
-        ]);
-
-        $englishPdf = time() . '_english.' . $request->english_pdf->extension();
-        $marathiPdf = time() . '_marathi.' . $request->marathi_pdf->extension();
-        
-        $request->english_pdf->storeAs('public/pdf/header/vacancy/', $englishPdf);
-        $request->marathi_pdf->storeAs('public/pdf/header/vacancy/', $marathiPdf);
-                
         $vacancy_data->english_title = $request['english_title'];
         $vacancy_data->marathi_title = $request['marathi_title'];
         $vacancy_data->url = $request['url'];
-        $vacancy_data->english_pdf = $englishPdf;
-        $vacancy_data->marathi_pdf = $marathiPdf;
+
+        $previousEnglishPdf = $vacancy_data->english_pdf;
+        $previousMarathiPdf = $vacancy_data->marathi_pdf;
+
+        if($request->hasFile('english_pdf'))
+       
+        {
+            if($previousEnglishPdf)
+            {
+                //delete previous stored pdf
+                Storage::delete('public/pdf/header/vacancy/' . $previousEnglishPdf );
+
+                //insert new pdf
+                $englishPdf = time() . '_english.' . $request->english_pdf->extension();
+                $request->english_pdf->storeAs('public/pdf/header/vacancy/', $englishPdf);
+                $vacancy_data->english_pdf = $englishPdf;
+            }
+
+        }
+
+        if($request->hasFile('marathi_pdf'))
+       
+        {
+            if($previousMarathiPdf)
+            {
+                //delete previous stored pdf
+                Storage::delete('public/pdf/header/vacancy/' . $previousMarathiPdf );
+
+                //insert new pdf
+                $marathiPdf = time() . '_marathi.' . $request->marathi_pdf->extension();
+                $request->marathi_pdf->storeAs('public/pdf/header/vacancy/', $marathiPdf);
+                $vacancy_data->marathi_pdf = $marathiPdf;
+            }
+
+        }
+
         $vacancy_data->save();        
      
         return [

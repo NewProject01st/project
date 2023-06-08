@@ -78,23 +78,45 @@ public function updateAll($request)
                 'status' => 'error'
             ];
         }
-
-        Storage::delete([
-            'public/pdf/header/rti/' . $rti_data->english_pdf,
-            'public/pdf/header/rti/' . $rti_data->marathi_pdf,
-        ]);
-
-        $englishPdf = time() . '_english.' . $request->english_pdf->extension();
-        $marathiPdf = time() . '_marathi.' . $request->marathi_pdf->extension();
-        
-        $request->english_pdf->storeAs('public/pdf/header/rti/', $englishPdf);
-        $request->marathi_pdf->storeAs('public/pdf/header/rti/', $marathiPdf);
-                
         $rti_data->english_title = $request['english_title'];
         $rti_data->marathi_title = $request['marathi_title'];
         $rti_data->url = $request['url'];
-        $rti_data->english_pdf = $englishPdf;
-        $rti_data->marathi_pdf = $marathiPdf;
+
+        $previousEnglishPdf = $rti_data->english_pdf;
+        $previousMarathiPdf = $rti_data->marathi_pdf;
+
+        if($request->hasFile('english_pdf'))
+       
+        {
+            if($previousEnglishPdf)
+            {
+                //delete previous stored pdf
+                Storage::delete('public/pdf/header/rti/' . $previousEnglishPdf );
+
+                //insert new pdf
+                $englishPdf = time() . '_english.' . $request->english_pdf->extension();
+                $request->english_pdf->storeAs('public/pdf/header/rti/', $englishPdf);
+                $rti_data->english_pdf = $englishPdf;
+            }
+
+        }
+
+        if($request->hasFile('marathi_pdf'))
+       
+        {
+            if($previousMarathiPdf)
+            {
+                //delete previous stored pdf
+                Storage::delete('public/pdf/header/rti/' . $previousMarathiPdf );
+
+                //insert new pdf
+                $marathiPdf = time() . '_marathi.' . $request->marathi_pdf->extension();
+                $request->marathi_pdf->storeAs('public/pdf/header/rti/', $marathiPdf);
+                $rti_data->marathi_pdf = $marathiPdf;
+            }
+
+        }
+                
         $rti_data->save();        
      
         return [
