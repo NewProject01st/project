@@ -460,6 +460,15 @@ Route::post('/update-document-publications', ['as' => 'update-document-publicati
 Route::post('/show-document-publications', ['as' => 'show-document-publications', 'uses' => 'App\Http\Controllers\ResearchCenter\DocumentPublicationsController@show']);
 Route::post('/delete-document-publications', ['as' => 'delete-document-publications', 'uses' => 'App\Http\Controllers\ResearchCenter\DocumentPublicationsController@destroy']);
 
+Route::get('/list-training-workshop', ['as' => 'list-training-workshop', 'uses' => 'App\Http\Controllers\ResearchCenter\TrainingWorkshopController@index']);
+Route::get('/add-training-workshop', ['as' => 'add-training-workshop', 'uses' => 'App\Http\Controllers\ResearchCenter\TrainingWorkshopController@add']);
+Route::post('/add-training-workshop', ['as' => 'add-training-workshop', 'uses' => 'App\Http\Controllers\ResearchCenter\TrainingWorkshopController@store']);
+Route::post('/edit-training-workshop', ['as' => 'edit-training-workshop', 'uses' => 'App\Http\Controllers\ResearchCenter\TrainingWorkshopController@edit']);
+Route::post('/update-training-workshop', ['as' => 'update-training-workshop', 'uses' => 'App\Http\Controllers\ResearchCenter\TrainingWorkshopController@update']);
+Route::post('/show-training-workshop', ['as' => 'show-training-workshop', 'uses' => 'App\Http\Controllers\ResearchCenter\TrainingWorkshopController@show']);
+Route::post('/delete-training-workshop', ['as' => 'delete-training-workshop', 'uses' => 'App\Http\Controllers\ResearchCenter\TrainingWorkshopController@destroy']);
+
+
 //======News And Events=======
 Route::get('/list-success-stories', ['as' => 'list-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@index']);
 Route::get('/add-success-stories', ['as' => 'add-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@add']);
