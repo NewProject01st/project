@@ -29,19 +29,16 @@
                       <i class="fa fa-home menu-icon"></i>
                       <span class="menu-title">Dashboard</span>
                   </a>
-              </li>
-              @if (in_array('list-state-disaster-management-plan', $data_for_url) ||
-                      in_array('list-district-disaster-management-plan', $data_for_url) ||
-                      in_array('list-state-disaster-management-policy', $data_for_url) ||
-                      in_array('list-relevant-laws-and-regulations', $data_for_url))
+              </li>              
+              @if (in_array('list-role', $data_for_url) ||
+                      in_array('list-incident-type', $data_for_url))
                   <li class="nav-item">
                       <a class="nav-link" data-toggle="collapse" href="#master" aria-expanded="false"
                           aria-controls="master">
-                          <i class="fa fa-th-large menu-icon menu-icon"></i>
+                          <i class="fa fa-th-large menu-icon"></i>
                           <span class="menu-title">Master</span>
                           <i class="menu-arrow"></i>
                       </a>
-
                       <div class="collapse" id="master">
                           <ul class="nav flex-column sub-menu">
                               @if (in_array('list-role', $data_for_url))
@@ -56,52 +53,28 @@
                       </div>
                   </li>
               @endif
-
-              @if (in_array('list-social-icon', $data_for_url) ||
-                      in_array('list-sub-header-info', $data_for_url) ||
-                      in_array('list-header-vacancies', $data_for_url))
-                  <li class="nav-item">
-                      <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
-                          aria-controls="page-layouts">
-                          <i class="fa fa-th-large menu-icon"></i>
-                          <span class="menu-title">Header</span>
-                          <i class="menu-arrow"></i>
-                      </a>
-
-                      <div class="collapse" id="page-layouts">
-                          <ul class="nav flex-column sub-menu">
-                              @if (in_array('list-social-icon', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-social-icon') }}">Main Header</a></li>
-                              @endif
-                              @if (in_array('list-sub-header-info', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-sub-header-info') }}">Sub Header</a></li>
-                              @endif
-                              @if (in_array('list-header-vacancies', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-header-vacancies') }}">Vacancies</a></li>
-                              @endif
-                              @if (in_array('list-header-rti', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-header-rti') }}">RTI</a></li>
-                              @endif
-
-                          </ul>
-                      </div>
-                  </li>
-              @endif
-              @if (in_array('list-main-menu', $data_for_url) || in_array('list-sub-menu', $data_for_url))
+              @if (in_array('list-header-vacancies', $data_for_url) ||
+               in_array('list-header-rti', $data_for_url) || 
+               in_array('list-main-menu', $data_for_url) ||
+                in_array('list-sub-menu', $data_for_url)||
+                in_array('list-social-icon', $data_for_url))
                   <li class="nav-item">
                       <a class="nav-link" data-toggle="collapse" href="#menu" aria-expanded="false"
                           aria-controls="menu">
                           <i class="fas fa-bars fa-lg menu-icon"></i>
-                          <span class="menu-title">Menu</span>
+                          <span class="menu-title">Header</span>
                           <i class="menu-arrow"></i>
                       </a>
-
                       <div class="collapse" id="menu">
                           <ul class="nav flex-column sub-menu">
+                            @if (in_array('list-header-vacancies', $data_for_url))
+                            <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                    href="{{ route('list-header-vacancies') }}">Vacancies</a></li>
+                             @endif
+                             @if (in_array('list-header-rti', $data_for_url))
+                             <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                     href="{{ route('list-header-rti') }}">RTI</a></li>
+                              @endif
                               @if (in_array('list-main-menu', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                           href="{{ route('list-main-menu') }}">Main Menu</a></li>
@@ -110,6 +83,14 @@
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                           href="{{ route('list-sub-menu') }}">Sub Menu</a></li>
                               @endif
+                              @if (in_array('list-social-icon', $data_for_url))
+                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                      href="{{ route('list-social-icon') }}">Social Icon</a></li>
+                          @endif
+                          @if (in_array('list-sub-header-info', $data_for_url))
+                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                      href="{{ route('list-sub-header-info') }}">Sub Header</a></li>
+                          @endif
                           </ul>
                       </div>
                   </li>
@@ -529,7 +510,7 @@
                   <li class="nav-item">
                       <a class="nav-link" data-toggle="collapse" href="#master-management" aria-expanded="false"
                           aria-controls="master-management">
-                          <i class="fa fa-th-large menu-icon"></i>
+                          <i class="fas fa-user menu-icon"></i>
                           <span class="menu-title">Master Management</span>
                           <i class="menu-arrow"></i>
                       </a>
