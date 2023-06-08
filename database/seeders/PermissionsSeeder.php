@@ -14,14 +14,22 @@ class PermissionsSeeder extends Seeder
      */
     public function run()
     {
-        Permissions::create(
-            [
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-                'route_name' => 'Role',
-                'url' => 'list-role',
-                'permission_name' => 'Role',
-            ]);
+            // Permissions::create(
+            //     [
+            //         'created_at' => \Carbon\Carbon::now(),
+            //         'updated_at' => \Carbon\Carbon::now(),
+            //         'route_name' => 'Dashboard',
+            //         'url' => 'dashboard',
+            //         'permission_name' => 'Dashboard',
+            //     ]);
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'Role',
+                    'url' => 'list-role',
+                    'permission_name' => 'Role',
+                ]);
             Permissions::create(
                 [
                     'created_at' => \Carbon\Carbon::now(),
@@ -45,14 +53,6 @@ class PermissionsSeeder extends Seeder
                     'route_name' => 'RTI',
                     'url' => 'list-header-rti',
                     'permission_name' => 'RTI',
-                ]);
-            Permissions::create(
-                [
-                    'created_at' => \Carbon\Carbon::now(),
-                    'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Social Icon',
-                    'url' => 'list-social-icon',
-                    'permission_name' => 'Social Icon',
                 ]);
             Permissions::create(
                 [
@@ -427,8 +427,22 @@ class PermissionsSeeder extends Seeder
                     'url' => 'list-users',
                     'permission_name' => 'User',
                 ]);
-                                    
-
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'Footer Link',
+                    'url' => 'list-important-link',
+                    'permission_name' => 'Footer Link',
+                ]);               
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'Social Icon',
+                    'url' => 'list-social-icon',
+                    'permission_name' => 'Social Icon',
+                ]);
         
 
 

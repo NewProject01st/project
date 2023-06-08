@@ -24,12 +24,14 @@
                       </div>
                   </div>
               </li>
+              {{-- @if (in_array('dashboard', $data_for_url)) --}}
               <li class="nav-item active">
-                  <a class="nav-link" href="index.html">
+                  <a class="nav-link" href="#">
                       <i class="fa fa-home menu-icon"></i>
                       <span class="menu-title">Dashboard</span>
                   </a>
-              </li>              
+              </li>    
+              {{-- @endif           --}}
               @if (in_array('list-role', $data_for_url) ||
                       in_array('list-incident-type', $data_for_url))
                   <li class="nav-item">
@@ -56,8 +58,7 @@
               @if (in_array('list-header-vacancies', $data_for_url) ||
                in_array('list-header-rti', $data_for_url) || 
                in_array('list-main-menu', $data_for_url) ||
-                in_array('list-sub-menu', $data_for_url)||
-                in_array('list-social-icon', $data_for_url))
+                in_array('list-sub-menu', $data_for_url))
                   <li class="nav-item">
                       <a class="nav-link" data-toggle="collapse" href="#menu" aria-expanded="false"
                           aria-controls="menu">
@@ -83,10 +84,6 @@
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                           href="{{ route('list-sub-menu') }}">Sub Menu</a></li>
                               @endif
-                              @if (in_array('list-social-icon', $data_for_url))
-                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                      href="{{ route('list-social-icon') }}">Social Icon</a></li>
-                          @endif
                           @if (in_array('list-sub-header-info', $data_for_url))
                               <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                       href="{{ route('list-sub-header-info') }}">Sub Header</a></li>
@@ -95,6 +92,29 @@
                       </div>
                   </li>
               @endif
+              @if (in_array('list-important-link', $data_for_url)||
+              in_array('list-social-icon', $data_for_url))
+                 <li class="nav-item">
+                     <a class="nav-link" data-toggle="collapse" href="#footer" aria-expanded="false"
+                         aria-controls="footer">
+                         <i class="fas fa-address-card fa-lg menu-icon"></i>
+                         <span class="menu-title">Footer</span>
+                         <i class="menu-arrow"></i>
+                     </a>
+                     <div class="collapse" id="footer">
+                         <ul class="nav flex-column sub-menu">
+                           @if (in_array('list-important-link', $data_for_url))
+                           <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                   href="{{ route('list-important-link') }}">Footer Links</a></li>
+                            @endif
+                            @if (in_array('list-social-icon', $data_for_url))
+                            <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                    href="{{ route('list-social-icon') }}">Social Icon</a></li>
+                            @endif
+                         </ul>
+                     </div>
+                 </li>
+             @endif
               @if (in_array('list-dynamic-page', $data_for_url))
                   <li class="nav-item">
                       <a class="nav-link" data-toggle="collapse" href="#pages" aria-expanded="false"
