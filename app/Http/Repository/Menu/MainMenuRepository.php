@@ -19,7 +19,6 @@ class MainMenuRepository  {
     }
 
 	public function addAll($request) {
-    // dd(isset($request['order_no']) ? $request['order_no'] : 0 );
     try {
         $main_menu_data = new MainMenus();
         // $main_menu_data->url = $request['url'];
@@ -30,7 +29,6 @@ class MainMenuRepository  {
      
 		return $main_menu_data;
     } catch (\Exception $e) {
-        dd($e);
         return [
             'msg' => $e,
             'status' => 'error'
@@ -48,9 +46,8 @@ public function getById($id)
             return null;
         }
     } catch (\Exception $e) {
-        return $e;
 		return [
-            'msg' => 'Failed to get by id constitution history.',
+            'msg' => $e,
             'status' => 'error'
         ];
     }
@@ -70,7 +67,6 @@ public function updateAll($request)
             'status' => 'success'
         ];
     } catch (\Exception $e) {
-        dd($e);
         return [
             'msg' => 'Failed to update constitution history.',
             'status' => 'error'

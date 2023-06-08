@@ -1,5 +1,5 @@
     @extends('website.layout.master')
-    @section('title', 'Applicant\'s Form')
+    
     @section('content')
         <!--Subheader Start-->
         <section class="wf100 subheader">

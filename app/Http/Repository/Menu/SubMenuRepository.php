@@ -47,7 +47,6 @@ class SubMenuRepository  {
      
 		return $main_menu_data;
     } catch (\Exception $e) {
-        dd($e);
         return [
             'msg' => $e,
             'status' => 'error'
