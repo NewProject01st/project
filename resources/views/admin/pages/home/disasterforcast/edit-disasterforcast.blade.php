@@ -157,9 +157,9 @@
                                 </div>
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Update</button>
-                                    <button type="reset" class="btn btn-danger"><a
+                                    {{-- <button type="reset" class="btn btn-danger"><a
                                             href="{{ route('list-disasterforcast') }}"
-                                            class="text-light">Cancel</a></button>
+                                            class="text-light">Cancel</a></button> --}}
                                     <span><a href="{{ route('list-disasterforcast') }}"
                                             class="btn btn-sm btn-primary ">Back</a></span>
                                 </div>
