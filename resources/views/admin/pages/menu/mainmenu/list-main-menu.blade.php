@@ -14,7 +14,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Master Management</a></li>
+                        <li class="breadcrumb-item"><a href="#">Header</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Main Menu List</li>
                     </ol>
                 </nav>
@@ -30,8 +30,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
-                                                    <th>Main Menu Name English</th>
-                                                    <th>Main Menu Name Marathi</th>
+                                                    <th>Menu Name English</th>
+                                                    <th>Menu Name Marathi</th>
                                                     {{-- <th>URL</th> --}}
                                                     <!-- <th>Status</th> -->
                                                     <th>Action</th>
