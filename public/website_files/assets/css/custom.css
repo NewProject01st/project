@@ -6387,3 +6387,39 @@ label{
 	-moz-osx-font-smoothing: grayscale;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
   }
+
+  /* css for site map */
+
+  .sit_map_set{
+	display: flex;
+	justify-content: center;
+  }
+  .center_sit_map{
+	width: 50vw;
+  }
+
+  .sit_map_link{
+	color: #000;
+	/* border-bottom: 1px solid #eae2e2 !important; */
+  }
+  .sit_map_link:hover, .sit_map_dropdown_toggle:hover{
+	color: #d94148;
+  }
+  .sit_map_bor{
+	border: 1px solid;
+  }
+  .sit_map_dropdown_toggle::after{
+	display: block;
+    position: absolute;
+    top: 0%;
+    right: -2px;
+    transform: translateY(-50%);
+
+	margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+  }

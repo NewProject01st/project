@@ -13,24 +13,18 @@
         </section>
         <!--Subheader End-->
         <!--Main Content Start-->
-        <div class="main-content p60">
+        <div class="main-content p60 sit_map_set">
             <!--Department Details Page Start-->
             <div class="department-details">
-                <div class="container">
-
-
-                  
-                  
-
-
+                <div class="container sit_map_bor">
 
                     @foreach ($menu as $key => $menu_data)
                     @foreach ($menu_data as $key => $menu_data_new)
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto center_sit_map">
                         @if ($key == '0')
                         <li class="nav-item dropdown">
-                            <a class="nav-link 
-                                            @if (sizeof($menu_data[1]) > 0) dropdown-toggle @endif" href="@if ($menu_data_new['is_static'] == true) {{ $menu_data_new['url'] }} 
+                            <a class="nav-link sit_map_link 
+                                            @if (sizeof($menu_data[1]) > 0) dropdown-toggle sit_map_dropdown_toggle @endif" href="@if ($menu_data_new['is_static'] == true) {{ $menu_data_new['url'] }} 
                                                       @else 
                                                       {{ url('/pages/' . $menu_data_new['url']) }} @endif" id=""
                                 role="button" @if (sizeof($menu_data[1])> 0) data-toggle="dropdown"

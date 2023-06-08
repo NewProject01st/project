@@ -68,7 +68,7 @@
                                     <input type="hidden" name="edit_id" id="edit_id" class="form-control"
                                         value="{{ $edit_data_id }}">
                                     <button type="submit" class="btn btn-success">Save &amp; Submit</button>
-                                    <button type="reset" class="btn btn-danger">Cancel</button>
+                                    {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
                                     <span><a href="{{ route('list-dynamic-page') }}"
                                         class="btn btn-sm btn-primary ">Back</a></span>
                                 </div>

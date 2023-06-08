@@ -285,12 +285,68 @@
                         </div>
 
                     </div>
+
                     <a href="{{route('list-vacancies')}}" class="jobs-link">Open Vacancies</a>
                     {{-- <ul class="reports">
                             <li> <a href="#"><i class="fas fa-file-alt"></i> 2023 Economy Report</a> </li>
                             <li> <a href="#"><i class="fas fa-file-alt"></i> 30 Days Plans of Govt.</a> </li>
                             <li> <a href="#"><i class="fas fa-file-alt"></i> Court Case about TAX</a> </li>
                         </ul> --}}
+
+                        <div class="emergency-info mt-2">
+                        <h5>Live Data </h5>
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <!--Panel Start-->
+                            @foreach ($data_output_emergencycontact as $index => $item)
+                                @if (session('language') == 'mar')
+                                    <div class="panel">
+                                        <div class="panel-heading" role="tab" id="heading{{ $index }}">
+                                            <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                    href="#collapse{{ $index }}" aria-expanded="true"
+                                                    aria-controls="collapse{{ $index }}"> <?php echo $item['marathi_title']; ?> </a>
+                                            </h6>
+                                        </div>
+                                        <div id="collapse{{ $index }}" class="panel-collapse collapse"
+                                            role="tabpanel" aria-labelledby="heading{{ $index }}">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li> <i class="fas fa-user-tie"></i> <?php echo $item['marathi_name']; ?> </li>
+                                                    <li> <i class="fas fa-building"></i> <?php echo $item['marathi_address']; ?> </li>
+                                                    <li> <i class="fas fa-phone"></i> <?php echo $item['marathi_number']; ?></li>
+                                                    <li> <i class="fas fa-fax"></i> <?php echo $item['marathi_landline_no']; ?> </li>
+                                                    <li> <i class="fas fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="panel">
+                                        <div class="panel-heading" role="tab" id="heading{{ $index }}">
+                                            <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                    href="#collapse{{ $index }}" aria-expanded="true"
+                                                    aria-controls="collapse{{ $index }}"> <?php echo $item['english_title']; ?> </a>
+                                            </h6>
+                                        </div>
+                                        <div id="collapse{{ $index }}" class="panel-collapse collapse"
+                                            role="tabpanel" aria-labelledby="heading{{ $index }}">
+                                            <div class="panel-body">
+                                                <ul>
+                                                    <li> <i class="fas fa-user-tie"></i> <?php echo $item['english_name']; ?> </li>
+                                                    <li> <i class="fas fa-building"></i> <?php echo $item['english_address']; ?> </li>
+                                                    <li> <i class="fas fa-phone"></i> <?php echo $item['english_number']; ?></li>
+                                                    <li> <i class="fas fa-fax"></i> <?php echo $item['english_landline_no']; ?> </li>
+                                                    <li> <i class="fas fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                            <!--Panel End-->
+                        </div>
+
+                    </div>
+                    
                 </div>
             </div>
         </div>

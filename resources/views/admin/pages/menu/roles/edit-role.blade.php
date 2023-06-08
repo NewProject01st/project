@@ -9,7 +9,7 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="#">Master</a></li>
                     <li class="breadcrumb-item active" aria-current="page"> Update Role</li>
                 </ol>
             </nav>
@@ -27,7 +27,7 @@
                                     <div class="form-group">
                                         <label for="role_name">Role Name</label>&nbsp<span class="red-text">*</span>
                                         <input class="form-control role_name" name="role_name" id="role_name"
-                                            placeholder="Enter the Role Name" value="{{ $roles->role_name }}">
+                                            placeholder="Enter the Role Name" value="@if(old('role_name')){{old('role_name')}}@else{{$roles->role_name}}@endif">
                                         @if ($errors->has('role_name'))
                                         <span
                                             class="red-text"><?php echo $errors->first('role_name', ':message'); ?></span>
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Update</button>
-                                    <button type="reset" class="btn btn-danger">Cancel</button>
+                                    {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
                                     <span><a href="{{ route('list-role') }}"
                                             class="btn btn-sm btn-primary ">Back</a></span>
                                 </div>
