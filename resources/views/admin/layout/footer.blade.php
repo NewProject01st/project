@@ -242,12 +242,6 @@ $('.delete-btn').click(function(e) {
         if (result.isConfirmed) {
             $("#delete_id").val($(this).attr("data-id"));
             $("#deleteform").submit();
-
-            // Swal.fire(
-            //     'Deleted!',
-            //     'Your file has been deleted.',
-            //     'success'
-            // )
         }
     })
 
