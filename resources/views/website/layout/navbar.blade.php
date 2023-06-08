@@ -7,7 +7,7 @@
                     <div class="col-6 d-flex align-items-center new_head_ul">
 
                         <ul class="quick-links">
-                            <li><a href="#">Site Map</a></li>
+                            <li><a href="{{ route('site-map') }}">Site Map</a></li>
                             <li><a href="{{ route('list-vacancies') }}">Vacancies</a></li>
                             <li><a href="{{ route('list-report-incident-crowdsourcing-web') }}">Report It</a></li>
                             <li><a href="{{ route('list-rti') }}">RTI</a></li>
