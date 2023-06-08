@@ -1,6 +1,8 @@
 @extends('website.layout.master')
 @section('title', 'Applicant\'s Form')
 @section('content')
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">  
 <style>
     /* ====== gallery zooom==== */
 .toZoom {
@@ -96,30 +98,64 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div id="h3testimonials p-3" class="owl-carousel owl-theme">
-                            <!--Video box start-->
-                            @foreach ($data_getallvideo as $item)
-                                @if (session('language') == 'mar')
-                                    <div class="item">
-                                        <div class="embed-responsive embed-responsive-16by9">
-                                            <iframe class="embed-responsive-item"
-                                                src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
-                                                allowfullscreen></iframe>
-                                        </div>
+                        <div class="Container video_cont">
+                            <h3 class="Head">Featured Products <span class="Arrows"></span></h3>
+                            <!-- Carousel Container -->
+                            <div class="SlickCarousel">
+                                <!-- Item -->
+                                <div class="ProductBlock">
+                                <div class="Content">
+                                    <div class="img-fill">
+                                    <img src="https://tinypic.host/images/2023/02/21/pikrepo.com-2.jpg">
                                     </div>
-                                @else
-                                    <div class="item">
-                                        <div class="embed-responsive embed-responsive-16by9">
-                                            <iframe class="embed-responsive-item"
-                                                src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
-                                                allowfullscreen></iframe>
-                                        </div>
+                                    
+                                </div>
+                                </div>
+                                <!-- Item -->
+                                <!-- Item -->
+                                <div class="ProductBlock">
+                                <div class="Content">
+                                    <div class="img-fill">
+                                    <img src="https://tinypic.host/images/2023/02/21/pikrepo.com-2.jpg">
                                     </div>
-                                @endif
-                            @endforeach
-                            <!--Video box End-->
-
+                                    
+                                </div>
+                                </div>
+                                <!-- Item -->
+                                <!-- Item -->
+                                <div class="ProductBlock">
+                                <div class="Content">
+                                    <div class="img-fill">
+                                    <img src="https://tinypic.host/images/2023/02/21/pikrepo.com-2.jpg">
+                                    </div>
+                                    
+                                </div>
+                                </div>
+                                <!-- Item -->
+                                <!-- Item -->
+                                <div class="ProductBlock">
+                                <div class="Content">
+                                    <div class="img-fill">
+                                    <img src="https://tinypic.host/images/2023/02/21/pikrepo.com-2.jpg">
+                                    </div>
+                                    
+                                </div>
+                                </div>
+                                <!-- Item -->
+                                <!-- Item -->
+                                <div class="ProductBlock">
+                                <div class="Content">
+                                    <div class="img-fill">
+                                    <img src="https://tinypic.host/images/2023/02/21/pikrepo.com-2.jpg">
+                                    </div>
+                                    
+                                </div>
+                                </div>
+                                <!-- Item -->
+                            </div>
+                            <!-- Carousel Container -->
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -180,7 +216,13 @@
         </section>
 
 
-        <script>
+            
+
+        
+    </div>
+    <!--Main Content End-->
+
+    <script>
             const modal = document.getElementsByClassName('idMyModal');
             const img = document.getElementsByClassName('toZoom');
             const modalImg = document.getElementsByClassName('modal-content');
@@ -197,86 +239,38 @@
                     modal[i].style.display = "none";
                 }
             }
-        </script>
-    </div>
-    <!--Main Content End-->
+    </script>
 
-    <!--Main Content Start-->
-    <div class="main-content">
-        <!--Department Details Page Start-->
-        <div class="department-details">
-            <div class="container">
-                <div class="row">
-                    <div class="container">
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js' type='text/javascript'></script>
+<script src='https://cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/slick.js' type='text/javascript'></script>
+<script>
+        $(document).ready(function(){
+  $(".SlickCarousel").slick({
+    rtl:false, // If RTL Make it true & .slick-slide{float:right;}
+    autoplay:true, 
+    autoplaySpeed:5000, //  Slide Delay
+    speed:800, // Transition Speed
+    slidesToShow:4, // Number Of Carousel
+    slidesToScroll:1, // Slide To Move 
+    pauseOnHover:false,
+    appendArrows:$(".Container .Head .Arrows"), // Class For Arrows Buttons
+    prevArrow:'<span class="Slick-Prev"></span>',
+    nextArrow:'<span class="Slick-Next"></span>',
+    easing:"linear",
+    responsive:[
+      {breakpoint:801,settings:{
+        slidesToShow:3,
+      }},
+      {breakpoint:641,settings:{
+        slidesToShow:3,
+      }},
+      {breakpoint:481,settings:{
+        slidesToShow:1,
+      }},
+    ],
+  })
+})
+</script>
 
-                        <!-- Category buttons -->
-                        {{-- <div class="mb-3 d-flex justify-content-center">
-                          <button class="btn btn-primary filter-button m-1" data-filter="all">All</button>
-                          @foreach ($categories as $category)
-                              <button class="btn btn-primary filter-button m-1" data-filter="{{ $category }}">{{ $category }}</button>
-                    @endforeach
-                </div> --}}
 
-                        <!-- Image grid -->
-                        {{-- <div class="row gallery">
-                            @foreach ($data_output as $item)
-                                <div class="col-md-4 nature">
-                                    @if (session('language') == 'mar')
-                                        <img src="{{ asset('storage/images/news-events/gallery/' . $item['marathi_image']) }}"
-                class="d-block w-100 img-fluid" alt="...">
-                @else
-                <img src="{{ asset('storage/images/news-events/gallery/' . $item['english_image']) }}"
-                    class="d-block w-100 img-fluid" alt="...">
-                @endif
-            </div>
-            @endforeach
-            <!-- Add more images here with appropriate categories -->
-        </div> --}}
-                        <!-- Pagination -->
-                        {{-- <div class="mt-3">
-                            <nav aria-label="Gallery Pagination">
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">Next</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div> --}}
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Department Details Page End-->
-    </div>
-    <!--Main Content End-->
-
-    <!-- Bootstrap JavaScript -->
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script> --}}
-    <!-- Custom JavaScript -->
-    {{-- <script>
-        // Filter images based on category
-        $(".filter-button").click(function() {
-            var value = $(this).attr("data-filter");
-            if (value == "all") {
-                $(".gallery .col-md-4").show("1000");
-            } else {
-                $(".gallery .col-md-4")
-                    .not("." + value)
-                    .hide("3000");
-                $(".gallery .col-md-4")
-                    .filter("." + value)
-                    .show("3000");
-            }
-            // Highlight active button
-            $(this).addClass("active").siblings().removeClass("active");
-        });
-    </script> --}}
 @endsection
