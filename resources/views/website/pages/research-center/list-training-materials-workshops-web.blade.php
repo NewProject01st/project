@@ -1,8 +1,21 @@
 @extends('website.layout.master')
-@section('title', 'Applicant\'s Form')
+
 @section('content')
-    <!--Subheader Start-->
-    <section class="wf100 subheader">
+<!--Subheader Start-->
+<section class="wf100 subheader">
+    <div class="container">
+        <h2>Resource Center</h2>
+        <ul>
+            <li> <a href="{{ route('index') }}">Home</a> </li>
+            <li> Training Materials And Workshops </li>
+        </ul>
+    </div>
+</section>
+<!--Subheader End-->
+<!--Main Content Start-->
+<div class="main-content p60">
+    <!--Department Details Page Start-->
+    <div class="department-details">
         <div class="container">
             <h2>Training Materials And Workshops </h2>
             <ul>

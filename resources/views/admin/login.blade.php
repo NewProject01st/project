@@ -82,21 +82,22 @@
                                 <div class="my-3">
                                     <button type="submit"
                                         class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">Login</button>
-                                    {{--<div class="d-flex justify-content-sm-between mt-3 fo14">
+                                    {{-- <div class="d-flex justify-content-sm-between mt-3 fo14">
                                         <a href="#" class="text-dark">Forgot Username</a>
                                         <a href="#" class="text-dark">Forgot Password</a>
-                                    </div>--}}
+                                    </div> --}}
                                     <div class="border-line"></div>
                                 </div>
-                                {{--<div class="text-center mt-3 font-weight-light">
+                                {{-- <div class="text-center mt-3 font-weight-light">
                                     <a href="user-register.php" class="color-org"> Don't have an account? Sign Up !</a>
-                                </div>--}}
+                                </div> --}}
                             </form>
                             <!--  Login Form -->
                         </div>
                     </div>
                     <!--  Copyright text -->
                     <div class="col-lg-6 login-half-bg d-flex flex-row">
+                        <!--  <img src="{{ asset('website_files\images\home\slide3.jpeg') }}" alt="logo"> -->
                         <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright © 2021.
                             All rights reserved with Admin.</p>
                     </div>

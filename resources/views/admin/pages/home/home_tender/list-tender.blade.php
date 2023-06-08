@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title', 'Applicant\'s Form')
+
 @section('content')
 <?php  $data_permission = getPermissionForCRUDPresentOrNot('list-home-tender',session('permissions')); 
                                             ?>
