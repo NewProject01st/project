@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title', 'Applicant\'s Form')
+
 @section('content')
     <?php $data_permission = getPermissionForCRUDPresentOrNot('list-header-vacancies', session('permissions'));
     ?>
@@ -56,8 +56,6 @@
                                                                     height="35px"></a></td>
                                                         <td>
                                                             <div class="d-flex">
-
-
                                                                 @if (in_array('per_update', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
                                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i

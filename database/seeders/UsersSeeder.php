@@ -23,6 +23,9 @@ class UsersSeeder extends Seeder
                 'f_name' => 'fname',
                 'm_name' => 'mname',
                 'l_name' => 'lname',
+                'number' => 'number',
+                'designation' => 'designation',
+                'address' => 'address',
                 'ip_address' => '192.168.1.32',
             ]);
             
@@ -35,6 +38,9 @@ class UsersSeeder extends Seeder
             'f_name' => 'fname',
             'm_name' => 'mname',
             'l_name' => 'lname',
+            'number' => 'number',
+            'designation' => 'designation',
+            'address' => 'address',
             'ip_address' => '192.168.1.32',
         ]);
 

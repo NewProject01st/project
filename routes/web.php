@@ -101,7 +101,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@store']);
     Route::post('/show-main-menu', ['as' => 'show-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@show']);
     Route::post('/delete-main-menu', ['as' => 'delete-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@destroy']);
-    Route::post('/edit-main-menu', ['as' => 'edit-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@edit']);
+    Route::get('/edit-main-menu', ['as' => 'edit-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@edit']);
     Route::post('/update-main-menu', ['as' => 'update-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@update']);
 
     Route::get('/list-sub-menu', ['as' => 'list-sub-menu', 'uses' => 'App\Http\Controllers\Menu\SubMenuController@index']);
@@ -187,13 +187,13 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/edit-statedisastermanagementauthority', ['as' => 'edit-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@edit']);
     Route::post('/update-statedisastermanagementauthority', ['as' => 'update-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@update']);
     
-    Route::get('/list-main-menu', ['as' => 'list-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@index']);
-    Route::get('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@add']);
-    Route::post('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@store']);
-    Route::post('/show-main-menu', ['as' => 'show-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@show']);
-    Route::post('/delete-main-menu', ['as' => 'delete-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@destroy']);
-    Route::post('/edit-main-menu', ['as' => 'edit-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@edit']);
-    Route::post('/update-main-menu', ['as' => 'update-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@update']);
+    // Route::get('/list-main-menu', ['as' => 'list-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@index']);
+    // Route::get('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@add']);
+    // Route::post('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@store']);
+    // Route::post('/show-main-menu', ['as' => 'show-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@show']);
+    // Route::post('/delete-main-menu', ['as' => 'delete-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@destroy']);
+    // Route::post('/edit-main-menu', ['as' => 'edit-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@edit']);
+    // Route::post('/update-main-menu', ['as' => 'update-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@update']);
 
     Route::get('/list-metadata', ['as' => 'list-metadata', 'uses' => 'App\Http\Controllers\MetadataController@index']);
     Route::get('/add-metadata', ['as' => 'add-metadata', 'uses' => 'App\Http\Controllers\MetadataController@add']);
@@ -459,6 +459,15 @@ Route::post('/edit-document-publications', ['as' => 'edit-document-publications'
 Route::post('/update-document-publications', ['as' => 'update-document-publications', 'uses' => 'App\Http\Controllers\ResearchCenter\DocumentPublicationsController@update']);
 Route::post('/show-document-publications', ['as' => 'show-document-publications', 'uses' => 'App\Http\Controllers\ResearchCenter\DocumentPublicationsController@show']);
 Route::post('/delete-document-publications', ['as' => 'delete-document-publications', 'uses' => 'App\Http\Controllers\ResearchCenter\DocumentPublicationsController@destroy']);
+
+Route::get('/list-training-workshop', ['as' => 'list-training-workshop', 'uses' => 'App\Http\Controllers\ResearchCenter\TrainingWorkshopController@index']);
+Route::get('/add-training-workshop', ['as' => 'add-training-workshop', 'uses' => 'App\Http\Controllers\ResearchCenter\TrainingWorkshopController@add']);
+Route::post('/add-training-workshop', ['as' => 'add-training-workshop', 'uses' => 'App\Http\Controllers\ResearchCenter\TrainingWorkshopController@store']);
+Route::post('/edit-training-workshop', ['as' => 'edit-training-workshop', 'uses' => 'App\Http\Controllers\ResearchCenter\TrainingWorkshopController@edit']);
+Route::post('/update-training-workshop', ['as' => 'update-training-workshop', 'uses' => 'App\Http\Controllers\ResearchCenter\TrainingWorkshopController@update']);
+Route::post('/show-training-workshop', ['as' => 'show-training-workshop', 'uses' => 'App\Http\Controllers\ResearchCenter\TrainingWorkshopController@show']);
+Route::post('/delete-training-workshop', ['as' => 'delete-training-workshop', 'uses' => 'App\Http\Controllers\ResearchCenter\TrainingWorkshopController@destroy']);
+
 
 //======News And Events=======
 Route::get('/list-success-stories', ['as' => 'list-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@index']);

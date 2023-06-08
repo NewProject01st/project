@@ -18,9 +18,6 @@ class MetadataController extends Controller
     {
         try {
             $metadata = $this->service->getAll();
-            // echo $metadata;
-            // die();
-            //  dd($metadata);
             return view('admin.pages.metadata.list-metadata', compact('metadata'));
         
         } catch (\Exception $e) {
@@ -38,47 +35,45 @@ class MetadataController extends Controller
             'english_name' => 'required',
             'keywords' => 'required',
          ];
-    $messages = [   
-        'english_name'=>'required',
-        'keywords'=>'required',
-      
-    ];
+        $messages = [   
+            'english_name'=>'required',
+            'keywords'=>'required',
+        
+        ];
 
-    try {
-        $validation = Validator::make($request->all(),$rules,$messages);
-        if($validation->fails() )
-        {
-            return redirect('add-metadata')
-                ->withInput()
-                ->withErrors($validation);
-        }
-        else
-        {
-            $add_metadata = $this->service->addAll($request);
-            // print_r($add_metadata);
-            // die();
-            if($add_metadata)
+        try {
+            $validation = Validator::make($request->all(),$rules,$messages);
+            if($validation->fails() )
             {
-
-                $msg = $add_metadata['msg'];
-                $status = $add_metadata['status'];
-                if($status=='success') {
-                    return redirect('list-metadata')->with(compact('msg','status'));
-                }
-                else {
-                    return redirect('add-metadata')->withInput()->with(compact('msg','status'));
-                }
+                return redirect('add-metadata')
+                    ->withInput()
+                    ->withErrors($validation);
             }
+            else
+            {
+                $add_metadata = $this->service->addAll($request);
+            
+                if($add_metadata)
+                {
 
+                    $msg = $add_metadata['msg'];
+                    $status = $add_metadata['status'];
+                    if($status=='success') {
+                        return redirect('list-metadata')->with(compact('msg','status'));
+                    }
+                    else {
+                        return redirect('add-metadata')->withInput()->with(compact('msg','status'));
+                    }
+                }
+
+            }
+        } catch (Exception $e) {
+            return redirect('add-metadata')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
-    } catch (Exception $e) {
-        return redirect('add-metadata')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
-}
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $metadata = $this->service->getById($request->show_id);
             return view('admin.pages.metadata.show-metadata', compact('metadata'));
         } catch (\Exception $e) {
@@ -99,10 +94,10 @@ class MetadataController extends Controller
             'keywords' => 'required',     
             
         ];
-    $messages = [   
-        'english_name'=>'required',
-        'keywords'=>'required',
-    ];
+        $messages = [   
+            'english_name'=>'required',
+            'keywords'=>'required',
+        ];
 
         try {
             $validation = Validator::make($request->all(),$rules, $messages);
@@ -133,7 +128,6 @@ class MetadataController extends Controller
     public function destroy(Request $request)
     {
         try {
-            //   dd($request);
             $metadata = $this->service->deleteById($request->delete_id);
             return redirect('list-metadata')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

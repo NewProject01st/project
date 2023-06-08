@@ -21,16 +21,7 @@
                                 action="{{ route('add-users') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="u_email">Email ID</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="u_email" id="u_email"
-                                                placeholder="" value="{{ old('u_email') }}">
-                                            @if ($errors->has('u_email'))
-                                                <span class="red-text"><?php echo $errors->first('u_email', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="u_uname">User Name</label>&nbsp<span class="red-text">*</span>
@@ -43,8 +34,18 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            <label for="u_email">Email ID</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" class="form-control" name="u_email" id="u_email"
+                                                placeholder="" value="{{ old('u_email') }}">
+                                            @if ($errors->has('u_email'))
+                                                <span class="red-text"><?php echo $errors->first('u_email', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
                                             <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="u_password" id="u_password"
+                                            <input type="password" class="form-control" name="u_password" id="u_password"
                                                 placeholder="" value="{{ old('u_password') }}">
                                             @if ($errors->has('u_password'))
                                                 <span class="red-text"><?php echo $errors->first('u_password', ':message'); ?></span>
@@ -102,6 +103,38 @@
                                                 placeholder="" value="{{ old('l_name') }}">
                                             @if ($errors->has('l_name'))
                                                 <span class="red-text"><?php echo $errors->first('l_name', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="number">Mobile Number</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input type="text" class="form-control" name="number" id="number"
+                                                placeholder="" value="{{ old('number') }}">
+                                            @if ($errors->has('number'))
+                                                <span class="red-text"><?php echo $errors->first('number', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="designation">Designation</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input type="text" class="form-control" name="designation"
+                                                id="designation" placeholder="" value="{{ old('designation') }}">
+                                            @if ($errors->has('number'))
+                                                <span class="red-text"><?php echo $errors->first('designation', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="address">Address</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" class="form-control" name="address" id="address"
+                                                placeholder="" value="{{ old('address') }}">
+                                            @if ($errors->has('address'))
+                                                <span class="red-text"><?php echo $errors->first('address', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>

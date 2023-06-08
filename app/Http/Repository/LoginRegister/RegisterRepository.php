@@ -24,6 +24,9 @@ class RegisterRepository  {
 								'users.f_name',
 								'users.m_name',
 								'users.l_name',
+								'users.number',
+								'users.designation',
+								'users.address',
 								'users.id',
 								'users.is_active'
 							)->get();
@@ -52,6 +55,9 @@ class RegisterRepository  {
 		$user_data->f_name = $request['f_name'];
 		$user_data->m_name = $request['m_name'];
 		$user_data->l_name = $request['l_name'];
+		$user_data->number = $request['number'];
+		$user_data->designation = $request['designation'];
+		$user_data->address = $request['address'];
 		$user_data->ip_address = $ipAddress;
 		$user_data->is_active = isset($request['is_active']) ? true :false;
 		$user_data->save();
@@ -71,6 +77,9 @@ class RegisterRepository  {
 							'f_name' => $request['f_name'],
 							'm_name' => $request['m_name'],
 							'l_name' => $request['l_name'],
+							'number' => $request['number'],
+							'designation' => $request['designation'],
+							'address' => $request['address'],
 							'is_active' => isset($request['is_active']) ? true :false,
 						]);
 		
@@ -197,6 +206,9 @@ class RegisterRepository  {
 							'users.f_name',
 							'users.m_name',
 							'users.l_name',
+							'users.number',
+							'users.designation',
+							'users.address',
 							'users.id',
 							'users.is_active',
 						)->get()
@@ -234,5 +246,3 @@ class RegisterRepository  {
 
 
 }
-
-

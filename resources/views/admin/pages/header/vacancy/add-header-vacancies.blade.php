@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title', 'Applicant\'s Form')
+
 @section('content')
     <div class="main-panel">
         <div class="content-wrapper">
@@ -26,7 +26,7 @@
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title"></textarea>
+                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">{{ old('english_title') }}</textarea>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -36,7 +36,7 @@
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title"></textarea>
+                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">{{ old('marathi_title') }}</textarea>
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -48,7 +48,7 @@
                                         <div class="form-group">
                                             <label for="url">URL</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="url" id="url" class="form-control"
-                                                id="url" placeholder="">
+                                                id="url" placeholder="" value="{{ old('url') }}">
                                             @if ($errors->has('url'))
                                                 <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                             @endif

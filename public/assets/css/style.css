@@ -10223,7 +10223,7 @@ span{
   color: #495057;
   background-color: #ffffff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid #ced4da !important;
   border-radius: 2px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -18352,6 +18352,7 @@ input:focus {
   overflow: hidden;
   flex-wrap: nowrap;
   flex-direction: column;
+  /* overflow-y: scroll; */
 }
 
 .sidebar .nav .nav-item {
@@ -29006,7 +29007,7 @@ div.tagsinput span.tag a {
 /* === Landing screens === */
 /* Auth */
 .auth .login-half-bg {
-  background: url("../images/auth/login-bg-2.jpg");
+  background: url("../../website_files/images/home/slide3.jpeg");
   background-size: cover;
   background-position: center;
 }

@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title', 'Applicant\'s Form')
+
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">

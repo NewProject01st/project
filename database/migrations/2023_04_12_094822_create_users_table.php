@@ -22,6 +22,9 @@ class CreateUsersTable extends Migration
             $table->string('f_name');
             $table->string('m_name');
             $table->string('l_name');
+            $table->string('number');
+            $table->string('designation');
+            $table->string('address');
             $table->string('ip_address');
             $table->rememberToken();
             $table->boolean('is_active')->default(true);
