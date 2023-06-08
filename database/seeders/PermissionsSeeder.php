@@ -395,7 +395,14 @@ class PermissionsSeeder extends Seeder
                     'url' => 'list-metadata',
                     'permission_name' => 'Metadata',
                 ]);
-
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'User',
+                    'url' => 'list-users',
+                    'permission_name' => 'User',
+                ]);
                                     
 
         

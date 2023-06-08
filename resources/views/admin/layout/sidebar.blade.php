@@ -510,7 +510,7 @@
                   <li class="nav-item">
                       <a class="nav-link" data-toggle="collapse" href="#master-management" aria-expanded="false"
                           aria-controls="master-management">
-                          <i class="fa fa-th-large menu-icon"></i>
+                          <i class="fas fa-user menu-icon"></i>
                           <span class="menu-title">Master Management</span>
                           <i class="menu-arrow"></i>
                       </a>
