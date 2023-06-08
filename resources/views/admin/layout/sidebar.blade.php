@@ -1,12 +1,5 @@
       <!-- left sidebar -->
-      <?php
-      
-      $data_for_url = getRouteDetailsPresentOrNot(session('permissions'));
-      //    print_r(session('permissions'));
-      //    echo "<br>";
-      //    print_r($data_for_url);
-      //     die()
-      ?>
+      <?php $data_for_url = session('data_for_url'); ?>
       <nav class="sidebar sidebar-offcanvas fixed-nav" id="sidebar">
           <ul class="nav">
               <li class="nav-item nav-profile">
@@ -25,7 +18,7 @@
                   </div>
               </li>
               <li class="nav-item active">
-                  <a class="nav-link" href="index.html">
+                  <a class="nav-link" href="{{ route('/dashboard') }}">
                       <i class="fa fa-home menu-icon"></i>
                       <span class="menu-title">Dashboard</span>
                   </a>

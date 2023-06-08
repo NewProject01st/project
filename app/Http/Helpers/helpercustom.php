@@ -29,6 +29,7 @@ function getRouteDetailsPresentOrNot($data_for_session) {
     foreach ($data_for_session as $value_new) {
         array_push($data,$value_new['url']);
     }
+    Session::put('data_for_url', $data);
     return $data;
 }
 
