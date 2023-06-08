@@ -4,7 +4,7 @@
 <!--Subheader Start-->
 <section class="wf100 subheader">
     <div class="container">
-        <h2>Training Materials And Workshops </h2>
+        <h2>Resource Center</h2>
         <ul>
             <li> <a href="{{ route('index') }}">Home</a> </li>
             <li> Training Materials And Workshops </li>

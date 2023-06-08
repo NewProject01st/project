@@ -36,7 +36,7 @@
                                 {{-- <span class="loc">Maharashtra, India</span> --}}
                                 </li>
                             @empty
-                                <h4>No Disaster Management Portal</h4>
+                                <h4>No Data Found For Disaster Management Portal</h4>
                             @endforelse
 
 

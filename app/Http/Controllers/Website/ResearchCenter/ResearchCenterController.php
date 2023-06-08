@@ -62,24 +62,7 @@ class ResearchCenterController extends Controller
         }
         return view('website.pages.research-center.list-maps-gis-data-web',compact('language','menu','socialicon'));
     }  
-    public function getAllMultimedia()
-    {
-        try {
 
-            $menu = $this->menu;
-            $socialicon = $this->socialicon;
-            $data_getallvideo = $this->service->getAllVideo();
-            $data_output = $this->service->getAllGallery();
-            if (Session::get('language') == 'mar') {
-                $language = Session::get('language');
-            } else {
-                $language = 'en';
-            }
-        } catch (\Exception $e) {
-            return $e;
-        }
-        return view('website.pages.research-center.list-multimedia-web',compact('language','menu','socialicon', 'data_getallvideo', 'data_output'));
-    }  
 
     public function getAllTraningMaterial()
     {
@@ -103,9 +86,55 @@ class ResearchCenterController extends Controller
     // public function getAllMultimedia()
     // {
     //     try {
+
+    //         $menu = $this->menu;
+    //         $socialicon = $this->socialicon;
+    //         $data_getallvideo = $this->service->getAllVideo();
+    //         $data_output = $this->service->getAllGallery();
+    //         // dd($data_output);
+    //         if (Session::get('language') == 'mar') {
+    //             $language = Session::get('language');
+    //         } else {
+    //             $language = 'en';
+    //         }
+    //     } catch (\Exception $e) {
+    //         return $e;
+    //     }
+    //     return view('website.pages.research-center.list-multimedia-web',compact('language','menu','socialicon', 'data_getallvideo', 'data_output'));
+    // }  
+
+
+    public function getAllMultimedia()
+    {
+        try {
+
+            $menu = $this->menu;
+            $socialicon = $this->socialicon;
+            $data_getallvideo = $this->service->getAllVideo();
+            $galleryData = $this->service->getAllGallery();
+            $data_output = $galleryData['data_output'];
+            $categories = $galleryData['categories'];
+            // dd($data_output);
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+
+        } catch (\Exception $e) {
+            return $e;
+        }
+        return view('website.pages.research-center.list-multimedia-web',compact('language', 'menu', 'socialicon', 'data_output','data_getallvideo', 'categories'));
+    }
+
+    // public function getAllMultimedia()
+    // {
+    //     try {
     //         $menu = $this->menu;
     //         $socialicon = $this->socialicon;
     //         $galleryData = $this->service->getAllGallery();
+    //         $data_output_new =  $galleryData['data_output'];
+    //         $categories = $galleryData['data_output_array'];
     //         // dd($galleryData);
     //         if ($galleryData instanceof \Exception) {
     //             throw $galleryData; // Rethrow the exception
