@@ -1,5 +1,8 @@
 php artisan make:model AllPages --migration
 php artisan make:seeder EmployeeSeeder
-php artisan db:seed
 composer dump-autoload
 php artisan storage:link    
+
+
+php artisan migrate
+php artisan db:seed
