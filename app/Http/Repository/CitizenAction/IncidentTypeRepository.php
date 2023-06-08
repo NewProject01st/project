@@ -25,7 +25,7 @@ class IncidentTypeRepository{
             $incidenttype_data = new IncidentType();
             $incidenttype_data->english_title = $request['english_title'];
             $incidenttype_data->marathi_title = $request['marathi_title'];
-           
+        //    dd($incidenttype_data);
             $incidenttype_data->save();       
                 
             return $incidenttype_data;

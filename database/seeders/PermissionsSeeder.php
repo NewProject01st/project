@@ -14,6 +14,46 @@ class PermissionsSeeder extends Seeder
      */
     public function run()
     {
+        Permissions::create(
+            [
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now(),
+                'route_name' => 'Role',
+                'url' => 'list-role',
+                'permission_name' => 'Role',
+            ]);
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'Incident Type',
+                    'url' => 'list-incident-type',
+                    'permission_name' => 'Incident Type',
+                ]);
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'Vacancies',
+                    'url' => 'list-header-vacancies',
+                    'permission_name' => 'Vacancies',
+                ]);
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'RTI',
+                    'url' => 'list-header-rti',
+                    'permission_name' => 'RTI',
+                ]);
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'Social Icon',
+                    'url' => 'list-social-icon',
+                    'permission_name' => 'Social Icon',
+                ]);
             Permissions::create(
                 [
                     'created_at' => \Carbon\Carbon::now(),
@@ -78,14 +118,7 @@ class PermissionsSeeder extends Seeder
                     'url' => 'list-department-information',
                     'permission_name' => 'Department',
                 ]);
-            Permissions::create(
-                [
-                    'created_at' => \Carbon\Carbon::now(),
-                    'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Role',
-                    'url' => 'list-role',
-                    'permission_name' => 'Role',
-                ]);
+          
             Permissions::create(
                 [
                     'created_at' => \Carbon\Carbon::now(),
@@ -219,14 +252,6 @@ class PermissionsSeeder extends Seeder
                     'route_name' => 'Search Rescue Teams',
                     'url' => 'list-search-rescue-teams',
                     'permission_name' => 'Search Rescue Teams',
-                ]);
-            Permissions::create(
-                [
-                    'created_at' => \Carbon\Carbon::now(),
-                    'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Incident Type',
-                    'url' => 'list-incident-type',
-                    'permission_name' => 'Incident Type',
                 ]);
             Permissions::create(
                 [
