@@ -35,10 +35,10 @@ class ResearchCenterServices
             return $e;
         }
     } 
-    public function getAllGallery()
+    public function getAllGallery($request)
     {
         try {
-            return $this->repo->getAllGallery();
+            return $this->repo->getAllGallery($request);
         } catch (\Exception $e) {
             return $e;
         }

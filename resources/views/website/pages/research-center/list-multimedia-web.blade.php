@@ -1,15 +1,14 @@
 @extends('website.layout.master')
 
 @section('content')
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">  
-<style>
-/* ====== gallery zooom==== */
-.toZoom {
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* ====== gallery zooom==== */
+        .toZoom {
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
         .toZoom:hover {
             opacity: 0.7;
@@ -92,10 +91,10 @@
     <!--Subheader Start-->
     <section class="wf100 subheader">
         <div class="container">
-            <h2>Research Center </h2>
+            <h2>Resource Center </h2>
             <ul>
                 <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li> Maps and GIS data </li>
+                <li>Videos And Multimedia</li>
             </ul>
         </div>
     </section>
@@ -139,35 +138,73 @@
         </div>
     </section> --}}
         <!--Video End-->
-        {{-- <section class="">
-        <div class="container photo_g">
-            <div class="row">
-                <h3 class="stitle text-center d-flex justify-content-start pt-4">Gallery</h3>
-                <div class="col-12">
-                    <input type="radio" name="filter" id="all" checked><label for="all">All</label>
-                    <input type="radio" name="filter" id="animals"><label for="animals">Disaster</label>
-                    <input type="radio" name="filter" id="nature"><label
-                        for="nature">Preparedness</label>
-                    <input type="radio" name="filter" id="people"><label for="people">Emergency</label>
-                    <input type="radio" name="filter" id="tech"><label for="tech">Citizen</label>
-                    <div class="gallery">
-                        <figure class="card animals">
-                            <img class="card__image toZoom" loading="lazy"
-                                src="{{ asset('storage/images/slides/slide1_english.jpeg/') }}" alt="">
-                            <!-- The Modal -->
-                            <div class="idMyModal modal">
-                                <span class="close">&times;</span>
-                                <img class="modal-content">
+        <section class="">
+            <div class="container photo_g">
+                <div class="row">
+                    <h3 class="stitle text-center d-flex justify-content-start pt-4">Gallery</h3>
+                    <div class="col-12">
+                        <input type="radio" name="filter" id="all" checked><label for="all">All</label>
+
+                        @forelse($categories as $categories_data)
+                            @if (session('language') == 'mar')
+                                <input type="radio" name="filter" class="category_id"
+                                    id="category_{{ $categories_data['id'] }}"><label
+                                    for="animals">{{ $categories_data['marathi_name'] }}</label>
+                            @else
+                                <input type="radio" name="filter" class="category_id"
+                                    id="category_{{ $categories_data['id'] }}"><label
+                                    for="animals">{{ $categories_data['english_name'] }}</label>
+                            @endif
+                        @empty
+                            No Categries found
+                        @endforelse
+                        @forelse ($gallery_data as $item)
+                            <div class="gallery">
+                                <figure class="card animals">
+
+                                    @if (session('language') == 'mar')
+                                        <img class="card__image toZoom" loading="lazy"
+                                            src="{{ asset('storage/images/news-events/gallery/' . $item['marathi_image']) }}">
+                                        alt="">
+                                        <!-- The Modal -->
+                                        <div class="idMyModal modal">
+                                            <span class="close">&times;</span>
+                                            <img class="modal-content">
+                                        </div>
+                                    @else
+                                        <img class="card__image toZoom" loading="lazy"
+                                            src="{{ asset('storage/images/news-events/gallery/' . $item['english_image']) }} alt="">
+                                        <!-- The Modal -->
+                                        <div class="idMyModal modal">
+                                            <span class="close">&times;</span>
+                                            <img class="modal-content">
+                                        </div>
+                                    @endif
+
+                                </figure>
                             </div>
-                        </figure>
+
+@empty
+                            No Categries found
+                        @endforelse
+                            @foreach ($gallery_data as $item)
+                                <div class="col-md-4 nature">
+                                    @if (session('language') == 'mar')
+                                        <img src="{{ asset('storage/images/news-events/gallery/' . $item['marathi_image']) }}"
+                                            class="d-block w-100 img-fluid" alt="...">
+                                    @else
+                                        <img src="{{ asset('storage/images/news-events/gallery/' . $item['english_image']) }}"
+                                            class="d-block w-100 img-fluid" alt="...">
+                                    @endif
+                                </div>
+                            @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-    </section> --}}
+        </section>
 
 
-        <!-- Category buttons -->
+        {{--  <!-- Category buttons -->
         <div class="mb-3 d-flex justify-content-center">
             <button class="btn btn-primary filter-button m-1" data-filter="all">All</button>
             @foreach ($categories as $category)
@@ -177,10 +214,8 @@
         </div>
         <!-- Image grid -->
         <div class="row gallery">
-            {{-- <?php //print_r($data_output);
-            //die();
-            ?> --}}
-            @foreach ($data_output as $item)
+    
+            @foreach ($gallery_data as $item)
                 <div class="col-md-4 nature">
                     @if (session('language') == 'mar')
                         <img src="{{ asset('storage/images/news-events/gallery/' . $item['marathi_image']) }}"
@@ -191,8 +226,8 @@
                     @endif
                 </div>
             @endforeach
-            <!-- Add more images here with appropriate categories -->
-        </div>
+         
+        </div> --}}
         <!--Main Content End-->
         <script>
             const modal = document.getElementsByClassName('idMyModal');
@@ -214,5 +249,4 @@
         </script>
 
         <script></script>
-
     @endsection

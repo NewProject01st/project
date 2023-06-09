@@ -104,17 +104,15 @@ class ResearchCenterController extends Controller
     // }  
 
 
-    public function getAllMultimedia()
+    public function getAllMultimedia(Request $request)
     {
         try {
-
             $menu = $this->menu;
             $socialicon = $this->socialicon;
             $data_getallvideo = $this->service->getAllVideo();
-            $galleryData = $this->service->getAllGallery();
-            $data_output = $galleryData['data_output'];
+            $galleryData = $this->service->getAllGallery($request);
+            $gallery_data = $galleryData['gallery_data'];
             $categories = $galleryData['categories'];
-            // dd($data_output);
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -124,7 +122,7 @@ class ResearchCenterController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.research-center.list-multimedia-web',compact('language', 'menu', 'socialicon', 'data_output','data_getallvideo', 'categories'));
+        return view('website.pages.research-center.list-multimedia-web',compact('language', 'menu', 'socialicon', 'gallery_data','data_getallvideo', 'categories'));
     }
 
     // public function getAllMultimedia()

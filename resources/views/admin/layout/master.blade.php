@@ -55,6 +55,8 @@
 
 
 <body class="sidebar-icon-only">
+<?php $data_for_url = getRouteDetailsPresentOrNot(session('permissions'));
+?>
     <div class="container-scroller">
         <!-- top navigation -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
