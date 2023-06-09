@@ -200,6 +200,15 @@ $(document).ready(function() {
     });
 });
  </script>
+
+  <script>
+        $('#zoomtextbody').click(function() {
+            $("body").attr("style","font-size:16px !important;");
+        });
+        $('#zoomouttextbody').click(function() {
+            $("body").attr("style","font-size:12px !important;");
+        });
+    </script>
  </body>
 
  </html>

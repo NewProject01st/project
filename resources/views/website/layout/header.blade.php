@@ -38,6 +38,7 @@
             transition: transform 0.2s ease-in-out;
         }
     </style>
+   
     <!-- end webpage A+ A- button script -->
 
 
@@ -180,10 +181,10 @@ echo 'FInal key ' . date('Y-m-d') . 'T' . date('H') . ':00';
                                 <li>
                                     <strong>
                                         @if (session('language') == 'mar')
-                                        {{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
-                                        @else
-                                        {{ Config::get('english.HOME_PAGE.SELECT_LANGUAGE') }}
-                                        @endif
+{{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
+@else
+{{ Config::get('english.HOME_PAGE.SELECT_LANGUAGE') }}
+@endif
                                     </strong>
                                 </li>
                                 <li>

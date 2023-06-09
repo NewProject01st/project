@@ -19,8 +19,8 @@
                         <ul class="quick-links">
                             <li><a href="#">Toll Free: 000 0000 000</a></li>
                         </ul>
-                        <button class="webpage_zoom_btn" id="zoomOut">A-</button>
-                        <button class="webpage_zoom_btn" id="zoomIn">A+</button>
+                        <button class="webpage_zoom_btn" id="zoomouttextbody">A-</button>
+                        <button class="webpage_zoom_btn" id="zoomtextbody">A+</button>
 
                     </div>
                     <div class="col-2 set_volunteer">
