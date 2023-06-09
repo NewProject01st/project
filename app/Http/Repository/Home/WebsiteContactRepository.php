@@ -6,14 +6,14 @@ use DB;
 use Illuminate\Support\Carbon;
 // use Session;
 use App\Models\ {
-	GeneralContact
+	WebsiteContact
 };
 
-class GeneralContactRepository  {
+class WebsiteContactRepository  {
 	public function getAll()
     {
         try {
-            return GeneralContact::all();
+            return WebsiteContact::all();
         } catch (\Exception $e) {
             return $e;
         }
@@ -22,19 +22,14 @@ class GeneralContactRepository  {
 	public function addAll($request)
 {
     try {
-        $englishImageName = time() . '_english.' . $request->english_icon->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_icon->extension();
+       
         
-        $request->english_icon->storeAs('public/images/general_contact', $englishImageName);
-        $request->marathi_icon->storeAs('public/images/general_contact', $marathiImageName);
-        
-        $contact_data = new GeneralContact();  
-        $contact_data->english_name = $request['english_name'];
-        $contact_data->marathi_name = $request['marathi_name'];
+        $contact_data = new WebsiteContact();  
+        $contact_data->english_address = $request['english_address'];
+        $contact_data->marathi_address = $request['marathi_address'];
+        $contact_data->email = $request['email'];
         $contact_data->english_number = $request['english_number'];
-        $contact_data->marathi_number = $request['marathi_number'];
-        $contact_data->english_icon =   $englishImageName;
-        $contact_data->marathi_icon =   $marathiImageName;
+        $contact_data->marathi_number =  $request['marathi_number'];
         $contact_data->save();       
               
 		return $contact_data;
@@ -50,7 +45,7 @@ class GeneralContactRepository  {
 public function getById($id)
 {
     try {
-        $contact = GeneralContact::find($id);
+        $contact = WebsiteContact::find($id);
         if ($contact) {
             return $contact;
         } else {
@@ -67,7 +62,7 @@ public function getById($id)
 public function updateAll($request)
 {
     try {
-        $contact_data = GeneralContact::find($request->id);
+        $contact_data = WebsiteContact::find($request->id);
         
         if (!$contact_data) {
             return [
@@ -75,24 +70,12 @@ public function updateAll($request)
                 'status' => 'error'
             ];
         }
-         // Delete existing files
-         Storage::delete([
-            'public/images/general_contact/' . $contact_data->english_icon,
-            'public/images/general_contact/' . $contact_data->marathi_icon
-        ]);
-        
-        $englishImageName = time() . '_english.' . $request->english_icon->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_icon->extension();
-        
-        $request->english_icon->storeAs('public/images/general_contact', $englishImageName);
-        $request->marathi_icon->storeAs('public/images/general_contact', $marathiImageName);
-                
-        $contact_data->english_name = $request['english_name'];
-        $contact_data->marathi_name = $request['marathi_name'];
+       
+        $contact_data->english_address = $request['english_address'];
+        $contact_data->marathi_address = $request['marathi_address'];
+        $contact_data->email = $request['email'];
         $contact_data->english_number = $request['english_number'];
-        $contact_data->marathi_number = $request['marathi_number'];
-        $contact_data->english_icon =   $englishImageName;
-        $contact_data->marathi_icon =   $marathiImageName;
+        $contact_data->marathi_number =  $request['marathi_number'];
         $contact_data->save();        
      
         return [
@@ -111,7 +94,7 @@ public function updateAll($request)
 public function updateOne($request)
 {
     try {
-        $contact = GeneralContact::find($request); // Assuming $request directly contains the ID        
+        $contact = WebsiteContact::find($request); // Assuming $request directly contains the ID        
         if ($contact) {
             $is_active = $contact->is_active === 1 ? 0 : 1;
             $contact->is_active = $is_active;
@@ -140,14 +123,10 @@ public function updateOne($request)
 public function deleteById($id)
 {
     try {
-        $contact = GeneralContact::find($id);
+        $contact = WebsiteContact::find($id);
         if ($contact) {
               // Delete the images from the storage folder
-              Storage::delete([
-                'public/images/general_contact/'.$contact->english_icon,
-                'public/images/general_contact/'.$contact->marathi_icon,
-            ]);
-
+            
             // Delete the record from the database
             $contact->delete();
             

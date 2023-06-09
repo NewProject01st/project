@@ -15,16 +15,12 @@ class CreateWebsiteContactsTable extends Migration
     {
         Schema::create('website_contacts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('address_english_title');
-            $table->string('address_marathi_title');
+            
             $table->string('english_address');
             $table->string('marathi_address');
-            $table->string('email_title');
             $table->string('email');
-            $table->string('contact_english_title');
-            $table->string('contact_marathi_title');
-            $table->string('english_contact');
-            $table->string('marathi_contact');
+            $table->string('english_number');
+            $table->string('marathi_number');
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

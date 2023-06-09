@@ -18,31 +18,31 @@
             <div class="col-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <form class="forms-sample" action="{{ url('add-general-contact') }}" method="POST"
+                        <form class="forms-sample" action="{{ url('add-website-contact') }}" method="POST"
                             enctype="multipart/form-data" id="regForm">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_name">English Name</label>&nbsp<span
+                                        <label for="english_address">English Address</label>&nbsp<span
                                             class="red-text">*</span>
-                                        <textarea class="form-control english_title" name="english_name"
-                                            id="english_name" placeholder="Enter the Name"></textarea>
-                                        @if ($errors->has('english_name'))
+                                        <textarea class="form-control english_title" name="english_address"
+                                            id="english_address" placeholder="Enter the english address"></textarea>
+                                        @if ($errors->has('english_address'))
                                         <span
-                                            class="red-text"><?php echo $errors->first('english_name', ':message'); ?></span>
+                                            class="red-text"><?php echo $errors->first('english_address', ':message'); ?></span>
                                         @endif
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="marathi_name">Marathi Name</label>&nbsp<span
+                                        <label for="marathi_address">Marathi Address</label>&nbsp<span
                                             class="red-text">*</span>
-                                        <textarea class="form-control marathi_title" name="marathi_name"
-                                            id="marathi_name" placeholder="Enter the Name"></textarea>
-                                        @if ($errors->has('marathi_name'))
+                                        <textarea class="form-control marathi_title" name="marathi_address"
+                                            id="marathi_address" placeholder="Enter the marathi address"></textarea>
+                                        @if ($errors->has('marathi_address'))
                                         <span
-                                            class="red-text"><?php echo $errors->first('marathi_name', ':message'); ?></span>
+                                            class="red-text"><?php echo $errors->first('marathi_address', ':message'); ?></span>
                                         @endif
                                     </div>
                                 </div>
@@ -71,32 +71,23 @@
                                         @endif
                                     </div>
                                 </div>
+                               
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="english_icon">Icon English</label>&nbsp<span
-                                            class="red-text">*</span><br>
-                                        <input type="file" name="english_icon" id="english_icon" accept="image/*"><br>
-                                        @if ($errors->has('english_icon'))
+                                        <label for="email">Email</label>&nbsp<span
+                                            class="red-text">*</span>
+                                        <input type="email" name="email" id="email"
+                                            class="form-control" id="email" placeholder="">
+                                        @if ($errors->has('email'))
                                         <span
-                                            class="red-text"><?php echo $errors->first('english_icon', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="marathi_icon">Icon Marathi</label>&nbsp<span
-                                            class="red-text">*</span><br>
-                                        <input type="file" name="marathi_icon" id="marathi_icon" accept="image/*"><br>
-                                        @if ($errors->has('marathi_icon'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('marathi_icon', ':message'); ?></span>
+                                            class="red-text"><?php echo $errors->first('email', ':message'); ?></span>
                                         @endif
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                     {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
-                                    <span><a href="{{ route('list-general-contact') }}"
+                                    <span><a href="{{ route('list-website-contact') }}"
                                         class="btn btn-sm btn-primary ">Back</a></span>
                                 </div>
                             </div>
