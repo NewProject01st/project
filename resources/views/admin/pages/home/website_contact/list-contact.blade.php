@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 
 @section('content')
-<?php  $data_permission = getPermissionForCRUDPresentOrNot('list-general-contact',session('permissions')); 
+<?php  $data_permission = getPermissionForCRUDPresentOrNot('list-website-contact',session('permissions')); 
                                             ?>
 <div class="main-panel">
     <div class="content-wrapper">
@@ -9,7 +9,7 @@
             <h3 class="page-title">
                 General Contact
                 @if (in_array("per_add", $data_permission))
-                <a href="{{ route('add-general-contact') }}" class="btn btn-sm btn-primary ml-3">+
+                <a href="{{ route('add-website-contact') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
                 @endif
 
@@ -32,31 +32,26 @@
                                         <thead>
                                             <tr>
                                                 <th>S. No.</th>
-                                                <th>English Name</th>
-                                                <th>Marathi Name</th>
+                                                <th>English Address</th>
+                                                <th>Marathi Address</th>
                                                 <th>English No</th>
                                                 <th>Marathi No</th>
-                                                <th>English Icon</th>
-                                                <th>Marathi Icon</th>
+                                                <th>Email</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($general_contact as $item)
+                                            @foreach ($website_contact as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><?php echo $item->english_name ?></td>
-                                                <td><?php echo $item->marathi_name ?></td>
+                                                <td><?php echo $item->english_address ?></td>
+                                                <td><?php echo $item->marathi_address ?></td>
+                                                <td>{{ $item->email }}</td>
                                                 <td>{{ $item->english_number }}</td>
                                                 <td>{{ $item->marathi_number }}</td>
-                                                <td> <img
-                                                        src="{{ asset('storage/images/general_contact/' . $item->english_icon) }}" />
-                                                </td>
-                                                <td> <img
-                                                        src="{{ asset('storage/images/general_contact/' . $item->marathi_icon) }}" />
-                                                </td>
-                                                <td>
+
+                                               
                                                     <label class="switch">
                                                         <input data-id="{{ $item->id }}" type="checkbox"
                                                             {{ $item->is_active ? 'checked' : '' }}
@@ -99,19 +94,19 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ url('/delete-general-contact') }}" id="deleteform">
+    <form method="POST" action="{{ url('/delete-website-contact') }}" id="deleteform">
         @csrf
         <input type="hidden" name="delete_id" id="delete_id" value="">
     </form>
-    <form method="POST" action="{{ url('/show-general-contact') }}" id="showform">
+    <form method="POST" action="{{ url('/show-website-contact') }}" id="showform">
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-general-contact') }}" id="editform">
+    <form method="POST" action="{{ url('/edit-website-contact') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>
-    <form method="POST" action="{{ url('/update-one-general-contact') }}" id="activeform">
+    <form method="POST" action="{{ url('/update-one-website-contact') }}" id="activeform">
         @csrf
         <input type="hidden" name="active_id" id="active_id" value="">
     </form>

@@ -1,13 +1,13 @@
 <?php
 namespace App\Http\Services\Home;
 
-use App\Http\Repository\Home\GeneralContactRepository;
+use App\Http\Repository\Home\WebsiteContactRepository;
 
-use App\GeneralContact;
+use App\WebsiteContact;
 use Carbon\Carbon;
 
 
-class GeneralContactServices
+class WebsiteContactServices
 {
 
 	protected $repo;
@@ -17,7 +17,7 @@ class GeneralContactServices
      */
     public function __construct()
     {
-        $this->repo = new GeneralContactRepository();
+        $this->repo = new WebsiteContactRepository();
     }
     public function getAll()
     {

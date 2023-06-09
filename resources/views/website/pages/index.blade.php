@@ -122,7 +122,6 @@
             <div class="container ">
                 <div class="title-style-3">
                     <h3>Be Updated with Disaster Management News</h3>
-                    <p>Read the News Updates and Articles from Government </p>
                 </div>
                 <div class="row d-flex flex-wrap">
 
@@ -195,7 +194,6 @@
                 <div class="col-md-9">
                     <div class="title-style-3">
                         <h3>Departments & Information Desk</h3>
-                        <p>Read the News Updates and Articles about Disaster Management </p>
                     </div>
                     <div class="row">
                         @foreach ($data_output_departmentinformation as $item)

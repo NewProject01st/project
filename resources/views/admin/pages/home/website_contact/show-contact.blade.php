@@ -15,7 +15,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
                         <div>
-                            <a href="{{ route('list-general-contact') }}" class="btn btn-sm btn-primary ml-3">Back</a>
+                            <a href="{{ route('list-website-contact') }}" class="btn btn-sm btn-primary ml-3">Back</a>
                         </div>
                     </div>
 
@@ -29,7 +29,7 @@
                                         <label>English Name :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $general_contacts->english_name ?></label>
+                                        <label><?php echo $website_contact->english_name ?></label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -37,7 +37,15 @@
                                         <label>Marathi Name :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $general_contacts->marathi_name ?></label>
+                                        <label><?php echo $website_contact->marathi_name ?></label>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label>Email :</label>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <label><?php echo $website_contact->email ?></label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -45,7 +53,7 @@
                                         <label>English No :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $general_contacts->english_number ?></label>
+                                        <label><?php echo $website_contact->english_number ?></label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -53,28 +61,11 @@
                                         <label>Marathi No :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $general_contacts->marathi_number ?></label>
+                                        <label><?php echo $website_contact->marathi_number ?></label>
                                     </div>
                                 </div>
-                                <div class="row ">
-                                    <div class="col-lg-3 col-md-3 col-sm-3">
-                                        <label> English Icon :</label>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <img src="{{ asset('storage/images/general_contact/' . $general_contacts->english_icon) }}"
-                                            style="width:70px; height:70px;" />
-                                    </div>
-                                </div>
-                                <div class="row ">
-                                    <div class="col-lg-3 col-md-3 col-sm-3">
-                                        <label> Marathi Icon:</label>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
-                                        <img src="{{ asset('storage/images/general_contact/' . $general_contacts->marathi_icon) }}"
-                                            style="width:70px; height:70px;" />
-                                    </div>
-                                </div>
-
+                               
+                                
                             </div>
                         </div>
                     </div>
