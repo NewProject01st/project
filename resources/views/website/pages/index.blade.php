@@ -1,5 +1,10 @@
 @extends('website.layout.master')
 @section('content')
+<!-- <style>
+    .accordion-button.collapsed {
+  background: blue
+} -->
+    </style>
 
     <div class="main-content">
         {{-- Start Marquee --}}
@@ -293,56 +298,41 @@
                             <li> <a href="#"><i class="fas fa-file-alt"></i> Court Case about TAX</a> </li>
                         </ul> --}}
 
-                        <div class="emergency-info mt-2">
-                        <h5>Live Data </h5>
-                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                            <!--Panel Start-->
-                            @foreach ($data_output_emergencycontact as $index => $item)
-                                @if (session('language') == 'mar')
-                                    <div class="panel">
-                                        <div class="panel-heading" role="tab" id="heading{{ $index }}">
-                                            <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                    href="#collapse{{ $index }}" aria-expanded="true"
-                                                    aria-controls="collapse{{ $index }}"> <?php echo $item['marathi_title']; ?> </a>
-                                            </h6>
-                                        </div>
-                                        <div id="collapse{{ $index }}" class="panel-collapse collapse"
-                                            role="tabpanel" aria-labelledby="heading{{ $index }}">
-                                            <div class="panel-body">
-                                                <ul>
-                                                    <li> <i class="fas fa-user-tie"></i> <?php echo $item['marathi_name']; ?> </li>
-                                                    <li> <i class="fas fa-building"></i> <?php echo $item['marathi_address']; ?> </li>
-                                                    <li> <i class="fas fa-phone"></i> <?php echo $item['marathi_number']; ?></li>
-                                                    <li> <i class="fas fa-fax"></i> <?php echo $item['marathi_landline_no']; ?> </li>
-                                                    <li> <i class="fas fa-envelope"></i> <?php echo $item['email']; ?></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @else
-                                    <div class="panel">
-                                        <div class="panel-heading" role="tab" id="heading{{ $index }}">
-                                            <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                    href="#collapse{{ $index }}" aria-expanded="true"
-                                                    aria-controls="collapse{{ $index }}"> <?php echo $item['english_title']; ?> </a>
-                                            </h6>
-                                        </div>
-                                        <div id="collapse{{ $index }}" class="panel-collapse collapse"
-                                            role="tabpanel" aria-labelledby="heading{{ $index }}">
-                                            <div class="panel-body">
-                                                <ul>
-                                                    <li> <i class="fas fa-user-tie"></i> <?php echo $item['english_name']; ?> </li>
-                                                    <li> <i class="fas fa-building"></i> <?php echo $item['english_address']; ?> </li>
-                                                    <li> <i class="fas fa-phone"></i> <?php echo $item['english_number']; ?></li>
-                                                    <li> <i class="fas fa-fax"></i> <?php echo $item['english_landline_no']; ?> </li>
-                                                    <li> <i class="fas fa-envelope"></i> <?php echo $item['email']; ?></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
-                            <!--Panel End-->
+                    <div class="emergency-info mt-2">
+                        <h5> Live Data </h5>
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item custom-accordion-item">
+                                <h2 class="accordion-header accordion-header-custom" id="flush-headingOne">
+                                <button class="accordion-button accordion-button-custom collapsed bg-secondary-custom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    Accordion Item #1
+                                </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse bg-secondary-custom" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item custom-accordion-item">
+                                <h2 class="accordion-header accordion-header-custom" id="flush-headingTwo">
+                                <button class="accordion-button accordion-button-custom collapsed bg-secondary-custom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                    Accordion Item #2
+                                </button>
+                                </h2>
+                                <div id="flush-collapseTwo" class="accordion-collapse collapse bg-secondary-custom" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item custom-accordion-item">
+                                <h2 class="accordion-header accordion-header-custom" id="flush-headingThree">
+                                <button class="accordion-button accordion-button-custom collapsed bg-secondary-custom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                    Accordion Item #3
+                                </button>
+                                </h2>
+                                <div id="flush-collapseThree" class="accordion-collapse collapse bg-secondary-custom" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    Placeholder content for this accordion, which is intended to demonstrate the accordion-flus class.</div>
+                                </div>
+                            </div>
+                            </div>
                         </div>
 
                     </div>
@@ -353,6 +343,7 @@
     </section>
     <!--Departments & Information Desk End-->
     </div>
+
 @endsection
 {{-- @extends('website.layout.navbar')
 @extends('website.layout.header') --}}
