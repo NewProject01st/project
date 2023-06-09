@@ -9,7 +9,7 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="#">Resource Center</a></li>
                     <li class="breadcrumb-item active" aria-current="page"> Update Documents And publications</li>
                 </ol>
             </nav>
@@ -28,7 +28,7 @@
                                             class="red-text">*</span>
                                         <textarea class="form-control english_title" name="english_title"
                                             id="english_title"
-                                            placeholder="Enter the Title">{{$documents_publications->english_title }}</textarea>
+                                            placeholder="Enter the Title">@if (old('english_title')){{ old('english_title') }}@else{{ $documents_publications->english_title }}@endif</textarea>
                                         @if ($errors->has('english_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
@@ -41,7 +41,7 @@
                                             class="red-text">*</span>
                                         <textarea class="form-control marathi_title" name="marathi_title"
                                             id="marathi_title"
-                                            placeholder="Enter the Title">{{$documents_publications->marathi_title }}</textarea>
+                                            placeholder="Enter the Title">@if (old('english_title')){{ old('english_title') }}@else{{ $documents_publications->english_title }}@endif</textarea>
                                         @if ($errors->has('marathi_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
@@ -54,7 +54,7 @@
                                             class="red-text">*</span>
                                         <textarea class="form-control english_description" name="english_description"
                                             id="english_description"
-                                            placeholder="Enter the Description">{{ $documents_publications->english_description }}</textarea>
+                                            placeholder="Enter the Description">@if (old('english_description')){{ old('english_description') }}@else{{ $documents_publications->english_description }}@endif</textarea>
                                         @if ($errors->has('english_description'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
@@ -66,7 +66,7 @@
                                         <label> Description Marathi</label>&nbsp<span class="red-text">*</span>
                                         <textarea class="form-control marathi_description" name="marathi_description"
                                             id="marathi_description"
-                                            placeholder="Enter the Description">{{ $documents_publications->marathi_description }}</textarea>
+                                            placeholder="Enter the Description">@if (old('marathi_description')){{ old('marathi_description') }}@else{{ $documents_publications->marathi_description }}@endif</textarea>
                                         @if ($errors->has('marathi_description'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
@@ -79,12 +79,11 @@
                                             class="red-text">*</span><br>
                                         <input type="file" name="english_pdf" id="english_pdf" accept=".pdf">
                                         @if ($errors->has('english_pdf'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
+                                        <div
+                                            class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></div>
                                         @endif
                                         <a
-                                            href="{{ asset('storage/pdf/research-center/documents/' . $documents_publications->english_pdf) }}"></a>
-                                    </div>
+                                            href="{{ asset('storage/pdf/research-center/documents/' .$documents_publications->english_pdf) }}
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -92,12 +91,12 @@
                                         <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
                                             class="form-control">
                                         @if ($errors->has('marathi_pdf'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
+                                        <div
+                                            class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></div>
                                         @endif
                                     </div>
                                     <a
-                                        href="{{ asset('storage/pdf/research-center/documents/' . $documents_publications->marathi_pdf) }}"></a>
+                                        href="{{ asset('storage/pdf/research-center/documents/' .$documents_publications->marathi_pdf) }}"></a>
                                 </div>
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Update</button>

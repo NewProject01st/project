@@ -23,7 +23,6 @@ class RTIController extends Controller
             return $e;
         }
     }
-   
     public function add()
     {
         return view('admin.pages.header.rti.add-header-rti');
@@ -141,7 +140,16 @@ public function update(Request $request)
             return $e;
         }
     }
-
+    public function updateOne(Request $request)
+    {
+        try {
+            $active_id = $request->active_id;
+        $result = $this->service->updateOne($active_id);
+            return redirect('list-header-rti')->with('flash_message', 'Updated!');  
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
     public function destroy(Request $request)
     {
         try {

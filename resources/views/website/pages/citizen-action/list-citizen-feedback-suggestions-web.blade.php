@@ -86,6 +86,23 @@
                                             <option value="natural">natural</option>
                                             <option value="disasters">disasters</option>
                                         </select>
+                                                {{-- <select class="form-control" id="role_id" name="role_id">
+                                                    <option>Select</option>
+                                                    @foreach ($roles as $role)
+                                                        @if (old('role_id') == $role['id'])
+                                                            <option value="{{ $role['id'] }}" selected>
+                                                                {{ $role['role_name'] }}</option>
+                                                        @else
+                                                            <option value="{{ $role['id'] }}">{{ $role['role_name'] }}
+                                                            </option>
+                                                        @endif
+                                                    @endforeach
+                                                </select> --}}
+                                                @if ($errors->has('role_id'))
+                                                    <span class="red-text"><?php echo $errors->first('role_id', ':message'); ?></span>
+                                                @endif
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label class="col-form-label modal_lable">Location:</label>

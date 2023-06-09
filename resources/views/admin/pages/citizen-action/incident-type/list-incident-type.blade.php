@@ -16,7 +16,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#"> Incident Type</a></li>
+                        <li class="breadcrumb-item"><a href="#">Master</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Incident Type</li>
                     </ol>
                 </nav>
@@ -34,6 +34,7 @@
                                                     <th>S. No.</th>
                                                     <th>Title English</th>
                                                     <th>Title Marathi</th>
+                                                    <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -43,6 +44,17 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td><?php echo $item->english_title; ?></td>
                                                         <td><?php echo $item->marathi_title; ?></td>
+                                                        <td>
+                                                            <label class="switch">
+                                                                <input data-id="{{ $item->id }}" type="checkbox"
+                                                                    {{ $item->is_active ? 'checked' : '' }}
+                                                                    class="active-btn btn btn-sm btn-outline-primary m-1"
+                                                                    data-toggle="tooltip" data-placement="top"
+                                                                    title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
+                                                                <span class="slider round "></span>
+                                                            </label>
+        
+                                                        </td>
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
@@ -83,7 +95,7 @@
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="POST" action="{{ url('/edit-incident-type') }}" id="editform">
+        <form method="GET" action="{{ url('/edit-incident-type') }}" id="editform">
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>

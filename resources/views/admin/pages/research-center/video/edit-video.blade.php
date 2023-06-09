@@ -8,7 +8,7 @@
                     Video</h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="#">Resource Center</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Update Video
                         </li>
                     </ol>
@@ -26,7 +26,7 @@
                                         <div class="form-group">
                                             <label for="video_name">Video Name</label>&nbsp<span
                                                 class="red-text">*</span>
-                                                <input class="form-control video_name" name="video_name" id="video_name" value="{{ $video->video_name }}" placeholder="Enter Video Name">
+                                                <input class="form-control video_name" name="video_name" id="video_name" value="@if (old('video_name')){{ old('video_name') }}@else{{ $video->video_name }}@endif"  value="{{ $video->video_name }}" placeholder="Enter Video Name">
                                             @if ($errors->has('video_name'))
                                                 <span class="red-text"><?php echo $errors->first('video_name', ':message'); ?></span>
                                             @endif

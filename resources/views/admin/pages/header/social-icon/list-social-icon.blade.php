@@ -16,7 +16,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#"> Social Icon</a></li>
+                        <li class="breadcrumb-item"><a href="#">Header</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Social Icon</li>
                     </ol>
                 </nav>
@@ -33,7 +33,6 @@
                                                 <tr>
                                                     <th>S. No.</th>
                                                     <th>Icon</th>
-                                                    <th>Url</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -45,8 +44,6 @@
                                                         <td> <img
                                                                 src="{{ asset('storage/images/header/social-icon/' . $item->icon) }}" />
                                                         </td>
-
-                                                        <td>{{ $item->url }}</td>
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
@@ -87,11 +84,10 @@
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="POST" action="{{ url('/edit-social-icon') }}" id="editform">
+        <form method="GET" action="{{ url('/edit-social-icon') }}" id="editform">
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>
 
         <!-- content-wrapper ends -->
-
     @endsection

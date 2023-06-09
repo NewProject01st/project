@@ -14,7 +14,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Documents And publications</a></li>
+                        <li class="breadcrumb-item"><a href="#">Resource Center</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Documents And publications List</li>
                     </ol>
                 </nav>
@@ -93,7 +93,7 @@
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="POST" action="{{ route('edit-document-publications') }}" id="editform">
+        <form method="GET" action="{{ route('edit-document-publications') }}" id="editform">
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>

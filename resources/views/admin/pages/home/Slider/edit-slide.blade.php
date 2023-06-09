@@ -9,7 +9,7 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page"> Update Slide</li>
                 </ol>
             </nav>
@@ -28,7 +28,7 @@
                                             class="red-text">*</span>
                                         <textarea class="form-control english_title" name="english_title"
                                             id="english_title"
-                                            placeholder="Enter the Title">{{ $slider->english_title }}</textarea>
+                                            placeholder="Enter the Title">@if (old('english_title')){{ old('english_title') }}@else{{ $slider->english_title }}@endif</textarea>
                                         @if ($errors->has('english_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
@@ -41,7 +41,7 @@
                                             class="red-text">*</span>
                                         <textarea class="form-control marathi_title" name="marathi_title"
                                             id="marathi_title"
-                                            placeholder="Enter the Title">{{ $slider->marathi_title }}</textarea>
+                                            placeholder="Enter the Title">@if (old('marathi_title')){{ old('marathi_title') }}@else{{ $slider->marathi_title }}@endif</textarea>
                                         @if ($errors->has('marathi_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
@@ -54,7 +54,7 @@
                                             class="red-text">*</span>
                                         <textarea class="form-control english_description" name="english_description"
                                             id="english_description"
-                                            placeholder="Enter the Description">{{ $slider->english_description }}</textarea>
+                                            placeholder="Enter the Description">@if (old('english_description')){{ old('english_description') }}@else{{ $slider->english_description }}@endif</textarea>
                                         @if ($errors->has('english_description'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
@@ -67,7 +67,7 @@
                                             class="red-text">*</span>
                                         <textarea class="form-control marathi_description" name="marathi_description"
                                             id="marathi_description"
-                                            placeholder="Enter the Description">{{ $slider->marathi_description }}</textarea>
+                                            placeholder="Enter the Description">@if (old('marathi_description')){{ old('marathi_description') }}@else{{ $slider->marathi_description }}@endif</textarea>
                                         @if ($errors->has('marathi_description'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
@@ -78,7 +78,7 @@
                                     <div class="form-group">
                                         <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" class="form-control" placeholder="Enter the URL"
-                                            value="{{ $slider->url }}" name="url" id="url">
+                                            value="@if (old('url')){{ old('url') }}@else{{ $slider->url }}@endif" name="url" id="url">
                                         @if ($errors->has('url'))
                                         <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                         @endif

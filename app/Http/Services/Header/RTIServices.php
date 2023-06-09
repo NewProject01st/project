@@ -67,6 +67,10 @@ class RTIServices
         }      
     }
     
+    public function updateOne($id)
+    {
+        return $this->repo->updateOne($id);
+    }
 
     public function deleteById($id)
     {

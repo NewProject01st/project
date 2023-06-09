@@ -9,7 +9,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="#">Header</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Social Icon </li>
                     </ol>
                 </nav>
@@ -27,9 +27,9 @@
                                         <div class="form-group">
                                             <label for="icon">Social Icon</label>&nbsp<span
                                                 class="red-text">*</span><br>
-                                            <input type="file" name="icon" id="icon" accept="image/*">
+                                            <input type="file" name="icon" id="icon" value="{{ old('icon') }}" accept="image/*">
                                             @if ($errors->has('icon'))
-                                                <span class="red-text"><?php echo $errors->first('icon', ':message'); ?></span>
+                                                <div class="red-text"><?php echo $errors->first('icon', ':message'); ?></div>
                                             @endif
                                         </div>
                                     </div>

@@ -57,7 +57,7 @@ class VacanciesHeaderController extends Controller
         else
         {
             $add_vacancy = $this->service->addAll($request);
-            // print_r($add_tenders);
+            // print_r($add_vacancys);
             // die();
             if($add_vacancy)
             {
@@ -111,10 +111,10 @@ public function update(Request $request)
                 ->withInput()
                 ->withErrors($validation);
         } else {
-            $update_tender = $this->service->updateAll($request);
-            if ($update_tender) {
-                $msg = $update_tender['msg'];
-                $status = $update_tender['status'];
+            $update_vacancy = $this->service->updateAll($request);
+            if ($update_vacancy) {
+                $msg = $update_vacancy['msg'];
+                $status = $update_vacancy['status'];
                 if ($status == 'success') {
                     return redirect('list-header-vacancies')->with(compact('msg', 'status'));
                 } else {
@@ -141,7 +141,16 @@ public function update(Request $request)
             return $e;
         }
     }
-
+    public function updateOne(Request $request)
+    {
+        try {
+            $active_id = $request->active_id;
+        $result = $this->service->updateOne($active_id);
+            return redirect('list-header-vacancies')->with('flash_message', 'Updated!');  
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
     public function destroy(Request $request)
     {
         try {
@@ -151,7 +160,8 @@ public function update(Request $request)
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    } 
+
 
    
 

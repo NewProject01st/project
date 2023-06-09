@@ -16,8 +16,8 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#"> Event</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Event</li>
+                    <li class="breadcrumb-item"><a href="#"> Training Workshops</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Training Workshops</li>
                 </ol>
             </nav>
         </div>
@@ -61,7 +61,8 @@
                                                         src="{{ asset('storage/images/training-event/event/' . $item->marathi_image) }}" />
                                                 </td> --}}
 
-                                                <td class="d-flex">
+                                                <td>
+                                                    <div class="d-flex">
                                                     @if (in_array("per_update", $data_permission))
                                                     <a data-id="{{ $item->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
@@ -76,7 +77,7 @@
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                         title="Delete Event"><i class="fas fa-archive"></i></a>
                                                     @endif
-
+                                                    </div>
 
                                                 </td>
                                             </tr>
@@ -100,7 +101,7 @@
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-event') }}" id="editform">
+    <form method="GET" action="{{ url('/edit-event') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>

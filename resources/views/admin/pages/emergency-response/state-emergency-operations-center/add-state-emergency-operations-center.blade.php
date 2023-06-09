@@ -9,7 +9,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="#">Emergency Response</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> State Emergency Operations Center</li>
                     </ol>
                 </nav>
@@ -71,7 +71,7 @@
                                             <label for="english_image">Image English</label>&nbsp<span
                                                 class="red-text">*</span><br>
                                             <input type="file" name="english_image" id="english_image"
-                                                accept="image/*"><br>
+                                                accept="image/*" value="{{ old('english_image') }}"><br>
                                             @if ($errors->has('english_image'))
                                                 <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                             @endif
@@ -82,7 +82,7 @@
                                             <label for="marathi_image">Image Marathi</label>&nbsp<span
                                                 class="red-text">*</span><br>
                                             <input type="file" name="marathi_image" id="marathi_image"
-                                                accept="image/*"><br>
+                                                accept="image/*" value="{{ old('marathi_image') }}"><br>
                                             @if ($errors->has('marathi_image'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
                                             @endif

@@ -8,14 +8,14 @@
         <div class="page-header">
             <h3 class="page-title">
                 Objective Goals List
-                @if (in_array("per_add", $data_permission))
+                {{-- @if (in_array("per_add", $data_permission))
                 <a href='{{ route('add-objectivegoals') }}' class="btn btn-sm btn-primary ml-3">+
                     Add</a>
-                @endif
+                @endif --}}
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Master Management</a></li>
+                    <li class="breadcrumb-item"><a href="#">About Us</a></li>
                     <li class="breadcrumb-item active" aria-current="page"> Objective Goals</li>
                 </ol>
             </nav>
@@ -96,7 +96,7 @@
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-objectivegoals') }}" id="editform">
+    <form method="GET" action="{{ url('/edit-objectivegoals') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>

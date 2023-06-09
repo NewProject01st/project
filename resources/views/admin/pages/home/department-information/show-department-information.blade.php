@@ -94,6 +94,24 @@
                                             style="width:70px; height:70px;" />
                                     </div>
                                 </div>
+                                <div class="row ">
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <label> English Image :</label>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <img src="{{ asset('storage/images/home/department-information/' . $department_info->english_image_new) }}"
+                                            style="width:70px; height:70px;" />
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <label> Marathi Image:</label>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
+                                        <img src="{{ asset('storage/images/home/department-information/' . $department_info->marathi_image_new) }}"
+                                            style="width:70px; height:70px;" />
+                                    </div>
+                                </div>
 
                             </div>
                         </div>

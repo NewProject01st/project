@@ -9,7 +9,7 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page"> News Bar</li>
                 </ol>
             </nav>
@@ -28,7 +28,7 @@
                                             class="red-text">*</span>
                                         <textarea class="form-control english_title" name="english_title"
                                             id="english_title" placeholder="Enter the Title"
-                                            name="english_title"></textarea>
+                                            name="english_title">{{ old('english_title') }}</textarea>
                                         @if ($errors->has('english_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
@@ -42,7 +42,7 @@
                                             class="red-text">*</span>
                                         <textarea class="form-control marathi_title" name="marathi_title"
                                             id="marathi_title" placeholder="Enter the Title"
-                                            name="marathi_title"></textarea>
+                                            name="marathi_title">{{ old('marathi_title') }}</textarea>
                                         @if ($errors->has('marathi_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
@@ -53,7 +53,7 @@
                                     <div class="form-group">
                                         <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                         <input class="form-control url" name="url" id="url"
-                                            placeholder="Enter the Title" name="url">
+                                            placeholder="Enter the Title" name="url" value="url">
                                         @if ($errors->has('url'))
                                         <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                         @endif
