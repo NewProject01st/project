@@ -537,6 +537,13 @@ li.header-weather {
 	font-size: 18px;
 }
 }
+
+@media (min-width: 413px) and (max-width: 414px) {
+.become-vol {
+	margin-top: 60% !important;
+}
+}
+
  @media (min-width: 280px) and (max-width: 767px) {
 .main-content {
 	overflow: hidden;
@@ -637,7 +644,7 @@ li.header-weather {
 	font-weight: 600;
 	padding: 0 7px;
 	font-size: 12px;
-	margin-top: 31%;
+	margin-top: 30%;
 }
 .cross-btn {
 	font-size: 12px;
