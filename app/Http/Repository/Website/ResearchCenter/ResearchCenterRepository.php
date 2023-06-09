@@ -10,7 +10,8 @@ use App\Models\ {
     Video,
     Gallery,
     GalleryCategory,
-    TrainingMaterialsWorkshops
+    TrainingMaterialsWorkshops,
+    
     
 
 };
@@ -48,58 +49,50 @@ class ResearchCenterRepository  {
             $data_output =  $data_output->get()
                             ->toArray();
             return  $data_output;
-        //    echo $data_output;
-        //    die();
         } catch (\Exception $e) {
             return $e;
         }
     }
     
-    // public function getAllGallery()
-    // {
-    //     try {
-    //         $categories = array_unique(array_column($data_output, 'category'));
-
-    //         $data_output = Gallery::where('is_active','=',true);
-    //         if (Session::get('language') == 'mar') {
-    //             $data_output =  $data_output->select('category_id','marathi_image');
-    //         } else {
-    //             $data_output = $data_output->select('category_id','english_image');
-    //         }
-    //         $data_output =  $data_output->get()
-    //                         ->toArray();
-    //         return  $data_output;
-    //     //    echo $data_output;
-    //     //    die();
-    //     } catch (\Exception $e) {
-    //         return $e;
-    //     }
-    // }
-
-public function getAllGallery()
-{
-    try {
-        $query = Gallery::where('is_active', true);
-
-        if (Session::get('language') == 'mar') {
-            $query->select('category_id', 'marathi_image');
-        } else {
-            $query->select('category_id', 'english_image');
+    public function getAllGalleryAvailableCategories()
+    {
+        try {
+            $data_output = GalleryCategory::where('is_active','=',true);
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->select('id','marathi_name');
+            } else {
+                $data_output = $data_output->select('id','english_name');
+            }
+            $data_output =  $data_output->get()->toArray();
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
         }
-
-        $data_output = $query->get()->toArray();
-
-        // Extract unique categories from data_output
-        $categories = array_unique(array_column($data_output, 'category_id'));
-
-        return [
-            'data_output' => $data_output,
-            'categories' => $categories
-        ];
-    } catch (\Exception $e) {
-        return $e;
     }
-}
+
+    public function getAllGallery($request) {
+        try {
+            $return_data =[];
+            $query = Gallery::where('is_active', true);
+            if($request->category_id) {
+                $query->where('category_id','=', $request->category_id);
+            }
+            if (Session::get('language') == 'mar') {
+                $query->select('category_id', 'marathi_image');
+            } else {
+                $query->select('category_id', 'english_image');
+            }
+
+            $gallery_data = $query->get()->toArray();
+
+            $categories = $this->getAllGalleryAvailableCategories();
+             $return_data['gallery_data'] = $gallery_data;
+            $return_data['categories'] = $categories;
+            return $return_data;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
 
 // public function getAllGallery()
 // {
