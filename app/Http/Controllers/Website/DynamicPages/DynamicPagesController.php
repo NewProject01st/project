@@ -22,8 +22,7 @@ class DynamicPagesController extends Controller
         $this->language = getLanguageSelected();
         $this->socialicon = getSocialIcon();
     }
-    public function index(Request $request)
-    {
+    public function index(Request $request) {
         try { 
             $path = str_replace('pages/','',\Request::getPathInfo());
             $path_final = str_replace('/','',$path);

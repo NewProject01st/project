@@ -80,6 +80,7 @@ Route::get('/list-relevant-laws-web', ['as' => 'list-relevant-laws-web', 'uses' 
 Route::get('/list-documents-publications-web', ['as' => 'list-documents-publications-web', 'uses' => 'App\Http\Controllers\Website\ResearchCenter\ResearchCenterController@getAllDocumentspublications']);
 Route::get('/list-maps-gis-data-web', ['as' => 'list-maps-gis-data-web', 'uses' => 'App\Http\Controllers\Website\ResearchCenter\ResearchCenterController@getAllMapsGISData']);
 Route::get('/list-multimedia-web', ['as' => 'list-multimedia-web', 'uses' => 'App\Http\Controllers\Website\ResearchCenter\ResearchCenterController@getAllMultimedia']);
+Route::post('/list-ajax-multimedia-web', ['as' => 'list-ajax-multimedia-web', 'uses' => 'App\Http\Controllers\Website\ResearchCenter\ResearchCenterController@getAllAjaxMultimedia']);
 Route::get('/list-training-materials-workshops-web', ['as' => 'list-training-materials-workshops-web', 'uses' => 'App\Http\Controllers\Website\ResearchCenter\ResearchCenterController@getAllTraningMaterial']);
 
 Route::get('/list-disaster-management-news-web', ['as' => 'list-disaster-management-news-web', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@getAllDisasterManagementNews']);

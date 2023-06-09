@@ -1,5 +1,4 @@
 @extends('website.layout.master')
-
 @section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -102,132 +101,152 @@
     <!--Main Content Start-->
     <div class="main-content">
         <!--Video Start-->
-        {{-- <section class="testimonials-section wf100 p80 graybg">
-        <div class="container">
-            <div class="title-style-3">
-                <h3 class="stitle text-center d-flex justify-content-start">Video</h3>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="d-flex justify-content-center">
-                        <!--Video box start-->
-                        @foreach ($data_getallvideo as $item)
-                        @if (session('language') == 'mar')
-                        <div class="item p-1">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item"
-                                    src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
-                                    allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        @else
-                        <div class="item p-1">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item"
-                                    src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
-                                    allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        @endif
-                        @endforeach
-                        <!--Video box End-->
 
+        <section class="testimonials-section wf100 p80 graybg">
+            <div class="container">
+                <div class="title-style-3">
+                    <h3 class="stitle text-center d-flex justify-content-start">Video</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-center">
+                            <!--Video box start-->
+                            @foreach ($data_getallvideo as $item)
+                                @if (session('language') == 'mar')
+                                    <div class="item p-1">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item"
+                                                src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
+                                                allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="item p-1">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item"
+                                                src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
+                                                allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                            <!--Video box End-->
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section> --}}
+        </section>
+
         <!--Video End-->
         <section class="">
             <div class="container photo_g">
                 <div class="row">
                     <h3 class="stitle text-center d-flex justify-content-start pt-4">Gallery</h3>
                     <div class="col-12">
-                        <input type="radio" name="filter" id="all" checked><label for="all">All</label>
+                        <a href="javascript:void(0)" onclick="myFunction('')">
+                            <input type="radio" name="filter" id="all" checked><label for="all">All</label>
+                        </a>
 
                         @forelse($categories as $categories_data)
                             @if (session('language') == 'mar')
-                                <input type="radio" name="filter" class="category_id"
-                                    id="category_{{ $categories_data['id'] }}"><label
-                                    for="animals">{{ $categories_data['marathi_name'] }}</label>
+                                <a href="javascript:void(0)" onclick="myFunction('{{ $categories_data['id'] }}')">
+                                    <input type="radio" name="filter" id="category_{{ $categories_data['id'] }}"><label
+                                        for="animals">{{ $categories_data['marathi_name'] }}</label>
+                                </a>
                             @else
-                                <input type="radio" name="filter" class="category_id"
-                                    id="category_{{ $categories_data['id'] }}"><label
-                                    for="animals">{{ $categories_data['english_name'] }}</label>
+                                <a href="javascript:void(0)" onclick="myFunction('{{ $categories_data['id'] }}')">
+                                    <input type="radio" name="filter" id="category_{{ $categories_data['id'] }}"><label
+                                        for="animals">{{ $categories_data['english_name'] }}</label>
+                                </a>
                             @endif
                         @empty
                             No Categries found
                         @endforelse
-                        @forelse ($gallery_data as $item)
-                            <div class="gallery">
-                                <figure class="card animals">
+                        <div class="gallery">
+                            <div id="gallary_data">
+                                @forelse ($gallery_data as $item)
+                                    <div class="col-md-4 nature">
+                                        <figure class="card animals">
+                                            @if (session('language') == 'mar')
+                                                <img class="card__image toZoom" loading="lazy"
+                                                    src="{{ $item['marathi_image'] }}" class="d-block w-100 img-fluid"
+                                                    alt="...">
+                                                <!-- The Modal -->
+                                                <div class="idMyModal modal">
+                                                    <span class="close">&times;</span>
+                                                    <img class="modal-content">
+                                                </div>
+                                            @else
+                                                <img class="card__image toZoom" loading="lazy"
+                                                    src="{{ $item['english_image'] }}" class="d-block w-100 img-fluid"
+                                                    alt="...">
 
-                                    @if (session('language') == 'mar')
-                                        <img class="card__image toZoom" loading="lazy"
-                                            src="{{ asset('storage/images/news-events/gallery/' . $item['marathi_image']) }}">
-                                        alt="">
-                                        <!-- The Modal -->
-                                        <div class="idMyModal modal">
-                                            <span class="close">&times;</span>
-                                            <img class="modal-content">
-                                        </div>
-                                    @else
-                                        <img class="card__image toZoom" loading="lazy"
-                                            src="{{ asset('storage/images/news-events/gallery/' . $item['english_image']) }} alt="">
-                                        <!-- The Modal -->
-                                        <div class="idMyModal modal">
-                                            <span class="close">&times;</span>
-                                            <img class="modal-content">
-                                        </div>
-                                    @endif
-
-                                </figure>
+                                                <!-- The Modal -->
+                                                <div class="idMyModal modal">
+                                                    <span class="close">&times;</span>
+                                                    <img class="modal-content">
+                                                </div>
+                                            @endif
+                                        </figure>
+                                    </div>
+                                @empty
+                                    No Categries found
+                                @endforelse
                             </div>
+                        </div>
 
-@empty
-                            No Categries found
-                        @endforelse
-                            @foreach ($gallery_data as $item)
-                                <div class="col-md-4 nature">
-                                    @if (session('language') == 'mar')
-                                        <img src="{{ asset('storage/images/news-events/gallery/' . $item['marathi_image']) }}"
-                                            class="d-block w-100 img-fluid" alt="...">
-                                    @else
-                                        <img src="{{ asset('storage/images/news-events/gallery/' . $item['english_image']) }}"
-                                            class="d-block w-100 img-fluid" alt="...">
-                                    @endif
-                                </div>
-                            @endforeach
                     </div>
                 </div>
             </div>
         </section>
 
+        <script>
+            function myFunction(category_id) {
+                $("#gallary_data").empty();
+                $.ajax({
+                    url: "{{ route('list-ajax-multimedia-web') }}",
+                    method: "POST",
+                    data: {
+                        "category_id": category_id
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(data) {
+                        $("#gallary_data").empty();
+                        $("#gallary_data").append('<div class="col-md-4 nature"><figure class="card animals">');
+                        $.each(data, function(i, item) {
 
-        {{--  <!-- Category buttons -->
-        <div class="mb-3 d-flex justify-content-center">
-            <button class="btn btn-primary filter-button m-1" data-filter="all">All</button>
-            @foreach ($categories as $category)
-                <button class="btn btn-primary filter-button m-1"
-                    data-filter="{{ $category }}">{{ $category }}</button>
-            @endforeach
-        </div>
-        <!-- Image grid -->
-        <div class="row gallery">
-    
-            @foreach ($gallery_data as $item)
-                <div class="col-md-4 nature">
-                    @if (session('language') == 'mar')
-                        <img src="{{ asset('storage/images/news-events/gallery/' . $item['marathi_image']) }}"
-                            class="d-block w-100 img-fluid" alt="...">
-                    @else
-                        <img src="{{ asset('storage/images/news-events/gallery/' . $item['english_image']) }}"
-                            class="d-block w-100 img-fluid" alt="...">
-                    @endif
-                </div>
-            @endforeach
-         
-        </div> --}}
+                            @if (session('language') == 'mar')
+                                $("#gallary_data").append(`
+                                                <img  data-id="Satish" style="border-radius: 5px;cursor: pointer;transition: 0.3s;width: 20%;object-fit: cover;height: 20%;"
+                                                src="item . english_image" 
+                                                    alt="...">
+                                            <div class="idMyModal modal">
+                                                <span class="close">&times;</span>
+                                                <img class="modal-content">
+                                            </div>
+                                            `);
+                            @else
+
+                                $("#gallary_data").append(`
+                                            <img data-id="Satish" style="border-radius: 5px;cursor: pointer;transition: 0.3s;width: 20%;object-fit: cover;height: 20%;"
+                                                src="` + item.english_image + `" class="d-block w-100 img-fluid"
+                                                    alt="...">
+                                                <div class = "idMyModal modal" >
+                                                <span class = "close" >&times;< /span> <
+                                                img class = "modal-content" >
+                                                </div>`);
+                            @endif
+                        });
+                        $("#gallary_data").append('</figure> </div>');
+
+                    },
+                    error: function(data) {}
+                });
+            }
+        </script>
         <!--Main Content End-->
         <script>
             const modal = document.getElementsByClassName('idMyModal');
@@ -247,6 +266,4 @@
                 }
             }
         </script>
-
-        <script></script>
     @endsection

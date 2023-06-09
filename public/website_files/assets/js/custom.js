@@ -87,16 +87,16 @@ jQuery(document).ready(function($) {
 
 
     // ------- Pretty Photo Start ------- // 
-    if ($('.gallery').length) {
-        $("area[data-rel^='prettyPhoto']").prettyPhoto();
-        $(".gallery:first a[data-rel^='prettyPhoto']").prettyPhoto({
-            animation_speed: 'normal',
-            theme: 'light_square',
-            slideshow: 3000,
-            autoplay_slideshow: false
-        });
+    // if ($('.gallery').length) {
+    //     $("area[data-rel^='prettyPhoto']").prettyPhoto();
+    //     $(".gallery:first a[data-rel^='prettyPhoto']").prettyPhoto({
+    //         animation_speed: 'normal',
+    //         theme: 'light_square',
+    //         slideshow: 3000,
+    //         autoplay_slideshow: false
+    //     });
 
-    }
+    // }
     // ------- Pretty Photo End ------- // 
 
 
