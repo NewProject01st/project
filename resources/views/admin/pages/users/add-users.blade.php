@@ -111,7 +111,9 @@
                                             <label for="number">Mobile Number</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" class="form-control" name="number" id="number"
-                                                placeholder="" value="{{ old('number') }}">
+                                                placeholder="" value="{{ old('number') }}"
+                                                onkeyup="addvalidateMobileNumber(this.value)">
+                                            <span id="validation-message" class="red-text"></span>
                                             @if ($errors->has('number'))
                                                 <span class="red-text"><?php echo $errors->first('number', ':message'); ?></span>
                                             @endif
@@ -138,6 +140,49 @@
                                             @endif
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="adhar_no">Adhar No</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" class="form-control" name="adhar_no" id="adhar_no"
+                                                placeholder="" value="{{ old('adhar_no') }}">
+                                            @if ($errors->has('adhar_no'))
+                                                <span class="red-text"><?php echo $errors->first('adhar_no', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="state">State</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" class="form-control" name="state" id="state"
+                                                placeholder="" value="{{ old('state') }}">
+                                            @if ($errors->has('state'))
+                                                <span class="red-text"><?php echo $errors->first('state', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="city">City</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" class="form-control" name="city" id="city"
+                                                placeholder="" value="{{ old('city') }}">
+                                            @if ($errors->has('city'))
+                                                <span class="red-text"><?php echo $errors->first('city', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="pincode">Pincode</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" class="form-control" name="pincode" id="pincode"
+                                                placeholder="" value="{{ old('pincode') }}"
+                                                onkeyup="addvalidatePincode(this.value)">
+                                            <span id="validation-message-pincode" class="red-text"></span>
+                                            @if ($errors->has('pincode'))
+                                                <span class="red-text"><?php echo $errors->first('pincode', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+
 
                                     <div class="col-md-12">
                                         <div class="table-responsive">
@@ -239,6 +284,30 @@
         <script type="text/javascript">
             function submitRegister() {
                 document.getElementById("frm_register").submit();
+            }
+        </script>
+        <script>
+            function addvalidateMobileNumber(number) {
+                var mobileNumberPattern = /^\d*$/;
+                var validationMessage = document.getElementById("validation-message");
+
+                if (mobileNumberPattern.test(number)) {
+                    validationMessage.textContent = "";
+                } else {
+                    validationMessage.textContent = "Only numbers are allowed.";
+                }
+            }
+        </script>
+        <script>
+            function addvalidatePincode(number) {
+                var pincodePattern = /^\d*$/;
+                var validationMessage = document.getElementById("validation-message-pincode");
+
+                if (pincodePattern.test(number)) {
+                    validationMessage.textContent = "";
+                } else {
+                    validationMessage.textContent = "Only numbers are allowed.";
+                }
             }
         </script>
     @endsection

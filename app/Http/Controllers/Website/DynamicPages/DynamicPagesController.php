@@ -22,9 +22,9 @@ class DynamicPagesController extends Controller
         $this->language = getLanguageSelected();
         $this->socialicon = getSocialIcon();
     }
-    public function index(Request $request)
-    {
+    public function index(Request $request) {
         try { 
+            $date_now = date("Y-m-d");
             $path = str_replace('pages/','',\Request::getPathInfo());
             $path_final = str_replace('/','',$path);
             $path_new = 'admin.pages.dynamic-pages-created.';
@@ -32,17 +32,22 @@ class DynamicPagesController extends Controller
             $menu = $this->menu;
             $socialicon = $this->socialicon;
             $language = $this->language;
-            $dynamic_web_page_name = DynamicWebPages::where('slug',$path_final)->first();
-            if (Session::get('language') == 'mar') {
-                $dynamic_page = $path_new.$dynamic_web_page_name->actual_page_name_marathi;
-                $language = 'mar';
+            $dynamic_web_page_name = DynamicWebPages::where('slug','=', $path_final)
+                ->where('publish_date','<=', $date_now)->first();
+           
+            if($dynamic_web_page_name==null) {
+                return view('website.pages.dynamic-page-error' ,compact('language','menu'));
+
             } else {
-                $dynamic_page = $path_new.$dynamic_web_page_name->actual_page_name_english;
-                $language = 'en';
-
-
+                if (Session::get('language') == 'mar') {
+                    $dynamic_page = $path_new.$dynamic_web_page_name->actual_page_name_marathi;
+                    $language = 'mar';
+                } else {
+                    $dynamic_page = $path_new.$dynamic_web_page_name->actual_page_name_english;
+                    $language = 'en';
+                }
+                return view('website.pages.dynamic-page',compact('language','menu','dynamic_page'));
             }
-            return view('website.pages.dynamic-page',compact('language','menu','dynamic_page'));
         } catch (\Exception $e) {
             return $e;
         }

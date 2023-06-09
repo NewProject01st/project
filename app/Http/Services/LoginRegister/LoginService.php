@@ -26,6 +26,7 @@ class LoginService
                 $request->session()->put('role_id',$response['user_details']['role_id']);
                 $request->session()->put('u_email',$response['user_details']['u_email']);
                 $request->session()->put('permissions',$response['user_permission']);
+                getRouteDetailsPresentOrNot(session('permissions'));
                 $json = ['status'=>'success','msg'=>$response['user_details']];
             } else {
                 $json = ['status'=>'failed','msg'=>'These credentials do not match our records.'];

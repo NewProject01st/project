@@ -11,7 +11,8 @@ use App\Models\ {
     CitizenFeedbackSuggestion,
     ReportIncidentModal,
     CitizenVolunteerModal,
-    CitizenFeedbackSuggestionModal
+    CitizenFeedbackSuggestionModal,
+    IncidentType
 
 };
 

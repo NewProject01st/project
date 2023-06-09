@@ -1,6 +1,7 @@
 @extends('website.layout.master')
-
+@section('title', 'Applicant\'s Form')
 @section('content')
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* ====== gallery zooom==== */
@@ -102,151 +103,338 @@
     <!--Main Content Start-->
     <div class="main-content">
         <!--Video Start-->
-        {{-- <section class="testimonials-section wf100 p80 graybg">
-        <div class="container">
-            <div class="title-style-3">
-                <h3 class="stitle text-center d-flex justify-content-start">Video</h3>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="d-flex justify-content-center">
-                        <!--Video box start-->
-                        @foreach ($data_getallvideo as $item)
-                        @if (session('language') == 'mar')
-                        <div class="item p-1">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item"
-                                    src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
-                                    allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        @else
-                        <div class="item p-1">
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item"
-                                    src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
-                                    allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        @endif
-                        @endforeach
-                        <!--Video box End-->
 
-                    </div>
+        <section class="testimonials-section wf100 p80 graybg">
+            <div class="container">
+ {{--               <div class="title-style-3">
+                    <h3 class="stitle text-center d-flex justify-content-start">Video</h3>
                 </div>
-            </div>
-        </div>
-    </section> --}}
-        <!--Video End-->
-        <section class="">
-            <div class="container photo_g">
                 <div class="row">
-                    <h3 class="stitle text-center d-flex justify-content-start pt-4">Gallery</h3>
-                    <div class="col-12">
-                        <input type="radio" name="filter" id="all" checked><label for="all">All</label>
-
-                        @forelse($categories as $categories_data)
-                            @if (session('language') == 'mar')
-                                <input type="radio" name="filter" class="category_id"
-                                    id="category_{{ $categories_data['id'] }}"><label
-                                    for="animals">{{ $categories_data['marathi_name'] }}</label>
-                            @else
-                                <input type="radio" name="filter" class="category_id"
-                                    id="category_{{ $categories_data['id'] }}"><label
-                                    for="animals">{{ $categories_data['english_name'] }}</label>
-                            @endif
-                        @empty
-                            No Categries found
-                        @endforelse
-                        @forelse ($gallery_data as $item)
-                            <div class="gallery">
-                                <figure class="card animals">
-
-                                    @if (session('language') == 'mar')
-                                        <img class="card__image toZoom" loading="lazy"
-                                            src="{{ asset('storage/images/news-events/gallery/' . $item['marathi_image']) }}">
-                                        alt="">
-                                        <!-- The Modal -->
-                                        <div class="idMyModal modal">
-                                            <span class="close">&times;</span>
-                                            <img class="modal-content">
+                    <div class="col-md-12">
+                        
+                        <div class="Container video_cont">
+                            <h3 class="Head">Featured Products <span class="Arrows"></span></h3>
+                            <!-- Carousel Container -->
+                            <div class="SlickCarousel">
+                                <!-- Item -->
+                                <div class="ProductBlock">
+                                    <div class="Content">
+                                        <div class="img-fill">
+                                            <img src="https://tinypic.host/images/2023/02/21/pikrepo.com-2.jpg">
                                         </div>
-                                    @else
-                                        <img class="card__image toZoom" loading="lazy"
-                                            src="{{ asset('storage/images/news-events/gallery/' . $item['english_image']) }} alt="">
-                                        <!-- The Modal -->
-                                        <div class="idMyModal modal">
-                                            <span class="close">&times;</span>
-                                            <img class="modal-content">
+
+                                    </div>
+                                </div>
+                                <!-- Item -->
+                                <!-- Item -->
+                                <div class="ProductBlock">
+                                    <div class="Content">
+                                        <div class="img-fill">
+                                            <img src="https://tinypic.host/images/2023/02/21/pikrepo.com-2.jpg">
                                         </div>
-                                    @endif
 
-                                </figure>
-                            </div>
+                                    </div>
+                                </div>
+                                <!-- Item -->
+                                <!-- Item -->
+                                <div class="ProductBlock">
+                                    <div class="Content">
+                                        <div class="img-fill">
+                                            <img src="https://tinypic.host/images/2023/02/21/pikrepo.com-2.jpg">
+                                        </div>
 
-                        @empty
-                            No Categries found
-                        @endforelse
-                        @foreach ($gallery_data as $item)
-                            <div class="col-md-4 nature">
-                                @if (session('language') == 'mar')
-                                    <img src="{{ asset('storage/images/news-events/gallery/' . $item['marathi_image']) }}"
-                                        class="d-block w-100 img-fluid" alt="...">
-                                @else
-                                    <img src="{{ asset('storage/images/news-events/gallery/' . $item['english_image']) }}"
-                                        class="d-block w-100 img-fluid" alt="...">
-                                @endif
+                                    </div>
+                                </div>
+                                <!-- Item -->
+                                <!-- Item -->
+                                <div class="ProductBlock">
+                                    <div class="Content">
+                                        <div class="img-fill">
+                                            <img src="https://tinypic.host/images/2023/02/21/pikrepo.com-2.jpg">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- Item -->
+                                <!-- Item -->
+                                <div class="ProductBlock">
+                                    <div class="Content">
+                                        <div class="img-fill">
+                                            <img src="https://tinypic.host/images/2023/02/21/pikrepo.com-2.jpg">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- Item -->
                             </div>
-                        @endforeach
+                            <!-- Carousel Container -->
+                        </div>
+
+
+                        --}}
+                        <section class="testimonials-section wf100 p80 graybg">
+                            <div class="container">
+                                <div class="title-style-3">
+                                    <h3 class="stitle text-center d-flex justify-content-start">Video</h3>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="d-flex justify-content-center">
+                                            <!--Video box start-->
+                                            @foreach ($data_getallvideo as $item)
+                                                @if (session('language') == 'mar')
+                                                    <div class="item p-1">
+                                                        <div class="embed-responsive embed-responsive-16by9">
+                                                            <iframe class="embed-responsive-item"
+                                                                src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
+                                                                allowfullscreen></iframe>
+                                                        </div>
+                                                    </div>
+                                                @else
+                                                    <div class="item p-1">
+                                                        <div class="embed-responsive embed-responsive-16by9">
+                                                            <iframe class="embed-responsive-item"
+                                                                src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
+                                                                allowfullscreen></iframe>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endforeach
+                                            <!--Video box End-->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--Video End-->
+  {{--                       <section class="">
+                            <div class="container photo_g">
+                                <div class="row">
+                                    <h3 class="stitle text-center d-flex justify-content-start pt-4">Gallery</h3>
+                                    <div class="col-12">
+                                        <a href="javascript:void(0)" onclick="myFunction('')">
+                                            <input type="radio" name="filter" id="all" checked><label
+                                                for="all">All</label>
+                                        </a>
+
+                                        @forelse($categories as $categories_data)
+                                            @if (session('language') == 'mar')
+                                                <a href="javascript:void(0)"
+                                                    onclick="myFunction('{{ $categories_data['id'] }}')">
+                                                    <input type="radio" name="filter"
+                                                        id="category_{{ $categories_data['id'] }}"><label
+                                                        for="animals">{{ $categories_data['marathi_name'] }}</label>
+                                                </a>
+                                            @else
+                                                <a href="javascript:void(0)"
+                                                    onclick="myFunction('{{ $categories_data['id'] }}')">
+                                                    <input type="radio" name="filter"
+                                                        id="category_{{ $categories_data['id'] }}"><label
+                                                        for="animals">{{ $categories_data['english_name'] }}</label>
+                                                </a>
+                                            @endif
+                                        @empty
+                                            No Categries found
+                                        @endforelse
+                                        <div class="gallery">
+                                            <div id="gallary_data">
+                                                @forelse ($gallery_data as $item)
+                                                    <div class="col-md-4 nature">
+                                                        <figure class="card animals">
+                                                            @if (session('language') == 'mar')
+                                                                <img class="card__image toZoom" loading="lazy"
+                                                                    src="{{ $item['marathi_image'] }}"
+                                                                    class="d-block w-100 img-fluid" alt="...">
+                                                                <!-- The Modal -->
+                                                                <div class="idMyModal modal">
+                                                                    <span class="close">&times;</span>
+                                                                    <img class="modal-content">
+                                                                </div>
+                                                            @else
+                                                                <img class="card__image toZoom" loading="lazy"
+                                                                    src="{{ $item['english_image'] }}"
+                                                                    class="d-block w-100 img-fluid" alt="...">
+
+                                                                <!-- The Modal -->
+                                                                <div class="idMyModal modal">
+                                                                    <span class="close">&times;</span>
+                                                                    <img class="modal-content">
+                                                                </div>
+                                                            @endif
+                                                        </figure>
+                                                    </div>
+                                                @empty
+                                                    No Categries found
+                                                @endforelse
+                                            </div>
+                                        </div>
+
+                                        <meta name="viewport" content="width=device-width">
+                                        <input type="radio" name="filter" id="all" checked><label
+                                            for="all">All</label>
+                                        <input type="radio" name="filter" id="animals"><label
+                                            for="animals">Disaster</label>
+                                        <input type="radio" name="filter" id="nature"><label
+                                            for="nature">Preparedness</label>
+                                        <input type="radio" name="filter" id="people"><label
+                                            for="people">Emergency</label>
+                                        <input type="radio" name="filter" id="tech"><label
+                                            for="tech">Citizen</label>
+                                        <div class="gallery">
+                                            <figure class="card animals">
+                                                <img class="card__image toZoom" loading="lazy"
+                                                    src="{{ asset('storage/images/slides/slide1_english.jpeg/') }}"
+                                                    alt="">
+                                                <!-- The Modal -->
+                                                <div class="idMyModal modal">
+                                                    <span class="close">&times;</span>
+                                                    <img class="modal-content">
+                                                </div>
+                                            </figure>
+                                            <figure class="card nature">
+                                                <img class="card__image toZoom" loading="lazy"
+                                                    src="{{ asset('storage/images/slides/slide1_english.jpeg/') }}"
+                                                    alt="">
+                                                <!-- The Modal -->
+                                                <div class="idMyModal modal">
+                                                    <span class="close">&times;</span>
+                                                    <img class="modal-content">
+                                                </div>
+                                            </figure>
+                                            <figure class="card people">
+                                                <img class="card__image toZoom" loading="lazy"
+                                                    src="{{ asset('storage/images/slides/slide2_english.jpeg/') }}"
+                                                    alt="">
+                                                <!-- The Modal -->
+                                                <div class="idMyModal modal">
+                                                    <span class="close">&times;</span>
+                                                    <img class="modal-content">
+                                                </div>
+                                            </figure>
+                                            <figure class="card tech">
+                                                <img class="card__image toZoom" loading="lazy"
+                                                    src="{{ asset('storage/images/slides/slide3_english.jpeg/') }}"
+                                                    alt="">
+                                                <!-- The Modal -->
+                                                <div class="idMyModal modal">
+                                                    <span class="close">&times;</span>
+                                                    <img class="modal-content">
+                                                </div>
+                                            </figure>
+                                        </div> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
-        </section>
+    </div>
+    <script>
+        function myFunction(category_id) {
+            $("#gallary_data").empty();
+            $.ajax({
+                url: "{{ route('list-ajax-multimedia-web') }}",
+                method: "POST",
+                data: {
+                    "category_id": category_id
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(data) {
+                    $("#gallary_data").empty();
+                    $("#gallary_data").append('<div class="col-md-4 nature"><figure class="card animals">');
+                    $.each(data, function(i, item) {
 
+                        @if (session('language') == 'mar')
+                            $("#gallary_data").append(`
+                                                <img  data-id="Satish" style="border-radius: 5px;cursor: pointer;transition: 0.3s;width: 20%;object-fit: cover;height: 20%;"
+                                                src="item . english_image" 
+                                                    alt="...">
+                                            <div class="idMyModal modal">
+                                                <span class="close">&times;</span>
+                                                <img class="modal-content">
+                                            </div>
+                                            `);
+                        @else
 
-        {{--  <!-- Category buttons -->
-        <div class="mb-3 d-flex justify-content-center">
-            <button class="btn btn-primary filter-button m-1" data-filter="all">All</button>
-            @foreach ($categories as $category)
-                <button class="btn btn-primary filter-button m-1"
-                    data-filter="{{ $category }}">{{ $category }}</button>
-            @endforeach
-        </div>
-        <!-- Image grid -->
-        <div class="row gallery">
-    
-            @foreach ($gallery_data as $item)
-                <div class="col-md-4 nature">
-                    @if (session('language') == 'mar')
-                        <img src="{{ asset('storage/images/news-events/gallery/' . $item['marathi_image']) }}"
-                            class="d-block w-100 img-fluid" alt="...">
-                    @else
-                        <img src="{{ asset('storage/images/news-events/gallery/' . $item['english_image']) }}"
-                            class="d-block w-100 img-fluid" alt="...">
-                    @endif
-                </div>
-            @endforeach
-         
-        </div> --}}
-        <!--Main Content End-->
-        <script>
-            const modal = document.getElementsByClassName('idMyModal');
-            const img = document.getElementsByClassName('toZoom');
-            const modalImg = document.getElementsByClassName('modal-content');
-            for (let i = 0; i < img.length; i++) {
-                img[i].onclick = function() {
-                    modal[i].style.display = "block";
-                    modalImg[i].src = this.src;
-                }
+                            $("#gallary_data").append(`
+                                            <img data-id="Satish" style="border-radius: 5px;cursor: pointer;transition: 0.3s;width: 20%;object-fit: cover;height: 20%;"
+                                                src="` + item.english_image + `" class="d-block w-100 img-fluid"
+                                                    alt="...">
+                                                <div class = "idMyModal modal" >
+                                                <span class = "close" >&times;< /span> <
+                                                img class = "modal-content" >
+                                                </div>`);
+                        @endif
+                    });
+                    $("#gallary_data").append('</figure> </div>');
+
+                },
+                error: function(data) {}
+            });
+        }
+    </script>
+    <!--Main Content End-->
+    <script>
+        const modal = document.getElementsByClassName('idMyModal');
+        const img = document.getElementsByClassName('toZoom');
+        const modalImg = document.getElementsByClassName('modal-content');
+        for (let i = 0; i < img.length; i++) {
+            img[i].onclick = function() {
+                modal[i].style.display = "block";
+                modalImg[i].src = this.src;
             }
+        }
 
-            var span = document.getElementsByClassName("close");
-            for (let i = 0; i < span.length; i++) {
-                span[i].onclick = function() {
-                    modal[i].style.display = "none";
-                }
+        var span = document.getElementsByClassName("close");
+        for (let i = 0; i < span.length; i++) {
+            span[i].onclick = function() {
+                modal[i].style.display = "none";
             }
-        </script>
+        }
+    </script>
 
-        <script></script>
-    @endsection
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js' type='text/javascript'></script>
+    <script src='https://cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/slick.js' type='text/javascript'></script>
+    <script>
+        $(document).ready(function() {
+            $(".SlickCarousel").slick({
+                rtl: false, // If RTL Make it true & .slick-slide{float:right;}
+                autoplay: true,
+                autoplaySpeed: 5000, //  Slide Delay
+                speed: 800, // Transition Speed
+                slidesToShow: 4, // Number Of Carousel
+                slidesToScroll: 1, // Slide To Move 
+                pauseOnHover: false,
+                appendArrows: $(".Container .Head .Arrows"), // Class For Arrows Buttons
+                prevArrow: '<span class="Slick-Prev"></span>',
+                nextArrow: '<span class="Slick-Next"></span>',
+                easing: "linear",
+                responsive: [{
+                        breakpoint: 801,
+                        settings: {
+                            slidesToShow: 3,
+                        }
+                    },
+                    {
+                        breakpoint: 641,
+                        settings: {
+                            slidesToShow: 3,
+                        }
+                    },
+                    {
+                        breakpoint: 481,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    },
+                ],
+            })
+        })
+    </script>
+
+
+@endsection

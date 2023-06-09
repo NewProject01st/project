@@ -5,6 +5,7 @@
             <?php $data_output_contact = App\Http\Controllers\Website\IndexController::getWebsiteContact(); 
               $data_output_department = App\Http\Controllers\Website\IndexController::getWebAllDepartment();
               $data_output_footerlink = App\Http\Controllers\Website\IndexController::getWebAllFooterLink();  
+            //   dd($data_output_contact);
              ?>
              <!--Footer Widget Start-->
              @foreach ($data_output_contact as $item)
@@ -19,7 +20,7 @@
                              <li> <i class="fas fa-envelope"></i> <strong>Email:</strong><?php echo $item['email'] ?>
                              </li>
                              <li> <i class="fas fa-phone"></i> <strong>Call us:</strong>
-                                 <?php echo $item['marathi_contact'] ?> </li>
+                                 <?php echo $item['marathi_number'] ?> </li>
                          </ul>
                      </address>
                  </div>
@@ -35,7 +36,7 @@
                              <li> <i class="fas fa-envelope"></i> <strong>Email:</strong> <?php echo $item['email'] ?>
                              </li>
                              <li> <i class="fas fa-phone"></i> <strong>Call us:</strong>
-                                 <?php echo $item['english_contact'] ?></li>
+                                 <?php echo $item['english_number'] ?></li>
                          </ul>
                      </address>
                  </div>
@@ -199,6 +200,15 @@ $(document).ready(function() {
     });
 });
  </script>
+
+  <script>
+        $('#zoomtextbody').click(function() {
+            $("body").attr("style","font-size:16px !important;");
+        });
+        $('#zoomouttextbody').click(function() {
+            $("body").attr("style","font-size:12px !important;");
+        });
+    </script>
  </body>
 
  </html>

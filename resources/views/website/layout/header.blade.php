@@ -6,14 +6,14 @@
     <title>
         My Website
     </title>
-  <?php 
-    $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData(); 
-  ?>
-    <?php 
-        $metadata = App\Models\Metadata::first()
-     ?>
-     <meta name="english_name" content="{{ $metadata->english_name}}">
-     <meta name="keywords" content="{{ $metadata->keywords}}">
+    <?php
+    $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData();
+    ?>
+    <?php
+    $metadata = App\Models\Metadata::first();
+    ?>
+    <meta name="english_name" content="{{ $metadata->english_name }}">
+    <meta name="keywords" content="{{ $metadata->keywords }}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -21,124 +21,118 @@
         rel="stylesheet">
     <link href="{{ asset('website_files/assets/bootstrap-5.0.2-dist/css/bootstrap.min.css') }}" type="text/css"
         rel="stylesheet">
-    <link href="{{ asset('website_files/assets/font-awesome.min') }}" type="text/css" rel="stylesheet">
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
         integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 
-        <link href="{{ asset('website_files/assets/css/all.css') }}" type="text/css" rel="stylesheet">
-        <link href="{{ asset('website_files/assets/css/custom.css') }}" type="text/css" rel="stylesheet">
-        <link href="{{ asset('website_files/assets/css/responsive.css') }}" type="text/css" rel="stylesheet">
-        <link href="{{ asset('website_files/assets/css/color.css') }}" type="text/css" rel="stylesheet">
-        <link href="{{ asset('website_files/assets/css/slick.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('website_files/assets/css/all.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('website_files/assets/css/custom.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('website_files/assets/css/responsive.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('website_files/assets/css/color.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('website_files/assets/css/slick.css') }}" type="text/css" rel="stylesheet">
     <!-- webpage A+ A- button script -->
     <style type="text/css">
         #zoomtext {
-        transform: scale(1);
-        transition: transform 0.2s ease-in-out;
+            transform: scale(1);
+            transition: transform 0.2s ease-in-out;
         }
     </style>
+   
     <!-- end webpage A+ A- button script -->
-     
-     
-        <link href="{{ asset('website_files/assets/css/owl.carousel.min.css') }}" rel="stylesheet">
 
-        <link href="{{ asset('website_files/assets/css/bootstrap.min.css') }}"  rel="stylesheet">
 
-        <link href="{{ asset('website_files/assets/css/prettyPhoto.css') }}" rel="stylesheet">
+    <link href="{{ asset('website_files/assets/css/owl.carousel.min.css') }}" rel="stylesheet">
+
+
+    <link href="{{ asset('website_files/assets/css/prettyPhoto.css') }}" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
-    <script src="{{ asset('website_files/assets/bootstrap-5.0.2-dist/js/jquery.min.js') }}"></script>
-
-    
 
 
-    <script src="{{ asset('website_files/assets/js/jquery.min.js') }}" ></script> 
+    <script src="{{ asset('website_files/assets/js/jquery.min.js') }}"></script>
 
     {{-- <script src="{{ asset('website_files/assets/js/bootstrap.min.js') }}"></script>  --}}
-    
-    <script src="{{ asset('website_files/assets/js/owl.carousel.min.js') }}"></script> 
-    <script src="{{ asset('website_files/assets/js/query.prettyPhoto.js') }}"></script> 
+
+    <script src="{{ asset('website_files/assets/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('website_files/assets/js/custom.js') }}"></script>
     <script src="{{ asset('website_files/assets/js/jquery.dataTables.min.js') }}"></script>
-    <link href="{{ asset('website_files/assets/css/jquery.dataTables.min.css')}}"  rel="stylesheet">
+    <link href="{{ asset('website_files/assets/css/jquery.dataTables.min.css') }}" rel="stylesheet">
 </head>
 
 <body>
-{{--
-<?php 
+    {{--
+<?php
 
-$url =  "https://api.open-meteo.com/v1/forecast?latitude=73.7898&longitude=19.9975&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m";
-         
-         function CallAPI($method, $url, $data = false) {
-             $curl = curl_init();
-         
-             switch ($method)
-             {
-                 case "POST":
-                     curl_setopt($curl, CURLOPT_POST, 1);
-         
-                     if ($data)
-                         curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-                     break;
-                 case "PUT":
-                     curl_setopt($curl, CURLOPT_PUT, 1);
-                     break;
-                 default:
-                     if ($data)
-                         $url = sprintf("%s?%s", $url, http_build_query($data));
-             }
-         
-             // Optional Authentication:
-             curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-             curl_setopt($curl, CURLOPT_USERPWD, "username:password");
-         
-             curl_setopt($curl, CURLOPT_URL, $url);
-             curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-         
-             $result = curl_exec($curl);
-         
-             curl_close($curl);
-         
-             return $result;
-         }
-         
-         $frontsliderlist = CallAPI('get',$url);
-         $frontsliderlist = json_decode($frontsliderlist, true);
-         echo "<pre>";
+$url = 'https://api.open-meteo.com/v1/forecast?latitude=73.7898&longitude=19.9975&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m';
 
-         print_r($frontsliderlist);
-         $key_tocheck= '';
-         foreach($frontsliderlist['hourly'] as $key =>$hour) {
-            foreach($hour as $key_new =>$hour_new) {
-                if($hour_new == date("Y-m-d")."T".date("H").":00") {
-                    $key_tocheck = $key_new;
-                }
+function CallAPI($method, $url, $data = false)
+{
+    $curl = curl_init();
+
+    switch ($method) {
+        case 'POST':
+            curl_setopt($curl, CURLOPT_POST, 1);
+
+            if ($data) {
+                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
             }
-
-            if($hour = 'temperature_2m') {
-                foreach($hour as $key_temp =>$hour_new) {
-                    if($key_temp == $key_new) {
-                        $temp = $key_new;
-                    }
-                }
+            break;
+        case 'PUT':
+            curl_setopt($curl, CURLOPT_PUT, 1);
+            break;
+        default:
+            if ($data) {
+                $url = sprintf('%s?%s', $url, http_build_query($data));
             }
-         }
-        echo "FInal key ".$key_tocheck;
-        echo "temp ".$temp;
-        echo "FInal key ".date("Y-m-d")."T".date("H").":00";
-        //$temp_final =  (9/5($temp - 273) + 32);
+    }
 
+    // Optional Authentication:
+    curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+    curl_setopt($curl, CURLOPT_USERPWD, 'username:password');
 
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+    $result = curl_exec($curl);
+
+    curl_close($curl);
+
+    return $result;
+}
+
+$frontsliderlist = CallAPI('get', $url);
+$frontsliderlist = json_decode($frontsliderlist, true);
+echo '<pre>';
+
+print_r($frontsliderlist);
+$key_tocheck = '';
+foreach ($frontsliderlist['hourly'] as $key => $hour) {
+    foreach ($hour as $key_new => $hour_new) {
+        if ($hour_new == date('Y-m-d') . 'T' . date('H') . ':00') {
+            $key_tocheck = $key_new;
+        }
+    }
+
+    if ($hour = 'temperature_2m') {
+        foreach ($hour as $key_temp => $hour_new) {
+            if ($key_temp == $key_new) {
+                $temp = $key_new;
+            }
+        }
+    }
+}
+echo 'FInal key ' . $key_tocheck;
+echo 'temp ' . $temp;
+echo 'FInal key ' . date('Y-m-d') . 'T' . date('H') . ':00';
+//$temp_final =  (9/5($temp - 273) + 32);
 ?>  
 --}}
 

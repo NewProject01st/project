@@ -1,6 +1,5 @@
 @extends('admin.layout.master')
 @section('content')
-    <?php $data_for_url = session('data_for_url'); ?>
     <style>
         .card {
             background-color: #fff;
@@ -69,7 +68,7 @@
             color: #fff;
         }
     </style>
-
+<?php $data_for_url = session('data_for_url'); ?>
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="page-header">

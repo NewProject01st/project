@@ -104,8 +104,7 @@ class ResearchCenterController extends Controller
     // }  
 
 
-    public function getAllMultimedia(Request $request)
-    {
+    public function getAllMultimedia(Request $request) {
         try {
             $menu = $this->menu;
             $socialicon = $this->socialicon;
@@ -123,6 +122,12 @@ class ResearchCenterController extends Controller
             return $e;
         }
         return view('website.pages.research-center.list-multimedia-web',compact('language', 'menu', 'socialicon', 'gallery_data','data_getallvideo', 'categories'));
+    }
+
+    public function getAllAjaxMultimedia(Request $request) {
+        $return_data = $this->service->getAllGallery($request);
+        // dd($return_data['gallery_data']);
+        return $return_data['gallery_data'];
     }
 
     // public function getAllMultimedia()

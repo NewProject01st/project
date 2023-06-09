@@ -86,7 +86,7 @@
                   </li>
               @endif
               @if (in_array('list-important-link', $data_for_url)||
-              in_array('list-social-icon', $data_for_url))
+              in_array('list-website-contact', $data_for_url))
                  <li class="nav-item">
                      <a class="nav-link" data-toggle="collapse" href="#footer" aria-expanded="false"
                          aria-controls="footer">
@@ -100,10 +100,14 @@
                            <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                    href="{{ route('list-important-link') }}">Footer Links</a></li>
                             @endif
-                            @if (in_array('list-social-icon', $data_for_url))
+                            @if (in_array('list-website-contact', $data_for_url))
+                            <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                    href="{{ route('list-website-contact') }}">Website Contact</a></li>
+                             @endif
+                            {{-- @if (in_array('list-social-icon', $data_for_url))
                             <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                     href="{{ route('list-social-icon') }}">Social Icon</a></li>
-                            @endif
+                            @endif --}}
                          </ul>
                      </div>
                  </li>

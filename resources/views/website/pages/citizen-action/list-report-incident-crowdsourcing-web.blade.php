@@ -87,6 +87,19 @@
                                             <option value="natural">natural</option>
                                             <option value="disasters">disasters</option>
                                         </select>
+                                        {{-- <select class="form-control" id="incident" name="incident">
+                                            <option>Select</option>
+                                            @foreach ($roles as $role)
+                                                @if (old('incident') == $role['id'])
+                                                    <option value="{{ $role['id'] }}" selected>
+                                                        {{ $role['english_title'] }}</option>
+                                                @else
+                                                    <option value="{{ $role['id'] }}">{{ $role['english_title'] }}
+                                                    </option>
+                                                @endif
+                                            @endforeach
+                                        </select> --}}
+
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label class="col-form-label modal_lable">Location:</label>

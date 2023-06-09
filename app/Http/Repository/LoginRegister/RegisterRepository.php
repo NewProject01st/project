@@ -27,6 +27,10 @@ class RegisterRepository  {
 								'users.number',
 								'users.designation',
 								'users.address',
+								'users.adhar_no',
+								'users.state',
+								'users.city',
+								'users.pincode',
 								'users.id',
 								'users.is_active'
 							)->get();
@@ -58,6 +62,10 @@ class RegisterRepository  {
 		$user_data->number = $request['number'];
 		$user_data->designation = $request['designation'];
 		$user_data->address = $request['address'];
+		$user_data->adhar_no = $request['adhar_no'];
+		$user_data->state = $request['state'];
+		$user_data->city = $request['city'];
+		$user_data->pincode = $request['pincode'];
 		$user_data->ip_address = $ipAddress;
 		$user_data->is_active = isset($request['is_active']) ? true :false;
 		$user_data->save();
@@ -80,6 +88,10 @@ class RegisterRepository  {
 							'number' => $request['number'],
 							'designation' => $request['designation'],
 							'address' => $request['address'],
+							'adhar_no' => $request['adhar_no'],
+							'state' => $request['state'],
+							'city' => $request['city'],
+							'pincode' => $request['pincode'],
 							'is_active' => isset($request['is_active']) ? true :false,
 						]);
 		
@@ -209,6 +221,10 @@ class RegisterRepository  {
 							'users.number',
 							'users.designation',
 							'users.address',
+							'users.adhar_no',
+							'users.state',
+							'users.city',
+							'users.pincode',
 							'users.id',
 							'users.is_active',
 						)->get()

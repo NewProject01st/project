@@ -21,7 +21,7 @@
                     <div class="container ">
                         <div class="title-style-3">
                             <h3>Be Updated with Disaster Management News</h3>
-                            <p>Read the News Updates and Articles from Government </p>
+                          
                         </div>
                         <div class="row d-flex flex-wrap">
 

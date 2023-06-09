@@ -33,7 +33,7 @@
                                                         <option value="{{ $data['id'] }}" selected>
                                                             {{ $data['menu_name_english'] }}</option>
                                                     @else
-                                                        <option value="{{ $data['id'] }}">{{ $data['menu_name_marathi'] }}
+                                                        <option value="{{ $data['id'] }}">{{ $data['menu_name_marathi'] }} ( {{ $data['menu_name_english'] }})
                                                         </option>
                                                     @endif
                                                 @endforeach

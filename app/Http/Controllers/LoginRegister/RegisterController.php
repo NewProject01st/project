@@ -58,9 +58,13 @@ class RegisterController extends Controller {
             'f_name' => 'required',
             'm_name' => 'required',
             'l_name' => 'required',
-            'number' => 'required',
+            'number' => 'regex:/^\d{10}$/',
             'designation' => 'required',
-            'address' => 'required'
+            'address' => 'required',
+            'adhar_no' => 'required',
+            'state' => 'required',
+            'city' => 'required',
+            'pincode' => 'regex:/^[0-9]+$/'
          ];       
 
         $messages = [   
@@ -73,8 +77,14 @@ class RegisterController extends Controller {
                         'm_name.required' =>'Please enter middle name.',
                         'l_name.required' => 'Please enter last name.',
                         'number.required' => 'Please enter number.',
+                        'number.regex' => 'Please enter 10 digit number.',
                         'designation.required' =>'Please enter designation.',
                         'address.required' => 'Please enter address.',
+                        'adhar_no.required' => 'Please enter adhar no.',
+                        'state.required' => 'Please enter state.',
+                        'city.required' =>'Please enter city.',
+                        'pincode.required' => 'Please enter pincode.',
+                        'pincode.regex' => 'Please enter only numbers.',
                     ];
 
 
@@ -121,7 +131,11 @@ class RegisterController extends Controller {
                     'l_name' => 'required',
                     'number' => 'regex:/^\d{10}$/',
                     'designation' => 'required',
-                    'address' => 'required'
+                    'address' => 'required',
+                    'adhar_no' => 'required',
+                    'state' => 'required',
+                    'city' => 'required',
+                    'pincode' => 'regex:/^[0-9]+$/'
                  ];       
 
         $messages = [   
@@ -129,7 +143,7 @@ class RegisterController extends Controller {
                         'u_email.email' => 'Please enter valid email.',
                         'u_uname.required' => 'Please enter user uname.',
                         'u_password.required' => 'Please enter password.',
-                        'u_password.regex' => 'Please enter atleast 1 capital letter, 1 small letter and 1 numbers in password.',
+                        'u_password.regex' => 'Please enter 8 digit password with atleast 1 capital letter, 1 small letter and 1 number.',
                         // 'u_password.min' => 'Please combination of number character of 8 char.',
                         'role_id.required' => 'Select role',
                         'f_name.required' => 'Please enter first name.',
@@ -139,6 +153,12 @@ class RegisterController extends Controller {
                         'number.regex' => 'Please enter 10 digit number.',
                         'designation.required' =>'Please enter designation.',
                         'address.required' => 'Please enter address.',
+                        'adhar_no.required' => 'Please enter adhar no.',
+                        'state.required' => 'Please enter state.',
+                        'city.required' =>'Please enter city.',
+                        'pincode.required' => 'Please enter pincode.',
+                        'pincode.regex' => 'Please enter only numbers.',
+
                     ];
 
 
