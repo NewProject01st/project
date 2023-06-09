@@ -21,8 +21,8 @@ class WebsiteContactSeeder extends Seeder
             'english_address' => 'DMS Office, Maharshtra, INDIA',
             'marathi_address' => 'डीएमएस कार्यालय, महाराष्ट्र, भारत  ',
             'email' => 'contact@dms.com<br> info@dms.com',
-            'english_contact' => '+91 000 0000 000',
-            'marathi_contact' => '+91 000 0000 000',
+            'english_number' => '+91 000 0000 000',
+            'marathi_number' => '+91 000 0000 000',
             'is_deleted'=>false,
             'is_active'=>true,
         
