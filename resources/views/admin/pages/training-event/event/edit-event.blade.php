@@ -9,8 +9,8 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Update Event
+                    <li class="breadcrumb-item"><a href="#">Training Workshops</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Update Training Workshops
                     </li>
                 </ol>
             </nav>
@@ -29,7 +29,7 @@
                                             class="red-text">*</span>
                                         <textarea class="form-control english_title" name="english_title"
                                             id="english_title"
-                                            placeholder="Enter the Title">{{$event->english_title }}</textarea>
+                                            placeholder="Enter the Title">@if (old('english_title')){{ old('english_title') }}@else{{ $event->english_title }}@endif</textarea>
                                         @if ($errors->has('english_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
@@ -42,7 +42,7 @@
                                             class="red-text">*</span>
                                         <textarea class="form-control marathi_title" name="marathi_title"
                                             id="marathi_title"
-                                            placeholder="Enter the Title">{{$event->marathi_title }}</textarea>
+                                            placeholder="Enter the Title">@if (old('marathi_title')){{ old('marathi_title') }}@else{{ $event->marathi_title }}@endif</textarea>
                                         @if ($errors->has('marathi_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
@@ -55,7 +55,7 @@
                                             class="red-text">*</span>
                                         <textarea class="form-control english_description" name="english_description"
                                             id="english_description"
-                                            placeholder="Enter the Description">{{ $event->english_description }}</textarea>
+                                            placeholder="Enter the Description">@if (old('english_description')){{ old('english_description') }}@else{{ $event->english_description }}@endif</textarea>
                                         @if ($errors->has('english_description'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
@@ -67,7 +67,7 @@
                                         <label> Description Marathi</label>&nbsp<span class="red-text">*</span>
                                         <textarea class="form-control marathi_description" name="marathi_description"
                                             id="marathi_description"
-                                            placeholder="Enter the Description">{{ $event->marathi_description }}</textarea>
+                                            placeholder="Enter the Description">@if (old('marathi_description')){{ old('marathi_description') }}@else{{ $event->marathi_description }}@endif</textarea>
                                         @if ($errors->has('marathi_description'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
@@ -78,7 +78,7 @@
                                     <div class="form-group">
                                         <label for="start_date">Start Date</label>&nbsp<span class="red-text">*</span>
                                         <input type="date" class="form-control" name="start_date" id="start_date"
-                                            value="{{$event->start_date}}" placeholder="Selecte Start Date">
+                                            value="@if (old('start_date')){{ old('start_date') }}@else{{ $event->start_date }}@endif" placeholder="Selecte Start Date">
                                         @if ($errors->has('start_date'))
                                         <span
                                             class="red-text"><?php echo $errors->first('start_date', ':message'); ?></span>
@@ -89,7 +89,7 @@
                                     <div class="form-group">
                                         <label for="end_date">End Date</label>&nbsp<span class="red-text">*</span>
                                         <input type="date" class="form-control" name="end_date" id="end_date"
-                                            value="{{$event->end_date}}" placeholder="Selecte End Date">
+                                            value="@if (old('end_date')){{ old('end_date') }}@else{{ $event->end_date }}@endif" placeholder="Selecte End Date">
                                         @if ($errors->has('end_date'))
                                         <span
                                             class="red-text"><?php echo $errors->first('end_date', ':message'); ?></span>

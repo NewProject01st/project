@@ -7,7 +7,7 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Vacancy List
+                    Vacancies List
                     @if (in_array('per_add', $data_permission))
                         <a href="{{ url('add-header-vacancies') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
                     @endif
@@ -15,8 +15,8 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Vacancy</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Vacancy List</li>
+                        <li class="breadcrumb-item"><a href="#">Header</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> Vacancies List</li>
                     </ol>
                 </nav>
             </div>
@@ -33,9 +33,9 @@
                                                     <th>S. No.</th>
                                                     <th>Title English</th>
                                                     <th>Title Marathi</th>
-                                                    <th> URL</th>
                                                     <th>English Pdf</th>
                                                     <th>Marathi Pdf</th>
+                                                    <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -45,7 +45,6 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td><?php echo $item->english_title; ?></td>
                                                         <td><?php echo $item->marathi_title; ?></td>
-                                                        <td>{{ $item->url }}</td>
                                                         <td> <a href="{{ asset('/storage/pdf/header/vacancy/' . $item['english_pdf']) }}"
                                                                 target="_blank"><img
                                                                     src="{{ asset('storage/pdf/pdf.png/') }}" width="35px"
@@ -54,6 +53,17 @@
                                                                 target="_blank"><img
                                                                     src="{{ asset('storage/pdf/pdf.png/') }}" width="35px"
                                                                     height="35px"></a></td>
+                                                        <td>
+                                                            <label class="switch">
+                                                                <input data-id="{{ $item->id }}" type="checkbox"
+                                                                    {{ $item->is_active ? 'checked' : '' }}
+                                                                    class="active-btn btn btn-sm btn-outline-primary m-1"
+                                                                    data-toggle="tooltip" data-placement="top"
+                                                                    title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
+                                                                <span class="slider round "></span>
+                                                            </label>
+
+                                                        </td>
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
@@ -71,8 +81,6 @@
                                                                         title="Delete Tender"><i
                                                                             class="fas fa-archive"></i></a>
                                                                 @endif
-
-
                                                         </td>
                                     </div>
                                     </tr>
@@ -96,11 +104,15 @@
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ route('edit-header-vacancies') }}" id="editform">
+    <form method="GET" action="{{ route('edit-header-vacancies') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>
+    <form method="POST" action="{{ url('/update-one-vacancies') }}" id="activeform">
+        @csrf
+        <input type="hidden" name="active_id" id="active_id" value="">
+    </form>
+    
 
     <!-- content-wrapper ends -->
-
 @endsection

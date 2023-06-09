@@ -42,7 +42,7 @@
                                             class="red-text">*</span>
                                         <textarea class="form-control marathi_title" name="marathi_title"
                                             id="marathi_title"
-                                            placeholder="Enter the Title">{{ $districtemergencyoperationscenter->marathi_title }}</textarea>
+                                            placeholder="Enter the Title">@if (old('marathi_title')){{ old('marathi_title') }}@else{{ $districtemergencyoperationscenter->marathi_title }}@endif</textarea>
                                         @if ($errors->has('marathi_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
@@ -55,7 +55,7 @@
                                             class="red-text">*</span>
                                         <textarea class="form-control english_description" name="english_description"
                                             id="english_description"
-                                            placeholder="Enter the Description">{{ $districtemergencyoperationscenter->english_description }}</textarea>
+                                            placeholder="Enter the Description">@if (old('english_description')){{ old('english_description') }}@else{{ $districtemergencyoperationscenter->english_description }}@endif</textarea>
                                         @if ($errors->has('english_description'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
@@ -68,7 +68,7 @@
                                             class="red-text">*</span>
                                         <textarea class="form-control marathi_description" name="marathi_description"
                                             id="marathi_description"
-                                            placeholder="Enter the Description">{{ $districtemergencyoperationscenter->marathi_description }}</textarea>
+                                            placeholder="Enter the Description">@if (old('marathi_description')){{ old('marathi_description') }}@else{{ $districtemergencyoperationscenter->marathi_description }}@endif</textarea>
                                         @if ($errors->has('marathi_description'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>

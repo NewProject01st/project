@@ -8,7 +8,7 @@
                     Gallery</h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="#">Resource Center</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Update Gallery
                         </li>
                     </ol>
@@ -26,7 +26,7 @@
                                         <div class="form-group">
                                             <label for="english_image">English Image</label>
                                             <input type="file" name="english_image" class="form-control"
-                                                id="english_image" accept="image/*" placeholder="image">
+                                                id="english_image" accept="image/*" placeholder="image" value="{{ old('english_title') }}">
                                             @if ($errors->has('english_image'))
                                                 <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                             @endif

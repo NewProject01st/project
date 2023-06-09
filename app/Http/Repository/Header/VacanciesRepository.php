@@ -18,142 +18,165 @@ class VacanciesRepository  {
             return $e;
         }
     }
-
-	
 	public function addAll($request)
-{
-    try {
-        
-        $englishPdf = time() . '_english.' . $request->english_pdf->extension();
-        $marathiPdf= time() . '_marathi.' . $request->marathi_pdf->extension();
-        
-        $request->english_pdf->storeAs('public/pdf/header/vacancy', $englishPdf);
-        $request->marathi_pdf->storeAs('public/pdf/header/vacancy', $marathiPdf);
-        
-        
-        $vacancy_data = new VacanciesHeader();
-        $vacancy_data->english_title = $request['english_title'];
-        $vacancy_data->marathi_title = $request['marathi_title'];
-        $vacancy_data->url = $request['url'];
-        $vacancy_data->english_pdf = $englishPdf;
-        $vacancy_data->marathi_pdf = $marathiPdf;
-        $vacancy_data->save();       
-              
-		return $vacancy_data;
+    {
+        try {
+            
+            $englishPdf = time() . '_english.' . $request->english_pdf->extension();
+            $marathiPdf= time() . '_marathi.' . $request->marathi_pdf->extension();
+            
+            $request->english_pdf->storeAs('public/pdf/header/vacancy', $englishPdf);
+            $request->marathi_pdf->storeAs('public/pdf/header/vacancy', $marathiPdf);
+            
+            $vacancy_data = new VacanciesHeader();
+            $vacancy_data->english_title = $request['english_title'];
+            $vacancy_data->marathi_title = $request['marathi_title'];
+            $vacancy_data->url = $request['url'];
+            $vacancy_data->english_pdf = $englishPdf;
+            $vacancy_data->marathi_pdf = $marathiPdf;
+            $vacancy_data->save();       
+                
+            return $vacancy_data;
 
-    } catch (\Exception $e) {
-        return [
-            'msg' => $e,
-            'status' => 'error'
-        ];
-    }
-}
-
-public function getById($id)
-{
-    try {
-        $vacancy = VacanciesHeader::find($id);
-        if ($vacancy) {
-            return $vacancy;
-        } else {
-            return null;
-        }
-    } catch (\Exception $e) {
-        return $e;
-		return [
-            'msg' => 'Failed to get by id Tender.',
-            'status' => 'error'
-        ];
-    }
-}
-
-public function updateAll($request)
-{
-    try {
-        $vacancy_data = VacanciesHeader::find($request->id);
-        
-        if (!$vacancy_data) {
+        } catch (\Exception $e) {
             return [
-                'msg' => 'Tender not found.',
+                'msg' => $e,
                 'status' => 'error'
             ];
         }
-        $vacancy_data->english_title = $request['english_title'];
-        $vacancy_data->marathi_title = $request['marathi_title'];
-        $vacancy_data->url = $request['url'];
-
-        $previousEnglishPdf = $vacancy_data->english_pdf;
-        $previousMarathiPdf = $vacancy_data->marathi_pdf;
-
-        if($request->hasFile('english_pdf'))
-       
-        {
-            if($previousEnglishPdf)
-            {
-                //delete previous stored pdf
-                Storage::delete('public/pdf/header/vacancy/' . $previousEnglishPdf );
-
-                //insert new pdf
-                $englishPdf = time() . '_english.' . $request->english_pdf->extension();
-                $request->english_pdf->storeAs('public/pdf/header/vacancy/', $englishPdf);
-                $vacancy_data->english_pdf = $englishPdf;
-            }
-
-        }
-
-        if($request->hasFile('marathi_pdf'))
-       
-        {
-            if($previousMarathiPdf)
-            {
-                //delete previous stored pdf
-                Storage::delete('public/pdf/header/vacancy/' . $previousMarathiPdf );
-
-                //insert new pdf
-                $marathiPdf = time() . '_marathi.' . $request->marathi_pdf->extension();
-                $request->marathi_pdf->storeAs('public/pdf/header/vacancy/', $marathiPdf);
-                $vacancy_data->marathi_pdf = $marathiPdf;
-            }
-
-        }
-
-        $vacancy_data->save();        
-     
-        return [
-            'msg' => 'Tender updated successfully.',
-            'status' => 'success'
-        ];
-    } catch (\Exception $e) {
-        return $e;
-        return [
-            'msg' => 'Failed to update Tender.',
-            'status' => 'error'
-        ];
     }
-}
 
-public function deleteById($id)
-{
-    try {
-        $vacancy = VacanciesHeader::find($id);
-        if ($vacancy) {
-             // Delete the images from the storage folder
-             Storage::delete([
-                'public/pdf/header/vacancy/'.$vacancy->marathi_pdf,
-                'public/pdf/header/vacancy/'.$vacancy->english_pdf
-            ]);
+    public function getById($id)
+    {
+        try {
+            $vacancy = VacanciesHeader::find($id);
+            if ($vacancy) {
+                return $vacancy;
+            } else {
+                return null;
+            }
+        } catch (\Exception $e) {
+            return $e;
+            return [
+                'msg' => 'Failed to get by id Tender.',
+                'status' => 'error'
+            ];
+        }
+    }
 
-            // Delete the record from the database
-            $vacancy->delete();
+    public function updateAll($request)
+    {
+        try {
+            $vacancy_data = VacanciesHeader::find($request->id);
             
-            return $vacancy;
-        } else {
-            return null;
+            if (!$vacancy_data) {
+                return [
+                    'msg' => 'Tender not found.',
+                    'status' => 'error'
+                ];
+            }
+            $vacancy_data->english_title = $request['english_title'];
+            $vacancy_data->marathi_title = $request['marathi_title'];
+            $vacancy_data->url = $request['url'];
+
+            $previousEnglishPdf = $vacancy_data->english_pdf;
+            $previousMarathiPdf = $vacancy_data->marathi_pdf;
+
+            if($request->hasFile('english_pdf'))
+        
+            {
+                if($previousEnglishPdf)
+                {
+                    //delete previous stored pdf
+                    Storage::delete('public/pdf/header/vacancy/' . $previousEnglishPdf );
+
+                    //insert new pdf
+                    $englishPdf = time() . '_english.' . $request->english_pdf->extension();
+                    $request->english_pdf->storeAs('public/pdf/header/vacancy/', $englishPdf);
+                    $vacancy_data->english_pdf = $englishPdf;
+                }
+
+            }
+
+            if($request->hasFile('marathi_pdf'))
+        
+            {
+                if($previousMarathiPdf)
+                {
+                    //delete previous stored pdf
+                    Storage::delete('public/pdf/header/vacancy/' . $previousMarathiPdf );
+
+                    //insert new pdf
+                    $marathiPdf = time() . '_marathi.' . $request->marathi_pdf->extension();
+                    $request->marathi_pdf->storeAs('public/pdf/header/vacancy/', $marathiPdf);
+                    $vacancy_data->marathi_pdf = $marathiPdf;
+                }
+
+            }
+
+            $vacancy_data->save();        
+        
+            return [
+                'msg' => 'Tender updated successfully.',
+                'status' => 'success'
+            ];
+        } catch (\Exception $e) {
+            return $e;
+            return [
+                'msg' => 'Failed to update Tender.',
+                'status' => 'error'
+            ];
         }
-    } catch (\Exception $e) {
-        return $e;
     }
-}
+    public function updateOne($request)
+    {
+        try {
+            $vacancy = VacanciesHeader::find($request); // Assuming $request directly contains the ID
+
+            // Assuming 'is_active' is a field in the Slider model
+            if ($vacancy) {
+                $is_active = $vacancy->is_active === 1 ? 0 : 1;
+                $vacancy->is_active = $is_active;
+                $vacancy->save();
+
+                return [
+                    'msg' => 'Vacancy updated successfully.',
+                    'status' => 'success'
+                ];
+            }
+            return [
+                'msg' => 'Vacancy not found.',
+                'status' => 'error'
+            ];
+        } catch (\Exception $e) {
+            return [
+                'msg' => 'Failed to update Vacancy.',
+                'status' => 'error'
+            ];
+        }
+    }
+    public function deleteById($id)
+    {
+        try {
+            $vacancy = VacanciesHeader::find($id);
+            if ($vacancy) {
+                // Delete the images from the storage folder
+                Storage::delete([
+                    'public/pdf/header/vacancy/'.$vacancy->marathi_pdf,
+                    'public/pdf/header/vacancy/'.$vacancy->english_pdf
+                ]);
+
+                // Delete the record from the database
+                $vacancy->delete();
+                
+                return $vacancy;
+            } else {
+                return null;
+            }
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
 
 
        

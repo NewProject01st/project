@@ -7,7 +7,7 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Important Links List
+                    Footer Links List
                     @if (in_array('per_add', $data_permission))
                         <a href="{{ route('add-important-link') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
                     @endif
@@ -15,8 +15,8 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Master Management</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Important Links List</li>
+                        <li class="breadcrumb-item"><a href="#">Header</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Footer Link List</li>
                     </ol>
                 </nav>
             </div>
@@ -33,7 +33,6 @@
                                                     <th>S. No.</th>
                                                     <th>Title English</th>
                                                     <th>Title Marathi</th>
-                                                    <th>URL</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -44,18 +43,17 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td><?php echo $item->english_title; ?></td>
                                                         <td><?php echo $item->marathi_title; ?></td>
-                                                        <td><?php echo $item->url; ?></td>
                                                         <!-- <td>
-                                                        <button data-id="{{ $item->id }}" type="submit"
-                                                            class="active-btn btn btn-sm btn-outline-primary m-1"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
-                                                            <span class="status-icon {{ $item->is_active ? '1' : '0' }}">
-                                                                <i
-                                                                    class="fa {{ $item->is_active ? 'fa-thumbs-up' : 'fa-thumbs-down' }}"></i>
-                                                            </span>
-                                                        </button>
-                                                    </td> -->
+                                                            <button data-id="{{ $item->id }}" type="submit"
+                                                                class="active-btn btn btn-sm btn-outline-primary m-1"
+                                                                data-toggle="tooltip" data-placement="top"
+                                                                title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
+                                                                <span class="status-icon {{ $item->is_active ? '1' : '0' }}">
+                                                                    <i
+                                                                        class="fa {{ $item->is_active ? 'fa-thumbs-up' : 'fa-thumbs-down' }}"></i>
+                                                                </span>
+                                                            </button>
+                                                        </td> -->
                                                         <td>
                                                             <label class="switch">
                                                                 <input data-id="{{ $item->id }}" type="checkbox"
@@ -107,7 +105,7 @@
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="POST" action="{{ url('/edit-important-link') }}" id="editform">
+        <form method="GET" action="{{ url('/edit-important-link') }}" id="editform">
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>

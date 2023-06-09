@@ -5,11 +5,11 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Contact Feedback and suggestions
+                Contact Us
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="#">Contact Us</a></li>
                     <li class="breadcrumb-item active" aria-current="page"> Update Contact Feedback and suggestions
                     </li>
                 </ol>

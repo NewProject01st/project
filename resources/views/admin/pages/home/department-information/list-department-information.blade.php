@@ -16,7 +16,7 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#"> Department Information</a></li>
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page"> Department Information</li>
                 </ol>
             </nav>
@@ -36,11 +36,11 @@
                                                 <th>Title Marathi</th>
                                                 <th>Description English</th>
                                                 <th>Description Marathi</th>
-                                                <th>Url</th>
+                                                {{-- <th>Url</th> --}}
                                                 {{-- <th>Date</th> --}}
                                                 <th>English Icon</th>
                                                 <th>Marathi Icon</th>
-                                                <th>English New Icon</th>
+                                                {{-- <th>English New Icon</th> --}}
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -53,7 +53,7 @@
                                                 <td><?php echo $item->marathi_title; ?></td>
                                                 <td><?php echo $item->english_description; ?></td>
                                                 <td><?php echo $item->marathi_description; ?></td>
-                                                <td>{{ $item->url }}</td>
+                                                {{-- <td>{{ $item->url }}</td> --}}
                                                 {{-- <td>{{ $item->date }}</td> --}}
                                                 <td> <img
                                                         src="{{ asset('storage/images/home/department-information/' . $item->english_image) }}" />
@@ -61,9 +61,9 @@
                                                 <td> <img
                                                         src="{{ asset('storage/images/home/department-information/' . $item->marathi_image) }}" />
                                                 </td>
-                                                <td> <img
+                                                {{-- <td> <img
                                                         src="{{ asset('storage/images/home/department-information/' . $item->english_image_new) }}" />
-                                                </td>
+                                                </td> --}}
                                                 <td>
                                                     <label class="switch">
                                                         <input data-id="{{ $item->id }}" type="checkbox"
@@ -116,7 +116,7 @@
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-department-information') }}" id="editform">
+    <form method="GET" action="{{ url('/edit-department-information') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>

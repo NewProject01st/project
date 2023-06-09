@@ -15,7 +15,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">RTI</a></li>
+                        <li class="breadcrumb-item"><a href="#">Header</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> RTI List</li>
                     </ol>
                 </nav>
@@ -36,6 +36,7 @@
                                                     <th> URL</th>
                                                     <th>English Pdf</th>
                                                     <th>Marathi Pdf</th>
+                                                    <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -54,7 +55,18 @@
                                                                 target="_blank"><img
                                                                     src="{{ asset('storage/pdf/pdf.png/') }}" width="35px"
                                                                     height="35px"></a></td>
-                                                        <td>
+                                                                    <td>
+                                                                        <label class="switch">
+                                                                            <input data-id="{{ $item->id }}" type="checkbox"
+                                                                                {{ $item->is_active ? 'checked' : '' }}
+                                                                                class="active-btn btn btn-sm btn-outline-primary m-1"
+                                                                                data-toggle="tooltip" data-placement="top"
+                                                                                title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
+                                                                            <span class="slider round "></span>
+                                                                        </label>
+            
+                                                                    </td>
+                                                            <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
@@ -95,11 +107,15 @@
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="POST" action="{{ route('edit-header-rti') }}" id="editform">
+        <form method="GET" action="{{ route('edit-header-rti') }}" id="editform">
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>
-
+        <form method="POST" action="{{ url('/update-one-rti') }}" id="activeform">
+            @csrf
+            <input type="hidden" name="active_id" id="active_id" value="">
+        </form>
+        
         <!-- content-wrapper ends -->
 
     @endsection

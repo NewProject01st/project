@@ -34,16 +34,7 @@
                                             style="width:70px; height:70px;" />
                                     </div>
                                 </div>
-                                
-                                <div class="row ">
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label>URL :</label>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $social_icon->url ?></label>
-                                    </div>
-                                </div>
-                            </div>
+                             </div>
                         </div>
                     </div>
                 </div>

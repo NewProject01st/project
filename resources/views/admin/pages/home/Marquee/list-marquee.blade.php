@@ -15,7 +15,7 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Master Management</a></li>
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">News Bar List</li>
                 </ol>
             </nav>
@@ -33,7 +33,6 @@
                                                 <th>S. No.</th>
                                                 <th>Title English</th>
                                                 <th>Title Marathi</th>
-                                                <th>URL</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -44,7 +43,6 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td><?php echo $item->english_title; ?></td>
                                                 <td><?php echo $item->marathi_title; ?></td>
-                                                <td><?php echo $item->url; ?></td>
                                                 <!-- <td>
                                                     <button data-id="{{ $item->id }}" type="submit"
                                                         class="active-btn btn btn-sm btn-outline-primary m-1"
@@ -67,7 +65,8 @@
                                                     </label>
 
                                                 </td>
-                                                <td class="d-flex">
+                                                <td>
+                                                    <div class="d-flex">
                                                     @if (in_array("per_update", $data_permission))
                                                     <a data-id="{{ $item->id }}"
                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
@@ -82,7 +81,7 @@
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                         title="Delete Marquee"><i class="fas fa-archive"></i></a>
                                                     @endif
-
+                                                    </div>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -105,7 +104,7 @@
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-marquee') }}" id="editform">
+    <form method="GET" action="{{ url('/edit-marquee') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>

@@ -27,23 +27,19 @@ class VacanciesHeaderServices
             return $e;
         }
     }
-
-
     public function addAll($request)
     {
         try {
             $add_vacancy = $this->repo->addAll($request);
             if ($add_vacancy) {
-                return ['status' => 'success', 'msg' => 'Tender Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Vacancy Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Tender Not Added.'];
+                return ['status' => 'error', 'msg' => 'Vacancy Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
-
-    
     public function getById($id)
     {
         try {
@@ -52,21 +48,23 @@ class VacanciesHeaderServices
             return $e;
         }
     }
-    
     public function updateAll($request)
     {
         try {
             $update_vacancy = $this->repo->updateAll($request);
             if ($update_vacancy) {
-                return ['status' => 'success', 'msg' => 'Tender Updated Successfully.'];
+                return ['status' => 'success', 'msg' => 'Vacancy Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Tender Not Updated.'];
+                return ['status' => 'error', 'msg' => 'Vacancy Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
-    
+    public function updateOne($id)
+    {
+        return $this->repo->updateOne($id);
+    }
 
     public function deleteById($id)
     {
@@ -76,10 +74,4 @@ class VacanciesHeaderServices
             return $e;
         }
     }
-   
-    
-   
-
-
-
 }

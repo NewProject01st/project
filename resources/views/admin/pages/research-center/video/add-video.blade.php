@@ -9,7 +9,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="#">Resource Center</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Video</li>
                     </ol>
                 </nav>
@@ -26,7 +26,7 @@
                                         <div class="form-group">
                                             <label for="video_name">Video Name</label>&nbsp<span
                                                 class="red-text">*</span>
-                                                <input class="form-control video_name" name="video_name" id="video_name" placeholder="Enter Video Name">
+                                                <input class="form-control video_name" name="video_name" id="video_name" placeholder="Enter Video Name" {{ old('video_name') }}>
                                             @if ($errors->has('video_name'))
                                                 <span class="red-text"><?php echo $errors->first('video_name', ':message'); ?></span>
                                             @endif

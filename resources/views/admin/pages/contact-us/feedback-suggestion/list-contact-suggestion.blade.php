@@ -7,16 +7,16 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Contact Feedback and suggestions
+                    {{-- Contact Feedback and suggestions
                     @if (in_array('per_add', $data_permission))
                         <a href="{{ route('add-contact-suggestion') }}" class="btn btn-sm btn-primary ml-3">+
                             Add</a>
-                    @endif
+                    @endif --}}
 
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Contact Feedback and suggestions</a></li>
+                        <li class="breadcrumb-item"><a href="#">Contact Us</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Contact Feedback and suggestions</li>
                     </ol>
                 </nav>
@@ -54,11 +54,11 @@
 
                                                         <td>
                                                             <div class="d-flex">
-                                                                @if (in_array('per_add', $data_permission))
+                                                                {{-- @if (in_array('per_add', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
                                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                                             class="fas fa-pencil-alt"></i></a>
-                                                                @endif
+                                                                @endif --}}
 
                                                                 <a data-id="{{ $item->id }}"
                                                                     class="show-btn btn btn-sm btn-outline-primary m-1"><i

@@ -4,7 +4,7 @@
          <div class="row">
             <?php $data_output_contact = App\Http\Controllers\Website\IndexController::getWebsiteContact(); 
               $data_output_department = App\Http\Controllers\Website\IndexController::getWebAllDepartment();
-              $data_output_footerlink = App\Http\Controllers\Website\IndexController::getWebAllDepartment();  
+              $data_output_footerlink = App\Http\Controllers\Website\IndexController::getWebAllFooterLink();  
              ?>
              <!--Footer Widget Start-->
              @foreach ($data_output_contact as $item)
@@ -92,6 +92,7 @@
                      </div>
                      <div class="tw-footer"> @dms.gov <strong>3 May, 2023</strong> <i class="fab fa-twitter"></i>
                      </div>
+                     
                  </div>
              </div>
              <!--Footer Widget End-->

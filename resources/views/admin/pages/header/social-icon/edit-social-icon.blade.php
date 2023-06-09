@@ -9,7 +9,7 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="#">Header</a></li>
                     <li class="breadcrumb-item active" aria-current="page"> Update Social Icon
                     </li>
                 </ol>
@@ -23,13 +23,10 @@
                             enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-
-
-
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="icon">Social Icon</label><br>
-                                        <input type="file" name="icon" class="form-control" placeholder="image">
+                                        <input type="file" name="icon" class="form-control" placeholder="image"  value="{{ $social_icon->icon }}" value="@if (old('icon')) {{ old('icon') }}@else{{ $social_icon->url }} @endif">
                                         @if ($errors->has('icon'))
                                         <span class="red-text"><?php echo $errors->first('icon', ':message'); ?></span>
                                         @endif
@@ -40,9 +37,9 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="url">English URL</label>&nbsp<span class="red-text">*</span>
+                                        <label for="url">URL</label>&nbsp<span class="red-text">*</span>
                                         <input type="text" name="url" id="url" class="form-control"
-                                            value="{{ $social_icon->url }}" placeholder="">
+                                            value="{{ $social_icon->url }}" value="@if (old('url')) {{ old('url') }}@else{{ $social_icon->url }} @endif" placeholder="">
                                         @if ($errors->has('url'))
                                         <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                         @endif

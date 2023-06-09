@@ -16,7 +16,7 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#"> Early Warning System</a></li>
+                    <li class="breadcrumb-item"><a href="#">Preparedness</a></li>
                     <li class="breadcrumb-item active" aria-current="page"> Early Warning System</li>
                 </ol>
             </nav>
@@ -95,7 +95,7 @@
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-early-warning-system') }}" id="editform">
+    <form method="GET" action="{{ url('/edit-early-warning-system') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>

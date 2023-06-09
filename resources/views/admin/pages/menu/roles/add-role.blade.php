@@ -29,7 +29,7 @@
                                         <div class="form-group">
                                             <label for="role_name">Role Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control role_name" name="role_name"
-                                                id="role_name" placeholder="Enter the Role Name">
+                                                id="role_name" value="{{ old('role_name') }}" placeholder="Enter the Role Name">
                                             @if ($errors->has('role_name'))
                                             <span
                                                 class="red-text"><?php echo $errors->first('role_name', ':message'); ?></span>

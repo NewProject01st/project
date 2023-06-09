@@ -61,7 +61,7 @@ public function getById($id)
     } catch (\Exception $e) {
         return $e;
 		return [
-            'msg' => 'Failed to get by id Tender.',
+            'msg' => 'Failed to get by id RTI.',
             'status' => 'error'
         ];
     }
@@ -74,7 +74,7 @@ public function updateAll($request)
         
         if (!$rti_data) {
             return [
-                'msg' => 'Tender not found.',
+                'msg' => 'RTI not found.',
                 'status' => 'error'
             ];
         }
@@ -120,18 +120,44 @@ public function updateAll($request)
         $rti_data->save();        
      
         return [
-            'msg' => 'Tender updated successfully.',
+            'msg' => 'RTI updated successfully.',
             'status' => 'success'
         ];
     } catch (\Exception $e) {
         return $e;
         return [
-            'msg' => 'Failed to update Tender.',
+            'msg' => 'Failed to update RTI.',
             'status' => 'error'
         ];
     }
 }
+public function updateOne($request)
+    {
+        try {
+            $rti = RTI::find($request); // Assuming $request directly contains the ID
 
+            // Assuming 'is_active' is a field in the Slider model
+            if ($rti) {
+                $is_active = $rti->is_active === 1 ? 0 : 1;
+                $rti->is_active = $is_active;
+                $rti->save();
+
+                return [
+                    'msg' => 'RTI updated successfully.',
+                    'status' => 'success'
+                ];
+            }
+            return [
+                'msg' => 'RTI not found.',
+                'status' => 'error'
+            ];
+        } catch (\Exception $e) {
+            return [
+                'msg' => 'Failed to update RTI.',
+                'status' => 'error'
+            ];
+        }
+    }
 public function deleteById($id)
 {
     try {

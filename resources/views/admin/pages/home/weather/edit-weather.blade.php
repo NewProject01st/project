@@ -28,7 +28,7 @@
                                                 class="text-danger">*</span></label>
                                         <textarea class="form-control english_title" name="english_title"
                                             id="english_title" placeholder="Enter the Title"
-                                            name="english_title">{{ $weather->english_title }}</textarea>
+                                            name="english_title">@if (old('english_title')){{ old('english_title') }}@else{{ $weather->english_title }}@endif</textarea>
                                         @if ($errors->has('english_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
@@ -41,7 +41,7 @@
                                                 class="text-danger">*</span></label>
                                         <textarea class="form-control marathi_title" name="marathi_title"
                                             id="marathi_title" placeholder="Enter the Title"
-                                            name="marathi_title">{{ $weather->marathi_title }}</textarea>
+                                            name="marathi_title">@if (old('marathi_title')){{ old('marathi_title') }}@else{{ $weather->marathi_title }}@endif</textarea>
                                         @if ($errors->has('marathi_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
@@ -54,7 +54,7 @@
                                                 class="text-danger">*</span></label>
                                         <textarea class="form-control english_description" name="english_description"
                                             id="english_description" placeholder="Enter the Description"
-                                            name="english_description">{{ $weather->english_description }}</textarea>
+                                            name="english_description">@if (old('english_description')){{ old('english_description') }}@else{{ $weather->english_description }}@endif</textarea>
                                         @if ($errors->has('english_title'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
@@ -67,7 +67,7 @@
                                         <label> Description Marathi <span class="text-danger">*</span></label>
                                         <textarea class="form-control marathi_description" name="marathi_description"
                                             id="marathi_description"
-                                            placeholder="Enter the Description">{{ $weather->marathi_description }}</textarea>
+                                            placeholder="Enter the Description">@if (old('marathi_description')){{ old('marathi_description') }}@else{{ $weather->marathi_description }}@endif</textarea>
                                         @if ($errors->has('english_description'))
                                         <span
                                             class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
@@ -79,7 +79,7 @@
                                         <label for="weather_date">Weather Date <span
                                                 class="text-danger">*</span></label>
                                         <input type="date" class="form-control" placeholder="YYYY-MM-DD"
-                                            value="{{ $weather->weather_date }}" name="weather_date" id="weather_date">
+                                            value="@if (old('weather_date')){{ old('weather_date') }}@else{{ $weather->weather_date }}@endif" name="weather_date" id="weather_date">
                                         @if ($errors->has('weather_date'))
                                         <span
                                             class="red-text"><?php echo $errors->first('weather_date', ':message'); ?></span>
@@ -91,7 +91,7 @@
                                         <label for="expired_date">Expired Date <span
                                                 class="text-danger">*</span></label>
                                         <input type="date" class="form-control" placeholder="YYYY-MM-DD"
-                                            value="{{ $weather->expired_date }}" name="expired_date" id="expired_date">
+                                            value="@if (old('expired_date')){{ old('expired_date') }}@else{{ $weather->expired_date }}@endif" name="expired_date" id="expired_date">
                                         @if ($errors->has('expired_date'))
                                         <span
                                             class="red-text"><?php echo $errors->first('expired_date', ':message'); ?></span>
