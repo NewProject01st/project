@@ -24,7 +24,7 @@
                             <h3> Past Events And Trainings</h3>
                         </div>
                         <!--Event List Box Start-->
-                        @foreach ($data_output as $item)
+                        @forelse ($data_output as $item)
                             <div class="event-post-full d-flex">
                                 @if (session('language') == 'mar')
                                     <div class="thumb"><img
@@ -58,7 +58,9 @@
                                     </div>
                                 @endif
                             </div>
-                        @endforeach
+                        @empty
+                            <h4>No Data Found For Past Events And Trainings</h4>
+                        @endforelse
                         <!--Event List Box End-->
 
 
@@ -103,6 +105,4 @@
         </div>
     </div>
     </div>
-
-
 @endsection

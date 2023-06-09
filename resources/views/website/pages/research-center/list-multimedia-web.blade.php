@@ -184,20 +184,20 @@
                                 </figure>
                             </div>
 
-@empty
+                        @empty
                             No Categries found
                         @endforelse
-                            @foreach ($gallery_data as $item)
-                                <div class="col-md-4 nature">
-                                    @if (session('language') == 'mar')
-                                        <img src="{{ asset('storage/images/news-events/gallery/' . $item['marathi_image']) }}"
-                                            class="d-block w-100 img-fluid" alt="...">
-                                    @else
-                                        <img src="{{ asset('storage/images/news-events/gallery/' . $item['english_image']) }}"
-                                            class="d-block w-100 img-fluid" alt="...">
-                                    @endif
-                                </div>
-                            @endforeach
+                        @foreach ($gallery_data as $item)
+                            <div class="col-md-4 nature">
+                                @if (session('language') == 'mar')
+                                    <img src="{{ asset('storage/images/news-events/gallery/' . $item['marathi_image']) }}"
+                                        class="d-block w-100 img-fluid" alt="...">
+                                @else
+                                    <img src="{{ asset('storage/images/news-events/gallery/' . $item['english_image']) }}"
+                                        class="d-block w-100 img-fluid" alt="...">
+                                @endif
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

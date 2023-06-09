@@ -1,5 +1,5 @@
     @extends('website.layout.master')
-    
+
     @section('content')
         <!--Subheader Start-->
         <section class="wf100 subheader">
@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-9">
                             <!--Department Details Txt Start-->
-                            @foreach ($data_output_new as $item)
+                            @forelse ($data_output_new as $item)
                                 <div class="deprt-txt">
                                     @if (session('language') == 'mar')
                                         <h3><?php echo $item['marathi_title']; ?> : </h3>
@@ -35,7 +35,9 @@
                                         <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
                                     @endif
                                 </div>
-                            @endforeach
+                            @empty
+                                <h4>No Data Found For Emergency Contact Numbers</h4>
+                            @endforelse
                             <!--Department Details Txt End-->
                             <table class="table table-striped table-hover table-bordered border-dark">
                                 <thead class="" style="background-color: #47194a; color:#fff">

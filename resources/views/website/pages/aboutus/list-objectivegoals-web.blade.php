@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-md-9">
                         <!--Department Details Txt Start-->
-                        @foreach ($data_output as $item)
+                        @forelse ($data_output as $item)
                             <div class="deprt-txt">
                                 @if (session('language') == 'mar')
                                     <h3><?php echo $item['marathi_title']; ?> : </h3>
@@ -40,7 +40,9 @@
                                     </p>
                                 @endif
                             </div>
-                        @endforeach
+                        @empty
+                            <h4>No Data Found For Objective and Goals </h4>
+                        @endforelse
 
                         <!--Department Details Txt End-->
                     </div>

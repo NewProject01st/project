@@ -1,17 +1,17 @@
 @extends('website.layout.master')
 
 @section('content')
-<!--Subheader Start-->
-<section class="wf100 subheader">
-    <div class="container">
-        <h2>Resource Center</h2>
-        <ul>
-            <li> <a href="{{ route('index') }}">Home</a> </li>
-            <li> Training Materials And Workshops </li>
-        </ul>
-    </div>
-</section>
-<!--Subheader End-->
+    <!--Subheader Start-->
+    <section class="wf100 subheader">
+        <div class="container">
+            <h2>Resource Center</h2>
+            <ul>
+                <li> <a href="{{ route('index') }}">Home</a> </li>
+                <li> Training Materials And Workshops </li>
+            </ul>
+        </div>
+    </section>
+    <!--Subheader End-->
     <!--Main Content Start-->
     <div class="main-content p60">
         <!--Department Details Page Start-->
@@ -28,7 +28,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data_output as $item)
+                            @forelse ($data_output as $item)
                                 <tr class="">
                                     @if (session('language') == 'mar')
                                         <td>{{ $loop->iteration }}</td>
@@ -44,7 +44,9 @@
                                                     width="35px" height="35px"></a></td>
                                     @endif
                                 </tr>
-                            @endforeach
+                            @empty
+                                <h4>No Data Found For Training Materials And Workshops</h4>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

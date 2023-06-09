@@ -24,7 +24,7 @@
                             <h3> Upcoming Events And Trainings</h3>
                         </div>
                         <!--Event List Box Start-->
-                        @foreach ($data_output as $item)
+                        @forelse ($data_output as $item)
                             <div class="event-post-full d-flex">
                                 @if (session('language') == 'mar')
                                     <div class="thumb"><img
@@ -38,8 +38,8 @@
                                             </ul>
                                             <p><?php echo $item['marathi_description']; ?></p>
                                         </div>
-                                        {{--<div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
-                                            USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div>--}}
+                                        {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
+                                            USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div> --}}
                                     </div>
                                 @else
                                     <div class="thumb"> <img
@@ -53,12 +53,14 @@
                                             </ul>
                                             <p><?php echo $item['english_description']; ?></p>
                                         </div>
-                                        {{--<div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
-                                            USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div>--}}
+                                        {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
+                                            USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div> --}}
                                     </div>
                                 @endif
                             </div>
-                        @endforeach
+                        @empty
+                            <h4>No Data Found For Upcoming Events And Trainings</h4>
+                        @endforelse
                         <!--Event List Box End-->
                     </div>
                     <div class="col-md-3 col-sm-4">
@@ -70,6 +72,4 @@
         </div>
     </div>
     </div>
-
-
 @endsection

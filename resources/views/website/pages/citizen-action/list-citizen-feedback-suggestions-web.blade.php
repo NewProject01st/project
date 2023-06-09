@@ -1,5 +1,5 @@
     @extends('website.layout.master')
-    
+
     @section('content')
         <!--Subheader Start-->
         <section class="wf100 subheader">
@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-9">
                             <!--Department Details Txt Start-->
-                            @foreach ($data_output as $item)
+                            @forelse ($data_output as $item)
                                 <div class="deprt-txt">
                                     @if (session('language') == 'mar')
                                         <h3><?php echo $item['marathi_title']; ?> </h3>
@@ -34,7 +34,9 @@
                                         <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
                                     @endif
                                 </div>
-                            @endforeach
+                            @empty
+                                <h4>No Data Found For Citizen Feedback Suggestions </h4>
+                            @endforelse
                             <!--Department Details Txt End-->
                         </div>
                         <!--Sidebar Start-->
@@ -86,7 +88,7 @@
                                             <option value="natural">natural</option>
                                             <option value="disasters">disasters</option>
                                         </select>
-                                                {{-- <select class="form-control" id="role_id" name="role_id">
+                                        {{-- <select class="form-control" id="role_id" name="role_id">
                                                     <option>Select</option>
                                                     @foreach ($roles as $role)
                                                         @if (old('role_id') == $role['id'])
@@ -98,49 +100,46 @@
                                                         @endif
                                                     @endforeach
                                                 </select> --}}
-                                                @if ($errors->has('role_id'))
-                                                    <span class="red-text"><?php echo $errors->first('role_id', ':message'); ?></span>
-                                                @endif
-                                            </div>
-                                        </div>
+                                        @if ($errors->has('role_id'))
+                                            <span class="red-text"><?php echo $errors->first('role_id', ':message'); ?></span>
+                                        @endif
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label class="col-form-label modal_lable">Location:</label>
-                                        <input type="input" class="form-control" name="location" id="location" required>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label class="col-form-label modal_lable">Date and Time:</label>
-                                        <input type="datetime-local" class="form-control" name="datetime" id="datetime"
-                                            required>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label class="col-form-label modal_lable">Mobile Number:</label>
-                                        <input type="input" class="form-control" name="mobile_number" id="mobile_number"
-                                            required>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label class="col-form-label modal_lable">Media Upload:</label><br>
-                                        <input type="file" name="media_upload" id="media_upload" required>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label class="col-form-label modal_lable">Description:</label>
-                                        <textarea class="form-control" name="description" id="description" required></textarea>
-                                    </div>
-
                                 </div>
-
                             </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Send</button>
+                            <div class="col-md-6 mb-3">
+                                <label class="col-form-label modal_lable">Location:</label>
+                                <input type="input" class="form-control" name="location" id="location" required>
                             </div>
-                        </form>
+                            <div class="col-md-6 mb-3">
+                                <label class="col-form-label modal_lable">Date and Time:</label>
+                                <input type="datetime-local" class="form-control" name="datetime" id="datetime" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="col-form-label modal_lable">Mobile Number:</label>
+                                <input type="input" class="form-control" name="mobile_number" id="mobile_number" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="col-form-label modal_lable">Media Upload:</label><br>
+                                <input type="file" name="media_upload" id="media_upload" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="col-form-label modal_lable">Description:</label>
+                                <textarea class="form-control" name="description" id="description" required></textarea>
+                            </div>
 
                     </div>
 
                 </div>
-            </div>
-        </div>
 
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </div>
+                </form>
+
+            </div>
+
+        </div>
+        </div>
+        </div>
     @endsection

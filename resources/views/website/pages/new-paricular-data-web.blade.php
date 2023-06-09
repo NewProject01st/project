@@ -7,7 +7,7 @@
             <h2>Disaster Management News </h2>
             <ul>
                 <li> <a href="{{ route('index') }}">Home</a> </li>
-               
+
             </ul>
         </div>
     </section>
@@ -20,21 +20,23 @@
                 <div class="row">
                     <div class="col-md-9">
                         <!--Department Details Txt Start-->
-                        @foreach ($disaster_news as $item)
+                        @forelse ($disaster_news as $item)
                             <div class="deprt-txt">
                                 @if (session('language') == 'mar')
                                     <h3><?php echo $item['marathi_title']; ?> : </h3>
                                     <img src="{{ asset('storage/images/disaster-news/' . $item['marathi_image']) }}"
-                                class="d-block w-100" alt="..."> 
-                                  <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
+                                        class="d-block w-100" alt="...">
+                                    <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                 @else
                                     <h3><?php echo $item['english_title']; ?> : </h3>
                                     <img src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
-                                class="d-block w-100" alt="...">
+                                        class="d-block w-100" alt="...">
                                     <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
                                 @endif
                             </div>
-                        @endforeach
+                        @empty
+                            <p>No Disaster News</p>
+                        @endforelse
 
                         <!--Department Details Txt End-->
                     </div>
@@ -42,10 +44,9 @@
                     <div class="col-md-3">
                         <div class="sidebar">
                             <div class="pb-3">
-                                <button type="button" class="btn back-btn-color" 
-                                ><a href="{{ route('/') }}">
-                                Back</a>
-                            </button>
+                                <button type="button" class="btn back-btn-color"><a href="{{ route('/') }}">
+                                        Back</a>
+                                </button>
                             </div>
                             <!--Widget Start-->
                             <div class="widget">
@@ -74,4 +75,3 @@
     </div>
     <!--Main Content End-->
 @endsection
-

@@ -1,5 +1,5 @@
     @extends('website.layout.master')
-    
+
     @section('content')
         <!--Subheader Start-->
         <section class="wf100 subheader">
@@ -28,14 +28,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data_output as $item)
+                                @forelse ($data_output as $item)
                                     <tr class="">
                                         @if (session('language') == 'mar')
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td><?php echo $item['marathi_title']; ?></td>
-                                        <td> <a href="{{ asset('/storage/pdf/research-center/documents/' . $item['marathi_pdf']) }}"
-                                                target="_blank"><img src="{{ asset('storage/pdf/pdf.png/') }}"
-                                                    width="35px" height="35px"></a></td>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td><?php echo $item['marathi_title']; ?></td>
+                                            <td> <a href="{{ asset('/storage/pdf/research-center/documents/' . $item['marathi_pdf']) }}"
+                                                    target="_blank"><img src="{{ asset('storage/pdf/pdf.png/') }}"
+                                                        width="35px" height="35px"></a></td>
                                         @else
                                             <td>{{ $loop->iteration }}</td>
                                             <td><?php echo $item['english_title']; ?></td>
@@ -43,8 +43,10 @@
                                                     target="_blank"><img src="{{ asset('storage/pdf/pdf.png/') }}"
                                                         width="35px" height="35px"></a></td>
                                         @endif
-                                            </tr>
-                                @endforeach
+                                    </tr>
+                                @empty
+                                    <h4>No Data Found For  Documents Publications</h4>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
