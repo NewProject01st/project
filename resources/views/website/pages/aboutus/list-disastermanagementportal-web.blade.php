@@ -21,6 +21,7 @@
                         <div class="col-md-9">
                             <!--Department Details Txt Start-->
                             @forelse($data_output  as $item)
+                            <div class="deprt-txt">
                                 @if (session('language') == 'mar')
                                     <h3><?php echo $item['marathi_title']; ?> : </h3>
                                     <img src="{{ asset('storage/images/aboutus/disaster-management-portal/' . $item['marathi_image']) }}"
@@ -32,6 +33,7 @@
                                         class="d-block w-100" alt="...">
                                     <p style="text-align: justify;" class="mt-p2"> <?php echo $item['english_description']; ?></p>
                                 @endif
+                            </div>
                             @empty
                                 <h4>No Data Found For Disaster Management Portal</h4>
                             @endforelse

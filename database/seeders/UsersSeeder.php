@@ -26,6 +26,10 @@ class UsersSeeder extends Seeder
                 'number' => 'number',
                 'designation' => 'designation',
                 'address' => 'address',
+                'adhar_no' => 'adhar_no',
+                'state' => 'state',
+                'city' => 'city',
+                'pincode' => 'pincode',
                 'ip_address' => '192.168.1.32',
             ]);
             
@@ -41,6 +45,10 @@ class UsersSeeder extends Seeder
             'number' => 'number',
             'designation' => 'designation',
             'address' => 'address',
+            'adhar_no' => 'adhar_no',
+            'state' => 'state',
+            'city' => 'city',
+            'pincode' => 'pincode',
             'ip_address' => '192.168.1.32',
         ]);
 

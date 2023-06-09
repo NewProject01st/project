@@ -16,7 +16,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#"> Feedback And Suggestions: Modal Information</a></li>
+                        <li class="breadcrumb-item"><a href="#">Citizen Action</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Feedback And Suggestions: Modal Information
                         </li>
                     </ol>
@@ -36,10 +36,10 @@
                                                     <th>Feedback</th>
                                                     <th>Location</th>
                                                     <th>Datetime</th>
-                                                    <th>mobile_number</th>
+                                                    <th>Mobile Number</th>
                                                     <th>description</th>
                                                     <th>Image</th>
-                                                    <th>Action</th>
+                                                    {{-- <th>Action</th> --}}
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -56,7 +56,7 @@
                                                         </td>
 
 
-                                                        <td>
+                                                        {{-- <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
@@ -74,7 +74,7 @@
                                                                             class="fas fa-archive"></i></a>
                                                                 @endif
                                                             </div>
-                                                        </td>
+                                                        </td> --}}
                                                     </tr>
                                                 @endforeach
 

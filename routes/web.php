@@ -236,7 +236,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/list-website-contact', ['as' => 'list-website-contact', 'uses' => 'App\Http\Controllers\Home\websiteContactController@index']);
     Route::get('/add-website-contact', ['as' => 'add-website-contact', 'uses' => 'App\Http\Controllers\Home\websiteContactController@add']);
     Route::post('/add-website-contact', ['as' => 'add-website-contact', 'uses' => 'App\Http\Controllers\Home\websiteContactController@store']);
-    Route::post('/edit-website-contact', ['as' => 'edit-website-contact', 'uses' => 'App\Http\Controllers\Home\websiteContactController@edit']);
+    Route::get('/edit-website-contact', ['as' => 'edit-website-contact', 'uses' => 'App\Http\Controllers\Home\websiteContactController@edit']);
     Route::post('/update-website-contact', ['as' => 'update-website-contact', 'uses' => 'App\Http\Controllers\Home\websiteContactController@update']);
     Route::post('/show-website-contact', ['as' => 'show-website-contact', 'uses' => 'App\Http\Controllers\Home\websiteContactController@show']);
     Route::post('/delete-website-contact', ['as' => 'delete-website-contact', 'uses' => 'App\Http\Controllers\Home\websiteContactController@destroy']);

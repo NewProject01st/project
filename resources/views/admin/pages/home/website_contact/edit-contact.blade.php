@@ -5,12 +5,12 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                General Contact
+                Website Contact
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Update General Contact
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Update Website Contact
                     </li>
                 </ol>
             </nav>
@@ -27,12 +27,12 @@
                                     <div class="form-group">
                                         <label for="english_name">English Name</label>&nbsp<span
                                             class="red-text">*</span>
-                                        <textarea class="form-control english_title" name="english_name"
-                                            id="english_name"
-                                            placeholder="Enter the Name">{{$website_contact->english_name }}</textarea>
-                                        @if ($errors->has('english_name'))
+                                        <textarea class="form-control english_title" name="english_address"
+                                            id="english_address"
+                                            placeholder="Enter the Name">@if (old('english_address')){{ old('english_address') }}@else{{ $website_contact->english_address }}@endif</textarea>
+                                        @if ($errors->has('english_address'))
                                         <span
-                                            class="red-text"><?php echo $errors->first('english_name', ':message'); ?></span>
+                                            class="red-text"><?php echo $errors->first('english_address', ':message'); ?></span>
                                         @endif
                                     </div>
                                 </div>
@@ -40,12 +40,12 @@
                                     <div class="form-group">
                                         <label for="marathi_name">Marathi Name</label>&nbsp<span
                                             class="red-text">*</span>
-                                        <textarea class="form-control marathi_title" name="marathi_name"
-                                            id="marathi_name"
-                                            placeholder="Enter the Name">{{$website_contact->marathi_name }}</textarea>
-                                        @if ($errors->has('marathi_name'))
+                                        <textarea class="form-control marathi_title" name="marathi_address"
+                                            id="marathi_address"
+                                            placeholder="Enter the Name">@if (old('marathi_address')){{ old('marathi_address') }}@else{{ $website_contact->marathi_address }}@endif</textarea>
+                                        @if ($errors->has('marathi_address'))
                                         <span
-                                            class="red-text"><?php echo $errors->first('marathi_name', ':message'); ?></span>
+                                            class="red-text"><?php echo $errors->first('marathi_address', ':message'); ?></span>
                                         @endif
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                                         <label for="english_number">English No</label>&nbsp<span
                                             class="red-text">*</span>
                                         <input type="text" name="english_number" id="english_number"
-                                            class="form-control" value="{{ $website_contact->english_number }}"
+                                            class="form-control" value="@if (old('english_number')){{ old('english_number') }}@else{{ $website_contact->english_number }}@endif"
                                             placeholder="">
                                         @if ($errors->has('english_number'))
                                         <span
@@ -67,7 +67,7 @@
                                         <label for="marathi_number">Marathi No</label>&nbsp<span
                                             class="red-text">*</span>
                                         <input type="text" name="marathi_number" id="marathi_number"
-                                            class="form-control" value="{{ $website_contact->marathi_number }}"
+                                            class="form-control" value="@if (old('marathi_number')){{ old('marathi_number') }}@else{{ $website_contact->marathi_number }}@endif"
                                             placeholder="">
                                         @if ($errors->has('marathi_number'))
                                         <span
@@ -81,7 +81,7 @@
                                         <label for="email">Email</label>&nbsp<span
                                             class="red-text">*</span>
                                         <input type="email" name="email" id="email"
-                                            class="form-control" id="email" placeholder="" value="{{$website_contact->email}}">
+                                            class="form-control" id="email" placeholder="" value="@if(old('email')){{ old('email') }}@else{{ $website_contact->email }}@endif">
                                         @if ($errors->has('email'))
                                         <span
                                             class="red-text"><?php echo $errors->first('email', ':message'); ?></span>

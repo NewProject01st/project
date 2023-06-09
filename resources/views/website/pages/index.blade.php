@@ -291,7 +291,7 @@
                             <li> <a href="#"><i class="fas fa-file-alt"></i> Court Case about TAX</a> </li>
                         </ul> --}}
 
-                        <div class="emergency-info mt-2">
+                        {{-- <div class="emergency-info mt-2">
                         <h5>Live Data </h5>
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                             <!--Panel Start-->
@@ -344,7 +344,7 @@
                         </div>
 
                     </div>
-                    
+                     --}}
                 </div>
             </div>
         </div>

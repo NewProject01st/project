@@ -435,14 +435,22 @@ class PermissionsSeeder extends Seeder
                     'url' => 'list-important-link',
                     'permission_name' => 'Footer Link',
                 ]);               
-            Permissions::create(
-                [
-                    'created_at' => \Carbon\Carbon::now(),
-                    'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Social Icon',
-                    'url' => 'list-social-icon',
-                    'permission_name' => 'Social Icon',
-                ]);
+            // Permissions::create(
+            //     [
+            //         'created_at' => \Carbon\Carbon::now(),
+            //         'updated_at' => \Carbon\Carbon::now(),
+            //         'route_name' => 'Social Icon',
+            //         'url' => 'list-social-icon',
+            //         'permission_name' => 'Social Icon',
+            //     ]);
+                Permissions::create(
+                    [
+                        'created_at' => \Carbon\Carbon::now(),
+                        'updated_at' => \Carbon\Carbon::now(),
+                        'route_name' => 'Website Conatct',
+                        'url' => 'list-website-contact',
+                        'permission_name' => 'Website Conatct',
+                    ]);
         
 
 

@@ -61,16 +61,11 @@ class IndexController extends Controller
             $websitecontact_data = array();
             $websitecontact_data =  WebsiteContact::where('is_active', '=',true)
                             ->select( 
-                                'website_contacts.address_marathi_title', 
-                                'website_contacts.address_english_title',
                                 'website_contacts.marathi_address',
                                 'website_contacts.english_address',
-                                'website_contacts.email_title',
                                 'website_contacts.email',
-                                'website_contacts.contact_marathi_title',
-                                'website_contacts.contact_english_title',
-                                'website_contacts.marathi_contact',
-                                'website_contacts.english_contact',
+                                'website_contacts.marathi_number',
+                                'website_contacts.english_number',
                                 'website_contacts.id',
                             )
                             ->get()
