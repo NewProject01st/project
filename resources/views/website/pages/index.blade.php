@@ -4,7 +4,12 @@
     .accordion-button.collapsed {
   background: blue
 } -->
-    </style>
+    <!-- </style> -->
+    <script>
+        $('li.dropdown.mega-dropdown a').on('click', function (event) {
+    $(this).parent().toggleClass('open');
+});
+    </script>
 
     <div class="main-content">
         {{-- Start Marquee --}}

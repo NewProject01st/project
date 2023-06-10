@@ -41,11 +41,26 @@ Version:		1.0
 		display: block;
 		margin-top: auto; 
 	}
-	.dropdown-toggle::after {
+	/* .dropdown-toggle::after {
 		top: 5% !important;
-	}
+	} */
 	.become-vol {
 		padding: 0 4px !important;
+	}
+  }
+
+  @media (max-width: 1022px){
+
+	.dropdown-toggle::after {
+		top: 5% !important;
+	} 
+	.dropdown-item{
+		font-size: 9px !important;
+	}
+	.dropdown-item-custom{
+		white-space: inherit !important;
+		line-height: 25px !important;
+		font-size: 7px !important;
 	}
   }
 
@@ -5796,7 +5811,7 @@ a[data-toggle="collapse"] {
     /* border-bottom: inherit !important; */
 	line-height: 30px;
 	border-bottom: 1px solid #eee !important;
-	font-size: 12px !important;
+	font-size: 12px;
 }
 
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover{
