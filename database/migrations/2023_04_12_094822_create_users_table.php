@@ -25,7 +25,6 @@ class CreateUsersTable extends Migration
             $table->string('number');
             $table->string('designation');
             $table->string('address');
-            $table->string('adhar_no');
             $table->string('state');
             $table->string('city');
             $table->string('pincode');

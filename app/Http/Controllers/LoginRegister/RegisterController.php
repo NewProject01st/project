@@ -61,7 +61,6 @@ class RegisterController extends Controller {
             'number' => 'regex:/^\d{10}$/',
             'designation' => 'required',
             'address' => 'required',
-            'adhar_no' => 'required',
             'state' => 'required',
             'city' => 'required',
             'pincode' => 'regex:/^[0-9]+$/'
@@ -80,7 +79,6 @@ class RegisterController extends Controller {
                         'number.regex' => 'Please enter 10 digit number.',
                         'designation.required' =>'Please enter designation.',
                         'address.required' => 'Please enter address.',
-                        'adhar_no.required' => 'Please enter adhar no.',
                         'state.required' => 'Please enter state.',
                         'city.required' =>'Please enter city.',
                         'pincode.required' => 'Please enter pincode.',
@@ -132,7 +130,6 @@ class RegisterController extends Controller {
                     'number' => 'regex:/^\d{10}$/',
                     'designation' => 'required',
                     'address' => 'required',
-                    'adhar_no' => 'required',
                     'state' => 'required',
                     'city' => 'required',
                     'pincode' => 'regex:/^[0-9]+$/'
@@ -153,7 +150,6 @@ class RegisterController extends Controller {
                         'number.regex' => 'Please enter 10 digit number.',
                         'designation.required' =>'Please enter designation.',
                         'address.required' => 'Please enter address.',
-                        'adhar_no.required' => 'Please enter adhar no.',
                         'state.required' => 'Please enter state.',
                         'city.required' =>'Please enter city.',
                         'pincode.required' => 'Please enter pincode.',

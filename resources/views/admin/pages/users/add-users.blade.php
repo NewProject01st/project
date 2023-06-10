@@ -162,16 +162,6 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="adhar_no">Adhar No</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="adhar_no" id="adhar_no"
-                                                placeholder="" value="{{ old('adhar_no') }}">
-                                            @if ($errors->has('adhar_no'))
-                                                <span class="red-text"><?php echo $errors->first('adhar_no', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
                                             <label for="state">State</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="state" id="state"
                                                 placeholder="" value="{{ old('state') }}">
