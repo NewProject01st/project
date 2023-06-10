@@ -123,9 +123,7 @@
                                         <label class="col-form-label modal_lable">Description:</label>
                                         <textarea class="form-control" name="description" id="description" required></textarea>
                                     </div>
-
                                 </div>
-
                             </div>
 
                             <div class="modal-footer">
