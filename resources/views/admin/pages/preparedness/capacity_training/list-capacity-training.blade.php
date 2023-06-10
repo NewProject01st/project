@@ -8,10 +8,10 @@
         <div class="page-header">
             <h3 class="page-title">
                 Capacity Building And Training
-                @if (in_array("per_add", $data_permission))
+                {{-- @if (in_array("per_add", $data_permission))
                 <a href="{{ route('add-capacity-building-and-training') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
-                @endif
+                @endif --}}
 
             </h3>
             <nav aria-label="breadcrumb">
@@ -45,10 +45,10 @@
                                             @foreach ($capacity_training as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><?php echo $item->english_title; ?></td>
-                                                <td><?php echo $item->marathi_title; ?></td>
-                                                <td><?php echo $item->english_description; ?></td>
-                                                <td><?php echo $item->marathi_description; ?></td>
+                                                <td>{{ strip_tags($item->english_title)}}</td>
+                                                <td>{{ strip_tags($item->marathi_title)}}</td>
+                                                <td>{{ strip_tags($item->english_description)}}</td>
+                                                <td>{{ strip_tags($item->marathi_description)}}</td>
 
                                                 <td> <img
                                                         src="{{ asset('storage/images/preparedness/capacity-training/' . $item->english_image) }}" />

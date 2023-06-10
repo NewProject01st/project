@@ -30,7 +30,7 @@
                                             <label>Name English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disaster_web_portal->english_name; ?></label>
+                                            <label>{{ strip_tags($disaster_web_portal->english_name) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -38,7 +38,7 @@
                                             <label>Name Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disaster_web_portal->marathi_name; ?></label>
+                                            <label>{{ strip_tags($disaster_web_portal->marathi_name) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -46,7 +46,7 @@
                                             <label>Title English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disaster_web_portal->english_title; ?></label>
+                                            <label>{{ strip_tags($disaster_web_portal->english_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -54,7 +54,7 @@
                                             <label>Title Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disaster_web_portal->marathi_title; ?></label>
+                                            <label>{{ strip_tags($disaster_web_portal->marathi_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -62,7 +62,7 @@
                                             <label>Description English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disaster_web_portal->english_description; ?></label>
+                                            <label>{{ strip_tags($disaster_web_portal->english_description) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -70,7 +70,7 @@
                                             <label>Description Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disaster_web_portal->marathi_description; ?></label>
+                                            <label>{{ strip_tags($disaster_web_portal->marathi_description) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -78,7 +78,7 @@
                                             <label>Designation English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disaster_web_portal->english_designation; ?></label>
+                                            <label>{{ strip_tags($disaster_web_portal->english_designation) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -86,7 +86,7 @@
                                             <label>Designation Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disaster_web_portal->marathi_designation; ?></label>
+                                            <label>{{ strip_tags($disaster_web_portal->marathi_designation) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">

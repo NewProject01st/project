@@ -41,8 +41,8 @@
                                             @foreach ($marquees as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><?php echo $item->english_title; ?></td>
-                                                <td><?php echo $item->marathi_title; ?></td>
+                                                <td>{{ strip_tags($item->english_title) }}</td>
+                                                <td>{{ strip_tags($item->marathi_title) }}</td>
                                                 <!-- <td>
                                                     <button data-id="{{ $item->id }}" type="submit"
                                                         class="active-btn btn btn-sm btn-outline-primary m-1"

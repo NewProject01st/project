@@ -46,11 +46,10 @@
                                              @foreach ($data_output_new as $item)
                                              <tr>
                                                  <td>{{ $loop->iteration }}</td>
-                                                 <td><?php echo $item->english_title; ?>
-                                                </td>
-                                                 <td><?php echo $item->marathi_title; ?></td>
-                                                 <td><?php echo $item->english_description; ?></td>
-                                                 <td><?php echo $item->marathi_description; ?></td>
+                                                 <td>{{ strip_tags($item->english_title) }}</td>
+                                                 <td>{{ strip_tags($item->marathi_title) }}</td>
+                                                 <td>{{ strip_tags($item->english_description) }}</td>
+                                                 <td>{{ strip_tags($item->marathi_description) }}</td>
                                                  <td> <img
                                                          src="{{ asset('storage/images/emergency-response/emergency-contact-numbers/' . $item->english_image) }}" />
                                                  </td>

@@ -31,43 +31,44 @@
                             <div class="row">
                                 <div class="col-md-6">
 
-                                    <input class="gap-text" type="text" name="full_name" placeholder="Enter Full Name">
+                                    <input class="gap-text" type="text" name="full_name" placeholder="Enter Full Name" value="{{ old('full_name') }}">
                                     @if ($errors->has('full_name'))
                                         <span class="red-text"><?php echo $errors->first('full_name', ':message'); ?></span>
                                     @endif
                                 </div>
                                 <div class="col-md-6">
                                     <input class="gap-text form_text_set" type="email" name="email"
-                                        placeholder="Enter Email Id">
+                                        placeholder="Enter Email Id" value="{{ old('email') }}">
                                     @if ($errors->has('email'))
                                         <span class="red-text"><?php echo $errors->first('email', ':message'); ?></span>
                                     @endif
                                 </div>
                                 <div class="col-md-6">
                                     <input class="gap-text" type="text" name="mobile_number"
-                                        placeholder="Enter Mobile Number">
+                                        placeholder="Enter Mobile Number" value="{{ old('mobile_number') }}">
                                     @if ($errors->has('mobile_number'))
                                         <span class="red-text"><?php echo $errors->first('mobile_number', ':message'); ?></span>
                                     @endif
                                 </div>
                                 <div class="col-md-6">
-                                    <select class="form_text_set select_box_set" name="contact_type" id="cars">
+                                    <select class="form_text_set select_box_set" name="contact_type" id="contact_type">
                                         <option value="">Select</option>
-                                        <option value="Feedback">Feedback</option>
-                                        <option value="Suggestion">Suggestion</option>
+                                        <option value="Feedback" {{ old('contact_type') == 'Feedback' ? 'selected' : '' }}>Feedback</option>
+                                        <option value="Suggestion" {{ old('contact_type') == 'Suggestion' ? 'selected' : '' }}>Suggestion</option>
                                     </select>
                                     @if ($errors->has('contact_type'))
                                         <span class="red-text"><?php echo $errors->first('contact_type', ':message'); ?></span>
                                     @endif
                                 </div>
+                                
                                 <div class="col-md-12">
-                                    <input class="gap-text" type="text" name="subject" placeholder="Enter Subject">
+                                    <input class="gap-text" type="text" name="subject" placeholder="Enter Subject" value="{{ old('subject') }}">
                                     @if ($errors->has('subject'))
                                         <span class="red-text"><?php echo $errors->first('subject', ':message'); ?></span>
                                     @endif
                                 </div>
                                 <div class="col-md-12">
-                                    <textarea class="gap-text" name="suggestion" placeholder="Write Any Feedback/Suggestion"></textarea>
+                                    <textarea class="gap-text" name="suggestion" placeholder="Write Any Feedback/Suggestion">{{ old('suggestion') }}</textarea>
                                     @if ($errors->has('suggestion'))
                                         <span class="red-text"><?php echo $errors->first('suggestion', ':message'); ?></span>
                                     @endif

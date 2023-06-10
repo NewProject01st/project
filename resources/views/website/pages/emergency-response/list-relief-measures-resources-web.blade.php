@@ -7,7 +7,7 @@
                 <h2>Emergency Response </h2>
                 <ul>
                     <li> <a href="{{ route('index') }}">Home</a> </li>
-                    <li> Relief Measures Resources </li>
+                    <li>Relief Measures and Resources </li>
                 </ul>
             </div>
         </section>

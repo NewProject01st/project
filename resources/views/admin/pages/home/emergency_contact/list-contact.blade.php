@@ -16,7 +16,7 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#"> Emergency Contact </a></li>
                     <li class="breadcrumb-item active" aria-current="page"> Emergency Contact list </li>
                 </ol>
             </nav>
@@ -51,12 +51,12 @@
                                             @foreach ($emergency_contact as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><?php echo $item->english_title ?></td>
-                                                <td><?php echo $item->marathi_title ?></td>
+                                                <td>{{ strip_tags($item->english_title) }}</td>
+                                                <td>{{ strip_tags($item->marathi_title) }}</td>
                                                 <td>{{$item->english_name }}</td>
                                                 <td>{{$item->marathi_name }} </td>
-                                                <td><?php echo $item->english_address ?></td>
-                                                <td><?php echo $item->marathi_address ?></td>
+                                                <td>{{ strip_tags($item->english_address) }}</td>
+                                                <td>{{ strip_tags($item->marathi_address) }}</td>
                                                 <td>{{ $item->email }}</td>
                                                 <td>{{ $item->english_number }}</td>
                                                 <td>{{ $item->marathi_number }}</td>
@@ -112,7 +112,7 @@
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="GET" action="{{ url('/edit-emergency-contact') }}" id="editform">
+    <form method="POST" action="{{ url('/edit-emergency-contact') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>

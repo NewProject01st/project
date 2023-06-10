@@ -49,14 +49,14 @@
                                             @foreach ($disaster_web_portal as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><?php echo $item->english_name; ?></td>
-                                                <td><?php echo $item->marathi_name; ?></td>
-                                                <td><?php echo $item->english_title; ?></td>
-                                                <td><?php echo $item->marathi_title; ?></td>
-                                                <td><?php echo $item->english_description; ?></td>
-                                                <td><?php echo $item->marathi_description; ?></td>
-                                                <td><?php echo $item->english_designation; ?></td>
-                                                <td><?php echo $item->marathi_designation; ?></td>
+                                                <td>{{ strip_tags($item->english_name) }}</td>
+                                                <td>{{ strip_tags($item->marathi_name) }}</td>
+                                                <td>{{ strip_tags($item->english_title) }}</td>
+                                                <td>{{ strip_tags($item->marathi_title) }}</td>
+                                                <td>{{ strip_tags($item->english_description) }}</td>
+                                                <td>{{ strip_tags($item->marathi_description) }}</td>
+                                                <td>{{ strip_tags($item->english_designation) }}</td>
+                                                <td>{{ strip_tags($item->marathi_designation) }}</td>
                                                 <td> <img
                                                         src="{{ asset('storage/images/disaster-webportal/' . $item->english_image) }}" />
                                                 </td>
