@@ -55,10 +55,10 @@
                                                 <td>{{ $item->english_url }}</td>
                                                 <td>{{ $item->disaster_date }}</td>
                                                 <td> <img
-                                                        src="{{ asset('storage/images/disaster-news/' . $item->english_image) }}" />
+                                                        src="{{ asset('storage/images/home/disaster-news/' . $item->english_image) }}" />
                                                 </td>
                                                 <td> <img
-                                                        src="{{ asset('storage/images/disaster-news/' . $item->marathi_image) }}" />
+                                                        src="{{ asset('storage/images/home/disaster-news/' . $item->marathi_image) }}" />
                                                 </td>
                                                 <td>
                                                     <label class="switch">

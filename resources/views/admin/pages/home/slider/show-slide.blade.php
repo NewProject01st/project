@@ -61,7 +61,7 @@
                                         <label> English Image :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <img src="{{ asset('storage/images/slides/' . $slider->english_image) }}"
+                                        <img src="{{ asset('storage/images/home/slides/' . $slider->english_image) }}"
                                             style="width:300px; height:150px;" />
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
                                         <label> Marathi Image:</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
-                                        <img src="{{ asset('storage/images/slides/' . $slider->marathi_image) }}"
+                                        <img src="{{ asset('storage/images/home/slides/' . $slider->marathi_image) }}"
                                         style="width:300px; height:150px;" />
                                     </div>
                                 </div>

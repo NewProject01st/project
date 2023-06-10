@@ -76,16 +76,6 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
-                                        <input type="text" class="form-control" placeholder="Enter the URL"
-                                            value="@if (old('url')){{ old('url') }}@else{{ $slider->url }}@endif" name="url" id="url">
-                                        @if ($errors->has('url'))
-                                        <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
                                         <label for="english_image">English Image</label>
                                         <input type="file" name="english_image" class="form-control" id="english_image"
                                             accept="image/*" placeholder="image">
@@ -95,7 +85,7 @@
                                         @endif
                                     </div>
                                     <img id="english"
-                                        src="{{ asset('storage/images/slides/' . $slider->english_image) }}"
+                                        src="{{ asset('storage/images/home/slides/' . $slider->english_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="english_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">
@@ -113,10 +103,20 @@
                                     </div>
 
                                     <img id="marathi"
-                                        src="{{ asset('storage/images/slides/' . $slider->marathi_image) }}"
+                                        src="{{ asset('storage/images/home/slides/' . $slider->marathi_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="marathi_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
+                                        <input type="text" class="form-control" placeholder="Enter the URL"
+                                            value="@if (old('url')){{ old('url') }}@else{{ $slider->url }}@endif" name="url" id="url">
+                                        @if ($errors->has('url'))
+                                        <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
+                                        @endif
+                                    </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Update</button>

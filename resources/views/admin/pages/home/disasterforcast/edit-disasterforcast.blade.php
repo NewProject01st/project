@@ -112,7 +112,7 @@
                                         @endif
                                     </div>
                                     <img id="english"
-                                        src="{{ asset('storage/images/disaster-forcast/' . $disasterforcast->english_image) }}"
+                                        src="{{ asset('storage/images/home/disaster-forcast/' . $disasterforcast->english_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="english_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">
@@ -128,7 +128,7 @@
                                         @endif
                                     </div>
                                     <img id="marathi"
-                                        src="{{ asset('storage/images/disaster-forcast/' . $disasterforcast->marathi_image) }}"
+                                        src="{{ asset('storage/images/home/disaster-forcast/' . $disasterforcast->marathi_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="marathi_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">

@@ -48,7 +48,7 @@
                     @foreach ($data_output_slider as $slider)
                         @if (session('language') == 'mar')
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
-                                <img src="{{ asset('storage/images/slides/' . $slider['marathi_image']) }}"
+                                <img src="{{ asset('storage/images/home/slides/' . $slider['marathi_image']) }}"
                                     class="d-block w-100" alt="{{ $slider['marathi_title'] }}">
                                 <div class="carousel-caption">
                                     <h1><?php echo $slider['marathi_title']; ?></h1>
@@ -59,7 +59,7 @@
                             </div>
                         @elseif (array_key_exists('english_title', $slider))
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
-                                <img src="{{ asset('storage/images/slides/' . $slider['english_image']) }}"
+                                <img src="{{ asset('storage/images/home/slides/' . $slider['english_image']) }}"
                                     class="d-block w-100" alt="{{ $slider['english_title'] }}">
                                 <div class="carousel-caption">
                                     <h1><?php echo $slider['english_title']; ?></h1>
@@ -93,7 +93,7 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-5">
                                 <div class="city-tour gallery"> <strong> Disaster Management Head </strong>
-                                    <img src="{{ asset('storage/images/disaster-webportal/' . $item['marathi_image']) }}"
+                                    <img src="{{ asset('storage/images/home/disaster-webportal/' . $item['marathi_image']) }}"
                                         class="d-block w-100">
                                 </div>
                             </div>
@@ -109,7 +109,7 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-5">
                                 <div class="city-tour gallery"> <strong> Disaster Management Head </strong>
-                                    <img src="{{ asset('storage/images/disaster-webportal/' . $item['english_image']) }}"
+                                    <img src="{{ asset('storage/images/home/disaster-webportal/' . $item['english_image']) }}"
                                         class="d-block w-100">
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
                             <div class="news-box">
                                 <div class="new-thumb">
                                     {{-- <span class="cat c1">Fire</span> --}}
-                                    <img src="{{ asset('storage/images/disaster-news/' . $item['marathi_image']) }}"
+                                    <img src="{{ asset('storage/images/home/disaster-news/' . $item['marathi_image']) }}"
                                         class="d-block w-100">
                                 </div>
                                 <div class="new-txt">
@@ -165,7 +165,7 @@
                     <div class="news-box">
                         <div class="new-thumb">
                             {{-- <span class="cat c1">Fire</span> --}}
-                            <img src="{{ asset('storage/images/disaster-news/' . $item['english_image']) }}"
+                            <img src="{{ asset('storage/images/home/disaster-news/' . $item['english_image']) }}"
                                 class="d-block w-100">
                         </div>
                         <div class="new-txt">
