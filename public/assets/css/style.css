@@ -29467,3 +29467,16 @@ textarea.form-control { min-height: 100px;}
 .preloader { position: fixed; width: 100%; height: 100%; z-index: 9999; left: 0; top:0; background: #fff; display: flex; justify-content: center; align-items: center; }
 table.table-bordered.dataTable { border-spacing: inherit !important;}
 table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td { color: #000; border-bottom-width: 1px !important; }
+
+/*  */
+
+.dash_card_title {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    color: #fff !important;
+}
+.dash_count{
+  color: #fff !important;
+}

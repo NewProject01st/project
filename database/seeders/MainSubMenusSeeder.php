@@ -73,7 +73,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => ' Types Of Disasters (Natural And Man-made)',
             'menu_name_marathi' => 'आपत्तींचे प्रकार (नैसर्गिक आणि मानवनिर्मित)',
             'order_no' => 1,
-            'is_static'=>true,
+            'is_static'=>false,
             'is_active' => true,
            
         ]);
@@ -85,7 +85,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Earthquakes',
             'menu_name_marathi' => 'भूकंप',
             'order_no' => 2,
-            'is_static'=>true,
+            'is_static'=>false,
             'is_active' => true,
            
         ]);
@@ -97,7 +97,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Floods',
             'menu_name_marathi' => 'पूर',
             'order_no' => 3,
-            'is_static'=>true,
+            'is_static'=>false,
             'is_active' => true,
            
         ]);
@@ -109,7 +109,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Cyclones',
             'menu_name_marathi' => 'चक्रीवादळ',
             'order_no' => 4,
-            'is_static'=>true,
+            'is_static'=>false,
             'is_active' => true,
            
         ]);
@@ -121,7 +121,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Droughts',
             'menu_name_marathi' => 'दुष्काळ',
             'order_no' => 5,
-            'is_static'=>true,
+            'is_static'=>false,
             'is_active' => true,
            
         ]);
@@ -133,7 +133,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Landslides',
             'menu_name_marathi' => 'भूस्खलन',
             'order_no' => 6,
-            'is_static'=>true,
+            'is_static'=>false,
             'is_active' => true,
            
         ]);
@@ -146,7 +146,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Industrial Accidents ',
             'menu_name_marathi' => 'औद्योगिक अपघात',
             'order_no' => 7,
-            'is_static'=>true,
+            'is_static'=>false,
             'is_active' => true,
            
         ]);
@@ -158,7 +158,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Fires',
             'menu_name_marathi' => 'आग',
             'order_no' => 8,
-            'is_static'=>true,
+            'is_static'=>false,
             'is_active' => true,
            
         ]);
@@ -170,7 +170,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => ' Disaster History And Statistics For The State',
             'menu_name_marathi' => 'राज्यासाठी आपत्ती इतिहास आणि आकडेवारी',
             'order_no' => 9,
-            'is_static'=>true,
+            'is_static'=>false,
             'is_active' => true,
            
         ]);

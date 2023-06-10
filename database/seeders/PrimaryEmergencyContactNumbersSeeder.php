@@ -17,7 +17,7 @@ class PrimaryEmergencyContactNumbersSeeder extends Seeder
         EmergencyContactNumbers::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => 'Primary Emergency Contact Numbers',
+            'english_title' => 'Emergency Contact Numbers',
             'marathi_title' => 'प्राथमिक आपत्कालीन संपर्क क्रमांक',
             'english_description' => 'During emergencies, it is crucial to have access to reliable and immediate assistance. Here are some commonly used emergency contact numbers in various disaster situations:<br>
             <ul>
