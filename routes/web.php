@@ -528,6 +528,9 @@ Route::post('/update-role', ['as' => 'update-role','uses' => 'App\Http\Controlle
 Route::post('/show-role', ['as' => 'show-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@show']);
 Route::post('/delete-role', ['as' => 'delete-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@destroy']);
 Route::post('/update-one-role', ['as' => 'update-one-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@updateOneRole']);
+Route::post('/list-role-wise-permission', ['as' => 'list-role-wise-permission', 'uses' => 'App\Http\Controllers\Menu\RoleController@listRoleWisePermission']);
+
+
 
 //=====Footer Route======
 Route::get('/list-important-link', ['as' => 'list-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@index']);

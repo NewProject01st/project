@@ -74,6 +74,16 @@ class RoleServices
             return $e;
         }
     }
+
+    
+    public function listRoleWisePermission($id)
+    {
+        try {
+            return $this->repo->listRoleWisePermission($id);
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
    
 
 
