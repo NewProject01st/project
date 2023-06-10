@@ -97,15 +97,14 @@
                                                         <div class="card"
                                                             style="background-color:#{{ str_pad(dechex(mt_rand(0, 255)), 2, '0', STR_PAD_LEFT) . str_pad(dechex(mt_rand(0, 255)), 2, '0', STR_PAD_LEFT) . str_pad(dechex(mt_rand(0, 255)), 2, '0', STR_PAD_LEFT) }}">
                                                             <div class="card-statistic-3 p-4">
-                                                                <div class="card-icon card-icon-large"><i
-                                                                        class="fas fa-shopping-cart"></i></div>
+                                                                <div class="card-icon card-icon-large"></div>
                                                                 <div class="mb-4">
-                                                                    <h5 class="mb-0">
-                                                                        {{ $dashboard['permission_name'] }}</h5>
+                                                                    <h5 class="mb-0 dash_card_title">
+                                                                        {{ mb_substr($dashboard['permission_name'], 0, 18)}}</h5>
                                                                 </div>
                                                                 <div class="row align-items-center mb-2 d-flex">
                                                                     <div class="col-8">
-                                                                        <h2 class="d-flex align-items-center mb-0">
+                                                                        <h2 class="d-flex align-items-center mb-0 dash_count">
                                                                             {{ $dashboard['count'] }}
                                                                         </h2>
                                                                     </div>
@@ -113,13 +112,7 @@
                                                                     <span>12.5% <i class="fa fa-arrow-up"></i></span>
                                                                 </div> --}}
                                                                 </div>
-                                                                <div class="progress mt-1 " data-height="8"
-                                                                    style="height: 8px;">
-                                                                    <div class="progress-bar l-bg-cyan" role="progressbar"
-                                                                        data-width="25%" aria-valuenow="25"
-                                                                        aria-valuemin="0" aria-valuemax="100"
-                                                                        style="width: 25%;"></div>
-                                                                </div>
+                                                               
                                                             </div>
                                                         </div>
                                                     </a>
