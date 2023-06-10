@@ -18335,7 +18335,7 @@ input:focus {
 .sidebar {
   /* min-height: calc(100vh - 70px); */
   height: 90vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   background: #130c0e;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;

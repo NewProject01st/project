@@ -39,7 +39,7 @@
                             @if (sizeof($menu_data[1]) > 0)
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @foreach ($menu_data[1] as $key => $menu_data_sub)
-                                <a class="dropdown-item" href="@if ($menu_data_sub['is_static'] == true) {{ url($menu_data_sub['url']) }} 
+                                <a class="dropdown-item dropdown-item-custom" href="@if ($menu_data_sub['is_static'] == true) {{ url($menu_data_sub['url']) }} 
                                                       @else 
                                                           {{ url('/pages/' . $menu_data_sub['url']) }} @endif 
                                                       " target="_self" title="">
@@ -59,51 +59,6 @@
                     </ul>
                     @endforeach
                     @endforeach
-
-
-
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item custom-accordion-item">
-                            <h2 class="accordion-header accordion-header-custom" id="flush-headingOne">
-                            <button class="accordion-button accordion-button-custom collapsed bg-secondary-custom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                Accordion Item #1
-                            </button>
-                            </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse bg-secondary-custom" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <ul class="site_ul">
-                                        <li class="site_li"> <i class="fas fa-user-tie"></i> Lorem Ipsum</li>
-                                        <li class="site_li"> <i class="far fa-building"></i> 93002 Green Avenue</li>
-                                        <li class="site_li"> <i class="fas fa-phone"></i> 333 111 333</li>
-                                        <li class="site_li"> <i class="fas fa-fax"></i> 777 555 666 </li>
-                                        <li class="site_li"> <i class="far fa-envelope"></i> office@dms.org </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item custom-accordion-item">
-                            <h2 class="accordion-header accordion-header-custom" id="flush-headingTwo">
-                            <button class="accordion-button accordion-button-custom collapsed bg-secondary-custom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                Accordion Item #2
-                            </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse bg-secondary-custom" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                            </div>
-                        </div>
-                        <div class="accordion-item custom-accordion-item">
-                            <h2 class="accordion-header accordion-header-custom" id="flush-headingThree">
-                            <button class="accordion-button accordion-button-custom collapsed bg-secondary-custom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                Accordion Item #3
-                            </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse bg-secondary-custom" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                Placeholder content for this accordion, which is intended to demonstrate the accordion-flus class.</div>
-                            </div>
-                        </div>
-                    </div>
-                
                
 
                   
