@@ -50,6 +50,16 @@ class RoleServices
             return $e;
         }
     }
+
+    public function edit($id) {
+
+        try {
+            $user_data = $this->repo->edit($id);
+            return $user_data;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
    
    
     public function updateRole($request)
