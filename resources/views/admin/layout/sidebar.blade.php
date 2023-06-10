@@ -518,7 +518,7 @@
                       <a class="nav-link" data-toggle="collapse" href="#master-management" aria-expanded="false"
                           aria-controls="master-management">
                           <i class="fas fa-user menu-icon"></i>
-                          <span class="menu-title">Master Management</span>
+                          <span class="menu-title">User Management</span>
                           <i class="menu-arrow"></i>
                       </a>
                       @if (in_array('list-users', $data_for_url))

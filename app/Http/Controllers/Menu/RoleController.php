@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Menu;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Roles;
+use App\Models\{
+    Roles,
+    Permissions
+};
 use App\Http\Services\Menu\RoleServices;
 use Validator;
 class RoleController extends Controller
@@ -25,7 +28,11 @@ class RoleController extends Controller
     }
     public function add()
     {
-        return view('admin.pages.menu.roles.add-role');
+        $permissions = Permissions::where('is_active', true)
+                            ->select('id','route_name','permission_name','url')
+                            ->get()
+                            ->toArray();
+        return view('admin.pages.menu.roles.add-role',compact('permissions'));
     }
 
     public function store(Request $request) {
@@ -38,12 +45,9 @@ class RoleController extends Controller
        
        
     ];
-    // print_r($messages);
-    // die();
 
     try {
         $validation = Validator::make($request->all(),$rules,$messages);
-     
         if($validation->fails() )
         {
             return redirect('add-role')
@@ -144,6 +148,16 @@ public function updateOneRole(Request $request)
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    } 
+    
+    public function listRoleWisePermission(Request $request) {
+        try {
+            $permissions = $this->service->listRoleWisePermission($request->role_id);
+            return view('admin.pages.users.roles-permission',compact('permissions'));
+        } catch (\Exception $e) {
+            return $e;
+        }
+
+    }
 
 }
