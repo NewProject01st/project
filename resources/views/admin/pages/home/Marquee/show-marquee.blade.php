@@ -28,7 +28,7 @@
                                             <label>Title English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $marquees->english_title; ?></label>
+                                            <label>{{ strip_tags($marquees->english_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -36,7 +36,7 @@
                                             <label>Title Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $marquees->marathi_title; ?></label>
+                                            <label>{{ strip_tags($marquees->marathi_title) }}</label>
                                         </div>
                                     </div>
                                 </div>

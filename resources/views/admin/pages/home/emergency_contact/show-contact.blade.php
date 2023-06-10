@@ -29,7 +29,7 @@
                                         <label>English Title :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $emergency_contacts->english_title ?></label>
+                                        <label>{{ strip_tags($emergency_contacts->english_title) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -37,7 +37,7 @@
                                         <label>Marathi Title :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $emergency_contacts->marathi_title ?></label>
+                                        <label>{{ strip_tags($emergency_contacts->marathi_title) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -45,7 +45,7 @@
                                         <label>English Name :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $emergency_contacts->english_name ?></label>
+                                        <label>{{ strip_tags($emergency_contacts->english_name) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -53,7 +53,7 @@
                                         <label>Marathi Name :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $emergency_contacts->marathi_name ?></label>
+                                        <label>{{ strip_tags($emergency_contacts->marathi_name) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -61,7 +61,7 @@
                                         <label>English Address :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $emergency_contacts->english_address ?></label>
+                                        <label>{{ strip_tags($emergency_contacts->english_address) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -69,7 +69,7 @@
                                         <label>Marathi Address :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $emergency_contacts->marathi_address ?></label>
+                                        <label>{{ strip_tags($emergency_contacts->marathi_address) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -77,7 +77,7 @@
                                         <label> Email :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $emergency_contacts->email ?></label>
+                                        <label>{{ strip_tags($emergency_contacts->email) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -85,7 +85,7 @@
                                         <label>English No :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $emergency_contacts->english_number ?></label>
+                                        <label>{{ strip_tags($emergency_contacts->english_number) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -93,7 +93,7 @@
                                         <label>Marathi No :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $emergency_contacts->marathi_number ?></label>
+                                        <label>{{ strip_tags($emergency_contacts->marathi_number) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -101,7 +101,7 @@
                                         <label>English Landline No :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $emergency_contacts->english_landline_no ?></label>
+                                        <label>{{ strip_tags($emergency_contacts->english_landline_no) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -109,7 +109,7 @@
                                         <label>Marathi Landline No :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $emergency_contacts->marathi_landline_no ?></label>
+                                        <label>{{ strip_tags($emergency_contacts->marathi_landline_no) }}</label>
                                     </div>
                                 </div>
 

@@ -14,45 +14,67 @@
         <!--Subheader End-->
         <!--Main Content Start-->
         <div class="main-content">
-            <!--Testimonials Start-->
+            <!--Success Start-->
             <section class="wf100 p75">
                 <div class="container">
-                    <div class="title-style-3 d-flex justify-content-center">
-                        <h3>Success Stories</h3>
-                    </div>
+                    <h3 class="stitle text-center d-flex justify-content-start">Success Stories</h3>
                     <div class="testimonials">
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 @forelse ($data_output as $key => $item)
                                     <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                        <div class="single-item">
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <div class="profile">
-                                                        <div class="img-area">
-                                                            <img src="{{ asset('storage/images/news-events/success-stories/' . (session('language') == 'mar' ? $item['marathi_image'] : $item['english_image'])) }}"
-                                                                alt="">
-                                                        </div>
-                                                        <div class="bio">
-                                                            <h2>{{ $item['english_title'] }}</h2>
-                                                            <h4>{{ $item['english_designation'] }}</h4>
+                                        @if (session('language') == 'mar')
+                                            <div class="single-item">
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                        <div class="profile">
+                                                            <div class="img-area">
+                                                                <img src="{{ asset('storage/images/news-events/success-stories/' . $item['marathi_image']) }}"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class="bio">
+                                                                <h2>{{ $item['marathi_title'] }}</h2>
+                                                                <h4>{{ $item['marathi_designation'] }}</h4>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="content">
-                                                        <p><span><i
-                                                                    class="fa fa-quote-left"></i></span>{{ session('language') == 'mar' ? $item['english_description'] : $item['english_description'] }}
-                                                        </p>
-
-
+                                                    <div class="col-md-6">
+                                                        <div class="content">
+                                                            <p><span><i
+                                                                        class="fa fa-quote-left"></i></span>{{ $item['marathi_description'] }}
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @else
+                                            <div class="single-item">
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                        <div class="profile">
+                                                            <div class="img-area">
+                                                                <img src="{{ asset('storage/images/news-events/success-stories/' . $item['english_image']) }}"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class="new-txt">
+                                                                <h4>{{ $item['english_title'] }}</h4>
+                                                                <h6>{{ $item['english_designation'] }}</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="content">
+                                                            <p><span><i
+                                                                        class="fa fa-quote-left"></i></span>{{ $item['english_description'] }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
                                 @empty
-                                    <h4>No Data Found For  Success Stories</h4>
+                                    <h4>No Data Found For Success Stories</h4>
                                 @endforelse
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -71,7 +93,7 @@
                     </div>
                 </div>
             </section>
-            <!--Testimonials End-->
+            <!--Success End-->
         </div>
         <!--Main Content End-->
     @endsection

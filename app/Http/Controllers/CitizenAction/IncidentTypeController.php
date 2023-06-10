@@ -115,8 +115,8 @@ class IncidentTypeController extends Controller
     public function show(Request $request)
     {
         try {
-            $incidenttype_suggestion = $this->service->getById($request->show_id);
-            return view('admin.pages.citizen-action.incident-type.show-incident-type', compact('incidenttype_suggestion'));
+            $incidenttype_data = $this->service->getById($request->show_id);
+            return view('admin.pages.citizen-action.incident-type.show-incident-type', compact('incidenttype_data'));
         } catch (\Exception $e) {
             return $e;
         }

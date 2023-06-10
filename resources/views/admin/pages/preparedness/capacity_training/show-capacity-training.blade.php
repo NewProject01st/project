@@ -31,7 +31,7 @@
                                         <label>Title English :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $capacity_training->english_title ?></label>
+                                        <label>{{ strip_tags($capacity_training->english_title)}}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -39,7 +39,7 @@
                                         <label>Title Marathi :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $capacity_training->marathi_title ?></label>
+                                        <label>{{ strip_tags($capacity_training->marathi_title)}}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -47,7 +47,7 @@
                                         <label>Description English :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $capacity_training->english_description ?></label>
+                                        <label>{{ strip_tags($capacity_training->english_description)}}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -55,7 +55,7 @@
                                         <label>Description Marathi :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $capacity_training->marathi_description ?></label>
+                                        <label>{{ strip_tags($capacity_training->marathi_description)}}</label>
                                     </div>
                                 </div>
                                 <div class="row ">

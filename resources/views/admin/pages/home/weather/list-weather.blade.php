@@ -46,10 +46,10 @@
                                             @foreach ($weather as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><?php echo $item->english_title; ?></td>
-                                                <td><?php echo $item->marathi_title; ?></td>
-                                                <td><?php echo $item->english_description; ?></td>
-                                                <td><?php echo $item->marathi_description; ?></td>
+                                                <td>{{ strip_tags($item->english_title) }}</td>
+                                                <td>{{ strip_tags($item->marathi_title) }}</td>
+                                                <td>{{ strip_tags($item->english_description) }}</td>
+                                                <td>{{ strip_tags($item->marathi_description) }}</td>
                                                 <td>{{ $item->weather_date }}</td>
                                                 <td>{{ $item->expired_date }}</td>
                                                 {{-- <td> <img
@@ -68,17 +68,17 @@
                                                 <td class="d-flex">
                                                     @if (in_array("per_update", $data_permission))
                                                     <a data-id="{{ $item->id }}"
-                                                        class="edit-btn btn btn-sm btn-outline-primary m-1"><i
+                                                        class="edit-btn btn btn-sm btn-outline-primary m-1" title="Edit"><i
                                                             class="fas fa-pencil-alt"></i></a>
                                                     @endif
 
                                                     <a data-id="{{ $item->id }}"
-                                                        class="show-btn btn btn-sm btn-outline-primary m-1"><i
+                                                        class="show-btn btn btn-sm btn-outline-primary m-1" title="Show"><i
                                                             class="fas fa-eye"></i></a>
                                                     @if (in_array("per_delete", $data_permission))
                                                     <a data-id="{{ $item->id }}"
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                        title="Delete Tender"><i class="fas fa-archive"></i></a>
+                                                        title="Delete"><i class="fas fa-archive"></i></a>
                                                     @endif
 
 

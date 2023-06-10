@@ -30,7 +30,7 @@
                                             <label>Title English :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label><?php echo $emergencycontactnumbers->english_title; ?></label>
+                                            <label>{{strip_tags($emergencycontactnumbers->english_title)}}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -38,7 +38,7 @@
                                             <label>Title Marathi :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label><?php echo $emergencycontactnumbers->marathi_title; ?></label>
+                                            <label>{{strip_tags($emergencycontactnumbers->marathi_title)}}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -46,7 +46,7 @@
                                             <label>Description English :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label><?php echo $emergencycontactnumbers->english_description; ?></label>
+                                            <label>{{strip_tags($emergencycontactnumbers->english_description)}}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -54,7 +54,7 @@
                                             <label>Description Marathi :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label><?php echo $emergencycontactnumbers->marathi_description; ?></label>
+                                            <label>{{strip_tags($emergencycontactnumbers->marathi_description)}}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -62,7 +62,7 @@
                                             <label>Description Marathi :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label><?php echo $data_output_array->english_emergency_contact_title; ?></label>
+                                            <label>{{strip_tags($data_output_array->english_emergency_contact_title)}}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
