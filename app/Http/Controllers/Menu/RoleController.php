@@ -38,42 +38,39 @@ class RoleController extends Controller
     public function store(Request $request) {
         $rules = [
             'role_name' => 'required',
-            
          ];
-    $messages = [   
-        'role_name.required' => 'Please  enter english title.',
-       
-       
-    ];
+        $messages = [   
+            'role_name.required' => 'Please  enter english title.',
+        ];
 
-    try {
-        $validation = Validator::make($request->all(),$rules,$messages);
-        if($validation->fails() )
-        {
-            return redirect('add-role')
-                ->withInput()
-                ->withErrors($validation);
-        }
-        else
-        {
-            $add_role = $this->service->addRole($request);
-            if($add_role)
+        try {
+            $validation = Validator::make($request->all(),$rules,$messages);
+            if($validation->fails() )
             {
-                $msg = $add_role['msg'];
-                $status = $add_role['status'];
-                if($status=='success') {
-                    return redirect('list-role')->with(compact('msg','status'));
-                }
-                else {
-                    return redirect('add-role')->withInput()->with(compact('msg','status'));
-                }
+                return redirect('add-role')
+                    ->withInput()
+                    ->withErrors($validation);
             }
+            else
+            {
+                $add_role = $this->service->addRole($request);
+                if($add_role)
+                {
+                    $msg = $add_role['msg'];
+                    $status = $add_role['status'];
+                    if($status=='success') {
+                        return redirect('list-role')->with(compact('msg','status'));
+                    }
+                    else {
+                        return redirect('add-role')->withInput()->with(compact('msg','status'));
+                    }
+                }
 
+            }
+        } catch (Exception $e) {
+            return redirect('add-role')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
-    } catch (Exception $e) {
-        return redirect('add-role')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
-}
     public function show(Request $request)
     {
         try {
@@ -85,10 +82,10 @@ class RoleController extends Controller
         }
     }
     public function edit(Request $request) {
-        $roles = Roles::find($request->edit_id);
+        $user_data = $this->service->edit($request->edit_id);
         // dd($budgets);
 
-        return view('admin.pages.menu.roles.edit-role', compact('roles'));
+        return view('admin.pages.menu.roles.edit-role', compact('user_data'));
     }
 
     public function update(Request $request) {

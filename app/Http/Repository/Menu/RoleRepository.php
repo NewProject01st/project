@@ -83,9 +83,38 @@ class RoleRepository  {
 
     public function getById($id) {
         try {
-            $role = Roles::find($id);
-            if ($role) {
-                return $role;
+            return Roles::find($id);
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
+    public function edit($id) {
+        try {
+            $data_users = [];
+            $data_users['roles'] = Roles::find($id);;
+            $data_users['permissions'] = Permissions::where('is_active', true)
+                                ->select('id','route_name','permission_name','url')
+                                ->get()
+                                ->toArray();
+
+
+            $data_users['permissions_user'] = RolesPermissions::join('permissions', function($join) {
+							$join->on('roles_permissions.permission_id', '=', 'permissions.id');
+						})
+						->where('roles_permissions.role_id','=',$id)
+						->where('roles_permissions.is_active','=',true)
+						// ->where('users.is_active','=',true)
+						->select(
+							'roles_permissions.per_add',
+							'roles_permissions.per_update',
+							'roles_permissions.per_delete',
+							'permissions.id as permissions_id'
+							)->get()
+							->toArray();
+
+            if ($data_users) {
+                return $data_users;
             } else {
                 return null;
             }
