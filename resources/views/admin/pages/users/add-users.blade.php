@@ -1,5 +1,21 @@
 @extends('admin.layout.master')
 @section('content')
+<style>
+  .password-toggle {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+.fa-eye-slash {
+  /* display: none; */
+}
+
+
+ 
+</style>
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="page-header">
@@ -47,6 +63,10 @@
                                             <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
                                             <input type="password" class="form-control" name="u_password" id="u_password"
                                                 placeholder="" value="{{ old('u_password') }}">
+                                            <span id="togglePassword" class="password-toggle"
+                                                onclick="togglePasswordVisibility()">
+                                                <i class="fa fa-eye"></i>
+                                            </span>
                                             @if ($errors->has('u_password'))
                                                 <span class="red-text"><?php echo $errors->first('u_password', ':message'); ?></span>
                                             @endif
@@ -307,6 +327,22 @@
                     validationMessage.textContent = "";
                 } else {
                     validationMessage.textContent = "Only numbers are allowed.";
+                }
+            }
+        </script>
+        <script>
+            function togglePasswordVisibility() {
+                var passwordInput = document.getElementById("u_password");
+                var toggleIcon = document.getElementById("togglePassword").querySelector("i");
+
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    toggleIcon.classList.remove("fa-eye");
+                    toggleIcon.classList.add("fa-eye-slash");
+                } else {
+                    passwordInput.type = "password";
+                    toggleIcon.classList.remove("fa-eye-slash");
+                    toggleIcon.classList.add("fa-eye");
                 }
             }
         </script>
