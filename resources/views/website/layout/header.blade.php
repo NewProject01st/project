@@ -10,12 +10,12 @@
     $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData();
     ?>
 
-<?php 
-    $metadata = App\Models\Metadata::first()
-     ?>
-     <meta name="english_name" content="{{ $metadata->english_name}}">
-     
-     <meta name="keywords" content="{{ $metadata->keywords}}">
+    <?php
+    $metadata = App\Models\Metadata::first();
+    ?>
+    <meta name="english_name" content="{{ $metadata->english_name }}">
+
+    <meta name="keywords" content="{{ $metadata->keywords }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{-- <link href="{{ asset('website_files/bootstrap.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/font-awesome.min.css') }}" type="text/css" rel="stylesheet">
@@ -29,7 +29,7 @@
     <script src="{{ asset('website_files/asset/js/jquery.totemticker.js') }}"></script> --}}
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
-   {{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    {{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
 
@@ -68,16 +68,42 @@
     <link href="{{ asset('website_files/assets/css/slick.css') }}" type="text/css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-        <!-- webpage A+ A- button script -->
-        <style type="text/css">
+    <!-- webpage A+ A- button script -->
+    <style type="text/css">
         #zoomtext {
             transform: scale(1);
             transition: transform 0.2s ease-in-out;
         }
     </style>
-   
+
     <!-- end webpage A+ A- button script -->
 
+    <script>
+        $(document).ready(function() {
+
+            $("#language").change(function() {
+                var url_env = "{{ env('APP_URL') }}";
+                alert(url_env);
+                $.ajax({
+                    type: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: "http://52.66.216.5/change-language",
+                    cache: false,
+                    success: function(response) {
+                        location.reload();
+                    },
+                    data: {
+                        'language': $("#language").val()
+                    },
+                    error: function(errorResponse) {
+
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
