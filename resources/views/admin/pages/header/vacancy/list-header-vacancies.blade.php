@@ -50,7 +50,7 @@
                                                                     src="{{ asset('storage/pdf/pdf.png/') }}" width="35px"
                                                                     height="35px"></a></td>
                                                         <td> <a href="{{ asset('/storage/pdf/header/vacancy/' . $item['marathi_pdf']) }}"
-                                                                target="_blank"><img
+                                                                target="_blank"><img class="pdf-size"
                                                                     src="{{ asset('storage/pdf/pdf.png/') }}" width="35px"
                                                                     height="35px"></a></td>
                                                         <td>

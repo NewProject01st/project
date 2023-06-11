@@ -7,7 +7,7 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Report a Incident
+                    Report an Incident
                     {{-- @if (in_array('per_add', $data_permission))
                 <a href="{{ route('add-incident-model-info') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
@@ -17,7 +17,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Citizen Action</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Report a Incident: Modal Information</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Report an Incident: Modal Information</li>
                     </ol>
                 </nav>
             </div>

@@ -164,6 +164,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/update-department-information', ['as' => 'update-department-information', 'uses' => 'App\Http\Controllers\Admin\Home\DepartmentInformationController@update']);
     Route::post('/show-department-information', ['as' => 'show-department-information', 'uses' => 'App\Http\Controllers\Admin\Home\DepartmentInformationController@show']);
     Route::post('/delete-department-information', ['as' => 'delete-department-information', 'uses' => 'App\Http\Controllers\Admin\Home\DepartmentInformationController@destroy']);
+    Route::post('/update-one-department-information', ['as' => 'update-one-department-information', 'uses' => 'App\Http\Controllers\Admin\Home\DepartmentInformationController@updateOne']);
 
     Route::get('/list-objectivegoals', ['as' => 'list-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@index']);
     Route::get('/add-objectivegoals', ['as' => 'add-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@add']);

@@ -27,7 +27,7 @@
                                         <label>Title English :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $objectivegoals->english_title; ?></label>
+                                        <label>{{ strip_tags($objectivegoals->english_title) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -35,7 +35,7 @@
                                         <label>Title Marathi :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $objectivegoals->marathi_title; ?></label>
+                                        <label>{{ strip_tags($objectivegoals->marathi_title) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -43,7 +43,7 @@
                                         <label>Description English :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $objectivegoals->english_description; ?></label>
+                                        <label>{{ strip_tags($objectivegoals->english_description) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -51,7 +51,7 @@
                                         <label>Description Marathi :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $objectivegoals->marathi_description; ?></label>
+                                        <label>{{ strip_tags($objectivegoals->marathi_description) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <img src="{{ asset('storage/images/aboutus/objective-goals/' . $objectivegoals->english_image) }}"
-                                            style="width:70px; height:70px;" />
+                                            style="width:300px; height:150px;" />
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
                                         <img src="{{ asset('storage/images/aboutus/objective-goals/' . $objectivegoals->marathi_image) }}"
-                                            style="width:70px; height:70px;" />
+                                            style="width:300px; height:150px;" />
                                     </div>
                                 </div>
                             </div>

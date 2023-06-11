@@ -7,11 +7,16 @@
             <div class="row justify-content-center">
                 <div class="col-7 grid-margin ">
 
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
-                            <h3 class="page-title">
-                                Report a Incident: Crowdsourcing
-                            </h3>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
+                        <h3 class="page-title">
+                            Report an Incident: Crowdsourcing
+                        </h3>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
+                        <div>
+                            <a href="{{ route('list-report-crowdsourcing') }}"
+                                class="btn btn-sm btn-primary ml-3">Back</a>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
                             <div>

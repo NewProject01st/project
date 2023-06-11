@@ -20,9 +20,9 @@ class CitizenActionSeeder extends Seeder
         ReportIncidentCrowdsourcing::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_title' => 'Report a Incident : Crowdsourcing',
+            'english_title' => 'Report an Incident : Crowdsourcing',
             'marathi_title' => 'एका घटनेची तक्रार करा: क्राउडसोर्सिंग',
-            'english_description' => 'Report a Incident: Crowdsourcing is a method used in disaster management to gather real-time information from the public about incidents and emergencies occurring during a disaster. It harnesses the power of technology and community participation to enhance situational awareness, response coordination, and resource allocation.<br>
+            'english_description' => 'Report an Incident: Crowdsourcing is a method used in disaster management to gather real-time information from the public about incidents and emergencies occurring during a disaster. It harnesses the power of technology and community participation to enhance situational awareness, response coordination, and resource allocation.<br>
             In this approach, individuals and communities are encouraged to report incidents and provide valuable information through various channels, such as dedicated mobile applications, websites, social media platforms, or phone hotlines. The reported incidents can include a wide range of information, such as the location, type of incident, severity, and any relevant details or multimedia content.<br>
             Crowdsourcing in disaster management offers several benefits:
             <ul>

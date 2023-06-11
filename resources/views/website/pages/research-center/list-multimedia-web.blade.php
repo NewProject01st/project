@@ -112,55 +112,49 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="Container video_cont">
-                            <h3 class="Head"><span class="Arrows"></span></h3>
                             <!-- Carousel Container -->
                             <div class="SlickCarousel">
-                                <!-- Item -->
-
-
                                 @foreach ($data_getallvideo as $item)
-                                    @if (session('language') == 'mar')
-                                        <div class="ProductBlock">
-                                            <div class="Content">
-                                                <div class="img-fill">
-                                                    <iframe class="embed-responsive-item"
-                                                        src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
-                                                        allowfullscreen></iframe>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="ProductBlock">
-                                            <div class="Content">
-                                                <div class="img-fill">
-                                                    <iframe class="embed-responsive-item"
-                                                        src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
-                                                        allowfullscreen></iframe>
-                                                </div>
-
-                                            </div>
-                                        </div>
+                                @if (session('language') == 'mar')
+                                <!-- Item -->
+                                <div class="ProductBlock">
+                                <div class="Content">
+                                    <div class="img-fill">
+                                        <iframe class="embed-responsive-item"
+                                                src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
+                                                allowfullscreen></iframe>
+                                    </div>
+                                    
+                                </div>
+                                </div>
+                                <!-- Item -->   
+                                @else    
+                                  <!-- Item -->
+                                  <div class="ProductBlock">
+                                    <div class="Content">
+                                        <div class="img-fill">
+                                        <iframe class="embed-responsive-item"
+                                        src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
+                                        allowfullscreen></iframe>
+                                    </div>
+                                        
+                                    </div>
+                                    </div>
+                                    <!-- Item -->   
                                     @endif
-                                @endforeach
-
-
-
+                                    @endforeach                     
                             </div>
                             <!-- Carousel Container -->
-                        </div>
-
-
-                        <!--Video End-->
-                        <section class="">
-                            <div class="container photo_g">
-                                <div class="row">
-                                    <h3 class="stitle text-center d-flex justify-content-start pt-4">Gallery</h3>
-                                    <div class="col-12">
-                                        <a href="javascript:void(0)" onclick="myFunction('')">
-                                            <input type="radio" name="filter" id="all" checked><label
-                                                for="all">All</label>
-                                        </a>
+                        </div>     
+        <!--Video End-->
+        <section class="">
+            <div class="container photo_g">
+                <div class="row">
+                    <h3 class="stitle text-center d-flex justify-content-start pt-4">Gallery</h3>
+                    <div class="col-12">
+                        <a href="javascript:void(0)" onclick="myFunction('')">
+                            <input type="radio" name="filter" id="all" checked><label for="all">All</label>
+                        </a>
 
                                         @forelse($categories as $categories_data)
                                             @if (session('language') == 'mar')
@@ -200,21 +194,7 @@
                                                                     src="{{ $item['english_image'] }}"
                                                                     class="d-block w-100 img-fluid" alt="...">
 
-                                                                <!-- The Modal -->
-                                                                <div class="idMyModal modal">
-                                                                    <span class="close">&times;</span>
-                                                                    <img class="modal-content">
-                                                                </div>
-                                                            @endif
-                                                        </figure>
-                                                    </div>
-                                                @empty
-                                                    No Categries found
-                                                @endforelse
-                                            </div>
-                                        </div>
-                                        {{--
-                        <meta name="viewport" content="width=device-width">
+                        {{-- <meta name="viewport" content="width=device-width">
                         <input type="radio" name="filter" id="all" checked><label for="all">All</label>
                         <input type="radio" name="filter" id="animals"><label for="animals">Disaster</label>
                         <input type="radio" name="filter" id="nature"><label for="nature">Preparedness</label>
@@ -258,12 +238,7 @@
                                 </div>
                             </figure>
                         </div>
-                        --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
     </div>
