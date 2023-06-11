@@ -29,7 +29,7 @@
                                         <label>English Name :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $website_contact->english_address ?></label>
+                                        <label>{{ strip_tags($website_contact->english_address) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -37,7 +37,7 @@
                                         <label>Marathi Name :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $website_contact->marathi_address ?></label>
+                                        <label>{{ strip_tags($website_contact->marathi_address) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -45,7 +45,7 @@
                                         <label>Email :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $website_contact->email ?></label>
+                                        <label>{{ strip_tags($website_contact->email) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -53,7 +53,7 @@
                                         <label>English No :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $website_contact->english_number ?></label>
+                                        <label>{{ strip_tags($website_contact->english_number) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -61,7 +61,7 @@
                                         <label>Marathi No :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $website_contact->marathi_number ?></label>
+                                        <label>{{ strip_tags($website_contact->marathi_number) }}</label>
                                     </div>
                                 </div>
                                

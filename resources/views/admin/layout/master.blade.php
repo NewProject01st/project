@@ -166,23 +166,12 @@
                         --}}
                     </li>
                     <li class="nav-item nav-profile dropdown mr-0">
-                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                            <img src="{{ asset('assets/images/faces/face4.jp') }}g" alt="profile" />
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
-                            aria-labelledby="profileDropdown">
-                            {{--
-                            <a class="dropdown-item">
-                                <i class="fas fa-cog text-primary"></i>
-                                Settings
-                            </a>
-                            --}}
-                            <div class="dropdown-divider"></div>
+                        
                             <a class="dropdown-item" href="{{ url('log-out') }}">
                                 <i class="fas fa-power-off text-primary"></i>
                                 Logout
                             </a>
-                        </div>
+                        
                     </li>
 
                 </ul>

@@ -29,7 +29,7 @@
                                             <label>Title English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disasterforcast->english_title; ?></label>
+                                            <label>{{ strip_tags($disasterforcast->english_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -37,7 +37,7 @@
                                             <label>Title Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disasterforcast->marathi_title; ?></label>
+                                            <label>{{ strip_tags($disasterforcast->marathi_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -45,7 +45,7 @@
                                             <label>Description English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disasterforcast->english_description; ?></label>
+                                            <label>{{ strip_tags($disasterforcast->english_description) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -53,7 +53,7 @@
                                             <label>Description Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $disasterforcast->marathi_description; ?></label>
+                                            <label>{{ strip_tags($disasterforcast->marathi_description) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -77,7 +77,7 @@
                                             <label>Image English :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <img src="{{ asset('storage/images/disaster-forcast/' . $disasterforcast->english_image) }}"
+                                            <img src="{{ asset('storage/images/home/disaster-forcast/' . $disasterforcast->english_image) }}"
                                                 style="width:70px; height:70px;" />
                                         </div>
                                     </div>
@@ -86,7 +86,7 @@
                                             <label>Image Marathi :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
-                                            <img src="{{ asset('storage/images/disaster-forcast/' . $disasterforcast->marathi_image) }}"
+                                            <img src="{{ asset('storage/images/home/disaster-forcast/' . $disasterforcast->marathi_image) }}"
                                                 style="width:70px; height:70px;" />
                                         </div>
                                     </div>

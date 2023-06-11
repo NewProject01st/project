@@ -17,7 +17,6 @@ class CreateRolesPermissionsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('permission_id');
             $table->unsignedBigInteger('role_id');
-            $table->string('user_id');
             $table->boolean('per_add')->default(false);
             $table->boolean('per_edit')->default(false);
             $table->boolean('per_update')->default(false);

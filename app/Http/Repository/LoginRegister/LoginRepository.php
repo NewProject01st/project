@@ -37,7 +37,7 @@ class LoginRepository
                                         })
                                         ->where('roles_permissions.is_active','=',true);
                                         
-                                        $roles_permissions = $roles_permissions->where('user_id','=',$data['user_details']->id);
+                                        $roles_permissions = $roles_permissions->where('role_id','=',$data['user_details']->role_id);
                                         
                                         $roles_permissions = $roles_permissions->select(
                                                 "roles_permissions.per_add",

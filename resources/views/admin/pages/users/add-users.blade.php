@@ -1,21 +1,20 @@
 @extends('admin.layout.master')
 @section('content')
-<style>
-  .password-toggle {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-.fa-eye-slash {
-  /* display: none; */
-}
+    <style>
+        .password-toggle {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
 
-
- 
-</style>
+        .fa-eye-slash {
+            /* display: none; */
+        }
+    </style>
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="page-header">
@@ -35,10 +34,10 @@
                         <div class="card-body">
                             <form class="forms-sample" id="frm_register" name="frm_register" method="post" role="form"
                                 action="{{ route('add-users') }}" enctype="multipart/form-data">
-                                @csrf
                                 <div class="row">
+                                <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
 
-                                    <div class="col-md-6">
+                                   {{-- <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="u_uname">User Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="u_uname" id="u_uname"
@@ -48,6 +47,7 @@
                                             @endif
                                         </div>
                                     </div>
+                                    --}}
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="u_email">Email ID</label>&nbsp<span class="red-text">*</span>
@@ -76,7 +76,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="role_id">Role Type</label>&nbsp<span class="red-text">*</span>
-                                            <select class="form-control" id="role_id" name="role_id">
+                                            <select class="form-control" id="role_id" name="role_id"
+                                                onchange="myFunction(this.value)">
                                                 <option>Select</option>
                                                 @foreach ($roles as $role)
                                                     @if (old('role_id') == $role['id'])
@@ -162,16 +163,6 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="adhar_no">Adhar No</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="adhar_no" id="adhar_no"
-                                                placeholder="" value="{{ old('adhar_no') }}">
-                                            @if ($errors->has('adhar_no'))
-                                                <span class="red-text"><?php echo $errors->first('adhar_no', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
                                             <label for="state">State</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="state" id="state"
                                                 placeholder="" value="{{ old('state') }}">
@@ -202,78 +193,10 @@
                                             @endif
                                         </div>
                                     </div>
-
-
                                     <div class="col-md-12">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Sr. No.</th>
-                                                        <th>Functionality Name</th>
-                                                        <th>Add</th>
-                                                        <th>Update</th>
-                                                        <th>Delete</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($permissions as $key => $permission)
-                                                        <tr>
-                                                            <td>{{ $key + 1 }}</td>
-                                                            <td>
-                                                                <input type="hidden" class="form-check-input"
-                                                                    name="permission_id_{{ $permission['id'] }}"
-                                                                    id="permission_id_{{ $permission['id'] }}"
-                                                                    value="{{ $permission['id'] }}"
-                                                                    data-parsley-multiple="permission_id">
-                                                                {{ $permission['permission_name'] }}
-                                                            </td>
-                                                            <td>
-                                                                <label class="form-check-label">
-                                                                    <?php $add_name = 'per_add_' . $permission['id']; ?>
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        name="per_add_{{ $permission['id'] }}"
-                                                                        id="per_add_{{ $permission['id'] }}"
-                                                                        value="add_{{ $permission['id'] }}"
-                                                                        data-parsley-multiple="per_add"
-                                                                        {{ old($add_name) ? 'checked' : '' }}>
-
-                                                                    <i class="input-helper"></i><i
-                                                                        class="input-helper"></i></label>
-                                                            </td>
-                                                            <td>
-                                                                <label class="form-check-label">
-                                                                    <?php $per_update = 'per_update_' . $permission['id']; ?>
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        name="per_update_{{ $permission['id'] }}"
-                                                                        id="per_update_{{ $permission['id'] }}"
-                                                                        value="update_{{ $permission['id'] }}"
-                                                                        data-parsley-multiple="per_update"
-                                                                        {{ old($per_update) ? 'checked' : '' }}>
-
-                                                                    <i class="input-helper"></i><i
-                                                                        class="input-helper"></i></label>
-                                                            </td>
-                                                            <td>
-                                                                <label class="form-check-label">
-                                                                    <?php $per_delete = 'per_delete_' . $permission['id']; ?>
-                                                                    <input type="checkbox" class="form-check-input"
-                                                                        name="per_delete_{{ $permission['id'] }}"
-                                                                        id="per_delete_{{ $permission['id'] }}"
-                                                                        value="delete_{{ $permission['id'] }}"
-                                                                        data-parsley-multiple="per_delete"
-                                                                        {{ old($per_delete) ? 'checked' : '' }}>
-
-                                                                    <i class="input-helper"></i><i
-                                                                        class="input-helper"></i></label>
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
+                                        <div id="data_for_role">
                                         </div>
                                     </div>
-
                                     <br>
                                     <div class="col-md-6">
                                         <div class="form-group form-check form-check-flat form-check-primary">
@@ -344,6 +267,28 @@
                     toggleIcon.classList.remove("fa-eye-slash");
                     toggleIcon.classList.add("fa-eye");
                 }
+            }
+        </script>
+
+        <script>
+            function myFunction(role_id) {
+                alert(role_id);
+                $("#data_for_role").empty();
+                $.ajax({
+                    url: "{{ route('list-role-wise-permission') }}",
+                    method: "POST",
+                    data: {
+                        "role_id": role_id
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(data) {
+                        $("#data_for_role").empty();
+                        $("#data_for_role").append(data);
+                    },
+                    error: function(data) {}
+                });
             }
         </script>
     @endsection

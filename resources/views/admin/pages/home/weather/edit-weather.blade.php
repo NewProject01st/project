@@ -9,7 +9,7 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page"> Update Weather</li>
                 </ol>
             </nav>
@@ -110,7 +110,7 @@
                                     </div>
 
                                     <img id="english"
-                                        src="{{ asset('storage/images/weather/' . $weather->english_image) }}"
+                                        src="{{ asset('storage/images/home/weather/' . $weather->english_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="english_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">
@@ -126,7 +126,7 @@
                                         @endif
                                     </div>
                                     <img id="marathi"
-                                        src="{{ asset('storage/images/weather/' . $weather->marathi_image) }}"
+                                        src="{{ asset('storage/images/home/weather/' . $weather->marathi_image) }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="marathi_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">
