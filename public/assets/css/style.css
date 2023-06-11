@@ -18825,6 +18825,7 @@ input:focus {
 @media (max-width: 991px) {
   .navbar.default-layout-navbar .navbar-brand-wrapper {
     width: 55px;
+    padding-left: 1%;
   }
 }
 
@@ -18875,7 +18876,7 @@ input:focus {
   .navbar.default-layout-navbar .navbar-menu-wrapper {
     width: calc(100% - 55px);
     padding-left: 0px;
-    padding-right: 15px;
+    padding-right: 15px !important;
   }
 }
 
@@ -18898,8 +18899,8 @@ input:focus {
 }
 
 .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-nav .nav-item {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  /* margin-left: 1rem;
+  margin-right: 1rem; */
 }
 
 .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link {
@@ -18951,8 +18952,8 @@ input:focus {
 .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile {
   border-left: 1px solid #e0e0ef;
   border-right: 1px solid #e0e0ef;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  /* padding-left: 1rem;
+  padding-right: 1rem; */
 }
 
 .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile img {
@@ -29504,6 +29505,15 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
     top: 70px;
   }
 
+  .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-nav .nav-item {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .navbar-nav{
+    padding-left: 18%;
+  }
+
 }
 
 @media (min-width: 359px) and (max-width: 766px){
@@ -29511,5 +29521,12 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
     padding-right: 15% !important;
       padding-left: 0px !important;
   }
+ 
 
+}
+@media (max-width: 1024px){
+  .nav-item{
+    margin-left: 13px;
+
+  }
 }
