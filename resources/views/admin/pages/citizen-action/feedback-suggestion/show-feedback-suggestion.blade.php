@@ -31,7 +31,7 @@
                                         <label>Title English :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <label><?php echo $feedback_suggestion->english_title ?></label>
+                                        <label>{{ strip_tags($feedback_suggestion->english_title) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -39,7 +39,7 @@
                                         <label>Title Marathi :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <label><?php echo $feedback_suggestion->marathi_title ?></label>
+                                        <label>{{ strip_tags($feedback_suggestion->marathi_title) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -47,7 +47,7 @@
                                         <label>Description English :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <label><?php echo $feedback_suggestion->english_description ?></label>
+                                        <label>{{ strip_tags($feedback_suggestion->english_description) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -55,7 +55,7 @@
                                         <label>Description Marathi :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <label><?php echo $feedback_suggestion->marathi_description ?></label>
+                                        <label>{{ strip_tags($feedback_suggestion->marathi_description) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">

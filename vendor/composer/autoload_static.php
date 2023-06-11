@@ -763,6 +763,7 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'App\\Models\\SubHeaderInfo' => __DIR__ . '/../..' . '/app/Models/SubHeaderInfo.php',
         'App\\Models\\SuccessStories' => __DIR__ . '/../..' . '/app/Models/SuccessStories.php',
         'App\\Models\\TrainingMaterialsWorkshops' => __DIR__ . '/../..' . '/app/Models/TrainingMaterialsWorkshops.php',
+        'App\\Models\\TweeterFeed' => __DIR__ . '/../..' . '/app/Models/TweeterFeed.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\VacanciesHeader' => __DIR__ . '/../..' . '/app/Models/VacanciesHeader.php',
         'App\\Models\\Video' => __DIR__ . '/../..' . '/app/Models/Video.php',

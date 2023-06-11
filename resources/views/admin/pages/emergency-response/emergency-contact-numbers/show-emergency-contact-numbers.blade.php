@@ -30,7 +30,7 @@
                                             <label>Title English :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{strip_tags($emergencycontactnumbers->english_title)}}</label>
+                                            <label>{{ strip_tags($emergencycontactnumbers->english_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -38,7 +38,7 @@
                                             <label>Title Marathi :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{strip_tags($emergencycontactnumbers->marathi_title)}}</label>
+                                            <label>{{ strip_tags($emergencycontactnumbers->marathi_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -46,7 +46,7 @@
                                             <label>Description English :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{strip_tags($emergencycontactnumbers->english_description)}}</label>
+                                            <label>{{ strip_tags($emergencycontactnumbers->english_description) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -54,7 +54,7 @@
                                             <label>Description Marathi :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{strip_tags($emergencycontactnumbers->marathi_description)}}</label>
+                                            <label>{{ strip_tags($emergencycontactnumbers->marathi_description) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -62,7 +62,7 @@
                                             <label>Description Marathi :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{strip_tags($data_output_array->english_emergency_contact_title)}}</label>
+                                            <label>{{ strip_tags($data_output_array->english_emergency_contact_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -71,7 +71,7 @@
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <img src="{{ asset('storage/images/emergency-response/emergency-contact-numbers/' . $emergencycontactnumbers->english_image) }}"
-                                                style="width:70px; height:70px;" />
+                                                style="width:150px; height:150px;" />
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -80,7 +80,7 @@
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                             <img src="{{ asset('storage/images/emergency-response/emergency-contact-numbers/' . $emergencycontactnumbers->marathi_image) }}"
-                                                style="width:70px; height:70px;" />
+                                                style="width:150px; height:150px;" />
                                         </div>
                                     </div>
                                 </div>
@@ -93,5 +93,4 @@
 
 
         <!-- content-wrapper ends -->
-
     @endsection

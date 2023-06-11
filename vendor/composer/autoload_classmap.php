@@ -267,6 +267,7 @@ return array(
     'App\\Models\\SubHeaderInfo' => $baseDir . '/app/Models/SubHeaderInfo.php',
     'App\\Models\\SuccessStories' => $baseDir . '/app/Models/SuccessStories.php',
     'App\\Models\\TrainingMaterialsWorkshops' => $baseDir . '/app/Models/TrainingMaterialsWorkshops.php',
+    'App\\Models\\TweeterFeed' => $baseDir . '/app/Models/TweeterFeed.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\VacanciesHeader' => $baseDir . '/app/Models/VacanciesHeader.php',
     'App\\Models\\Video' => $baseDir . '/app/Models/Video.php',

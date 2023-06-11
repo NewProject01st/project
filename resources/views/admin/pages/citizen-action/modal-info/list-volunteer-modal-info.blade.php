@@ -49,7 +49,7 @@
                                                         <td>{{ $item->location }}</td>
                                                         <td>{{ $item->datetime }}</td>
                                                         <td>{{ $item->mobile_number }}</td>
-                                                        <td><?php echo $item->description; ?></td>
+                                                        <td>{{ strip_tags($item->description) }}</td>
                                                         <td> <img
                                                                 src="{{ asset('storage/images/citizen-action/modal/volunteer-modal/' . $item->media_upload) }}" />
                                                         </td>
@@ -101,5 +101,4 @@
     </form> --}}
 
         <!-- content-wrapper ends -->
-
     @endsection

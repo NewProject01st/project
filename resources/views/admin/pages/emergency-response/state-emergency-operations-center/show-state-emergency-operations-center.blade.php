@@ -30,7 +30,7 @@
                                             <label>Title English :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label><?php echo $stateemergencyoperationscenter->english_title; ?></label>
+                                            <label>{{ strip_tags($stateemergencyoperationscenter->english_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -38,7 +38,7 @@
                                             <label>Title Marathi :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label><?php echo $stateemergencyoperationscenter->marathi_title; ?></label>
+                                            <label>{{ strip_tags($stateemergencyoperationscenter->marathi_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -46,7 +46,7 @@
                                             <label>Description English :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label class="justify"><?php echo $stateemergencyoperationscenter->english_description; ?></label>
+                                            <label class="justify">{{ strip_tags($stateemergencyoperationscenter->english_description) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -54,7 +54,7 @@
                                             <label>Description Marathi :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label><?php echo $stateemergencyoperationscenter->marathi_description; ?></label>
+                                            <label>{{ strip_tags($stateemergencyoperationscenter->marathi_description) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -63,7 +63,7 @@
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <img src="{{ asset('storage/images/emergency-response/state-emergency-operations-center/' . $stateemergencyoperationscenter->english_image) }}"
-                                                style="width:70px; height:70px;" />
+                                                style="width:150px; height:150px;" />
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                             <img src="{{ asset('storage/images/emergency-response/state-emergency-operations-center/' . $stateemergencyoperationscenter->marathi_image) }}"
-                                                style="width:70px; height:70px;" />
+                                                style="width:150px; height:150px;" />
                                         </div>
                                     </div>
                                 </div>
