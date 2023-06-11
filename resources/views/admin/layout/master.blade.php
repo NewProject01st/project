@@ -193,7 +193,7 @@
                 </button>
             </div>
         </nav>
-        <div class="container-fluid page-body-wrapper">
+        <div class="container-fluid page-body-wrapper newpdr">
             @include('admin.layout.sidebar')
             @yield('content')
             @extends('admin.layout.footer')

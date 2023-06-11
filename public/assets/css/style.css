@@ -18780,10 +18780,10 @@ input:focus {
     position: static;
   }
   .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {
-    left: 20px;
+    /* left: 20px; */
     right: 20px;
     top: 70px;
-    width: calc(100% - 40px);
+    /* width: calc(100% - 40px); */
   }
 }
 
@@ -18874,7 +18874,7 @@ input:focus {
 @media (max-width: 991px) {
   .navbar.default-layout-navbar .navbar-menu-wrapper {
     width: calc(100% - 55px);
-    padding-left: 15px;
+    padding-left: 0px;
     padding-right: 15px;
   }
 }
@@ -29479,4 +29479,37 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
 }
 .dash_count{
   color: #fff !important;
+}
+
+/* main containeror nav head */
+
+@media (min-width: 911px) and (max-width: 912px){
+  .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {
+    /* left: 20px; */
+    right: 49% !important;
+    top: 70px;
+  }
+
+}
+
+@media (min-width: 767px) and (max-width: 1280px){
+  .newpdr{
+    padding-right: 0% !important;
+      padding-left: 0px !important;
+  }
+
+  .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {
+    /* left: 20px; */
+    right: 40%;
+    top: 70px;
+  }
+
+}
+
+@media (min-width: 359px) and (max-width: 766px){
+  .newpdr{
+    padding-right: 15% !important;
+      padding-left: 0px !important;
+  }
+
 }
