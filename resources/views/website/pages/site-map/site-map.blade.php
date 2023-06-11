@@ -4,10 +4,10 @@
         <!--Subheader Start-->
         <section class="wf100 subheader">
             <div class="container">
-                <h2>About Us </h2>
+                <h2>Site Map</h2>
                 <ul>
                     <li> <a href="{{ route('index') }}">Home</a> </li>
-                    <li>Disaster Management Portal </li>
+                    <li>Site Map</li>
                 </ul>
             </div>
         </section>
