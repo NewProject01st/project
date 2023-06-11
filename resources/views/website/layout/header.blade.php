@@ -83,7 +83,7 @@
 
             $("#language").change(function() {
                 var url_env = "{{ env('APP_URL') }}";
-                alert(url_env);
+
                 $.ajax({
                     type: "POST",
                     headers: {
