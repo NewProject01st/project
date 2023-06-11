@@ -24887,12 +24887,16 @@ dl li {
   font-size: 12px !important; line-height: 22px !important; 
 }
 
-.table td img, .jsgrid .jsgrid-table td img {
-  width: 100px;
-  height: 100px;
+.table td .img-size, .jsgrid .jsgrid-table td .img-size {
+  width: 100px !important;
+  height: 100px !important;
   /* border-radius: 100%; */
 }
-
+.table td img .pdf-size, .jsgrid .jsgrid-table td img .pdf-size {
+  width: 30px;
+  height: 30px;
+  /* border-radius: 100%; */
+}
 .table td .badge, .jsgrid .jsgrid-table td .badge {
   margin-bottom: 0;
 }

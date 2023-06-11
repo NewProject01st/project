@@ -30,7 +30,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Title English :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($warning_system->english_title) }}</label>
                                         </div>
                                     </div>
@@ -38,7 +38,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Title Marathi :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($warning_system->marathi_title) }}</label>
                                         </div>
                                     </div>
@@ -46,7 +46,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Description English :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($warning_system->english_description) }}</label>
                                         </div>
                                     </div>
@@ -54,26 +54,26 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Description Marathi :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($warning_system->marathi_description) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label> English Image :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <img src="{{ asset('storage/images/preparedness/early-warning/' . $warning_system->english_image) }}"
-                                                style="width:70px; height:70px;" />
+                                                style="width:300px; height:150px;" />
                                         </div>
                                     </div>
                                     <div class="row ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label> Marathi Image:</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
+                                        <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                             <img src="{{ asset('storage/images/preparedness/early-warning/' . $warning_system->marathi_image) }}"
-                                                style="width:70px; height:70px;" />
+                                                style="width:300px; height:150px;" />
                                         </div>
                                     </div>
 

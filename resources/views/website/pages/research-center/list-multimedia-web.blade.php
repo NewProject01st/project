@@ -99,98 +99,40 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="Container video_cont">
-                            <h3 class="Head">Featured Products <span class="Arrows"></span></h3>
                             <!-- Carousel Container -->
                             <div class="SlickCarousel">
+                                @foreach ($data_getallvideo as $item)
+                                @if (session('language') == 'mar')
                                 <!-- Item -->
                                 <div class="ProductBlock">
                                 <div class="Content">
                                     <div class="img-fill">
-                                    <img src="https://tinypic.host/images/2023/02/21/pikrepo.com-2.jpg">
+                                        <iframe class="embed-responsive-item"
+                                                src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
+                                                allowfullscreen></iframe>
                                     </div>
                                     
                                 </div>
                                 </div>
-                                <!-- Item -->
-                                <!-- Item -->
-                                <div class="ProductBlock">
-                                <div class="Content">
-                                    <div class="img-fill">
-                                    <img src="https://tinypic.host/images/2023/02/21/pikrepo.com-2.jpg">
+                                <!-- Item -->   
+                                @else    
+                                  <!-- Item -->
+                                  <div class="ProductBlock">
+                                    <div class="Content">
+                                        <div class="img-fill">
+                                        <iframe class="embed-responsive-item"
+                                        src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
+                                        allowfullscreen></iframe>
                                     </div>
-                                    
-                                </div>
-                                </div>
-                                <!-- Item -->
-                                <!-- Item -->
-                                <div class="ProductBlock">
-                                <div class="Content">
-                                    <div class="img-fill">
-                                    <img src="https://tinypic.host/images/2023/02/21/pikrepo.com-2.jpg">
+                                        
                                     </div>
-                                    
-                                </div>
-                                </div>
-                                <!-- Item -->
-                                <!-- Item -->
-                                <div class="ProductBlock">
-                                <div class="Content">
-                                    <div class="img-fill">
-                                    <img src="https://tinypic.host/images/2023/02/21/pikrepo.com-2.jpg">
                                     </div>
-                                    
-                                </div>
-                                </div>
-                                <!-- Item -->
-                                <!-- Item -->
-                                <div class="ProductBlock">
-                                <div class="Content">
-                                    <div class="img-fill">
-                                    <img src="https://tinypic.host/images/2023/02/21/pikrepo.com-2.jpg">
-                                    </div>
-                                    
-                                </div>
-                                </div>
-                                <!-- Item -->
+                                    <!-- Item -->   
+                                    @endif
+                                    @endforeach                     
                             </div>
                             <!-- Carousel Container -->
-                        </div>
-
-        <section class="testimonials-section wf100 p80 graybg">
-            <div class="container">
-                <div class="title-style-3">
-                    <h3 class="stitle text-center d-flex justify-content-start">Video</h3>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="d-flex justify-content-center">
-                            <!--Video box start-->
-                            @foreach ($data_getallvideo as $item)
-                                @if (session('language') == 'mar')
-                                    <div class="item p-1">
-                                        <div class="embed-responsive embed-responsive-16by9">
-                                            <iframe class="embed-responsive-item"
-                                                src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
-                                                allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-                                @else
-                                    <div class="item p-1">
-                                        <div class="embed-responsive embed-responsive-16by9">
-                                            <iframe class="embed-responsive-item"
-                                                src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
-                                                allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
-                            <!--Video box End-->
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        </div>     
         <!--Video End-->
         <section class="">
             <div class="container photo_g">
@@ -249,7 +191,7 @@
                             </div>
                         </div>
 
-                        <meta name="viewport" content="width=device-width">
+                        {{-- <meta name="viewport" content="width=device-width">
                         <input type="radio" name="filter" id="all" checked><label for="all">All</label>
                         <input type="radio" name="filter" id="animals"><label for="animals">Disaster</label>
                         <input type="radio" name="filter" id="nature"><label for="nature">Preparedness</label>
@@ -293,7 +235,7 @@
                                 </div>
                             </figure>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </section>

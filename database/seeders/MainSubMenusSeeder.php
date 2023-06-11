@@ -310,7 +310,7 @@ class MainSubMenusSeeder extends Seeder
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
             'main_menu_id' => 6,
-            'menu_name_english' => 'Report A Incident : Crowdsourcing',
+            'menu_name_english' => 'Report an Incident : Crowdsourcing',
             'menu_name_marathi' => 'एका घटनेची तक्रार करा: क्राउडसोर्सिंग',
             'order_no' => 1,
             'url'=>'list-report-incident-crowdsourcing-web',

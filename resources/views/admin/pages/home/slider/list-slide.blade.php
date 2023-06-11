@@ -50,10 +50,10 @@
                                                         <td>{{ strip_tags($item->marathi_title) }}</td>
                                                         <td>{{ strip_tags($item->english_description) }}</td>
                                                         <td>{{ strip_tags($item->marathi_description) }}</td>
-                                                        <td> <img
+                                                        <td> <img class="img-size"
                                                                 src="{{ asset('storage/images/home/slides/' . $item->english_image) }}" />
                                                         </td>
-                                                        <td> <img
+                                                        <td> <img class="img-size"
                                                                 src="{{ asset('storage/images/home/slides/' . $item->marathi_image) }}" />
                                                         </td>
 

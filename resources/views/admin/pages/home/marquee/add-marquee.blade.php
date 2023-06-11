@@ -53,7 +53,7 @@
                                     <div class="form-group">
                                         <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                         <input class="form-control url" name="url" id="url"
-                                            placeholder="Enter the Title" name="url" value="url">
+                                            placeholder="Enter the URL" name="url" value="{{ old('url') }}">
                                         @if ($errors->has('url'))
                                         <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                         @endif
