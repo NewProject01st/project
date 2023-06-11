@@ -37,7 +37,7 @@
                                 <div class="row">
                                 <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
 
-                                    <div class="col-md-6">
+                                   {{-- <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="u_uname">User Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="u_uname" id="u_uname"
@@ -47,6 +47,7 @@
                                             @endif
                                         </div>
                                     </div>
+                                    --}}
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="u_email">Email ID</label>&nbsp<span class="red-text">*</span>

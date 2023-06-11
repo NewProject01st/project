@@ -92,7 +92,7 @@ class RoleRepository  {
     public function edit($id) {
         try {
             $data_users = [];
-            $data_users['roles'] = Roles::find($id);;
+            $data_users['roles'] = Roles::where('id',$id)->first();
             $data_users['permissions'] = Permissions::where('is_active', true)
                                 ->select('id','route_name','permission_name','url')
                                 ->get()
@@ -128,13 +128,14 @@ class RoleRepository  {
     }
     public function updateRole($request) {
         try {
-            $role_data = Roles::find($request->id);
+            //  dd($request['edit_id']);
+            $role_data = Roles::find($request['edit_id']);
             $role_data->role_name = $request['role_name'];       
+            $role_data->is_active = isset($request['is_active']) ? true :false;    
             $role_data->update();  
-            
-        //    dd($budget_data);
-            // print_r($budget_data);
-            // die();
+
+            $this->updateRolesPermissions($request, $request['edit_id']);
+
         
             return [
                 'msg' => 'Marquee updated successfully.',
@@ -148,6 +149,60 @@ class RoleRepository  {
             ];
         }
     }
+
+    private function updateRolesPermissions($request, $role_id) {
+
+		$permissions_data_from_table  = $this->permissionsData();
+		$update_data = array();
+		foreach ($permissions_data_from_table as $key => $data) {
+			$permission_id  = 'permission_id_'.$data['id'];
+			$per_add  = 'per_add_'.$data['id'];
+			$per_update  = 'per_update_'.$data['id'];
+			$per_delete  = 'per_delete_'.$data['id'];
+
+			$update_data['role_id'] = $role_id;
+			if($request->has($per_add)) {
+				$update_data['per_add']  = true;
+			} else {
+				$update_data['per_add']  = false;
+			}
+			
+			if($request->has($per_update)) {
+				$update_data['per_update']  = true;
+			} else {
+				$update_data['per_update']  = false;
+			}
+			
+			if($request->has($per_delete)) {
+				$update_data['per_delete']  = true;
+			} else {
+				$update_data['per_delete']  = false;
+			}
+
+            $permissions_data_all = RolesPermissions::where([
+					'role_id' => $role_id,
+					'permission_id' =>$data['id']
+				])->get()->toArray();
+                info($permissions_data_all);
+				if(sizeof($permissions_data_all)>0) {
+
+					$permissions_data = RolesPermissions::where([
+						'role_id' => $role_id,
+						'permission_id' =>$data['id']
+					])->update($update_data);
+				} else {
+                    // dd($request->has($per_add));
+                    if($request->has($per_add) || $request->has($per_update) || $request->has($per_delete)) {
+                        $update_data['role_id']  = $role_id;
+                        $update_data['permission_id']  = $data['id'];
+                        $permissions_data = RolesPermissions::insert($update_data);
+                    }
+				}
+		}
+		return "ok";
+	}
+
+
     public function updateOneRole($request) {
         try {
             $role = Roles::find($request); // Assuming $request directly contains the ID        

@@ -139,4 +139,29 @@
             });
         });
     </script> --}}
+
+        <script>
+            $(document).ready(function() {
+                myFunction($("#role_id").val());
+            });
+
+            function myFunction(role_id) {
+                $("#data_for_role").empty();
+                $.ajax({
+                    url: "{{ route('list-role-wise-permission') }}",
+                    method: "POST",
+                    data: {
+                        "role_id": role_id
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(data) {
+                        $("#data_for_role").empty();
+                        $("#data_for_role").append(data);
+                    },
+                    error: function(data) {}
+                });
+            }
+        </script>
     @endsection

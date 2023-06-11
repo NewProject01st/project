@@ -52,7 +52,7 @@ class RegisterRepository  {
         $ipAddress = getIPAddress($request);
 		$user_data = new User();
 		$user_data->u_email = $request['u_email'];
-		$user_data->u_uname = $request['u_uname'];
+		// $user_data->u_uname = $request['u_uname'];
 		$user_data->u_password = bcrypt($request['u_password']);
 		$user_data->role_id = $request['role_id'];
 		$user_data->f_name = $request['f_name'];
@@ -78,7 +78,7 @@ class RegisterRepository  {
         $ipAddress = getIPAddress($request);
 		$user_data = User::where('id',$request['edit_id']) 
 						->update([
-							'u_uname' => $request['u_uname'],
+							// 'u_uname' => $request['u_uname'],
 							'role_id' => $request['role_id'],
 							'f_name' => $request['f_name'],
 							'm_name' => $request['m_name'],
@@ -182,7 +182,7 @@ class RegisterRepository  {
 
    public function checkDupCredentials($request) {
    		return User::where('u_email','=',$request['u_email'])
-   					->orWhere('u_uname','=',$request['u_uname'])
+   					// ->orWhere('u_uname','=',$request['u_uname'])
 					->select('id')->get();
    }
 
@@ -209,7 +209,7 @@ class RegisterRepository  {
 					// ->where('roles_permissions.is_active','=',true)
 					// ->where('users.is_active','=',true)
 					->select('roles.id as role_id',
-							'users.u_uname',
+							// 'users.u_uname',
 							'users.u_password',
 							'users.u_email',
 							'users.f_name',

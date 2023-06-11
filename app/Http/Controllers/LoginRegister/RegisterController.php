@@ -52,7 +52,7 @@ class RegisterController extends Controller {
 
         $rules = [
             // 'u_email' => 'required',
-            'u_uname' => 'required',
+            // 'u_uname' => 'required',
             // 'u_password' => 'required',
             'role_id' => 'required',
             'f_name' => 'required',
@@ -69,7 +69,7 @@ class RegisterController extends Controller {
         $messages = [   
                         // 'u_email.required' => 'Please enter email.',
                         // 'u_email.email' => 'Please enter valid email.',
-                        'u_uname.required' => 'Please enter user uname.',
+                        // 'u_uname.required' => 'Please enter user uname.',
                         // 'u_password.required' => 'Please enter password.',
                         'role_id.required' => 'Select role',
                         'f_name.required' => 'Please enter first name.',
@@ -86,30 +86,34 @@ class RegisterController extends Controller {
                     ];
 
 
-        $validation = Validator::make($request->all(),$rules,$messages);
-        if($validation->fails() )
-        {
-            return redirect('edit-users')
-            ->withInput()
-            ->withErrors($validation);
-        }
-        else
-        {
-            $register_user = $this->service->update($request);
+        try {
+            $validation = Validator::make($request->all(),$rules, $messages);
+            if ($validation->fails()) {
+                return redirect()->back()
+                    ->withInput()
+                    ->withErrors($validation);
+            } else {
+                $register_user = $this->service->update($request);
 
-            if($register_user)
-            {
-            
-                $msg = $register_user['msg'];
-                $status = $register_user['status'];
-                if($status=='success') {
-                    return redirect('list-users')->with(compact('msg','status'));
+                if($register_user)
+                {
+                
+                    $msg = $register_user['msg'];
+                    $status = $register_user['status'];
+                    if($status=='success') {
+                        return redirect('list-users')->with(compact('msg','status'));
+                    }
+                    else {
+                        return redirect('list-users')->withInput()->with(compact('msg','status'));
+                    }
                 }
-                else {
-                    return redirect('list-users')->withInput()->with(compact('msg','status'));
-                }
+                
             }
-            
+
+        } catch (Exception $e) {
+            return redirect()->back()
+                ->withInput()
+                ->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
 
     }
@@ -121,7 +125,7 @@ class RegisterController extends Controller {
         $rules = [
                     'u_email' => 'required',
                     'u_uname' => 'required',
-                 'u_password'=>'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[a-zA-Z0-9])(?=.*[^a-zA-Z0-9]).{8}$/',
+                //  'u_password'=>'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[a-zA-Z0-9])(?=.*[^a-zA-Z0-9]).{8}$/',
                     // 'u_password' => 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
                     'role_id' => 'required',
                     'f_name' => 'required',
@@ -139,8 +143,8 @@ class RegisterController extends Controller {
                         'u_email.required' => 'Please enter email.',
                         'u_email.email' => 'Please enter valid email.',
                         'u_uname.required' => 'Please enter user uname.',
-                        'u_password.required' => 'Please enter password.',
-                        'u_password.regex' => 'Please enter 8 digit password with atleast 1 capital letter, 1 small letter and 1 number.',
+                        // 'u_password.required' => 'Please enter password.',
+                        // 'u_password.regex' => 'Please enter 8 digit password with atleast 1 capital letter, 1 small letter and 1 number.',
                         // 'u_password.min' => 'Please combination of number character of 8 char.',
                         'role_id.required' => 'Select role',
                         'f_name.required' => 'Please enter first name.',

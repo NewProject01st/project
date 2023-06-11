@@ -83,60 +83,60 @@ class RoleController extends Controller
     }
     public function edit(Request $request) {
         $user_data = $this->service->edit($request->edit_id);
-        // dd($budgets);
+        // dd($user_data);
 
         return view('admin.pages.menu.roles.edit-role', compact('user_data'));
     }
 
     public function update(Request $request) {
-    $rules = [
-             'role_name' => 'required',
-        
-     ];
 
-    $messages = [   
-        'role_name.required' => 'Please  enter english title.',
-       
-    ];
+        $rules = [
+                'role_name' => 'required',
+        ];
 
-    try {
-        $validation = Validator::make($request->all(),$rules, $messages);
-        if ($validation->fails()) {
-            return redirect()->back()
-                ->withInput()
-                ->withErrors($validation);
-        } else {
-            $update_role = $this->service->updateRole($request);
-            if ($update_role) {
-                $msg = $update_role['msg'];
-                $status = $update_role['status'];
-                if ($status == 'success') {
-                    return redirect('list-role')->with(compact('msg', 'status'));
-                } else {
-                    return redirect()->back()
-                        ->withInput()
-                        ->with(compact('msg', 'status'));
+        $messages = [   
+            'role_name.required' => 'Please  enter english title.',
+        ];
+
+        try {
+            $validation = Validator::make($request->all(),$rules, $messages);
+            if ($validation->fails()) {
+                return redirect()->back()
+                    ->withInput()
+                    ->withErrors($validation);
+            } else {
+                $update_role = $this->service->updateRole($request);
+                if ($update_role) {
+                    $msg = $update_role['msg'];
+                    $status = $update_role['status'];
+                    if ($status == 'success') {
+                        return redirect('list-role')->with(compact('msg', 'status'));
+                    } else {
+                        return redirect()->back()
+                            ->withInput()
+                            ->with(compact('msg', 'status'));
+                    }
                 }
             }
+            
+        } catch (Exception $e) {
+            return redirect()->back()
+                ->withInput()
+                ->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
-        
-    } catch (Exception $e) {
-        return redirect()->back()
-            ->withInput()
-            ->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
-}
-public function updateOneRole(Request $request)
-{
-    try {
-        $active_id = $request->active_id;
-    $result = $this->service->updateOneRole($active_id);
-        return redirect('list-role')->with('flash_message', 'Updated!');  
-    } catch (\Exception $e) {
-        return $e;
+
+    public function updateOneRole(Request $request)
+    {
+        try {
+            $active_id = $request->active_id;
+        $result = $this->service->updateOneRole($active_id);
+            return redirect('list-role')->with('flash_message', 'Updated!');  
+        } catch (\Exception $e) {
+            return $e;
+        }
     }
-}
-    public function destroy(Request $request)
+        public function destroy(Request $request)
     {
         try {
             // dd($request->delete_id);

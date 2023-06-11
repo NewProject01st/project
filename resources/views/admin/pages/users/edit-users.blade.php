@@ -32,7 +32,7 @@
                                             class="red-text"><?php echo $errors->first('u_email', ':message'); ?></span>
                                         @endif
                                     </div>
-                                </div> --}}
+                                </div> 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="u_uname">User Name</label>&nbsp<span class="red-text">*</span>
@@ -42,7 +42,7 @@
                                                 <span class="red-text"><?php echo $errors->first('u_uname', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>
+                                    </div>--}}
                                     {{-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
@@ -243,7 +243,6 @@
             });
 
             function myFunction(role_id) {
-                alert(role_id);
                 $("#data_for_role").empty();
                 $.ajax({
                     url: "{{ route('list-role-wise-permission') }}",

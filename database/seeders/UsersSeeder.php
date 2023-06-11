@@ -17,7 +17,7 @@ class UsersSeeder extends Seeder
         User::create(
             [
                 'u_email' => 'admin@gmail.com',
-                'u_uname' => 'admin@gmail.com',
+                // 'u_uname' => 'admin@gmail.com',
                 'u_password' => bcrypt('admin@gmail.com'),
                 'role_id' => 1,
                 'f_name' => 'fname',
@@ -35,7 +35,7 @@ class UsersSeeder extends Seeder
         User::create(
         [
             'u_email' => 'test@gmail.com',
-            'u_uname' => 'test@gmail.com',
+            // 'u_uname' => 'test@gmail.com',
             'u_password' => bcrypt('test@gmail.com'),
             'role_id' => 1,
             'f_name' => 'fname',
