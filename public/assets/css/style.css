@@ -18780,10 +18780,10 @@ input:focus {
     position: static;
   }
   .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {
-    left: 20px;
+    /* left: 20px; */
     right: 20px;
     top: 70px;
-    width: calc(100% - 40px);
+    /* width: calc(100% - 40px); */
   }
 }
 
@@ -18825,6 +18825,7 @@ input:focus {
 @media (max-width: 991px) {
   .navbar.default-layout-navbar .navbar-brand-wrapper {
     width: 55px;
+    padding-left: 1%;
   }
 }
 
@@ -18874,8 +18875,8 @@ input:focus {
 @media (max-width: 991px) {
   .navbar.default-layout-navbar .navbar-menu-wrapper {
     width: calc(100% - 55px);
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0px;
+    padding-right: 15px !important;
   }
 }
 
@@ -18898,8 +18899,8 @@ input:focus {
 }
 
 .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-nav .nav-item {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  /* margin-left: 1rem;
+  margin-right: 1rem; */
 }
 
 .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link {
@@ -18951,8 +18952,8 @@ input:focus {
 .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile {
   border-left: 1px solid #e0e0ef;
   border-right: 1px solid #e0e0ef;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  /* padding-left: 1rem;
+  padding-right: 1rem; */
 }
 
 .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile img {
@@ -29479,4 +29480,53 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
 }
 .dash_count{
   color: #fff !important;
+}
+
+/* main containeror nav head */
+
+@media (min-width: 911px) and (max-width: 912px){
+  .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {
+    /* left: 20px; */
+    right: 49% !important;
+    top: 70px;
+  }
+
+}
+
+@media (min-width: 767px) and (max-width: 1280px){
+  .newpdr{
+    padding-right: 0% !important;
+      padding-left: 0px !important;
+  }
+
+  .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {
+    /* left: 20px; */
+    right: 40%;
+    top: 70px;
+  }
+
+  .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-nav .nav-item {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .navbar-nav{
+    padding-left: 18%;
+  }
+
+}
+
+@media (min-width: 359px) and (max-width: 766px){
+  .newpdr{
+    padding-right: 15% !important;
+      padding-left: 0px !important;
+  }
+ 
+
+}
+@media (max-width: 1024px){
+  .nav-item{
+    margin-left: 13px;
+
+  }
 }
