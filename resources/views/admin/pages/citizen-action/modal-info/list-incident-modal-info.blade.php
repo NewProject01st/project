@@ -32,7 +32,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
-                                                    <th>Incident</th>
+                                                    <th>Incident Type</th>
                                                     <th>Location</th>
                                                     <th>Datetime</th>
                                                     <th>Mobile Number</th>
@@ -45,7 +45,7 @@
                                                 @foreach ($modal_data as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $item->english_title }}</td>
+                                                        <td>{{ $item->english_title}}</td>
                                                         <td>{{ $item->location }}</td>
                                                         <td>{{ $item->datetime }}</td>
                                                         <td>{{ $item->mobile_number }}</td>

@@ -46,7 +46,7 @@
                                                 @foreach ($modal_data as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $item->feedback }}</td>
+                                                        <td>{{ $item->english_title }}</td>
                                                         <td>{{ $item->location }}</td>
                                                         <td>{{ $item->datetime }}</td>
                                                         <td>{{ $item->mobile_number }}</td>

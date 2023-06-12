@@ -15,8 +15,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
                             <div>
-                                <a href="{{ route('list-district-disaster-management-plan') }}"
-                                    class="btn btn-sm btn-primary ml-3">Back</a>
+                                <a href="{{ route('list-users') }}" class="btn btn-sm btn-primary ml-3">Back</a>
                             </div>
                         </div>
 
@@ -27,55 +26,71 @@
                                 <div class="col-12">
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title English :</label>
+                                            <label>Name :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($district_management->english_title) }}</label>
+                                            <label>{{ $user_detail->f_name }} {{ $user_detail->m_name }}
+                                                {{ $user_detail->l_name }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title Marathi :</label>
+                                            <label>Email :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($district_management->marathi_title) }}</label>
+                                            <label>{{ strip_tags($user_detail->u_email) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Description English :</label>
+                                            <label>Mobile Number :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($district_management->english_description) }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Description Marathi :</label>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($district_management->marathi_description) }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label> English Image :</label>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <img src="{{ asset('storage/images/policies-legislation/district-plan/' . $district_management->english_image) }}"
-                                                style="width:300px; height:150px;" />
-                                        </div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label> Marathi Image:</label>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
-                                            <img src="{{ asset('storage/images/policies-legislation/district-plan/' . $district_management->marathi_image) }}"
-                                                style="width:300px; height:150px;" />
+                                            <label>{{ strip_tags($user_detail->number) }}</label>
                                         </div>
                                     </div>
 
+
+                                    <div class="row ">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>Designation :</label>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label>{{ strip_tags($user_detail->designation) }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>Address :</label>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label>{{ strip_tags($user_detail->address) }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>State :</label>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label>{{ strip_tags($user_detail->state) }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>City :</label>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label>{{ strip_tags($user_detail->city) }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>Pincode :</label>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label>{{ strip_tags($user_detail->pincode) }}</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

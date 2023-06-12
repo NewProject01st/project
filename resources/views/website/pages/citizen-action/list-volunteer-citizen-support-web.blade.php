@@ -87,7 +87,7 @@
                                         <select class="form-control" id="incident" name="incident">
                                             <option>Select</option>
                                             @foreach ($data_output_incident as $incidenttype)
-                                                @if (old('incident') == $incidenttype['id'])
+                                                @if (session('language') == 'mar')
                                                     <option value="{{ $incidenttype['id'] }}" selected>
                                                         {{ $incidenttype['marathi_title'] }}</option>
                                                 @else

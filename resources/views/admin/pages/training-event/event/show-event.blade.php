@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
                                         <img src="{{ asset('storage/images/training-event/event/' . $event->english_image) }}"
-                                            style="width:200px; height:200px;" />
+                                            style="width:300px; height:150px;" />
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -89,7 +89,7 @@
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                         <img src="{{ asset('storage/images/training-event/event/' . $event->marathi_image) }}"
-                                            style="width:200px; height:200px;" />
+                                            style="width:300px; height:150px;" />
                                     </div>
                                 </div>
 

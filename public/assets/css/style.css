@@ -8781,6 +8781,7 @@ label {
   margin-bottom: 0.5rem;
   font-size: 0.8rem;
   font-weight: 500;
+  text-align: justify;
 }
 
 button {
@@ -8801,6 +8802,7 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  
 }
 
 button,
@@ -29471,7 +29473,7 @@ textarea.form-control { min-height: 100px;}
 
 .preloader { position: fixed; width: 100%; height: 100%; z-index: 9999; left: 0; top:0; background: #fff; display: flex; justify-content: center; align-items: center; }
 table.table-bordered.dataTable { border-spacing: inherit !important;}
-table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td { color: #000; border-bottom-width: 1px !important; }
+table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td { color: #000; border-bottom-width: 1px !important; text-align: justify; }
 
 /*  */
 

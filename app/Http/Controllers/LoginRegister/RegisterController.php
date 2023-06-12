@@ -198,4 +198,13 @@ class RegisterController extends Controller {
         return redirect('list-users')->with(compact('msg','status'));
     }
    
+    public function show(Request $request){
+            try {
+                //  dd($request->show_id);
+                $user_detail = $this->service->getById($request->show_id);
+                return view('admin.pages.users.show-users', compact('user_detail'));
+            } catch (\Exception $e) {
+                return $e;
+            }
+        }
 }

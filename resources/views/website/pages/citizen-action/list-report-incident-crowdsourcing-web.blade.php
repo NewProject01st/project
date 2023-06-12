@@ -82,12 +82,13 @@
                                         <label class="col-form-label modal_lable">Incident Type:</label>
                                         <select class="form-control" id="incident" name="incident">
                                             <option>Select</option>
-                                            @foreach ($data_output_incident as $role)
-                                                @if (old('incident') == $role['id'])
-                                                    <option value="{{ $role['id'] }}" selected>
-                                                        {{ $role['marathi_title'] }}</option>
+                                            @foreach ($data_output_incident as $incidenttype)
+                                                @if (session('language') == 'mar')
+
+                                                    <option value="{{ $incidenttype['id'] }}" selected>
+                                                        {{ $incidenttype['marathi_title'] }}</option>
                                                 @else
-                                                    <option value="{{ $role['id'] }}">{{ $role['english_title'] }}
+                                                    <option value="{{ $incidenttype['id'] }}">{{ $incidenttype['english_title'] }}
                                                     </option>
                                                 @endif
                                             @endforeach

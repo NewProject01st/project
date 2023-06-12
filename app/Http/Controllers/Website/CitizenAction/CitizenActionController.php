@@ -93,48 +93,6 @@ class CitizenActionController extends Controller
         }
         return view('website.pages.citizen-action.list-citizen-feedback-suggestions-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident'));
     }  
-
-
-    // public function getAllCitizenFeedbackSuggestions()
-    // {
-    //     try {
-
-    //         $menu = $this->menu;
-    //         $socialicon = $this->socialicon;
-    //         $data_output = $this->service->getAllCitizenFeedbackSuggestions();
-    //         dd($data_output);
-    //         $data_output_new = $data_output['data_output'];
-    //          $data_output_incident_final = $data_output['data_output_incident_final'];
-    //         if (Session::get('language') == 'mar') {
-    //             $language = Session::get('language');
-    //         } else {
-    //             $language = 'en';
-    //         }
-
-    //     } catch (\Exception $e) {
-    //         return $e;
-    //     }
-    //     return view('website.pages.citizen-action.list-citizen-feedback-suggestions-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident_final'));
-    // }
-
-    // public function add()
-    // {
-    //     try {
-    //         $menu = $this->menu;
-    //         $socialicon = $this->socialicon;
-    //         if (Session::get('language') == 'mar') {
-    //             $language = Session::get('language');
-    //         } else {
-    //             $language = 'en';
-    //         }
-    //     } catch (\Exception $e) {
-    //         return $e;
-    //     }
-    //     return view('website.pages.citizen-action.list-report-incident-crowdsourcing-web',compact('language','menu','socialicon'));
-
-        
-    // }
-
     public function storeIncidentModalInfo(Request $request) {
      
         $rules = [
@@ -191,7 +149,7 @@ class CitizenActionController extends Controller
     public function storeVolunteerModalInfo(Request $request) {
      
         $rules = [
-            'volunteer' => 'required',
+            'incident' => 'required',
             'location' => 'required',
             'datetime' => 'required',
             'mobile_number' => 'required',
@@ -199,7 +157,7 @@ class CitizenActionController extends Controller
             'media_upload' => 'required',
             ];
         $messages = [   
-            'volunteer' => 'required',
+            'incident' => 'required',
             'location' => 'required',
             'datetime' => 'required',
             'mobile_number' => 'required',
@@ -244,7 +202,7 @@ class CitizenActionController extends Controller
     public function storeFeedbackModalInfo(Request $request) {
      
         $rules = [
-            'feedback' => 'required',
+            'incident' => 'required',
             'location' => 'required',
             'datetime' => 'required',
             'mobile_number' => 'required',
@@ -252,7 +210,7 @@ class CitizenActionController extends Controller
             'media_upload' => 'required',
             ];
         $messages = [   
-            'feedback' => 'required',
+            'incident' => 'required',
             'location' => 'required',
             'datetime' => 'required',
             'mobile_number' => 'required',

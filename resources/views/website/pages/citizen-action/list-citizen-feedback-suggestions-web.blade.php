@@ -39,7 +39,7 @@
                             @endforelse
                             <!--Department Details Txt End-->
                             <!-- Button trigger modal -->
-                            <div class="pb-3">
+                            <div class="d-flex justify-content-center">
                                 <button type="button" class="btn modal-btn-color" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">
                                     Feedback And Suggestions
@@ -85,7 +85,7 @@
                                         <select class="form-control" id="incident" name="incident">
                                             <option>Select</option>
                                             @foreach ($data_output_incident as $role)
-                                                @if (old('incident') == $role['id'])
+                                                @if (session('language') == 'mar')
                                                     <option value="{{ $role['id'] }}" selected>
                                                         {{ $role['marathi_title'] }}</option>
                                                 @else

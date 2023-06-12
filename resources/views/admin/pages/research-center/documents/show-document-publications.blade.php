@@ -47,7 +47,7 @@
                                         <label>Description English :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <label>{{ strip_tags($documents_publications->english_description;) }}</label>
+                                        <label>{{ strip_tags($documents_publications->english_description) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -55,7 +55,7 @@
                                         <label>Description Marathi :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <label>{{ strip_tags($documents_publications->marathi_description;) }}</label>
+                                        <label>{{ strip_tags($documents_publications->marathi_description) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">

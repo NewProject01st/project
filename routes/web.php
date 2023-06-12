@@ -96,6 +96,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/edit-users', ['as' => 'edit-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@editUsers']);
     Route::post('/update-users', ['as' => 'update-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@update']);
     Route::post('/delete-users', ['as' => 'delete-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@delete']);
+    Route::post('/show-users', ['as' => 'show-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@show']);
 
 
     Route::get('/list-main-menu', ['as' => 'list-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@index']);
@@ -234,14 +235,14 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-home-tender', ['as' => 'show-home-tender', 'uses' => 'App\Http\Controllers\Admin\Home\HomeTenderController@show']);
     Route::post('/delete-home-tender', ['as' => 'delete-home-tender', 'uses' => 'App\Http\Controllers\Admin\Home\HomeTenderController@destroy']);
 
-    Route::get('/list-website-contact', ['as' => 'list-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\websiteContactController@index']);
-    Route::get('/add-website-contact', ['as' => 'add-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\websiteContactController@add']);
-    Route::post('/add-website-contact', ['as' => 'add-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\websiteContactController@store']);
-    Route::get('/edit-website-contact', ['as' => 'edit-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\websiteContactController@edit']);
-    Route::post('/update-website-contact', ['as' => 'update-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\websiteContactController@update']);
-    Route::post('/show-website-contact', ['as' => 'show-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\websiteContactController@show']);
-    Route::post('/delete-website-contact', ['as' => 'delete-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\websiteContactController@destroy']);
-    Route::post('/update-one-website-contact', ['as' => 'update-one-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\websiteContactController@updateOne']);
+    Route::get('/list-website-contact', ['as' => 'list-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\WebsiteContactController@index']);
+    Route::get('/add-website-contact', ['as' => 'add-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\WebsiteContactController@add']);
+    Route::post('/add-website-contact', ['as' => 'add-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\WebsiteContactController@store']);
+    Route::get('/edit-website-contact', ['as' => 'edit-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\WebsiteContactController@edit']);
+    Route::post('/update-website-contact', ['as' => 'update-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\WebsiteContactController@update']);
+    Route::post('/show-website-contact', ['as' => 'show-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\WebsiteContactController@show']);
+    Route::post('/delete-website-contact', ['as' => 'delete-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\WebsiteContactController@destroy']);
+    Route::post('/update-one-website-contact', ['as' => 'update-one-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\WebsiteContactController@updateOne']);
 
     
     Route::get('/list-disaster-management-web-portal', ['as' => 'list-disaster-management-web-portal', 'uses' => 'App\Http\Controllers\Admin\Home\DisasterManagementWebPortalController@index']);
@@ -403,15 +404,6 @@ Route::post('/show-header-vacancies', ['as' => 'show-header-vacancies', 'uses' =
 Route::post('/delete-header-vacancies', ['as' => 'delete-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@destroy']);
 Route::post('/update-one-vacancies', ['as' => 'update-one-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@updateOne']);
 
-Route::get('/list-header-rti', ['as' => 'list-header-rti', 'uses' => 'App\Http\Controllers\Header\rtiController@index']);
-Route::get('/add-header-rti', ['as' => 'add-header-rti', 'uses' => 'App\Http\Controllers\Header\rtiController@add']);
-Route::post('/add-header-rti', ['as' => 'add-header-rti', 'uses' => 'App\Http\Controllers\Header\rtiController@store']);
-Route::get('/edit-header-rti', ['as' => 'edit-header-rti', 'uses' => 'App\Http\Controllers\Header\rtiController@edit']);
-Route::post('/update-header-rti', ['as' => 'update-header-rti', 'uses' => 'App\Http\Controllers\Header\rtiController@update']);
-Route::post('/show-header-rti', ['as' => 'show-header-rti', 'uses' => 'App\Http\Controllers\Header\rtiController@show']);
-Route::post('/delete-header-rti', ['as' => 'delete-header-rti', 'uses' => 'App\Http\Controllers\Header\rtiController@destroy']);
-Route::post('/update-one-rti', ['as' => 'update-one-rti', 'uses' => 'App\Http\Controllers\Header\rtiController@updateOne']);
-
 Route::get('/list-event', ['as' => 'list-event', 'uses' => 'App\Http\Controllers\TrainingEvent\EventController@index']);
 Route::get('/add-event', ['as' => 'add-event', 'uses' => 'App\Http\Controllers\TrainingEvent\EventController@add']);
 Route::post('/add-event', ['as' => 'add-event', 'uses' => 'App\Http\Controllers\TrainingEvent\EventController@store']);
@@ -544,24 +536,24 @@ Route::post('/delete-important-link', ['as' => 'delete-important-link', 'uses' =
 Route::post('/update-one-important-link', ['as' => 'update-one-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@updateOne']);
 
 //====Header Vacancies=====
-// Route::get('/list-header-vacancies', ['as' => 'list-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@index']);
-// Route::get('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@add']);
-// Route::post('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@store']);
-// Route::post('/edit-header-vacancies', ['as' => 'edit-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@edit']);
-// Route::post('/update-header-vacancies', ['as' => 'update-header-vacancies','uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@update']);
-// Route::post('/show-header-vacancies', ['as' => 'show-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@show']);
-// Route::post('/delete-header-vacancies', ['as' => 'delete-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@destroy']);
-// Route::post('/update-one-header-vacancies', ['as' => 'update-one-header-vacancies', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@updateOne']);
+Route::get('/list-header-vacancies', ['as' => 'list-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@index']);
+Route::get('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@add']);
+Route::post('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@store']);
+Route::post('/edit-header-vacancies', ['as' => 'edit-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@edit']);
+Route::post('/update-header-vacancies', ['as' => 'update-header-vacancies','uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@update']);
+Route::post('/show-header-vacancies', ['as' => 'show-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@show']);
+Route::post('/delete-header-vacancies', ['as' => 'delete-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@destroy']);
+Route::post('/update-one-header-vacancies', ['as' => 'update-one-header-vacancies', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@updateOne']);
 
 
-// Route::get('/list-header-rti', ['as' => 'list-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@index']);
-// Route::get('/add-header-rti', ['as' => 'add-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@add']);
-// Route::post('/add-header-rti', ['as' => 'add-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@store']);
-// Route::post('/edit-header-rti', ['as' => 'edit-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@edit']);
-// Route::post('/update-header-rti', ['as' => 'update-header-rti','uses' => 'App\Http\Controllers\Header\RTIController@update']);
-// Route::post('/show-header-rti', ['as' => 'show-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@show']);
-// Route::post('/delete-header-rti', ['as' => 'delete-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@destroy']);
-// Route::post('/update-one-header-vacancies', ['as' => 'update-one-header-vacancies', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@updateOne']);
+Route::get('/list-header-rti', ['as' => 'list-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@index']);
+Route::get('/add-header-rti', ['as' => 'add-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@add']);
+Route::post('/add-header-rti', ['as' => 'add-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@store']);
+Route::post('/edit-header-rti', ['as' => 'edit-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@edit']);
+Route::post('/update-header-rti', ['as' => 'update-header-rti','uses' => 'App\Http\Controllers\Header\RTIController@update']);
+Route::post('/show-header-rti', ['as' => 'show-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@show']);
+Route::post('/delete-header-rti', ['as' => 'delete-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@destroy']);
+Route::post('/update-one-header-vacancies', ['as' => 'update-one-header-vacancies', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@updateOne']);
 
 
 Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
