@@ -66,6 +66,8 @@
     <link href="{{ asset('website_files/assets/css/responsive.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/assets/css/color.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/assets/css/slick.css') }}" type="text/css" rel="stylesheet">
+
+    <link href="{{ asset('website_files/assets/css/jquery.dataTables.min.css') }}" type="text/css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
     <!-- webpage A+ A- button script -->
@@ -89,7 +91,8 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: "http://52.66.216.5/change-language",
+                    // url: "http://52.66.216.5/change-language",
+                    url: "http://localhost/new_pro/change-language",
                     cache: false,
                     success: function(response) {
                         location.reload();

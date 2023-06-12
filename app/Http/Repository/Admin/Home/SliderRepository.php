@@ -71,7 +71,7 @@ public function getById($id)
 }
 public function updateAll($request)
 {
-    dd($request);
+    // dd($request->hasFile('english_image'));
     try {
         $path = Config::get('DocumentConstant.SLIDER_ADD');
         $slide_data = Slider::find($request->id);

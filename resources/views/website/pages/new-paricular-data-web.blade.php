@@ -40,32 +40,15 @@
 
                         <!--Department Details Txt End-->
                     </div>
-                    <!--Sidebar Start-->
-                    <div class="col-md-3">
-                        <div class="sidebar">
-                            <div class="pb-3">
-                                <button type="button" class="btn back-btn-color"><a href="{{ route('/') }}">
-                                        Back</a>
-                                </button>
-                            </div>
-                            <!--Widget Start-->
-                            <div class="widget">
-                                <h4>Important Links</h4>
-                                <div class="archives inner">
-                                    <ul>
-                                        <li><a href="#">Emergency Services</a></li>
-                                        <li><a href="#">Environmental Conditions</a></li>
-                                        <li><a href="#">Disaster Preparedness</a></li>
-                                        <li><a href="#">Disaster Response</a></li>
-                                        <li><a href="#">Disaster Recovery</a></li>
-                                        <li><a href="#">Volunteer Opportunities</a></li>
-                                        <li><a href="#">Donations and Aid</a></li>
-                                        <li><a href="#">Local Resources</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!--Widget End-->
+                      <!--Sidebar Start-->
+                      <div class="col-md-3">
+                        <div class="pb-3">
+                            <button type="button" class="btn back-btn-color"><a href="{{ route('/') }}">
+                                    Back</a>
+                            </button>
                         </div>
+
+                        @include('website.pages.training-event.upcoming-events')
                     </div>
                     <!--Sidebar End-->
                 </div>

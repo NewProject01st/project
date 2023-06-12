@@ -36,7 +36,10 @@ class CitizenActionController extends Controller
 
             $menu = $this->menu;
             $socialicon = $this->socialicon;
-            $data_output = $this->service->getAllReportIncidentCrowdsourcing();
+             $data_output = $this->service->getAllReportIncidentCrowdsourcing();
+            //  dd($data_output);
+             $data_output_new = $data_output['data_output'];
+             $data_output_incident = $data_output['data_output_incident'];
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -45,26 +48,30 @@ class CitizenActionController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.citizen-action.list-report-incident-crowdsourcing-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.citizen-action.list-report-incident-crowdsourcing-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident'));
     }  
+
+
     public function getAllVolunteerCitizenSupport()
     {
         try {
 
             $menu = $this->menu;
             $socialicon = $this->socialicon;
-            $data_output = $this->service->getAllVolunteerCitizenSupport();
+             $data_output = $this->service->getAllVolunteerCitizenSupport();
+            //  dd($data_output);
+             $data_output_new = $data_output['data_output'];
+             $data_output_incident = $data_output['data_output_incident'];
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
                 $language = 'en';
             }
-
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.citizen-action.list-volunteer-citizen-support-web',compact('language','menu','socialicon', 'data_output'));
-    }
+        return view('website.pages.citizen-action.list-volunteer-citizen-support-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident'));
+    }  
 
     public function getAllCitizenFeedbackSuggestions()
     {
@@ -72,37 +79,20 @@ class CitizenActionController extends Controller
 
             $menu = $this->menu;
             $socialicon = $this->socialicon;
-            $data_output = $this->service->getAllCitizenFeedbackSuggestions();
+             $data_output = $this->service->getAllCitizenFeedbackSuggestions();
+            //  dd($data_output);
+             $data_output_new = $data_output['data_output'];
+             $data_output_incident = $data_output['data_output_incident'];
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
                 $language = 'en';
             }
-
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.citizen-action.list-citizen-feedback-suggestions-web',compact('language','menu','socialicon', 'data_output'));
-    }
-
-    // public function add()
-    // {
-    //     try {
-    //         $menu = $this->menu;
-    //         $socialicon = $this->socialicon;
-    //         if (Session::get('language') == 'mar') {
-    //             $language = Session::get('language');
-    //         } else {
-    //             $language = 'en';
-    //         }
-    //     } catch (\Exception $e) {
-    //         return $e;
-    //     }
-    //     return view('website.pages.citizen-action.list-report-incident-crowdsourcing-web',compact('language','menu','socialicon'));
-
-        
-    // }
-
+        return view('website.pages.citizen-action.list-citizen-feedback-suggestions-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident'));
+    }  
     public function storeIncidentModalInfo(Request $request) {
      
         $rules = [
@@ -159,7 +149,7 @@ class CitizenActionController extends Controller
     public function storeVolunteerModalInfo(Request $request) {
      
         $rules = [
-            'volunteer' => 'required',
+            'incident' => 'required',
             'location' => 'required',
             'datetime' => 'required',
             'mobile_number' => 'required',
@@ -167,7 +157,7 @@ class CitizenActionController extends Controller
             'media_upload' => 'required',
             ];
         $messages = [   
-            'volunteer' => 'required',
+            'incident' => 'required',
             'location' => 'required',
             'datetime' => 'required',
             'mobile_number' => 'required',
@@ -212,7 +202,7 @@ class CitizenActionController extends Controller
     public function storeFeedbackModalInfo(Request $request) {
      
         $rules = [
-            'feedback' => 'required',
+            'incident' => 'required',
             'location' => 'required',
             'datetime' => 'required',
             'mobile_number' => 'required',
@@ -220,7 +210,7 @@ class CitizenActionController extends Controller
             'media_upload' => 'required',
             ];
         $messages = [   
-            'feedback' => 'required',
+            'incident' => 'required',
             'location' => 'required',
             'datetime' => 'required',
             'mobile_number' => 'required',

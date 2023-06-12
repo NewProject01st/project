@@ -18,12 +18,6 @@
                             <a href="{{ route('list-report-crowdsourcing') }}"
                                 class="btn btn-sm btn-primary ml-3">Back</a>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
-                            <div>
-                                <a href="{{ route('list-report-crowdsourcing') }}"
-                                    class="btn btn-sm btn-primary ml-3">Back</a>
-                            </div>
-                        </div>
 
                     </div>
                     <div class="card mt-2">
@@ -69,7 +63,7 @@
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $crowdsourcing->english_image) }}"
-                                                style="width:150px; height:150px;" />
+                                                style="width:300px; height:150px;" />
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -78,7 +72,7 @@
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                             <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $crowdsourcing->marathi_image) }}"
-                                                style="width:150px; height:150px;" />
+                                                style="width:300px; height:150px;" />
                                         </div>
                                     </div>
 

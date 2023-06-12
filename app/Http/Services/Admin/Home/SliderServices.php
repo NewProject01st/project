@@ -5,7 +5,7 @@ use App\Http\Repository\Admin\Home\SliderRepository;
 
 use App\Slider;
 use Carbon\Carbon;
-
+use Config;
 
 class SliderServices
 {
