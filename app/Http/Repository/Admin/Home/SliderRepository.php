@@ -73,7 +73,7 @@ public function updateAll($request)
 {
     // dd($request->hasFile('english_image'));
     try {
-        $path = Config::get('DocumentConstant.SLIDER_ADD');
+        $return_data = array();
         $slide_data = Slider::find($request->id);
 
         if (!$slide_data) {
@@ -93,35 +93,15 @@ public function updateAll($request)
         $slide_data->english_description = $request['english_description'];
         $slide_data->marathi_description = $request['marathi_description'];
         $slide_data->url = $request['url'];
-
-
-        if ($request->hasFile('english_image')) {
-            // Delete previous English image if it exists
-            if ($previousEnglishImage) {
-                Storage::delete(Config::get('DocumentConstant.SLIDER_DELETE') . $previousEnglishImage);
-            }
-
-            $englishImageName = $slide_data->id . '_english.' . $request->english_image->extension();
-            uploadImage($request, 'english_image', $path, $englishImageName);
-           
-
-        }
-
-        if ($request->hasFile('marathi_image')) {
-            // Delete previous Marathi image if it exists
-            if ($previousMarathiImage) {
-                Storage::delete(Config::get('DocumentConstant.SLIDER_DELETE') . $previousMarathiImage);
-            }
-
-            $marathiImageName = $slide_data->id . '_marathi.' . $request->marathi_image->extension();
-            uploadImage($request, 'marathi_image', $path, $marathiImageName);
-        }
+        
         $slide_data->save();
+        $last_insert_id = $slide_data->id;
 
-        return [
-            'msg' => 'Report Incident Crowdsourcing updated successfully.',
-            'status' => 'success'
-        ];
+        $return_data['last_insert_id'] = $last_insert_id;
+        $return_data['english_image'] = $previousEnglishImage;
+        $return_data['marathi_image'] = $previousMarathiImage;
+        return  $return_data;
+      
     } catch (\Exception $e) {
         return [
             'msg' => 'Failed to update Report Incident Crowdsourcing.',
@@ -165,13 +145,8 @@ public function deleteById($id)
     try {
         $slider = Slider::find($id);
         if ($slider) {
-            // Delete the images from the storage folder
-            Storage::delete([
-                'public/images/home/slides/'.$slider->english_image,
-                'public/images/home/slides/'.$slider->marathi_image
-            ]);
-
-            // Delete the record from the database
+            unlink(storage_path(Config::get('DocumentConstant.SLIDER_DELETE') . $slider->english_image));
+            unlink(storage_path(Config::get('DocumentConstant.SLIDER_DELETE') . $slider->marathi_image));
             $slider->delete();
             
             return $slider;
