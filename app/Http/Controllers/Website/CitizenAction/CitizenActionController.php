@@ -52,33 +52,27 @@ class CitizenActionController extends Controller
     }  
 
 
-
-
-
     public function getAllVolunteerCitizenSupport()
     {
         try {
 
             $menu = $this->menu;
             $socialicon = $this->socialicon;
-            $data_output = $this->service->getAllVolunteerCitizenSupport();
-            // dd($data_output);
-            $data_output_new = $data_output['data_output'];
+             $data_output = $this->service->getAllVolunteerCitizenSupport();
+            //  dd($data_output);
+             $data_output_new = $data_output['data_output'];
              $data_output_incident = $data_output['data_output_incident'];
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
                 $language = 'en';
             }
-
         } catch (\Exception $e) {
             return $e;
         }
         return view('website.pages.citizen-action.list-volunteer-citizen-support-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident'));
-    }
+    }  
 
-
-    
     public function getAllCitizenFeedbackSuggestions()
     {
         try {

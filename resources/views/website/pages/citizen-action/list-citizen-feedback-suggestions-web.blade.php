@@ -38,8 +38,8 @@
                                 <h4>No Data Found For Citizen Feedback Suggestions </h4>
                             @endforelse
                             <!--Department Details Txt End-->
-                             <!-- Button trigger modal -->
-                             <div class="pb-3">
+                            <!-- Button trigger modal -->
+                            <div class="pb-3">
                                 <button type="button" class="btn modal-btn-color" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">
                                     Feedback And Suggestions
@@ -49,6 +49,7 @@
                         <!--Sidebar Start-->
                         <div class="col-md-3">
                             <div class="sidebar">
+                                
                                 <!--Widget Start-->
                                 @include('website.pages.training-event.upcoming-events')
                                 <!--Widget End-->
@@ -80,55 +81,55 @@
 
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <label class="col-form-label modal_lable">Feedback Type:</label>
+                                        <label class="col-form-label modal_lable">Incident Type:</label>
                                         <select class="form-control" id="incident" name="incident">
                                             <option>Select</option>
-                                            @foreach ($data_output_incident as $incidenttype)
-                                                @if (old('incident') == $incidenttype['id'])
-                                                    <option value="{{ $incidenttype['id'] }}" selected>
-                                                        {{ $incidenttype['marathi_title'] }}</option>
+                                            @foreach ($data_output_incident as $role)
+                                                @if (old('incident') == $role['id'])
+                                                    <option value="{{ $role['id'] }}" selected>
+                                                        {{ $role['marathi_title'] }}</option>
                                                 @else
-                                                    <option value="{{ $incidenttype['id'] }}">{{ $incidenttype['english_title'] }}
+                                                    <option value="{{ $role['id'] }}">{{ $role['english_title'] }}
                                                     </option>
                                                 @endif
                                             @endforeach
                                         </select>
-                                        @if ($errors->has('role_id'))
-                                            <span class="red-text"><?php echo $errors->first('role_id', ':message'); ?></span>
-                                        @endif
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="col-form-label modal_lable">Location:</label>
+                                        <input type="input" class="form-control" name="location" id="location" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="col-form-label modal_lable">Date and Time:</label>
+                                        <input type="datetime-local" class="form-control" name="datetime" id="datetime"
+                                            required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="col-form-label modal_lable">Mobile Number:</label>
+                                        <input type="input" class="form-control" name="mobile_number" id="mobile_number"
+                                            required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="col-form-label modal_lable">Media Upload:</label><br>
+                                        <input type="file" name="media_upload" id="media_upload" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="col-form-label modal_lable">Description:</label>
+                                        <textarea class="form-control" name="description" id="description" required></textarea>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="col-form-label modal_lable">Location:</label>
-                                <input type="input" class="form-control" name="location" id="location" required>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Send</button>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="col-form-label modal_lable">Date and Time:</label>
-                                <input type="datetime-local" class="form-control" name="datetime" id="datetime" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="col-form-label modal_lable">Mobile Number:</label>
-                                <input type="input" class="form-control" name="mobile_number" id="mobile_number" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="col-form-label modal_lable">Media Upload:</label><br>
-                                <input type="file" name="media_upload" id="media_upload" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="col-form-label modal_lable">Description:</label>
-                                <textarea class="form-control" name="description" id="description" required></textarea>
-                            </div>
+                        </form>
 
                     </div>
 
                 </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Send</button>
-                </div>
-                </form>
+
 
             </div>
 

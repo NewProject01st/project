@@ -20,18 +20,18 @@
                     <div class="row">
                         <div class="col-md-9">
                             <!--Department Details Txt Start-->
-                            @forelse ($data_output_incident as $item)
+                            @forelse ($data_output_new as $item)
                                 <div class="deprt-txt">
                                     @if (session('language') == 'mar')
                                         <h3><?php echo $item['marathi_title']; ?> </h3>
-                                        {{-- <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $item['marathi_image']) }}"
-                                            class="d-block w-100" alt="..."> --}}
-                                        {{-- <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p> --}}
+                                        <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $item['marathi_image']) }}"
+                                            class="d-block w-100" alt="...">
+                                        <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                     @else
                                         <h3><?php echo $item['english_title']; ?> </h3>
-                                        {{-- <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $item['english_image']) }}"
-                                            class="d-block w-100" alt="..."> --}}
-                                        {{-- <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p> --}}
+                                        <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $item['english_image']) }}"
+                                            class="d-block w-100" alt="...">
+                                        <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
                                     @endif
                                 </div>
                             @empty
@@ -39,10 +39,12 @@
                             @endforelse
                             <!--Department Details Txt End-->
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn modal-btn-color" data-bs-toggle="modal"
-                                data-bs-target="#exampleVolunteerModal">
-                                Citizen Volunteer
-                            </button>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn modal-btn-color" data-bs-toggle="modal"
+                                    data-bs-target="#exampleVolunteerModal">
+                                    Citizen Volunteer
+                                </button>
+                            </div>
                         </div>
                         <!--Sidebar Start-->
                         <div class="col-md-3">
@@ -84,7 +86,7 @@
                                         <label class="col-form-label modal_lable">Volunteer Type:</label>
                                         <select class="form-control" id="incident" name="incident">
                                             <option>Select</option>
-                                            @foreach ($data_output_new as $incidenttype)
+                                            @foreach ($data_output_incident as $incidenttype)
                                                 @if (old('incident') == $incidenttype['id'])
                                                     <option value="{{ $incidenttype['id'] }}" selected>
                                                         {{ $incidenttype['marathi_title'] }}</option>

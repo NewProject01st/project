@@ -43,11 +43,10 @@ class CitizenActionRepository  {
             return $e;
         }
     }
-
     public function getAllVolunteerCitizenSupport()
     {
         try {
-            $data_output = VolunteerCitizenSupport::where('is_active','=',true);
+            $data_output = CitizenFeedbackSuggestion::where('is_active','=',true);
             $incidenttpe = IncidentType::where('is_active', true);
             if (Session::get('language') == 'mar') {
                 $data_output =  $data_output->select('marathi_title', 'marathi_description','marathi_image');
@@ -68,11 +67,37 @@ class CitizenActionRepository  {
             return $e;
         }
     }
+   
 
+    
+    // public function getAllVolunteerCitizenSupport()
+    // {
+    //     try {
+    //         $data_output = VolunteerCitizenSupport::where('is_active','=',true);
+    //         $incidenttpe = IncidentType::where('is_active', true);
+    //         if (Session::get('language') == 'mar') {
+    //             $data_output =  $data_output->select('marathi_title', 'marathi_description','marathi_image');
+    //             $data_output_incident= $incidenttpe->select('id','marathi_title');
+    //         } else {
+    //             $data_output = $data_output->select('english_title', 'english_description','english_image');
+    //             $data_output_incident= $incidenttpe->select('id','english_title');
+    //         }
+    //         $data_output =  $data_output->get()
+    //                         ->toArray();
+    //                         $data_output_incident =  $data_output_incident->get()
+    //                         ->toArray();
+    //     return [
+    //         'data_output' => $data_output,
+    //         'data_output_incident' => $data_output_incident
+    //     ];
+    //     } catch (\Exception $e) {
+    //         return $e;
+    //     }
+    // }
     public function getAllCitizenFeedbackSuggestions()
     {
         try {
-            $data_output = CitizenFeedbackSuggestionModal::where('is_active','=',true);
+            $data_output = CitizenFeedbackSuggestion::where('is_active','=',true);
             $incidenttpe = IncidentType::where('is_active', true);
             if (Session::get('language') == 'mar') {
                 $data_output =  $data_output->select('marathi_title', 'marathi_description','marathi_image');
