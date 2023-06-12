@@ -14,6 +14,10 @@ class ReportIncidentModalRepository{
     {
         try {
             return ReportIncidentModal::all();
+            // $modal_data = ReportIncidentModal::join('incident_type', 'incident_type.id','=', 'report_incident_modals.incident')
+            // // $modal_data = ReportIncidentModal::join(' incident_type', ' incident_type.id','=', 'report_incident_modals.incident')
+            // ->get();
+        return $modal_data;
         } catch (\Exception $e) {
             return $e;
         }

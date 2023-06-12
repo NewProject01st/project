@@ -20,34 +20,35 @@
                     <div class="row">
                         <div class="col-md-9">
                             <!--Department Details Txt Start-->
-                            @forelse ($data_output as $item)
+                            @forelse ($data_output_incident as $item)
                                 <div class="deprt-txt">
                                     @if (session('language') == 'mar')
                                         <h3><?php echo $item['marathi_title']; ?> </h3>
-                                        <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $item['marathi_image']) }}"
-                                            class="d-block w-100" alt="...">
-                                        <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
+                                        {{-- <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $item['marathi_image']) }}"
+                                            class="d-block w-100" alt="..."> --}}
+                                        {{-- <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p> --}}
                                     @else
                                         <h3><?php echo $item['english_title']; ?> </h3>
-                                        <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $item['english_image']) }}"
-                                            class="d-block w-100" alt="...">
-                                        <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
+                                        {{-- <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $item['english_image']) }}"
+                                            class="d-block w-100" alt="..."> --}}
+                                        {{-- <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p> --}}
                                     @endif
                                 </div>
                             @empty
                                 <h4>No Data Found For Volunteer Citizen Support</h4>
                             @endforelse
                             <!--Department Details Txt End-->
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn modal-btn-color" data-bs-toggle="modal"
+                                data-bs-target="#exampleVolunteerModal">
+                                Citizen Volunteer
+                            </button>
                         </div>
                         <!--Sidebar Start-->
                         <div class="col-md-3">
                             <div class="sidebar">
                                 <div class="pb-3">
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn modal-btn-color" data-bs-toggle="modal"
-                                        data-bs-target="#exampleVolunteerModal">
-                                        Citizen Volunteer
-                                    </button>
+
                                 </div>
                                 <!--Widget Start-->
                                 @include('website.pages.training-event.upcoming-events')
@@ -81,12 +82,18 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label class="col-form-label modal_lable">Volunteer Type:</label>
-                                        <select class="form-control" name="volunteer" id="volunteer">
-                                            <option value="">Select Volunteer Type</option>
-                                            <option value="fires">fires</option>
-                                            <option value="crimes">crimes</option>
-                                            <option value="natural">natural</option>
-                                            <option value="disasters">disasters</option>
+                                        <select class="form-control" id="incident" name="incident">
+                                            <option>Select</option>
+                                            @foreach ($data_output_new as $incidenttype)
+                                                @if (old('incident') == $incidenttype['id'])
+                                                    <option value="{{ $incidenttype['id'] }}" selected>
+                                                        {{ $incidenttype['marathi_title'] }}</option>
+                                                @else
+                                                    <option value="{{ $incidenttype['id'] }}">
+                                                        {{ $incidenttype['english_title'] }}
+                                                    </option>
+                                                @endif
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-md-6 mb-3">

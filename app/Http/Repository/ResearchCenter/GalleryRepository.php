@@ -11,10 +11,8 @@ use App\Models\ {
 };
 
 class GalleryRepository  {
-	public function getAll()
-    {
+	public function getAll(){
         try {
-
             $gallery = Gallery::join('gallery_category', 'gallery_category.id','=', 'gallery.Category_id')
             ->get();
         return $gallery;

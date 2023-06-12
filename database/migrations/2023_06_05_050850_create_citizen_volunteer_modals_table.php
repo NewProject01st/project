@@ -15,7 +15,7 @@ class CreateCitizenVolunteerModalsTable extends Migration
     {
         Schema::create('citizen_volunteer_modals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('volunteer');
+            $table->string('incident');
             $table->string('location');
             $table->string('datetime');
             $table->string('mobile_number');
