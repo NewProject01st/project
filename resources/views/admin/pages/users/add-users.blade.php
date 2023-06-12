@@ -272,7 +272,7 @@
 
         <script>
             function myFunction(role_id) {
-                alert(role_id);
+
                 $("#data_for_role").empty();
                 $.ajax({
                     url: "{{ route('list-role-wise-permission') }}",
