@@ -51,10 +51,10 @@
                                                         <td>{{ strip_tags($item->english_description) }}</td>
                                                         <td>{{ strip_tags($item->marathi_description) }}</td>
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/home/slides/' . $item->english_image) }}" />
+                                                                src="{{ Config::get('DocumentConstant.SLIDER_VIEW')}}{{ $item->english_image }}" />
                                                         </td>
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/home/slides/' . $item->marathi_image) }}" />
+                                                                src="{{ Config::get('DocumentConstant.SLIDER_VIEW')}}{{ $item->marathi_image }}" />
                                                         </td>
 
                                                         <td>

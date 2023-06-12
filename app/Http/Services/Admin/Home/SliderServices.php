@@ -31,8 +31,16 @@ class SliderServices
     public function addAll($request)
     {
         try {
-            $add_slide = $this->repo->addAll($request);
-            if ($add_slide) {
+            $last_id = $this->repo->addAll($request);
+
+            $path = Config::get('DocumentConstant.SLIDER_ADD');
+            //"\all_web_data\images\home\slides\\"."\\";
+            $englishImageName = $last_id . '_english.' . $request->english_image->extension();
+            $marathiImageName = $last_id . '_marathi.' . $request->marathi_image->extension();
+            uploadImage($request, 'english_image', $path, $englishImageName);
+            uploadImage($request, 'marathi_image', $path, $marathiImageName);
+
+            if ($last_id) {
                 return ['status' => 'success', 'msg' => 'Slide Added Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => ' Slide get Not Added.'];

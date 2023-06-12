@@ -85,7 +85,7 @@
                                         @endif
                                     </div>
                                     <img id="english"
-                                        src="{{ asset('storage/images/home/slides/' . $slider->english_image) }}"
+                                        src="{{ Config::get('DocumentConstant.SLIDER_VIEW')}}{{ $slider->english_image }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="english_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">
@@ -103,7 +103,7 @@
                                     </div>
 
                                     <img id="marathi"
-                                        src="{{ asset('storage/images/home/slides/' . $slider->marathi_image) }}"
+                                        src="{{ Config::get('DocumentConstant.SLIDER_VIEW')}}{{ $slider->marathi_image }}" 
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="marathi_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">
