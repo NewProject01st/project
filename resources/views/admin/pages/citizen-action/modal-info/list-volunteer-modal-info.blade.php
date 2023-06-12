@@ -50,7 +50,7 @@
                                                         <td>{{ $item->datetime }}</td>
                                                         <td>{{ $item->mobile_number }}</td>
                                                         <td>{{ strip_tags($item->description) }}</td>
-                                                        <td> <img
+                                                        <td> <img class="img-size"
                                                                 src="{{ asset('storage/images/citizen-action/modal/volunteer-modal/' . $item->media_upload) }}" />
                                                         </td>
 

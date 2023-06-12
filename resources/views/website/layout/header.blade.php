@@ -66,6 +66,8 @@
     <link href="{{ asset('website_files/assets/css/responsive.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/assets/css/color.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/assets/css/slick.css') }}" type="text/css" rel="stylesheet">
+
+    <link href="{{ asset('website_files/assets/css/jquery.dataTables.min.css') }}" type="text/css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
     <!-- webpage A+ A- button script -->

@@ -41,7 +41,7 @@
                                                     <div class="col-md-6">
                                                         <div class="content">
                                                             <p><span><i
-                                                                        class="fa fa-quote-left"></i></span>{{ $item['marathi_description'] }}
+                                                                        class="fa fa-quote-left"></i></span>{{ strip_tags($item['marathi_description']) }}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -65,7 +65,7 @@
                                                     <div class="col-md-6">
                                                         <div class="content">
                                                             <p><span><i
-                                                                        class="fa fa-quote-left"></i></span>{{ $item['english_description'] }}
+                                                                        class="fa fa-quote-left"></i></span>{{ strip_tags($item['english_description']) }}
                                                             </p>
                                                         </div>
                                                     </div>

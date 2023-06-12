@@ -43,10 +43,10 @@
                                                 @foreach ($documents_publications as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td><?php echo $item->english_title; ?></td>
-                                                        <td><?php echo $item->marathi_title; ?></td>
-                                                        <td><?php echo $item->english_description; ?></td>
-                                                        <td><?php echo $item->marathi_description; ?></td>
+                                                        <td>{{ strip_tags($item->english_title) }}</td>
+                                                        <td>{{ strip_tags($item->marathi_title) }}</td>
+                                                        <td>{{ strip_tags($item->english_description) }}</td>
+                                                        <td>{{ strip_tags($item->marathi_description) }}</td>
                                                         <td> <a href="{{ asset('/storage/pdf/research-center/documents/' . $item['english_pdf']) }}"
                                                                 target="_blank"><img
                                                                     src="{{ asset('storage/pdf/pdf.png/') }}" width="35px"
@@ -55,7 +55,8 @@
                                                                 target="_blank"><img
                                                                     src="{{ asset('storage/pdf/pdf.png/') }}" width="35px"
                                                                     height="35px"></a></td>
-                                                        <td class="d-flex">
+                                                        <td >
+                                                            <div class="d-flex">
                                                             @if (in_array('per_update', $data_permission))
                                                                 <a data-id="{{ $item->id }}"
                                                                     class="edit-btn btn btn-sm btn-outline-primary m-1"><i
@@ -70,7 +71,7 @@
                                                                     title="Delete Tender"><i class="fas fa-archive"></i></a>
                                                             @endif
 
-
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 @endforeach

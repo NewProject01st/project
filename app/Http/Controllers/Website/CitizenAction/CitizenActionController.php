@@ -36,7 +36,10 @@ class CitizenActionController extends Controller
 
             $menu = $this->menu;
             $socialicon = $this->socialicon;
-            $data_output = $this->service->getAllReportIncidentCrowdsourcing();
+             $data_output = $this->service->getAllReportIncidentCrowdsourcing();
+            //  dd($data_output);
+             $data_output_new = $data_output['data_output'];
+             $data_output_incident = $data_output['data_output_incident'];
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -45,8 +48,13 @@ class CitizenActionController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.citizen-action.list-report-incident-crowdsourcing-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.citizen-action.list-report-incident-crowdsourcing-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident'));
     }  
+
+
+
+
+
     public function getAllVolunteerCitizenSupport()
     {
         try {
@@ -54,6 +62,9 @@ class CitizenActionController extends Controller
             $menu = $this->menu;
             $socialicon = $this->socialicon;
             $data_output = $this->service->getAllVolunteerCitizenSupport();
+            // dd($data_output);
+            $data_output_new = $data_output['data_output'];
+             $data_output_incident = $data_output['data_output_incident'];
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -63,27 +74,54 @@ class CitizenActionController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.citizen-action.list-volunteer-citizen-support-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.citizen-action.list-volunteer-citizen-support-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident'));
     }
 
+
+    
     public function getAllCitizenFeedbackSuggestions()
     {
         try {
 
             $menu = $this->menu;
             $socialicon = $this->socialicon;
-            $data_output = $this->service->getAllCitizenFeedbackSuggestions();
+             $data_output = $this->service->getAllCitizenFeedbackSuggestions();
+            //  dd($data_output);
+             $data_output_new = $data_output['data_output'];
+             $data_output_incident = $data_output['data_output_incident'];
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
                 $language = 'en';
             }
-
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.citizen-action.list-citizen-feedback-suggestions-web',compact('language','menu','socialicon', 'data_output'));
-    }
+        return view('website.pages.citizen-action.list-citizen-feedback-suggestions-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident'));
+    }  
+
+
+    // public function getAllCitizenFeedbackSuggestions()
+    // {
+    //     try {
+
+    //         $menu = $this->menu;
+    //         $socialicon = $this->socialicon;
+    //         $data_output = $this->service->getAllCitizenFeedbackSuggestions();
+    //         dd($data_output);
+    //         $data_output_new = $data_output['data_output'];
+    //          $data_output_incident_final = $data_output['data_output_incident_final'];
+    //         if (Session::get('language') == 'mar') {
+    //             $language = Session::get('language');
+    //         } else {
+    //             $language = 'en';
+    //         }
+
+    //     } catch (\Exception $e) {
+    //         return $e;
+    //     }
+    //     return view('website.pages.citizen-action.list-citizen-feedback-suggestions-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident_final'));
+    // }
 
     // public function add()
     // {

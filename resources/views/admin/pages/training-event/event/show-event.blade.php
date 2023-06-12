@@ -29,7 +29,7 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>Title English :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
                                         <label><?php echo $event->english_title ?></label>
                                     </div>
                                 </div>
@@ -37,7 +37,7 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>Title Marathi :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
                                         <label><?php echo $event->marathi_title ?></label>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>Description English :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
                                         <label><?php echo $event->english_description ?></label>
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>Description Marathi :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
                                         <label><?php echo $event->marathi_description ?></label>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>Start Date :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
                                         <label><?php echo $event->start_date ?></label>
                                     </div>
                                 </div>
@@ -69,25 +69,25 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>End Date :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
                                         <label><?php echo $event->end_date ?></label>
                                     </div>
                                 </div>
 
                                 <div class="row ">
-                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label> English Image :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
                                         <img src="{{ asset('storage/images/training-event/event/' . $event->english_image) }}"
                                             style="width:200px; height:200px;" />
                                     </div>
                                 </div>
                                 <div class="row ">
-                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label> Marathi Image:</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
+                                    <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                         <img src="{{ asset('storage/images/training-event/event/' . $event->marathi_image) }}"
                                             style="width:200px; height:200px;" />
                                     </div>
