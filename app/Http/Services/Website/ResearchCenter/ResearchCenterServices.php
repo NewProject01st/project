@@ -1,13 +1,13 @@
 <?php
-namespace App\Http\Services\Website\ResearchCenter;
+namespace App\Http\Services\Website\ResourceCenter;
 
-use App\Http\Repository\Website\ResearchCenter\ResearchCenterRepository;
+use App\Http\Repository\Website\ResourceCenter\ResourceCenterRepository;
 
 // use App\Marquee;
 use Carbon\Carbon;
 
 
-class ResearchCenterServices
+class ResourceCenterServices
 {
 
 	protected $repo;
@@ -17,7 +17,7 @@ class ResearchCenterServices
      */
     public function __construct()
     {
-        $this->repo = new ResearchCenterRepository();
+        $this->repo = new ResourceCenterRepository();
     }
     public function getAllDocumentspublications()
     {

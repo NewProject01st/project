@@ -38,8 +38,6 @@
                                                 <th>Description Marathi</th>
                                                 <th>Start Date</th>
                                                 <th>End Date</th>
-                                                {{-- <th>English Image</th>
-                                                <th>Marathi Image</th> --}}
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -53,14 +51,6 @@
                                                 <td><?php echo $item->marathi_description; ?></td>
                                                 <td><?php echo $item->start_date; ?></td>
                                                 <td><?php echo $item->end_date; ?></td>
-                                                {{-- <td> <img
-                                                        src="{{ asset('storage/images/training-event/event/' . $item->english_image) }}"
-                                                />
-                                                </td>
-                                                <td> <img
-                                                        src="{{ asset('storage/images/training-event/event/' . $item->marathi_image) }}" />
-                                                </td> --}}
-
                                                 <td>
                                                     <div class="d-flex">
                                                     @if (in_array("per_update", $data_permission))

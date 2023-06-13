@@ -190,6 +190,7 @@ public function updateOne(Request $request)
         try {
             // dd($request->delete_id);
             $slider = $this->service->deleteById($request->delete_id);
+            // dd($slider);
             return redirect('list-slide')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {
             return $e;

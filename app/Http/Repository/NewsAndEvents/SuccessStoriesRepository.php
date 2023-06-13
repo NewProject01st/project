@@ -8,27 +8,18 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	SuccessStories
 };
+use Config;
 
 class SuccessStoriesRepository  {
-	public function getAll()
-    {
+	public function getAll(){
         try {
             return SuccessStories::all();
         } catch (\Exception $e) {
             return $e;
         }
     }
-
-	
-	public function addAll($request)
-{
+	public function addAll($request){
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/news-events/success-stories', $englishImageName);
-        $request->marathi_image->storeAs('public/images/news-events/success-stories', $marathiImageName);
-
         
         $news_events = new SuccessStories();
         $news_events->english_title = $request['english_title'];
@@ -37,149 +28,133 @@ class SuccessStoriesRepository  {
         $news_events->marathi_description = $request['marathi_description'];
         $news_events->english_designation = $request['english_designation'];
         $news_events->marathi_designation = $request['marathi_designation'];
-        $news_events->english_image = $englishImageName;
-        $news_events->marathi_image =   $marathiImageName;
-        $news_events->save();       
-              
-		return $news_events;
+
+        $news_events->save();      
+        $last_insert_id = $news_events->id;
+
+        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        
+
+        $news_events = SuccessStories::find($last_insert_id); // Assuming $request directly contains the ID
+        $news_events->english_image = $englishImageName; // Save the image filename to the database
+        $news_events->marathi_image = $marathiImageName; // Save the image filename to the database
+        $news_events->save();
+        
+        return $last_insert_id;
 
     } catch (\Exception $e) {
         return [
             'msg' => $e,
             'status' => 'error'
         ];
+      }
     }
-}
 
-public function getById($id)
-{
-    try {
-        $news_events = SuccessStories::find($id);
-        if ($news_events) {
-            return $news_events;
-        } else {
-            return null;
-        }
-    } catch (\Exception $e) {
-        return $e;
-		return [
-            'msg' => 'Failed to get by id documents.',
-            'status' => 'error'
-        ];
-    }
-}
-
-public function updateAll($request)
-{
-    try {
-        $update_news_events = SuccessStories::find($request->id);
-        
-        if (!$update_news_events) {
+    public function getById($id){
+        try {
+            $news_events = SuccessStories::find($id);
+            if ($news_events) {
+                return $news_events;
+            } else {
+                return null;
+            }
+        } catch (\Exception $e) {
+            return $e;
             return [
-                'msg' => 'volunteer data not found.',
+                'msg' => 'Failed to get by id Success Stories.',
                 'status' => 'error'
             ];
         }
-       // Store the previous image names
-       $previousEnglishImage = $update_news_events->english_image;
-       $previousMarathiImage = $update_news_events->marathi_image;
-
-        $update_news_events->english_title = $request['english_title'];
-        $update_news_events->marathi_title = $request['marathi_title'];
-        $update_news_events->english_description = $request['english_description'];
-        $update_news_events->marathi_description = $request['marathi_description'];
-        $update_news_events->english_designation = $request['english_designation'];
-        $update_news_events->marathi_designation = $request['marathi_designation'];
-       
-        if ($request->hasFile('english_image')) {
-            // Delete previous English image if it exists
-            if ($previousEnglishImage) {
-                Storage::delete('public/images/news-events/success-stories/' . $previousEnglishImage);
-            }
-
-            // Store the new English image
-            $englishImageName = time() . '_english.' . $request->english_image->extension();
-            $request->english_image->storeAs('public/images/news-events/success-stories/', $englishImageName);
-            $update_news_events->english_image = $englishImageName;
-        }
-
-        if ($request->hasFile('marathi_image')) {
-            // Delete previous Marathi image if it exists
-            if ($previousMarathiImage) {
-                Storage::delete('public/images/news-events/success-stories/' . $previousMarathiImage);
-            }
-
-            // Store the new Marathi image
-            $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-            $request->marathi_image->storeAs('public/images/news-events/success-stories/', $marathiImageName);
-            $update_news_events->marathi_image = $marathiImageName;
-        }
-
-        $update_news_events->save();        
-     
-        return [
-            'msg' => 'volunteer data updated successfully.',
-            'status' => 'success'
-        ];
-    } catch (\Exception $e) {
-        return $e;
-        return [
-            'msg' => 'Failed to update volunteer data.',
-            'status' => 'error'
-        ];
     }
-}
-public function updateOne($request)
-{
-    try {
-        $news_events = SuccessStories::find($request); // Assuming $request directly contains the ID
 
-        // Assuming 'is_active' is a field in the Slider model
-        if ($news_events) {
-            $is_active = $news_events->is_active === 1 ? 0 : 1;
-            $news_events->is_active = $is_active;
-            // dd($slide);
-            $news_events->save();
+    public function updateAll($request){
+        try {
+            $return_data = array();
+            $update_news_events = SuccessStories::find($request->id);
+            
+            if (!$update_news_events) {
+                return [
+                    'msg' => 'Success Stories Data not found.',
+                    'status' => 'error'
+                ];
+            }
+        // Store the previous image names
+        $previousEnglishImage = $update_news_events->english_image;
+        $previousMarathiImage = $update_news_events->marathi_image;
 
+            $update_news_events->english_title = $request['english_title'];
+            $update_news_events->marathi_title = $request['marathi_title'];
+            $update_news_events->english_description = $request['english_description'];
+            $update_news_events->marathi_description = $request['marathi_description'];
+            $update_news_events->english_designation = $request['english_designation'];
+            $update_news_events->marathi_designation = $request['marathi_designation'];
+
+            $update_news_events->save();
+            $last_insert_id = $update_news_events->id;
+
+            $return_data['last_insert_id'] = $last_insert_id;
+            $return_data['english_image'] = $previousEnglishImage;
+            $return_data['marathi_image'] = $previousMarathiImage;
+            return  $return_data;
+
+        } catch (\Exception $e) {
+            return $e;
             return [
-                'msg' => 'Slide updated successfully.',
-                'status' => 'success'
+                'msg' => 'Failed to update Success Stories Data.',
+                'status' => 'error'
             ];
         }
-
-        return [
-            'msg' => 'Slide not found.',
-            'status' => 'error'
-        ];
-    } catch (\Exception $e) {
-        return [
-            'msg' => 'Failed to update slide.',
-            'status' => 'error'
-        ];
     }
-}
+    public function updateOne($request)
+    {
+        try {
+            $news_events = SuccessStories::find($request); // Assuming $request directly contains the ID
 
-public function deleteById($id)
-{
-    try {
-        $news_events = SuccessStories::find($id);
-        if ($news_events) {
-             // Delete the images from the storage folder
-             Storage::delete([
-                'public/images/news-events/success-stories/'.$news_events->english_image,
-                'public/images/news-events/success-stories/'.$news_events->marathi_image
-            ]);
-            // Delete the record from the database
-            $news_events->delete();
-            
-            return $news_events;
-        } else {
-            return null;
+            // Assuming 'is_active' is a field in the Slider model
+            if ($news_events) {
+                $is_active = $news_events->is_active === 1 ? 0 : 1;
+                $news_events->is_active = $is_active;
+
+                $news_events->save();
+
+                return [
+                    'msg' => 'Success Stories updated successfully.',
+                    'status' => 'success'
+                ];
+            }
+            return [
+                'msg' => 'Success Stories not found.',
+                'status' => 'error'
+            ];
+        } catch (\Exception $e) {
+            return [
+                'msg' => 'Failed to update Success Stories.',
+                'status' => 'error'
+            ];
         }
-    } catch (\Exception $e) {
-        return $e;
     }
-}
+
+    public function deleteById($id)
+    {
+        try {
+            $news_events = SuccessStories::find($id);
+            if ($news_events) {
+                // Delete the images from the storage folder
+                unlink(storage_path(Config::get('DocumentConstant.SLIDER_DELETE') . $news_events->english_image));
+                unlink(storage_path(Config::get('DocumentConstant.SLIDER_DELETE') . $news_events->marathi_image));
+                $slider->delete();
+                // Delete the record from the database
+                $news_events->delete();
+                
+                return $news_events;
+            } else {
+                return null;
+            }
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
 
 
        

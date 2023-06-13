@@ -85,7 +85,7 @@
                                         @endif
                                     </div>
                                     <img id="english"
-                                        src="{{ asset('storage/images/policies-legislation/state-policy/' . $state_policy->english_image) }}"
+                                    src="{{ Config::get('DocumentConstant.STATE_DISASTER_POLICY_VIEW')}}{{ $state_policy->english_image }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="english_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">
@@ -101,7 +101,7 @@
                                         @endif
                                     </div>
                                     <img id="marathi"
-                                        src="{{ asset('storage/images/policies-legislation/state-policy/' . $state_policy->marathi_image) }}"
+                                    src="{{ Config::get('DocumentConstant.STATE_DISASTER_POLICY_VIEW')}}{{ $state_policy->marathi_image }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="marathi_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">

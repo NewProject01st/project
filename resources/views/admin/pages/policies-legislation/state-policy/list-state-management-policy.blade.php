@@ -51,10 +51,10 @@
                                                         <td>{{ strip_tags($item->marathi_description) }}</td>
 
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/policies-legislation/state-policy/' . $item->english_image) }}" />
+                                                                src="{{ Config::get('DocumentConstant.STATE_DISASTER_POLICY_VIEW') }}{{ $item->english_image }}" />
                                                         </td>
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/policies-legislation/state-policy/' . $item->marathi_image) }}" />
+                                                                src="{{ Config::get('DocumentConstant.STATE_DISASTER_POLICY_VIEW') }}{{ $item->marathi_image }}" />
                                                         </td>
 
                                                         <td>

@@ -84,7 +84,7 @@
                                     </div>
 
                                     <img id="english"
-                                        src="{{ asset('storage/images/news-events/success-stories/' . $success_stories->english_image) }}"
+                                    src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW')}}{{ $success_stories->english_image }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="english_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">
@@ -100,7 +100,7 @@
                                         @endif
                                     </div>
                                     <img id="marathi"
-                                        src="{{ asset('storage/images/news-events/success-stories/' . $success_stories->marathi_image) }}"
+                                    src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW')}}{{ $success_stories->marathi_image }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="marathi_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">
