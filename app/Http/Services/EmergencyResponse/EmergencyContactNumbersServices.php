@@ -3,8 +3,11 @@ namespace App\Http\Services\EmergencyResponse;
 
 use App\Http\Repository\EmergencyResponse\EmergencyContactNumbersRepository;
 
-use App\EmergencyContactNumbers;
+use App\Models\
+{ EmergencyContactNumbers };
 use Carbon\Carbon;
+use Config;
+use Storage;
 
 
 class EmergencyContactNumbersServices
@@ -31,8 +34,14 @@ class EmergencyContactNumbersServices
     public function addAll($request)
     {
         try {
-            $add_emergencycontactnumbers = $this->repo->addAll($request);
-            if ($add_emergencycontactnumbers) {
+            $last_id = $this->repo->addAll($request);
+            $path = Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_ADD');
+            //"\all_web_data\images\home\slides\\"."\\";
+            $englishImageName = $last_id . '_english.' . $request->english_image->extension();
+            $marathiImageName = $last_id . '_marathi.' . $request->marathi_image->extension();
+            uploadImage($request, 'english_image', $path, $englishImageName);
+            uploadImage($request, 'marathi_image', $path, $marathiImageName);
+            if ($last_id) {
                 return ['status' => 'success', 'msg' => 'Emergency Contact Numbers Added Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Emergency Contact Numbers get Not Added.'];
@@ -45,8 +54,38 @@ class EmergencyContactNumbersServices
     public function updateAll($request)
     {
         try {
-            $update_emergencycontactnumbers = $this->repo->updateAll($request);
-            if ($update_emergencycontactnumbers) {
+            $return_data = $this->repo->updateAll($request);
+            
+            $path = Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_ADD');
+            if ($request->hasFile('english_image')) {
+                if ($return_data['english_image']) {
+                    unlink(storage_path(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $return_data['english_image']));
+
+                }
+    
+                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                uploadImage($request, 'english_image', $path, $englishImageName);
+               
+                $emergency_contact_data = EmergencyContactNumbers::find($return_data['last_insert_id']);
+                $emergency_contact_data->english_image = $englishImageName;
+                $emergency_contact_data->save();
+            }
+    
+            if ($request->hasFile('marathi_image')) {
+                if ($return_data['marathi_image']) {
+                    unlink(storage_path(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $return_data['marathi_image']));
+                }
+    
+                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                uploadImage($request, 'marathi_image', $path, $marathiImageName);
+
+                $emergency_contact_data = EmergencyContactNumbers::find($return_data['last_insert_id']);
+                $emergency_contact_data->marathi_image = $marathiImageName;
+                $emergency_contact_data->save();
+            }
+
+
+            if ($return_data) {
                 return ['status' => 'success', 'msg' => 'Emergency Contact Numbers Updated Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Emergency Contact Numbers Not Updated.'];

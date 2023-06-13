@@ -63,7 +63,7 @@
                                             <label> English Image :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <img src="{{ asset('storage/images/preparedness/awareness-education/' . $awareness_education->english_image) }}"
+                                            <img src="{{ Config::get('DocumentConstant.PUBLIC_AWARENESS_EDUCATION_VIEW') }}{{ $awareness_education->english_image }}"
                                                 style="width:150px; height:150px;" />
                                         </div>
                                     </div>
@@ -72,7 +72,7 @@
                                             <label> Marathi Image:</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
-                                            <img src="{{ asset('storage/images/preparedness/awareness-education/' . $awareness_education->marathi_image) }}"
+                                            <img src="{{ Config::get('DocumentConstant.PUBLIC_AWARENESS_EDUCATION_VIEW') }}{{ $awareness_education->marathi_image }}"
                                                 style="width:150px; height:150px;" />
                                         </div>
                                     </div>

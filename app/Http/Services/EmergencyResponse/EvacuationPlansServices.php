@@ -3,8 +3,12 @@ namespace App\Http\Services\EmergencyResponse;
 
 use App\Http\Repository\EmergencyResponse\EvacuationPlansRepository;
 
-use App\EvacuationPlans;
+use App\Models\
+{ EvacuationPlans };
 use Carbon\Carbon;
+use Config;
+use Storage;
+
 
 class EvacuationPlansServices
 {
@@ -30,8 +34,14 @@ class EvacuationPlansServices
     public function addAll($request)
     {
         try {
-            $add_evacuationplans = $this->repo->addAll($request);
-            if ($add_evacuationplans) {
+            $last_id = $this->repo->addAll($request);
+            $path = Config::get('DocumentConstant.EVACUATION_PLAN_ADD');
+            //"\all_web_data\images\home\slides\\"."\\";
+            $englishImageName = $last_id . '_english.' . $request->english_image->extension();
+            $marathiImageName = $last_id . '_marathi.' . $request->marathi_image->extension();
+            uploadImage($request, 'english_image', $path, $englishImageName);
+            uploadImage($request, 'marathi_image', $path, $marathiImageName);
+            if ($last_id) {
                 return ['status' => 'success', 'msg' => 'Evacuation Plans Added Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Evacuation Plans get Not Added.'];
@@ -44,8 +54,39 @@ class EvacuationPlansServices
     public function updateAll($request)
     {
         try {
-            $update_evacuationplans = $this->repo->updateAll($request);
-            if ($update_evacuationplans) {
+            $return_data = $this->repo->updateAll($request);
+            
+            $path = Config::get('DocumentConstant.EVACUATION_PLAN_ADD');
+            if ($request->hasFile('english_image')) {
+                if ($return_data['english_image']) {
+                    unlink(storage_path(Config::get('DocumentConstant.EVACUATION_PLAN_DELETE') . $return_data['english_image']));
+
+                }
+    
+                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                uploadImage($request, 'english_image', $path, $englishImageName);
+               
+                $evacuation_plan_data = EvacuationPlans::find($return_data['last_insert_id']);
+                $evacuation_plan_data->english_image = $englishImageName;
+                $evacuation_plan_data->save();
+            }
+    
+            if ($request->hasFile('marathi_image')) {
+                if ($return_data['marathi_image']) {
+                    unlink(storage_path(Config::get('DocumentConstant.EVACUATION_PLAN_DELETE') . $return_data['marathi_image']));
+                }
+    
+                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                uploadImage($request, 'marathi_image', $path, $marathiImageName);
+
+                $evacuation_plan_data = EvacuationPlans::find($return_data['last_insert_id']);
+                $evacuation_plan_data->marathi_image = $marathiImageName;
+                $evacuation_plan_data->save();
+            }
+
+
+           
+            if ($return_data) {
                 return ['status' => 'success', 'msg' => 'Evacuation Plans Updated Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Evacuation Plans Not Updated.'];

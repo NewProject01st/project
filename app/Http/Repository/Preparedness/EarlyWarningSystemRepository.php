@@ -8,10 +8,10 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	EarlyWarningSystem
 };
+use Config;
 
 class EarlyWarningSystemRepository{
-	public function getAll()
-    {
+	public function getAll(){
         try {
             return EarlyWarningSystem::all();
         } catch (\Exception $e) {
@@ -19,26 +19,27 @@ class EarlyWarningSystemRepository{
         }
     }
 
-	public function addAll($request)
-{
+	public function addAll($request){
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/preparedness/early-warning', $englishImageName);
-        $request->marathi_image->storeAs('public/images/preparedness/early-warning', $marathiImageName);
-
         
         $warning_data = new EarlyWarningSystem();
         $warning_data->english_title = $request['english_title'];
         $warning_data->marathi_title = $request['marathi_title'];
         $warning_data->english_description = $request['english_description'];
         $warning_data->marathi_description = $request['marathi_description'];
-        $warning_data->english_image = $englishImageName;
-        $warning_data->marathi_image =   $marathiImageName;
         $warning_data->save();       
               
-		return $warning_data;
+        $last_insert_id = $warning_data->id;
+
+        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        
+        $warning_data = EarlyWarningSystem::find($last_insert_id); // Assuming $request directly contains the ID
+        $warning_data->english_image = $englishImageName; // Save the image filename to the database
+        $warning_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        $warning_data->save();
+        
+        return $last_insert_id;
 
     } catch (\Exception $e) {
         return [
@@ -48,8 +49,7 @@ class EarlyWarningSystemRepository{
     }
 }
 
-public function getById($id)
-{
+public function getById($id){
     try {
         $warning = EarlyWarningSystem::find($id);
         if ($warning) {
@@ -65,9 +65,9 @@ public function getById($id)
         ];
     }
 }
-public function updateAll($request)
-{
+public function updateAll($request){
     try {
+        $return_data = array();
         $warning_data = EarlyWarningSystem::find($request->id);
         
         if (!$warning_data) {
@@ -86,42 +86,14 @@ public function updateAll($request)
         $warning_data->marathi_title = $request['marathi_title'];
         $warning_data->english_description = $request['english_description'];
         $warning_data->marathi_description = $request['marathi_description'];
-        if($request->hasFile('english_image'))
-        {
-            if($previousEnglishImage)
-            {
-                // Delete existing files
-                Storage::delete('public/images/preparedness/early-warning/' . $previousEnglishImage);
-            }
-            
-            //Store and update new image
-             
-        $englishImageName = time() . '_english.' . $request->english_image->extension(); 
-        $request->english_image->storeAs('public/images/preparedness/early-warning/', $englishImageName);
-        $warning_data->english_image = $englishImageName;
-
-        }
-        if($request->hasFile('marathi_image'))
-        {
-            if($previousMarathiImage)
-            {
-                // Delete existing files
-                Storage::delete('public/images/preparedness/early-warning/' . $previousMarathiImage);
-            }
-            
-            //Store and update new image
-             
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension(); 
-        $request->marathi_image->storeAs('public/images/preparedness/early-warning/', $marathiImageName);
-        $warning_data->marathi_image = $marathiImageName;
-
-        }
         $warning_data->save();        
      
-        return [
-            'msg' => 'Early Warning System updated successfully.',
-            'status' => 'success'
-        ];
+        $last_insert_id = $warning_data->id;
+
+        $return_data['last_insert_id'] = $last_insert_id;
+        $return_data['english_image'] = $previousEnglishImage;
+        $return_data['marathi_image'] = $previousMarathiImage;
+        return  $return_data;
     } catch (\Exception $e) {
         return $e;
         return [
@@ -131,17 +103,13 @@ public function updateAll($request)
     }
 }
 
-public function deleteById($id)
-{
+public function deleteById($id){
     try {
         $warning = EarlyWarningSystem::find($id);
         if ($warning) {
-              // Delete the images from the storage folder
-              Storage::delete([
-                'public/images/preparedness/early-warning/'.$warning->english_image,
-                'public/images/preparedness/early-warning/'.$warning->marathi_image
-            ]);
-
+            unlink(storage_path(Config::get('DocumentConstant.EARLY_WARNING_SYSTEM_DELETE') . $warning->english_image));
+            unlink(storage_path(Config::get('DocumentConstant.EARLY_WARNING_SYSTEM_DELETE') . $warning->marathi_image));
+             
             // Delete the record from the database
             
             $warning->delete();

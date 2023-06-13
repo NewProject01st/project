@@ -8,6 +8,7 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	StateEmergencyOperationsCenter
 };
+use Config;
 
 class StateEmergencyOperationsCenterRepository  {
 	public function getAll()
@@ -22,23 +23,26 @@ class StateEmergencyOperationsCenterRepository  {
 	public function addAll($request)
 {
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/emergency-response/state-emergency-operations-center', $englishImageName);
-        $request->marathi_image->storeAs('public/images/emergency-response/state-emergency-operations-center', $marathiImageName);
-
         $stateemergencyoperationscenter_data = new StateEmergencyOperationsCenter();
         $stateemergencyoperationscenter_data->english_title = $request['english_title'];
         $stateemergencyoperationscenter_data->marathi_title = $request['marathi_title'];
         $stateemergencyoperationscenter_data->english_description = $request['english_description'];
         $stateemergencyoperationscenter_data->marathi_description = $request['marathi_description'];
-        $stateemergencyoperationscenter_data->english_image = $englishImageName; // Save the image filename to the database
-        $stateemergencyoperationscenter_data->marathi_image = $marathiImageName; // Save the image filename to the database
         $stateemergencyoperationscenter_data->save();       
     // dd($stateemergencyoperationscenter_data);
-   
-        return $stateemergencyoperationscenter_data;
+    
+        $last_insert_id = $searchrescueteams_data->id;
+
+        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        
+        $stateemergencyoperationscenter_data = StateEmergencyOperationsCenter::find($last_insert_id); // Assuming $request directly contains the ID
+        $stateemergencyoperationscenter_data->english_image = $englishImageName; // Save the image filename to the database
+        $stateemergencyoperationscenter_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        $stateemergencyoperationscenter_data->save();
+
+        return $last_insert_id;
     } catch (\Exception $e) {
         return [
             'msg' => $e,
@@ -68,6 +72,7 @@ public function updateAll($request)
 {
    
     try {
+        $return_data = array();
         $stateemergencyoperationscenter_data = StateEmergencyOperationsCenter::find($request->id);
         
         if (!$stateemergencyoperationscenter_data) {
@@ -89,42 +94,15 @@ public function updateAll($request)
         $stateemergencyoperationscenter_data->marathi_title = $request['marathi_title'];
         $stateemergencyoperationscenter_data->english_description = $request['english_description'];
         $stateemergencyoperationscenter_data->marathi_description = $request['marathi_description'];
-        if($request->hasFile('english_image'))
-        {
-            if($previousEnglishImage)
-            {
-                // Delete existing files
-                Storage::delete('public/images/emergency-response/state-emergency-operations-center/' . $previousEnglishImage);
-            }
-            
-            //Store and update new image
-             
-        $englishImageName = time() . '_english.' . $request->english_image->extension(); 
-        $request->english_image->storeAs('public/images/emergency-response/state-emergency-operations-center/', $englishImageName);
-        $stateemergencyoperationscenter_data->english_image = $englishImageName;
-
-        }
-        if($request->hasFile('marathi_image'))
-        {
-            if($previousMarathiImage)
-            {
-                // Delete existing files
-                Storage::delete('public/images/emergency-response/state-emergency-operations-center/' . $previousMarathiImage);
-            }
-            
-            //Store and update new image
-             
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension(); 
-        $request->marathi_image->storeAs('public/images/emergency-response/state-emergency-operations-center/', $marathiImageName);
-        $stateemergencyoperationscenter_data->marathi_image = $marathiImageName;
-
-        }
         $stateemergencyoperationscenter_data->save();       
      
-        return [
-            'msg' => 'State Emergency Operations Center updated successfully.',
-            'status' => 'success'
-        ];
+      
+        $last_insert_id = $stateemergencyoperationscenter_data->id;
+
+        $return_data['last_insert_id'] = $last_insert_id;
+        $return_data['english_image'] = $previousEnglishImage;
+        $return_data['marathi_image'] = $previousMarathiImage;
+        return  $return_data;
     } catch (\Exception $e) {
         return $e;
         return [
@@ -139,12 +117,8 @@ public function deleteById($id)
     try {
         $stateemergencyoperationscenter = StateEmergencyOperationsCenter::find($id);
         if ($stateemergencyoperationscenter) {
-            // Delete the images from the storage folder
-            Storage::delete([
-                'public/images/emergency-response/state-emergency-operations-center/'.$stateemergencyoperationscenter->english_image,
-                'public/images/emergency-response/state-emergency-operations-center/'.$stateemergencyoperationscenter->marathi_image
-            ]);
-
+            unlink(storage_path(Config::get('DocumentConstant.SEARCH_RESCUE_TEAM_DELETE') . $stateemergencyoperationscenter->english_image));
+            unlink(storage_path(Config::get('DocumentConstant.SEARCH_RESCUE_TEAM_DELETE') . $stateemergencyoperationscenter->marathi_image));
             // Delete the record from the database
             $stateemergencyoperationscenter->delete();
             

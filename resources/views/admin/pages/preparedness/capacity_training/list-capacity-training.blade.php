@@ -8,10 +8,10 @@
             <div class="page-header">
                 <h3 class="page-title">
                     Capacity Building And Training
-                    {{-- @if (in_array('per_add', $data_permission))
-                <a href="{{ route('add-capacity-building-and-training') }}" class="btn btn-sm btn-primary ml-3">+
-                    Add</a>
-                @endif --}}
+                    @if (in_array('per_add', $data_permission))
+                        <a href="{{ route('add-capacity-building-and-training') }}" class="btn btn-sm btn-primary ml-3">+
+                            Add</a>
+                    @endif
 
                 </h3>
                 <nav aria-label="breadcrumb">
@@ -49,30 +49,28 @@
                                                         <td>{{ strip_tags($item->marathi_title) }}</td>
                                                         <td>{{ strip_tags($item->english_description) }}</td>
                                                         <td>{{ strip_tags($item->marathi_description) }}</td>
-
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/preparedness/capacity-training/' . $item->english_image) }}" />
-                                                        </td> 
-                                                        <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/preparedness/capacity-training/' . $item->marathi_image) }}" />
+                                                                src="{{ Config::get('DocumentConstant.CAPACITY_TRAINING_VIEW') }}{{ $item->english_image }}" />
                                                         </td>
-
-                                                        <td >
+                                                        <td> <img class="img-size"
+                                                                src="{{ Config::get('DocumentConstant.CAPACITY_TRAINING_VIEW') }}{{ $item->marathi_image }}" />
+                                                        </td>
+                                                        <td>
                                                             <div class="d-flex">
-                                                            @if (in_array('per_update', $data_permission))
-                                                                <a data-id="{{ $item->id }}"
-                                                                    class="edit-btn btn btn-sm btn-outline-primary m-1"
-                                                                    title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                                            @endif
+                                                                @if (in_array('per_update', $data_permission))
+                                                                    <a data-id="{{ $item->id }}"
+                                                                        class="edit-btn btn btn-sm btn-outline-primary m-1"
+                                                                        title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                                                @endif
 
-                                                            <a data-id="{{ $item->id }}"
-                                                                class="show-btn btn btn-sm btn-outline-primary m-1"
-                                                                title="Show"><i class="fas fa-eye"></i></a>
-                                                            @if (in_array('per_delete', $data_permission))
                                                                 <a data-id="{{ $item->id }}"
-                                                                    class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                                    title="Delete"><i class="fas fa-archive"></i></a>
-                                                            @endif
+                                                                    class="show-btn btn btn-sm btn-outline-primary m-1"
+                                                                    title="Show"><i class="fas fa-eye"></i></a>
+                                                                @if (in_array('per_delete', $data_permission))
+                                                                    <a data-id="{{ $item->id }}"
+                                                                        class="delete-btn btn btn-sm btn-outline-danger m-1"
+                                                                        title="Delete"><i class="fas fa-archive"></i></a>
+                                                                @endif
                                                             </div>
 
                                                         </td>

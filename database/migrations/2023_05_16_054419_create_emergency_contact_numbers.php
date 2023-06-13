@@ -24,8 +24,8 @@ class CreateEmergencyContactNumbers extends Migration
             // $table->string('english_emergency_contact_number');
             // $table->string('marathi_emergency_contact_number');
             $table->string('url')->default('null');
-            $table->string('english_image');
-            $table->string('marathi_image');
+            $table->string('english_image')->default('null');
+            $table->string('marathi_image')->default('null');
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

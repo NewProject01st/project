@@ -9,6 +9,7 @@ use App\Models\ {
 	EmergencyContactNumbers,
     AddMoreEmergencyContactNumbers
 };
+use Config;
 
 class EmergencyContactNumbersRepository  {
 	public function getAll()
@@ -29,19 +30,12 @@ class EmergencyContactNumbersRepository  {
 public function addAll($request)
 {
     try {
-        $englishImageName = time() . '_english.' . $request->file('english_image')->extension();
-        $marathiImageName = time() . '_marathi.' . $request->file('marathi_image')->extension();
-
-        $request->file('english_image')->storeAs('public/images/emergency-response/emergency-contact-numbers', $englishImageName);
-        $request->file('marathi_image')->storeAs('public/images/emergency-response/emergency-contact-numbers', $marathiImageName);
-
+       
         $emergencyContactNumbers = new EmergencyContactNumbers();
         $emergencyContactNumbers->english_title = $request->input('english_title');
         $emergencyContactNumbers->marathi_title = $request->input('marathi_title');
         $emergencyContactNumbers->english_description = $request->input('english_description');
         $emergencyContactNumbers->marathi_description = $request->input('marathi_description');
-        $emergencyContactNumbers->english_image = $englishImageName;
-        $emergencyContactNumbers->marathi_image = $marathiImageName;
 
         // dd($emergencyContactNumbers);
         $emergencyContactNumbers->save();
@@ -73,9 +67,17 @@ public function addAll($request)
             $addressesData->save();
         }
         // dd("hi");
+        $last_insert_id = $emergencyContactNumbers->id;
 
+        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        
+        $emergencyContactNumbers = EmergencyContactNumbers::find($last_insert_id); // Assuming $request directly contains the ID
+        $emergencyContactNumbers->english_image = $englishImageName; // Save the image filename to the database
+        $emergencyContactNumbers->marathi_image = $marathiImageName; // Save the image filename to the database
+        $emergencyContactNumbers->save();
 
-        return  $emergencyContactNumbers;
+        return $last_insert_id;
 
     } catch (\Exception $e) {
         return [
@@ -141,6 +143,7 @@ public function updateAll($request)
 {
    
     try {
+        $return_data = array();
         $emergencycontactnumbers_data = EmergencyContactNumbers::find($request->id);
         
         if (!$emergencycontactnumbers_data) {
@@ -162,37 +165,15 @@ public function updateAll($request)
         $emergencycontactnumbers_data->marathi_title = $request['marathi_title'];
         $emergencycontactnumbers_data->english_description = $request['english_description'];
         $emergencycontactnumbers_data->marathi_description = $request['marathi_description'];
-        if($request->hasFile('english_image'))
-        {
-            if($previousEnglishImage)
-            {
-                // Delete existing files
-                Storage::delete('public/images/emergency-response/emergency-contact-numbers/' . $previousEnglishImage);
-            }
-            
-            //Store and update new image
-             
-        $englishImageName = time() . '_english.' . $request->english_image->extension(); 
-        $request->english_image->storeAs('public/images/emergency-response/emergency-contact-numbers/', $englishImageName);
-        $emergencycontactnumbers_data->english_image = $englishImageName;
+        $emergencycontactnumbers_data->save();  
+        
+        $last_insert_id = $emergencycontactnumbers_data->id;
 
-        }
-        if($request->hasFile('marathi_image'))
-        {
-            if($previousMarathiImage)
-            {
-                // Delete existing files
-                Storage::delete('public/images/emergency-response/emergency-contact-numbers/' . $previousMarathiImage);
-            }
-            
-            //Store and update new image
-             
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension(); 
-        $request->marathi_image->storeAs('public/images/emergency-response/emergency-contact-numbers/', $marathiImageName);
-        $emergencycontactnumbers_data->marathi_image = $marathiImageName;
-
-        }
-        $emergencycontactnumbers_data->save();   
+        $return_data['last_insert_id'] = $last_insert_id;
+        $return_data['english_image'] = $previousEnglishImage;
+        $return_data['marathi_image'] = $previousMarathiImage;
+    
+        
         $emergencyContactId = $emergencyContactNumbers->id;
 
         $data = $request->input('no_of_text_boxes');
@@ -222,12 +203,7 @@ public function updateAll($request)
         // dd("hi");
 
 
-        return  $emergencyContactNumbers;    
-     
-        return [
-            'msg' => 'Emergency Contact Numbers updated successfully.',
-            'status' => 'success'
-        ];
+        return  $return_data;
     } catch (\Exception $e) {
         return $e;
         return [
@@ -242,12 +218,8 @@ public function deleteById($id)
     try {
         $emergencycontactnumbers = EmergencyContactNumbers::find($id);
         if ($emergencycontactnumbers) {
-            // Delete the images from the storage folder
-            Storage::delete([
-                'public/images/emergency-response/emergency-contact-numbers/'.$emergencycontactnumbers->english_image,
-                'public/images/emergency-response/emergency-contact-numbers/'.$emergencycontactnumbers->marathi_image
-            ]);
-
+            unlink(storage_path(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $districtemergencyoperationscenter->english_image));
+            unlink(storage_path(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $districtemergencyoperationscenter->marathi_image));
             // Delete the record from the database
             $emergencycontactnumbers->delete();
             

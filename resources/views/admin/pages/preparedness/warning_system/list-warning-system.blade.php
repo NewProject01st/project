@@ -8,10 +8,10 @@
             <div class="page-header">
                 <h3 class="page-title">
                     Early Warning System
-                    {{-- @if (in_array('per_add', $data_permission))
+                    @if (in_array('per_add', $data_permission))
                         <a href="{{ route('add-early-warning-system') }}" class="btn btn-sm btn-primary ml-3">+
                             Add</a>
-                    @endif --}}
+                    @endif
 
                 </h3>
                 <nav aria-label="breadcrumb">
@@ -49,12 +49,11 @@
                                                         <td>{{ strip_tags($item->marathi_title) }}</td>
                                                         <td>{{ strip_tags($item->english_description) }}</td>
                                                         <td>{{ strip_tags($item->marathi_description) }}</td>
-
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/preparedness/early-warning/' . $item->english_image) }}" />
+                                                                src="{{ Config::get('DocumentConstant.EARLY_WARNING_SYSTEM_VIEW') }}{{ $item->english_image }}" />
                                                         </td>
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/preparedness/early-warning/' . $item->marathi_image) }}" />
+                                                                src="{{ Config::get('DocumentConstant.EARLY_WARNING_SYSTEM_VIEW') }}{{ $item->marathi_image }}" />
                                                         </td>
 
                                                         <td>

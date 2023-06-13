@@ -3,9 +3,11 @@ namespace App\Http\Services\EmergencyResponse;
 
 use App\Http\Repository\EmergencyResponse\DistrictEmergencyOperationsCenterRepository;
 
-use App\DistrictEmergencyOperationsCenter;
+use App\Models\
+{ DistrictEmergencyOperationsCenter };
 use Carbon\Carbon;
-
+use Config;
+use Storage;
 
 class DistrictEmergencyOperationsCenterServices
 {
@@ -31,8 +33,14 @@ class DistrictEmergencyOperationsCenterServices
     public function addAll($request)
     {
         try {
-            $add_districtemergencyoperationscenter = $this->repo->addAll($request);
-            if ($add_districtemergencyoperationscenter) {
+            $last_id = $this->repo->addAll($request);
+            $path = Config::get('DocumentConstant.DISTRICT_OPERATION_CENTER_ADD');
+            //"\all_web_data\images\home\slides\\"."\\";
+            $englishImageName = $last_id . '_english.' . $request->english_image->extension();
+            $marathiImageName = $last_id . '_marathi.' . $request->marathi_image->extension();
+            uploadImage($request, 'english_image', $path, $englishImageName);
+            uploadImage($request, 'marathi_image', $path, $marathiImageName);
+            if ($last_id) {
                 return ['status' => 'success', 'msg' => 'District Emergency Operations Center Added Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'District Emergency Operations Center get Not Added.'];
@@ -45,8 +53,39 @@ class DistrictEmergencyOperationsCenterServices
     public function updateAll($request)
     {
         try {
-            $update_districtemergencyoperationscenter = $this->repo->updateAll($request);
-            if ($update_districtemergencyoperationscenter) {
+            $return_data = $this->repo->updateAll($request);
+            
+            $path = Config::get('DocumentConstant.DISTRICT_OPERATION_CENTER_ADD');
+            if ($request->hasFile('english_image')) {
+                if ($return_data['english_image']) {
+                    unlink(storage_path(Config::get('DocumentConstant.DISTRICT_OPERATION_CENTER_DELETE') . $return_data['english_image']));
+
+                }
+    
+                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                uploadImage($request, 'english_image', $path, $englishImageName);
+               
+                $district_operation_data = DistrictEmergencyOperationsCenter::find($return_data['last_insert_id']);
+                $district_operation_data->english_image = $englishImageName;
+                $district_operation_data->save();
+            }
+    
+            if ($request->hasFile('marathi_image')) {
+                if ($return_data['marathi_image']) {
+                    unlink(storage_path(Config::get('DocumentConstant.DISTRICT_OPERATION_CENTER_DELETE') . $return_data['marathi_image']));
+                }
+    
+                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                uploadImage($request, 'marathi_image', $path, $marathiImageName);
+
+                $district_operation_data = DistrictEmergencyOperationsCenter::find($return_data['last_insert_id']);
+                $district_operation_data->marathi_image = $marathiImageName;
+                $district_operation_data->save();
+            }
+
+
+           
+            if ($return_data) {
                 return ['status' => 'success', 'msg' => 'District Emergency Operations Center Updated Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'District Emergency Operations Center Not Updated.'];

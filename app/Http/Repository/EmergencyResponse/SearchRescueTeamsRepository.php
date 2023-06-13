@@ -8,6 +8,7 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	SearchRescueTeams
 };
+use Config;
 
 class SearchRescueTeamsRepository  {
 	public function getAll()
@@ -22,22 +23,26 @@ class SearchRescueTeamsRepository  {
 	public function addAll($request)
 {
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/emergency-response/search-rescue-teams', $englishImageName);
-        $request->marathi_image->storeAs('public/images/emergency-response/search-rescue-teams', $marathiImageName);
-
         $searchrescueteams_data = new SearchRescueTeams();
         $searchrescueteams_data->english_title = $request['english_title'];
         $searchrescueteams_data->marathi_title = $request['marathi_title'];
         $searchrescueteams_data->english_description = $request['english_description'];
         $searchrescueteams_data->marathi_description = $request['marathi_description'];
-        $searchrescueteams_data->english_image = $englishImageName; // Save the image filename to the database
-        $searchrescueteams_data->marathi_image = $marathiImageName; // Save the image filename to the database
         $searchrescueteams_data->save();       
      
-        return $searchrescueteams_data;
+        $last_insert_id = $searchrescueteams_data->id;
+
+        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        
+        $searchrescueteams_data = SearchRescueTeams::find($last_insert_id); // Assuming $request directly contains the ID
+        $searchrescueteams_data->english_image = $englishImageName; // Save the image filename to the database
+        $searchrescueteams_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        $searchrescueteams_data->save();
+
+        return $last_insert_id;
+
     } catch (\Exception $e) {
         return [
             'msg' => $e,
@@ -67,6 +72,7 @@ public function updateAll($request)
 {
    
     try {
+        $return_data = array();
         $searchrescueteams_data = SearchRescueTeams::find($request->id);
         
         if (!$searchrescueteams_data) {
@@ -88,42 +94,14 @@ public function updateAll($request)
         $searchrescueteams_data->marathi_title = $request['marathi_title'];
         $searchrescueteams_data->english_description = $request['english_description'];
         $searchrescueteams_data->marathi_description = $request['marathi_description'];
-        if($request->hasFile('english_image'))
-        {
-            if($previousEnglishImage)
-            {
-                // Delete existing files
-                Storage::delete('public/images/emergency-response/search-rescue-teams/' . $previousEnglishImage);
-            }
-            
-            //Store and update new image
-             
-        $englishImageName = time() . '_english.' . $request->english_image->extension(); 
-        $request->english_image->storeAs('public/images/emergency-response/search-rescue-teams/', $englishImageName);
-        $searchrescueteams_data->english_image = $englishImageName;
-
-        }
-        if($request->hasFile('marathi_image'))
-        {
-            if($previousMarathiImage)
-            {
-                // Delete existing files
-                Storage::delete('public/images/emergency-response/search-rescue-teams/' . $previousMarathiImage);
-            }
-            
-            //Store and update new image
-             
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension(); 
-        $request->marathi_image->storeAs('public/images/emergency-response/search-rescue-teams/', $marathiImageName);
-        $searchrescueteams_data->marathi_image = $marathiImageName;
-
-        }
         $searchrescueteams_data->save();       
      
-        return [
-            'msg' => 'Relief Measures Resources updated successfully.',
-            'status' => 'success'
-        ];
+        $last_insert_id = $searchrescueteams_data->id;
+
+        $return_data['last_insert_id'] = $last_insert_id;
+        $return_data['english_image'] = $previousEnglishImage;
+        $return_data['marathi_image'] = $previousMarathiImage;
+        return  $return_data;
     } catch (\Exception $e) {
         return $e;
         return [
@@ -138,12 +116,8 @@ public function deleteById($id)
     try {
         $searchrescueteams = SearchRescueTeams::find($id);
         if ($searchrescueteams) {
-            // Delete the images from the storage folder
-            Storage::delete([
-                'public/images/emergency-response/search-rescue-teams/'.$searchrescueteams->english_image,
-                'public/images/emergency-response/search-rescue-teams/'.$searchrescueteams->marathi_image
-            ]);
-
+            unlink(storage_path(Config::get('DocumentConstant.SEARCH_RESCUE_TEAM_DELETE') . $searchrescueteams->english_image));
+            unlink(storage_path(Config::get('DocumentConstant.SEARCH_RESCUE_TEAM_DELETE') . $searchrescueteams->marathi_image));
             // Delete the record from the database
             $searchrescueteams->delete();
             

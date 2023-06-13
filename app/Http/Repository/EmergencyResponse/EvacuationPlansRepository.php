@@ -8,6 +8,7 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	EvacuationPlans
 };
+use Config;
 
 class EvacuationPlansRepository  {
 	public function getAll()
@@ -22,22 +23,25 @@ class EvacuationPlansRepository  {
 	public function addAll($request)
 {
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/emergency-response/evacuation-plans', $englishImageName);
-        $request->marathi_image->storeAs('public/images/emergency-response/evacuation-plans', $marathiImageName);
-
         $evacuationplans_data = new EvacuationPlans();
         $evacuationplans_data->english_title = $request['english_title'];
         $evacuationplans_data->marathi_title = $request['marathi_title'];
         $evacuationplans_data->english_description = $request['english_description'];
         $evacuationplans_data->marathi_description = $request['marathi_description'];
-        $evacuationplans_data->english_image = $englishImageName; // Save the image filename to the database
-        $evacuationplans_data->marathi_image = $marathiImageName; // Save the image filename to the database
         $evacuationplans_data->save();       
      
-        return $evacuationplans_data;
+        $last_insert_id = $evacuationplans_data->id;
+
+        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        
+        $evacuationplans_data = EvacuationPlans::find($last_insert_id); // Assuming $request directly contains the ID
+        $evacuationplans_data->english_image = $englishImageName; // Save the image filename to the database
+        $evacuationplans_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        $evacuationplans_data->save();
+
+        return $last_insert_id;
+
     } catch (\Exception $e) {
         return [
             'msg' => $e,
@@ -67,6 +71,7 @@ public function updateAll($request)
 {
    
     try {
+        $return_data = array();
         $evacuationplans_data = EvacuationPlans::find($request->id);
         
         if (!$evacuationplans_data) {
@@ -87,42 +92,14 @@ public function updateAll($request)
         $evacuationplans_data->marathi_title = $request['marathi_title'];
         $evacuationplans_data->english_description = $request['english_description'];
         $evacuationplans_data->marathi_description = $request['marathi_description'];
-        if($request->hasFile('english_image'))
-        {
-            if($previousEnglishImage)
-            {
-                // Delete existing files
-                Storage::delete('public/images/emergency-response/evacuation-plans/' . $previousEnglishImage);
-            }
-            
-            //Store and update new image
-             
-        $englishImageName = time() . '_english.' . $request->english_image->extension(); 
-        $request->english_image->storeAs('public/images/emergency-response/evacuation-plans/', $englishImageName);
-        $evacuationplans_data->english_image = $englishImageName;
-
-        }
-        if($request->hasFile('marathi_image'))
-        {
-            if($previousMarathiImage)
-            {
-                // Delete existing files
-                Storage::delete('public/images/emergency-response/evacuation-plans/' . $previousMarathiImage);
-            }
-            
-            //Store and update new image
-             
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension(); 
-        $request->marathi_image->storeAs('public/images/emergency-response/evacuation-plans/', $marathiImageName);
-        $evacuationplans_data->marathi_image = $marathiImageName;
-
-        }
         $evacuationplans_data->save();       
      
-        return [
-            'msg' => 'State Disaster Management Authority updated successfully.',
-            'status' => 'success'
-        ];
+        $last_insert_id = $evacuationplans_data->id;
+
+        $return_data['last_insert_id'] = $last_insert_id;
+        $return_data['english_image'] = $previousEnglishImage;
+        $return_data['marathi_image'] = $previousMarathiImage;
+        return  $return_data;
     } catch (\Exception $e) {
         return $e;
         return [
@@ -135,18 +112,14 @@ public function updateAll($request)
 public function deleteById($id)
 {
     try {
-        $statedisastermanagementauthority = EvacuationPlans::find($id);
-        if ($statedisastermanagementauthority) {
-            // Delete the images from the storage folder
-            Storage::delete([
-                'public/images/emergency-response/evacuation-plans/'.$statedisastermanagementauthority->english_image,
-                'public/images/emergency-response/evacuation-plans/'.$statedisastermanagementauthority->marathi_image
-            ]);
-
+        $evacuationplans = EvacuationPlans::find($id);
+        if ($evacuationplans) {
+            unlink(storage_path(Config::get('DocumentConstant.EVACUATION_PLAN_DELETE') . $evacuationplans->english_image));
+            unlink(storage_path(Config::get('DocumentConstant.EVACUATION_PLAN_DELETE') . $evacuationplans->marathi_image));
             // Delete the record from the database
-            $statedisastermanagementauthority->delete();
+            $evacuationplans->delete();
             
-            return $statedisastermanagementauthority;
+            return $evacuationplans;
         } else {
             return null;
         }

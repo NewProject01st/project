@@ -8,10 +8,10 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	HazardVulnerability
 };
+use Config;
 
 class HazardVulnerabilitiesRepository{
-	public function getAll()
-    {
+	public function getAll(){
         try {
             return HazardVulnerability::all();
         } catch (\Exception $e) {
@@ -19,27 +19,27 @@ class HazardVulnerabilitiesRepository{
         }
     }
 
-	public function addAll($request)
-{
+	public function addAll($request){
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/preparedness/hazard-vulnerability', $englishImageName);
-        $request->marathi_image->storeAs('public/images/preparedness/hazard-vulnerability', $marathiImageName);
-
         
         $hazard_data = new HazardVulnerability();
         $hazard_data->english_title = $request['english_title'];
         $hazard_data->marathi_title = $request['marathi_title'];
         $hazard_data->english_description = $request['english_description'];
         $hazard_data->marathi_description = $request['marathi_description'];
-        $hazard_data->english_image = $englishImageName;
-        $hazard_data->marathi_image =   $marathiImageName;
         $hazard_data->save();       
               
-		return $hazard_data;
+        $last_insert_id = $hazard_data->id;
 
+        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        
+        $hazard_data = HazardVulnerability::find($last_insert_id); // Assuming $request directly contains the ID
+        $hazard_data->english_image = $englishImageName; // Save the image filename to the database
+        $hazard_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        $hazard_data->save();
+        
+        return $last_insert_id;
     } catch (\Exception $e) {
         return [
             'msg' => $e,
@@ -48,8 +48,7 @@ class HazardVulnerabilitiesRepository{
     }
 }
 
-public function getById($id)
-{
+public function getById($id){
     try {
         $hazard = HazardVulnerability::find($id);
         if ($hazard) {
@@ -65,63 +64,35 @@ public function getById($id)
         ];
     }
 }
-public function updateAll($request)
-{
+public function updateAll($request){
     try {
+        $return_data = array();
         $hazard_data = HazardVulnerability::find($request->id);
         
         if (!$hazard_data) {
             return [
-                'msg' => 'Hazard Vulnerability not found.',
+                'msg' => 'Hazard and Vulnerability not found.',
                 'status' => 'error'
             ];
         }
-        //Store the previous image name
+          //Store the previous image name
         $previousEnglishImage = $hazard_data->english_image;
         $previousMarathiImage = $hazard_data->marathi_image;
 
        
-        // Update fields from request     
+                
         $hazard_data->english_title = $request['english_title'];
         $hazard_data->marathi_title = $request['marathi_title'];
         $hazard_data->english_description = $request['english_description'];
         $hazard_data->marathi_description = $request['marathi_description'];
-        if($request->hasFile('english_image'))
-        {
-            if($previousEnglishImage)
-            {
-                // Delete existing files
-                Storage::delete('public/images/preparedness/hazard-vulnerability/' . $previousEnglishImage);
-            }
-            
-            //Store and update new image
-             
-        $englishImageName = time() . '_english.' . $request->english_image->extension(); 
-        $request->english_image->storeAs('public/images/preparedness/hazard-vulnerability/', $englishImageName);
-        $hazard_data->english_image = $englishImageName;
-
-        }
-        if($request->hasFile('marathi_image'))
-        {
-            if($previousMarathiImage)
-            {
-                // Delete existing files
-                Storage::delete('public/images/preparedness/hazard-vulnerability/' . $previousMarathiImage);
-            }
-            
-            //Store and update new image
-             
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension(); 
-        $request->marathi_image->storeAs('public/images/preparedness/hazard-vulnerability/', $marathiImageName);
-        $hazard_data->marathi_image = $marathiImageName;
-
-        }
         $hazard_data->save();        
      
-        return [
-            'msg' => 'Hazard Vulnerability updated successfully.',
-            'status' => 'success'
-        ];
+        $last_insert_id = $hazard_data->id;
+
+        $return_data['last_insert_id'] = $last_insert_id;
+        $return_data['english_image'] = $previousEnglishImage;
+        $return_data['marathi_image'] = $previousMarathiImage;
+        return  $return_data;
     } catch (\Exception $e) {
         return $e;
         return [
@@ -131,16 +102,12 @@ public function updateAll($request)
     }
 }
 
-public function deleteById($id)
-{
+public function deleteById($id){
     try {
         $hazard = HazardVulnerability::find($id);
         if ($hazard) {
-              // Delete the images from the storage folder
-              Storage::delete([
-                'public/images/preparedness/hazard-vulnerability/'.$hazard->english_image,
-                'public/images/preparedness/hazard-vulnerability/'.$hazard->marathi_image
-            ]);
+            unlink(storage_path(Config::get('DocumentConstant.HAZARD_VULNERABILITY_DELETE') . $hazard->english_image));
+            unlink(storage_path(Config::get('DocumentConstant.HAZARD_VULNERABILITY_DELETE') . $hazard->marathi_image));
 
             // Delete the record from the database
             
