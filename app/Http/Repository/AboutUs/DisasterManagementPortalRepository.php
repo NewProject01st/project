@@ -108,8 +108,12 @@ class DisasterManagementPortalRepository  {
             $statedisastermanagementauthority = DisasterManagementPortal::find($id);
             if ($statedisastermanagementauthority) {
 
-                unlink(storage_path(Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_DELETE') . $statedisastermanagementauthority->english_image));
-                unlink(storage_path(Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_DELETE') . $statedisastermanagementauthority->marathi_image));
+                if (file_exists(storage_path(Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_DELETE') . $statedisastermanagementauthority->english_image))) {
+                    unlink(storage_path(Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_DELETE') . $statedisastermanagementauthority->english_image));
+                }
+                if (file_exists(storage_path(Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_DELETE') . $statedisastermanagementauthority->marathi_image))) {
+                    unlink(storage_path(Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_DELETE') . $statedisastermanagementauthority->marathi_image));
+                }
                 
                 $statedisastermanagementauthority->delete();
                 
