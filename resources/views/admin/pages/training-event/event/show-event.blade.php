@@ -79,7 +79,7 @@
                                         <label> English Image :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <img src="{{ asset('storage/images/training-event/event/' . $event->english_image) }}"
+                                        <img src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $event->english_image }}"
                                             style="width:300px; height:150px;" />
                                     </div>
                                 </div>
@@ -88,7 +88,7 @@
                                         <label> Marathi Image:</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
-                                        <img src="{{ asset('storage/images/training-event/event/' . $event->marathi_image) }}"
+                                        <img src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $event->marathi_image }}"
                                             style="width:300px; height:150px;" />
                                     </div>
                                 </div>

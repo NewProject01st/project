@@ -62,7 +62,7 @@
                                             <label> English Image :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <img src="{{ asset('storage/images/policies-legislation/state-plan/' . $state_management->english_image) }}"
+                                            <img src="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $state_management->english_image }}"
                                                 style="width:300px; height:150px;" />
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@
                                             <label> Marathi Image:</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
-                                            <img src="{{ asset('storage/images/policies-legislation/state-plan/' . $state_management->marathi_image) }}"
+                                            <img src="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $state_management->marathi_image }}"
                                                 style="width:300px; height:150px;" />
                                         </div>
                                     </div>

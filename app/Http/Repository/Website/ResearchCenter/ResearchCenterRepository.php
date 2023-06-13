@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Repository\Website\ResearchCenter;
+namespace App\Http\Repository\Website\ResourceCenter;
 
 use Illuminate\Database\QueryException;
 use DB;
@@ -16,7 +16,7 @@ use App\Models\ {
 
 };
 
-class ResearchCenterRepository  {
+class ResourceCenterRepository  {
 
 
 	public function getAllDocumentspublications()

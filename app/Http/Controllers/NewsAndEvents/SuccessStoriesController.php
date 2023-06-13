@@ -65,8 +65,6 @@ class SuccessStoriesController extends Controller
         else
         {
             $add_success_stories = $this->service->addAll($request);
-            // print_r($add_tenders);
-            // die();
             if($add_success_stories)
             {
 

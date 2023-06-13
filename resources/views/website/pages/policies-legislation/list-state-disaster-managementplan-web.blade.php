@@ -24,18 +24,18 @@
                                 <div class="deprt-txt">
                                     @if (session('language') == 'mar')
                                         <h3><?php echo $item['marathi_title']; ?> : </h3>
-                                        <img src="{{ asset('storage/images/policies-legislation/state-plan/' . $item['marathi_image']) }}"
+                                        <img src="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $item['marathi_image'] }}"
                                             class="d-block w-100" alt="...">
                                         <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                     @else
                                         <h3><?php echo $item['english_title']; ?> : </h3>
-                                        <img src="{{ asset('storage/images/policies-legislation/state-plan/' . $item['english_image']) }}"
+                                        <img src="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $item['english_image'] }}"
                                             class="d-block w-100" alt="...">
                                         <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
                                     @endif
                                 </div>
                             @empty
-                                <h4>No Data Found For  State Disaster Management Plan</h4>
+                                <h4>No Data Found For State Disaster Management Plan</h4>
                             @endforelse
 
                             <!--Department Details Txt End-->

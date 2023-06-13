@@ -19,8 +19,8 @@ class CreateStateDisasterManagementPlansTable extends Migration
             $table->text('marathi_title');
             $table->text('english_description');
             $table->text('marathi_description');
-            $table->string('english_image');
-            $table->string('marathi_image');
+            $table->string('english_image')->default('null');
+            $table->string('marathi_image')->default('null');
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

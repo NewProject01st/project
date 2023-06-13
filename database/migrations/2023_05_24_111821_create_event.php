@@ -19,8 +19,8 @@ class CreateEvent extends Migration
             $table->text('marathi_title');
             $table->text('english_description');
             $table->text('marathi_description');
-            $table->string('english_image');
-            $table->string('marathi_image');
+            $table->string('english_image')->default('null');
+            $table->string('marathi_image')->default('null');
             $table->string('start_date');
             $table->string('end_date');
             $table->string('is_deleted')->default(false);

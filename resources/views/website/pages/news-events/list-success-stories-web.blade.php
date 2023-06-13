@@ -29,7 +29,7 @@
                                                     <div class="col-md-5">
                                                         <div class="profile">
                                                             <div class="img-area">
-                                                                <img src="{{ asset('storage/images/news-events/success-stories/' . $item['marathi_image']) }}"
+                                                                <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW')}}{{ $item['marathi_image'] }}"
                                                                     alt="">
                                                             </div>
                                                             <div class="bio">
@@ -53,7 +53,7 @@
                                                     <div class="col-md-5">
                                                         <div class="profile">
                                                             <div class="img-area">
-                                                                <img src="{{ asset('storage/images/news-events/success-stories/' . $item['english_image']) }}"
+                                                                <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW')}}{{ $item['english_image'] }}" 
                                                                     alt="">
                                                             </div>
                                                             <div class="new-txt">

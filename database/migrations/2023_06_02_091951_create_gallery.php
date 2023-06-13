@@ -16,8 +16,8 @@ class CreateGallery extends Migration
         Schema::create('gallery', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('category_id');
-            $table->string('english_image');
-            $table->string('marathi_image');
+            $table->string('english_image')->default('null');
+            $table->string('marathi_image')->default('null');
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

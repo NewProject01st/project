@@ -75,8 +75,6 @@ class SliderServices
     
                 $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
-               
-    
             }
     
             if ($request->hasFile('marathi_image')) {
@@ -87,7 +85,6 @@ class SliderServices
                 $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
             }
-
 
             $slide_data = Slider::find($return_data['last_insert_id']);
             $slide_data->marathi_image = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
