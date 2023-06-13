@@ -52,14 +52,14 @@
                                                          <td>{{ strip_tags($item->english_description) }}</td>
                                                          <td>{{ strip_tags($item->marathi_description) }}</td>
                                                          <td> <img class="img-size"
-                                                                 src="{{ asset('storage/images/emergency-response/district-emergency-operations-center/' . $item->english_image) }}" />
+                                                                 src="{{ Config::get('DocumentConstant.DISTRICT_OPERATION_CENTER_VIEW') }}{{ $item->english_image }}" />
                                                          </td>
                                                          <td> <img class="img-size"
-                                                                 src="{{ asset('storage/images/emergency-response/district-emergency-operations-center/' . $item->marathi_image) }}" />
+                                                                 src="{{ Config::get('DocumentConstant.DISTRICT_OPERATION_CENTER_VIEW') }}{{ $item->marathi_image }}" />
                                                          </td>
                                                          <!-- <td>
-                                                                    <span class="badge badge-success">Active</span>
-                                                                </td> -->
+                                                                            <span class="badge badge-success">Active</span>
+                                                                        </td> -->
                                                          <td>
                                                              <div class="d-flex">
                                                                  @if (in_array('per_update', $data_permission))

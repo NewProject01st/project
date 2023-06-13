@@ -51,14 +51,14 @@
                                                          <td>{{ strip_tags($item->english_description) }}</td>
                                                          <td>{{ strip_tags($item->marathi_description) }}</td>
                                                          <td> <img class="img-size"
-                                                                 src="{{ asset('storage/images/emergency-response/emergency-contact-numbers/' . $item->english_image) }}" />
+                                                                 src="{{ Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_VIEW') }}{{ $item->english_image }}" />
                                                          </td>
                                                          <td> <img class="img-size"
-                                                                 src="{{ asset('storage/images/emergency-response/emergency-contact-numbers/' . $item->marathi_image) }}" />
+                                                                 src="{{ Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_VIEW') }}{{ $item->marathi_image }}" />
                                                          </td>
                                                          <!-- <td>
-                                                                            <span class="badge badge-success">Active</span>
-                                                                        </td> -->
+                                                                        <span class="badge badge-success">Active</span>
+                                                                    </td> -->
 
 
                                                          <td>
@@ -66,17 +66,17 @@
                                                                  @if (in_array('per_update', $data_permission))
                                                                      <a data-id="{{ $item->id }}"
                                                                          class="edit-btn btn btn-sm btn-outline-primary m-1"
-                                                                         title="Edit"><i
+                                                                         title="Edit "><i
                                                                              class="fas fa-pencil-alt"></i></a>
                                                                  @endif
 
                                                                  <a data-id="{{ $item->id }}"
                                                                      class="show-btn btn btn-sm btn-outline-primary m-1"
-                                                                     title="Show"><i class="fas fa-eye"></i></a>
+                                                                     title="Show "><i class="fas fa-eye"></i></a>
                                                                  @if (in_array('per_delete', $data_permission))
                                                                      <a data-id="{{ $item->id }}"
                                                                          class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                                         title="Delete"><i class="fas fa-archive"></i></a>
+                                                                         title="Delete "><i class="fas fa-archive"></i></a>
                                                                  @endif
 
                                                              </div>

@@ -8,10 +8,10 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	PublicAwarenessEducation
 };
+use Config;
 
 class PublicAwarenessEducationRepository{
-	public function getAll()
-    {
+	public function getAll() {
         try {
             return PublicAwarenessEducation::all();
         } catch (\Exception $e) {
@@ -19,26 +19,26 @@ class PublicAwarenessEducationRepository{
         }
     }
 
-	public function addAll($request)
-{
+	public function addAll($request){
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/preparedness/awareness-education', $englishImageName);
-        $request->marathi_image->storeAs('public/images/preparedness/awareness-education', $marathiImageName);
-
-        
         $awareness_data = new PublicAwarenessEducation();
         $awareness_data->english_title = $request['english_title'];
         $awareness_data->marathi_title = $request['marathi_title'];
         $awareness_data->english_description = $request['english_description'];
         $awareness_data->marathi_description = $request['marathi_description'];
-        $awareness_data->english_image = $englishImageName;
-        $awareness_data->marathi_image =   $marathiImageName;
         $awareness_data->save();       
               
-		return $awareness_data;
+        $last_insert_id = $awareness_data->id;
+
+        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        
+        $awareness_data = PublicAwarenessEducation::find($last_insert_id); // Assuming $request directly contains the ID
+        $awareness_data->english_image = $englishImageName; // Save the image filename to the database
+        $awareness_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        $awareness_data->save();
+        
+        return $last_insert_id;
 
     } catch (\Exception $e) {
         return [
@@ -48,8 +48,7 @@ class PublicAwarenessEducationRepository{
     }
 }
 
-public function getById($id)
-{
+public function getById($id){
     try {
         $awareness = PublicAwarenessEducation::find($id);
         if ($awareness) {
@@ -65,9 +64,9 @@ public function getById($id)
         ];
     }
 }
-public function updateAll($request)
-{
+public function updateAll($request){
     try {
+        $return_data = array();
         $awareness_data = PublicAwarenessEducation::find($request->id);
         
         if (!$awareness_data) {
@@ -85,42 +84,14 @@ public function updateAll($request)
         $awareness_data->marathi_title = $request['marathi_title'];
         $awareness_data->english_description = $request['english_description'];
         $awareness_data->marathi_description = $request['marathi_description'];
-        if($request->hasFile('english_image'))
-        {
-            if($previousEnglishImage)
-            {
-                // Delete existing files
-                Storage::delete('public/images/preparedness/awareness-education/' . $previousEnglishImage);
-            }
-            
-            //Store and update new image
-             
-        $englishImageName = time() . '_english.' . $request->english_image->extension(); 
-        $request->english_image->storeAs('public/images/preparedness/awareness-education/', $englishImageName);
-        $awareness_data->english_image = $englishImageName;
-
-        }
-        if($request->hasFile('marathi_image'))
-        {
-            if($previousMarathiImage)
-            {
-                // Delete existing files
-                Storage::delete('public/images/preparedness/awareness-education/' . $previousMarathiImage);
-            }
-            
-            //Store and update new image
-             
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension(); 
-        $request->marathi_image->storeAs('public/images/preparedness/awareness-education/', $marathiImageName);
-        $awareness_data->marathi_image = $marathiImageName;
-
-        }
         $awareness_data->save();        
      
-        return [
-            'msg' => 'Public Awareness Education updated successfully.',
-            'status' => 'success'
-        ];
+        $last_insert_id = $awareness_data->id;
+
+        $return_data['last_insert_id'] = $last_insert_id;
+        $return_data['english_image'] = $previousEnglishImage;
+        $return_data['marathi_image'] = $previousMarathiImage;
+        return  $return_data;
     } catch (\Exception $e) {
         return $e;
         return [
@@ -130,16 +101,12 @@ public function updateAll($request)
     }
 }
 
-public function deleteById($id)
-{
+public function deleteById($id){
     try {
         $awareness = PublicAwarenessEducation::find($id);
         if ($awareness) {
-              // Delete the images from the storage folder
-              Storage::delete([
-                'public/images/preparedness/awareness-education/'.$awareness->english_image,
-                'public/images/preparedness/awareness-education/'.$awareness->marathi_image
-            ]);
+            unlink(storage_path(Config::get('DocumentConstant.PUBLIC_AWARENESS_EDUCATION_DELETE') . $awareness->english_image));
+            unlink(storage_path(Config::get('DocumentConstant.PUBLIC_AWARENESS_EDUCATION_DELETE') . $awareness->marathi_image));
 
             // Delete the record from the database
             

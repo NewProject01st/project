@@ -8,10 +8,10 @@
             <div class="page-header">
                 <h3 class="page-title">
                     Public Awareness And Education
-                    {{-- @if (in_array('per_add', $data_permission))
+                    @if (in_array('per_add', $data_permission))
                         <a href="{{ route('add-public-awareness-and-education') }}" class="btn btn-sm btn-primary ml-3">+
                             Add</a>
-                    @endif --}}
+                    @endif
 
                 </h3>
                 <nav aria-label="breadcrumb">
@@ -51,12 +51,11 @@
                                                         <td>{{ strip_tags($item->marathi_description) }}</td>
 
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/preparedness/awareness-education/' . $item->english_image) }}" />
+                                                                src="{{ Config::get('DocumentConstant.PUBLIC_AWARENESS_EDUCATION_VIEW') }}{{ $item->english_image }}" />
                                                         </td>
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/preparedness/awareness-education/' . $item->marathi_image) }}" />
+                                                                src="{{ Config::get('DocumentConstant.PUBLIC_AWARENESS_EDUCATION_VIEW') }}{{ $item->marathi_image }}" />
                                                         </td>
-
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
