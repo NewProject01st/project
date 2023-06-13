@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Footer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\TweeterFeed;
-use App\Http\Services\Footer\TweeterFeedsServices;
+use App\Http\Services\Footer\TweeterFeedServices;
 use Validator;
 class TweeterFeedsController extends Controller
 {
 
    public function __construct()
     {
-        $this->service = new TweeterFeedsServices();
+        $this->service = new TweeterFeedServices();
     }
     public function index()
     {

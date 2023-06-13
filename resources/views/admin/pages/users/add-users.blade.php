@@ -35,9 +35,9 @@
                             <form class="forms-sample" id="frm_register" name="frm_register" method="post" role="form"
                                 action="{{ route('add-users') }}" enctype="multipart/form-data">
                                 <div class="row">
-                                <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+                                    <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
 
-                                   {{-- <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="u_uname">User Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="u_uname" id="u_uname"
@@ -272,7 +272,7 @@
 
         <script>
             function myFunction(role_id) {
-                alert(role_id);
+                // alert(role_id);
                 $("#data_for_role").empty();
                 $.ajax({
                     url: "{{ route('list-role-wise-permission') }}",

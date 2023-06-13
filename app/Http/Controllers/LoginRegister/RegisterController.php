@@ -124,8 +124,10 @@ class RegisterController extends Controller {
 
         $rules = [
                     'u_email' => 'required',
-                    'u_uname' => 'required',
-                //  'u_password'=>'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[a-zA-Z0-9])(?=.*[^a-zA-Z0-9]).{8}$/',
+                    // 'u_uname' => 'required',
+                    'u_password'=>'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z\d]).{8}$/',
+                    // 'u_password'=>'required',
+                    // 'u_password'=>'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[a-zA-Z0-9])(?=.*[^a-zA-Z0-9]).{8}$/',
                     // 'u_password' => 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
                     'role_id' => 'required',
                     'f_name' => 'required',
@@ -142,9 +144,9 @@ class RegisterController extends Controller {
         $messages = [   
                         'u_email.required' => 'Please enter email.',
                         'u_email.email' => 'Please enter valid email.',
-                        'u_uname.required' => 'Please enter user uname.',
+                        // 'u_uname.required' => 'Please enter user uname.',
                         // 'u_password.required' => 'Please enter password.',
-                        // 'u_password.regex' => 'Please enter 8 digit password with atleast 1 capital letter, 1 small letter and 1 number.',
+                        'u_password.regex' => 'Please enter 8 digit password with atleast 1 capital letter,1 small letter, 1 number and 1 alpha numeric char.',
                         // 'u_password.min' => 'Please combination of number character of 8 char.',
                         'role_id.required' => 'Select role',
                         'f_name.required' => 'Please enter first name.',
@@ -157,7 +159,7 @@ class RegisterController extends Controller {
                         'state.required' => 'Please enter state.',
                         'city.required' =>'Please enter city.',
                         'pincode.required' => 'Please enter pincode.',
-                        'pincode.regex' => 'Please enter only numbers.',
+                        'pincode.regex' => 'Please enter pincode.',
 
                     ];
 

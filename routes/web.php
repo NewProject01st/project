@@ -542,6 +542,16 @@ Route::post('/show-important-link', ['as' => 'show-important-link', 'uses' => 'A
 Route::post('/delete-important-link', ['as' => 'delete-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@destroy']);
 Route::post('/update-one-important-link', ['as' => 'update-one-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@updateOne']);
 
+Route::get('/list-tweeter-feed', ['as' => 'list-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@index']);
+Route::get('/add-tweeter-feed', ['as' => 'add-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@add']);
+Route::post('/add-tweeter-feed', ['as' => 'add-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@store']);
+Route::get('/edit-tweeter-feed', ['as' => 'edit-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@edit']);
+Route::post('/update-tweeter-feed', ['as' => 'update-tweeter-feed','uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@update']);
+Route::post('/show-tweeter-feed', ['as' => 'show-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@show']);
+Route::post('/delete-tweeter-feed', ['as' => 'delete-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@destroy']);
+Route::post('/update-one-tweeter-feed', ['as' => 'update-one-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@updateOne']);
+
+
 //====Header Vacancies=====
 // Route::get('/list-header-vacancies', ['as' => 'list-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@index']);
 // Route::get('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@add']);
