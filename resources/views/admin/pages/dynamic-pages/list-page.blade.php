@@ -15,8 +15,8 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Header</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Sub Main Menu List</li>
+                    <li class="breadcrumb-item"><a href="#">Dynamic Pages</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Dynamic List</li>
                 </ol>
             </nav>
         </div>
@@ -47,9 +47,9 @@
                                                             class="fas fa-pencil-alt"></i></a>
                                                     @endif
 
-                                                    <a data-id="{{ $item['id'] }}"
+                                                    {{-- <a data-id="{{ $item['id'] }}"
                                                         class="show-btn btn btn-sm btn-outline-primary m-1"><i
-                                                            class="fas fa-eye"></i></a>
+                                                            class="fas fa-eye"></i></a> --}}
                                                 </td>
                                             </tr>
                                             @endforeach

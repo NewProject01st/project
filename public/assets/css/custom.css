@@ -1249,3 +1249,6 @@ button.btn.btn-outline-warning.btn-fw {  display: block;   width: 100%;   margin
   .slider.round:before {
     border-radius: 50%;
   }
+  .emergancy-contact p {
+    color: #fff !important;
+  }

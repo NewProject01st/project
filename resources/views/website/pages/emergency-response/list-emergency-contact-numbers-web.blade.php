@@ -24,7 +24,6 @@
                                 <div class="deprt-txt">
                                     @if (session('language') == 'mar')
                                         <h3><?php echo $item['marathi_title']; ?> : </h3>
-                                        <h3><?php echo $item['marathi_title']; ?> : </h3>
                                         <img src="{{ asset('storage/images/emergency-response/emergency-contact-numbers/' . $item['marathi_image']) }}"
                                             class="d-block w-100" alt="...">
                                         <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>

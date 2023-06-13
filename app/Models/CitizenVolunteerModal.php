@@ -10,6 +10,6 @@ class CitizenVolunteerModal extends Model
     use HasFactory;
     protected $table = 'citizen_volunteer_modals';
     protected $primaryKey = 'id';
-    protected $fillable = ['volunteer', 'location', 'datetime', 'mobile_number', 'media_upload','description'];
+    protected $fillable = ['incident', 'location', 'datetime', 'mobile_number', 'media_upload','description'];
 
 }

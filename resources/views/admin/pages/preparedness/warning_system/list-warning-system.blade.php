@@ -50,10 +50,10 @@
                                                         <td>{{ strip_tags($item->english_description) }}</td>
                                                         <td>{{ strip_tags($item->marathi_description) }}</td>
 
-                                                        <td> <img
+                                                        <td> <img class="img-size"
                                                                 src="{{ asset('storage/images/preparedness/early-warning/' . $item->english_image) }}" />
                                                         </td>
-                                                        <td> <img
+                                                        <td> <img class="img-size"
                                                                 src="{{ asset('storage/images/preparedness/early-warning/' . $item->marathi_image) }}" />
                                                         </td>
 
@@ -61,17 +61,16 @@
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
-                                                                        class="edit-btn btn btn-sm btn-outline-primary m-1"><i
-                                                                            class="fas fa-pencil-alt"></i></a>
+                                                                        class="edit-btn btn btn-sm btn-outline-primary m-1"
+                                                                        title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                                                 @endif
                                                                 <a data-id="{{ $item->id }}"
-                                                                    class="show-btn btn btn-sm btn-outline-primary m-1"><i
-                                                                        class="fas fa-eye"></i></a>
+                                                                    class="show-btn btn btn-sm btn-outline-primary m-1"
+                                                                    title="Show"><i class="fas fa-eye"></i></a>
                                                                 @if (in_array('per_delete', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
                                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                                        title="Delete Early Warning System"><i
-                                                                            class="fas fa-archive"></i></a>
+                                                                        title="Delete"><i class="fas fa-archive"></i></a>
                                                                 @endif
                                                             </div>
                                                         </td>

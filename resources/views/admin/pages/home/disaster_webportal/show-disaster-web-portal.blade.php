@@ -29,7 +29,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Name English :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($disaster_web_portal->english_name) }}</label>
                                         </div>
                                     </div>
@@ -37,7 +37,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Name Marathi :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($disaster_web_portal->marathi_name) }}</label>
                                         </div>
                                     </div>
@@ -45,7 +45,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Title English :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($disaster_web_portal->english_title) }}</label>
                                         </div>
                                     </div>
@@ -53,7 +53,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Title Marathi :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($disaster_web_portal->marathi_title) }}</label>
                                         </div>
                                     </div>
@@ -61,7 +61,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Description English :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($disaster_web_portal->english_description) }}</label>
                                         </div>
                                     </div>
@@ -69,7 +69,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Description Marathi :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($disaster_web_portal->marathi_description) }}</label>
                                         </div>
                                     </div>
@@ -77,7 +77,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Designation English :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($disaster_web_portal->english_designation) }}</label>
                                         </div>
                                     </div>
@@ -85,17 +85,17 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Designation Marathi :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($disaster_web_portal->marathi_designation) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label> English Image :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <img src="{{ asset('storage/images/disaster-webportal/' . $disaster_web_portal->english_image) }}"
-                                                style="width:70px; height:70px;" />
+                                                style="width:150px; height:150px;" />
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -104,7 +104,7 @@
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
                                             <img src="{{ asset('storage/images/disaster-webportal/' . $disaster_web_portal->marathi_image) }}"
-                                                style="width:70px; height:70px;" />
+                                                style="width:150px; height:150px;" />
                                         </div>
                                     </div>
 

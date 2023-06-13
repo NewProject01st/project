@@ -136,6 +136,7 @@ class RegisterController extends Controller {
                     'number' => 'regex:/^\d{10}$/',
                     'designation' => 'required',
                     'address' => 'required',
+                    
                     'state' => 'required',
                     'city' => 'required',
                     'pincode' => 'regex:/^[0-9]+$/'

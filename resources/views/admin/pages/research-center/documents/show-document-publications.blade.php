@@ -30,39 +30,39 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>Title English :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $documents_publications->english_title ?></label>
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <label>{{ strip_tags($documents_publications->english_title) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>Title Marathi :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $documents_publications->marathi_title ?></label>
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <label>{{ strip_tags($documents_publications->marathi_title) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>Description English :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $documents_publications->english_description; ?></label>
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <label>{{ strip_tags($documents_publications->english_description) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>Description Marathi :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $documents_publications->marathi_description; ?></label>
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <label>{{ strip_tags($documents_publications->marathi_description) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>English Pdf :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
                                         <a href="{{ asset('/storage/pdf/research-center/documents' . $documents_publications->english_pdf) }}"
                                             target="_blank"><img
                                                 src="public/storage/pdf/research-center/documents/pdf.png" width="50px"
@@ -73,7 +73,7 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>Marathi Pdf :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
                                         <a href="{{ asset('/storage/pdf/research-center/documents' . $documents_publications->marathi_pdf) }}"
                                             target="_blank"><img
                                                 src="public/storage/pdf/research-center/documents/pdf.png" width="50px"

@@ -4280,6 +4280,9 @@ ul.check-list i {
 	background: #222;
 	color: #fff;
 }
+.deprt-txt ul{
+	text-align: justify !important;
+}
 .deprt-txt h3 {
 	font-weight: 700;
 	line-height: 46px;

@@ -255,6 +255,24 @@ class RegisterRepository  {
 		return "ok";
 	}
 
+	public function getById($id){
+		try {
+			$user = User::find($id);
+			// $user = User::join('roles', 'roles.id','=', 'users.role_id')
+			// ->get();
+			// return $user;
 
+			if ($user) {
+				return $user;
+			} else {
+				return null;
+			}
+		} catch (\Exception $e) {
+			return [
+				'msg' => $e,
+				'status' => 'error'
+			];
+		}
+	}
 
 }

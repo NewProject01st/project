@@ -7,7 +7,7 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Report a Incident
+                    Report an Incident
                     {{-- @if (in_array('per_add', $data_permission))
                 <a href="{{ route('add-incident-model-info') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
@@ -17,7 +17,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Citizen Action</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Report a Incident: Modal Information</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Report an Incident: Modal Information</li>
                     </ol>
                 </nav>
             </div>
@@ -32,7 +32,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
-                                                    <th>Incident</th>
+                                                    <th>Incident Type</th>
                                                     <th>Location</th>
                                                     <th>Datetime</th>
                                                     <th>Mobile Number</th>
@@ -45,12 +45,12 @@
                                                 @foreach ($modal_data as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $item->incident }}</td>
+                                                        <td>{{ $item->english_title}}</td>
                                                         <td>{{ $item->location }}</td>
                                                         <td>{{ $item->datetime }}</td>
                                                         <td>{{ $item->mobile_number }}</td>
                                                         <td>{{ strip_tags($item->description) }}</td>
-                                                        <td> <img
+                                                        <td> <img class="img-size"
                                                                 src="{{ asset('storage/images/citizen-action/modal/incident-modal/' . $item->media_upload) }}" />
                                                         </td>
 

@@ -15,7 +15,7 @@ class CreateCitizenFeedbackSuggestionModalsTable extends Migration
     {
         Schema::create('citizen_feedback_suggestion_modals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('feedback');
+            $table->string('incident');
             $table->string('location');
             $table->string('datetime');
             $table->string('mobile_number');

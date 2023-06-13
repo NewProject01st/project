@@ -29,16 +29,16 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Title English :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $training_workshop->english_title; ?></label>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label>{{ strip_tags($training_workshop->english_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Title Marathi :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $training_workshop->marathi_title; ?></label>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label>{{ strip_tags($training_workshop->marathi_title) }}</label>
                                         </div>
                                     </div>
 
@@ -46,7 +46,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>English Pdf :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <a href="{{ asset('/storage/pdf/research-center/training' . $training_workshop->english_pdf) }}"
                                                 target="_blank"><img src="public/storage/pdf/pdf.png" width="50px"
                                                     height="50px"></a>
@@ -56,7 +56,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Marathi Pdf :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
                                             <a href="{{ asset('/storage/pdf/research-center/training' . $training_workshop->marathi_pdf) }}"
                                                 target="_blank"><img src="public/storage/pdf/pdf.png" width="50px"
                                                     height="50px"></a>

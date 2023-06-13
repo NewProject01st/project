@@ -10,6 +10,6 @@ class CitizenFeedbackSuggestionModal extends Model
     use HasFactory;
     protected $table = 'citizen_feedback_suggestion_modals';
     protected $primaryKey = 'id';
-    protected $fillable = ['feedback', 'location', 'datetime', 'mobile_number', 'media_upload','description'];
+    protected $fillable = ['incident', 'location', 'datetime', 'mobile_number', 'media_upload','description'];
 
 }

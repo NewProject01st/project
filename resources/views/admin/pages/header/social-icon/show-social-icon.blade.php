@@ -31,7 +31,7 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <img src="{{ asset('storage/images/header/social-icon/' . $social_icon->icon) }}"
-                                            style="width:70px; height:70px;" />
+                                            style="width:300px; height:150px;" />
                                     </div>
                                 </div>
                              </div>

@@ -269,9 +269,9 @@
                                 @else
                                     <div class="panel">
                                         <div class="panel-heading" role="tab" id="heading{{ $index }}">
-                                            <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                            <h6 class="emergancy-contact"> <a role="button" data-toggle="collapse" data-parent="#accordion"
                                                     href="#collapse{{ $index }}" aria-expanded="true"
-                                                    aria-controls="collapse{{ $index }}"> <?php echo $item['english_title']; ?> </a>
+                                                    aria-controls="collapse{{ $index }}">{{ strip_tags($item['english_title'])}} </a>
                                             </h6>
                                         </div>
                                         <div id="collapse{{ $index }}" class="panel-collapse collapse"
@@ -279,7 +279,7 @@
                                             <div class="panel-body">
                                                 <ul>
                                                     <li> <i class="fas fa-user-tie"></i> <?php echo $item['english_name']; ?> </li>
-                                                    <li> <i class="fas fa-building"></i> <?php echo $item['english_address']; ?> </li>
+                                                    <li> <i class="fas fa-building"></i> {{ strip_tags($item['english_address'])}}</li>
                                                     <li> <i class="fas fa-phone"></i> <?php echo $item['english_number']; ?></li>
                                                     <li> <i class="fas fa-fax"></i> <?php echo $item['english_landline_no']; ?> </li>
                                                     <li> <i class="fas fa-envelope"></i> <?php echo $item['email']; ?></li>

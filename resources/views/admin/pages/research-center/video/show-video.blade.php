@@ -28,7 +28,7 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>English Name :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
                                         <label><?php echo $video->video_name ?></label>
                                     </div>
                                 </div>

@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-9">
                             <!--Department Details Txt Start-->
-                            @forelse ($data_output as $item)
+                            @forelse ($data_output_new as $item)
                                 <div class="deprt-txt">
                                     @if (session('language') == 'mar')
                                         <h3><?php echo $item['marathi_title']; ?> </h3>
@@ -38,17 +38,17 @@
                                 <h4>No Data Found For Report Incident Crowdsourcing</h4>
                             @endforelse
                             <!--Department Details Txt End-->
+                             <!-- Button trigger modal -->
+                             <div class="d-flex justify-content-center">
+                                <button type="button" class="btn modal-btn-color" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    Report an Incident
+                                </button>
+                            </div>
                         </div>
                         <!--Sidebar Start-->
                         <div class="col-md-3">
                             <div class="sidebar">
-                                <!-- Button trigger modal -->
-                                <div class="pb-3">
-                                    <button type="button" class="btn modal-btn-color" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        Report an Incident
-                                    </button>
-                                </div>
                                 <!--Widget Start-->
                                 @include('website.pages.training-event.upcoming-events')
                                 <!--Widget End-->
@@ -80,26 +80,19 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label class="col-form-label modal_lable">Incident Type:</label>
-                                        <select class="form-control" name="incident" id="incident">
-                                            <option value="">Select Incident Type</option>
-                                            <option value="fires">fires</option>
-                                            <option value="crimes">crimes</option>
-                                            <option value="natural">natural</option>
-                                            <option value="disasters">disasters</option>
-                                        </select>
-                                        {{-- <select class="form-control" id="incident" name="incident">
+                                        <select class="form-control" id="incident" name="incident">
                                             <option>Select</option>
-                                            @foreach ($roles as $role)
-                                                @if (old('incident') == $role['id'])
-                                                    <option value="{{ $role['id'] }}" selected>
-                                                        {{ $role['english_title'] }}</option>
+                                            @foreach ($data_output_incident as $incidenttype)
+                                                @if (session('language') == 'mar')
+
+                                                    <option value="{{ $incidenttype['id'] }}" selected>
+                                                        {{ $incidenttype['marathi_title'] }}</option>
                                                 @else
-                                                    <option value="{{ $role['id'] }}">{{ $role['english_title'] }}
+                                                    <option value="{{ $incidenttype['id'] }}">{{ $incidenttype['english_title'] }}
                                                     </option>
                                                 @endif
                                             @endforeach
-                                        </select> --}}
-
+                                        </select>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label class="col-form-label modal_lable">Location:</label>

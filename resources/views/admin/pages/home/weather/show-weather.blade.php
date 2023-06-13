@@ -78,7 +78,7 @@
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <img src="{{ asset('storage/images/home/weather/' . $weather->english_image) }}"
-                                                style="width:150px; height:150px;" />
+                                            style="width:300px; height:150px;" />
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -87,7 +87,7 @@
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                             <img src="{{ asset('storage/images/home/weather/' . $weather->marathi_image) }}"
-                                                style="width:150px; height:150px;" />
+                                            style="width:300px; height:150px;"/>
                                         </div>
                                     </div>
                                 

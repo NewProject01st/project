@@ -112,12 +112,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="Container video_cont">
-                            <h3 class="Head"><span class="Arrows"></span></h3>
-                            <!-- Carousel Container -->
                             <div class="SlickCarousel">
                                 <!-- Item -->
-
-
                                 @foreach ($data_getallvideo as $item)
                                     @if (session('language') == 'mar')
                                         <div class="ProductBlock">
@@ -143,129 +139,70 @@
                                         </div>
                                     @endif
                                 @endforeach
-
-
-
                             </div>
-                            <!-- Carousel Container -->
                         </div>
-
-
-                        <!--Video End-->
-                        <section class="">
-                            <div class="container photo_g">
-                                <div class="row">
-                                    <h3 class="stitle text-center d-flex justify-content-start pt-4">Gallery</h3>
-                                    <div class="col-12">
-                                        <a href="javascript:void(0)" onclick="myFunction('')">
-                                            <input type="radio" name="filter" id="all" checked><label
-                                                for="all">All</label>
-                                        </a>
-
-                                        @forelse($categories as $categories_data)
-                                            @if (session('language') == 'mar')
-                                                <a href="javascript:void(0)"
-                                                    onclick="myFunction('{{ $categories_data['id'] }}')">
-                                                    <input type="radio" name="filter"
-                                                        id="category_{{ $categories_data['id'] }}"><label
-                                                        for="animals">{{ $categories_data['marathi_name'] }}</label>
-                                                </a>
-                                            @else
-                                                <a href="javascript:void(0)"
-                                                    onclick="myFunction('{{ $categories_data['id'] }}')">
-                                                    <input type="radio" name="filter"
-                                                        id="category_{{ $categories_data['id'] }}"><label
-                                                        for="animals">{{ $categories_data['english_name'] }}</label>
-                                                </a>
-                                            @endif
-                                        @empty
-                                            No Categries found
-                                        @endforelse
-                                        <div class="gallery">
-                                            <div id="gallary_data">
-                                                @forelse ($gallery_data as $item)
-                                                    <div class="col-md-4 nature">
-                                                        <figure class="card animals">
-                                                            @if (session('language') == 'mar')
-                                                                <img class="card__image toZoom" loading="lazy"
-                                                                    src="{{ $item['marathi_image'] }}"
-                                                                    class="d-block w-100 img-fluid" alt="...">
-                                                                <!-- The Modal -->
-                                                                <div class="idMyModal modal">
-                                                                    <span class="close">&times;</span>
-                                                                    <img class="modal-content">
-                                                                </div>
-                                                            @else
-                                                                <img class="card__image toZoom" loading="lazy"
-                                                                    src="{{ $item['english_image'] }}"
-                                                                    class="d-block w-100 img-fluid" alt="...">
-
-                                                                <!-- The Modal -->
-                                                                <div class="idMyModal modal">
-                                                                    <span class="close">&times;</span>
-                                                                    <img class="modal-content">
-                                                                </div>
-                                                            @endif
-                                                        </figure>
-                                                    </div>
-                                                @empty
-                                                    No Categries found
-                                                @endforelse
-                                            </div>
-                                        </div>
-                                        {{--
-                        <meta name="viewport" content="width=device-width">
-                        <input type="radio" name="filter" id="all" checked><label for="all">All</label>
-                        <input type="radio" name="filter" id="animals"><label for="animals">Disaster</label>
-                        <input type="radio" name="filter" id="nature"><label for="nature">Preparedness</label>
-                        <input type="radio" name="filter" id="people"><label for="people">Emergency</label>
-                        <input type="radio" name="filter" id="tech"><label for="tech">Citizen</label>
-                        <div class="gallery">
-                            <figure class="card animals">
-                                <img class="card__image toZoom" loading="lazy"
-                                    src="{{ asset('storage/images/slides/slide1_english.jpeg/') }}" alt="">
-                                <!-- The Modal -->
-                                <div class="idMyModal modal">
-                                    <span class="close">&times;</span>
-                                    <img class="modal-content">
-                                </div>
-                            </figure>
-                            <figure class="card nature">
-                                <img class="card__image toZoom" loading="lazy"
-                                    src="{{ asset('storage/images/slides/slide1_english.jpeg/') }}" alt="">
-                                <!-- The Modal -->
-                                <div class="idMyModal modal">
-                                    <span class="close">&times;</span>
-                                    <img class="modal-content">
-                                </div>
-                            </figure>
-                            <figure class="card people">
-                                <img class="card__image toZoom" loading="lazy"
-                                    src="{{ asset('storage/images/slides/slide2_english.jpeg/') }}" alt="">
-                                <!-- The Modal -->
-                                <div class="idMyModal modal">
-                                    <span class="close">&times;</span>
-                                    <img class="modal-content">
-                                </div>
-                            </figure>
-                            <figure class="card tech">
-                                <img class="card__image toZoom" loading="lazy"
-                                    src="{{ asset('storage/images/slides/slide3_english.jpeg/') }}" alt="">
-                                <!-- The Modal -->
-                                <div class="idMyModal modal">
-                                    <span class="close">&times;</span>
-                                    <img class="modal-content">
-                                </div>
-                            </figure>
-                        </div>
-                        --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
                     </div>
                 </div>
             </div>
+        </section>
+        <!--Video End-->
+        <section class="">
+            <div class="container photo_g">
+                <div class="row">
+                    <h3 class="stitle text-center d-flex justify-content-start pt-4">Gallery</h3>
+                    <div class="col-12">
+                        <a href="javascript:void(0)" onclick="myFunction('')">
+                            <input type="radio" name="filter" id="all" checked><label for="all">All</label>
+                        </a>
+
+                        @forelse($categories as $categories_data)
+                            @if (session('language') == 'mar')
+                                <a href="javascript:void(0)" onclick="myFunction('{{ $categories_data['id'] }}')">
+                                    <input type="radio" name="filter" id="category_{{ $categories_data['id'] }}"><label
+                                        for="animals">{{ $categories_data['marathi_name'] }}</label>
+                                </a>
+                            @else
+                                <a href="javascript:void(0)" onclick="myFunction('{{ $categories_data['id'] }}')">
+                                    <input type="radio" name="filter" id="category_{{ $categories_data['id'] }}"><label
+                                        for="animals">{{ $categories_data['english_name'] }}</label>
+                                </a>
+                            @endif
+                        @empty
+                            No Categries found
+                        @endforelse
+                        <div class="gallery">
+                            <div id="gallary_data">
+                                @forelse ($gallery_data as $item)
+                                    <div class="col-md-4 nature">
+                                        <figure class="card animals">
+                                            @if (session('language') == 'mar')
+                                                <img class="card__image toZoom" loading="lazy"
+                                                    src="{{ $item['marathi_image'] }}" class="d-block w-100 img-fluid"
+                                                    alt="...">
+                                                <!-- The Modal -->
+                                                <div class="idMyModal modal">
+                                                    <span class="close">&times;</span>
+                                                    <img class="modal-content">
+                                                </div>
+                                            @else
+                                                <img class="card__image toZoom" loading="lazy"
+                                                    src="{{ $item['english_image'] }}" class="d-block w-100 img-fluid"
+                                                    alt="...">
+                                                <!-- The Modal -->
+                                                <div class="idMyModal modal">
+                                                    <span class="close">&times;</span>
+                                                    <img class="modal-content">
+                                                </div>
+                                            @endif
+                                        @empty
+                                            No Categries found
+                                @endforelse
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
     <script>
         function myFunction(category_id) {

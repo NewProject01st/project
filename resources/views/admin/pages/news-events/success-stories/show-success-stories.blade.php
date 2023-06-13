@@ -29,32 +29,32 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>Title English :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $success_stories->english_title ?></label>
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <label>{{ strip_tags($success_stories->english_title) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>Title Marathi :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $success_stories->marathi_title ?></label>
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <label>{{ strip_tags($success_stories->marathi_title) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>Description English :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $success_stories->english_description ?></label>
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <label>{{ strip_tags($success_stories->english_description) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>Description Marathi :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $success_stories->marathi_description ?></label>
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <label>{{ strip_tags($success_stories->marathi_description) }}</label>
                                     </div>
                                 </div>
 
@@ -63,34 +63,34 @@
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label>English Designation :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $success_stories->english_designation ?></label>
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <label>{{ strip_tags($success_stories->english_designation) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label> Marathi Designation :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
-                                        <label><?php echo $success_stories->marathi_designation ?></label>
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
+                                        <label>{{ strip_tags($success_stories->marathi_designation) }}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
-                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label> English Image :</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="col-lg-8 col-md-8 col-sm-8">
                                         <img src="{{ asset('storage/images/news-events/success-stories/' . $success_stories->english_image) }}"
-                                            style="width:70px; height:70px;" />
+                                            style="width:150px; height:150px;" />
                                     </div>
                                 </div>
                                 <div class="row ">
-                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label> Marathi Image:</label>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
+                                    <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                         <img src="{{ asset('storage/images/news-events/success-stories/' . $success_stories->marathi_image) }}"
-                                            style="width:70px; height:70px;" />
+                                            style="width:150px; height:150px;" />
                                     </div>
                                 </div>
 

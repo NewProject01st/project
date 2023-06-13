@@ -7,7 +7,7 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Report a Incident: Crowdsourcing
+                    Report an Incident: Crowdsourcing
                     @if (in_array('per_add', $data_permission))
                         <a href="{{ route('add-report-crowdsourcing') }}" class="btn btn-sm btn-primary ml-3">+
                             Add</a>
@@ -17,7 +17,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Citizen Action</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Report a Incident: Crowdsourcing</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Report an Incident: Crowdsourcing</li>
                     </ol>
                 </nav>
             </div>
@@ -50,10 +50,10 @@
                                                         <td>{{ strip_tags($item->english_description) }}</td>
                                                         <td>{{ strip_tags($item->marathi_description) }}</td>
 
-                                                        <td> <img
+                                                        <td> <img class="img-size"
                                                                 src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $item->english_image) }}" />
                                                         </td>
-                                                        <td> <img
+                                                        <td> <img class="img-size"
                                                                 src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $item->marathi_image) }}" />
                                                         </td>
 

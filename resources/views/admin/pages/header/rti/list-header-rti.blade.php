@@ -48,7 +48,7 @@
                                                         <td><?php echo $item->marathi_title; ?></td>
                                                         <td>{{ $item->url }}</td>
                                                         <td> <a href="{{ asset('/storage/pdf/header/rti/' . $item['english_pdf']) }}"
-                                                                target="_blank"><img
+                                                                target="_blank"><img 
                                                                     src="{{ asset('storage/pdf/pdf.png/') }}" width="35px"
                                                                     height="35px"></a></td>
                                                         <td> <a href="{{ asset('/storage/pdf/header/rti/' . $item['marathi_pdf']) }}"
