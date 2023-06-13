@@ -48,7 +48,7 @@
                     @foreach ($data_output_slider as $slider)
                         @if (session('language') == 'mar')
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
-                                <img src="{{ asset('storage/images/home/slides/' . $slider['marathi_image']) }}"
+                                <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW')}}{{ $slider['marathi_image'] }}"
                                     class="d-block w-100" alt="{{ $slider['marathi_title'] }}">
                                 <div class="carousel-caption">
                                     <h1><?php echo $slider['marathi_title']; ?></h1>
@@ -59,7 +59,7 @@
                             </div>
                         @elseif (array_key_exists('english_title', $slider))
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
-                                <img src="{{ asset('storage/images/home/slides/' . $slider['english_image']) }}"
+                                <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW')}}{{ $slider['english_image'] }}"
                                     class="d-block w-100" alt="{{ $slider['english_title'] }}">
                                 <div class="carousel-caption">
                                     <h1><?php echo $slider['english_title']; ?></h1>

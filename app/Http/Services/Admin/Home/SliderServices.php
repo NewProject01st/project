@@ -35,7 +35,6 @@ class SliderServices
         try {
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.SLIDER_ADD');
-            //"\all_web_data\images\home\slides\\"."\\";
             $englishImageName = $last_id . '_english.' . $request->english_image->extension();
             $marathiImageName = $last_id . '_marathi.' . $request->marathi_image->extension();
             uploadImage($request, 'english_image', $path, $englishImageName);
@@ -75,8 +74,9 @@ class SliderServices
     
                 $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
-               
-    
+                $slide_data = Slider::find($return_data['last_insert_id']);
+                $slide_data->english_image = $englishImageName;
+                $slide_data->save();
             }
     
             if ($request->hasFile('marathi_image')) {
@@ -86,14 +86,11 @@ class SliderServices
     
                 $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
+                $slide_data = Slider::find($return_data['last_insert_id']);
+                $slide_data->marathi_image = $marathiImageName;
+                $slide_data->save();
             }
-
-
-            $slide_data = Slider::find($return_data['last_insert_id']);
-            $slide_data->marathi_image = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
-            $slide_data->english_image = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
-            $slide_data->save();
-
+            
             if ($return_data) {
                 return ['status' => 'success', 'msg' => 'Slide Updated Successfully.'];
             } else {

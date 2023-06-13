@@ -8,6 +8,7 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	StateDisasterManagementAuthority
 };
+use Config;
 
 class StateDisasterManagementAuthorityRepository  {
 	public function getAll()
@@ -19,136 +20,105 @@ class StateDisasterManagementAuthorityRepository  {
         }
     }
 
-	public function addAll($request)
-{
-    try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/aboutus/state-disaster-management-authority', $englishImageName);
-        $request->marathi_image->storeAs('public/images/aboutus/state-disaster-management-authority', $marathiImageName);
+	public function addAll($request) {
+        try {
+            $statedisastermanagementauthority_data = new StateDisasterManagementAuthority();
+            $statedisastermanagementauthority_data->english_title = $request['english_title'];
+            $statedisastermanagementauthority_data->marathi_title = $request['marathi_title'];
+            $statedisastermanagementauthority_data->english_description = $request['english_description'];
+            $statedisastermanagementauthority_data->marathi_description = $request['marathi_description'];
+            $statedisastermanagementauthority_data->save(); 
+            
+            $last_insert_id = $statedisastermanagementauthority_data->id;
 
-        $statedisastermanagementauthority_data = new StateDisasterManagementAuthority();
-        $statedisastermanagementauthority_data->english_title = $request['english_title'];
-        $statedisastermanagementauthority_data->marathi_title = $request['marathi_title'];
-        $statedisastermanagementauthority_data->english_description = $request['english_description'];
-        $statedisastermanagementauthority_data->marathi_description = $request['marathi_description'];
-        $statedisastermanagementauthority_data->english_image = $englishImageName; // Save the image filename to the database
-        $statedisastermanagementauthority_data->marathi_image = $marathiImageName; // Save the image filename to the database
-        $statedisastermanagementauthority_data->save();       
-     
-        return $statedisastermanagementauthority_data;
-    } catch (\Exception $e) {
-        return [
-            'msg' => $e,
-            'status' => 'error'
-        ];
-    }
-}
-
-public function getById($id)
-{
-    try {
-        $statedisastermanagementauthority = StateDisasterManagementAuthority::find($id);
-        if ($statedisastermanagementauthority) {
-            return $statedisastermanagementauthority;
-        } else {
-            return null;
-        }
-    } catch (\Exception $e) {
-        return $e;
-		return [
-            'msg' => 'Failed to get by id Organization Chart.',
-            'status' => 'error'
-        ];
-    }
-}
-public function updateAll($request)
-{
-   
-    try {
-        $statedisastermanagementauthority_data = StateDisasterManagementAuthority::find($request->id);
+            $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+            $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+            
+            $statedisaster_mgt_authority_data_update = StateDisasterManagementAuthority::find($last_insert_id); // Assuming $request directly contains the ID
+            $statedisaster_mgt_authority_data_update->english_image = $englishImageName; // Save the image filename to the database
+            $statedisaster_mgt_authority_data_update->marathi_image = $marathiImageName; // Save the image filename to the database
+            $statedisaster_mgt_authority_data_update->save();
         
-        if (!$statedisastermanagementauthority_data) {
+            return $last_insert_id;
+        } catch (\Exception $e) {
             return [
-                'msg' => 'State Disaster Management Authority not found.',
+                'msg' => $e,
                 'status' => 'error'
             ];
         }
-        
-        //Store the previous image name
-        $previousEnglishImage = $statedisastermanagementauthority_data->english_image;
-        $previousMarathiImage = $statedisastermanagementauthority_data->marathi_image;
-
-        //Update the fields from request
-        $statedisastermanagementauthority_data = StateDisasterManagementAuthority::find($request->id);
-        $statedisastermanagementauthority_data->english_title = $request['english_title'];
-        $statedisastermanagementauthority_data->marathi_title = $request['marathi_title'];
-        $statedisastermanagementauthority_data->english_description = $request['english_description'];
-        $statedisastermanagementauthority_data->marathi_description = $request['marathi_description'];
-       if($request->hasFile('english_image'))
-       {
-          if($previousEnglishImage)
-          {
-                // Delete existing files
-                Storage::delete('public/images/aboutus/state-disaster-management-authority/' . $previousEnglishImage);
-          }
-          $englishImageName = time() . '_english.' . $request->english_image->extension();
-          $request->english_image->storeAs('public/images/aboutus/state-disaster-management-authority/', $englishImageName);
-          $statedisastermanagementauthority_data->english_image = $englishImageName; // Save the image filename to the database
-
-
-       }
-       if($request->hasFile('marathi_image'))
-       {
-          if($previousMarathiImage)
-          {
-                // Delete existing files
-                Storage::delete('public/images/aboutus/state-disaster-management-authority/' . $previousMarathiImage);
-          }
-          $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-          $request->marathi_image->storeAs('public/images/aboutus/state-disaster-management-authority/', $marathiImageName);
-          $statedisastermanagementauthority_data->marathi_image = $marathiImageName; // Save the image filename to the database
-
-
-       }
-        $statedisastermanagementauthority_data->save();       
-     
-        return [
-            'msg' => 'State Disaster Management Authority updated successfully.',
-            'status' => 'success'
-        ];
-    } catch (\Exception $e) {
-        return $e;
-        return [
-            'msg' => 'Failed to update Organization Chart.',
-            'status' => 'error'
-        ];
     }
-}
 
-public function deleteById($id)
-{
-    try {
-        $statedisastermanagementauthority = StateDisasterManagementAuthority::find($id);
-        if ($statedisastermanagementauthority) {
-            // Delete the images from the storage folder
-            Storage::delete([
-                'public/images/aboutus/'.$statedisastermanagementauthority->english_image,
-                'public/images/aboutus/'.$statedisastermanagementauthority->marathi_image
-            ]);
-
-            // Delete the record from the database
-            $statedisastermanagementauthority->delete();
-            
-            return $statedisastermanagementauthority;
-        } else {
-            return null;
+    public function getById($id) {
+        try {
+            $statedisastermanagementauthority = StateDisasterManagementAuthority::find($id);
+            if ($statedisastermanagementauthority) {
+                return $statedisastermanagementauthority;
+            } else {
+                return null;
+            }
+        } catch (\Exception $e) {
+            return $e;
+            return [
+                'msg' => 'Failed to get by id Organization Chart.',
+                'status' => 'error'
+            ];
         }
-    } catch (\Exception $e) {
-        return $e;
     }
-}
+    public function updateAll($request) {
+    
+        try {
+            $statedisastermanagementauthority_data = StateDisasterManagementAuthority::find($request->id);
+            
+            if (!$statedisastermanagementauthority_data) {
+                return [
+                    'msg' => 'State Disaster Management Authority not found.',
+                    'status' => 'error'
+                ];
+            }
+            
+            //Store the previous image name
+            $previousEnglishImage = $statedisastermanagementauthority_data->english_image;
+            $previousMarathiImage = $statedisastermanagementauthority_data->marathi_image;
+
+            //Update the fields from request
+            $statedisastermanagementauthority_data = StateDisasterManagementAuthority::find($request->id);
+            $statedisastermanagementauthority_data->english_title = $request['english_title'];
+            $statedisastermanagementauthority_data->marathi_title = $request['marathi_title'];
+            $statedisastermanagementauthority_data->english_description = $request['english_description'];
+            $statedisastermanagementauthority_data->marathi_description = $request['marathi_description'];
+        
+            $statedisastermanagementauthority_data->save();       
+            $last_insert_id = $statedisastermanagementauthority_data->id;
+            $return_data['last_insert_id'] = $last_insert_id;
+            $return_data['english_image'] = $previousEnglishImage;
+            $return_data['marathi_image'] = $previousMarathiImage;
+            return  $return_data;
+        } catch (\Exception $e) {
+            return $e;
+            return [
+                'msg' => 'Failed to update Organization Chart.',
+                'status' => 'error'
+            ];
+        }
+    }
+
+    public function deleteById($id) {
+        try {
+            $statedisastermanagementauthority = StateDisasterManagementAuthority::find($id);
+            if ($statedisastermanagementauthority) {
+                unlink(storage_path(Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_DELETE') . $statedisastermanagementauthority->english_image));
+                unlink(storage_path(Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_DELETE') . $statedisastermanagementauthority->marathi_image));
+                // Delete the record from the database
+                $statedisastermanagementauthority->delete();
+                
+                return $statedisastermanagementauthority;
+            } else {
+                return null;
+            }
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
 
 
 }

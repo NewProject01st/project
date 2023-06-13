@@ -85,7 +85,7 @@
                                         @endif
                                     </div>
                                     <img id="english"
-                                        src="{{ asset('storage/images/aboutus/disaster-management-portal/' . $disastermanagementportal->english_image) }}"
+                                        src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW')}}{{$disastermanagementportal->english_image }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="english_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">
@@ -101,7 +101,7 @@
                                         @endif
                                     </div>
                                     <img id="marathi"
-                                        src="{{ asset('storage/images/aboutus/disaster-management-portal/' . $disastermanagementportal->marathi_image) }}"
+                                        src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW')}}{{$disastermanagementportal->marathi_image }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="marathi_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">

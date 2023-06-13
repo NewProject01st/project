@@ -21,20 +21,26 @@ class DisasterManagementPortalRepository  {
 	public function addAll($request)
 {
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/disaster-management-portal', $englishImageName);
-        $request->marathi_image->storeAs('public/images/disaster-management-portal', $marathiImageName);
+       
 
         $statedisastermanagementauthority_data = new DisasterManagementPortal();
         $statedisastermanagementauthority_data->english_title = $request['english_title'];
         $statedisastermanagementauthority_data->marathi_title = $request['marathi_title'];
-        $statedisastermanagementauthority_data->english_image = $englishImageName; // Save the image filename to the database
-        $statedisastermanagementauthority_data->marathi_image = $marathiImageName; // Save the image filename to the database
-        $statedisastermanagementauthority_data->save();       
+        $statedisastermanagementauthority_data->save();    
+        
+        
+        $last_insert_id = $statedisastermanagementauthority_data->id;
+
+        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        
+        $statedisastermanagement_portal_data = DisasterManagementPortal::find($last_insert_id); // Assuming $request directly contains the ID
+        $statedisastermanagement_portal_data->english_image = $englishImageName; // Save the image filename to the database
+        $statedisastermanagement_portal_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        $statedisastermanagement_portal_data->save();
+        
+        return $last_insert_id;
      
-        return $statedisastermanagementauthority_data;
     } catch (\Exception $e) {
         return [
             'msg' => $e,

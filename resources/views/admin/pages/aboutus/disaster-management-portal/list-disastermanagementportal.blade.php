@@ -53,10 +53,10 @@
                                                          <td>{{ strip_tags($item->english_description) }}</td>
                                                          <td>{{ strip_tags($item->marathi_description) }}</td>
                                                          <td> <img class="img-size"
-                                                                 src="{{ asset('storage/images/aboutus/disaster-management-portal/' . $item->english_image) }}" />
+                                                                 src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW')}}{{ $item->english_image }}" />
                                                          </td>
                                                          <td> <img class="img-size"
-                                                                 src="{{ asset('storage/images/aboutus/disaster-management-portal/' . $item->marathi_image) }}" />
+                                                                 src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW')}}{{  $item->marathi_image }}" />
                                                          </td>
                                                          <!-- <td>
                                                                     <span class="badge badge-success">Active</span>
