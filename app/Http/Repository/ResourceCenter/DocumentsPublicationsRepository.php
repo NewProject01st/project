@@ -113,13 +113,9 @@ public function deleteById($id)
         $documents = Documentspublications::find($id);
         if ($documents) {
              // Delete the images from the storage folder
-             Storage::delete([
-                'public/pdf/research-center/documents'.$documents->marathi_pdf,
-                'public/pdf/research-center/documents'.$documents->english_pdf
-            ]);
-
-            // Delete the record from the database
-            $documents->delete();
+             unlink(storage_path(Config::get('DocumentConstant.DOCUMENT_PUBLICATION_DELETE') . $documents->english_image));
+             unlink(storage_path(Config::get('DocumentConstant.DOCUMENT_PUBLICATION_DELETE') . $documents->marathi_image));
+             $documents->delete();
             
             return $documents;
         } else {

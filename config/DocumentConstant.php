@@ -86,7 +86,7 @@ return [
     'DOCUMENT_PUBLICATION_DELETE' => '/all_web_data/pdf/resource_center/document_publication/',
     'DOCUMENT_PUBLICATION_VIEW'	 => env("APP_URL").'/storage/all_web_data/pdf/resource_center/document_publication/',
 
-    'TRAINING_MATERIAL_ADD'	 => "/all_web_data/pdf/resource_center/document_publication//",
-    'TRAINING_MATERIAL_ADD' => '/all_web_data/pdf/resource_center/document_publication/',
-    'TRAINING_MATERIAL_ADD'	 => env("APP_URL").'/storage/all_web_data/pdf/resource_center/document_publication/',
+    'TRAINING_MATERIAL_ADD'	 => "/all_web_data/pdf/resource_center/training_material//",
+    'TRAINING_MATERIAL_DELETE' => '/all_web_data/pdf/resource_center/training_material/',
+    'TRAINING_MATERIAL_VIEW'	 => env("APP_URL").'/storage/all_web_data/pdf/resource_center/training_material/',
 ];

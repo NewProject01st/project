@@ -158,13 +158,10 @@ public function deleteById($id)
         $gallery = Gallery::find($id);
         if ($gallery) {
              // Delete the images from the storage folder
-             Storage::delete([
-                'public/images/news-events/gallery/'.$gallery->english_image,
-                'public/images/news-events/gallery/'.$gallery->marathi_image
-            ]);
-            // Delete the record from the database
-            $gallery->delete();
-            
+             unlink(storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->english_image));
+             unlink(storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->marathi_image));
+             $gallery->delete();
+
             return $gallery;
         } else {
             return null;

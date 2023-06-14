@@ -67,7 +67,10 @@ class DocumentsPublicationsServices
             $path = Config::get('DocumentConstant.DOCUMENT_PUBLICATION_ADD');
             if ($request->hasFile('english_pdf')) {
                 if ($return_data['english_pdf']) {
-                    unlink(storage_path(Config::get('DocumentConstant.DOCUMENT_PUBLICATION_DELETE') . $return_data['english_pdf']));
+                    $delete_file_eng= storage_path(Config::get('DocumentConstant.DOCUMENT_PUBLICATION_DELETE') . $return_data['english_image']);
+                    if(file_exists($delete_file_eng)){
+                        unlink($delete_file_eng);
+                    }
                 }
     
                 $englishPdfName = $return_data['last_insert_id'] . '_english.' . $request->english_pdf->extension();
@@ -80,7 +83,10 @@ class DocumentsPublicationsServices
     
             if ($request->hasFile('marathi_pdf')) {
                 if ($return_data['marathi_pdf']) {
-                    unlink(storage_path(Config::get('DocumentConstant.DOCUMENT_PUBLICATION_DELETE') . $return_data['marathi_pdf']));
+                    $delete_file_mar= storage_path(Config::get('DocumentConstant.DOCUMENT_PUBLICATION_DELETE') . $return_data['marathi_image']);
+                    if(file_exists($delete_file_mar)){
+                        unlink($delete_file_mar);
+                    }
                 }
     
                 $marathiPdfName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_pdf->extension();
