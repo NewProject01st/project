@@ -106,8 +106,12 @@ class StateDisasterManagementAuthorityRepository  {
         try {
             $statedisastermanagementauthority = StateDisasterManagementAuthority::find($id);
             if ($statedisastermanagementauthority) {
-                unlink(storage_path(Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_DELETE') . $statedisastermanagementauthority->english_image));
-                unlink(storage_path(Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_DELETE') . $statedisastermanagementauthority->marathi_image));
+                if (file_exists(storage_path(Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_DELETE') . $statedisastermanagementauthority->english_image))) {
+                    unlink(storage_path(Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_DELETE') . $statedisastermanagementauthority->english_image));
+                }
+                if (file_exists(storage_path(Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_DELETE') . $statedisastermanagementauthority->marathi_image))) {
+                    unlink(storage_path(Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_DELETE') . $statedisastermanagementauthority->marathi_image));
+                }
                 // Delete the record from the database
                 $statedisastermanagementauthority->delete();
                 
