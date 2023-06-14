@@ -47,26 +47,26 @@
                                                         <td><?php echo $item->english_title; ?></td>
                                                         <td><?php echo $item->marathi_title; ?></td>
                                                         <td>{{ $item->url }}</td>
-                                                        <td> <a href="{{ asset('/storage/pdf/header/rti/' . $item['english_pdf']) }}"
-                                                                target="_blank"><img 
-                                                                    src="{{ asset('storage/pdf/pdf.png/') }}" width="35px"
-                                                                    height="35px"></a></td>
-                                                        <td> <a href="{{ asset('/storage/pdf/header/rti/' . $item['marathi_pdf']) }}"
+                                                        <td> <a href="{{ Config::get('DocumentConstant.RTI_PDF_VIEW') }}{{ $item->english_pdf }}"
                                                                 target="_blank"><img
-                                                                    src="{{ asset('storage/pdf/pdf.png/') }}" width="35px"
-                                                                    height="35px"></a></td>
-                                                                    <td>
-                                                                        <label class="switch">
-                                                                            <input data-id="{{ $item->id }}" type="checkbox"
-                                                                                {{ $item->is_active ? 'checked' : '' }}
-                                                                                class="active-btn btn btn-sm btn-outline-primary m-1"
-                                                                                data-toggle="tooltip" data-placement="top"
-                                                                                title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
-                                                                            <span class="slider round "></span>
-                                                                        </label>
-            
-                                                                    </td>
-                                                            <td>
+                                                                    src="{{ asset('assets/images/pdf.png/') }}"
+                                                                    width="35px" height="35px"></a></td>
+                                                        <td> <a href="{{ Config::get('DocumentConstant.RTI_PDF_VIEW') }}{{ $item->marathi_pdf }}"
+                                                                target="_blank"><img
+                                                                    src="{{ asset('assets/images/pdf.png/') }}"
+                                                                    width="35px" height="35px"></a></td>
+                                                        <td>
+                                                            <label class="switch">
+                                                                <input data-id="{{ $item->id }}" type="checkbox"
+                                                                    {{ $item->is_active ? 'checked' : '' }}
+                                                                    class="active-btn btn btn-sm btn-outline-primary m-1"
+                                                                    data-toggle="tooltip" data-placement="top"
+                                                                    title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
+                                                                <span class="slider round "></span>
+                                                            </label>
+
+                                                        </td>
+                                                        <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
@@ -115,7 +115,6 @@
             @csrf
             <input type="hidden" name="active_id" id="active_id" value="">
         </form>
-        
-        <!-- content-wrapper ends -->
 
+        <!-- content-wrapper ends -->
     @endsection

@@ -11,8 +11,7 @@ use App\Models\ {
 use Config;
 
 class EvacuationPlansRepository  {
-	public function getAll()
-    {
+	public function getAll(){
         try {
             return EvacuationPlans::all();
         } catch (\Exception $e) {
@@ -20,8 +19,7 @@ class EvacuationPlansRepository  {
         }
     }
 
-	public function addAll($request)
-{
+	public function addAll($request){
     try {
         $evacuationplans_data = new EvacuationPlans();
         $evacuationplans_data->english_title = $request['english_title'];
@@ -50,8 +48,7 @@ class EvacuationPlansRepository  {
     }
 }
 
-public function getById($id)
-{
+public function getById($id){
     try {
         $statedisastermanagementauthority = EvacuationPlans::find($id);
         if ($statedisastermanagementauthority) {
@@ -67,8 +64,7 @@ public function getById($id)
         ];
     }
 }
-public function updateAll($request)
-{
+public function updateAll($request){
    
     try {
         $return_data = array();
@@ -109,8 +105,7 @@ public function updateAll($request)
     }
 }
 
-public function deleteById($id)
-{
+public function deleteById($id){
     try {
         $evacuationplans = EvacuationPlans::find($id);
         if ($evacuationplans) {

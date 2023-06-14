@@ -11,8 +11,7 @@ use App\Models\ {
 use Config;
 
 class StateEmergencyOperationsCenterRepository  {
-	public function getAll()
-    {
+	public function getAll(){
         try {
             return StateEmergencyOperationsCenter::all();
         } catch (\Exception $e) {
@@ -20,8 +19,7 @@ class StateEmergencyOperationsCenterRepository  {
         }
     }
 
-	public function addAll($request)
-{
+	public function addAll($request){
     try {
         
         $stateemergencyoperationscenter_data = new StateEmergencyOperationsCenter();
@@ -32,7 +30,7 @@ class StateEmergencyOperationsCenterRepository  {
         $stateemergencyoperationscenter_data->save();       
     // dd($stateemergencyoperationscenter_data);
     
-        $last_insert_id = $searchrescueteams_data->id;
+        $last_insert_id = $stateemergencyoperationscenter_data->id;
 
         $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
         $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
@@ -51,8 +49,7 @@ class StateEmergencyOperationsCenterRepository  {
     }
 }
 
-public function getById($id)
-{
+public function getById($id){
     try {
         $stateemergencyoperationscenter = StateEmergencyOperationsCenter::find($id);
         if ($stateemergencyoperationscenter) {
@@ -68,8 +65,7 @@ public function getById($id)
         ];
     }
 }
-public function updateAll($request)
-{
+public function updateAll($request){
    
     try {
         $return_data = array();
@@ -112,13 +108,12 @@ public function updateAll($request)
     }
 }
 
-public function deleteById($id)
-{
+public function deleteById($id){
     try {
         $stateemergencyoperationscenter = StateEmergencyOperationsCenter::find($id);
         if ($stateemergencyoperationscenter) {
-            unlink(storage_path(Config::get('DocumentConstant.SEARCH_RESCUE_TEAM_DELETE') . $stateemergencyoperationscenter->english_image));
-            unlink(storage_path(Config::get('DocumentConstant.SEARCH_RESCUE_TEAM_DELETE') . $stateemergencyoperationscenter->marathi_image));
+            unlink(storage_path(Config::get('DocumentConstant.STATE_OPERATION_CENTER_DELETE') . $stateemergencyoperationscenter->english_image));
+            unlink(storage_path(Config::get('DocumentConstant.STATE_OPERATION_CENTER_DELETE') . $stateemergencyoperationscenter->marathi_image));
             // Delete the record from the database
             $stateemergencyoperationscenter->delete();
             

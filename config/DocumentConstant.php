@@ -67,6 +67,22 @@ return [
     'SEARCH_RESCUE_TEAM_DELETE'	   => '/all_web_data/images/emergency-responses/rescue-team/',
     'SEARCH_RESCUE_TEAM_VIEW'	   => env("APP_URL").'/storage/all_web_data/images/emergency-responses/rescue-team/',
 
+    'STATE_OPERATION_CENTER_ADD'	   => "/all_web_data/images/emergency-responses/state-operation-center//",
+    'STATE_OPERATION_CENTER_DELETE'	   => '/all_web_data/images/emergency-responses/state-operation-center/',
+    'STATE_OPERATION_CENTER_VIEW'	   => env("APP_URL").'/storage/all_web_data/images/emergency-responses/state-operation-center/',
+
+    'CITIZEN_FEEDBACK_SUGGESTION_ADD'	   => "/all_web_data/images/citizen-action/feedback-suggestion//",
+    'CITIZEN_FEEDBACK_SUGGESTION_DELETE'   => '/all_web_data/images/citizen-action/feedback-suggestion/',
+    'CITIZEN_FEEDBACK_SUGGESTION_VIEW'	   => env("APP_URL").'/storage/all_web_data/images/citizen-action/feedback-suggestion/',
+
+    'REPORT_INCIDENT_CROWDSOURCING_ADD'	    => "/all_web_data/images/citizen-action/incident-crowdsourcing//",
+    'REPORT_INCIDENT_CROWDSOURCING_DELETE'  => '/all_web_data/images/citizen-action/incident-crowdsourcing/',
+    'REPORT_INCIDENT_CROWDSOURCING_VIEW'    => env("APP_URL").'/storage/all_web_data/images/citizen-action/incident-crowdsourcing/',
+
+    'VOLUNTEER_CITIZEN_SUPPORT_ADD'	    => "/all_web_data/images/citizen-action/volunteer-support//",
+    'VOLUNTEER_CITIZEN_SUPPORT_DELETE'  => '/all_web_data/images/citizen-action/volunteer-support/',
+    'VOLUNTEER_CITIZEN_SUPPORT_VIEW'    => env("APP_URL").'/storage/all_web_data/images/citizen-action/volunteer-support/',
+
 
 
     'SUCCESS_STORIES_ADD'	 => "/all_web_data/images/news_and_events/success_stories/",
@@ -97,7 +113,32 @@ return [
     'TRAINING_EVENT_DELETE'  => '/all_web_data/images/training_workshops/training_event/',
     'TRAINING_EVENT_VIEW'	 => env("APP_URL").'/storage/all_web_data/images/training_workshops/training_event/',
 
-    'DOCUMENTS_PUBLICATION_ADD'	    => "/all_web_data/pdf/policies_and_Legislation/document_publication/",
-    'DOCUMENTS_PUBLICATION_DELETE'  => '/all_web_data/pdf/policies_and_Legislation/document_publication/',
-    'DOCUMENTS_PUBLICATION_VIEW'	=> env("APP_URL").'/storage/all_web_data/pdf/policies_and_Legislation/document_publication/',
+    'DOCUMENT_PUBLICATION_ADD'	 => "/all_web_data/pdf/resource_center/document_publication//",
+    'DOCUMENT_PUBLICATION_DELETE' => '/all_web_data/pdf/resource_center/document_publication/',
+    'DOCUMENT_PUBLICATION_VIEW'	 => env("APP_URL").'/storage/all_web_data/pdf/resource_center/document_publication/',
+
+    'TRAINING_MATERIAL_ADD'	 => "/all_web_data/pdf/resource_center/training_material//",
+    'TRAINING_MATERIAL_DELETE' => '/all_web_data/pdf/resource_center/training_material/',
+    'TRAINING_MATERIAL_VIEW'	 => env("APP_URL").'/storage/all_web_data/pdf/resource_center/training_material/',
+
+    'REPORT_INCIDENT_CROWDSOURCING_MODAL_ADD'	    => "/all_web_data/images/citizen-action/modal/report-incident-modal//",
+    'REPORT_INCIDENT_CROWDSOURCING_MODAL_DELETE'  => '/all_web_data/images/citizen-action/modal/report-incident-modal/',
+    'REPORT_INCIDENT_CROWDSOURCING_MODAL_VIEW'    => env("APP_URL").'/storage/all_web_data/images/citizen-action/modal/report-incident-modal/',
+
+    'VOLUNTEER_CITIZEN_MODAL_ADD'	    => "/all_web_data/images/citizen-action/modal/volunteer-citizen-modal//",
+    'VOLUNTEER_CITIZEN_MODAL_DELETE'  => '/all_web_data/images/citizen-action/modal/volunteer-citizen-modal/',
+    'VOLUNTEER_CITIZEN_MODAL_VIEW'    => env("APP_URL").'/storage/all_web_data/images/citizen-action/modal/volunteer-citizen-modal/',
+    
+    'FEEDBACK_CITIZEN_MODAL_ADD'	    => "/all_web_data/images/citizen-action/modal/feedback-citizen-modal//",
+    'FEEDBACK_CITIZEN_MODAL_DELETE'  => '/all_web_data/images/citizen-action/modal/feedback-citizen-modal/',
+    'FEEDBACK_CITIZEN_MODAL_VIEW'    => env("APP_URL").'/storage/all_web_data/images/citizen-action/modal/feedback-citizen-modal/',
+    
+    'VACANCIES_PDF_ADD'	 => "/all_web_data/pdf/header/vacancies//",
+    'VACANCIES_PDF_DELETE' => '/all_web_data/pdf/header/vacancies/',
+    'VACANCIES_PDF_VIEW'	 => env("APP_URL").'/storage/all_web_data/pdf/header/vacancies/',
+ 
+    'RTI_PDF_ADD'	 => "/all_web_data/pdf/header/rti//",
+    'RTI_PDF_DELETE' => '/all_web_data/pdf/header/rti/',
+    'RTI_PDF_VIEW'	 => env("APP_URL").'/storage/all_web_data/pdf/header/rti/',
+
 ];

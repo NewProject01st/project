@@ -48,11 +48,14 @@ class CitizenActionServices
     public function addIncidentModalInfo($request)
     {
         try {
-            $add_modal = $this->repo->addIncidentModalInfo($request);
-            if ($add_modal) {
-                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing  Added Successfully.'];
+            $last_id = $this->repo->addIncidentModalInfo($request);
+            $path = Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_MODAL_ADD');
+            $englishImageName = $last_id . '_english.' . $request->media_upload->extension();
+            uploadImage($request, 'media_upload', $path, $englishImageName);
+            if ($last_id) {
+                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing Modal  Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Added.'];
+                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Modal Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -62,8 +65,11 @@ class CitizenActionServices
     public function addVolunteerModalInfo($request)
     {
         try {
-            $add_modal = $this->repo->addVolunteerModalInfo($request);
-            if ($add_modal) {
+            $last_id = $this->repo->addVolunteerModalInfo($request);
+            $path = Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_ADD');
+            $englishImageName = $last_id . '_english.' . $request->media_upload->extension();
+            uploadImage($request, 'media_upload', $path, $englishImageName);
+            if ($last_id) {
                 return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing  Added Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Added.'];
@@ -76,8 +82,11 @@ class CitizenActionServices
     public function addFeedbackModalInfo($request)
     {
         try {
-            $add_modal = $this->repo->addFeedbackModalInfo($request);
-            if ($add_modal) {
+            $last_id = $this->repo->addFeedbackModalInfo($request);
+            $path = Config::get('DocumentConstant.FEEDBACK_CITIZEN_MODAL_ADD');
+            $englishImageName = $last_id . '_english.' . $request->media_upload->extension();
+            uploadImage($request, 'media_upload', $path, $englishImageName);
+            if ($last_id) {
                 return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing  Added Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Added.'];

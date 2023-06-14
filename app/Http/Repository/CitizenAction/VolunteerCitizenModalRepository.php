@@ -10,8 +10,7 @@ use App\Models\ {
 };
 
 class VolunteerCitizenModalRepository{
-	public function getAll()
-    {
+	public function getAll(){
         try {
             // return CitizenVolunteerModal::all();
             $modal_data = CitizenVolunteerModal::join('incident_type', 'incident_type.id','=', 'citizen_volunteer_modals.incident')

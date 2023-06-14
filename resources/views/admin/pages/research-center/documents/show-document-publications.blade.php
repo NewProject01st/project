@@ -63,9 +63,9 @@
                                         <label>English Pdf :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <a href="{{ asset('/storage/pdf/research-center/documents' . $documents_publications->english_pdf) }}"
+                                        <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $documents_publications->english_pdf }}"
                                             target="_blank"><img
-                                                src="public/storage/pdf/research-center/documents/pdf.png" width="50px"
+                                                src="{{ asset('assets/images/pdf.png/') }}" width="50px"
                                                 height="50px"></a>
                                     </div>
                                 </div>
@@ -74,9 +74,9 @@
                                         <label>Marathi Pdf :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <a href="{{ asset('/storage/pdf/research-center/documents' . $documents_publications->marathi_pdf) }}"
+                                        <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $documents_publications->marathi_pdf }}"
                                             target="_blank"><img
-                                                src="public/storage/pdf/research-center/documents/pdf.png" width="50px"
+                                                src="{{ asset('assets/images/pdf.png/') }}" width="50px"
                                                 height="50px"></a>
                                     </div>
                                 </div>

@@ -26,7 +26,10 @@
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title"> @if (old('english_title')){{ old('english_title') }}@else{{$rti->english_title }}@endif</textarea>
+                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title"> @if (old('english_title'))
+{{ old('english_title') }}@else{{ $rti->english_title }}
+@endif
+</textarea>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -36,7 +39,11 @@
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">@if (old('marathi_title')){{ old('marathi_title') }}@else{{$rti->marathi_title }}@endif</textarea>
+                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">
+@if (old('marathi_title'))
+{{ old('marathi_title') }}@else{{ $rti->marathi_title }}
+@endif
+</textarea>
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -59,7 +66,8 @@
                                             @if ($errors->has('english_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
                                             @endif
-                                            <a href="{{ asset('storage/pdf/header/rti/' . $rti->english_pdf) }}"></a>
+                                            <a
+                                                href="{{ Config::get('DocumentConstant.RTI_PDF_VIEW') }}{{ $rti->english_pdf }}"></a>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -71,7 +79,8 @@
                                                 <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <a href="{{ asset('storage/pdf/header/rti/' . $rti->marathi_pdf) }}"></a>
+                                        <a
+                                            href="{{ Config::get('DocumentConstant.RTI_PDF_VIEW') }}{{ $rti->marathi_pdf }}"></a>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Update</button>

@@ -8,10 +8,10 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	CitizenFeedbackSuggestion
 };
+use Config;
 
 class CitizenFeedbackSuggestionRepository{
-	public function getAll()
-    {
+	public function getAll(){
         try {
             return CitizenFeedbackSuggestion::all();
         } catch (\Exception $e) {
@@ -19,26 +19,27 @@ class CitizenFeedbackSuggestionRepository{
         }
     }
 
-	public function addAll($request)
-{
+	public function addAll($request){
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/citizen-action/feedback-suggestion', $englishImageName);
-        $request->marathi_image->storeAs('public/images/citizen-action/feedback-suggestion', $marathiImageName);
-
-        
+       
         $feedback_data = new CitizenFeedbackSuggestion();
         $feedback_data->english_title = $request['english_title'];
         $feedback_data->marathi_title = $request['marathi_title'];
         $feedback_data->english_description = $request['english_description'];
         $feedback_data->marathi_description = $request['marathi_description'];
-        $feedback_data->english_image = $englishImageName;
-        $feedback_data->marathi_image =   $marathiImageName;
         $feedback_data->save();       
               
-		return $feedback_data;
+		$last_insert_id = $feedback_data->id;
+
+        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        
+        $feedback_data = CitizenFeedbackSuggestion::find($last_insert_id); // Assuming $request directly contains the ID
+        $feedback_data->english_image = $englishImageName; // Save the image filename to the database
+        $feedback_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        $feedback_data->save();
+        
+        return $last_insert_id;
 
     } catch (\Exception $e) {
         return [
@@ -48,8 +49,7 @@ class CitizenFeedbackSuggestionRepository{
     }
 }
 
-public function getById($id)
-{
+public function getById($id){
     try {
         $feedback = CitizenFeedbackSuggestion::find($id);
         if ($feedback) {
@@ -60,19 +60,19 @@ public function getById($id)
     } catch (\Exception $e) {
         return $e;
 		return [
-            'msg' => 'Failed to get by id Volunteer Citizen Support.',
+            'msg' => 'Failed to get by id feedback suggestion.',
             'status' => 'error'
         ];
     }
 }
-public function updateAll($request)
-{
+public function updateAll($request){
     try {
+        $return_data = array();
         $feedback_data = CitizenFeedbackSuggestion::find($request->id);
         
         if (!$feedback_data) {
             return [
-                'msg' => 'volunteer data not found.',
+                'msg' => 'Citizen Feedback Suggestion data not found.',
                 'status' => 'error'
             ];
         }
@@ -84,57 +84,29 @@ public function updateAll($request)
         $feedback_data->marathi_title = $request['marathi_title'];
         $feedback_data->english_description = $request['english_description'];
         $feedback_data->marathi_description = $request['marathi_description'];
-       
-        if ($request->hasFile('english_image')) {
-            // Delete previous English image if it exists
-            if ($previousEnglishImage) {
-                Storage::delete('public/images/citizen-action/feedback-suggestion/' . $previousEnglishImage);
-            }
-
-            // Store the new English image
-            $englishImageName = time() . '_english.' . $request->english_image->extension();
-            $request->english_image->storeAs('public/images/citizen-action/feedback-suggestion/', $englishImageName);
-            $feedback_data->english_image = $englishImageName;
-        }
-
-        if ($request->hasFile('marathi_image')) {
-            // Delete previous Marathi image if it exists
-            if ($previousMarathiImage) {
-                Storage::delete('public/images/citizen-action/feedback-suggestion/' . $previousMarathiImage);
-            }
-
-            // Store the new Marathi image
-            $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-            $request->marathi_image->storeAs('public/images/citizen-action/feedback-suggestion/', $marathiImageName);
-            $feedback_data->marathi_image = $marathiImageName;
-        }
-
         $feedback_data->save();        
      
-        return [
-            'msg' => 'volunteer data updated successfully.',
-            'status' => 'success'
-        ];
+        $last_insert_id = $feedback_data->id;
+
+        $return_data['last_insert_id'] = $last_insert_id;
+        $return_data['english_image'] = $previousEnglishImage;
+        $return_data['marathi_image'] = $previousMarathiImage;
+        return  $return_data;
     } catch (\Exception $e) {
         return $e;
         return [
-            'msg' => 'Failed to update volunteer data.',
+            'msg' => 'Failed to update Citizen Feedback Suggestion data.',
             'status' => 'error'
         ];
     }
 }
 
-public function deleteById($id)
-{
+public function deleteById($id){
     try {
         $feedback = CitizenFeedbackSuggestion::find($id);
         if ($feedback) {
-              // Delete the images from the storage folder
-              Storage::delete([
-                'public/images/citizen-action/feedback-suggestion/'.$feedback->english_image,
-                'public/images/citizen-action/feedback-suggestion/'.$feedback->marathi_image
-            ]);
-
+            unlink(storage_path(Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_DELETE') . $feedback->english_image));
+            unlink(storage_path(Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_DELETE') . $feedback->marathi_image));
             // Delete the record from the database
             
             $feedback->delete();

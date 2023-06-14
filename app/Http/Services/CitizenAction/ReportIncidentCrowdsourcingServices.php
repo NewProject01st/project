@@ -3,24 +3,24 @@ namespace App\Http\Services\CitizenAction;
 
 use App\Http\Repository\CitizenAction\ReportIncidentCrowdsourcingRepository;
 
-use App\ReportIncidentCrowdsourcing;
+use App\Models\
+{ ReportIncidentCrowdsourcing };
 use Carbon\Carbon;
+use Config;
+use Storage;
 
 
-class ReportIncidentCrowdsourcingServices
-{
+class ReportIncidentCrowdsourcingServices{
 
 	protected $repo;
 
     /**
      * TopicService constructor.
      */
-    public function __construct()
-    {
+    public function __construct(){
         $this->repo = new ReportIncidentCrowdsourcingRepository();
     }
-    public function getAll()
-    {
+    public function getAll(){
         try {
             return $this->repo->getAll();
         } catch (\Exception $e) {
@@ -28,11 +28,16 @@ class ReportIncidentCrowdsourcingServices
         }
     }
 
-    public function addAll($request)
-    {
+    public function addAll($request){
         try {
-            $add_crowdsourcing = $this->repo->addAll($request);
-            if ($add_crowdsourcing) {
+            $last_id = $this->repo->addAll($request);
+            $path = Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_ADD');
+            //"\all_web_data\images\home\slides\\"."\\";
+            $englishImageName = $last_id . '_english.' . $request->english_image->extension();
+            $marathiImageName = $last_id . '_marathi.' . $request->marathi_image->extension();
+            uploadImage($request, 'english_image', $path, $englishImageName);
+            uploadImage($request, 'marathi_image', $path, $marathiImageName);
+            if ($last_id) {
                 return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing  Added Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Added.'];
@@ -42,8 +47,7 @@ class ReportIncidentCrowdsourcingServices
         }      
     }
 
-    public function getById($id)
-    {
+    public function getById($id){
         try {
             return $this->repo->getById($id);
         } catch (\Exception $e) {
@@ -51,11 +55,46 @@ class ReportIncidentCrowdsourcingServices
         }
     }
 
-    public function updateAll($request)
-    {
+    public function updateAll($request){
         try {
-            $update_crowdsourcing = $this->repo->updateAll($request);
-            if ($update_crowdsourcing) {
+            $return_data = $this->repo->updateAll($request);
+            
+            $path = Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_ADD');
+            if ($request->hasFile('english_image')) {
+                if ($return_data['english_image']) {
+                    $delete_file_eng= storage_path(Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_DELETE') . $return_data['english_image']);
+                    if(file_exists($delete_file_eng)){
+                        unlink($delete_file_eng);
+                    }
+
+                }
+    
+                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                uploadImage($request, 'english_image', $path, $englishImageName);
+               
+                $incident_data = ReportIncidentCrowdsourcing::find($return_data['last_insert_id']);
+                $incident_data->english_image = $englishImageName;
+                $incident_data->save();
+            }
+    
+            if ($request->hasFile('marathi_image')) {
+                if ($return_data['marathi_image']) {
+                    $delete_file_mar= storage_path(Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_DELETE') . $return_data['marathi_image']);
+                    if(file_exists($delete_file_mar)){
+                        unlink($delete_file_mar);
+                    }
+
+                }
+    
+                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                uploadImage($request, 'marathi_image', $path, $marathiImageName);
+
+                $incident_data = ReportIncidentCrowdsourcing::find($return_data['last_insert_id']);
+                $incident_data->marathi_image = $marathiImageName;
+                $incident_data->save();
+            }
+ 
+            if ($return_data) {
                 return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing Updated Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Updated.'];
@@ -67,8 +106,7 @@ class ReportIncidentCrowdsourcingServices
 
     
    
-    public function deleteById($id)
-    {
+    public function deleteById($id){
         try {
             return $this->repo->deleteById($id);
         } catch (\Exception $e) {

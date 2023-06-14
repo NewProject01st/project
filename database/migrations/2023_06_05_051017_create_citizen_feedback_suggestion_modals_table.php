@@ -19,7 +19,7 @@ class CreateCitizenFeedbackSuggestionModalsTable extends Migration
             $table->string('location');
             $table->string('datetime');
             $table->string('mobile_number');
-            $table->string('media_upload');
+            $table->string('media_upload')->default('null');;
             $table->text('description');
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);

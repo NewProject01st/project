@@ -11,8 +11,7 @@ use App\Models\ {
 use Config;
 
 class SearchRescueTeamsRepository  {
-	public function getAll()
-    {
+	public function getAll(){
         try {
             return SearchRescueTeams::all();
         } catch (\Exception $e) {
@@ -20,8 +19,7 @@ class SearchRescueTeamsRepository  {
         }
     }
 
-	public function addAll($request)
-{
+	public function addAll($request){
     try {
         
         $searchrescueteams_data = new SearchRescueTeams();
@@ -51,8 +49,7 @@ class SearchRescueTeamsRepository  {
     }
 }
 
-public function getById($id)
-{
+public function getById($id){
     try {
         $searchrescueteams = SearchRescueTeams::find($id);
         if ($searchrescueteams) {
@@ -68,8 +65,7 @@ public function getById($id)
         ];
     }
 }
-public function updateAll($request)
-{
+public function updateAll($request){
    
     try {
         $return_data = array();
@@ -111,8 +107,7 @@ public function updateAll($request)
     }
 }
 
-public function deleteById($id)
-{
+public function deleteById($id){
     try {
         $searchrescueteams = SearchRescueTeams::find($id);
         if ($searchrescueteams) {

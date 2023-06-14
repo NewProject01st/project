@@ -80,7 +80,7 @@
                                         <label> English Image :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <img src="{{ asset('storage/images/news-events/success-stories/' . $success_stories->english_image) }}"
+                                        <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW')}}{{ $success_stories->english_image }}"
                                             style="width:150px; height:150px;" />
                                     </div>
                                 </div>
@@ -89,11 +89,10 @@
                                         <label> Marathi Image:</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
-                                        <img src="{{ asset('storage/images/news-events/success-stories/' . $success_stories->marathi_image) }}"
+                                        <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW')}}{{ $success_stories->marathi_image }}"
                                             style="width:150px; height:150px;" />
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

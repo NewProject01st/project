@@ -8,35 +8,36 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	VacanciesHeader
 };
+use Config;
 
-class VacanciesRepository  {
-	public function getAll()
-    {
+class VacanciesRepository {
+	public function getAll(){
         try {
             return VacanciesHeader::all();
         } catch (\Exception $e) {
             return $e;
         }
     }
-	public function addAll($request)
-    {
+	public function addAll($request){
         try {
-            
-            $englishPdf = time() . '_english.' . $request->english_pdf->extension();
-            $marathiPdf= time() . '_marathi.' . $request->marathi_pdf->extension();
-            
-            $request->english_pdf->storeAs('public/pdf/header/vacancy', $englishPdf);
-            $request->marathi_pdf->storeAs('public/pdf/header/vacancy', $marathiPdf);
             
             $vacancy_data = new VacanciesHeader();
             $vacancy_data->english_title = $request['english_title'];
             $vacancy_data->marathi_title = $request['marathi_title'];
             $vacancy_data->url = $request['url'];
-            $vacancy_data->english_pdf = $englishPdf;
-            $vacancy_data->marathi_pdf = $marathiPdf;
             $vacancy_data->save();       
                 
-            return $vacancy_data;
+            $last_insert_id = $vacancy_data->id;
+
+            $englishPdfName = $last_insert_id . '_english.' . $request->english_pdf->extension();
+            $marathiPdfName = $last_insert_id . '_marathi.' . $request->marathi_pdf->extension();
+            
+            $vacancy_data = VacanciesHeader::find($last_insert_id); // Assuming $request directly contains the ID
+            $vacancy_data->english_pdf = $englishPdfName; // Save the pdf filename to the database
+            $vacancy_data->marathi_pdf = $marathiPdfName; // Save the pdf filename to the database
+            $vacancy_data->save();
+            
+            return $last_insert_id;
 
         } catch (\Exception $e) {
             return [
@@ -46,8 +47,7 @@ class VacanciesRepository  {
         }
     }
 
-    public function getById($id)
-    {
+    public function getById($id){
         try {
             $vacancy = VacanciesHeader::find($id);
             if ($vacancy) {
@@ -58,20 +58,20 @@ class VacanciesRepository  {
         } catch (\Exception $e) {
             return $e;
             return [
-                'msg' => 'Failed to get by id Tender.',
+                'msg' => 'Failed to get by id Vacancies.',
                 'status' => 'error'
             ];
         }
     }
 
-    public function updateAll($request)
-    {
+    public function updateAll($request){
         try {
+            $return_data = array();
             $vacancy_data = VacanciesHeader::find($request->id);
             
             if (!$vacancy_data) {
                 return [
-                    'msg' => 'Tender not found.',
+                    'msg' => 'Vacancies not found.',
                     'status' => 'error'
                 ];
             }
@@ -81,55 +81,24 @@ class VacanciesRepository  {
 
             $previousEnglishPdf = $vacancy_data->english_pdf;
             $previousMarathiPdf = $vacancy_data->marathi_pdf;
-
-            if($request->hasFile('english_pdf'))
-        
-            {
-                if($previousEnglishPdf)
-                {
-                    //delete previous stored pdf
-                    Storage::delete('public/pdf/header/vacancy/' . $previousEnglishPdf );
-
-                    //insert new pdf
-                    $englishPdf = time() . '_english.' . $request->english_pdf->extension();
-                    $request->english_pdf->storeAs('public/pdf/header/vacancy/', $englishPdf);
-                    $vacancy_data->english_pdf = $englishPdf;
-                }
-
-            }
-
-            if($request->hasFile('marathi_pdf'))
-        
-            {
-                if($previousMarathiPdf)
-                {
-                    //delete previous stored pdf
-                    Storage::delete('public/pdf/header/vacancy/' . $previousMarathiPdf );
-
-                    //insert new pdf
-                    $marathiPdf = time() . '_marathi.' . $request->marathi_pdf->extension();
-                    $request->marathi_pdf->storeAs('public/pdf/header/vacancy/', $marathiPdf);
-                    $vacancy_data->marathi_pdf = $marathiPdf;
-                }
-
-            }
-
             $vacancy_data->save();        
         
-            return [
-                'msg' => 'Tender updated successfully.',
-                'status' => 'success'
-            ];
+           
+            $last_insert_id = $vacancy_data->id;
+
+            $return_data['last_insert_id'] = $last_insert_id;
+            $return_data['english_pdf'] = $previousEnglishPdf;
+            $return_data['marathi_pdf'] = $previousMarathiPdf;
+            return  $return_data;
         } catch (\Exception $e) {
             return $e;
             return [
-                'msg' => 'Failed to update Tender.',
+                'msg' => 'Failed to update Vacancies.',
                 'status' => 'error'
             ];
         }
     }
-    public function updateOne($request)
-    {
+    public function updateOne($request){
         try {
             $vacancy = VacanciesHeader::find($request); // Assuming $request directly contains the ID
 
@@ -140,32 +109,27 @@ class VacanciesRepository  {
                 $vacancy->save();
 
                 return [
-                    'msg' => 'Vacancy updated successfully.',
+                    'msg' => 'Vacancies updated successfully.',
                     'status' => 'success'
                 ];
             }
             return [
-                'msg' => 'Vacancy not found.',
+                'msg' => 'Vacancies not found.',
                 'status' => 'error'
             ];
         } catch (\Exception $e) {
             return [
-                'msg' => 'Failed to update Vacancy.',
+                'msg' => 'Failed to update Vacancies.',
                 'status' => 'error'
             ];
         }
     }
-    public function deleteById($id)
-    {
+    public function deleteById($id){
         try {
             $vacancy = VacanciesHeader::find($id);
             if ($vacancy) {
-                // Delete the images from the storage folder
-                Storage::delete([
-                    'public/pdf/header/vacancy/'.$vacancy->marathi_pdf,
-                    'public/pdf/header/vacancy/'.$vacancy->english_pdf
-                ]);
-
+                unlink(storage_path(Config::get('DocumentConstant.VACANCIES_PDF_DELETE') . $vacancy->english_pdf));
+                unlink(storage_path(Config::get('DocumentConstant.VACANCIES_PDF_DELETE') . $vacancy->marathi_pdf));
                 // Delete the record from the database
                 $vacancy->delete();
                 

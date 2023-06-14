@@ -55,8 +55,8 @@
                                             <label>English Pdf :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <a href="{{ asset('/storage/pdf/header/vacancy/' . $vacancy->english_pdf) }}"
-                                                target="_blank"><img src="public/storage/pdf/header/vacancy/pdf.png"
+                                            <a href="{{ Config::get('DocumentConstant.VACANCIES_PDF_VIEW') }}{{ $vacancy->english_pdf }}"
+                                                target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
                                                     width="50px" height="50px"></a>
                                         </div>
                                     </div>
@@ -65,8 +65,8 @@
                                             <label>Marathi Pdf :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <a href="{{ asset('/storage/pdf/header/vacancy/' . $vacancy->marathi_pdf) }}"
-                                                target="_blank"><img src="public/storage/pdf/header/vacancy/pdf.png"
+                                            <a href="{{ Config::get('DocumentConstant.VACANCIES_PDF_VIEW') }}{{ $vacancy->marathi_pdf }}"
+                                                target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
                                                     width="50px" height="50px"></a>
                                         </div>
                                     </div>

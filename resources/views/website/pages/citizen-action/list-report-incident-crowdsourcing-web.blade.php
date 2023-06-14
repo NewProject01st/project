@@ -24,12 +24,12 @@
                                 <div class="deprt-txt">
                                     @if (session('language') == 'mar')
                                         <h3><?php echo $item['marathi_title']; ?> </h3>
-                                        <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $item['marathi_image']) }}"
+                                        <img src="{{ Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_VIEW') }}{{ $item['marathi_image'] }}"
                                             class="d-block w-100" alt="...">
                                         <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                     @else
                                         <h3><?php echo $item['english_title']; ?> </h3>
-                                        <img src="{{ asset('storage/images/citizen-action/crowdsourcing/' . $item['english_image']) }}"
+                                        <img src="{{ Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_VIEW') }}{{ $item['english_image'] }}"
                                             class="d-block w-100" alt="...">
                                         <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
                                     @endif
@@ -38,8 +38,8 @@
                                 <h4>No Data Found For Report Incident Crowdsourcing</h4>
                             @endforelse
                             <!--Department Details Txt End-->
-                             <!-- Button trigger modal -->
-                             <div class="d-flex justify-content-center">
+                            <!-- Button trigger modal -->
+                            <div class="d-flex justify-content-center">
                                 <button type="button" class="btn modal-btn-color" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">
                                     Report an Incident
@@ -84,11 +84,11 @@
                                             <option>Select</option>
                                             @foreach ($data_output_incident as $incidenttype)
                                                 @if (session('language') == 'mar')
-
                                                     <option value="{{ $incidenttype['id'] }}" selected>
                                                         {{ $incidenttype['marathi_title'] }}</option>
                                                 @else
-                                                    <option value="{{ $incidenttype['id'] }}">{{ $incidenttype['english_title'] }}
+                                                    <option value="{{ $incidenttype['id'] }}">
+                                                        {{ $incidenttype['english_title'] }}
                                                     </option>
                                                 @endif
                                             @endforeach
