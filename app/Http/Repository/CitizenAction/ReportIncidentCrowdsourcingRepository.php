@@ -29,8 +29,6 @@ class ReportIncidentCrowdsourcingRepository{
         $crowdsourcing_data->marathi_title = $request['marathi_title'];
         $crowdsourcing_data->english_description = $request['english_description'];
         $crowdsourcing_data->marathi_description = $request['marathi_description'];
-        $crowdsourcing_data->english_image = $englishImageName;
-        $crowdsourcing_data->marathi_image =   $marathiImageName;
         $crowdsourcing_data->save();       
                       
 		$last_insert_id = $crowdsourcing_data->id;

@@ -67,27 +67,33 @@ class CitizenFeedbackSuggestionServices
             $path = Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_ADD');
             if ($request->hasFile('english_image')) {
                 if ($return_data['english_image']) {
-                    unlink(storage_path(Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_DELETE') . $return_data['english_image']));
+                    $delete_file_eng= storage_path(Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_DELETE') . $return_data['english_image']);
+                    if(file_exists($delete_file_eng)){
+                        unlink($delete_file_eng);
+                    }
 
                 }
     
                 $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
                
-                $feedback_data = DistrictEmergencyOperationsCenter::find($return_data['last_insert_id']);
+                $feedback_data = CitizenFeedbackSuggestion::find($return_data['last_insert_id']);
                 $feedback_data->english_image = $englishImageName;
                 $feedback_data->save();
             }
-    
+           
             if ($request->hasFile('marathi_image')) {
                 if ($return_data['marathi_image']) {
-                    unlink(storage_path(Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_DELETE') . $return_data['marathi_image']));
+                    $delete_file_mar= storage_path(Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_DELETE') . $return_data['marathi_image']);
+                    if(file_exists($delete_file_mar)){
+                        unlink($delete_file_mar);
+                    }
                 }
     
                 $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
 
-                $feedback_data = DistrictEmergencyOperationsCenter::find($return_data['last_insert_id']);
+                $feedback_data = CitizenFeedbackSuggestion::find($return_data['last_insert_id']);
                 $feedback_data->marathi_image = $marathiImageName;
                 $feedback_data->save();
             }

@@ -29,8 +29,6 @@ class VolunteerCitizenSupportRepository{
         $volunteer_data->marathi_title = $request['marathi_title'];
         $volunteer_data->english_description = $request['english_description'];
         $volunteer_data->marathi_description = $request['marathi_description'];
-        $volunteer_data->english_image = $englishImageName;
-        $volunteer_data->marathi_image =   $marathiImageName;
         $volunteer_data->save();       
               
         $last_insert_id = $volunteer_data->id;
