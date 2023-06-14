@@ -8,6 +8,7 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	ObjectiveGoals
 };
+use Config;
 
 class ObjectiveGoalsRepository  {
 
@@ -20,143 +21,111 @@ class ObjectiveGoalsRepository  {
         }
     }
 
-	public function addAll($request)
-{
-    try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/aboutus/objective-goals', $englishImageName);
-        $request->marathi_image->storeAs('public/images/aboutus/objective-goals', $marathiImageName);
+	public function addAll($request) {
+        try {
 
-        $objective_data = new ObjectiveGoals();
-        $objective_data->english_title = $request['english_title'];
-        $objective_data->marathi_title = $request['marathi_title'];
-        $objective_data->english_description = $request['english_description'];
-        $objective_data->marathi_description = $request['marathi_description'];
-        $objective_data->english_image =  $englishImageName;
-        $objective_data->marathi_image =  $marathiImageName;
-        $objective_data->save();       
-     
-		return $objective_data;
-    } catch (\Exception $e) {
-        return [
-            'msg' => $e,
-            'status' => 'error'
-        ];
-    }
-}
+            $objective_data = new ObjectiveGoals();
+            $objective_data->english_title = $request['english_title'];
+            $objective_data->marathi_title = $request['marathi_title'];
+            $objective_data->english_description = $request['english_description'];
+            $objective_data->marathi_description = $request['marathi_description'];
+            $objective_data->save();     
+            
+            $last_insert_id = $objective_data->id;
 
-public function getById($id)
-{
-    try {
-        $objective = ObjectiveGoals::find($id);
-        if ($objective) {
-            return $objective;
-        } else {
-            return null;
-        }
-    } catch (\Exception $e) {
-        return $e;
-		return [
-            'msg' => 'Failed to get by id budget.',
-            'status' => 'error'
-        ];
-    }
-}
-public function updateAll($request)
-{
-    try {
+            $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+            $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+            
+            $objective_goals_data = ObjectiveGoals::find($last_insert_id); 
+            $objective_goals_data->english_image = $englishImageName; 
+            $objective_goals_data->marathi_image = $marathiImageName;
+            $objective_goals_data->save();
+            return $last_insert_id;
 
-        $objectivegoals_data = ObjectiveGoals::find($request->id);
-
-        if (!$objectivegoals_data) {
+        } catch (\Exception $e) {
             return [
-                'msg' => 'Objective Goals not found.',
+                'msg' => $e,
                 'status' => 'error'
             ];
         }
-        //Store the previous image name
-        $previousEnglishImage = $objectivegoals_data->english_image;
-        $previousMarathiImage = $objectivegoals_data->marathi_image;
+    }
 
-        //Update the fields from request
-        $objectivegoals_data->english_title = $request['english_title'];
-        $objectivegoals_data->marathi_title = $request['marathi_title'];
-        $objectivegoals_data->english_description = $request['english_description'];
-        $objectivegoals_data->marathi_description = $request['marathi_description'];
-        if($request->hasFile('english_image'))
-        {
-            if($previousEnglishImage)
-            {
-                //delete the image if exist
-                Storage::delete('public/images/aboutus/objective-goals/' .$previousEnglishImage);
+    public function getById($id) {
+        try {
+            $objective = ObjectiveGoals::find($id);
+            if ($objective) {
+                return $objective;
+            } else {
+                return null;
+            }
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+    public function updateAll($request) {
+        try {
+
+            $objectivegoals_data = ObjectiveGoals::find($request->id);
+
+            if (!$objectivegoals_data) {
+                return [
+                    'msg' => 'Objective Goals not found.',
+                    'status' => 'error'
+                ];
+            }
+            //Store the previous image name
+            $previousEnglishImage = $objectivegoals_data->english_image;
+            $previousMarathiImage = $objectivegoals_data->marathi_image;
+
+            //Update the fields from request
+            $objectivegoals_data->english_title = $request['english_title'];
+            $objectivegoals_data->marathi_title = $request['marathi_title'];
+            $objectivegoals_data->english_description = $request['english_description'];
+            $objectivegoals_data->marathi_description = $request['marathi_description'];
+           
+            $objectivegoals_data->update();  
+
+            $last_insert_id = $objectivegoals_data->id;
+
+            $return_data['last_insert_id'] = $last_insert_id;
+            $return_data['english_image'] = $previousEnglishImage;
+            $return_data['marathi_image'] = $previousMarathiImage;
+            return  $return_data;
+       
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
+
+    public function deleteById($id) {
+        try {
+          
+            $objectivegoals = ObjectiveGoals::find($id);
+            if ($objectivegoals) {
+                $delete_path_for_english_file = storage_path(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $objectivegoals->english_image);
+                if (file_exists($delete_path_for_english_file)) {
+                    unlink($delete_path_for_english_file);
+                }
+                $delete_path_for_marathi_file = storage_path(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $objectivegoals->marathi_image);
+                if (file_exists($delete_path_for_marathi_file)) {
+                    unlink($delete_path_for_marathi_file);
+                }
+                
+                $objectivegoals->delete();
+                
+                return $objectivegoals;
+            } else {
+                return null;
             }
 
-            //store and update new image
-            $englishImageName = time() . '_english.' . $request->english_image->extension();
-            $request->english_image->storeAs('public/images/aboutus/objective-goals', $englishImageName);
-            $objectivegoals_data->english_image =  $englishImageName;
-
+        } catch (\Exception $e) {
+            return $e;
+            return [
+                'msg' => 'Failed to delete Objective Goals.',
+                'status' => 'error'
+            ];
         }
-        if($request->hasFile('marathi_image'))
-        {
-            if($previousMarathiImage)
-            {
-                //delete the image if exist
-                Storage::delete('public/images/aboutus/objective-goals/' .$previousMarathiImage);
-            }
-
-            //store and update new image
-            $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-            $request->marathi_image->storeAs('public/images/aboutus/objective-goals', $marathiImageName);
-            $objectivegoals_data->marathi_image =  $marathiImageName;
-
-        }
-        $objectivegoals_data->update();  
-        
-    //    dd($objectivegoals_data);
-        // print_r($objectivegoals_data);
-        // die();
-     
-        return [
-            'msg' => 'Objective Goals updated successfully.',
-            'status' => 'success'
-        ];
-    } catch (\Exception $e) {
-        return $e;
-        return [
-            'msg' => 'Failed to update Objective Goals.',
-            'status' => 'error'
-        ];
     }
-}
-
-
-public function deleteById($id)
-{
-    try {
-        $objectivegoals = ObjectiveGoals::destroy($id);
-        if ($objectivegoals) {
-            Storage::delete([
-                'public/images/objective-goals/'.$objectivegoals->marathi_image,
-                'public/images/objective-goals/'.$objectivegoals->english_image,
-            ]);
-
-            // Delete the record from the database
-            $objectivegoals->delete();
-            
-            return $objectivegoals;
-        } else {
-            return null;
-        }
-    } catch (\Exception $e) {
-        return $e;
-		return [
-            'msg' => 'Failed to delete Objective Goals.',
-            'status' => 'error'
-        ];
-    }
-}
 
 }

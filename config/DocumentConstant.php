@@ -16,6 +16,12 @@ return [
     'ABOUT_US_STATE_DISASTER_MGTAUTHORITY_DELETE' => '/all_web_data/images/about/state_disaster_management_authority/',
     'ABOUT_US_STATE_DISASTER_MGTAUTHORITY_VIEW'	  => env("APP_URL").'/storage/all_web_data/images/about/state_disaster_management_authority/',
 
+
+    'OBJECTIVE_GOALS_ADD'	  => "/all_web_data/images/about/objective_and_goals/",
+    'OBJECTIVE_GOALS_DELETE' => '/all_web_data/images/about/objective_and_goals/',
+    'OBJECTIVE_GOALS_VIEW'	  => env("APP_URL").'/storage/all_web_data/images/about/objective_and_goals/',
+
+
     'CAPACITY_TRAINING_ADD'	         => "/all_web_data/images/preparedness/capacity-training/",
     'CAPACITY_TRAINING_DELETE'	     => '/all_web_data/images/preparedness/capacity-training/',
     'CAPACITY_TRAINING_VIEW'	     => env("APP_URL").'/storage/all_web_data/images/preparedness/capacity-training/',
