@@ -75,9 +75,9 @@ class VacanciesHeaderServices
                 $englishPdfName = $return_data['last_insert_id'] . '_english.' . $request->english_pdf->extension();
                 uploadImage($request, 'english_pdf', $path, $englishPdfName);
                
-                $vacancy_data = VacanciesHeader::find($return_data['last_insert_id']);
-                $vacancy_data->english_pdf = $englishPdfName;
-                $vacancy_data->save();
+                $rti_data = VacanciesHeader::find($return_data['last_insert_id']);
+                $rti_data->english_pdf = $englishPdfName;
+                $rti_data->save();
             }
            
             if ($request->hasFile('marathi_pdf')) {
@@ -91,9 +91,9 @@ class VacanciesHeaderServices
                 $marathiPdfName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_pdf->extension();
                 uploadImage($request, 'marathi_pdf', $path, $marathiPdfName);
 
-                $vacancy_data = VacanciesHeader::find($return_data['last_insert_id']);
-                $vacancy_data->marathi_pdf = $marathiPdfName;
-                $vacancy_data->save();
+                $rti_data = VacanciesHeader::find($return_data['last_insert_id']);
+                $rti_data->marathi_pdf = $marathiPdfName;
+                $rti_data->save();
             }
  
             if ($return_data) {
