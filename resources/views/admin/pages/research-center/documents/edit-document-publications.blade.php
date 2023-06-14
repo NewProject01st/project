@@ -83,7 +83,7 @@
                                             class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></div>
                                         @endif
                                         <a
-                                            href="{{ asset('storage/pdf/research-center/documents/' .$documents_publications->english_pdf) }}
+                                            href="{{ asset('storage/pdf/research-center/documents/' .$documents_publications->english_pdf) }}"></a>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">

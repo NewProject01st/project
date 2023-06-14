@@ -50,8 +50,8 @@ class CitizenActionSeeder extends Seeder
             </li>
             </ul>
             ',
-            'english_image' => 'test_english.jpeg',
-            'marathi_image' => 'test_marathi.jpeg',
+            'english_image' => '1_english.jpeg',
+            'marathi_image' => '1_marathi.jpeg',
             'is_deleted'=>false,
             'is_active'=>true,
         
@@ -121,8 +121,8 @@ class CitizenActionSeeder extends Seeder
             </li>
             </ul>
             ',
-            'english_image' => 'test_english.jpeg',
-            'marathi_image' => 'test_marathi.jpeg',
+            'english_image' => '1_english.jpeg',
+            'marathi_image' => '1_marathi.jpeg',
             'is_deleted'=>false,
             'is_active'=>true,
         
@@ -180,8 +180,8 @@ class CitizenActionSeeder extends Seeder
             </li>
             </ul>
             ',
-            'english_image' => 'test_english.jpeg',
-            'marathi_image' => 'test_marathi.jpeg',
+            'english_image' => '1_english.jpeg',
+            'marathi_image' => '1_marathi.jpeg',
             'is_deleted'=>false,
             'is_active'=>true, 
         ]);

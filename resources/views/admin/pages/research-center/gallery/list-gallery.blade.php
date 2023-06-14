@@ -45,10 +45,10 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ strip_tags($item->english_name) }}</td>
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/news-events/gallery/' . $item->english_image) }}" />
+                                                            src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $item->english_image }}" />
                                                         </td>
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/news-events/gallery/' . $item->marathi_image) }}" />
+                                                            src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $item->marathi_image }}" />
                                                         </td>
                                                         <td>
                                                             <label class="switch">

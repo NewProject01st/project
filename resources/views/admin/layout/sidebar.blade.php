@@ -481,7 +481,7 @@
                       <a class="nav-link" data-toggle="collapse" href="#news-events" aria-expanded="false"
                           aria-controls="news-events">
                           <i class="fas fa-newspaper fa-lg"></i>
-                          <span class="menu-title">News And Events </span>
+                          <span class="menu-title"> News And Events </span>
                           <i class="menu-arrow"></i>
                       </a>
                       <div class="collapse" id="news-events">

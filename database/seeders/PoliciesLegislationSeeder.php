@@ -64,8 +64,8 @@ class PoliciesLegislationSeeder extends Seeder
             </li>
             </ul>
             ',
-            'english_image' => 'test_english.jpeg',
-            'marathi_image' => 'test_marathi.jpeg',
+            'english_image' => '1_english.jpeg',
+            'marathi_image' => '1_marathi.jpeg',
             'is_deleted'=>false,
             'is_active'=>true,
         ]);
@@ -131,8 +131,8 @@ class PoliciesLegislationSeeder extends Seeder
             </li>
             </ul>
             ',
-            'english_image' => 'test_english.jpeg',
-            'marathi_image' => 'test_marathi.jpeg',
+            'english_image' => '1_english.jpeg',
+            'marathi_image' => '1_marathi.jpeg',
             'is_deleted'=>false,
             'is_active'=>true,
         ]);
@@ -179,8 +179,8 @@ class PoliciesLegislationSeeder extends Seeder
             </li>
             </ul>      
             ',
-            'english_image' => 'test_english.jpeg',
-            'marathi_image' => 'test_marathi.jpeg',
+            'english_image' => '1_english.jpeg',
+            'marathi_image' => '1_marathi.jpeg',
             'is_deleted'=>false,
             'is_active'=>true,
         ]);
@@ -192,8 +192,8 @@ class PoliciesLegislationSeeder extends Seeder
             'marathi_title' => 'संबंधित कायदे आणि नियम',
             'english_description' => 'In Maharashtra, there are several relevant laws and regulations pertaining to disaster management. These policies and legislation aim to ensure preparedness, response, recovery, and mitigation measures are in place to effectively manage disasters. Here are some key laws and regulations in Maharashtra:<br>            ',
             'marathi_description' => 'महाराष्ट्रात, आपत्ती व्यवस्थापनाशी संबंधित अनेक कायदे आणि नियम आहेत. ही धोरणे आणि कायदे आपत्तींचे प्रभावीपणे व्यवस्थापन करण्यासाठी सज्जता, प्रतिसाद, पुनर्प्राप्ती आणि शमन उपाय आहेत याची खात्री करणे हा आहे. महाराष्ट्रातील काही प्रमुख कायदे आणि नियम येथे आहेत:<br>            ',
-            'english_image' => 'test_english.jpeg',
-            'marathi_image' => 'test_marathi.jpeg',
+            'english_image' => '1_english.jpeg',
+            'marathi_image' => '1_marathi.jpeg',
             'is_deleted'=>false,
             'is_active'=>true,
         ]);
