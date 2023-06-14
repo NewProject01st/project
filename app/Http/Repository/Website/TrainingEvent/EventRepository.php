@@ -16,9 +16,9 @@ class EventRepository  {
 	public function getAllUpcomingEvent()
     {
         try {
-            $date_now = date("d-m-Y");
+            $date_now = date("Y-m-d");
             $data_output = Event::where('is_active','=', true)
-                        ->where('start_date','<=', $date_now)
+                        // ->where('start_date','<=', $date_now)
                         ->where('end_date','>', $date_now);
             // dd($data_output);
             if (Session::get('language') == 'mar') {
@@ -36,7 +36,7 @@ class EventRepository  {
     public function getAllPastEvent()
     {
         try {
-            $date_now = date("d-m-Y");
+            $date_now = date("Y-m-d");
             $data_output = Event::where('is_active','=',true)
                             ->where('end_date','<', $date_now);
             // dd($data_output);

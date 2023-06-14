@@ -33,10 +33,10 @@ class IndexController extends Controller
     static function getCommonWebData() {
         try {
             $retun_data = [];
-            $date_now = date("d-m-Y");
+            $date_now = date("Y-m-d");
              
             $upcoming_event = Event::where('is_active','=', true)
-                        ->where('start_date','<=', $date_now)
+                        // ->where('start_date','<=', $date_now)
                         ->where('end_date','>', $date_now);
             // dd($upcoming_event);
             if (Session::get('language') == 'mar') {

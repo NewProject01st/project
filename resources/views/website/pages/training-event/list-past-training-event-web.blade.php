@@ -28,7 +28,7 @@
                             <div class="event-post-full d-flex">
                                 @if (session('language') == 'mar')
                                     <div class="thumb"><img
-                                            src="{{ asset('storage/training-event/event/' . $item['marathi_image']) }}"
+                                            src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['marathi_image'] }}"
                                             alt="<?php echo $item['marathi_title']; ?>"> </div>
                                     <div class="event-post-content">
                                         <div class="event-post-txt">
@@ -43,7 +43,7 @@
                                     </div>
                                 @else
                                     <div class="thumb"><img
-                                            src="{{ asset('storage/images/training-event/event/' . $item['english_image']) }}"
+                                            src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['english_image'] }}"
                                             alt="<?php echo $item['english_title']; ?>"> </div>
                                     <div class="event-post-content">
                                         <div class="event-post-txt">

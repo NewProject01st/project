@@ -53,6 +53,7 @@ class EventController extends Controller
             $menu = $this->menu;
             $socialicon = $this->socialicon;
             $data_output = $this->service->getAllPastEvent();
+            // dd($data_output);
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
