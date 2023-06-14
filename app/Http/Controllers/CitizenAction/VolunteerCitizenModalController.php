@@ -18,7 +18,7 @@ class VolunteerCitizenModalController extends Controller
     {
         try {
             $modal_data = $this->service->getAll();
-            dd($modal_data);
+            // dd($modal_data);
             return view('admin.pages.citizen-action.modal-info.list-volunteer-modal-info', compact('modal_data'));
         } catch (\Exception $e) {
             return $e;

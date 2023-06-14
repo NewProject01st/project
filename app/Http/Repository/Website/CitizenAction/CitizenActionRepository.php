@@ -131,9 +131,8 @@ class CitizenActionRepository  {
         {
             try {
                 // dd($request);
-               
                 $modal_data = new CitizenVolunteerModal();
-                $modal_data->volunteer = $request['incident'];
+                $modal_data->incident = $request['incident'];
                 $modal_data->location = $request['location'];
                 $modal_data->datetime = $request['datetime'];
                 $modal_data->mobile_number = $request['mobile_number'];
@@ -141,7 +140,6 @@ class CitizenActionRepository  {
                 // $modal_data->media_upload = $englishImageName;
                 $modal_data->save();       
                     
-                   
                 $last_insert_id = $modal_data->id;
 
                 $englishImageName = $last_insert_id . '_english.' . $request->media_upload->extension();
@@ -151,7 +149,6 @@ class CitizenActionRepository  {
                 $modal_data->save();
                 
                 return $last_insert_id;
-        
         
             } catch (\Exception $e) {
                 return [
@@ -167,7 +164,7 @@ class CitizenActionRepository  {
                 // dd($request);
               
                 $modal_data = new CitizenFeedbackSuggestionModal();
-                $modal_data->feedback = $request['incident'];
+                $modal_data->incident = $request['incident'];
                 $modal_data->location = $request['location'];
                 $modal_data->datetime = $request['datetime'];
                 $modal_data->mobile_number = $request['mobile_number'];
