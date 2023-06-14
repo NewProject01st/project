@@ -72,6 +72,7 @@ public function getById($id)
 public function updateAll($request)
 {
     try {
+        $return_data = array();
         $update_gallery = Gallery::find($request->id);
         
         if (!$update_gallery) {
@@ -83,37 +84,15 @@ public function updateAll($request)
        // Store the previous image names
        $previousEnglishImage = $update_gallery->english_image;
        $previousMarathiImage = $update_gallery->marathi_image;
+
+       $update_gallery->save();        
+       $last_insert_id = $update_gallery->id;
+
+       $return_data['last_insert_id'] = $last_insert_id;
+       $return_data['english_image'] = $previousEnglishImage;
+       $return_data['marathi_image'] = $previousMarathiImage;
+       return  $return_data;
        
-        if ($request->hasFile('english_image')) {
-            // Delete previous English image if it exists
-            if ($previousEnglishImage) {
-                Storage::delete('public/images/news-events/gallery/' . $previousEnglishImage);
-            }
-
-            // Store the new English image
-            $englishImageName = time() . '_english.' . $request->english_image->extension();
-            $request->english_image->storeAs('public/images/news-events/gallery/', $englishImageName);
-            $update_gallery->english_image = $englishImageName;
-        }
-
-        if ($request->hasFile('marathi_image')) {
-            // Delete previous Marathi image if it exists
-            if ($previousMarathiImage) {
-                Storage::delete('public/images/news-events/gallery/' . $previousMarathiImage);
-            }
-
-            // Store the new Marathi image
-            $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-            $request->marathi_image->storeAs('public/images/news-events/gallery/', $marathiImageName);
-            $update_gallery->marathi_image = $marathiImageName;
-        }
-
-        $update_gallery->save();        
-     
-        return [
-            'msg' => 'Gallery data updated successfully.',
-            'status' => 'success'
-        ];
     } catch (\Exception $e) {
         return $e;
         return [

@@ -23,8 +23,8 @@ class TrainingEventSeeder extends Seeder
             'marathi_description' => 'फेब्रुवारी 2021 मध्ये, महाराष्ट्राने 2021 मध्ये अग्निशामक दल, हेलिकॉप्टर आणि भारतीय सैन्याचा वापर करून जंगलातील आगीशी लढा दिला.',
             'english_image' => '1_english.jpeg',
             'marathi_image' => '1_marathi.jpeg',
-            'start_date' => '05-07-2023',
-            'end_date' => '19-09-2023',
+            'start_date' => '2023-07-05',
+            'end_date' => '2023-09-19',
             'is_deleted'=>false,
             'is_active'=>true,
         
@@ -39,8 +39,8 @@ class TrainingEventSeeder extends Seeder
             'marathi_description' => 'ऑगस्ट 2021 मध्ये, अतिवृष्टी आणि पुरामुळे केरळ, भारतातील हजारो लोक विस्थापित झाले, घरे, रस्ते आणि पायाभूत सुविधांचे नुकसान झाले.',
             'english_image' => '2_english.jpeg',
             'marathi_image' => '2_marathi.jpeg',
-            'start_date' => '22-08-2022',
-            'end_date' => '06-11-2022',
+            'start_date' => '2022-08-22',
+            'end_date' => '2022-11-06',
             'is_deleted'=>false,
             'is_active'=>true,
         
@@ -55,8 +55,8 @@ class TrainingEventSeeder extends Seeder
             'marathi_description' => 'मे 2021 मध्ये, सरकारने लोकांना सुरक्षित ठिकाणी हलवले आणि प्रभाव कमी करण्यासाठी इतर सावधगिरीचे उपाय केले.',
             'english_image' => '3_english.jpeg',
             'marathi_image' => '3_marathi.jpeg',
-            'start_date' => '12-01-2023',
-            'end_date' => '03-03-2023',
+            'start_date' => '2023-01-12',
+            'end_date' => '2023-03-03',
             'is_deleted'=>false,
             'is_active'=>true,
         
@@ -71,8 +71,8 @@ class TrainingEventSeeder extends Seeder
             'marathi_description' => '2021 मध्ये, आसामला अतिवृष्टीमुळे गंभीर पुराचा सामना करावा लागला, अनेक लोक विस्थापित झाले आणि घरे आणि पायाभूत सुविधांचे नुकसान झाले.',
             'english_image' => '2_english.jpeg',
             'marathi_image' => '2_marathi.jpeg',
-            'start_date' => '27-02-2023',
-            'end_date' => '22-04-2023',
+            'start_date' => '2023-02-27',
+            'end_date' => '2023-04-22',
             'is_deleted'=>false,
             'is_active'=>true,
         
