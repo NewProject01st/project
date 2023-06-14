@@ -141,7 +141,7 @@
                             <div class="news-box">
                                 <div class="new-thumb">
                                     {{-- <span class="cat c1">Fire</span> --}}
-                                    <img src="{{ asset('storage/images/home/disaster-news/' . $item['marathi_image']) }}"
+                                    <img src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW')}}{{$item['marathi_image']}}"
                                         class="d-block w-100">
                                 </div>
                                 <div class="new-txt">
@@ -165,7 +165,7 @@
                     <div class="news-box">
                         <div class="new-thumb">
                             {{-- <span class="cat c1">Fire</span> --}}
-                            <img src="{{ asset('storage/images/home/disaster-news/' . $item['english_image']) }}"
+                            <img src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW')}}{{$item['english_image']}}"
                                 class="d-block w-100">
                         </div>
                         <div class="new-txt">

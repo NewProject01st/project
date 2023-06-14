@@ -8,6 +8,7 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	DisasterManagementNews
 };
+use Config;
 
 class DisasterManagementNewsRepository  {
 	public function getAll()
@@ -22,25 +23,27 @@ class DisasterManagementNewsRepository  {
 	public function addAll($request)
 {
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/home/disaster-news', $englishImageName);
-        $request->marathi_image->storeAs('public/images/home/disaster-news', $marathiImageName);
-
-        
+     
         $disaster_data = new DisasterManagementNews();
         $disaster_data->english_title = $request['english_title'];
         $disaster_data->marathi_title = $request['marathi_title'];
         $disaster_data->english_description = $request['english_description'];
         $disaster_data->marathi_description = $request['marathi_description'];
-        $disaster_data->english_image = $englishImageName;
-        $disaster_data->marathi_image =   $marathiImageName;
         $disaster_data->english_url = $request['english_url'];
         $disaster_data->disaster_date = $request['disaster_date'];
+
         $disaster_data->save();       
-              
-		return $disaster_data;
+        $last_insert_id = $disaster_data->id;
+
+        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        
+        $disaster_news = DisasterManagementNews::find($last_insert_id); // Assuming $request directly contains the ID
+        $disaster_news->english_image = $englishImageName; // Save the image filename to the database
+        $disaster_news->marathi_image = $marathiImageName; // Save the image filename to the database
+        $disaster_news->save();
+        
+        return $last_insert_id;
 
     } catch (\Exception $e) {
         return [
@@ -70,6 +73,7 @@ public function getById($id)
 public function updateAll($request)
 {
     try {
+        $return_data = array();
         $disaster_data = DisasterManagementNews::find($request->id);
 
         if (!$disaster_data) {
@@ -91,36 +95,14 @@ public function updateAll($request)
         $disaster_data->english_url = $request['english_url'];
         $disaster_data->disaster_date = $request['disaster_date'];
 
-        if ($request->hasFile('english_image')) {
-            // Delete previous English image if it exists
-            if ($previousEnglishImage) {
-                Storage::delete('public/images/home/disaster-news/' . $previousEnglishImage);
-            }
-
-            // Store the new English image
-            $englishImageName = time() . '_english.' . $request->english_image->extension();
-            $request->english_image->storeAs('public/images/home/disaster-news/', $englishImageName);
-            $disaster_data->english_image = $englishImageName;
-        }
-
-        if ($request->hasFile('marathi_image')) {
-            // Delete previous Marathi image if it exists
-            if ($previousMarathiImage) {
-                Storage::delete('public/images/home/disaster-news/' . $previousMarathiImage);
-            }
-
-            // Store the new Marathi image
-            $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-            $request->marathi_image->storeAs('public/images/home/disaster-news/', $marathiImageName);
-            $disaster_data->marathi_image = $marathiImageName;
-        }
-
         $disaster_data->save();
+        $last_insert_id = $disaster_data->id;
 
-        return [
-            'msg' => 'Disaster News updated successfully.',
-            'status' => 'success'
-        ];
+        $return_data['last_insert_id'] = $last_insert_id;
+        $return_data['english_image'] = $previousEnglishImage;
+        $return_data['marathi_image'] = $previousMarathiImage;
+        return  $return_data;
+      
     } catch (\Exception $e) {
         return [
             'msg' => 'Failed to update Disaster News.',
@@ -161,17 +143,16 @@ public function deleteById($id)
     try {
         $disaster = DisasterManagementNews::find($id);
         if ($disaster) {
-              // Delete the images from the storage folder
-              Storage::delete([
-                'public/images/home/disaster-news/'.$disaster->english_image,
-                'public/images/home/disaster-news/'.$disaster->marathi_image
-            ]);
-
-            // Delete the record from the database
-            
+            if (file_exists(storage_path(Config::get('DocumentConstant.DISASTER_NEWS_DELETE') . $disaster->english_image))) {
+                unlink(storage_path(Config::get('DocumentConstant.DISASTER_NEWS_DELETE') . $disaster->english_image));
+            }
+            if (file_exists(storage_path(Config::get('DocumentConstant.DISASTER_NEWS_DELETE') . $disaster->marathi_image))) {
+                unlink(storage_path(Config::get('DocumentConstant.DISASTER_NEWS_DELETE') . $disaster->marathi_image));
+            }
             $disaster->delete();
             
             return $disaster;
+            
         } else {
             return null;
         }

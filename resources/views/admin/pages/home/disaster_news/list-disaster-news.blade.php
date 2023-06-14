@@ -53,10 +53,10 @@
                                                 <td>{{ strip_tags($item->marathi_description) }}</td>
                                                 <td>{{ $item->disaster_date }}</td>
                                                 <td> <img class="img-size"
-                                                        src="{{ asset('storage/images/home/disaster-news/' . $item->english_image) }}" />
+                                                        src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW')}}{{$item->english_image}}" />
                                                 </td>
                                                 <td> <img class="img-size"
-                                                        src="{{ asset('storage/images/home/disaster-news/' . $item->marathi_image) }}" />
+                                                        src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW')}}{{$item->marathi_image}}" />
                                                 </td>
                                                 <td>
                                                     <label class="switch">

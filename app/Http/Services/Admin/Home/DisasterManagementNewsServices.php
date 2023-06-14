@@ -3,8 +3,11 @@ namespace App\Http\Services\Admin\Home;
 
 use App\Http\Repository\Admin\Home\DisasterManagementNewsRepository;
 
-use App\DisasterManagementNews;
+use App\Models\
+{ DisasterManagementNews };
 use Carbon\Carbon;
+use Config;
+use Storage;
 
 
 class DisasterManagementNewsServices
@@ -31,8 +34,14 @@ class DisasterManagementNewsServices
     public function addAll($request)
     {
         try {
-            $add_disaster = $this->repo->addAll($request);
-            if ($add_disaster) {
+            $last_id = $this->repo->addAll($request);
+            $path = Config::get('DocumentConstant.DISASTER_NEWS_ADD');
+            $englishImageName = $last_id . '_english.' . $request->english_image->extension();
+            $marathiImageName = $last_id . '_marathi.' . $request->marathi_image->extension();
+            uploadImage($request, 'english_image', $path, $englishImageName);
+            uploadImage($request, 'marathi_image', $path, $marathiImageName);
+
+            if ($last_id) {
                 return ['status' => 'success', 'msg' => 'Disaster Added Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Disaster Not Added.'];
@@ -54,8 +63,37 @@ class DisasterManagementNewsServices
     public function updateAll($request)
     {
         try {
-            $update_disaster = $this->repo->updateAll($request);
-            if ($update_disaster) {
+            $return_data = $this->repo->updateAll($request);
+            $path = Config::get('DocumentConstant.DISASTER_NEWS_ADD');
+            if ($request->hasFile('english_image')) {
+                if ($return_data['english_image']) {
+                    $delete_file_path_eng  = storage_path(Config::get('DocumentConstant.DISASTER_NEWS_DELETE') . $return_data['english_image']);
+                    if (file_exists($delete_file_path_eng)) {
+                        unlink($delete_file_path_eng);
+                    }
+                }
+                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                uploadImage($request, 'english_image', $path, $englishImageName);
+                $disaster_mgt_data = DisasterManagementNews::find($return_data['last_insert_id']);
+                $disaster_mgt_data->english_image = $englishImageName;
+                $disaster_mgt_data->save();
+            }
+    
+            if ($request->hasFile('marathi_image')) {
+                if ($return_data['marathi_image']) {
+                    $delete_file_path_marathi = storage_path(Config::get('DocumentConstant.DISASTER_NEWS_DELETE') . $return_data['marathi_image']);
+                    if (file_exists($delete_file_path_marathi)) {
+                        unlink($delete_file_path_marathi);
+                    }
+                }
+                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                uploadImage($request, 'marathi_image', $path, $marathiImageName);
+                $disaster_mgt_data = DisasterManagementNews::find($return_data['last_insert_id']);
+                $disaster_mgt_data->marathi_image = $marathiImageName;
+                $disaster_mgt_data->save();
+            }
+            
+            if ($return_data) {
                 return ['status' => 'success', 'msg' => 'Disaster Updated Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Disaster Not Updated.'];

@@ -8,6 +8,10 @@ return [
     'SLIDER_DELETE'	         => '/all_web_data/images/home/slides/',
     'SLIDER_VIEW'	         => env("APP_URL").'/storage/all_web_data/images/home/slides/',
 
+    'DISASTER_NEWS_ADD'	         => "/all_web_data/images/home/disaster_news/",
+    'DISASTER_NEWS_DELETE'	         => '/all_web_data/images/home/disaster_news/',
+    'DISASTER_NEWS_VIEW'	         => env("APP_URL").'/storage/all_web_data/images/home/disaster_news/',
+
     'HOME_DISATER_MGT_WEB_PORTAL_ADD'	   => "/all_web_data/images/home/disater_mgt_web_portal/",
     'HOME_DISATER_MGT_WEB_PORTAL_DELETE'   => '/all_web_data/images/home/disater_mgt_web_portal/',
     'HOME_DISATER_MGT_WEB_PORTAL_VIEW'	   => env("APP_URL").'/storage/all_web_data/images/home/disater_mgt_web_portal/',
