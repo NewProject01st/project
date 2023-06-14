@@ -94,7 +94,7 @@
                                             <label> English Image :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <img src="{{ asset('storage/images/disaster-webportal/' . $disaster_web_portal->english_image) }}"
+                                            <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW')}}{{$disaster_web_portal->english_image}}"
                                                 style="width:150px; height:150px;" />
                                         </div>
                                     </div>
@@ -103,7 +103,7 @@
                                             <label> Marathi Image:</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
-                                            <img src="{{ asset('storage/images/disaster-webportal/' . $disaster_web_portal->marathi_image) }}"
+                                            <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW')}}{{$disaster_web_portal->marathi_image}}"
                                                 style="width:150px; height:150px;" />
                                         </div>
                                     </div>

@@ -93,7 +93,7 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-5">
                                 <div class="city-tour gallery"> <strong> Disaster Management Head </strong>
-                                    <img src="{{ asset('storage/images/home/disaster-webportal/' . $item['marathi_image']) }}"
+                                    <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW')}}{{ $item['marathi_image'] }}"
                                         class="d-block w-100">
                                 </div>
                             </div>
@@ -109,7 +109,7 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-5">
                                 <div class="city-tour gallery"> <strong> Disaster Management Head </strong>
-                                    <img src="{{ asset('storage/images/home/disaster-webportal/' . $item['english_image']) }}"
+                                    <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW')}}{{ $item['english_image'] }}"
                                         class="d-block w-100">
                                 </div>
                             </div>
@@ -211,7 +211,7 @@
                                 <!--Icon Box Start-->
                                 <div class="col-md-4 col-sm-4">
                                     <div class="deprt-icon-box"> <img
-                                            src="{{ asset('storage/images/home/department-information/' . $item['marathi_image']) }}"
+                                            src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW')}}{{$item['marathi_image'] }}"
                                             alt="">
                                         <h6> <a><?php echo $item['marathi_title']; ?></a> </h6>
                                         <a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer">Read More</a>
@@ -220,7 +220,7 @@
                             @else
                                 <div class="col-md-4 col-sm-4">
                                     <div class="deprt-icon-box"> <img
-                                            src="{{ asset('storage/images/home/department-information/' . $item['english_image']) }}"
+                                            src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW')}}{{$item['english_image']}}"
                                             alt="">
                                         <h6> <a><?php echo $item['english_title']; ?></a> </h6>
                                         <a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer">Read More</a>

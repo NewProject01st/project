@@ -8,6 +8,7 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	DepartmentInformation
 };
+use Config;
 
 class DepartmentInformationRepository  {
 	public function getAll()
@@ -22,31 +23,28 @@ class DepartmentInformationRepository  {
 	public function addAll($request)
 {
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        $englishImageName1 = time() . '_english.' . $request->english_image_new->extension();
-        $marathiImageName1 = time() . '_marathi.' . $request->marathi_image_new->extension();
-        
-        $request->english_image->storeAs('public/images/home/department-information', $englishImageName);
-        $request->marathi_image->storeAs('public/images/home/department-information', $marathiImageName); 
-        $request->english_image_new->storeAs('public/images/home/department-information', $englishImageName1);
-        $request->marathi_image_new->storeAs('public/images/home/department-information', $marathiImageName1);
-        
         $department_data = new DepartmentInformation();
         $department_data->english_title = $request['english_title'];
         $department_data->marathi_title = $request['marathi_title'];
         $department_data->english_description = $request['english_description'];
         $department_data->marathi_description = $request['marathi_description'];
-        $department_data->english_image = $englishImageName;
-        $department_data->marathi_image =   $marathiImageName;
-        $department_data->english_image_new = $englishImageName1;
-        $department_data->marathi_image_new =   $marathiImageName1;
         $department_data->url = $request['url'];
-        // $department_data->date = $request['date'];
-        // dd($department_data);
-        $department_data->save();       
-              
-		return $department_data;
+        $department_data->save();  
+        
+        $last_insert_id = $department_data->id;
+
+        $englishImageName  = $last_insert_id . '_english.' . $request->english_image->extension();
+        $englishImageName1 = $last_insert_id . '_english1.' . $request->english_image_new->extension();
+        $marathiImageName  = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        $marathiImageName1 = $last_insert_id . '_marathi1.' . $request->marathi_image_new->extension();
+        
+        $department_data_update = DisasterManagementWebPortal::find($last_insert_id); 
+        $department_data_update->english_image = $englishImageName; 
+        $department_data_update->english_image_new = $englishImageName1; 
+        $department_data_update->marathi_image = $marathiImageName;
+        $department_data_update->marathi_image_new = $marathiImageName1;
+        $department_data_update->save();
+        return $last_insert_id;
 
     } catch (\Exception $e) {
         return [
@@ -98,57 +96,16 @@ public function updateAll($request)
         $department_data->english_description = $request['english_description'];
         $department_data->marathi_description = $request['marathi_description'];
         $department_data->url = $request['url'];
-        // $department_data->date = $request['date'];
-
-        if ($request->hasFile('english_image')) {
-            // Delete previous English image if it exists
-            if ($previousEnglishImage) {
-                Storage::delete('public/images/home/department-information/' . $previousEnglishImage);
-            }
-
-            // Store the new English image
-            $englishImageName = time() . '_english.' . $request->english_image->extension();
-            $request->english_image->storeAs('public/images/home/department-information/', $englishImageName);
-            $department_data->english_image = $englishImageName;
-        }
-
-        if ($request->hasFile('marathi_image')) {
-            // Delete previous Marathi image if it exists
-            if ($previousMarathiImage) {
-                Storage::delete('public/images/home/department-information/' . $previousMarathiImage);
-            }
-
-            // Store the new Marathi image
-            $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-            $request->marathi_image->storeAs('public/images/home/department-information/', $marathiImageName);
-            $department_data->marathi_image = $marathiImageName;
-        }
-
-        if ($request->hasFile('english_image_new')) {
-            // Delete previous English image if it exists
-            if ($previousEnglishImage1) {
-                Storage::delete('public/images/home/department-information/' . $previousEnglishImage1);
-            }
-
-            // Store the new English image
-            $englishImageName1 = time() . '_english.' . $request->english_image_new->extension();
-            $request->english_image_new->storeAs('public/images/home/department-information/', $englishImageName1);
-            $department_data->english_image_new = $englishImageName1;
-        }
-
-        if ($request->hasFile('marathi_image')) {
-            // Delete previous Marathi image if it exists
-            if ($previousMarathiImage) {
-                Storage::delete('public/images/home/department-information/' . $previousMarathiImage1);
-            }
-
-            // Store the new Marathi image
-            $marathiImageName1 = time() . '_marathi.' . $request->marathi_image_new->extension();
-            $request->marathi_image_new->storeAs('public/images/home/department-information/', $marathiImageName1);
-            $department_data->marathi_image_new = $marathiImageName1;
-        }
-
+        
         $department_data->save();
+
+        $last_insert_id = $department_data->id;
+        $return_data['last_insert_id'] = $last_insert_id;
+        $return_data['english_image'] = $previousEnglishImage;
+        $return_data['english_image_new'] = $previousEnglishImage1;
+        $return_data['marathi_image'] = $previousMarathiImage;
+        $return_data['marathi_image_new'] = $previousMarathiImage1;
+        return  $return_data;
 
         return [
             'msg' => 'Disaster News updated successfully.',
@@ -194,17 +151,28 @@ public function deleteById($id)
     try {
         $department = DepartmentInformation::find($id);
         if ($department) {
-              // Delete the images from the storage folder
-              Storage::delete([
-                'public/images/home/department-information/'.$department->english_image,
-                'public/images/home/department-information/'.$department->marathi_image
-            ]);
+            $delete_path_for_english_file = storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $department->english_image);
+            if (file_exists($delete_path_for_english_file)) {
+                unlink($delete_path_for_english_file);
+            }
+            $delete_path_for_marathi_file = storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $department->marathi_image);
+            if (file_exists($delete_path_for_marathi_file)) {
+                unlink($delete_path_for_marathi_file);
+            }
 
-            // Delete the record from the database
+            $delete_path_for_english_file_new = storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $department->english_image_new);
+            if (file_exists($delete_path_for_english_file_new)) {
+                unlink($delete_path_for_english_file_new);
+            }
+            $delete_path_for_marathi_file_new = storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $department->marathi_image_new);
+            if (file_exists($delete_path_for_marathi_file_new)) {
+                unlink($delete_path_for_marathi_file_new);
+            }
             
             $department->delete();
             
             return $department;
+            
         } else {
             return null;
         }

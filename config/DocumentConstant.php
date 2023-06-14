@@ -8,6 +8,16 @@ return [
     'SLIDER_DELETE'	         => '/all_web_data/images/home/slides/',
     'SLIDER_VIEW'	         => env("APP_URL").'/storage/all_web_data/images/home/slides/',
 
+    'HOME_DISATER_MGT_WEB_PORTAL_ADD'	   => "/all_web_data/images/home/disater_mgt_web_portal/",
+    'HOME_DISATER_MGT_WEB_PORTAL_DELETE'   => '/all_web_data/images/home/disater_mgt_web_portal/',
+    'HOME_DISATER_MGT_WEB_PORTAL_VIEW'	   => env("APP_URL").'/storage/all_web_data/images/home/disater_mgt_web_portal/',
+
+    'HOME_DEPARTMENT_WEB_ADD'	   => "/all_web_data/images/home/department/",
+    'HOME_DEPARTMENT_WEB_DELETE'   => '/all_web_data/images/home/department/',
+    'HOME_DEPARTMENT_WEB_VIEW'	   => env("APP_URL").'/storage/all_web_data/images/home/department/',
+    
+
+
     'ABOUT_US_DISASTER_MGT_PORTAL_ADD'	   => "/all_web_data/images/about/disater_mgt_portal/",
     'ABOUT_US_DISASTER_MGT_PORTAL_DELETE'  => '/all_web_data/images/about/disater_mgt_portal/',
     'ABOUT_US_DISASTER_MGT_PORTAL_VIEW'	   => env("APP_URL").'/storage/all_web_data/images/about/disater_mgt_portal/',
@@ -20,7 +30,6 @@ return [
     'OBJECTIVE_GOALS_ADD'	  => "/all_web_data/images/about/objective_and_goals/",
     'OBJECTIVE_GOALS_DELETE' => '/all_web_data/images/about/objective_and_goals/',
     'OBJECTIVE_GOALS_VIEW'	  => env("APP_URL").'/storage/all_web_data/images/about/objective_and_goals/',
-
 
     'CAPACITY_TRAINING_ADD'	         => "/all_web_data/images/preparedness/capacity-training/",
     'CAPACITY_TRAINING_DELETE'	     => '/all_web_data/images/preparedness/capacity-training/',

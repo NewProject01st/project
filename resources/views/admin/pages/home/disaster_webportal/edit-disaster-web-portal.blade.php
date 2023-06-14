@@ -5,7 +5,7 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Disaster Management News
+                Disaster Management Web Portal
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -134,7 +134,7 @@
                                             class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <img src="{{ asset('storage/images/disaster-webportal/' . $disaster_web_portal->english_image) }}"
+                                    <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW')}}{{$disaster_web_portal->english_image}}"
                                         class="img-fluid img-thumbnail" width="150">
                                 </div>
                                 <div class="col-md-6">
@@ -147,7 +147,7 @@
                                             class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <img src="{{ asset('storage/images/disaster-webportal/' . $disaster_web_portal->marathi_image) }}"
+                                    <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW')}}{{$disaster_web_portal->marathi_image}}"
                                         class="img-fluid img-thumbnail" width="150">
                                 </div>
 
