@@ -3,8 +3,9 @@ namespace App\Http\Services\Website\CitizenAction;
 
 use App\Http\Repository\Website\CitizenAction\CitizenActionRepository;
 
-// use App\Marquee;
 use Carbon\Carbon;
+use Config;
+use Storage;
 
 
 class CitizenActionServices
@@ -70,9 +71,9 @@ class CitizenActionServices
             $englishImageName = $last_id . '_english.' . $request->media_upload->extension();
             uploadImage($request, 'media_upload', $path, $englishImageName);
             if ($last_id) {
-                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing  Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Volunteer Citizen Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Added.'];
+                return ['status' => 'error', 'msg' => 'Volunteer Citizen  Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
