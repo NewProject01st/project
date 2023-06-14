@@ -3,8 +3,12 @@ namespace App\Http\Services\ResourceCenter;
 
 use App\Http\Repository\ResourceCenter\TrainingAndWorkshopRepository;
 
-use App\TrainingMaterialsWorkshops;
+
+use App\Models\
+{ TrainingMaterialsWorkshops };
 use Carbon\Carbon;
+use Config;
+use Storage;
 
 
 class TrainingAndWorkshopServices

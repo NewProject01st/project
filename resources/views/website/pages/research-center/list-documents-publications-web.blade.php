@@ -33,14 +33,14 @@
                                         @if (session('language') == 'mar')
                                             <td>{{ $loop->iteration }}</td>
                                             <td><?php echo $item['marathi_title']; ?></td>
-                                            <td> <a href="{{ asset('/storage/pdf/research-center/documents/' . $item['marathi_pdf']) }}"
-                                                    target="_blank"><img src="{{ asset('storage/pdf/pdf.png/') }}"
+                                            <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item['marathi_pdf'] }}"
+                                                    target="_blank"><img src="{{ asset('website_files/images/pdf/pdf.png/') }}"
                                                         width="35px" height="35px"></a></td>
                                         @else
                                             <td>{{ $loop->iteration }}</td>
                                             <td><?php echo $item['english_title']; ?></td>
-                                            <td> <a href="{{ asset('/storage/pdf/research-center/documents/' . $item['english_pdf']) }}"
-                                                    target="_blank"><img src="{{ asset('storage/pdf/pdf.png/') }}"
+                                            <td> <a  href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item['english_pdf'] }}"
+                                                    target="_blank"><img src="{{ asset('website_files/images/pdf/pdf.png/') }}"
                                                         width="35px" height="35px"></a></td>
                                         @endif
                                     </tr>
