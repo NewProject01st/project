@@ -7,7 +7,7 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Slides List
+                    Slide List
                     @if (in_array('per_add', $data_permission))
                         <a href="{{ route('add-slide') }}" class="btn btn-sm btn-primary ml-3">+
                             Add</a>
@@ -16,8 +16,8 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Slides List</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Slides List</li>
+                        <li class="breadcrumb-item"><a href="#">Slide List</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Slide List</li>
                     </ol>
                 </nav>
             </div>
