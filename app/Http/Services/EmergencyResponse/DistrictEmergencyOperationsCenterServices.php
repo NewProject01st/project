@@ -72,8 +72,9 @@ class DistrictEmergencyOperationsCenterServices{
                     $delete_file_mar= storage_path(Config::get('DocumentConstant.DISTRICT_OPERATION_CENTER_DELETE') . $return_data['marathi_image']);
                     if(file_exists($delete_file_mar)){
                         unlink($delete_file_mar);
-                    }            
-                    }
+                    }     
+
+                 }
     
                 $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);

@@ -45,13 +45,13 @@
                                                 @foreach ($modal_data as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ $item->english_title}}</td>
+                                                        <td>{{ $item->english_title }}</td>
                                                         <td>{{ $item->location }}</td>
                                                         <td>{{ $item->datetime }}</td>
                                                         <td>{{ $item->mobile_number }}</td>
                                                         <td>{{ strip_tags($item->description) }}</td>
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/citizen-action/modal/incident-modal/' . $item->media_upload) }}" />
+                                                                src="{{ Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_MODAL_VIEW') }}{{ $item->media_upload }}" />
                                                         </td>
 
 

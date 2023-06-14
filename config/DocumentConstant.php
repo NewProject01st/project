@@ -111,4 +111,25 @@ return [
     'TRAINING_MATERIAL_ADD'	 => "/all_web_data/pdf/resource_center/training_material//",
     'TRAINING_MATERIAL_DELETE' => '/all_web_data/pdf/resource_center/training_material/',
     'TRAINING_MATERIAL_VIEW'	 => env("APP_URL").'/storage/all_web_data/pdf/resource_center/training_material/',
+
+    'REPORT_INCIDENT_CROWDSOURCING_MODAL_ADD'	    => "/all_web_data/images/citizen-action/modal/report-incident-modal//",
+    'REPORT_INCIDENT_CROWDSOURCING_MODAL_DELETE'  => '/all_web_data/images/citizen-action/modal/report-incident-modal/',
+    'REPORT_INCIDENT_CROWDSOURCING_MODAL_VIEW'    => env("APP_URL").'/storage/all_web_data/images/citizen-action/modal/report-incident-modal/',
+
+    'VOLUNTEER_CITIZEN_MODAL_ADD'	    => "/all_web_data/images/citizen-action/modal/volunteer-citizen-modal//",
+    'VOLUNTEER_CITIZEN_MODAL_DELETE'  => '/all_web_data/images/citizen-action/modal/volunteer-citizen-modal/',
+    'VOLUNTEER_CITIZEN_MODAL_VIEW'    => env("APP_URL").'/storage/all_web_data/images/citizen-action/modal/volunteer-citizen-modal/',
+    
+    'FEEDBACK_CITIZEN_MODAL_ADD'	    => "/all_web_data/images/citizen-action/modal/feedback-citizen-modal//",
+    'FEEDBACK_CITIZEN_MODAL_DELETE'  => '/all_web_data/images/citizen-action/modal/feedback-citizen-modal/',
+    'FEEDBACK_CITIZEN_MODAL_VIEW'    => env("APP_URL").'/storage/all_web_data/images/citizen-action/modal/feedback-citizen-modal/',
+    
+    'VACANCIES_PDF_ADD'	 => "/all_web_data/pdf/header/vacancies//",
+    'VACANCIES_PDF_DELETE' => '/all_web_data/pdf/header/vacancies/',
+    'VACANCIES_PDF_VIEW'	 => env("APP_URL").'/storage/all_web_data/pdf/header/vacancies/',
+ 
+    'RTI_PDF_ADD'	 => "/all_web_data/pdf/header/rti//",
+    'RTI_PDF_DELETE' => '/all_web_data/pdf/header/rti/',
+    'RTI_PDF_VIEW'	 => env("APP_URL").'/storage/all_web_data/pdf/header/rti/',
+
 ];

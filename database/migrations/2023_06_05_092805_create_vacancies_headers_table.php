@@ -18,8 +18,8 @@ class CreateVacanciesHeadersTable extends Migration
             $table->text('english_title');
             $table->text('marathi_title');
             $table->string('url')->default(null);
-            $table->string('english_pdf');
-            $table->string('marathi_pdf');            
+            $table->string('english_pdf')->default('null');;
+            $table->string('marathi_pdf')->default('null');;            
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

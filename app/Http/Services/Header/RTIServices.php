@@ -3,8 +3,12 @@ namespace App\Http\Services\Header;
 
 use App\Http\Repository\Header\RTIRepository;
 
-use App\RTI;
+use App\Models\
+{ RTI };
 use Carbon\Carbon;
+use Config;
+use Storage;
+
 
 
 class RTIServices
@@ -32,8 +36,13 @@ class RTIServices
     public function addAll($request)
     {
         try {
-            $add_rti = $this->repo->addAll($request);
-            if ($add_rti) {
+            $last_id = $this->repo->addAll($request);
+            $path = Config::get('DocumentConstant.RTI_PDF_ADD');
+            $englishPdfName = $last_id . '_english.' . $request->english_pdf->extension();
+            $marathiPdfName = $last_id . '_marathi.' . $request->marathi_pdf->extension();
+            uploadImage($request, 'english_pdf', $path, $englishPdfName);
+            uploadImage($request, 'marathi_pdf', $path, $marathiPdfName);
+            if ($last_id) {
                 return ['status' => 'success', 'msg' => 'Tender Added Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Tender Not Added.'];
@@ -56,8 +65,43 @@ class RTIServices
     public function updateAll($request)
     {
         try {
-            $update_rti = $this->repo->updateAll($request);
-            if ($update_rti) {
+            $return_data = $this->repo->updateAll($request);
+            
+            $path = Config::get('DocumentConstant.RTI_PDF_ADD');
+            if ($request->hasFile('english_pdf')) {
+                if ($return_data['english_pdf']) {
+                    $delete_file_eng= storage_path(Config::get('DocumentConstant.RTI_PDF_DELETE') . $return_data['english_pdf']);
+                    if(file_exists($delete_file_eng)){
+                        unlink($delete_file_eng);
+                    }
+
+                }
+    
+                $englishPdfName = $return_data['last_insert_id'] . '_english.' . $request->english_pdf->extension();
+                uploadImage($request, 'english_pdf', $path, $englishPdfName);
+               
+                $rti_data = RTI::find($return_data['last_insert_id']);
+                $rti_data->english_pdf = $englishPdfName;
+                $rti_data->save();
+            }
+           
+            if ($request->hasFile('marathi_pdf')) {
+                if ($return_data['marathi_pdf']) {
+                    $delete_file_mar= storage_path(Config::get('DocumentConstant.RTI_PDF_DELETE') . $return_data['marathi_pdf']);
+                    if(file_exists($delete_file_mar)){
+                        unlink($delete_file_mar);
+                    }
+                }
+    
+                $marathiPdfName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_pdf->extension();
+                uploadImage($request, 'marathi_pdf', $path, $marathiPdfName);
+
+                $rti_data = RTI::find($return_data['last_insert_id']);
+                $rti_data->marathi_pdf = $marathiPdfName;
+                $rti_data->save();
+            }
+ 
+            if ($return_data) {
                 return ['status' => 'success', 'msg' => 'Tender Updated Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Tender Not Updated.'];

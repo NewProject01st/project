@@ -3,8 +3,12 @@ namespace App\Http\Services\Header;
 
 use App\Http\Repository\Header\VacanciesRepository;
 
-use App\VacanciesHeader;
+use App\Models\
+{ VacanciesHeader };
 use Carbon\Carbon;
+use Config;
+use Storage;
+
 
 
 class VacanciesHeaderServices
@@ -30,8 +34,13 @@ class VacanciesHeaderServices
     public function addAll($request)
     {
         try {
-            $add_vacancy = $this->repo->addAll($request);
-            if ($add_vacancy) {
+            $last_id = $this->repo->addAll($request);
+            $path =  Config::get('DocumentConstant.VACANCIES_PDF_ADD');
+            $englishPdfName = $last_id . '_english.' . $request->english_pdf->extension();
+            $marathiPdfName = $last_id . '_marathi.' . $request->marathi_pdf->extension();
+            uploadImage($request, 'english_pdf', $path, $englishPdfName);
+            uploadImage($request, 'marathi_pdf', $path, $marathiPdfName);
+            if ($last_id) {
                 return ['status' => 'success', 'msg' => 'Vacancy Added Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Vacancy Not Added.'];
@@ -51,8 +60,43 @@ class VacanciesHeaderServices
     public function updateAll($request)
     {
         try {
-            $update_vacancy = $this->repo->updateAll($request);
-            if ($update_vacancy) {
+            $return_data = $this->repo->updateAll($request);
+            
+            $path = Config::get('DocumentConstant.VACANCIES_PDF_ADD');
+            if ($request->hasFile('english_pdf')) {
+                if ($return_data['english_pdf']) {
+                    $delete_file_eng= storage_path(Config::get('DocumentConstant.VACANCIES_PDF_DELETE') . $return_data['english_pdf']);
+                    if(file_exists($delete_file_eng)){
+                        unlink($delete_file_eng);
+                    }
+
+                }
+    
+                $englishPdfName = $return_data['last_insert_id'] . '_english.' . $request->english_pdf->extension();
+                uploadImage($request, 'english_pdf', $path, $englishPdfName);
+               
+                $vacancy_data = VacanciesHeader::find($return_data['last_insert_id']);
+                $vacancy_data->english_pdf = $englishPdfName;
+                $vacancy_data->save();
+            }
+           
+            if ($request->hasFile('marathi_pdf')) {
+                if ($return_data['marathi_pdf']) {
+                    $delete_file_mar= storage_path(Config::get('DocumentConstant.VACANCIES_PDF_DELETE') . $return_data['marathi_pdf']);
+                    if(file_exists($delete_file_mar)){
+                        unlink($delete_file_mar);
+                    }
+                }
+    
+                $marathiPdfName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_pdf->extension();
+                uploadImage($request, 'marathi_pdf', $path, $marathiPdfName);
+
+                $vacancy_data = VacanciesHeader::find($return_data['last_insert_id']);
+                $vacancy_data->marathi_pdf = $marathiPdfName;
+                $vacancy_data->save();
+            }
+ 
+            if ($return_data) {
                 return ['status' => 'success', 'msg' => 'Vacancy Updated Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Vacancy Not Updated.'];
