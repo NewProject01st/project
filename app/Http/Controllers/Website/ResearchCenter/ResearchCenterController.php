@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Website\ResearchCenter;
+namespace App\Http\Controllers\Website\ResourceCenter;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Services\Website\ResearchCenter\ResearchCenterServices;
+use App\Http\Services\Website\ResourceCenter\ResourceCenterServices;
 // use App\Http\Services\LoginRegister\LoginService;
 use Session;
 
 // use App\Models\ {
 // };
 
-class ResearchCenterController extends Controller
+class ResourceCenterController extends Controller
 {
     public static $loginServe,$masterApi;
     public function __construct()
     {
         // self::$loginServe = new LoginService();
-        $this->service = new ResearchCenterServices();
+        $this->service = new ResourceCenterServices();
         $this->menu = getMenuItems();
         $this->socialicon = getSocialIcon();
 

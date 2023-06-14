@@ -145,8 +145,12 @@ public function deleteById($id)
     try {
         $slider = Slider::find($id);
         if ($slider) {
-            unlink(storage_path(Config::get('DocumentConstant.SLIDER_DELETE') . $slider->english_image));
-            unlink(storage_path(Config::get('DocumentConstant.SLIDER_DELETE') . $slider->marathi_image));
+            if (file_exists(storage_path(Config::get('DocumentConstant.SLIDER_DELETE') . $slider->english_image))) {
+                unlink(storage_path(Config::get('DocumentConstant.SLIDER_DELETE') . $slider->english_image));
+            }
+            if (file_exists(storage_path(Config::get('DocumentConstant.SLIDER_DELETE') . $slider->marathi_image))) {
+                unlink(storage_path(Config::get('DocumentConstant.SLIDER_DELETE') . $slider->marathi_image));
+            }
             $slider->delete();
             
             return $slider;
