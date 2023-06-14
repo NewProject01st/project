@@ -7,20 +7,17 @@ use App\IncidentType;
 use Carbon\Carbon;
 
 
-class IncidentTypeServices
-{
+class IncidentTypeServices{
 
 	protected $repo;
 
     /**
      * TopicService constructor.
      */
-    public function __construct()
-    {
+    public function __construct(){
         $this->repo = new IncidentTypeRepository();
     }
-    public function getAll()
-    {
+    public function getAll(){
         try {
             return $this->repo->getAll();
         } catch (\Exception $e) {
@@ -28,8 +25,7 @@ class IncidentTypeServices
         }
     }
 
-    public function addAll($request)
-    {
+    public function addAll($request) {
         try {
             $add_Incidenttype = $this->repo->addAll($request);
             if ($add_Incidenttype) {
@@ -41,16 +37,14 @@ class IncidentTypeServices
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
-    public function getById($id)
-    {
+    public function getById($id){
         try {
             return $this->repo->getById($id);
         } catch (\Exception $e) {
             return $e;
         }
     }
-    public function updateAll($request)
-    {
+    public function updateAll($request){
         try {
             $update_Incidenttype = $this->repo->updateAll($request);
             if ($update_Incidenttype) {
@@ -62,8 +56,7 @@ class IncidentTypeServices
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
-    public function deleteById($id)
-    {
+    public function deleteById($id){
         try {
             return $this->repo->deleteById($id);
         } catch (\Exception $e) {

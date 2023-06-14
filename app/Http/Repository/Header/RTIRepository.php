@@ -10,9 +10,8 @@ use App\Models\ {
 };
 use Config;
 
-class RTIRepository  {
-	public function getAll()
-    {
+class RTIRepository{
+	public function getAll(){
         try {
             return RTI::all();
         } catch (\Exception $e) {
@@ -21,8 +20,7 @@ class RTIRepository  {
     }
 
 	
-	public function addAll($request)
-{
+	public function addAll($request){
     try {   
         $rti_data = new RTI();
         $rti_data->english_title = $request['english_title'];
@@ -51,8 +49,7 @@ class RTIRepository  {
     }
 }
 
-public function getById($id)
-{
+public function getById($id){
     try {
         $rti = RTI::find($id);
         if ($rti) {
@@ -69,8 +66,7 @@ public function getById($id)
     }
 }
 
-public function updateAll($request)
-{
+public function updateAll($request){
     try {
         $return_data = array();
         $rti_data = RTI::find($request->id);
@@ -103,8 +99,7 @@ public function updateAll($request)
         ];
     }
 }
-public function updateOne($request)
-    {
+public function updateOne($request){
         try {
             $rti = RTI::find($request); // Assuming $request directly contains the ID
 
@@ -130,8 +125,7 @@ public function updateOne($request)
             ];
         }
     }
-public function deleteById($id)
-{
+public function deleteById($id){
     try {
         $rti = RTI::find($id);
         if ($rti) {

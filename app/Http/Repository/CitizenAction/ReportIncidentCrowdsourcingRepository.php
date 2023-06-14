@@ -11,8 +11,7 @@ use App\Models\ {
 use Config;
 
 class ReportIncidentCrowdsourcingRepository{
-	public function getAll()
-    {
+	public function getAll(){
         try {
             return ReportIncidentCrowdsourcing::all();
         } catch (\Exception $e) {
@@ -20,8 +19,7 @@ class ReportIncidentCrowdsourcingRepository{
         }
     }
 
-	public function addAll($request)
-{
+	public function addAll($request){
     try {
        
         $crowdsourcing_data = new ReportIncidentCrowdsourcing();
@@ -51,8 +49,7 @@ class ReportIncidentCrowdsourcingRepository{
     }
 }
 
-public function getById($id)
-{
+public function getById($id){
     try {
         $crowdsourcing = ReportIncidentCrowdsourcing::find($id);
         if ($crowdsourcing) {
@@ -68,8 +65,7 @@ public function getById($id)
         ];
     }
 }
-public function updateAll($request)
-{
+public function updateAll($request){
     try {
         $return_data = array();
         $crowdsourcing_data = ReportIncidentCrowdsourcing::find($request->id);
@@ -107,8 +103,7 @@ public function updateAll($request)
     }
 }
 
-public function deleteById($id)
-{
+public function deleteById($id){
     try {
         $crowdsourcing = ReportIncidentCrowdsourcing::find($id);
         if ($crowdsourcing) {

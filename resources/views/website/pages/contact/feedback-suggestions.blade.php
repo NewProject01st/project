@@ -31,7 +31,8 @@
                             <div class="row">
                                 <div class="col-md-6">
 
-                                    <input class="gap-text" type="text" name="full_name" placeholder="Enter Full Name" value="{{ old('full_name') }}">
+                                    <input class="gap-text" type="text" name="full_name" placeholder="Enter Full Name"
+                                        value="{{ old('full_name') }}">
                                     @if ($errors->has('full_name'))
                                         <span class="red-text"><?php echo $errors->first('full_name', ':message'); ?></span>
                                     @endif
@@ -45,7 +46,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input class="gap-text" type="text" name="mobile_number"
-                                        placeholder="Enter Mobile Number" value="{{ old('mobile_number') }}">
+                                        placeholder="Enter Mobile Number"
+                                        value="{{ old('mobile_number') }}"onkeyup="addvalidateMobileNumber(this.value)">
+                                    <span id="number-validate" class="red-text"></span>
                                     @if ($errors->has('mobile_number'))
                                         <span class="red-text"><?php echo $errors->first('mobile_number', ':message'); ?></span>
                                     @endif
@@ -53,16 +56,19 @@
                                 <div class="col-md-6">
                                     <select class="form_text_set select_box_set" name="contact_type" id="contact_type">
                                         <option value="">Select</option>
-                                        <option value="Feedback" {{ old('contact_type') == 'Feedback' ? 'selected' : '' }}>Feedback</option>
-                                        <option value="Suggestion" {{ old('contact_type') == 'Suggestion' ? 'selected' : '' }}>Suggestion</option>
+                                        <option value="Feedback" {{ old('contact_type') == 'Feedback' ? 'selected' : '' }}>
+                                            Feedback</option>
+                                        <option value="Suggestion"
+                                            {{ old('contact_type') == 'Suggestion' ? 'selected' : '' }}>Suggestion</option>
                                     </select>
                                     @if ($errors->has('contact_type'))
                                         <span class="red-text"><?php echo $errors->first('contact_type', ':message'); ?></span>
                                     @endif
                                 </div>
-                                
+
                                 <div class="col-md-12">
-                                    <input class="gap-text" type="text" name="subject" placeholder="Enter Subject" value="{{ old('subject') }}">
+                                    <input class="gap-text" type="text" name="subject" placeholder="Enter Subject"
+                                        value="{{ old('subject') }}">
                                     @if ($errors->has('subject'))
                                         <span class="red-text"><?php echo $errors->first('subject', ':message'); ?></span>
                                     @endif
@@ -92,6 +98,18 @@
         <!-- Google Map with Contact Form End -->
     </div>
     <!--Main Content End-->
+    <script>
+        function addvalidateMobileNumber(number) {
+            var mobileNumberPattern = /^\d*$/;
+            var validationMessage = document.getElementById("number-validate");
+
+            if (mobileNumberPattern.test(number)) {
+                validationMessage.textContent = "";
+            } else {
+                validationMessage.textContent = "Only numbers are allowed.";
+            }
+        }
+    </script>
 @endsection
 {{-- @extends('website.layout.navbar')
 @extends('website.layout.header') --}}

@@ -129,7 +129,9 @@
                                                     <input class="form-control" type="text"
                                                         name="english_emergency_contact_number_1"
                                                         placeholder="Emergency Contact Number"
-                                                        value="{{ old('english_emergency_contact_number_1') }}">
+                                                        value="{{ old('english_emergency_contact_number_1') }}"
+                                                        onkeyup="englishValidateMobileNumber(this.value)">
+                                                    <span id="validation-english-no" class="red-text"></span>
                                                     @if ($errors->has('english_emergency_contact_number_1'))
                                                         <span class="red-text"><?php echo $errors->first('english_emergency_contact_number_1', ':message'); ?></span>
                                                     @endif
@@ -142,7 +144,9 @@
                                                     <input class="form-control" type="text"
                                                         name="marathi_emergency_contact_number_1"
                                                         placeholder="Emergency Contact Number"
-                                                        value="{{ old('marathi_emergency_contact_number_1') }}">
+                                                        value="{{ old('marathi_emergency_contact_number_1') }}"
+                                                        onkeyup="marathiValidateMobileNumber(this.value)">
+                                                    <span id="validation-marathi-no" class="red-text"></span>
                                                     @if ($errors->has('marathi_emergency_contact_number_1'))
                                                         <span class="red-text"><?php echo $errors->first('marathi_emergency_contact_number_1', ':message'); ?></span>
                                                     @endif
@@ -250,5 +254,29 @@
                     $(this).closest(".item").remove();
                 });
             });
+        </script>
+        <script>
+            function englishValidateMobileNumber(number) {
+                var mobileNumberPattern = /^\d*$/;
+                var validationMessage = document.getElementById("validation-english-no");
+
+                if (mobileNumberPattern.test(number)) {
+                    validationMessage.textContent = "";
+                } else {
+                    validationMessage.textContent = "Please enter only numbers.";
+                }
+            }
+        </script>
+        <script>
+            function marathiValidateMobileNumber(number) {
+                var mobileNumberPattern = /^\d*$/;
+                var validationMessage = document.getElementById("validation-marathi-no");
+
+                if (mobileNumberPattern.test(number)) {
+                    validationMessage.textContent = "";
+                } else {
+                    validationMessage.textContent = "Please enter only numbers.";
+                }
+            }
         </script>
     @endsection

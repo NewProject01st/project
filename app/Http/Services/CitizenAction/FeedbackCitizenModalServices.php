@@ -7,20 +7,17 @@ use App\CitizenFeedbackSuggestionModal;
 use Carbon\Carbon;
 
 
-class FeedbackCitizenModalServices
-{
+class FeedbackCitizenModalServices{
 
 	protected $repo;
 
     /**
      * TopicService constructor.
      */
-    public function __construct()
-    {
+    public function __construct(){
         $this->repo = new FeedbackCitizenModalRepository();
     }
-    public function getAll()
-    {
+    public function getAll(){
         try {
             return $this->repo->getAll();
         } catch (\Exception $e) {

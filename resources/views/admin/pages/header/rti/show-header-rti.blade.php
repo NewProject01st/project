@@ -55,9 +55,9 @@
                                             <label>English Pdf :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <a href="{{ asset('/storage/pdf/header/rti/' . $rti->english_pdf) }}"
-                                                target="_blank"><img src="public/storage/pdf/pdf.png" width="50px"
-                                                    height="50px"></a>
+                                            <a href="{{ Config::get('DocumentConstant.RTI_PDF_VIEW') }}{{ $rti->english_pdf }}"
+                                                target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
+                                                    width="50px" height="50px"></a>
                                         </div>
                                     </div>
                                     <div class="row pt-2">
@@ -65,9 +65,9 @@
                                             <label>Marathi Pdf :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <a href="{{ asset('/storage/pdf/header/rti/' . $rti->marathi_pdf) }}"
-                                                target="_blank"><img src="public/storage/pdf/pdf.png" width="50px"
-                                                    height="50px"></a>
+                                            <a href="{{ Config::get('DocumentConstant.RTI_PDF_VIEW') }}{{ $rti->marathi_pdf }}"
+                                                target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
+                                                    width="50px" height="50px"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -78,5 +78,4 @@
             </div>
         </div>
         <!-- content-wrapper ends -->
-
     @endsection

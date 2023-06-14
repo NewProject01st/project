@@ -10,8 +10,7 @@ use App\Models\ {
 };
 
 class IncidentTypeRepository{
-	public function getAll()
-    {
+	public function getAll(){
         try {
             return IncidentType::all();
         } catch (\Exception $e) {
@@ -19,8 +18,7 @@ class IncidentTypeRepository{
         }
     }
 
-	public function addAll($request)
-    {
+	public function addAll($request){
         try {
             $incidenttype_data = new IncidentType();
             $incidenttype_data->english_title = $request['english_title'];
@@ -38,8 +36,7 @@ class IncidentTypeRepository{
             ];
         }
     }
-    public function getById($id)
-    {
+    public function getById($id){
         try {
             $incidenttype = IncidentType::find($id);
             if ($incidenttype) {
@@ -55,8 +52,7 @@ class IncidentTypeRepository{
             ];
         }
     }
-    public function updateAll($request)
-    {
+    public function updateAll($request){
         try {
             $incidenttype_data = IncidentType::find($request->id);
             
@@ -85,8 +81,7 @@ class IncidentTypeRepository{
         }
     }
 
-    public function deleteById($id)
-    {
+    public function deleteById($id) {
         try {
             $incidenttype = IncidentType::find($id);
             if ($incidenttype) {
