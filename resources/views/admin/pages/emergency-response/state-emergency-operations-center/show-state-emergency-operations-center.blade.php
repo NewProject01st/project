@@ -46,7 +46,8 @@
                                             <label>Description English :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label class="justify">{{ strip_tags($stateemergencyoperationscenter->english_description) }}</label>
+                                            <label
+                                                class="justify">{{ strip_tags($stateemergencyoperationscenter->english_description) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -62,7 +63,7 @@
                                             <label>Image English :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <img src="{{ asset('storage/images/emergency-response/state-emergency-operations-center/' . $stateemergencyoperationscenter->english_image) }}"
+                                            <img src="{{ Config::get('DocumentConstant.STATE_OPERATION_CENTER_VIEW') }}{{ $stateemergencyoperationscenter->english_image }}"
                                                 style="width:300px; height:150px;" />
                                         </div>
                                     </div>
@@ -71,7 +72,7 @@
                                             <label>Image Marathi :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
-                                            <img src="{{ asset('storage/images/emergency-response/state-emergency-operations-center/' . $stateemergencyoperationscenter->marathi_image) }}"
+                                            <img src="{{ Config::get('DocumentConstant.STATE_OPERATION_CENTER_VIEW') }}{{ $stateemergencyoperationscenter->marathi_image }}"
                                                 style="width:300px; height:150px;" />
                                         </div>
                                     </div>
@@ -85,5 +86,4 @@
 
 
         <!-- content-wrapper ends -->
-
     @endsection

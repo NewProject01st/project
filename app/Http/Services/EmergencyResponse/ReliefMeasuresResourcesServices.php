@@ -11,20 +11,17 @@ use Storage;
 
 
 
-class ReliefMeasuresResourcesServices
-{
+class ReliefMeasuresResourcesServices{
 
 	protected $repo;
 
     /**
      * TopicService constructor.
      */
-    public function __construct()
-    {
+    public function __construct(){
         $this->repo = new ReliefMeasuresResourcesRepository();
     }
-    public function getAll()
-    {
+    public function getAll(){
         try {
             return $this->repo->getAll();
         } catch (\Exception $e) {
@@ -32,8 +29,7 @@ class ReliefMeasuresResourcesServices
         }
     }
 
-    public function addAll($request)
-    {
+    public function addAll($request) {
         try {
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.RELIEF_MEASURES_RESOURCES_ADD');
@@ -52,8 +48,7 @@ class ReliefMeasuresResourcesServices
         }      
     }
 
-    public function updateAll($request)
-    {
+    public function updateAll($request){
         try {
             $return_data = $this->repo->updateAll($request);
             
@@ -97,8 +92,7 @@ class ReliefMeasuresResourcesServices
         }      
     }
 
-    public function getById($id)
-    {
+    public function getById($id){
         try {
             return $this->repo->getById($id);
         } catch (\Exception $e) {
@@ -106,8 +100,7 @@ class ReliefMeasuresResourcesServices
         }
     }
    
-    public function deleteById($id)
-    {
+    public function deleteById($id){
         try {
             return $this->repo->deleteById($id);
         } catch (\Exception $e) {

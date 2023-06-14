@@ -10,9 +10,8 @@ use App\Models\ {
 };
 use Config;
 
-class DistrictEmergencyOperationsCenterRepository  {
-	public function getAll()
-    {
+class DistrictEmergencyOperationsCenterRepository {
+	public function getAll(){
         try {
             return DistrictEmergencyOperationsCenter::all();
         } catch (\Exception $e) {
@@ -20,8 +19,7 @@ class DistrictEmergencyOperationsCenterRepository  {
         }
     }
 
-	public function addAll($request)
-{
+	public function addAll($request){
     try {
         $districtemergencyoperationscenter_data = new DistrictEmergencyOperationsCenter();
         $districtemergencyoperationscenter_data->english_title = $request['english_title'];
@@ -49,8 +47,7 @@ class DistrictEmergencyOperationsCenterRepository  {
     }
 }
 
-public function getById($id)
-{
+public function getById($id){
     try {
         $districtemergencyoperationscenter = DistrictEmergencyOperationsCenter::find($id);
         if ($districtemergencyoperationscenter) {
@@ -66,8 +63,7 @@ public function getById($id)
         ];
     }
 }
-public function updateAll($request)
-{
+public function updateAll($request){
    
     try {
         $return_data = array();
@@ -106,8 +102,7 @@ public function updateAll($request)
     }
 }
 
-public function deleteById($id)
-{
+public function deleteById($id){
     try {
         $districtemergencyoperationscenter = DistrictEmergencyOperationsCenter::find($id);
         if ($districtemergencyoperationscenter) {

@@ -10,20 +10,17 @@ use Config;
 use Storage;
 
 
-class EmergencyContactNumbersServices
-{
+class EmergencyContactNumbersServices{
 
 	protected $repo;
 
     /**
      * TopicService constructor.
      */
-    public function __construct()
-    {
+    public function __construct(){
         $this->repo = new EmergencyContactNumbersRepository();
     }
-    public function getAll()
-    {
+    public function getAll(){
         try {
             return $this->repo->getAll();
         } catch (\Exception $e) {
@@ -31,8 +28,7 @@ class EmergencyContactNumbersServices
         }
     }
 
-    public function addAll($request)
-    {
+    public function addAll($request){
         try {
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_ADD');
@@ -51,8 +47,7 @@ class EmergencyContactNumbersServices
         }      
     }
 
-    public function updateAll($request)
-    {
+    public function updateAll($request){
         try {
             $return_data = $this->repo->updateAll($request);
             
@@ -95,8 +90,7 @@ class EmergencyContactNumbersServices
         }      
     }
 
-    public function getById($id)
-    {
+    public function getById($id){
         try {
             return $this->repo->getById($id);
         } catch (\Exception $e) {
@@ -104,8 +98,7 @@ class EmergencyContactNumbersServices
         }
     }
    
-    public function deleteById($id)
-    {
+    public function deleteById($id){
         try {
             return $this->repo->deleteById($id);
         } catch (\Exception $e) {

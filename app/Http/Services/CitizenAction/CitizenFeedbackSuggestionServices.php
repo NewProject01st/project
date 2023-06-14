@@ -3,9 +3,11 @@ namespace App\Http\Services\CitizenAction;
 
 use App\Http\Repository\CitizenAction\CitizenFeedbackSuggestionRepository;
 
-use App\CitizenFeedbackSuggestion;
+use App\Models\
+{ CitizenFeedbackSuggestion };
 use Carbon\Carbon;
-
+use Config;
+use Storage;
 
 class CitizenFeedbackSuggestionServices
 {
@@ -31,11 +33,17 @@ class CitizenFeedbackSuggestionServices
     public function addAll($request)
     {
         try {
-            $add_feedback = $this->repo->addAll($request);
-            if ($add_feedback) {
-                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing  Added Successfully.'];
+            $last_id = $this->repo->addAll($request);
+            $path = Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_ADD');
+            //"\all_web_data\images\home\slides\\"."\\";
+            $englishImageName = $last_id . '_english.' . $request->english_image->extension();
+            $marathiImageName = $last_id . '_marathi.' . $request->marathi_image->extension();
+            uploadImage($request, 'english_image', $path, $englishImageName);
+            uploadImage($request, 'marathi_image', $path, $marathiImageName);
+            if ($last_id) {
+                return ['status' => 'success', 'msg' => 'Citizen Feedback Suggestion  Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Added.'];
+                return ['status' => 'error', 'msg' => 'Citizen Feedback Suggestion Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -54,11 +62,40 @@ class CitizenFeedbackSuggestionServices
     public function updateAll($request)
     {
         try {
-            $update_feedback = $this->repo->updateAll($request);
-            if ($update_feedback) {
-                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing Updated Successfully.'];
+            $return_data = $this->repo->updateAll($request);
+            
+            $path = Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_ADD');
+            if ($request->hasFile('english_image')) {
+                if ($return_data['english_image']) {
+                    unlink(storage_path(Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_DELETE') . $return_data['english_image']));
+
+                }
+    
+                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                uploadImage($request, 'english_image', $path, $englishImageName);
+               
+                $feedback_data = DistrictEmergencyOperationsCenter::find($return_data['last_insert_id']);
+                $feedback_data->english_image = $englishImageName;
+                $feedback_data->save();
+            }
+    
+            if ($request->hasFile('marathi_image')) {
+                if ($return_data['marathi_image']) {
+                    unlink(storage_path(Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_DELETE') . $return_data['marathi_image']));
+                }
+    
+                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                uploadImage($request, 'marathi_image', $path, $marathiImageName);
+
+                $feedback_data = DistrictEmergencyOperationsCenter::find($return_data['last_insert_id']);
+                $feedback_data->marathi_image = $marathiImageName;
+                $feedback_data->save();
+            }
+ 
+            if ($return_data) {
+                return ['status' => 'success', 'msg' => 'Citizen Feedback Suggestion Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Updated.'];
+                return ['status' => 'error', 'msg' => 'Citizen Feedback Suggestion Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];

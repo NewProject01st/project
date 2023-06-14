@@ -51,6 +51,22 @@ return [
     'SEARCH_RESCUE_TEAM_DELETE'	   => '/all_web_data/images/emergency-responses/rescue-team/',
     'SEARCH_RESCUE_TEAM_VIEW'	   => env("APP_URL").'/storage/all_web_data/images/emergency-responses/rescue-team/',
 
+    'STATE_OPERATION_CENTER_ADD'	   => "/all_web_data/images/emergency-responses/state-operation-center//",
+    'STATE_OPERATION_CENTER_DELETE'	   => '/all_web_data/images/emergency-responses/state-operation-center/',
+    'STATE_OPERATION_CENTER_VIEW'	   => env("APP_URL").'/storage/all_web_data/images/emergency-responses/state-operation-center/',
+
+    'CITIZEN_FEEDBACK_SUGGESTION_ADD'	   => "/all_web_data/images/citizen-action/feedback-suggestion//",
+    'CITIZEN_FEEDBACK_SUGGESTION_DELETE'   => '/all_web_data/images/citizen-action/feedback-suggestion/',
+    'CITIZEN_FEEDBACK_SUGGESTION_VIEW'	   => env("APP_URL").'/storage/all_web_data/images/citizen-action/feedback-suggestion/',
+
+    'REPORT_INCIDENT_CROWDSOURCING_ADD'	    => "/all_web_data/images/citizen-action/incident-crowdsourcing//",
+    'REPORT_INCIDENT_CROWDSOURCING_DELETE'  => '/all_web_data/images/citizen-action/incident-crowdsourcing/',
+    'REPORT_INCIDENT_CROWDSOURCING_VIEW'    => env("APP_URL").'/storage/all_web_data/images/citizen-action/incident-crowdsourcing/',
+
+    'VOLUNTEER_CITIZEN_SUPPORT_ADD'	    => "/all_web_data/images/citizen-action/volunteer-support//",
+    'VOLUNTEER_CITIZEN_SUPPORT_DELETE'  => '/all_web_data/images/citizen-action/volunteer-support/',
+    'VOLUNTEER_CITIZEN_SUPPORT_VIEW'    => env("APP_URL").'/storage/all_web_data/images/citizen-action/volunteer-support/',
+
 
 
 ];
