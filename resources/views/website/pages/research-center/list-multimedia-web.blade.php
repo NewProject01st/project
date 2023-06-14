@@ -188,7 +188,9 @@
                                                 </div>
                                             @else
                                                 <img class="card__image toZoom" loading="lazy"
-                                                    src="{{ $item['english_image'] }}" class="d-block w-100 img-fluid"
+                                                    src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $item['english_image'] }}"
+                                                    {{-- src="{{ $item['english_image'] }}" --}}
+                                                     class="d-block w-100 img-fluid"
                                                     alt="...">
                                                 <!-- The Modal -->
                                                 <div class="idMyModal modal">
