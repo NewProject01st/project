@@ -27,7 +27,8 @@
                                         <div class="form-group">
                                             <label for="icon">Social Icon</label>&nbsp<span
                                                 class="red-text">*</span><br>
-                                            <input type="file" name="icon" id="icon" value="{{ old('icon') }}" accept="image/*">
+                                            <input type="file" name="icon" id="icon" value="{{ old('icon') }}"
+                                                accept="image/*">
                                             @if ($errors->has('icon'))
                                                 <div class="red-text"><?php echo $errors->first('icon', ':message'); ?></div>
                                             @endif
@@ -36,7 +37,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="url">English URL</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" name="url" id="english_url" class="form-control"
+                                            <input type="text" name="url" id="url" class="form-control"
                                                 id="url" placeholder="" value="{{ old('url') }}">
                                             @if ($errors->has('url'))
                                                 <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>

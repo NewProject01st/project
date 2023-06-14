@@ -3,8 +3,12 @@ namespace App\Http\Services\Header;
 
 use App\Http\Repository\Header\SocialIconRepository;
 
-use App\SocialIcon;
+use App\Models\
+{ SocialIcon };
 use Carbon\Carbon;
+use Config;
+use Storage;
+
 
 
 class SocialIconServices
@@ -31,11 +35,14 @@ class SocialIconServices
     public function addAll($request)
     {
         try {
-            $add_social_icon = $this->repo->addAll($request);
-            if ($add_social_icon) {
-                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing  Added Successfully.'];
+            $last_id = $this->repo->addAll($request);
+            $path = Config::get('DocumentConstant.SOCIAL_ICON_ADD');
+            $englishImageName = $last_id . '_english.' . $request->icon->extension();
+            uploadImage($request, 'icon', $path, $englishImageName);
+            if ($last_id) {
+                return ['status' => 'success', 'msg' => 'Social Icon  Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Added.'];
+                return ['status' => 'error', 'msg' => 'Social Icon Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -54,11 +61,30 @@ class SocialIconServices
     public function updateAll($request)
     {
         try {
-            $update_social_icon = $this->repo->updateAll($request);
-            if ($update_social_icon) {
-                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing Updated Successfully.'];
+            $return_data = $this->repo->updateAll($request);
+            
+            $path = Config::get('DocumentConstant.SOCIAL_ICON_ADD');
+            if ($request->hasFile('icon')) {
+                if ($return_data['icon']) {
+                    $delete_file_eng= storage_path(Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $return_data['icon']);
+                    if(file_exists($delete_file_eng)){
+                        unlink($delete_file_eng);
+                    }
+
+                }
+    
+                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->icon->extension();
+                uploadImage($request, 'icon', $path, $englishImageName);
+               
+                $feedback_data = SocialIcon::find($return_data['last_insert_id']);
+                $feedback_data->icon = $englishImageName;
+                $feedback_data->save();
+            }
+ 
+            if ($return_data) {
+                return ['status' => 'success', 'msg' => 'Social Icon Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Updated.'];
+                return ['status' => 'error', 'msg' => 'Social Icon Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];

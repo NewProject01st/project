@@ -141,4 +141,8 @@ return [
     'RTI_PDF_DELETE' => '/all_web_data/pdf/header/rti/',
     'RTI_PDF_VIEW'	 => env("APP_URL").'/storage/all_web_data/pdf/header/rti/',
 
+    'SOCIAL_ICON_ADD'	 => "/all_web_data/images/header/social-icon//",
+    'SOCIAL_ICON_DELETE' => '/all_web_data/images/header/social-icon/',
+    'SOCIAL_ICON_VIEW'	 => env("APP_URL").'/storage/all_web_data/images/header/social-icon/',
+
 ];

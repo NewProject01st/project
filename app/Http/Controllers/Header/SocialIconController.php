@@ -30,14 +30,14 @@ class SocialIconController extends Controller
 
     public function store(Request $request) {
         $rules = [
-           
+            'url' =>'required',
             'icon' => 'required',
             
             
             
          ];
     $messages = [   
-       
+        'url' =>'required',
         'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
     ];

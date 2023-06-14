@@ -8,6 +8,7 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	SocialIcon
 };
+use Config;
 
 class SocialIconRepository{
 	public function getAll()
@@ -22,17 +23,19 @@ class SocialIconRepository{
 	public function addAll($request)
 {
     try {
-        $englishImageName = time() . '_english.' . $request->icon->extension();
-        
-        $request->icon->storeAs('public/images/header/social-icon', $englishImageName);
-
-        
         $social_icon = new SocialIcon();
-        $social_icon->icon = $englishImageName;
         $social_icon->url = $request['url'];
         $social_icon->save();       
               
-		return $social_icon;
+        $last_insert_id = $social_icon->id;
+
+        $englishImageName = $last_insert_id . '_english.' . $request->icon->extension();
+        
+        $social_icons = SocialIcon::find($last_insert_id); // Assuming $request directly contains the ID
+        $social_icons->icon = $englishImageName; // Save the image filename to the database
+        $social_icons->save();
+
+        return $last_insert_id;
 
     } catch (\Exception $e) {
         return [
@@ -62,6 +65,7 @@ public function getById($id)
 public function updateAll($request)
 {
     try {
+        $return_data = array();
         $social_icon = SocialIcon::find($request->id);
         
         if (!$social_icon) {
@@ -70,25 +74,16 @@ public function updateAll($request)
                 'status' => 'error'
             ];
         }
-         // Delete existing files
-         Storage::delete([
-            'public/images/header/social-icon/' . $social_icon->icon,
-        ]);
-        
-        $englishImageName = time() . '_english.' . $request->icon->extension();
-        
-        $request->icon->storeAs('public/images/header/social-icon/', $englishImageName);
-
-                
-        $social_icon->icon = $englishImageName;
+      
+        // $social_icon->icon = $englishImageName;
         $social_icon->url =   $request['url'];
-
         $social_icon->save();        
      
-        return [
-            'msg' => 'social icon updated successfully.',
-            'status' => 'success'
-        ];
+        $last_insert_id = $social_icon->id;
+
+        $return_data['last_insert_id'] = $last_insert_id;
+        $return_data['icon'] = $previousEnglishImage;
+        return  $return_data;
     } catch (\Exception $e) {
         return $e;
         return [
@@ -103,12 +98,7 @@ public function deleteById($id)
     try {
         $social_icon = SocialIcon::find($id);
         if ($social_icon) {
-              // Delete the images from the storage folder
-              Storage::delete([
-                'public/images/header/social-icon/'.$social_icon->icon,
-                'public/images/header/social-icon/'.$social_icon->marathi_image
-            ]);
-
+            unlink(storage_path(Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $social_icon->icon));
             // Delete the record from the database
             
             $social_icon->delete();

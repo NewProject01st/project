@@ -42,7 +42,7 @@
                                                         <td>{{ $loop->iteration }}</td>
 
                                                         <td> <img
-                                                                src="{{ asset('storage/images/header/social-icon/' . $item->icon) }}" />
+                                                                src="{{ Config::get('DocumentConstant.SOCIAL_ICON_VIEW') }}{{ $item->icon }}" />
                                                         </td>
                                                         <td>
                                                             <div class="d-flex">
