@@ -177,9 +177,8 @@
                                         <figure class="card animals">
                                             @if (session('language') == 'mar')
                                                 <img class="card__image toZoom" loading="lazy"
-                                                    {{-- src="{{ $item['marathi_image'] }}" --}}
                                                     src="{{ $item['marathi_image'] }}"
-                                                    class="d-block w-100 img-fluid"
+                                                     class="d-block w-100 img-fluid"
                                                     alt="...">
                                                 <!-- The Modal -->
                                                 <div class="idMyModal modal">
@@ -188,9 +187,7 @@
                                                 </div>
                                             @else
                                                 <img class="card__image toZoom" loading="lazy"
-                                                    src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $item['english_image'] }}"
-                                                    {{-- src="{{ $item['english_image'] }}" --}}
-                                                     class="d-block w-100 img-fluid"
+                                                    src="{{ $item['english_image'] }}" class="d-block w-100 img-fluid"
                                                     alt="...">
                                                 <!-- The Modal -->
                                                 <div class="idMyModal modal">
