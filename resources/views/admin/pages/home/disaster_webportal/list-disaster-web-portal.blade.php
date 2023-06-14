@@ -58,10 +58,10 @@
                                                 <td>{{ strip_tags($item->english_designation) }}</td>
                                                 <td>{{ strip_tags($item->marathi_designation) }}</td>
                                                 <td> <img class="img-size"
-                                                        src="{{ asset('storage/images/disaster-webportal/' . $item->english_image) }}" />
+                                                        src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW')}}{{$item->english_image}}" />
                                                 </td>
                                                 <td> <img class="img-size"
-                                                        src="{{ asset('storage/images/disaster-webportal/' . $item->marathi_image) }}" />
+                                                        src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW')}}{{$item->marathi_image}}" />
                                                 </td>
 
                                                 <td>

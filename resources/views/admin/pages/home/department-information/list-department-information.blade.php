@@ -55,10 +55,10 @@
                                                         {{-- <td>{{ $item->url }}</td> --}}
                                                         {{-- <td>{{ $item->date }}</td> --}}
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/home/department-information/' . $item->english_image) }}" />
+                                                                src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW')}}{{$item->english_image }}" />
                                                         </td>
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/home/department-information/' . $item->marathi_image) }}" />
+                                                                src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW')}}{{$item->marathi_image }}" />
                                                         </td>
                                                         <td>
                                                             <label class="switch">
