@@ -45,14 +45,14 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td><?php echo $item->english_title; ?></td>
                                                         <td><?php echo $item->marathi_title; ?></td>
-                                                        <td> <a href="{{ asset('/storage/pdf/header/vacancy/' . $item['english_pdf']) }}"
+                                                        <td> <a href="{{ Config::get('DocumentConstant.VACANCIES_PDF_VIEW') }}{{ $item->english_pdf }}"
                                                                 target="_blank"><img
-                                                                    src="{{ asset('storage/pdf/pdf.png/') }}" width="35px"
-                                                                    height="35px"></a></td>
-                                                        <td> <a href="{{ asset('/storage/pdf/header/vacancy/' . $item['marathi_pdf']) }}"
+                                                                    src="{{ asset('assets/images/pdf.png/') }}"
+                                                                    width="35px" height="35px"></a></td>
+                                                        <td> <a href="{{ Config::get('DocumentConstant.VACANCIES_PDF_VIEW') }}{{ $item->marathi_pdf }}"
                                                                 target="_blank"><img class="pdf-size"
-                                                                    src="{{ asset('storage/pdf/pdf.png/') }}" width="35px"
-                                                                    height="35px"></a></td>
+                                                                    src="{{ asset('assets/images/pdf.png/') }}"
+                                                                    width="35px" height="35px"></a></td>
                                                         <td>
                                                             <label class="switch">
                                                                 <input data-id="{{ $item->id }}" type="checkbox"
@@ -112,7 +112,7 @@
         @csrf
         <input type="hidden" name="active_id" id="active_id" value="">
     </form>
-    
+
 
     <!-- content-wrapper ends -->
 @endsection
