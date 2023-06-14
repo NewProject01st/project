@@ -47,8 +47,8 @@
                                             <label>English Pdf :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <a href="{{ asset('/storage/pdf/research-center/training' . $training_workshop->english_pdf) }}"
-                                                target="_blank"><img src="public/storage/pdf/pdf.png" width="50px"
+                                            <a href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $training_workshop->english_pdf }}"
+                                                target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}" width="50px"
                                                     height="50px"></a>
                                         </div>
                                     </div>
@@ -57,8 +57,8 @@
                                             <label>Marathi Pdf :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <a href="{{ asset('/storage/pdf/research-center/training' . $training_workshop->marathi_pdf) }}"
-                                                target="_blank"><img src="public/storage/pdf/pdf.png" width="50px"
+                                            <a href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $training_workshop->marathi_pdf }}"
+                                                target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}" width="50px"
                                                     height="50px"></a>
                                         </div>
                                     </div>

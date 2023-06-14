@@ -44,13 +44,13 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ strip_tags($item->english_title) }}</td>
                                                         <td>{{ strip_tags($item->marathi_title) }}</td>
-                                                        <td> <a href="{{ asset('/storage/pdf/research-center/training/' . $item['english_pdf']) }}"
+                                                        <td> <a  href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $item->english_pdf }}"
                                                                 target="_blank"><img
-                                                                    src="{{ asset('storage/pdf/pdf.png/') }}" width="35px"
+                                                                src="{{ asset('assets/images/pdf.png/') }}" width="35px"
                                                                     height="35px"></a></td>
-                                                        <td> <a href="{{ asset('/storage/pdf/research-center/training/' . $item['marathi_pdf']) }}"
+                                                        <td> <a  href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $item->marathi_pdf }}"
                                                                 target="_blank"><img
-                                                                    src="{{ asset('storage/pdf/pdf.png/') }}" width="35px"
+                                                                src="{{ asset('assets/images/pdf.png/') }}" width="35px"
                                                                     height="35px"></a></td>
                                                         <td class="d-flex">
                                                             @if (in_array('per_update', $data_permission))
