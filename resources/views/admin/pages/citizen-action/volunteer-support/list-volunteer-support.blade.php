@@ -49,12 +49,11 @@
                                                         <td>{{ strip_tags($item->marathi_title) }}</td>
                                                         <td>{{ strip_tags($item->english_description) }}</td>
                                                         <td>{{ strip_tags($item->marathi_description) }}</td>
-
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/citizen-action/volunteer/' . $item->english_image) }}" />
+                                                                src="{{ Config::get('DocumentConstant.VOLUNTEER_CITIZEN_SUPPORT_VIEW') }}{{ $item->english_image }}" />
                                                         </td>
                                                         <td> <img class="img-size"
-                                                                src="{{ asset('storage/images/citizen-action/volunteer/' . $item->marathi_image) }}" />
+                                                                src="{{ Config::get('DocumentConstant.VOLUNTEER_CITIZEN_SUPPORT_VIEW') }}{{ $item->marathi_image }}" />
                                                         </td>
 
                                                         <td>

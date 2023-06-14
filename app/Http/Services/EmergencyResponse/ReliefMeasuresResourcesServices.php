@@ -11,20 +11,17 @@ use Storage;
 
 
 
-class ReliefMeasuresResourcesServices
-{
+class ReliefMeasuresResourcesServices{
 
 	protected $repo;
 
     /**
      * TopicService constructor.
      */
-    public function __construct()
-    {
+    public function __construct(){
         $this->repo = new ReliefMeasuresResourcesRepository();
     }
-    public function getAll()
-    {
+    public function getAll(){
         try {
             return $this->repo->getAll();
         } catch (\Exception $e) {
@@ -32,8 +29,7 @@ class ReliefMeasuresResourcesServices
         }
     }
 
-    public function addAll($request)
-    {
+    public function addAll($request) {
         try {
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.RELIEF_MEASURES_RESOURCES_ADD');
@@ -52,16 +48,17 @@ class ReliefMeasuresResourcesServices
         }      
     }
 
-    public function updateAll($request)
-    {
+    public function updateAll($request){
         try {
             $return_data = $this->repo->updateAll($request);
             
             $path = Config::get('DocumentConstant.RELIEF_MEASURES_RESOURCES_ADD');
             if ($request->hasFile('english_image')) {
                 if ($return_data['english_image']) {
-                    unlink(storage_path(Config::get('DocumentConstant.RELIEF_MEASURES_RESOURCES_DELETE') . $return_data['english_image']));
-
+                    $delete_file_eng= storage_path(Config::get('DocumentConstant.RELIEF_MEASURES_RESOURCES_DELETE') . $return_data['english_image']);
+                    if(file_exists($delete_file_eng)){
+                        unlink($delete_file_eng);
+                    }
                 }
     
                 $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
@@ -74,8 +71,12 @@ class ReliefMeasuresResourcesServices
     
             if ($request->hasFile('marathi_image')) {
                 if ($return_data['marathi_image']) {
-                    unlink(storage_path(Config::get('DocumentConstant.RELIEF_MEASURES_RESOURCES_DELETE') . $return_data['marathi_image']));
-                }
+                    $delete_file_mar= storage_path(Config::get('DocumentConstant.RELIEF_MEASURES_RESOURCES_DELETE') . $return_data['marathi_image']);
+                    if(file_exists($delete_file_mar)){
+                        unlink($delete_file_mar);
+                    }     
+
+                 }
     
                 $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
@@ -97,8 +98,7 @@ class ReliefMeasuresResourcesServices
         }      
     }
 
-    public function getById($id)
-    {
+    public function getById($id){
         try {
             return $this->repo->getById($id);
         } catch (\Exception $e) {
@@ -106,8 +106,7 @@ class ReliefMeasuresResourcesServices
         }
     }
    
-    public function deleteById($id)
-    {
+    public function deleteById($id){
         try {
             return $this->repo->deleteById($id);
         } catch (\Exception $e) {

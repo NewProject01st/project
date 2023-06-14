@@ -11,8 +11,7 @@ use App\Models\ {
 use Config;
 
 class ReliefMeasuresResourcesRepository  {
-	public function getAll()
-    {
+	public function getAll(){
         try {
             return ReliefMeasuresResources::all();
         } catch (\Exception $e) {
@@ -20,8 +19,7 @@ class ReliefMeasuresResourcesRepository  {
         }
     }
 
-	public function addAll($request)
-{
+	public function addAll($request){
     try {
        
         $reliefmeasuresresources_data = new ReliefMeasuresResources();
@@ -52,8 +50,7 @@ class ReliefMeasuresResourcesRepository  {
     }
 }
 
-public function getById($id)
-{
+public function getById($id){
     try {
         $reliefmeasuresresources = ReliefMeasuresResources::find($id);
         if ($reliefmeasuresresources) {
@@ -69,8 +66,7 @@ public function getById($id)
         ];
     }
 }
-public function updateAll($request)
-{
+public function updateAll($request){
    
     try {
         $return_data = array();
@@ -111,8 +107,7 @@ public function updateAll($request)
     }
 }
 
-public function deleteById($id)
-{
+public function deleteById($id){
     try {
         $reliefmeasuresresources = ReliefMeasuresResources::find($id);
         if ($reliefmeasuresresources) {

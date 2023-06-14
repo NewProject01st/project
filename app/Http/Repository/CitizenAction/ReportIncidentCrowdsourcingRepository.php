@@ -8,6 +8,7 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	ReportIncidentCrowdsourcing
 };
+use Config;
 
 class ReportIncidentCrowdsourcingRepository{
 	public function getAll()
@@ -22,23 +23,25 @@ class ReportIncidentCrowdsourcingRepository{
 	public function addAll($request)
 {
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/citizen-action/crowdsourcing', $englishImageName);
-        $request->marathi_image->storeAs('public/images/citizen-action/crowdsourcing', $marathiImageName);
-
-        
+       
         $crowdsourcing_data = new ReportIncidentCrowdsourcing();
         $crowdsourcing_data->english_title = $request['english_title'];
         $crowdsourcing_data->marathi_title = $request['marathi_title'];
         $crowdsourcing_data->english_description = $request['english_description'];
         $crowdsourcing_data->marathi_description = $request['marathi_description'];
-        $crowdsourcing_data->english_image = $englishImageName;
-        $crowdsourcing_data->marathi_image =   $marathiImageName;
         $crowdsourcing_data->save();       
-              
-		return $crowdsourcing_data;
+                      
+		$last_insert_id = $crowdsourcing_data->id;
+
+        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        
+        $crowdsourcing_data = ReportIncidentCrowdsourcing::find($last_insert_id); // Assuming $request directly contains the ID
+        $crowdsourcing_data->english_image = $englishImageName; // Save the image filename to the database
+        $crowdsourcing_data->marathi_image = $marathiImageName; // Save the image filename to the database
+        $crowdsourcing_data->save();
+        
+        return $last_insert_id;
 
     } catch (\Exception $e) {
         return [
@@ -68,6 +71,7 @@ public function getById($id)
 public function updateAll($request)
 {
     try {
+        $return_data = array();
         $crowdsourcing_data = ReportIncidentCrowdsourcing::find($request->id);
 
         if (!$crowdsourcing_data) {
@@ -86,37 +90,14 @@ public function updateAll($request)
         $crowdsourcing_data->marathi_title = $request['marathi_title'];
         $crowdsourcing_data->english_description = $request['english_description'];
         $crowdsourcing_data->marathi_description = $request['marathi_description'];
-
-        if ($request->hasFile('english_image')) {
-            // Delete previous English image if it exists
-            if ($previousEnglishImage) {
-                Storage::delete('public/images/citizen-action/crowdsourcing/' . $previousEnglishImage);
-            }
-
-            // Store the new English image
-            $englishImageName = time() . '_english.' . $request->english_image->extension();
-            $request->english_image->storeAs('public/images/citizen-action/crowdsourcing/', $englishImageName);
-            $crowdsourcing_data->english_image = $englishImageName;
-        }
-
-        if ($request->hasFile('marathi_image')) {
-            // Delete previous Marathi image if it exists
-            if ($previousMarathiImage) {
-                Storage::delete('public/images/citizen-action/crowdsourcing/' . $previousMarathiImage);
-            }
-
-            // Store the new Marathi image
-            $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-            $request->marathi_image->storeAs('public/images/citizen-action/crowdsourcing/', $marathiImageName);
-            $crowdsourcing_data->marathi_image = $marathiImageName;
-        }
-
         $crowdsourcing_data->save();
+ 
+        $last_insert_id = $crowdsourcing_data->id;
 
-        return [
-            'msg' => 'Report Incident Crowdsourcing updated successfully.',
-            'status' => 'success'
-        ];
+        $return_data['last_insert_id'] = $last_insert_id;
+        $return_data['english_image'] = $previousEnglishImage;
+        $return_data['marathi_image'] = $previousMarathiImage;
+        return  $return_data;
     } catch (\Exception $e) {
         return [
             'msg' => 'Failed to update Report Incident Crowdsourcing.',
@@ -131,12 +112,8 @@ public function deleteById($id)
     try {
         $crowdsourcing = ReportIncidentCrowdsourcing::find($id);
         if ($crowdsourcing) {
-              // Delete the images from the storage folder
-              Storage::delete([
-                'public/images/citizen-action/crowdsourcing/'.$crowdsourcing->english_image,
-                'public/images/citizen-action/crowdsourcing/'.$crowdsourcing->marathi_image
-            ]);
-
+            unlink(storage_path(Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_DELETE') . $crowdsourcing->english_image));
+            unlink(storage_path(Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_DELETE') . $crowdsourcing->marathi_image));
             // Delete the record from the database
             
             $crowdsourcing->delete();
