@@ -8,6 +8,7 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	DisasterManagementWebPortal
 };
+use Config;
 
 class DisasterManagementWebPortalRepository  {
 	public function getAll()
@@ -22,13 +23,6 @@ class DisasterManagementWebPortalRepository  {
 	public function addAll($request)
 {
     try {
-        $englishImageName = time() . '_english.' . $request->english_image->extension();
-        $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        $request->english_image->storeAs('public/images/home/disaster-webportal', $englishImageName);
-        $request->marathi_image->storeAs('public/images/home/disaster-webportal', $marathiImageName);
-
-        
         $disaster_data = new DisasterManagementWebPortal();
         $disaster_data->english_name = $request['english_name'];
         $disaster_data->marathi_name = $request['marathi_name'];
@@ -38,12 +32,18 @@ class DisasterManagementWebPortalRepository  {
         $disaster_data->marathi_description = $request['marathi_description'];
         $disaster_data->english_designation = $request['english_designation'];
         $disaster_data->marathi_designation = $request['marathi_designation'];
-        $disaster_data->english_image = $englishImageName;
-        $disaster_data->marathi_image = $marathiImageName;
-        $disaster_data->save();       
-              
-		return $disaster_data;
+        $disaster_data->save();  
+        
+        $last_insert_id = $disaster_data->id;
 
+        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        
+        $disaster_data_update = DisasterManagementWebPortal::find($last_insert_id); 
+        $disaster_data_update->english_image = $englishImageName; 
+        $disaster_data_update->marathi_image = $marathiImageName;
+        $disaster_data_update->save();
+        return $last_insert_id;
     } catch (\Exception $e) {
         return [
             'msg' => $e,
@@ -63,10 +63,6 @@ public function getById($id)
         }
     } catch (\Exception $e) {
         return $e;
-		return [
-            'msg' => 'Failed to get by id DisasterManagementWebPortal.',
-            'status' => 'error'
-        ];
     }
 }
 public function updateAll($request)
@@ -91,36 +87,14 @@ public function updateAll($request)
         $disaster_data->english_description = $request['english_description'];
         $disaster_data->marathi_description = $request['marathi_description'];
 
-        if ($request->hasFile('english_image')) {
-            // Delete previous English image if it exists
-            if ($previousEnglishImage) {
-                Storage::delete('public/images/home/disaster-webportal/' . $previousEnglishImage);
-            }
-
-            // Store the new English image
-            $englishImageName = time() . '_english.' . $request->english_image->extension();
-            $request->english_image->storeAs('public/images/home/disaster-webportal/', $englishImageName);
-            $disaster_data->english_image = $englishImageName;
-        }
-
-        if ($request->hasFile('marathi_image')) {
-            // Delete previous Marathi image if it exists
-            if ($previousMarathiImage) {
-                Storage::delete('public/images/home/disaster-webportal/' . $previousMarathiImage);
-            }
-
-            // Store the new Marathi image
-            $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-            $request->marathi_image->storeAs('public/images/home/disaster-webportal/', $marathiImageName);
-            $disaster_data->marathi_image = $marathiImageName;
-        }
-
         $disaster_data->save();
 
-        return [
-            'msg' => 'Report Incident Crowdsourcing updated successfully.',
-            'status' => 'success'
-        ];
+        $last_insert_id = $disaster_data->id;
+        $return_data['last_insert_id'] = $last_insert_id;
+        $return_data['english_image'] = $previousEnglishImage;
+        $return_data['marathi_image'] = $previousMarathiImage;
+        return  $return_data;
+
     } catch (\Exception $e) {
         return [
             'msg' => 'Failed to update Report Incident Crowdsourcing.',
@@ -135,13 +109,15 @@ public function deleteById($id)
     try {
         $disaster_web_portal = DisasterManagementWebPortal::find($id);
         if ($disaster_web_portal) {
-             // Delete the images from the storage folder
-             Storage::delete([
-                'public/images/home/disaster-webportal/'.$disaster_web_portal->english_image,
-                'public/images/home/disaster-webportal/'.$disaster_web_portal->marathi_image
-            ]);
-
-            // Delete the record from the database
+            $delete_path_for_english_file = storage_path(Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_DELETE') . $disaster_web_portal->english_image);
+            if (file_exists($delete_path_for_english_file)) {
+                unlink($delete_path_for_english_file);
+            }
+            $delete_path_for_marathi_file = storage_path(Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_DELETE') . $disaster_web_portal->marathi_image);
+            if (file_exists($delete_path_for_marathi_file)) {
+                unlink($delete_path_for_marathi_file);
+            }
+            
             $disaster_web_portal->delete();
             
             return $disaster_web_portal;

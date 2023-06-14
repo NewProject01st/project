@@ -86,7 +86,7 @@
                                     </div>
 
                                     <img id="english"
-                                        src="{{ asset('storage/images/home/department-information/' . $department_info->english_image) }}"
+                                        src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW')}}{{$department_info->english_image }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="english_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">
@@ -102,7 +102,7 @@
                                         @endif
                                     </div>
                                     <img id="marathi"
-                                        src="{{ asset('storage/images/home/department-information/' . $department_info->marathi_image) }}"
+                                        src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW')}}{{$department_info->marathi_image }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="marathi_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">
@@ -119,7 +119,7 @@
                                     </div>
 
                                     <img id="english"
-                                        src="{{ asset('storage/images/home/department-information/' . $department_info->english_image_new) }}"
+                                        src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW')}}{{$department_info->english_image_new }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="english_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">
@@ -135,7 +135,7 @@
                                         @endif
                                     </div>
                                     <img id="marathi"
-                                        src="{{ asset('storage/images/home/department-information/' . $department_info->marathi_image_new) }}"
+                                        src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW')}}{{$department_info->marathi_image_new }}"
                                         class="img-fluid img-thumbnail" width="150">
                                     <img id="marathi_imgPreview" src="#" alt="pic" class="img-fluid img-thumbnail"
                                         width="150" style="display:none">

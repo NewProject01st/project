@@ -26,7 +26,7 @@
                                     <h3><?php echo $item['marathi_title']; ?> : </h3>
 
                                     <p style="text-align: justify;">
-                                        <img src="{{ asset('storage/images/aboutus/objective-goals/' . $item['marathi_image']) }}"
+                                        <img src="{{ Config::get('DocumentConstant.OBJECTIVE_GOALS_VIEW')}}{{ $item['marathi_image'] }}"
                                             class="d-block w-100 to_set_img" alt="...">
                                         <?php echo $item['marathi_description']; ?>
                                     </p>
@@ -34,7 +34,7 @@
                                     <h3><?php echo $item['english_title']; ?> : </h3>
 
                                     <p style="text-align: justify;" class="mt-p2">
-                                        <img src="{{ asset('storage/images/aboutus/objective-goals/' . $item['english_image']) }}"
+                                        <img src="{{ Config::get('DocumentConstant.OBJECTIVE_GOALS_VIEW')}}{{ $item['english_image'] }}"
                                             class="d-block w-100 to_set_img" alt="...">
                                         <?php echo $item['english_description']; ?>
                                     </p>
