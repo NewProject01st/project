@@ -33,12 +33,12 @@ class DocumentsPublicationsRepository  {
         $documents_data->save();       
         $last_insert_id = $documents_data->id;
 
-        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
-        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        $englishPdfName = $last_insert_id . '_english.' . $request->english_pdf->extension();
+        $marathiPdfName = $last_insert_id . '_marathi.' . $request->marathi_pdf->extension();
         
         $document = Documentspublications::find($last_insert_id); // Assuming $request directly contains the ID
-        $document->english_image = $englishImageName; // Save the image filename to the database
-        $document->marathi_image = $marathiImageName; // Save the image filename to the database
+        $document->english_pdf = $englishPdfName; // Save the image filename to the database
+        $document->marathi_pdf = $marathiPdfName; // Save the image filename to the database
         $document->save();
         
         return $last_insert_id;
@@ -82,8 +82,8 @@ public function updateAll($request)
             ];
         }
         // Store the previous image names
-        $previousEnglishImage = $update_document->english_image;
-        $previousMarathiImage = $update_document->marathi_image;
+        $previousEnglishPdf = $update_document->english_pdf;
+        $previousMarathiPdf = $update_document->marathi_pdf;
 
         $update_document->english_title = $request['english_title'];
         $update_document->marathi_title = $request['marathi_title'];
@@ -94,8 +94,8 @@ public function updateAll($request)
             $last_insert_id = $update_document->id;
 
             $return_data['last_insert_id'] = $last_insert_id;
-            $return_data['english_image'] = $previousEnglishImage;
-            $return_data['marathi_image'] = $previousMarathiImage;
+            $return_data['english_pdf'] = $previousEnglishPdf;
+            $return_data['marathi_pdf'] = $previousMarathiPdf;
             return  $return_data;
 
     } catch (\Exception $e) {
@@ -113,13 +113,9 @@ public function deleteById($id)
         $documents = Documentspublications::find($id);
         if ($documents) {
              // Delete the images from the storage folder
-             Storage::delete([
-                'public/pdf/research-center/documents'.$documents->marathi_pdf,
-                'public/pdf/research-center/documents'.$documents->english_pdf
-            ]);
-
-            // Delete the record from the database
-            $documents->delete();
+             unlink(storage_path(Config::get('DocumentConstant.DOCUMENT_PUBLICATION_DELETE') . $documents->english_image));
+             unlink(storage_path(Config::get('DocumentConstant.DOCUMENT_PUBLICATION_DELETE') . $documents->marathi_image));
+             $documents->delete();
             
             return $documents;
         } else {

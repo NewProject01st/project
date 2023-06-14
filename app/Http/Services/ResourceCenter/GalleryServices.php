@@ -60,8 +60,41 @@ class GalleryServices
 
     public function updateAll($request){
         try {
-            $update_news = $this->repo->updateAll($request);
-            if ($update_news) {
+            $return_data = $this->repo->updateAll($request);
+            
+            $path = Config::get('DocumentConstant.Gallery_ADD');
+            if ($request->hasFile('english_image')) {
+                if ($return_data['english_image']) {
+                    $delete_file_eng= storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $return_data['english_image']);
+                    if(file_exists($delete_file_eng)){
+                        unlink($delete_file_eng);
+                    }
+                }
+    
+                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                uploadImage($request, 'english_image', $path, $englishImageName);
+                $gallery = Event::find($return_data['last_insert_id']);
+                $gallery->english_image = $englishImageName;
+                $gallery->save();
+    
+            }
+    
+            if ($request->hasFile('marathi_image')) {
+                if ($return_data['marathi_image']) {
+                    $delete_file_mar= storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $return_data['marathi_image']);
+                    if(file_exists($delete_file_mar)){
+                        unlink($delete_file_mar);
+                    }
+                }
+    
+                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                uploadImage($request, 'marathi_image', $path, $marathiImageName);
+                $district_plan = Event::find($return_data['last_insert_id']);
+                $district_plan->marathi_image = $marathiImageName;
+                $district_plan->save();
+            }       
+
+            if ($return_data) {
                 return ['status' => 'success', 'msg' => 'Gallery Updated Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Gallery  Not Updated.'];

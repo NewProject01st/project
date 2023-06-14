@@ -62,7 +62,10 @@ class EventServices
             $path = Config::get('DocumentConstant.TRAINING_EVENT_ADD');
             if ($request->hasFile('english_image')) {
                 if ($return_data['english_image']) {
-                    unlink(storage_path(Config::get('DocumentConstant.TRAINING_EVENT_DELETE') . $return_data['english_image']));
+                    $delete_file_eng= storage_path(Config::get('DocumentConstant.TRAINING_EVENT_DELETE') . $return_data['english_image']);
+                    if(file_exists($delete_file_eng)){
+                        unlink($delete_file_eng);
+                    }
                 }
     
                 $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
@@ -75,7 +78,10 @@ class EventServices
     
             if ($request->hasFile('marathi_image')) {
                 if ($return_data['marathi_image']) {
-                    unlink(storage_path(Config::get('DocumentConstant.TRAINING_EVENT_DELETE') . $return_data['marathi_image']));
+                    $delete_file_mar= storage_path(Config::get('DocumentConstant.TRAINING_EVENT_DELETE') . $return_data['marathi_image']);
+                    if(file_exists($delete_file_mar)){
+                        unlink($delete_file_mar);
+                    }
                 }
     
                 $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
