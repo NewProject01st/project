@@ -10,11 +10,10 @@ use App\Models\ {
     Video,
     Gallery,
     GalleryCategory,
-    TrainingMaterialsWorkshops,
-    
-    
-
+    TrainingMaterialsWorkshops, 
 };
+
+use Config;
 
 class ResourceCenterRepository  {
 
@@ -88,10 +87,10 @@ class ResourceCenterRepository  {
             foreach ($gallery_data as $key => $value) {
                 $data_gallary = [];
                 if (Session::get('language') == 'mar') {
-                    $data_gallary['marathi_image'] = env('APP_URL').'public/storage/images/news-events/gallery/'.$value['marathi_image'];
+                    $data_gallary['marathi_image'] = Config::get('DocumentConstant.Gallery_VIEW').$value['marathi_image'];
                     $data_gallary['category_id'] = $value['category_id'];
                 } else {
-                    $data_gallary['english_image'] = env('APP_URL').'public/storage/images/news-events/gallery/'.$value['english_image'];
+                    $data_gallary['english_image'] = Config::get('DocumentConstant.Gallery_VIEW').$value['english_image'];
                     $data_gallary['category_id'] = $value['category_id'];
                 }
                 array_push($gallery_data_final,$data_gallary);
