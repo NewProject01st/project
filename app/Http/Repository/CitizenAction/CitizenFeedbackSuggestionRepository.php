@@ -11,8 +11,7 @@ use App\Models\ {
 use Config;
 
 class CitizenFeedbackSuggestionRepository{
-	public function getAll()
-    {
+	public function getAll(){
         try {
             return CitizenFeedbackSuggestion::all();
         } catch (\Exception $e) {
@@ -20,8 +19,7 @@ class CitizenFeedbackSuggestionRepository{
         }
     }
 
-	public function addAll($request)
-{
+	public function addAll($request){
     try {
        
         $feedback_data = new CitizenFeedbackSuggestion();
@@ -51,8 +49,7 @@ class CitizenFeedbackSuggestionRepository{
     }
 }
 
-public function getById($id)
-{
+public function getById($id){
     try {
         $feedback = CitizenFeedbackSuggestion::find($id);
         if ($feedback) {
@@ -63,20 +60,19 @@ public function getById($id)
     } catch (\Exception $e) {
         return $e;
 		return [
-            'msg' => 'Failed to get by id Volunteer Citizen Support.',
+            'msg' => 'Failed to get by id feedback suggestion.',
             'status' => 'error'
         ];
     }
 }
-public function updateAll($request)
-{
+public function updateAll($request){
     try {
         $return_data = array();
         $feedback_data = CitizenFeedbackSuggestion::find($request->id);
         
         if (!$feedback_data) {
             return [
-                'msg' => 'volunteer data not found.',
+                'msg' => 'Citizen Feedback Suggestion data not found.',
                 'status' => 'error'
             ];
         }
@@ -99,14 +95,13 @@ public function updateAll($request)
     } catch (\Exception $e) {
         return $e;
         return [
-            'msg' => 'Failed to update volunteer data.',
+            'msg' => 'Failed to update Citizen Feedback Suggestion data.',
             'status' => 'error'
         ];
     }
 }
 
-public function deleteById($id)
-{
+public function deleteById($id){
     try {
         $feedback = CitizenFeedbackSuggestion::find($id);
         if ($feedback) {

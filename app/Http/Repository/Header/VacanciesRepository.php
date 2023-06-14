@@ -10,17 +10,15 @@ use App\Models\ {
 };
 use Config;
 
-class VacanciesRepository  {
-	public function getAll()
-    {
+class VacanciesRepository {
+	public function getAll(){
         try {
             return VacanciesHeader::all();
         } catch (\Exception $e) {
             return $e;
         }
     }
-	public function addAll($request)
-    {
+	public function addAll($request){
         try {
             
             $vacancy_data = new VacanciesHeader();
@@ -49,8 +47,7 @@ class VacanciesRepository  {
         }
     }
 
-    public function getById($id)
-    {
+    public function getById($id){
         try {
             $vacancy = VacanciesHeader::find($id);
             if ($vacancy) {
@@ -61,21 +58,20 @@ class VacanciesRepository  {
         } catch (\Exception $e) {
             return $e;
             return [
-                'msg' => 'Failed to get by id Tender.',
+                'msg' => 'Failed to get by id Vacancies.',
                 'status' => 'error'
             ];
         }
     }
 
-    public function updateAll($request)
-    {
+    public function updateAll($request){
         try {
             $return_data = array();
             $vacancy_data = VacanciesHeader::find($request->id);
             
             if (!$vacancy_data) {
                 return [
-                    'msg' => 'Tender not found.',
+                    'msg' => 'Vacancies not found.',
                     'status' => 'error'
                 ];
             }
@@ -88,7 +84,7 @@ class VacanciesRepository  {
             $vacancy_data->save();        
         
            
-            $last_insert_id = $feedback_data->id;
+            $last_insert_id = $vacancy_data->id;
 
             $return_data['last_insert_id'] = $last_insert_id;
             $return_data['english_pdf'] = $previousEnglishPdf;
@@ -97,13 +93,12 @@ class VacanciesRepository  {
         } catch (\Exception $e) {
             return $e;
             return [
-                'msg' => 'Failed to update Tender.',
+                'msg' => 'Failed to update Vacancies.',
                 'status' => 'error'
             ];
         }
     }
-    public function updateOne($request)
-    {
+    public function updateOne($request){
         try {
             $vacancy = VacanciesHeader::find($request); // Assuming $request directly contains the ID
 
@@ -114,28 +109,27 @@ class VacanciesRepository  {
                 $vacancy->save();
 
                 return [
-                    'msg' => 'Vacancy updated successfully.',
+                    'msg' => 'Vacancies updated successfully.',
                     'status' => 'success'
                 ];
             }
             return [
-                'msg' => 'Vacancy not found.',
+                'msg' => 'Vacancies not found.',
                 'status' => 'error'
             ];
         } catch (\Exception $e) {
             return [
-                'msg' => 'Failed to update Vacancy.',
+                'msg' => 'Failed to update Vacancies.',
                 'status' => 'error'
             ];
         }
     }
-    public function deleteById($id)
-    {
+    public function deleteById($id){
         try {
             $vacancy = VacanciesHeader::find($id);
             if ($vacancy) {
-                unlink(storage_path(Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_DELETE') . $vacancy->english_pdf));
-                unlink(storage_path(Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_DELETE') . $vacancy->marathi_pdf));
+                unlink(storage_path(Config::get('DocumentConstant.VACANCIES_PDF_DELETE') . $vacancy->english_pdf));
+                unlink(storage_path(Config::get('DocumentConstant.VACANCIES_PDF_DELETE') . $vacancy->marathi_pdf));
                 // Delete the record from the database
                 $vacancy->delete();
                 

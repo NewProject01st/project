@@ -11,8 +11,7 @@ use App\Models\ {
 use Config;
 
 class VolunteerCitizenSupportRepository{
-	public function getAll()
-    {
+	public function getAll(){
         try {
             return VolunteerCitizenSupport::all();
         } catch (\Exception $e) {
@@ -20,8 +19,7 @@ class VolunteerCitizenSupportRepository{
         }
     }
 
-	public function addAll($request)
-{
+	public function addAll($request){
     try {
         
         $volunteer_data = new VolunteerCitizenSupport();
@@ -51,8 +49,7 @@ class VolunteerCitizenSupportRepository{
     }
 }
 
-public function getById($id)
-{
+public function getById($id){
     try {
         $volunteer = VolunteerCitizenSupport::find($id);
         if ($volunteer) {
@@ -68,8 +65,7 @@ public function getById($id)
         ];
     }
 }
-public function updateAll($request)
-{
+public function updateAll($request){
     try {
         $return_data = array();
         $volunteer_data = VolunteerCitizenSupport::find($request->id);
@@ -105,8 +101,7 @@ public function updateAll($request)
     }
 }
 
-public function deleteById($id)
-{
+public function deleteById($id){
     try {
         $volunteer = VolunteerCitizenSupport::find($id);
         if ($volunteer) {

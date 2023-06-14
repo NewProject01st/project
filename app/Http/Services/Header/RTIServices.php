@@ -43,9 +43,9 @@ class RTIServices
             uploadImage($request, 'english_pdf', $path, $englishPdfName);
             uploadImage($request, 'marathi_pdf', $path, $marathiPdfName);
             if ($last_id) {
-                return ['status' => 'success', 'msg' => 'Tender Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'RTI Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Tender Not Added.'];
+                return ['status' => 'error', 'msg' => 'RTI Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -102,9 +102,9 @@ class RTIServices
             }
  
             if ($return_data) {
-                return ['status' => 'success', 'msg' => 'Tender Updated Successfully.'];
+                return ['status' => 'success', 'msg' => 'RTI Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Tender Not Updated.'];
+                return ['status' => 'error', 'msg' => 'RTI Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];

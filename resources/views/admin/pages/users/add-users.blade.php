@@ -237,7 +237,7 @@
                 if (mobileNumberPattern.test(number)) {
                     validationMessage.textContent = "";
                 } else {
-                    validationMessage.textContent = "Only numbers are allowed.";
+                    validationMessage.textContent = "Please enter only numbers.";
                 }
             }
         </script>
@@ -249,7 +249,7 @@
                 if (pincodePattern.test(number)) {
                     validationMessage.textContent = "";
                 } else {
-                    validationMessage.textContent = "Only numbers are allowed.";
+                    validationMessage.textContent = "Please enter only numbers.";
                 }
             }
         </script>

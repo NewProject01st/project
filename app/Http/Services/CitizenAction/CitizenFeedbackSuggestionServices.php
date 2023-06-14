@@ -9,20 +9,17 @@ use Carbon\Carbon;
 use Config;
 use Storage;
 
-class CitizenFeedbackSuggestionServices
-{
+class CitizenFeedbackSuggestionServices{
 
 	protected $repo;
 
     /**
      * TopicService constructor.
      */
-    public function __construct()
-    {
+    public function __construct(){
         $this->repo = new CitizenFeedbackSuggestionRepository();
     }
-    public function getAll()
-    {
+    public function getAll(){
         try {
             return $this->repo->getAll();
         } catch (\Exception $e) {
@@ -30,8 +27,7 @@ class CitizenFeedbackSuggestionServices
         }
     }
 
-    public function addAll($request)
-    {
+    public function addAll($request){
         try {
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_ADD');
@@ -50,8 +46,7 @@ class CitizenFeedbackSuggestionServices
         }      
     }
 
-    public function getById($id)
-    {
+    public function getById($id){
         try {
             return $this->repo->getById($id);
         } catch (\Exception $e) {
@@ -59,8 +54,7 @@ class CitizenFeedbackSuggestionServices
         }
     }
 
-    public function updateAll($request)
-    {
+    public function updateAll($request){
         try {
             $return_data = $this->repo->updateAll($request);
             
@@ -110,8 +104,7 @@ class CitizenFeedbackSuggestionServices
 
     
    
-    public function deleteById($id)
-    {
+    public function deleteById($id){
         try {
             return $this->repo->deleteById($id);
         } catch (\Exception $e) {

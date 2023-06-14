@@ -10,20 +10,17 @@ use Config;
 use Storage;
 
 
-class ReportIncidentCrowdsourcingServices
-{
+class ReportIncidentCrowdsourcingServices{
 
 	protected $repo;
 
     /**
      * TopicService constructor.
      */
-    public function __construct()
-    {
+    public function __construct(){
         $this->repo = new ReportIncidentCrowdsourcingRepository();
     }
-    public function getAll()
-    {
+    public function getAll(){
         try {
             return $this->repo->getAll();
         } catch (\Exception $e) {
@@ -31,8 +28,7 @@ class ReportIncidentCrowdsourcingServices
         }
     }
 
-    public function addAll($request)
-    {
+    public function addAll($request){
         try {
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_ADD');
@@ -51,8 +47,7 @@ class ReportIncidentCrowdsourcingServices
         }      
     }
 
-    public function getById($id)
-    {
+    public function getById($id){
         try {
             return $this->repo->getById($id);
         } catch (\Exception $e) {
@@ -60,8 +55,7 @@ class ReportIncidentCrowdsourcingServices
         }
     }
 
-    public function updateAll($request)
-    {
+    public function updateAll($request){
         try {
             $return_data = $this->repo->updateAll($request);
             
@@ -112,8 +106,7 @@ class ReportIncidentCrowdsourcingServices
 
     
    
-    public function deleteById($id)
-    {
+    public function deleteById($id){
         try {
             return $this->repo->deleteById($id);
         } catch (\Exception $e) {
