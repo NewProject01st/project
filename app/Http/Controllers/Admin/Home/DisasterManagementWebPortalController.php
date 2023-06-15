@@ -38,21 +38,23 @@ class DisasterManagementWebPortalController extends Controller
             'marathi_description' => 'required',
             'english_designation' => 'required',
             'marathi_designation' => 'required',
-            'english_image' => 'required',
-            'marathi_image' => 'required',
+            'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'|dimensions:min_width=200,min_height=200,max_width=300,max_height=300|min:'.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'',
+            'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'|dimensions:min_width=200,min_height=200,max_width=300,max_height=300|min:'.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'',
             
          ];
     $messages = [   
-        'english_name' => 'required',
-        'marathi_name' => 'required',
-        'english_title' => 'required',
-        'marathi_title' => 'required',
-        'english_description' => 'required',
-        'marathi_description' => 'required',
-        'english_designation' => 'required',
-        'marathi_designation' => 'required',
-        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'english_image.required' => 'The English image is required.',
+            'english_image.image' => 'The English image must be a valid image file.',
+            'english_image.mimes' => 'The English image must be in JPEG, PNG, JPG, GIF, or SVG format.',
+            'english_image.max' => 'The English image size must not exceed '.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'KB .',
+            'english_image.min' => 'The English image size must not be less than '.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'KB .',
+            'english_image.dimensions' => 'The English image dimensions must be between 200x200 and 300x300 pixels.',
+            'marathi_image.required' => 'The Marathi image is required.',
+            'marathi_image.image' => 'The Marathi image must be a valid image file.',
+            'marathi_image.mimes' => 'The Marathi image must be in JPEG, PNG, JPG, GIF, or SVG format.',
+            'marathi_image.max' => 'The Marathi image size must not exceed  '.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'KB .',
+            'english_image.min' => 'The English image size must not be less than '.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'KB .',
+            'marathi_image.dimensions' => 'The Marathi image dimensions must be between 200x200 and 300x300 pixels.',
         
         
     ];
@@ -106,21 +108,26 @@ class DisasterManagementWebPortalController extends Controller
             'marathi_description' => 'required',
             'english_designation' => 'required',
             'marathi_designation' => 'required',
-            // 'english_image' => 'required',
-            // 'marathi_image' => 'required',
-        
-     ];
+        ];
+        if($request->has('english_image')) {
+            $rules['english_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'|dimensions:min_width=200,min_height=200,max_width=300,max_height=300|min:'.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'';
+        }
+        if($request->has('marathi_image')) {
+            $rules['marathi_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'|dimensions:min_width=200,min_height=200,max_width=300,max_height=300|min:'.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'';
+        }
     $messages = [   
-        'english_name' => 'required',
-        'marathi_name' => 'required',
-        'english_title' => 'required',
-        'marathi_title' => 'required',
-        'english_description' => 'required',
-        'marathi_description' => 'required',
-        'english_designation' => 'required',
-        'marathi_designation' => 'required',
-        // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // 'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'english_image.required' => 'The English image is required.',
+        'english_image.image' => 'The English image must be a valid image file.',
+        'english_image.mimes' => 'The English image must be in JPEG, PNG, JPG, GIF, or SVG format.',
+        'english_image.max' => 'The English image size must not exceed '.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'KB .',
+        'english_image.min' => 'The English image size must not be less than '.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'KB .',
+        'english_image.dimensions' => 'The English image dimensions must be between 200x200 and 300x300 pixels.',
+        'marathi_image.required' => 'The Marathi image is required.',
+        'marathi_image.image' => 'The Marathi image must be a valid image file.',
+        'marathi_image.mimes' => 'The Marathi image must be in JPEG, PNG, JPG, GIF, or SVG format.',
+        'marathi_image.max' => 'The Marathi image size must not exceed  '.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'KB .',
+        'english_image.min' => 'The English image size must not be less than '.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'KB .',
+        'marathi_image.dimensions' => 'The Marathi image dimensions must be between 200x200 and 300x300 pixels.',
         
     ];
 

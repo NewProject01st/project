@@ -21,8 +21,8 @@ class SliderServices
     {
         $this->repo = new SliderRepository();
     }
-    public function getAll()
-    {
+    
+    public function getAll(){
         try {
             return $this->repo->getAll();
         } catch (\Exception $e) {
@@ -30,8 +30,7 @@ class SliderServices
         }
     }
 
-    public function addAll($request)
-    {
+    public function addAll($request){
         try {
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.SLIDER_ADD');
@@ -50,18 +49,15 @@ class SliderServices
         }      
     }
     
-    public function getById($id)
-    {
+    public function getById($id){
         try {
             return $this->repo->getById($id);
         } catch (\Exception $e) {
             return $e;
         }
     }
-   
 
-    public function updateAll($request)
-    {
+    public function updateAll($request){
         try {
             $return_data = $this->repo->updateAll($request);
             
@@ -105,21 +101,16 @@ class SliderServices
         }      
     }
 
-    public function updateOne($id)
-    {
+    public function updateOne($id){
         return $this->repo->updateOne($id);
     }
 
-    public function deleteById($id)
-    {
+    public function deleteById($id){
         try {
             return $this->repo->deleteById($id);
         } catch (\Exception $e) {
             return $e;
         }
     }
-   
-
-
 
 }
