@@ -239,9 +239,11 @@
 
                 <div class="col-md-3">
                     <div class="emergency-info">
-                        <h5>Helplines &
-                            Emergency
-                            Services </h5>
+                        <h5> @if (session('language') == 'mar')
+                            {{ Config::get('marathi.HOME_PAGE.SELECT_HELP_AND_EMERENCY_SERVIce') }}
+                            @else
+                            {{ Config::get('english.HOME_PAGE.SELECT_HELP_AND_EMERENCY_SERVIce') }}
+                            @endif</h5>
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                             <!--Panel Start-->
                             @foreach ($data_output_emergencycontact as $index => $item)
