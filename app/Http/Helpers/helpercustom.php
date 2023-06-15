@@ -266,6 +266,35 @@ function uploadImage($request, $image_name, $path, $name) {
     }
 }
 
+function getTempratureFromAPI() {
+    $url = env('TEMPRATURE_API_URL');
+    $result  =file_get_contents($url);
+    $data_for_wheather = json_decode($result, true);
+    $temprature = $data_for_wheather['currentConditions']['temp'];
+    return $temprature;
+}
+
+function getTempratureData() {
+    // $date = new DateTime('now', new DateTimeZone('Asia/Kolkata'));
+
+    // // $data = Wheather::where('id','1')
+    // //                 ->get()->toArray();
+    // // $last_update = $data['last_updated'];   
+    // $current_date = $date->format('d-m-Y H:i:s'); 
+    // // dd($current_date);
+    // $db_date = "15-06-2023 13:00:01";
+    // $current_date = "15-06-2023 14:05:16";
+    // if(strtotime($db_date) < strtotime($current_date)) {
+    //     dd("in if");
+       
+    // } else {
+    //     dd("in else ");
+    //     getTemprature();
+    // }
+    return getTempratureFromAPI();
+
+}
+
 
 
 

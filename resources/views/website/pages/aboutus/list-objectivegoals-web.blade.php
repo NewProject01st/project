@@ -41,19 +41,20 @@
                         @forelse ($data_output as $item)
                             <div class="deprt-txt">
                                 @if (session('language') == 'mar')
-                                    <h3><?php echo $item['marathi_title']; ?> : </h3>
+                                    <h3><?php echo $item['marathi_title']; ?> </h3>
 
                                     <p style="text-align: justify;">
                                         <img src="{{ Config::get('DocumentConstant.OBJECTIVE_GOALS_VIEW') }}{{ $item['marathi_image'] }}"
-                                            class="d-block w-100 to_set_img" alt="...">
+                                            class="d-block w-100 to_set_img" alt="{{ strip_tags($item['marathi_title']) }}">
                                         <?php echo $item['marathi_description']; ?>
                                     </p>
                                 @else
-                                    <h3><?php echo $item['english_title']; ?> : </h3>
+                                    <h3><?php echo $item['english_title']; ?> </h3>
 
                                     <p style="text-align: justify;" class="mt-p2">
                                         <img src="{{ Config::get('DocumentConstant.OBJECTIVE_GOALS_VIEW') }}{{ $item['english_image'] }}"
-                                            class="d-block w-100 to_set_img" alt="...">
+                                            class="d-block w-100 to_set_img"
+                                            alt="{{ strip_tags($item['english_title']) }}">
                                         <?php echo $item['english_description']; ?>
                                     </p>
                                 @endif

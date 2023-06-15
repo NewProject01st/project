@@ -122,7 +122,6 @@ class IndexController extends Controller
     public function index()
     {
         try {
-
             $menu = $this->menu;
             $socialicon = $this->socialicon;
             // $websitecontact = $this->websitecontact;

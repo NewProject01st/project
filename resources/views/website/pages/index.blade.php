@@ -6,7 +6,7 @@
                             } -->
     <!-- </style> -->
     <script>
-        $('li.dropdown.mega-dropdown a').on('click', function(event) {
+        $('li.dropdown.mega-dropdown a').on('click', function (event) {
             $(this).parent().toggleClass('open');
         });
     </script>
@@ -155,58 +155,56 @@
 
                     @foreach ($data_output_disastermanagementnews as $item)
                         @if (session('language') == 'mar')
-                            <div class="col-md-3 col-sm-6 mt-4">
-                                <div class="news-box">
-                                    <div class="new-thumb">
-                                        {{-- <span class="cat c1">Fire</span> --}}
-                                        <img src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW') }}{{ $item['marathi_image'] }}"
-                                            class="d-block w-100">
-                                    </div>
-                                    <div class="new-txt">
-                                        <ul class="news-meta">
-                                            <li>
-                                                {{-- 05 MAY, 2023  --}}
-                                                <?php echo $item['disaster_date']; ?></li>
-                                            {{-- <li>176 Comments</li> --}}
-                                        </ul>
-                                        <h6><a href="#"><?php echo $item['marathi_title']; ?></a></h6>
-                                        <p> <?php echo $item['marathi_description']; ?></p>
-                                    </div>
-                                    <div class="news-box-f">
-                                        <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a
-                                            data-id="{{ $item['id'] }}" class="show-btn"><i
-                                                class="fas fa-arrow-right"></i></a>
-                                    </div>
+                        <div class="col-md-3 col-sm-6 mt-4">
+                            <div class="news-box">
+                                <div class="new-thumb">
+                                    {{-- <span class="cat c1">Fire</span> --}}
+                                    <img src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW')}}{{$item['marathi_image']}}"
+                                        class="d-block w-100">
+                                </div>
+                                <div class="new-txt">
+                                    <ul class="news-meta">
+                                        <li>
+                                            {{-- 05 MAY, 2023  --}}
+                                            <?php echo $item['disaster_date']; ?></li>
+                                        {{-- <li>176 Comments</li> --}}
+                                    </ul>
+                                    <h6 class="card_title"><a href="#"><?php echo mb_substr($item['marathi_title'], 0, 31) ?>...</a></h6>
+                                    <p class="card_title"> <?php echo mb_substr($item['marathi_description'], 0, 74) ?>...</p>
+                                </div>
+                                <div class="news-box-f">
+                                     <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
+                                            class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
-                        @else
-                            <div class="col-md-3 col-sm-6 mt-4">
-                                <div class="news-box">
-                                    <div class="new-thumb">
-                                        {{-- <span class="cat c1">Fire</span> --}}
-                                        <img src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW') }}{{ $item['english_image'] }}"
-                                            class="d-block w-100">
-                                    </div>
-                                    <div class="new-txt">
-                                        <ul class="news-meta">
-                                            <li>
-                                                {{-- 05 MAY, 2023  --}}
-                                                <?php echo $item['disaster_date']; ?></li>
-                                            {{-- <li>176 Comments</li> --}}
-                                        </ul>
-                                        <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
-                                        <p> <?php echo $item['english_description']; ?></p>
-                                    </div>
-                                    <div class="news-box-f">
-                                        <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a
-                                            data-id="{{ $item['id'] }}" class="show-btn"><i
-                                                class="fas fa-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                    @endforeach
-                    <!--News Box End-->
+                        </div>
+            @else
+                <div class="col-md-3 col-sm-6 mt-4">
+                    <div class="news-box">
+                        <div class="new-thumb">
+                            {{-- <span class="cat c1">Fire</span> --}}
+                            <img src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW')}}{{$item['english_image']}}"
+                                class="d-block w-100">
+                        </div>
+                        <div class="new-txt">
+                            <ul class="news-meta">
+                                <li>
+                                    {{-- 05 MAY, 2023  --}}
+                                    <?php echo $item['disaster_date']; ?></li>
+                                {{-- <li>176 Comments</li> --}}
+                            </ul>
+                            <h6 class="card_title"><a href="#"><?php echo mb_substr($item['english_title'], 0, 31) ?>...</a></h6>
+                            <p class="card_title"> <?php echo mb_substr($item['english_description'], 0, 74) ?>...</p>
+                        </div>
+                        <div class="news-box-f">
+                             <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
+                <!--News Box End-->
 
                 </div>
             </div>

@@ -54,5 +54,22 @@ class EventRepository  {
             return $e;
         }
     }
+    public function getById($id)
+    {
+        try {
+            $data_output = Event::where('is_active','=',true);
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->select('id','marathi_title', 'marathi_description','marathi_image','start_date', 'end_date');
+            } else {
+                $data_output = $data_output->select('id','english_title', 'english_description','english_image','start_date', 'end_date');
+            }
+            // $data_output =  $data_output->get()
+            //                 ->toArray();
+            $data_output = $data_output->where('id', $id)->get()->toArray();
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
    
 }

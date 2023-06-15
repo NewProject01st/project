@@ -41,14 +41,14 @@
                             @forelse($data_output  as $item)
                                 <div class="deprt-txt">
                                     @if (session('language') == 'mar')
-                                        <h3><?php echo $item['marathi_title']; ?> : </h3>
+                                        <h3><?php echo $item['marathi_title']; ?> </h3>
                                         <img src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW') }}{{ $item['marathi_image'] }}"
-                                            class="d-block w-100" alt="...">
+                                            class="d-block w-100" alt="{{ strip_tags($item['marathi_title']) }}">
                                         <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                     @else
-                                        <h3><?php echo $item['english_title']; ?> : </h3>
+                                        <h3><?php echo $item['english_title']; ?> </h3>
                                         <img src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW') }}{{ $item['english_image'] }}"
-                                            class="d-block w-100" alt="...">
+                                            class="d-block w-100" alt="{{ strip_tags($item['english_title']) }}">
                                         <p style="text-align: justify;" class="mt-p2"> <?php echo $item['english_description']; ?></p>
                                     @endif
                                 </div>
