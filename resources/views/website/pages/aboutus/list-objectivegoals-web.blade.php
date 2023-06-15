@@ -4,10 +4,28 @@
     <!--Subheader Start-->
     <section class="wf100 subheader">
         <div class="container">
-            <h2>About Us </h2>
+            <h2>
+                @if (session('language') == 'mar')
+                    {{ Config::get('marathi.ABOUT_US.ABOUT_US_HEADING') }}
+                @else
+                    {{ Config::get('english.ABOUT_US.ABOUT_US_HEADING') }}
+                @endif
+            </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li> Objective and Goals </li>
+                <li> <a href="{{ route('index') }}">
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.ABOUT_US.ABOUT_US_MAIN_LINK') }}
+                        @else
+                            {{ Config::get('english.ABOUT_US.ABOUT_US_MAIN_LINK') }}
+                        @endif
+                    </a> </li>
+                <li>
+                    @if (session('language') == 'mar')
+                        {{ Config::get('marathi.ABOUT_US.ABOUT_US_SUB_LINK2') }}
+                    @else
+                        {{ Config::get('english.ABOUT_US.ABOUT_US_SUB_LINK2') }}
+                    @endif
+                </li>
             </ul>
         </div>
     </section>
@@ -26,7 +44,7 @@
                                     <h3><?php echo $item['marathi_title']; ?> : </h3>
 
                                     <p style="text-align: justify;">
-                                        <img src="{{ Config::get('DocumentConstant.OBJECTIVE_GOALS_VIEW')}}{{ $item['marathi_image'] }}"
+                                        <img src="{{ Config::get('DocumentConstant.OBJECTIVE_GOALS_VIEW') }}{{ $item['marathi_image'] }}"
                                             class="d-block w-100 to_set_img" alt="...">
                                         <?php echo $item['marathi_description']; ?>
                                     </p>
@@ -34,7 +52,7 @@
                                     <h3><?php echo $item['english_title']; ?> : </h3>
 
                                     <p style="text-align: justify;" class="mt-p2">
-                                        <img src="{{ Config::get('DocumentConstant.OBJECTIVE_GOALS_VIEW')}}{{ $item['english_image'] }}"
+                                        <img src="{{ Config::get('DocumentConstant.OBJECTIVE_GOALS_VIEW') }}{{ $item['english_image'] }}"
                                             class="d-block w-100 to_set_img" alt="...">
                                         <?php echo $item['english_description']; ?>
                                     </p>

@@ -4,10 +4,28 @@
     <!--Subheader Start-->
     <section class="wf100 subheader">
         <div class="container">
-            <h2>About Us </h2>
+            <h2>
+                @if (session('language') == 'mar')
+                    {{ Config::get('marathi.ABOUT_US.ABOUT_US_HEADING') }}
+                @else
+                    {{ Config::get('english.ABOUT_US.ABOUT_US_HEADING') }}
+                @endif
+            </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li> State Disaster Management Authority </li>
+                <li> <a href="{{ route('index') }}">
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.ABOUT_US.ABOUT_US_MAIN_LINK') }}
+                        @else
+                            {{ Config::get('english.ABOUT_US.ABOUT_US_MAIN_LINK') }}
+                        @endif
+                    </a> </li>
+                <li>
+                    @if (session('language') == 'mar')
+                        {{ Config::get('marathi.ABOUT_US.ABOUT_US_SUB_LINK3') }}
+                    @else
+                        {{ Config::get('english.ABOUT_US.ABOUT_US_SUB_LINK3') }}
+                    @endif
+                </li>
             </ul>
         </div>
     </section>
@@ -24,12 +42,12 @@
                             <div class="deprt-txt">
                                 @if (session('language') == 'mar')
                                     <h3><?php echo $item['marathi_title']; ?> : </h3>
-                                    <img src="{{ Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_VIEW')}}{{ $item['marathi_image'] }}"
+                                    <img src="{{ Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_VIEW') }}{{ $item['marathi_image'] }}"
                                         class="d-block w-100" alt="...">
                                     <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                 @else
                                     <h3><?php echo $item['english_title']; ?> : </h3>
-                                    <img src="{{ Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_VIEW')}}{{ $item['english_image'] }}"
+                                    <img src="{{ Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_VIEW') }}{{ $item['english_image'] }}"
                                         class="d-block w-100" alt="...">
                                     <p style="text-align: justify;" class="mt-p2"> <?php echo $item['english_description']; ?></p>
                                 @endif

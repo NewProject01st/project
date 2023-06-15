@@ -3,10 +3,28 @@
     <!--Sub Header Start-->
     <section class="wf100 subheader">
         <div class="container">
-            <h2>Contact Us </h2>
+            <h2>
+                @if (session('language') == 'mar')
+                    {{ Config::get('marathi.CONTACT_US.CONTACT_US_HEADING') }}
+                @else
+                    {{ Config::get('english.CONTACT_US.CONTACT_US_HEADING') }}
+                @endif
+            </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li> Contact Information </li>
+                <li> <a href="{{ route('index') }}">
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.CONTACT_US.CONTACT_US_MAIN_LINK') }}
+                        @else
+                            {{ Config::get('english.CONTACT_US.CONTACT_US_MAIN_LINK') }}
+                        @endif
+                    </a> </li>
+                <li>
+                    @if (session('language') == 'mar')
+                        {{ Config::get('marathi.CONTACT_US.CONTACT_US_SUB_LINK1') }}
+                    @else
+                        {{ Config::get('english.CONTACT_US.CONTACT_US_SUB_LINK1') }}
+                    @endif
+                </li>
             </ul>
         </div>
     </section>
@@ -39,7 +57,13 @@
                                         <div class="contact-new-design-top">
                                             <div class="add-box-2 contact-new-design">
                                                 <i class="fas fa-map-marker-alt"></i>
-                                                <h5>Our Location</h5>
+                                                <h5>
+                                                    @if (session('language') == 'mar')
+                                                        {{ Config::get('marathi.CONTACT_US.OUR_LOCATION') }}
+                                                    @else
+                                                        {{ Config::get('english.CONTACT_US.OUR_LOCATION') }}
+                                                    @endif
+                                                </h5>
                                                 <p class="set_text">
                                                     <?php echo $item['english_address']; ?>
                                                     {{-- DMS Office, Maharshtra, INDIA --}}
@@ -48,14 +72,32 @@
 
                                             <div class="add-box-2 contact-new-design">
                                                 <i class="fas fa-phone"></i>
-                                                <h5>Call us</h5>
+                                                <h5>
+                                                    @if (session('language') == 'mar')
+                                                        {{ Config::get('marathi.CONTACT_US.CALL_US') }}
+                                                    @else
+                                                        {{ Config::get('english.CONTACT_US.CALL_US') }}
+                                                    @endif
+                                                </h5>
                                                 {{-- <p class="set_text">Phone: 080 4576 392</p> --}}
-                                                <p class="set_text">Mobile:<?php echo $item['marathi_address']; ?></p>
+                                                <p class="set_text">
+                                                    @if (session('language') == 'mar')
+                                                        {{ Config::get('marathi.CONTACT_US.MOBILE') }}
+                                                    @else
+                                                        {{ Config::get('english.CONTACT_US.MOBILE') }}
+                                                    @endif<?php echo $item['marathi_number']; ?>
+                                                </p>
                                             </div>
 
                                             <div class="add-box-2 contact-new-design">
                                                 <i class="fas fa-envelope"></i>
-                                                <h5>Mail us</h5>
+                                                <h5>
+                                                    @if (session('language') == 'mar')
+                                                        {{ Config::get('marathi.CONTACT_US.MAIL_US') }}
+                                                    @else
+                                                        {{ Config::get('english.CONTACT_US.MAIL_US') }}
+                                                    @endif
+                                                </h5>
                                                 <p class="set_text"><a
                                                         href="mailto:contact@alex.com"><?php echo $item['email']; ?></a></p>
                                                 {{-- <p class="set_text"><a href="mailto:info@alex.com">info@balad.com</a></p> --}}
@@ -65,7 +107,13 @@
                                         <div class="contact-new-design-top">
                                             <div class="add-box-2 contact-new-design">
                                                 <i class="fas fa-map-marker-alt"></i>
-                                                <h5>Our Location</h5>
+                                                <h5>
+                                                    @if (session('language') == 'mar')
+                                                        {{ Config::get('marathi.CONTACT_US.OUR_LOCATION') }}
+                                                    @else
+                                                        {{ Config::get('english.CONTACT_US.OUR_LOCATION') }}
+                                                    @endif
+                                                </h5>
                                                 <p class="set_text">
                                                     <?php echo $item['english_address']; ?>
                                                     {{-- DMS Office, Maharshtra, INDIA --}}
@@ -74,14 +122,32 @@
 
                                             <div class="add-box-2 contact-new-design">
                                                 <i class="fas fa-phone"></i>
-                                                <h5>Call us</h5>
+                                                <h5>
+                                                    @if (session('language') == 'mar')
+                                                        {{ Config::get('marathi.CONTACT_US.CALL_US') }}
+                                                    @else
+                                                        {{ Config::get('english.CONTACT_US.CALL_US') }}
+                                                    @endif
+                                                </h5>
                                                 {{-- <p class="set_text">Phone: 080 4576 392</p> --}}
-                                                <p class="set_text">Mobile:<?php echo $item['english_address']; ?></p>
+                                                <p class="set_text">
+                                                    @if (session('language') == 'mar')
+                                                        {{ Config::get('marathi.CONTACT_US.MOBILE') }}
+                                                    @else
+                                                        {{ Config::get('english.CONTACT_US.MOBILE') }}
+                                                    @endif<?php echo $item['english_number']; ?>
+                                                </p>
                                             </div>
 
                                             <div class="add-box-2 contact-new-design">
                                                 <i class="fas fa-envelope"></i>
-                                                <h5>Mail us</h5>
+                                                <h5>
+                                                    @if (session('language') == 'mar')
+                                                        {{ Config::get('marathi.CONTACT_US.MAIL_US') }}
+                                                    @else
+                                                        {{ Config::get('english.CONTACT_US.MAIL_US') }}
+                                                    @endif
+                                                </h5>
                                                 <p class="set_text"><a
                                                         href="mailto:contact@alex.com"><?php echo $item['email']; ?></a></p>
                                                 {{-- <p class="set_text"><a href="mailto:info@alex.com">info@balad.com</a></p> --}}
