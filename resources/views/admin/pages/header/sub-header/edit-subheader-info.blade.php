@@ -36,7 +36,7 @@
                                 @endif
                             </div>
                     </div>
-                    <div class="col-md-6">
+                   <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="form-group">
                             <label for="marathi_tollfree_title">Marathi Toll Free Title</label>&nbsp<span
                                 class="red-text">*</span>
@@ -50,7 +50,7 @@
                             @endif
                         </div>
                     </div> --}}
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_tollfree_no">English Toll Free No</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -62,7 +62,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_tollfree_no">Marathi Toll Free No</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -86,7 +86,7 @@
                     @endif
                 </div>
             </div>
-            <div class="col-md-6">
+           <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="form-group">
                     <label for="marathi_city_title">Marathi City Title</label>&nbsp<span class="red-text">*</span>
                     <input type="text" name="marathi_city_title" id="marathi_city_title"
@@ -97,7 +97,7 @@
                     @endif
                 </div>
             </div> --}}
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_city">English City Name</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -108,7 +108,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_city">Marathi City Name</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -119,7 +119,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="logo">Logo</label>&nbsp<span class="red-text">*</span><br>
                                             <input type="file" name="logo" id="logo" accept="image/*">

@@ -23,7 +23,7 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12 mb-2">
-                                        <div class="col-md-6">
+                                        <div class="col-lg-6 col-md-6 col-sm-6">
 
                                             <label for="menu_name_english">Main Menu</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -38,7 +38,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    {{--   <div class="col-md-6">
+                                    {{--    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>&nbsp<span
                                             class="red-text">*</span>
@@ -49,7 +49,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi</label>&nbsp<span
                                             class="red-text">*</span>
@@ -60,7 +60,7 @@
                                             @endif
                                         </div>
                                     </div> --}}
-                                    <div class="col-md-6">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="english_description">Description English</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -71,7 +71,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="english_description">Description Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -82,7 +82,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="publish_date">Publish Date</label>&nbsp<span
                                                 class="red-text">*</span>

@@ -22,21 +22,21 @@
                                 enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_name">English Name<span class="text-danger">*</span></label>
-                                            <input type="text" name="english_name" id="english_name"
-                                            class="form-control" id="english_name" placeholder="">
+                                            <input type="text" name="english_name" id="english_name" class="form-control"
+                                                id="english_name" placeholder="">
                                             @if ($errors->has('english_name'))
                                                 <span class="red-text"><?php echo $errors->first('english_name', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="keywords">Keywords<span class="text-danger">*</span></label>
-                                            <input type="text" name="keywords" id="keywords"
-                                            class="form-control" id="keywords" placeholder="">
+                                            <input type="text" name="keywords" id="keywords" class="form-control"
+                                                id="keywords" placeholder="">
                                             @if ($errors->has('keywords'))
                                                 <span class="red-text"><?php echo $errors->first('keywords', ':message'); ?></span>
                                             @endif
@@ -46,7 +46,7 @@
                                         <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                         {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-metadata') }}"
-                                            class="btn btn-sm btn-primary ">Back</a></span>
+                                                class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
                                 </div>
                             </form>

@@ -18,15 +18,16 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action="{{ route('update-video') }}" method="post"
-                                id="regForm" enctype="multipart/form-data">
+                            <form class="forms-sample" action="{{ route('update-video') }}" method="post" id="regForm"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="video_name">Video Name</label>&nbsp<span
-                                                class="red-text">*</span>
-                                                <input class="form-control video_name" name="video_name" id="video_name" value="@if (old('video_name')){{ old('video_name') }}@else{{ $video->video_name }}@endif"  value="{{ $video->video_name }}" placeholder="Enter Video Name">
+                                            <label for="video_name">Video Name</label>&nbsp<span class="red-text">*</span>
+                                            <input class="form-control video_name" name="video_name" id="video_name"
+                                                value="@if (old('video_name')) {{ old('video_name') }}@else{{ $video->video_name }} @endif"
+                                                value="{{ $video->video_name }}" placeholder="Enter Video Name">
                                             @if ($errors->has('video_name'))
                                                 <span class="red-text"><?php echo $errors->first('video_name', ':message'); ?></span>
                                             @endif

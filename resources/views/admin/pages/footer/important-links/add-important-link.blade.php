@@ -5,7 +5,7 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                   Footer Link
+                    Footer Link
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -22,7 +22,7 @@
                                 action="{{ route('add-important-link') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -33,7 +33,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -44,7 +44,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                             <input class="form-control url" name="url" id="url"
@@ -67,5 +67,4 @@
                 </div>
             </div>
         </div>
-
     @endsection

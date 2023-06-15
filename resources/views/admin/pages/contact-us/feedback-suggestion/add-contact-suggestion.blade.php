@@ -22,7 +22,7 @@
                                 enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="full_name">Full Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control full_name" name="full_name"
@@ -34,7 +34,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="email">Email</label>&nbsp<span class="red-text">*</span>
                                             <input type="email" class="form-control email" name="email"
@@ -46,7 +46,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="mobile_number">Mobile Number</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -59,7 +59,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="contact_type">Contact Type</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -72,7 +72,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="subject">Subject</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control " name="subject"
@@ -84,7 +84,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="suggestion">Suggestion</label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control marathi_title" name="suggestion" id="suggestion" placeholder="Enter the suggestion">{{ old('suggestion') }}</textarea>

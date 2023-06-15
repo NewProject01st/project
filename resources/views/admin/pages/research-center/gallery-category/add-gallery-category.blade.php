@@ -22,21 +22,23 @@
                                 enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_name">English Name</label>&nbsp<span
                                                 class="red-text">*</span>
-                                                <input class="form-control english_name" name="english_name" id="english_name" placeholder="Enter the Name" {{ old('english_name') }}>
+                                            <input class="form-control english_name" name="english_name" id="english_name"
+                                                placeholder="Enter the Name" {{ old('english_name') }}>
                                             @if ($errors->has('english_name'))
                                                 <span class="red-text"><?php echo $errors->first('english_name', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_name">Marathi Name</label>&nbsp<span
                                                 class="red-text">*</span>
-                                                <input class="form-control marathi_name" name="marathi_name" id="marathi_name" placeholder="Enter the Name" {{ old('marathi_name') }}>
+                                            <input class="form-control marathi_name" name="marathi_name" id="marathi_name"
+                                                placeholder="Enter the Name" {{ old('marathi_name') }}>
                                             @if ($errors->has('marathi_name'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_name', ':message'); ?></span>
                                             @endif

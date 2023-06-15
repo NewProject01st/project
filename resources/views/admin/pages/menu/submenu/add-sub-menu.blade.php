@@ -22,7 +22,7 @@
                                 @csrf
                                 <div class="row">
 
-                                    <div class="col-md-4">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <div class="form-group">
                                             <label for="menu_name_english">Main Menu</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -33,14 +33,15 @@
                                                         <option value="{{ $data['id'] }}" selected>
                                                             {{ $data['menu_name_english'] }}</option>
                                                     @else
-                                                        <option value="{{ $data['id'] }}">{{ $data['menu_name_marathi'] }} ( {{ $data['menu_name_english'] }})
+                                                        <option value="{{ $data['id'] }}">{{ $data['menu_name_marathi'] }}
+                                                            ( {{ $data['menu_name_english'] }})
                                                         </option>
                                                     @endif
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <div class="form-group">
                                             <label for="menu_name_english">Sub Menu Name English</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -52,7 +53,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
                                         <div class="form-group">
                                             <label for="menu_name_marathi">Sub Menu Name Marathi</label>&nbsp<span
                                                 class="red-text">*</span>

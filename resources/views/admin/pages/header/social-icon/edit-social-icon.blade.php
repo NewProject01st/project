@@ -23,7 +23,7 @@
                                 id="regForm" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="icon">Social Icon</label><br>
                                             <input type="file" name="icon" class="form-control" placeholder="image"
@@ -37,7 +37,7 @@
                                             class="img-fluid img-thumbnail" width="150">
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="url">URL</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="url" id="url" class="form-control"

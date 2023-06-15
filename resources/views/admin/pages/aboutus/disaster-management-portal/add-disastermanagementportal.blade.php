@@ -6,7 +6,7 @@
             <div class="page-header">
                 <h3 class="page-title">
                     Disaster Management Portal
-                    
+
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -23,7 +23,7 @@
                                 enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -34,7 +34,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -45,7 +45,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="english_description">Description English</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -56,7 +56,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="marathi_description"> Description Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -67,7 +67,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_image">Image English</label>&nbsp<span
                                                 class="red-text">*</span><br>
@@ -78,7 +78,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_image">Image Marathi</label>&nbsp<span
                                                 class="red-text">*</span><br>

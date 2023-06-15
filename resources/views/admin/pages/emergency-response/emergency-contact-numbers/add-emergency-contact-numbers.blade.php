@@ -22,7 +22,7 @@
                                 enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -33,7 +33,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -44,7 +44,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="english_description">Description English</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -55,7 +55,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="marathi_description"> Description Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -66,7 +66,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_image">Image English</label>&nbsp<span
                                                 class="red-text">*</span><br>
@@ -77,7 +77,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_image">Image Marathi</label>&nbsp<span
                                                 class="red-text">*</span><br>
@@ -96,7 +96,7 @@
                                 <div id="items">
                                     <div class="item">
                                         <div class="row">
-                                            <div class="col-md-5">
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
                                                 <div class="form-group">
                                                     <label for="english_emergency_contact_title">English Emergency Contact
                                                         Title</label>&nbsp<span class="red-text">*</span><br>
@@ -109,7 +109,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col-md-5">
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
                                                 <div class="form-group">
                                                     <label for="marathi_emergency_contact_title">Marathi English Emergency
                                                         Contact Title</label>&nbsp<span class="red-text">*</span><br>
@@ -122,7 +122,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col-md-5">
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
                                                 <div class="form-group">
                                                     <label for="english_emergency_contact_number">English Emergency Contact
                                                         Number</label>&nbsp<span class="red-text">*</span><br>
@@ -137,7 +137,7 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="col-md-5">
+                                            <div class="col-lg-5 col-md-5 col-sm-5">
                                                 <div class="form-group">
                                                     <label for="marathi_emergency_contact_number">Marathi Emergency
                                                         Contact Number</label>&nbsp<span class="red-text">*</span><br>
@@ -187,7 +187,7 @@
                     <div id="items">
                                     <div class="item">
                                         <div class="row">
-                                        <div class="col-md-5">
+                                         <div class="col-lg-5 col-md-5 col-sm-5">
                                             <div class="form-group">
                                                 <label for="english_emergency_contact_title">English Emergency Contact Title</label>&nbsp<span class="red-text">*</span>
                                                 <input class="form-control" type="text" name="english_emergency_contact_title_` +
@@ -200,7 +200,7 @@
                                                     @endif
                                             </div>
                                         </div>
-                                        <div class="col-md-5">
+                                         <div class="col-lg-5 col-md-5 col-sm-5">
                                             <div class="form-group">
                                                 <label for="marathi_emergency_contact_title">Marathi Emergency Contact Title</label>&nbsp<span class="red-text">*</span>
                                                 <input class="form-control" type="text" name="marathi_emergency_contact_title_` +
@@ -213,7 +213,7 @@
                                                     @endif
                                             </div>
                                         </div>
-                                        <div class="col-md-5">
+                                         <div class="col-lg-5 col-md-5 col-sm-5">
                                             <div class="form-group">
                                                 <label for="english_emergency_contact_number">English Emergency Contact Number</label>&nbsp<span class="red-text">*</span>
                                                 <input class="form-control" type="text" name="english_emergency_contact_number_` +
@@ -226,7 +226,7 @@
                                                     @endif
                                             </div>
                                         </div>
-                                        <div class="col-md-5">
+                                         <div class="col-lg-5 col-md-5 col-sm-5">
                                             <div class="form-group">
                                                 <label for="marathi_emergency_contact_number">Marathi Emergency Contact Number</label>&nbsp<span class="red-text">*</span>
                                                 <input class="form-control" type="text" name="marathi_emergency_contact_number_` +

@@ -23,7 +23,7 @@
                                 @csrf
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="icon">Social Icon</label>&nbsp<span
                                                 class="red-text">*</span><br>
@@ -34,7 +34,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="url">English URL</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="url" id="url" class="form-control"

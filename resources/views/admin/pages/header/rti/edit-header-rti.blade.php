@@ -22,7 +22,7 @@
                                 id="regForm" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -35,7 +35,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -49,7 +49,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="url" id="url" class="form-control"
@@ -59,7 +59,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_pdf">Pdf English</label><br>
                                             <input type="file" name="english_pdf" id="english_pdf" accept=".pdf">
@@ -70,7 +70,7 @@
                                                 href="{{ Config::get('DocumentConstant.RTI_PDF_VIEW') }}{{ $rti->english_pdf }}"></a>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_pdf">Pdf Marathi</label>
                                             <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"

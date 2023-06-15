@@ -23,7 +23,7 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="col-md-6">
+                                        <div class="col-lg-6 col-md-6 col-sm-6">
                                             <div class="form-group">
                                                 <label for="role_name">Role Name</label>&nbsp<span class="red-text">*</span>
                                                 <input type="text" class="form-control role_name" name="role_name"

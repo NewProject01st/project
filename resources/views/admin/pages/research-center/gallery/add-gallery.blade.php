@@ -22,33 +22,34 @@
                                 enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
-                                    
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="category_id">Gallery Category</label>&nbsp<span class="red-text">*</span>
-                                        <select class="form-control" id="category_id" name="category_id">
-                                            <option>Select</option>
-                                            @foreach ($category_gallery as $item)
-                                            <option value="{{ $item['id'] }}">{{ $item['english_name'] }}</option>
-                                            @endforeach
-                                        </select>
-                                        @if ($errors->has('category_id'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('category_id', ':message'); ?></span>
-                                        @endif
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="category_id">Gallery Category</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <select class="form-control" id="category_id" name="category_id">
+                                                <option>Select</option>
+                                                @foreach ($category_gallery as $item)
+                                                    <option value="{{ $item['id'] }}">{{ $item['english_name'] }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('category_id'))
+                                                <span class="red-text"><?php echo $errors->first('category_id', ':message'); ?></span>
+                                            @endif
+                                        </div>
                                     </div>
-                                </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_image">Image English</label>&nbsp<span
                                                 class="red-text">*</span><br>
-                                            <input type="file" name="english_image" id="english_image" accept="image/*" value="{{ old('english_title') }}">
+                                            <input type="file" name="english_image" id="english_image" accept="image/*"
+                                                value="{{ old('english_title') }}">
                                             @if ($errors->has('english_image'))
                                                 <div class="red-text"><?php echo $errors->first('english_image', ':message'); ?></div>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_image">Image Marathi</label>&nbsp<span
                                                 class="red-text">*</span><br>

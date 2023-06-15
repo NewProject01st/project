@@ -22,22 +22,24 @@
                                 id="regForm" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_name">English Name</label>&nbsp<span
                                                 class="red-text">*</span>
-                                                <input class="form-control english_name" name="english_name" id="english_name" value="{{ $success_stories->english_name }}" placeholder="Enter the Name">
+                                            <input class="form-control english_name" name="english_name" id="english_name"
+                                                value="{{ $success_stories->english_name }}" placeholder="Enter the Name">
                                             {{-- <textarea class="form-control english_name" name="english_name" id="english_name" placeholder="Enter the Title">{{ $success_stories->english_name }}</textarea> --}}
                                             @if ($errors->has('english_name'))
                                                 <span class="red-text"><?php echo $errors->first('english_name', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_name">Marathi Name</label>&nbsp<span
                                                 class="red-text">*</span>
-                                                <input class="form-control marathi_name" name="marathi_name" id="marathi_name" value="{{ $success_stories->marathi_name }}" placeholder="Enter the Name">
+                                            <input class="form-control marathi_name" name="marathi_name" id="marathi_name"
+                                                value="{{ $success_stories->marathi_name }}" placeholder="Enter the Name">
                                             {{-- <textarea class="form-control marathi_name" name="marathi_name" id="marathi_name" placeholder="Enter the Title">{{ $success_stories->marathi_name }}</textarea> --}}
                                             @if ($errors->has('marathi_name'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_name', ':message'); ?></span>

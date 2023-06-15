@@ -33,7 +33,7 @@
                                         @endif
                                     </div>
                                 </div> 
-                                    <div class="col-md-6">
+                                          <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="u_uname">User Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="u_uname" id="u_uname"
@@ -42,7 +42,7 @@
                                                 <span class="red-text"><?php echo $errors->first('u_uname', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>--}}
+                                    </div> --}}
                                     {{-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
@@ -55,7 +55,7 @@
                                     </div>
                                 </div> --}}
 
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="role_id">Role Type</label>&nbsp<span class="red-text">*</span>
                                             <select class="form-control" id="role_id" name="role_id"
@@ -73,7 +73,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="f_name">First Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="f_name" id="f_name"
@@ -84,7 +84,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="m_name">Middle Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="m_name" id="m_name"
@@ -95,7 +95,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="l_name">Last Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="l_name" id="l_name"
@@ -105,7 +105,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="number">Number</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="number" id="number"
@@ -117,18 +117,17 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="designation">Designation</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="designation"
-                                                id="designation" placeholder=""
-                                                value="{{ $user_data['data_users']['designation'] }}">
+                                            <input type="text" class="form-control" name="designation" id="designation"
+                                                placeholder="" value="{{ $user_data['data_users']['designation'] }}">
                                             @if ($errors->has('designation'))
                                                 <span class="red-text"><?php echo $errors->first('designation', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="address">Address</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="address" id="address"
@@ -138,7 +137,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="state">State</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="state" id="state"
@@ -148,7 +147,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="city">City</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="city" id="city"
@@ -158,7 +157,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="pincode">Pincode</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="pincode" id="pincode"
@@ -174,7 +173,7 @@
 
 
                                     <br>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group form-check form-check-flat form-check-primary">
                                             <label class="form-check-label">
                                                 <input type="checkbox" class="form-check-input" name="is_active"

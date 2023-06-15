@@ -19,12 +19,12 @@
                         <div class="card-body">
                             <form class="forms-sample" id="frm_register" name="frm_register" method="post" role="form"
                                 action="{{ route('update-role') }}" enctype="multipart/form-data">
-                                
+
                                 @csrf
                                 <input type="hidden" name="edit_id" id="edit_id" value="{{ $user_data['roles']['id'] }}">
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="role_name">Role Type</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" id="role_name" name="role_name"
@@ -130,7 +130,7 @@
                                     </div>
 
                                     <br>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group form-check form-check-flat form-check-primary">
                                             <label class="form-check-label">
                                                 <input type="checkbox" class="form-check-input" name="is_active"

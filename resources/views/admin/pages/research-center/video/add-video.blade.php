@@ -22,11 +22,11 @@
                                 enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="video_name">Video Name</label>&nbsp<span
-                                                class="red-text">*</span>
-                                                <input class="form-control video_name" name="video_name" id="video_name" placeholder="Enter Video Name" {{ old('video_name') }}>
+                                            <label for="video_name">Video Name</label>&nbsp<span class="red-text">*</span>
+                                            <input class="form-control video_name" name="video_name" id="video_name"
+                                                placeholder="Enter Video Name" {{ old('video_name') }}>
                                             @if ($errors->has('video_name'))
                                                 <span class="red-text"><?php echo $errors->first('video_name', ':message'); ?></span>
                                             @endif
