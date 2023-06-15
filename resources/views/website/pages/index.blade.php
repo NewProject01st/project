@@ -7,8 +7,8 @@
     <!-- </style> -->
     <script>
         $('li.dropdown.mega-dropdown a').on('click', function (event) {
-    $(this).parent().toggleClass('open');
-});
+            $(this).parent().toggleClass('open');
+        });
     </script>
 
     <div class="main-content">
@@ -151,8 +151,8 @@
                                             <?php echo $item['disaster_date']; ?></li>
                                         {{-- <li>176 Comments</li> --}}
                                     </ul>
-                                    <h6><a href="#"><?php echo $item['marathi_title']; ?></a></h6>
-                                    <p> <?php echo $item['marathi_description']; ?></p>
+                                    <h6 class="card_title"><a href="#"><?php echo mb_substr($item['marathi_title'], 0, 31) ?>...</a></h6>
+                                    <p class="card_title"> <?php echo mb_substr($item['marathi_description'], 0, 74) ?>...</p>
                                 </div>
                                 <div class="news-box-f">
                                      <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
@@ -175,8 +175,8 @@
                                     <?php echo $item['disaster_date']; ?></li>
                                 {{-- <li>176 Comments</li> --}}
                             </ul>
-                            <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
-                            <p> <?php echo $item['english_description']; ?></p>
+                            <h6 class="card_title"><a href="#"><?php echo mb_substr($item['english_title'], 0, 31) ?>...</a></h6>
+                            <p class="card_title"> <?php echo mb_substr($item['english_description'], 0, 74) ?>...</p>
                         </div>
                         <div class="news-box-f">
                              <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a data-id="{{ $item['id'] }}" class="show-btn"><i

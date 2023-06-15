@@ -188,8 +188,8 @@ html body {
 }
 p {
 	font-family: 'Lato', sans-serif;
-	color: #000;
-	text-align: justify;
+	/* color: #000; */
+	/* text-align: justify; */
 }
 
 .mt-p2{
@@ -6530,4 +6530,21 @@ border-bottom: 1px solid #57578E;
 .site_ul{
 	list-style: none;
     padding: 1%;
+}
+
+
+/* set cards texts */
+.card_title {
+    /* display: inline-block; */
+    width: 100%;
+    /* white-space: nowrap; */
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+
+}
+
+/* for sticky navbar */
+.fixed-top {
+    background-color: #E5EFF8;
+	box-shadow: 0 4px 7px #2122201a !important;
 }

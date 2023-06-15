@@ -64,9 +64,8 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="content">
-                                                            <p><span><i
-                                                                        class="fa fa-quote-left"></i></span>{{ strip_tags($item['english_description']) }}
-                                                            </p>
+                                                            <p><span><i class="fa fa-quote-left"></i></span>{{ mb_substr(strip_tags($item['english_description']), 0, 204) }}
+                                                            ...</p>
                                                         </div>
                                                     </div>
                                                 </div>
