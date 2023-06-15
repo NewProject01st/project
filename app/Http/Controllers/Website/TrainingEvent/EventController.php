@@ -64,4 +64,26 @@ class EventController extends Controller
         }
         return view('website.pages.training-event.list-past-training-event-web',compact('language','menu','socialicon', 'data_output'));
     } 
+
+    public function show(Request $request)
+    {
+        try {
+           
+            //  dd($request->show_id);
+              $menu = $this->menu;
+              $socialicon = $this->socialicon;
+            //   $subheaderinfo = $this->subheaderinfo;
+            $event_data = $this->service->getById($request->show_id);
+            //  dd($disaster_news);
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+            return view('website.pages.training-event.list-particular-event', compact('language','menu','socialicon','event_data'));
+
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
 }

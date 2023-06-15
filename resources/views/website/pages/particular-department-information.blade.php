@@ -23,12 +23,12 @@
                         @forelse ($department_information as $item)
                             <div class="deprt-txt">
                                 @if (session('language') == 'mar')
-                                    <h3><?php echo $item['marathi_title']; ?> : </h3>
+                                    <h3><?php echo $item['marathi_title']; ?> </h3>
                                     <img src="{{ asset('storage/images/home/department-information/' . $item['marathi_image']) }}"
                                         class="d-block w-25" alt="...">
                                     <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                 @else
-                                    <h3><?php echo $item['english_title']; ?> : </h3>
+                                    <h3><?php echo $item['english_title']; ?> </h3>
                                     <img src="{{ asset('storage/images/home/department-information/' . $item['english_image_new']) }}"
                                         class="d-block w-25" alt="{{ $item['english_title'] }}">
                                     <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
