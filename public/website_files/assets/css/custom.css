@@ -2410,7 +2410,7 @@ justify-content: end;
 	font-size: 12px;
 }
 .set_lang{
-	margin-left: 20%;
+	margin-left: 24%;
 }
 .header-contact li span {
 	display: block;
@@ -6547,4 +6547,16 @@ border-bottom: 1px solid #57578E;
 .fixed-top {
     background-color: #E5EFF8;
 	box-shadow: 0 4px 7px #2122201a !important;
+}
+
+/* padding Right Padding Left */
+.for_pl_pr{
+	padding-right: 7px !important;
+    padding-left: 7px !important;
+}
+
+@media (min-width: 767px) and (max-width: 1020px){
+	.for_pl_pr{
+		margin-right: 35px;
+	}
 }
