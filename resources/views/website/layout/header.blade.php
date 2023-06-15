@@ -91,8 +91,8 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    url: "http://52.66.216.5/change-language",
-                    // url: "http://localhost/new_pro/change-language",
+                    //url: "http://52.66.216.5/change-language",
+                     url: "http://localhost/project/change-language",
                     cache: false,
                     success: function(response) {
                         location.reload();
@@ -223,10 +223,10 @@ echo 'FInal key ' . date('Y-m-d') . 'T' . date('H') . ':00';
                                 <li>
                                     <strong>
                                         @if (session('language') == 'mar')
-{{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
-@else
-{{ Config::get('english.HOME_PAGE.SELECT_LANGUAGE') }}
-@endif
+                                        {{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
+                                        @else
+                                        {{ Config::get('english.HOME_PAGE.SELECT_LANGUAGE') }}
+                                        @endif
                                     </strong>
                                 </li>
                                 <li>
