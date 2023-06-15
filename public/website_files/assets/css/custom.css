@@ -6545,6 +6545,6 @@ border-bottom: 1px solid #57578E;
 
 /* for sticky navbar */
 .fixed-top {
-    background-color: #E5EFF8;
+    background-color: #E5EFF8 !important;
 	box-shadow: 0 4px 7px #2122201a !important;
 }
