@@ -42,7 +42,12 @@
                             <div class="d-flex justify-content-center">
                                 <button type="button" class="btn modal-btn-color" data-bs-toggle="modal"
                                     data-bs-target="#exampleVolunteerModal">
-                                    Citizen Volunteer
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.HOME_PAGE.CITIZEN_VOLUNTEER') }}
+                                    @else
+                                        {{ Config::get('english.HOME_PAGE.CITIZEN_VOLUNTEER') }}
+                                    @endif
+
                                 </button>
                             </div>
                         </div>

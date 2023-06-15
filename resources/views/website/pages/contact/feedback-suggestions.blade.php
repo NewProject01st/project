@@ -19,7 +19,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 contact-form m80">
-                        <h3 class="stitle text-center">Feedback and Suggestions</h3>
+                        <h3 class="stitle text-center">
+                            @if (session('language') == 'mar')
+                                {{ Config::get('marathi.HOME_PAGE.FEEDBACK_ADN_SUGGESTION') }}
+                            @else
+                                {{ Config::get('english.HOME_PAGE.FEEDBACK_ADN_SUGGESTION') }}
+                            @endif
+                        </h3>
                         @if (Session::has('success_message'))
                             <div class="alert alert-success">
                                 {{ Session::get('success_message') }}

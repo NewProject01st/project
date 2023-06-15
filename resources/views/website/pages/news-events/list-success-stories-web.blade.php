@@ -17,7 +17,13 @@
             <!--Success Start-->
             <section class="wf100 p75">
                 <div class="container">
-                    <h3 class="stitle text-center d-flex justify-content-start">Success Stories</h3>
+                    <h3 class="stitle text-center d-flex justify-content-start">
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.HOME_PAGE.SUCCESS_STORIES') }}
+                        @else
+                            {{ Config::get('english.HOME_PAGE.SUCCESS_STORIES') }}
+                        @endif
+                    </h3>
                     <div class="testimonials">
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
@@ -29,7 +35,7 @@
                                                     <div class="col-md-5">
                                                         <div class="profile">
                                                             <div class="img-area">
-                                                                <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW')}}{{ $item['marathi_image'] }}"
+                                                                <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item['marathi_image'] }}"
                                                                     alt="">
                                                             </div>
                                                             <div class="bio">
@@ -53,7 +59,7 @@
                                                     <div class="col-md-5">
                                                         <div class="profile">
                                                             <div class="img-area">
-                                                                <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW')}}{{ $item['english_image'] }}" 
+                                                                <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item['english_image'] }}"
                                                                     alt="">
                                                             </div>
                                                             <div class="new-txt">

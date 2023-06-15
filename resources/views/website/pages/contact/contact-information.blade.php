@@ -19,7 +19,13 @@
         <div class="map-form p80">
             <div class="container">
                 <div class="row">
-                    <h3 class="stitle text-center d-flex justify-content-start">Contact Information For SDMA</h3>
+                    <h3 class="stitle text-center d-flex justify-content-start">
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.HOME_PAGE.CONTACT_INFORMATION_FOR_SDMA') }}
+                        @else
+                            {{ Config::get('english.HOME_PAGE.CONTACT_INFORMATION_FOR_SDMA') }}
+                        @endif
+                    </h3>
                     <div class="col-md-12">
                         <div class="row graybg">
                             <div class="col-md-5 br contact-new-design-b">
