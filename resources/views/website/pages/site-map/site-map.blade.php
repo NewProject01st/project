@@ -18,7 +18,13 @@
             <div class="department-details">
                 <div class="container">
                     <div class="row d-flex justify-content-center">
-                        <h3 class="stitle text-center d-flex justify-content-start">Site Map</h3>
+                        <h3 class="stitle text-center d-flex justify-content-start">
+                            @if (session('language') == 'mar')
+                                {{ Config::get('marathi.HOME_PAGE.SITE_MAP') }}
+                            @else
+                                {{ Config::get('english.HOME_PAGE.SITE_MAP') }}
+                            @endif
+                        </h3>
 
                         <div class=" col=lg-8 col-md-8 col-sm-8 sit_map_set">
                             <div class="container  sit_map_bor">

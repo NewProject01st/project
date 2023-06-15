@@ -15,11 +15,28 @@
                                  alt="" width="80%"><br><br>
                              <address>
                                  <ul>
-                                     <li> <i class="fas fa-university"></i> <strong>Council
-                                             Address:</strong><?php echo $item['marathi_address']; ?></li>
-                                     <li> <i class="fas fa-envelope"></i> <strong>Email:</strong><?php echo $item['email']; ?>
+                                     <li> <i class="fas fa-university"></i> <strong>
+                                             @if (session('language') == 'mar')
+                                                 {{ Config::get('marathi.HOME_PAGE.COUNCIL_ADDRESS') }}
+                                             @else
+                                                 {{ Config::get('english.HOME_PAGE.COUNCIL_ADDRESS') }}
+                                             @endif
+                                         </strong><?php echo $item['marathi_address']; ?></li>
+                                     <li> <i class="fas fa-envelope"></i> <strong>
+                                             @if (session('language') == 'mar')
+                                                 {{ Config::get('marathi.HOME_PAGE.EMAIL') }}
+                                             @else
+                                                 {{ Config::get('english.HOME_PAGE.EMAIL') }}
+                                             @endif
+                                         </strong><?php echo $item['email']; ?>
                                      </li>
-                                     <li> <i class="fas fa-phone"></i> <strong>Call us:</strong>
+                                     <li> <i class="fas fa-phone"></i> <strong>
+                                             @if (session('language') == 'mar')
+                                                 {{ Config::get('marathi.HOME_PAGE.CALL_US') }}
+                                             @else
+                                                 {{ Config::get('english.HOME_PAGE.CALL_US') }}
+                                             @endif
+                                         </strong>
                                          <?php echo $item['marathi_number']; ?> </li>
                                  </ul>
                              </address>
@@ -31,11 +48,30 @@
                                  alt="" width="80%"><br><br>
                              <address>
                                  <ul>
-                                     <li> <i class="fas fa-university"></i> <strong>Council
-                                             Address:</strong><?php echo $item['english_address']; ?></li>
-                                     <li> <i class="fas fa-envelope"></i> <strong>Email:</strong> <?php echo $item['email']; ?>
+                                     <li> <i class="fas fa-university"></i> <strong>
+                                             @if (session('language') == 'mar')
+                                                 {{ Config::get('marathi.HOME_PAGE.COUNCIL_ADDRESS') }}
+                                             @else
+                                                 {{ Config::get('english.HOME_PAGE.COUNCIL_ADDRESS') }}
+                                             @endif
+                                         </strong>
+                                         <?php echo $item['english_address']; ?></li>
+                                     <li> <i class="fas fa-envelope"></i> <strong>
+                                             @if (session('language') == 'mar')
+                                                 {{ Config::get('marathi.HOME_PAGE.EMAIL') }}
+                                             @else
+                                                 {{ Config::get('english.HOME_PAGE.EMAIL') }}
+                                             @endif
+                                         </strong>
+                                         <?php echo $item['email']; ?>
                                      </li>
-                                     <li> <i class="fas fa-phone"></i> <strong>Call us:</strong>
+                                     <li> <i class="fas fa-phone"></i> <strong>
+                                             @if (session('language') == 'mar')
+                                                 {{ Config::get('marathi.HOME_PAGE.CALL_US') }}
+                                             @else
+                                                 {{ Config::get('english.HOME_PAGE.CALL_US') }}
+                                             @endif
+                                         </strong>
                                          <?php echo $item['english_number']; ?></li>
                                  </ul>
                              </address>
@@ -47,7 +83,13 @@
              <!--Footer Widget Start-->
              <div class="col-md-3 col-sm-6">
                  <div class="footer-widget">
-                     <h6>Departments</h6>
+                     <h6>
+                         @if (session('language') == 'mar')
+                             {{ Config::get('marathi.HOME_PAGE.DEPARTMENTS_FOOTER') }}
+                         @else
+                             {{ Config::get('english.HOME_PAGE.DEPARTMENTS_FOOTER') }}
+                         @endif
+                     </h6>
                      <ul>
                          @foreach ($data_output_department as $item)
                              @if (session('language') == 'mar')
@@ -69,7 +111,13 @@
              <!--Footer Widget Start-->
              <div class="col-md-3 col-sm-6">
                  <div class="footer-widget">
-                     <h6>Important Links</h6>
+                     <h6>
+                         @if (session('language') == 'mar')
+                             {{ Config::get('marathi.HOME_PAGE.IMPORTANT_LINKS') }}
+                         @else
+                             {{ Config::get('english.HOME_PAGE.IMPORTANT_LINKS') }}
+                         @endif
+                     </h6>
                      <ul>
                          @foreach ($data_output_footerlink as $item)
                              @if (session('language') == 'mar')

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Http\Services\Admin\Home\SliderServices;
 use Validator;
+use Config;
 class SliderController extends Controller
 {
 
@@ -34,8 +35,12 @@ public function store(Request $request)
         'marathi_title' => 'required',
         'english_description' => 'required',
         'marathi_description' => 'required',
-        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:max_width=2000,max_height=1000',
-        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:max_width=2000,max_height=1000',
+        // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:max_width=2000,max_height=1000',
+        // 'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:max_width=2000,max_height=1000',
+        
+        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:Config::get("Validation.SLIDER")|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000',
+        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:Config::get("Validation.SLIDER")|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000',
+
         'url' => 'required',
     ];
 
@@ -44,12 +49,12 @@ public function store(Request $request)
         'english_image.image' => 'The English image must be a valid image file.',
         'english_image.mimes' => 'The English image must be in JPEG, PNG, JPG, GIF, or SVG format.',
         'english_image.max' => 'The English image size must not exceed 2MB.',
-        'english_image.dimensions' => 'The English image dimensions must be maximum 2000x1000 pixels.',
+        'english_image.dimensions' => 'The English image dimensions must be between 1500x500 and 2000x1000 pixels.',
         'marathi_image.required' => 'The Marathi image is required.',
         'marathi_image.image' => 'The Marathi image must be a valid image file.',
         'marathi_image.mimes' => 'The Marathi image must be in JPEG, PNG, JPG, GIF, or SVG format.',
         'marathi_image.max' => 'The Marathi image size must not exceed 2MB.',
-        'marathi_image.dimensions' => 'The Marathi image dimensions must be maximum 2000x1000 pixels.',
+        'marathi_image.dimensions' => 'The Marathi image dimensions must be between 1500x500 and 2000x1000 pixels.',
     ];
 
     try {

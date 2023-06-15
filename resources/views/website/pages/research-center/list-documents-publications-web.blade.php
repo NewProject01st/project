@@ -18,7 +18,13 @@
             <div class="department-details">
                 <div class="container">
                     <div class="row">
-                        <h3 class="stitle text-center d-flex justify-content-start">Documents Publications</h3>
+                        <h3 class="stitle text-center d-flex justify-content-start">
+                            @if (session('language') == 'mar')
+                                {{ Config::get('marathi.HOME_PAGE.DOCUMENT_PUBLICATIONS') }}
+                            @else
+                                {{ Config::get('english.HOME_PAGE.DOCUMENT_PUBLICATIONS') }}
+                            @endif
+                        </h3>
                         <table id="order-listing" class="table table-striped table-hover table-bordered border-dark">
                             <thead class="" style="background-color: #47194a; color:#fff">
                                 <tr>
@@ -34,18 +40,20 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td><?php echo $item['marathi_title']; ?></td>
                                             <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item['marathi_pdf'] }}"
-                                                    target="_blank"><img src="{{ asset('website_files/images/pdf/pdf.png/') }}"
+                                                    target="_blank"><img
+                                                        src="{{ asset('website_files/images/pdf/pdf.png/') }}"
                                                         width="35px" height="35px"></a></td>
                                         @else
                                             <td>{{ $loop->iteration }}</td>
                                             <td><?php echo $item['english_title']; ?></td>
-                                            <td> <a  href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item['english_pdf'] }}"
-                                                    target="_blank"><img src="{{ asset('website_files/images/pdf/pdf.png/') }}"
+                                            <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item['english_pdf'] }}"
+                                                    target="_blank"><img
+                                                        src="{{ asset('website_files/images/pdf/pdf.png/') }}"
                                                         width="35px" height="35px"></a></td>
                                         @endif
                                     </tr>
                                 @empty
-                                    <h4>No Data Found For  Documents Publications</h4>
+                                    <h4>No Data Found For Documents Publications</h4>
                                 @endforelse
                             </tbody>
                         </table>

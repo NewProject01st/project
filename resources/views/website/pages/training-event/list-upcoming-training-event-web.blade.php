@@ -21,7 +21,13 @@
                 <div class="row">
                     <div class="col-md-9 col-sm-8">
                         <div class="title-style-3">
-                            <h3> Upcoming Events And Trainings</h3>
+                            <h3>
+                                @if (session('language') == 'mar')
+                                    {{ Config::get('marathi.HOME_PAGE.UPCOMING_EVENTS_TRAINING') }}
+                                @else
+                                    {{ Config::get('english.HOME_PAGE.UPCOMING_EVENTS_TRAINING') }}
+                                @endif
+                            </h3>
                         </div>
                         <!--Event List Box Start-->
                         @forelse ($data_output as $item)
@@ -47,7 +53,9 @@
                                             alt="<?php echo $item['english_title']; ?>"> </div>
                                     <div class="event-post-content">
                                         <div class="event-post-txt">
-                                            <h5><a href="#"><?php echo $item['english_title']; ?></a></h5>
+                                            <h5><a 
+                                                {{-- data-id="{{ $item['id'] }}" class="show-btn" --}}
+                                                ><?php echo $item['english_title']; ?></a></h5>
                                             <ul class="event-meta">
                                                 <li><i class="fas fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
                                             </ul>
@@ -62,7 +70,13 @@
                             <h4>No Data Found For Upcoming Events And Trainings</h4>
                         @endforelse
                         <!--Event List Box End-->
+
+                        <form method="POST" action="{{ url('/list-particular-event') }}" id="showform">
+                            @csrf
+                            <input type="hidden" name="show_id" id="show_id" value="">
+                        </form>
                     </div>
+                    
                     <div class="col-md-3 col-sm-4">
                         @include('website.pages.training-event.upcoming-events')
                     </div>

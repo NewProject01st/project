@@ -28,8 +28,8 @@
                                             <label for="english_title">Title English</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">
-@if (old('english_description'))
-{{ old('english_description') }}@else{{ $crowdsourcing->english_description }}
+@if (old('english_title'))
+{{ old('english_title') }}@else{{ $crowdsourcing->english_title }}
 @endif
 </textarea>
                                             @if ($errors->has('english_title'))

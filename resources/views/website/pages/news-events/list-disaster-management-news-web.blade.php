@@ -20,8 +20,14 @@
                 <section class="wf100 city-news p75">
                     <div class="container ">
                         <div class="title-style-3">
-                            <h3>Be Updated with Disaster Management News</h3>
-                          
+                            <h3>
+                                @if (session('language') == 'mar')
+                                    {{ Config::get('marathi.HOME_PAGE.DISASTER_MANAGEMENT_NEWS') }}
+                                @else
+                                    {{ Config::get('english.HOME_PAGE.DISASTER_MANAGEMENT_NEWS') }}
+                                @endif
+                            </h3>
+
                         </div>
                         <div class="row d-flex flex-wrap">
 

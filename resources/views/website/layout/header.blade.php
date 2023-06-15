@@ -91,8 +91,9 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    //url: "http://52.66.216.5/change-language",
-                    url: "http://localhost/project/change-language",
+                    url: "http://52.66.216.5/change-language",
+                    // url: "http://localhost/project/change-language",
+                    //url: "http://localhost/new_pro/project/change-language",
                     cache: false,
                     success: function(response) {
                         location.reload();

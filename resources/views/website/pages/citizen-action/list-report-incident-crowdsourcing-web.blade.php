@@ -42,7 +42,12 @@
                             <div class="d-flex justify-content-center">
                                 <button type="button" class="btn modal-btn-color" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">
-                                    Report an Incident
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.HOME_PAGE.REPORT_AN_INCIDENT') }}
+                                    @else
+                                        {{ Config::get('english.HOME_PAGE.REPORT_AN_INCIDENT') }}
+                                    @endif
+
                                 </button>
                             </div>
                         </div>

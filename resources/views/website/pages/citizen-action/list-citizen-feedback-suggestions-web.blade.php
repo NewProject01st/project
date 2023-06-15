@@ -42,7 +42,12 @@
                             <div class="d-flex justify-content-center">
                                 <button type="button" class="btn modal-btn-color" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">
-                                    Feedback And Suggestions
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.HOME_PAGE.FEEDBACK_ADN_SUGGESTION') }}
+                                    @else
+                                        {{ Config::get('english.HOME_PAGE.FEEDBACK_ADN_SUGGESTION') }}
+                                    @endif
+
                                 </button>
                             </div>
                         </div>
