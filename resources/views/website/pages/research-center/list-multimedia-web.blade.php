@@ -107,7 +107,13 @@
         <section class="testimonials-section wf100 p80 graybg">
             <div class="container">
                 <div class="title-style-3">
-                    <h3 class="stitle text-center d-flex justify-content-start">Video</h3>
+                    <h3 class="stitle text-center d-flex justify-content-start">
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.HOME_PAGE.VIDEO') }}
+                        @else
+                            {{ Config::get('english.HOME_PAGE.VIDEO') }}
+                        @endif
+                    </h3>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -149,7 +155,13 @@
         <section class="">
             <div class="container photo_g">
                 <div class="row">
-                    <h3 class="stitle text-center d-flex justify-content-start pt-4">Gallery</h3>
+                    <h3 class="stitle text-center d-flex justify-content-start pt-4">
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.HOME_PAGE.GALLERY') }}
+                        @else
+                            {{ Config::get('english.HOME_PAGE.GALLERY') }}
+                        @endif
+                    </h3>
                     <div class="col-12">
                         <a href="javascript:void(0)" onclick="myFunction('')">
                             <input type="radio" name="filter" id="all" checked><label for="all">All</label>
@@ -177,8 +189,7 @@
                                         <figure class="card animals">
                                             @if (session('language') == 'mar')
                                                 <img class="card__image toZoom" loading="lazy"
-                                                    src="{{ $item['marathi_image'] }}"
-                                                     class="d-block w-100 img-fluid"
+                                                    src="{{ $item['marathi_image'] }}" class="d-block w-100 img-fluid"
                                                     alt="...">
                                                 <!-- The Modal -->
                                                 <div class="idMyModal modal">

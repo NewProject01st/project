@@ -21,7 +21,13 @@
                 <div class="row">
                     <div class="col-md-9 col-sm-8">
                         <div class="title-style-3">
-                            <h3> Past Events And Trainings</h3>
+                            <h3>
+                                @if (session('language') == 'mar')
+                                    {{ Config::get('marathi.HOME_PAGE.PAST_EVENTS_TRAINING') }}
+                                @else
+                                    {{ Config::get('english.HOME_PAGE.PAST_EVENTS_TRAINING') }}
+                                @endif
+                            </h3>
                         </div>
                         <!--Event List Box Start-->
                         @forelse ($data_output as $item)
