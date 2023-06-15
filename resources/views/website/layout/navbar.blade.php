@@ -52,23 +52,22 @@
                                             alt="" style="width: 50%;"></a></div>
                             </div>
                         @endif
-                    @endforeach
---}}
+                    @endforeach --}}
                     <div class="col-md-4 col-sm-4">
                         <div class="h3-logo"> <a href="/"><img
                                     src="{{ asset('website_files/images/home/DMS.png') }}" alt=""
                                     style="width: 50%;"></a></div>
                     </div>
 
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-4">
                         <div class="row">
                             <div class="col-md-9 col-sm-9">
 
                                 <ul class="header-contact">
-                                    <li class="city-exp"> <i class="fas fa-street-view"></i>
+                                    <li class="city-exp for_pl_pr"> <i class="fas fa-street-view"></i>
                                         <strong>City<br>Nashik</strong>
                                     </li>
-                                    <li class="header-weather"> <i class="fas fa-cloud-sun"></i> 
+                                    <li class="header-weather for_pl_pr"> <i class="fas fa-cloud-sun"></i> 
                                     {{ getTempratureData() }}°C
                                         / {{ getTempratureData() * 1.8 + 32 }}°F </li>
 
@@ -76,7 +75,7 @@
 
                             </div>
 
-                            <div class="col-md-3 col-sm-3">
+                            <div class="col-3">
 
                                 <ul class="header-contact">
 
@@ -111,13 +110,14 @@
                         </div>
 
                     </div>
+
                 </div>
             </div>
         </div>
     </header>
     <!--Header End-->
 
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         <div class="row nav-pd">
             <div class="col-md-12 nav-pd-col navbar_bg-color">
                 <nav class="navbar navbar-expand-lg">
@@ -164,7 +164,7 @@
                                                                 {{ $menu_data_sub['menu_name_english'] }}
                                                             @endif
                                                         </a>
-                                                        <!-- <hr class="gap-drop-menu"> -->
+                                                        
                                                     @endforeach
 
                                                 </div>
@@ -181,7 +181,7 @@
         </div>
 </div>
 </div>
-</header>
+</header> -->
 <!--Header End-->
 
 <div class="container-fluid">

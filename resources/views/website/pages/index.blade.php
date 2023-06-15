@@ -6,11 +6,7 @@
                             } -->
     <!-- </style> -->
     <script>
-<<<<<<< HEAD
-        $('li.dropdown.mega-dropdown a').on('click', function(event) {
-=======
         $('li.dropdown.mega-dropdown a').on('click', function (event) {
->>>>>>> vivek
             $(this).parent().toggleClass('open');
         });
     </script>
