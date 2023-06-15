@@ -179,5 +179,85 @@
 
             </div>
         </div>
+</div>
+</div>
+</header>
+<!--Header End-->
+
+<div class="container-fluid">
+    <div class="row nav-pd">
+        <div class="col-md-12 nav-pd-col navbar_bg-color">
+            <nav id="navbar_top" class="navbar navbar-expand-lg">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse nav-center" id="navbarSupportedContent">
+                    @foreach ($menu as $key => $menu_data)
+                    @foreach ($menu_data as $key => $menu_data_new)
+                    <ul class="navbar-nav mr-auto">
+                        @if ($key == '0')
+                        <li class="nav-item dropdown">
+                            <a class="nav-link 
+                                            @if (sizeof($menu_data[1]) > 0) dropdown-toggle @endif" href="@if ($menu_data_new['is_static'] == true) {{ $menu_data_new['url'] }} 
+                                                      @else 
+                                                      {{ url('/pages/' . $menu_data_new['url']) }} @endif" id=""
+                                role="button" @if (sizeof($menu_data[1])> 0) data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false" @endif>
+                                @if (session('language') == 'mar')
+                                {{ $menu_data_new['menu_name_marathi'] }}
+                                @else
+                                {{ $menu_data_new['menu_name_english'] }}
+                                @endif
+                            </a>
+                            @if (sizeof($menu_data[1]) > 0)
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @foreach ($menu_data[1] as $key => $menu_data_sub)
+                                <a class="dropdown-item" href="@if ($menu_data_sub['is_static'] == true) {{ url($menu_data_sub['url']) }} 
+                                                      @else 
+                                                          {{ url('/pages/' . $menu_data_sub['url']) }} @endif 
+                                                      " target="_self" title="">
+                                    @if (session('language') == 'mar')
+                                    {{ $menu_data_sub['menu_name_marathi'] }}
+                                    @else
+                                    {{ $menu_data_sub['menu_name_english'] }}
+                                    @endif
+                                </a>
+                                <!-- <hr class="gap-drop-menu"> -->
+                                @endforeach
+
+                            </div>
+                            @endif
+                        </li>
+                        @endif
+                    </ul>
+                    @endforeach
+                    @endforeach
+                </div>
+            </nav>
+
+        </div>
     </div>
 </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+  window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        document.getElementById('navbar_top').classList.add('fixed-top');
+        // add padding top to show content behind navbar
+        navbar_height = document.querySelector('.navbar').offsetHeight;
+        document.body.style.paddingTop = navbar_height + 'px';
+      } else {
+        document.getElementById('navbar_top').classList.remove('fixed-top');
+         // remove padding top from body
+        document.body.style.paddingTop = '0';
+      } 
+  });
+});
+</script>
