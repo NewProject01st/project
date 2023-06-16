@@ -4,10 +4,28 @@
     <!--Subheader Start-->
     <section class="wf100 subheader">
         <div class="container">
-            <h2>Training Workshops</h2>
+            <h2>
+                @if (session('language') == 'mar')
+                    {{ Config::get('marathi.TRAINING_WORKSHOP.TRAINING_WORKSHOP_HEADING') }}
+                @else
+                    {{ Config::get('english.TRAINING_WORKSHOP.TRAINING_WORKSHOP_HEADING') }}
+                @endif
+            </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li>Upcoming Events And Trainings</li>
+                <li> <a href="{{ route('index') }}">
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.TRAINING_WORKSHOP.TRAINING_WORKSHOP_MAIN_LINK') }}
+                        @else
+                            {{ Config::get('english.TRAINING_WORKSHOP.TRAINING_WORKSHOP_MAIN_LINK') }}
+                        @endif
+                    </a> </li>
+                <li>
+                    @if (session('language') == 'mar')
+                        {{ Config::get('marathi.TRAINING_WORKSHOP.TRAINING_WORKSHOP_SUB_LINK1') }}
+                    @else
+                        {{ Config::get('english.TRAINING_WORKSHOP.TRAINING_WORKSHOP_SUB_LINK1') }}
+                    @endif
+                </li>
             </ul>
         </div>
     </section>
@@ -38,11 +56,11 @@
                                             alt="<?php echo $item['marathi_title']; ?>"> </div>
                                     <div class="event-post-content">
                                         <div class="event-post-txt">
-                                            <h5><a href="#"><?php echo $item['marathi_title']; ?></a></h5>
+                                            <h5 class="card_title"><a href="#"><?php echo mb_substr($item['marathi_title'], 0, 25) ?>...</a></h5>
                                             <ul class="event-meta">
                                                 <li><i class="fas fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
                                             </ul>
-                                            <p><?php echo $item['marathi_description']; ?></p>
+                                            <p class="card_title"><?php echo mb_substr($item['marathi_description'], 0, 25) ?>...</p>
                                         </div>
                                         {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
                                             USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div> --}}
@@ -53,13 +71,11 @@
                                             alt="<?php echo $item['english_title']; ?>"> </div>
                                     <div class="event-post-content">
                                         <div class="event-post-txt">
-                                            <h5><a 
-                                                {{-- data-id="{{ $item['id'] }}" class="show-btn" --}}
-                                                ><?php echo $item['english_title']; ?></a></h5>
+                                            <h5 class="card_title"><a href="#"><?php echo mb_substr($item['english_title'], 0, 25) ?>...</a></h5>
                                             <ul class="event-meta">
                                                 <li><i class="fas fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
                                             </ul>
-                                            <p><?php echo $item['english_description']; ?></p>
+                                            <p class="card_title"><?php echo mb_substr($item['english_description'], 0, 111) ?>...</p>
                                         </div>
                                         {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
                                             USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div> --}}

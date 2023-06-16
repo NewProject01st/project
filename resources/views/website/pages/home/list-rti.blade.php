@@ -4,10 +4,28 @@
     <!--Subheader Start-->
     <section class="wf100 subheader">
         <div class="container">
-            <h2>RTI </h2>
+            <h2>
+                @if (session('language') == 'mar')
+                    {{ Config::get('marathi.RTI.RTI_HEADING') }}
+                @else
+                    {{ Config::get('english.RTI.RTI_HEADING') }}
+                @endif
+            </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li> RTI </li>
+                <li> <a href="{{ route('index') }}">
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.RTI.RTI_MAIN_LINK') }}
+                        @else
+                            {{ Config::get('english.RTI.RTI_MAIN_LINK') }}
+                        @endif
+                    </a> </li>
+                <li>
+                    @if (session('language') == 'mar')
+                        {{ Config::get('marathi.RTI.RTI_SUB_LINK') }}
+                    @else
+                        {{ Config::get('english.RTI.RTI_SUB_LINK') }}
+                    @endif
+                </li>
             </ul>
         </div>
     </section>
@@ -19,7 +37,13 @@
 
             <div class="container">
                 <div class="row">
-                    <h3 class="stitle text-center d-flex justify-content-start">RTI</h3>
+                    <h3 class="stitle text-center d-flex justify-content-start">
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.RTI.RTI_HEADING') }}
+                        @else
+                            {{ Config::get('english.RTI.RTI_HEADING') }}
+                        @endif
+                    </h3>
                     <table id="order-listing" class="table table-striped table-hover table-bordered border-dark">
                         <thead class="" style="background-color: #47194a; color:#fff">
                             <tr>

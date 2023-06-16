@@ -136,13 +136,35 @@
              <div class="col-md-3 col-sm-6">
                  <div class="twitter-widget">
                      <div class="tw-txt">
-                         <h6>@DMS.gov</h6>
+                         <h6>
+                             @if (session('language') == 'mar')
+                                 {{ Config::get('marathi.FOOTER.TWEET_HEADING1') }}
+                             @else
+                                 {{ Config::get('english.FOOTER.TWEET_HEADING1') }}
+                             @endif
+                         </h6>
                          <a href="#" class="reply-tw"><i class="fas fa-reply"></i></a>
-                         <p> "Stay prepared for disasters, stay safe. Make sure you have an emergency kit, know
-                             evacuation routes, and stay informed with our updates. #DisasterPreparedness #StaySafe"
+                         <p>
+                             @if (session('language') == 'mar')
+                                 {{ Config::get('marathi.FOOTER.TWEET_FEED_INFO') }}
+                             @else
+                                 {{ Config::get('english.FOOTER.TWEET_FEED_INFO') }}
+                             @endif
                          </p>
                      </div>
-                     <div class="tw-footer"> @dms.gov <strong>3 May, 2023</strong> <i class="fab fa-twitter"></i>
+                     <div class="tw-footer">
+                         @if (session('language') == 'mar')
+                             {{ Config::get('marathi.FOOTER.TWEET_HEADING2') }}
+                         @else
+                             {{ Config::get('english.FOOTER.TWEET_HEADING2') }}
+                         @endif
+                         <strong>
+                             @if (session('language') == 'mar')
+                                 {{ Config::get('marathi.FOOTER.DATE') }}
+                             @else
+                                 {{ Config::get('english.FOOTER.DATE') }}
+                             @endif
+                         </strong> <i class="fab fa-twitter"></i>
                      </div>
 
                  </div>
@@ -157,7 +179,19 @@
      <div class="container">
          <div class="row">
              <div class="col-md-7 col-sm-7">
-                 <p class="copyr"> © 2023, <a href="#">All rights reserved</a></p>
+                 <p class="copyr">
+                     @if (session('language') == 'mar')
+                         {{ Config::get('marathi.FOOTER.COPYRIGHT1') }}
+                     @else
+                         {{ Config::get('english.FOOTER.COPYRIGHT1') }}
+                     @endif <a href="#">
+                         @if (session('language') == 'mar')
+                             {{ Config::get('marathi.FOOTER.COPYRIGHT2') }}
+                         @else
+                             {{ Config::get('english.FOOTER.COPYRIGHT2') }}
+                         @endif
+                     </a>
+                 </p>
              </div>
              <div class="col-md-5 col-sm-5">
                  <ul class="footer-social">

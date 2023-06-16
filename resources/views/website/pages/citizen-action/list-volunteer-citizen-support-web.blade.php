@@ -4,10 +4,28 @@
         <!--Subheader Start-->
         <section class="wf100 subheader">
             <div class="container">
-                <h2>Citizen Action </h2>
+                <h2>
+                    @if (session('language') == 'mar')
+                        {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_HEADING') }}
+                    @else
+                        {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_HEADING') }}
+                    @endif
+                </h2>
                 <ul>
-                    <li> <a href="{{ route('index') }}">Home</a> </li>
-                    <li> Volunteer Citizen Support </li>
+                    <li> <a href="{{ route('index') }}">
+                            @if (session('language') == 'mar')
+                                {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_MAIN_LINK') }}
+                            @else
+                                {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_MAIN_LINK') }}
+                            @endif
+                        </a> </li>
+                    <li>
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_SUB_LINK2') }}
+                        @else
+                            {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_SUB_LINK2') }}
+                        @endif
+                    </li>
                 </ul>
             </div>
         </section>
