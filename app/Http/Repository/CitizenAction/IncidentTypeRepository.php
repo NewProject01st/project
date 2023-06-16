@@ -103,5 +103,33 @@ class IncidentTypeRepository{
             return $e;
         }
     }
+    public function updateOne($request){
+        try {
+            $slide = IncidentType::find($request); // Assuming $request directly contains the ID
+
+            // Assuming 'is_active' is a field in the Slider model
+            if ($slide) {
+                $is_active = $slide->is_active === 1 ? 0 : 1;
+                $slide->is_active = $is_active;
+                $slide->save();
+
+                return [
+                    'msg' => 'Slide updated successfully.',
+                    'status' => 'success'
+                ];
+            }
+
+            return [
+                'msg' => 'Slide not found.',
+                'status' => 'error'
+            ];
+        } catch (\Exception $e) {
+            return [
+                'msg' => 'Failed to update slide.',
+                'status' => 'error'
+            ];
+        }
+    }
+    
        
 }

@@ -15,7 +15,7 @@ class CreateTweeterFeedsTable extends Migration
     {
         Schema::create('tweeter_feeds', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('url')->default(null);
+            $table->string('url')->default('null');
             $table->timestamps();
         });
     }

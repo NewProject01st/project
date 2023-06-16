@@ -17,7 +17,7 @@ class CreateFooterImportantLinksTable extends Migration
             $table->bigIncrements('id');
             $table->text('english_title');
             $table->text('marathi_title');
-            $table->string('url')->default(null);
+            $table->string('url')->default('null');
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

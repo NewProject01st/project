@@ -15,17 +15,17 @@ class CreateDisasterForcast extends Migration
     {
         Schema::create('disaster_forcast', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('english_title');
-            $table->text('marathi_title');
+            // $table->text('english_title');
+            // $table->text('marathi_title');
             $table->text('english_description');
             $table->text('marathi_description');
-            $table->string('forcast_date');
-            $table->string('expired_date');
-            $table->string('url')->default('null');
-            $table->string('english_image');
-            $table->string('marathi_image');    
-            $table->string('english_pdf');
-            $table->string('marathi_pdf');    
+            // $table->string('forcast_date');
+            // $table->string('expired_date');
+            // $table->string('url')->default('null');
+            // $table->string('english_image');
+            // $table->string('marathi_image');    
+            // $table->string('english_pdf');
+            // $table->string('marathi_pdf');    
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             // Add more columns here
