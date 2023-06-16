@@ -16,22 +16,19 @@ class EmergencyContactNumbersController extends Controller
     {
         $this->service = new EmergencyContactNumbersServices();
     }
-    public function index()
-    {
+    public function index(){
         try {
             $emergencycontactnumbers = $this->service->getAll();
             $data_output_new = $emergencycontactnumbers['data_output'];
             $data_output_array = $emergencycontactnumbers['data_output_array'];
-            // dd($data_output_array);
-            return view('admin.pages.emergency-response.emergency-contact-numbers.list-emergency-contact-numbers',compact('data_output_new', 'data_output_array'));
 
+            return view('admin.pages.emergency-response.emergency-contact-numbers.list-emergency-contact-numbers',compact('data_output_new', 'data_output_array'));
             // return view('admin.pages.emergency-response.emergency-contact-numbers.list-emergency-contact-numbers', compact('emergencycontactnumbers'));
         } catch (\Exception $e) {
             return $e;
         }
     }
-    public function add()
-    {
+    public function add(){
         // $contacts = AddMoreEmergencyContactNumbers::all();
         // $emergencycontactnumbers = $this->service->addAll($request->$id);
         return view('admin.pages.emergency-response.emergency-contact-numbers.add-emergency-contact-numbers');
@@ -39,11 +36,8 @@ class EmergencyContactNumbersController extends Controller
         // return view('admin.pages.emergency-response.emergency-contact-numbers.add-emergency-contact-numbers', compact('emergencycontactnumbers'));
     }
 
-    public function store(Request $request) {
-
-        // dd($request);
-    //   echo $request;
-    //   die();
+    public function store(Request $request){
+        //dd($request['no_of_text_boxes']);
     $rules = [
         'english_title' => 'required',
         'marathi_title' => 'required',
@@ -51,13 +45,18 @@ class EmergencyContactNumbersController extends Controller
         'marathi_description' => 'required',
         'english_image' => 'required',
         'marathi_image' => 'required',
-        'english_emergency_contact_title_1'=>'required',
-        'marathi_emergency_contact_title_1'=>'required',
-        'english_emergency_contact_number_1'=>'required',
-        'marathi_emergency_contact_number_1'=>'required',
-        
-        
         ];
+
+    for($i =1;$i<=$request['no_of_text_boxes'];$i++) {
+        $english_emergency_contact_title = 'english_emergency_contact_title_'.$i;
+        $marathi_emergency_contact_title = 'marathi_emergency_contact_title_'.$i;
+        $english_emergency_contact_number = 'english_emergency_contact_number_'.$i;
+        $marathi_emergency_contact_number = 'marathi_emergency_contact_number_'.$i;
+        $rules[$english_emergency_contact_title] = 'required';
+        $rules[$marathi_emergency_contact_title] = 'required';
+        $rules[$english_emergency_contact_number] = 'required';
+        $rules[$marathi_emergency_contact_number] = 'required';
+    }
     $messages = [   
         'english_title.required' => 'Please  enter english title.',
         'marathi_title.required' => 'Please enter marathi title.',
@@ -65,11 +64,18 @@ class EmergencyContactNumbersController extends Controller
         'marathi_description.required' => 'Please enter marathi description.',
         'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'english_emergency_contact_title_1.required' => 'Please enter english title.',
-        'marathi_emergency_contact_title_1.required' => 'Please enter marathi title.',
-        'english_emergency_contact_number_1.required' => 'Please enter english contact number.',
-        'marathi_emergency_contact_number_1.required' => 'Please enter marathi contact number.',
     ];
+
+    for($i =1;$i<=$request['no_of_text_boxes'];$i++) {
+        $english_emergency_contact_title = 'english_emergency_contact_title_'.$i.'required';
+        $marathi_emergency_contact_title = 'marathi_emergency_contact_title_'.$i.'required';
+        $english_emergency_contact_number = 'english_emergency_contact_number_'.$i.'required';
+        $marathi_emergency_contact_number = 'marathi_emergency_contact_number_'.$i.'required';
+        $messages[$english_emergency_contact_title] = 'Please enter english title';
+        $messages[$marathi_emergency_contact_title] = 'Please enter marathi title.';
+        $messages[$english_emergency_contact_number] = 'Please enter english contact number.';
+        $messages[$marathi_emergency_contact_number] = 'Please enter marathi contact number.';
+    }
 
     try {
         $validation = Validator::make($request->all(),$rules,$messages);
@@ -102,41 +108,58 @@ class EmergencyContactNumbersController extends Controller
     } catch (Exception $e) {
         return redirect('add-emergency-contact-numbers')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
-}
-    public function show(Request $request)
-    {
+    }
+    public function show(Request $request){
         try {
-            //  dd($request->show_id);
             $emergencycontactnumbers = $this->service->getById($request->show_id);
             return view('admin.pages.emergency-response.emergency-contact-numbers.show-emergency-contact-numbers', compact('emergencycontactnumbers'));
         } catch (\Exception $e) {
             return $e;
         }
     }
-    public function edit(Request $request)
-    {
+    public function edit(Request $request){
         $edit_data_id = $request->edit_id;
-        $emergencycontactnumbers = $this->service->getById($edit_data_id);
-        return view('admin.pages.emergency-response.emergency-contact-numbers.edit-emergency-contact-numbers', compact('emergencycontactnumbers'));
+        $emergencycontact_data = $this->service->getById($edit_data_id);
+        // dd($emergencycontactnumbers);
+        return view('admin.pages.emergency-response.emergency-contact-numbers.edit-emergency-contact-numbers', compact('emergencycontact_data'));
     }
-    public function update(Request $request)
-{
+    public function update(Request $request){
     $rules = [
         'english_title' => 'required',
         'marathi_title' => 'required',
         'english_description' => 'required',
-        'marathi_description' => 'required',
-       
-        
+        'marathi_description' => 'required',        
      ];
+
+    for($i =1;$i<=$request['no_of_text_boxes'];$i++) {
+        $english_emergency_contact_title = 'english_emergency_contact_title_'.$i;
+        $marathi_emergency_contact_title = 'marathi_emergency_contact_title_'.$i;
+        $english_emergency_contact_number = 'english_emergency_contact_number_'.$i;
+        $marathi_emergency_contact_number = 'marathi_emergency_contact_number_'.$i;
+        $rules[$english_emergency_contact_title] = 'required';
+        $rules[$marathi_emergency_contact_title] = 'required';
+        $rules[$english_emergency_contact_number] = 'required';
+        $rules[$marathi_emergency_contact_number] = 'required';
+    }
 
     $messages = [   
         'english_title.required' => 'Please enter English title.',
         'marathi_title.required' => 'Please enter Marathi title.',
         'english_description.required' => 'Please  enter english description.',
         'marathi_description.required' => 'Please enter marathi description.',
-       
     ];
+
+    
+    for($i =1;$i<=$request['no_of_text_boxes'];$i++) {
+        $english_emergency_contact_title = 'english_emergency_contact_title_'.$i.'required';
+        $marathi_emergency_contact_title = 'marathi_emergency_contact_title_'.$i.'required';
+        $english_emergency_contact_number = 'english_emergency_contact_number_'.$i.'required';
+        $marathi_emergency_contact_number = 'marathi_emergency_contact_number_'.$i.'required';
+        $messages[$english_emergency_contact_title] = 'Please enter english title';
+        $messages[$marathi_emergency_contact_title] = 'Please enter marathi title.';
+        $messages[$english_emergency_contact_number] = 'Please enter english contact number.';
+        $messages[$marathi_emergency_contact_number] = 'Please enter marathi contact number.';
+    }
 
     try {
         $validation = Validator::make($request->all(),$rules, $messages);
@@ -163,11 +186,9 @@ class EmergencyContactNumbersController extends Controller
             ->withInput()
             ->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
- }
-    public function destroy(Request $request)
-    {
+    }
+    public function destroy(Request $request){
         try {
-            // dd($request->delete_id);
             $emergencycontactnumbers = $this->service->deleteById($request->delete_id);
             return redirect('list-emergency-contact-numbers')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {
