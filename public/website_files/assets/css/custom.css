@@ -2426,6 +2426,11 @@ justify-content: end;
 	color: #222;
 	font-size: 16px;
 }
+.city-exp{
+	display: flex;
+justify-content: start;
+align-items: baseline;
+}
 .city-exp i {
 	float: left;
 	margin: 10px 15px 0 0;
