@@ -32,12 +32,12 @@
                                         <thead>
                                             <tr>
                                                 <th>S. No.</th>
-                                                <th>Title English</th>
-                                                <th>Title Marathi</th>
+                                                {{-- <th>Title English</th>
+                                                <th>Title Marathi</th> --}}
                                                 <th>Description English</th>
                                                 <th>Description Marathi</th>
-                                                <th>Date</th>
-                                                <th>Expired Date</th>
+                                                {{-- <th>Date</th>
+                                                <th>Expired Date</th> --}}
                                                 {{-- <th>Image English</th>
                                                     <th>Image Marathi</th> --}}
                                                 <th>Action</th>
@@ -47,12 +47,12 @@
                                             @foreach ($disasterforcast as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ strip_tags($item->english_title) }}</td>
-                                                <td>{{ strip_tags($item->marathi_title) }}</td>
+                                                {{-- <td>{{ strip_tags($item->english_title) }}</td>
+                                                <td>{{ strip_tags($item->marathi_title) }}</td> --}}
                                                 <td>{{ strip_tags($item->english_description) }}</td>
                                                 <td>{{ strip_tags($item->marathi_description) }}</td>
-                                                <td>{{ $item->forcast_date }}</td>
-                                                <td>{{ $item->expired_date }}</td>
+                                                {{-- <td>{{ $item->forcast_date }}</td>
+                                                <td>{{ $item->expired_date }}</td> --}}
                                                 {{-- <td> <img
                                                             src="{{ asset('storage/images/home/disaster-forcast/' . $item->english_image) }}"
                                                 />

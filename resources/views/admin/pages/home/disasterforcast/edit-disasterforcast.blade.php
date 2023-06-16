@@ -37,7 +37,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi <span
                                                     class="text-danger">*</span></label>
@@ -48,7 +48,7 @@
 @endif
 </textarea>
                                             @if ($errors->has('marathi_title'))
-                                                <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
@@ -63,10 +63,10 @@
 @endif
 </textarea>
                                             @if ($errors->has('english_title'))
-                                                <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
@@ -94,7 +94,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="expired_date">Expired Date <span
                                                     class="text-danger">*</span></label>
@@ -102,7 +102,7 @@
                                                 value="@if (old('expired_date')) {{ old('expired_date') }}@else{{ $disasterforcast->expired_date }} @endif"
                                                 name="expired_date" id="expired_date">
                                             @if ($errors->has('expired_date'))
-                                                <span class="red-text"><?php echo $errors->first('expired_date', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('expired_date', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
@@ -113,7 +113,7 @@
                                             <input type="file" name="english_image" class="form-control"
                                                 id="english_image" accept="image/*" placeholder="image">
                                             @if ($errors->has('english_image'))
-                                                <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('english_image', ':message'); ?></span>
                                             @endif
                                         </div>
                                         <img id="english"
@@ -128,7 +128,7 @@
                                             <input type="file" name="marathi_image" id="marathi_image"
                                                 accept="image/*" class="form-control">
                                             @if ($errors->has('marathi_image'))
-                                                <span class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('marathi_image', ':message'); ?></span>
                                             @endif
                                         </div>
                                         <img id="marathi"
@@ -143,20 +143,20 @@
                                             <input type="file" name="english_pdf" id="english_pdf"
                                                 value="{{ $disasterforcast->english_pdf }}" accept=".pdf">
                                             @if ($errors->has('english_pdf'))
-                                                <span class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('english_pdf', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    </div> --}}
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_pdf">PDF Marathi</label><br>
                                             <input type="file" name="marathi_pdf" id="marathi_pdf"
                                                 value="{{ $disasterforcast->marathi_pdf }}" accept=".pdf">
                                             @if ($errors->has('marathi_pdf'))
-                                                <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Update</button>
                                         {{-- <button type="reset" class="btn btn-danger"><a

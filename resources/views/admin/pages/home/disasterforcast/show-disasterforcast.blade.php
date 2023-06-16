@@ -24,7 +24,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="row ">
+                                    {{-- <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Title English :</label>
                                         </div>
@@ -39,7 +39,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>{{ strip_tags($disasterforcast->marathi_title) }}</label>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Description English :</label>
@@ -56,7 +56,7 @@
                                             <label>{{ strip_tags($disasterforcast->marathi_description) }}</label>
                                         </div>
                                     </div>
-                                    <div class="row ">
+                                    {{-- <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Disaster Forcast Date :</label>
                                         </div>
@@ -100,8 +100,8 @@
                                                 target="_blank"><img src="public/storage/pdf/pdf.png" width="50px"
                                                     height="50px"></a>
                                         </div>
-                                    </div>
-                                    <div class="row pt-2">
+                                    </div> --}}
+                                    {{-- <div class="row pt-2">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Marathi Pdf :</label>
                                         </div>
@@ -110,7 +110,7 @@
                                                 target="_blank"><img src="public/storage/pdf/pdf.png" width="50px"
                                                     height="50px"></a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>

@@ -31,26 +31,26 @@ class DisasterForcastController extends Controller
     public function store(Request $request) {
        
         $rules = [
-            'english_title' => 'required',
-            'marathi_title' => 'required',
+            // 'english_title' => 'required',
+            // 'marathi_title' => 'required',
             'english_description' => 'required',
             'marathi_description' => 'required',
-            'forcast_date' => 'required',
-            'expired_date' => 'required',
-            'english_image' => 'required',
-            'marathi_image' => 'required',
+            // 'forcast_date' => 'required',
+            // 'expired_date' => 'required',
+            // 'english_image' => 'required',
+            // 'marathi_image' => 'required',
          
             
          ];
     $messages = [   
-        'english_title'=>'required',
-        'marathi_title'=>'required',
+        // 'english_title'=>'required',
+        // 'marathi_title'=>'required',
         'english_description'=>'required',
         'marathi_description'=>'required',
-        'forcast_date' => 'required',
-        'expired_date' => 'required',
-        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // 'forcast_date' => 'required',
+        // 'expired_date' => 'required',
+        // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // 'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         
     ];
 
@@ -104,26 +104,26 @@ class DisasterForcastController extends Controller
     public function update(Request $request)
 {
     $rules = [
-        'english_title' => 'required',
-        'marathi_title' => 'required',
+        // 'english_title' => 'required',
+        // 'marathi_title' => 'required',
         'english_description' => 'required',
         'marathi_description' => 'required',
-        'forcast_date' => 'required',
-        'expired_date' => 'required',
-        'english_image' => 'required',
-        'marathi_image' => 'required',
+        // 'forcast_date' => 'required',
+        // 'expired_date' => 'required',
+        // 'english_image' => 'required',
+        // 'marathi_image' => 'required',
      
         
      ];
 $messages = [   
-    'english_title'=>'required',
-    'marathi_title'=>'required',
+    // 'english_title'=>'required',
+    // 'marathi_title'=>'required',
     'english_description'=>'required',
     'marathi_description'=>'required',
-    'forcast_date' => 'required',
-    'expired_date' => 'required',
-    'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    // 'forcast_date' => 'required',
+    // 'expired_date' => 'required',
+    // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    // 'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     
 ];
 
