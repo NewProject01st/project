@@ -23,8 +23,8 @@ class CreateDisasterManagementWebPortalsTable extends Migration
             $table->text('marathi_description');
             $table->string('english_designation');
             $table->string('marathi_designation');
-            $table->string('english_image')->default(null);
-            $table->string('marathi_image')->default(null);
+            $table->string('english_image')->default('null');
+            $table->string('marathi_image')->default('null');
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

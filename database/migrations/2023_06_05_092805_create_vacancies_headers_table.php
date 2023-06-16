@@ -17,7 +17,7 @@ class CreateVacanciesHeadersTable extends Migration
             $table->bigIncrements('id');
             $table->text('english_title');
             $table->text('marathi_title');
-            $table->string('url')->default(null);
+            $table->string('url')->default('null');
             $table->string('english_pdf')->default('null');;
             $table->string('marathi_pdf')->default('null');;            
             $table->string('is_deleted')->default(false);
