@@ -259,6 +259,12 @@ body :focus {
 	outline: none;
 	border: 0px;
 }
+button, select:focus{
+	border: 1px solid;
+}
+.dataTables_wrapper .dataTables_filter input{
+	border: 1px solid;
+}
 body a:focus {
 	outline: 0px auto -webkit-focus-ring-color;
 	outline-offset: 0;
