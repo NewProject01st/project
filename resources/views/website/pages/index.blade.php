@@ -172,7 +172,7 @@
                                     <h6 class="card_title"><a href="#"><?php echo mb_substr($item['marathi_title'], 0, 31) ?>...</a></h6>
                                     <p class="card_title"> <?php echo mb_substr($item['marathi_description'], 0, 74) ?>...</p>
                                 </div>
-                                <div class="news-box-f">
+                                <div class="news-box-f cursor-pointer">
                                      <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
                                             class="fas fa-arrow-right"></i></a>
                                 </div>
@@ -196,7 +196,7 @@
                             <h6 class="card_title"><a href="#"><?php echo mb_substr($item['english_title'], 0, 31) ?>...</a></h6>
                             <p class="card_title"> <?php echo mb_substr($item['english_description'], 0, 74) ?>...</p>
                         </div>
-                        <div class="news-box-f">
+                        <div class="news-box-f cursor-pointer">
                              <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
                                     class="fas fa-arrow-right"></i></a>
                         </div>

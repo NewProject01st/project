@@ -198,7 +198,6 @@ function addOrUpdateDynamicWebPages($main_sub,$id,$url,$actual_page_name_marathi
                                                 ->where('menu_id',$id)
                                                 ->where('menu_type',$main_sub)
                                                 ->first();
-
         if($dynamic_web_page_name) {
             $dynamic_web_page_name = DynamicWebPages::where('is_active',true)
                                                     ->where('menu_id',$id)

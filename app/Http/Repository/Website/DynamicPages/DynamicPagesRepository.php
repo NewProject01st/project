@@ -30,9 +30,8 @@ public function getById($id)
             return null;
         }
     } catch (\Exception $e) {
-        return $e;
 		return [
-            'msg' => 'Failed to get by id constitution history.',
+            'msg' => $e,
             'status' => 'error'
         ];
     }
@@ -51,9 +50,8 @@ public function updateAll($request)
             'status' => 'success'
         ];
     } catch (\Exception $e) {
-        dd($e);
         return [
-            'msg' => 'Failed to update constitution history.',
+            'msg' => $e,
             'status' => 'error'
         ];
     }
@@ -70,9 +68,8 @@ public function deleteById($id)
             return null;
         }
     } catch (\Exception $e) {
-        return $e;
 		return [
-            'msg' => 'Failed to delete constitution history.',
+            'msg' => $e,
             'status' => 'error'
         ];
     }
