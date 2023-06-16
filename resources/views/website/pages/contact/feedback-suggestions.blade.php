@@ -11,6 +11,7 @@
                 @endif
             </h2>
             <ul>
+
                 <li> <a href="{{ route('index') }}">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.CONTACT_US.CONTACT_US_MAIN_LINK') }}
@@ -97,12 +98,27 @@
                                         <span class="red-text"><?php echo $errors->first('subject', ':message'); ?></span>
                                     @endif
                                 </div>
+
+
                                 <div class="col-md-12">
                                     <textarea class="gap-text" name="suggestion" placeholder="Write Any Feedback/Suggestion">{{ old('suggestion') }}</textarea>
                                     @if ($errors->has('suggestion'))
                                         <span class="red-text"><?php echo $errors->first('suggestion', ':message'); ?></span>
                                     @endif
                                 </div>
+
+                                <div class="col-md-12">
+                                    {!! NoCaptcha::renderJs() !!}
+                                    {!! NoCaptcha::display() !!}
+
+                                    @if ($errors->has('g-recaptcha-response'))
+                                        <span class="help-block">
+                                            <span class="red-text">{{ $errors->first('g-recaptcha-response') }}</span>
+                                        </span>
+                                    @endif
+                                </div>
+
+
                                 <div class="col-md-12">
                                     <input class="gap-text" type="submit" value="Send Message">
                                 </div>
