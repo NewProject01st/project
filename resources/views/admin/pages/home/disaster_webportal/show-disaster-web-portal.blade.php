@@ -99,7 +99,7 @@
                                         </div>
                                     </div>
                                     <div class="row ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label> Marathi Image:</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 pt-2">

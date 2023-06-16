@@ -64,7 +64,10 @@ class IncidentTypeServices{
         }
     }
    
-
+    public function updateOne($id)
+    {
+        return $this->repo->updateOne($id);
+    }
 
 
 }

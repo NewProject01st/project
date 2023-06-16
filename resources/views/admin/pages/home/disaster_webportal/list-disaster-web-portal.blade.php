@@ -16,7 +16,7 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#"> Disaster Management Web Portal</a></li>
+                    <li class="breadcrumb-item"><a href="#"> Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page"> Disaster Management Web Portal List</li>
                 </ol>
             </nav>

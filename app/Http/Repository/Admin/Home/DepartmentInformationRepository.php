@@ -38,7 +38,7 @@ class DepartmentInformationRepository  {
         $marathiImageName  = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
         $marathiImageName1 = $last_insert_id . '_marathi1.' . $request->marathi_image_new->extension();
         
-        $department_data_update = DisasterManagementWebPortal::find($last_insert_id); 
+        $department_data_update = DepartmentInformation::find($last_insert_id); 
         $department_data_update->english_image = $englishImageName; 
         $department_data_update->english_image_new = $englishImageName1; 
         $department_data_update->marathi_image = $marathiImageName;

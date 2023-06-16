@@ -23,7 +23,7 @@ class CitizenActionRepository  {
     {
         try {
             $data_output = ReportIncidentCrowdsourcing::where('is_active','=',true);
-            $incidenttpe = IncidentType::where('is_active', true);
+            $incidenttpe = IncidentType::where('is_active','=', true);
             if (Session::get('language') == 'mar') {
                 $data_output =  $data_output->select('marathi_title', 'marathi_description','marathi_image');
                 $data_output_incident= $incidenttpe->select('id','marathi_title');

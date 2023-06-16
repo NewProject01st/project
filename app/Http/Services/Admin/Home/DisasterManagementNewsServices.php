@@ -22,8 +22,7 @@ class DisasterManagementNewsServices
     {
         $this->repo = new DisasterManagementNewsRepository();
     }
-    public function getAll()
-    {
+    public function getAll(){
         try {
             return $this->repo->getAll();
         } catch (\Exception $e) {
@@ -31,8 +30,7 @@ class DisasterManagementNewsServices
         }
     }
 
-    public function addAll($request)
-    {
+    public function addAll($request){
         try {
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.DISASTER_NEWS_ADD');

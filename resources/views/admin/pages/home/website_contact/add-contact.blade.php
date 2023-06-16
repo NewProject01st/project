@@ -9,7 +9,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Footer</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Website Contact </li>
                     </ol>
                 </nav>
@@ -47,10 +47,10 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_number">English No</label>&nbsp<span
+                                            <label for="english_number">English Number</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="english_number" id="english_number"
-                                                class="form-control" id="english_number" placeholder=""
+                                                class="form-control" id="english_number" placeholder="" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
                                                 value="{{ old('english_number') }}">
                                             @if ($errors->has('english_number'))
                                                 <span class="red-text"><?php echo $errors->first('english_number', ':message'); ?></span>
@@ -59,9 +59,9 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_number"> Marathi No</label>&nbsp<span
+                                            <label for="marathi_number"> Marathi Number</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" name="marathi_number" id="marathi_number"
+                                            <input type="text" name="marathi_number" id="marathi_number" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
                                                 class="form-control" id="marathi_number" placeholder=""
                                                 value="{{ old('marathi_number') }}">
                                             @if ($errors->has('marathi_number'))
