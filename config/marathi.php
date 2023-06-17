@@ -10,6 +10,8 @@ return [
 		'OPEN_VACANCIES' =>'रिक्त जागा उघडा	',
 		'DISASTER_MANAGEMENT_HEAD' =>'आपत्ती व्यवस्थापन प्रमुख',
 		'DISASTER_MANAGEMENT_NEWS' =>'आपत्ती व्यवस्थापन बातम्या',
+		'FORCAST_LIVE_DATA'=>'थेट डेटा फोरकास्ट करा',
+		'DISASTER_FORCAST'=>'आपत्तीचा अंदाज',
 		'DEPARTMENT_INFORMATION_DESK' =>'विभाग आणि माहिती डेस्क	',
 		'COUNCIL_ADDRESS' =>'परिषद पत्ता:',
 		'EMAIL' =>'ईमेल:',

@@ -130,6 +130,7 @@ class IndexController extends Controller
             $data_output_disastermangwebportal = $this->service->getAllDisasterManagementWebPortal();
             $data_output_disastermanagementnews = $this->service->getAllDisasterManagementNews();
             $data_output_emergencycontact = $this->service->getAllEmergencyContact();
+            $data_output_disasterforcast = $this->service->getAllDisaterForcast();
             $data_output_departmentinformation = $this->service->getAllDepartmentInformation();
             // $data_output_contact = $this->service->getWebContact();
             // dd(  $data_output_contact);
@@ -140,7 +141,7 @@ class IndexController extends Controller
             } else {
                 $language = 'en';
             }
-            return view('website.pages.index',compact('language','menu','socialicon','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact', 'data_output_departmentinformation'));
+            return view('website.pages.index',compact('language','menu','socialicon','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact', 'data_output_departmentinformation','data_output_disasterforcast'));
 
         } catch (\Exception $e) {
             return $e;
@@ -227,7 +228,8 @@ class IndexController extends Controller
             return $e;
         }
     } 
-                
+        
+    
     public function changeLanguage(Request $request) {
         Session::put('language', $request->language);
     }    

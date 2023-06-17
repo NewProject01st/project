@@ -10,6 +10,8 @@ return [
 		'OPEN_VACANCIES' =>'Open Vacancies',
 		'DISASTER_MANAGEMENT_HEAD' =>'Disaster Management Head',
 		'DISASTER_MANAGEMENT_NEWS' =>'Disaster Management News',
+		'FORCAST_LIVE_DATA'=>'Forcast Live Data',
+		'DISASTER_FORCAST' =>'Forcast Disaster',
 		'DEPARTMENT_INFORMATION_DESK' =>'Departments & Information Desk',
 		'COUNCIL_ADDRESS' =>'Council Address:',
 		'EMAIL' =>'Email:',

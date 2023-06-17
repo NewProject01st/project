@@ -15,7 +15,8 @@ use App\Models\ {
     EmergencyContact,
     DepartmentInformation,
     VacanciesHeader,
-    RTI
+    RTI,
+    DisasterForcast
 };
 
 class IndexRepository  {
@@ -239,6 +240,22 @@ class IndexRepository  {
                 $data_output =  $data_output->select('marathi_title','marathi_pdf');
             } else {
                 $data_output = $data_output->select('english_title','english_pdf');
+            }
+            $data_output =  $data_output->get()
+                            ->toArray();
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
+    public function getAllDisaterForcast(){
+        try {
+            $data_output = DisasterForcast::where('is_active','=',true);
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->select('marathi_description');
+            } else {
+                $data_output = $data_output->select('english_description');
             }
             $data_output =  $data_output->get()
                             ->toArray();

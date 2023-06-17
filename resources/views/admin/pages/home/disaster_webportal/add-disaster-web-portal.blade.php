@@ -5,12 +5,12 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Disaster Management Web Portal
+                    Welcome Section
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Disaster Management Web Portal</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Welcome Section</li>
                     </ol>
                 </nav>
             </div>

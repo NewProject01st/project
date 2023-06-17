@@ -69,7 +69,7 @@
                                     <div class="col-md-6 mb-2">
                                         <label class="col-form-label modal_lable">Incident Type:</label>
                                         <select class="form-control set_m_form" id="incident" name="incident">
-                                            <option value="">Select safdsafsafsafsafa</option>
+                                            <option value="">Select</option>
                                             @foreach ($data_output_incident as $incidenttype)
                                                 @if (session('language') == 'mar')
                                                     <option value="{{ $incidenttype['id'] }}" selected>

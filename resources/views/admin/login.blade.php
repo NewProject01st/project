@@ -58,10 +58,11 @@
                                         </div>
                                         <input class="form-control form-control-lg border-left-0" type="email"
                                             name='email' value='{{ old('email') }}' placeholder="Email">
-                                        @if ($errors->has('email'))
-                                            <span class="red-text"><?php echo $errors->first('email', ':message'); ?></span>
-                                        @endif
+
                                     </div>
+                                    @if ($errors->has('email'))
+                                        <span class="red-text"><?php echo $errors->first('email', ':message'); ?></span>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
@@ -73,11 +74,24 @@
                                         <input class="form-control form-control-lg border-left-0" id="passport"
                                             type="password" name='password' placeholder='Password'>
 
-                                        @if ($errors->has('password'))
-                                            <span class="red-text"><?php echo $errors->first('password', ':message'); ?></span>
-                                        @endif
+
                                     </div>
+                                    @if ($errors->has('password'))
+                                        <span class="red-text"><?php echo $errors->first('password', ':message'); ?></span>
+                                    @endif
                                 </div>
+
+                                <div class="form-group">
+                                    {!! NoCaptcha::renderJs() !!}
+                                    {!! NoCaptcha::display() !!}
+
+                                    @if ($errors->has('g-recaptcha-response'))
+                                        <span class="help-block">
+                                            <span class="red-text">{{ $errors->first('g-recaptcha-response') }}</span>
+                                        </span>
+                                    @endif
+                                </div>
+
 
                                 <div class="my-3">
                                     <button type="submit"

@@ -27,11 +27,11 @@
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">
-@if (old('english_title'))
-{{ old('english_title') }}@else{{ $disaster_news->english_title }}
-@endif
-</textarea>
+                                                <input type="text" name="english_title" id="english_title"
+                                                class="form-control" id="english_title" placeholder="Enter the Title" 
+                                                value="@if (old('english_title'))
+                                                {{ old('english_title') }}@else{{ $disaster_news->english_title }}
+                                                @endif">
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -41,11 +41,12 @@
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">
-@if (old('marathi_title'))
-{{ old('marathi_title') }}@else{{ $disaster_news->marathi_title }}
-@endif
-</textarea>
+
+                                                <input type="text" name="marathi_title" id="marathi_title"
+                                                class="form-control" id="marathi_title" placeholder="Enter the Title" 
+                                                value="@if (old('marathi_title'))
+                                                {{ old('marathi_title') }}@else{{ $disaster_news->marathi_title }}
+                                                @endif">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -124,14 +125,21 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
+                                            <label for="exampleInputUsername1">Disaster Date</label>&nbsp<span class="red-text">*</span>
+                                            <input type="date" class="form-control" placeholder="YYYY-MM-DD" name="disaster_date" id="disaster_date"
+                                                value="{{ old('disaster_date') ?: $disaster_news->disaster_date }}">
+                                        </div>
+                                    </div>
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
                                             <label for="exampleInputUsername1">Disaster Date</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="date" class="form-control" placeholder="YYYY-MM-DD"
                                                 name="disaster_date" id="disaster_date"
                                                 value="@if (old('disaster_date')) {{ old('disaster_date') }}@else{{ $disaster_news->disaster_date }} @endif"
-                                                required="">
+                                                >
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Update</button>
                                         {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}

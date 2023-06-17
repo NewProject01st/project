@@ -94,9 +94,9 @@
                   </li>
               @endif
               @if (in_array('list-important-link', $data_for_url)||
-              in_array('list-website-contact', $data_for_url))
-                 <li class="{{request()->is('list-important-link*') 
-                    ? 'nav-item active' : 'nav-item' }}">
+              in_array('list-website-contact', $data_for_url)||
+              in_array('list-tweeter-feed', $data_for_url))
+                 <li class="nav-item">
                      <a class="nav-link" data-toggle="collapse" href="#footer" aria-expanded="false"
                          aria-controls="footer">
                          <i class="fas fa-address-card fa-lg menu-icon"></i>
@@ -113,6 +113,11 @@
                             <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                     href="{{ route('list-website-contact') }}">Website Contact</a></li>
                              @endif
+                             @if (in_array('list-tweeter-feed', $data_for_url))
+                             <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                     href="{{ route('list-tweeter-feed') }}">Twitter Link</a></li>
+                              @endif
+                             
                             {{-- @if (in_array('list-social-icon', $data_for_url))
                             <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                     href="{{ route('list-social-icon') }}">Social Icon</a></li>
@@ -144,7 +149,6 @@
                       in_array('list-slide', $data_for_url) ||
                       in_array('list-disaster-management-web-portal', $data_for_url) ||
                       in_array('list-disaster-management-news', $data_for_url) ||
-                      in_array('list-weather', $data_for_url) ||
                       in_array('list-disasterforcast', $data_for_url) ||
                       in_array('list-emergency-contact', $data_for_url) ||
                       in_array('list-department-information', $data_for_url) ||
@@ -171,7 +175,7 @@
                               @endif
                               @if (in_array('list-disaster-management-web-portal', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-disaster-management-web-portal') }}">Disaster Web Portal</a></li>
+                                          href="{{ route('list-disaster-management-web-portal') }}">Welcome Section</a></li>
                               @endif
                               @if (in_array('list-disaster-management-news', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
@@ -181,10 +185,10 @@
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                           href="{{ route('list-emergency-contact') }}">Emergency Contact</a></li>
                               @endif
-                              @if (in_array('list-weather', $data_for_url))
+                              {{-- @if (in_array('list-weather', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                           href="{{ route('list-weather') }}">Weather</a></li>
-                              @endif
+                              @endif --}}
                               @if (in_array('list-disasterforcast', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                           href="{{ route('list-disasterforcast') }}">Disaster Forcast</a></li>
@@ -554,5 +558,26 @@
                       @endif
                   </li>
               @endif
+
+               {{--@if (in_array('db-backup', $data_for_url)) --}}
+                  <li class="{{request()->is('db-backup*') 
+                    ? 'nav-item active' : 'nav-item' }}">
+                      <a class="nav-link" data-toggle="collapse" href="#db-backup" aria-expanded="false"
+                          aria-controls="db-backup">
+                          <i class="fas fa-user menu-icon"></i>
+                          <span class="menu-title">Data Base Backup</span>
+                          <i class="menu-arrow"></i>
+                      </a>
+                     {{-- @if (in_array('db-backup', $data_for_url)) --}}
+                          <?php $currenturl = Request::url(); ?>
+                          <div class="collapse" id="db-backup">
+                              <ul class="nav flex-column sub-menu">
+                                  <li class="nav-item d-none d-lg-block"> <a class="nav-link"
+                                          href="{{ route('db-backup') }}">Data Base Backup</a></li>
+                              </ul>
+                          </div>
+                     {{-- @endif --}}
+                  </li>
+             {{-- @endif --}}
           </ul>
       </nav><!-- partial -->
