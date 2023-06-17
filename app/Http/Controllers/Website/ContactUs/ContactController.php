@@ -48,7 +48,8 @@ class ContactController extends Controller
         'mobile_number' => 'required|regex:/^(\+\d{1,3}[- ]?)?\d{10}$/',
         'contact_type' => 'required',
         'subject' => 'required',
-        'suggestion' => 'required'
+        'suggestion' => 'required',
+        'g-recaptcha-response' => 'required|captcha',
         ];
     $messages = [   
         'full_name.required' => 'Please Enter Full Name.',
@@ -59,6 +60,8 @@ class ContactController extends Controller
         'contact_type.required' => 'Please Enter Contact Type.',
         'subject.required' => 'Please Enter Subject.',
         'suggestion.required' => 'Please Enter Suggestion.',
+        'g-recaptcha-response.captcha' => 'Captcha error! try again later or contact site admin.',
+        'g-recaptcha-response.required' =>'Please verify that you are not a robot.',
     ];
 
     try {
@@ -80,7 +83,7 @@ class ContactController extends Controller
                 $msg = $add_contact['msg'];
                 $status = $add_contact['status'];
                 if($status=='success') {
-                    Session::flash('success_message', 'Form submitted successfully!');
+                    Session::flash('success_message', 'Feedback and suggestions submitted successfully!');
                     return redirect('feedback-suggestions')->with(compact('msg','status'));
                 }
                 else {

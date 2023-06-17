@@ -18,7 +18,7 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action='{{ route('update-main-menu') }}' method="post"
+                            <form class="forms-sample" action='{{ route('update-sub-menu') }}' method="post"
                                 id="regForm">
                                 @csrf
                                 <div class="row">

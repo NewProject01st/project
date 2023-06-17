@@ -4,10 +4,28 @@
         <!--Subheader Start-->
         <section class="wf100 subheader">
             <div class="container">
-                <h2>Resource Center</h2>
+                <h2>
+                    @if (session('language') == 'mar')
+                        {{ Config::get('marathi.RESOURCE_CENTER.RESOURCE_CENTER_HEADING') }}
+                    @else
+                        {{ Config::get('english.RESOURCE_CENTER.RESOURCE_CENTER_HEADING') }}
+                    @endif
+                </h2>
                 <ul>
-                    <li> <a href="{{ route('index') }}">Home</a> </li>
-                    <li> Documents Publications </li>
+                    <li> <a href="{{ route('index') }}">
+                            @if (session('language') == 'mar')
+                                {{ Config::get('marathi.RESOURCE_CENTER.RESOURCE_CENTER_MAIN_LINK') }}
+                            @else
+                                {{ Config::get('english.RESOURCE_CENTER.RESOURCE_CENTER_MAIN_LINK') }}
+                            @endif
+                        </a> </li>
+                    <li>
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.RESOURCE_CENTER.RESOURCE_CENTER_SUB_LINK1') }}
+                        @else
+                            {{ Config::get('english.RESOURCE_CENTER.RESOURCE_CENTER_SUB_LINK1') }}
+                        @endif
+                    </li>
                 </ul>
             </div>
         </section>
@@ -40,15 +58,13 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td><?php echo $item['marathi_title']; ?></td>
                                             <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item['marathi_pdf'] }}"
-                                                    target="_blank"><img
-                                                        src="{{ asset('website_files/images/pdf/pdf.png/') }}"
+                                                    target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
                                                         width="35px" height="35px"></a></td>
                                         @else
                                             <td>{{ $loop->iteration }}</td>
                                             <td><?php echo $item['english_title']; ?></td>
                                             <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item['english_pdf'] }}"
-                                                    target="_blank"><img
-                                                        src="{{ asset('website_files/images/pdf/pdf.png/') }}"
+                                                    target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
                                                         width="35px" height="35px"></a></td>
                                         @endif
                                     </tr>

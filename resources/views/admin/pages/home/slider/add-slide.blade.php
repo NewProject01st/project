@@ -21,7 +21,7 @@
                             enctype="multipart/form-data" id="regForm">
                             @csrf
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
                                         <label for="english_title">Title English</label>&nbsp<span
                                             class="red-text">*</span>
@@ -62,6 +62,19 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
+                                        <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                            class="red-text">*</span>
+                                        <textarea class="form-control marathi_title" name="marathi_title"
+                                            id="marathi_title" placeholder="Enter the Title"
+                                            name="marathi_title">{{ old('marathi_title') }}</textarea>
+                                        @if ($errors->has('marathi_title'))
+                                        <span
+                                            class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group">
                                         <label for="marathi_description"> Description Marathi</label>&nbsp<span
                                             class="red-text">*</span>
                                         <textarea class="form-control marathi_description" name="marathi_description"
@@ -72,8 +85,20 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
+<<<<<<< HEAD
+=======
+                                        <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
+                                        <input class="form-control url" name="url" id="url" value="{{ old('url') }}" placeholder="Enter the URL">
+                                        @if ($errors->has('url'))
+                                        <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+>>>>>>> 6075f65a71d8f9703f72cf1fac2d39c77bf27df5
                                         <label for="english_image">Image English</label>&nbsp<span
                                             class="red-text">*</span><br>
                                         <input type="file" name="english_image" id="english_image" accept="image/*" value="{{ old('english_image') }}"><br>
@@ -83,7 +108,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label for="marathi_image">Image Marathi</label>&nbsp<span
                                             class="red-text">*</span><br>

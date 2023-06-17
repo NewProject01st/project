@@ -4,10 +4,28 @@
         <!--Subheader Start-->
         <section class="wf100 subheader">
             <div class="container">
-                <h2>Site Map</h2>
+                <h2>
+                    @if (session('language') == 'mar')
+                        {{ Config::get('marathi.SITE_MAP.SITE_MAP_HEADING') }}
+                    @else
+                        {{ Config::get('english.SITE_MAP.SITE_MAP_HEADING') }}
+                    @endif
+                </h2>
                 <ul>
-                    <li> <a href="{{ route('index') }}">Home</a> </li>
-                    <li>Site Map</li>
+                    <li> <a href="{{ route('index') }}">
+                            @if (session('language') == 'mar')
+                                {{ Config::get('marathi.SITE_MAP.SITE_MAP_MAIN_LINK') }}
+                            @else
+                                {{ Config::get('english.SITE_MAP.SITE_MAP_MAIN_LINK') }}
+                            @endif
+                        </a> </li>
+                    <li>
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.SITE_MAP.SITE_MAP_SUB_LINK') }}
+                        @else
+                            {{ Config::get('english.SITE_MAP.SITE_MAP_SUB_LINK') }}
+                        @endif
+                    </li>
                 </ul>
             </div>
         </section>
@@ -20,9 +38,9 @@
                     <div class="row d-flex justify-content-center">
                         <h3 class="stitle text-center d-flex justify-content-start">
                             @if (session('language') == 'mar')
-                                {{ Config::get('marathi.HOME_PAGE.SITE_MAP') }}
+                                {{ Config::get('marathi.SITE_MAP.SITE_MAP') }}
                             @else
-                                {{ Config::get('english.HOME_PAGE.SITE_MAP') }}
+                                {{ Config::get('english.SITE_MAP.SITE_MAP') }}
                             @endif
                         </h3>
 

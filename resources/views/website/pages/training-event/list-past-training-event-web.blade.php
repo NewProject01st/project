@@ -4,10 +4,28 @@
     <!--Subheader Start-->
     <section class="wf100 subheader">
         <div class="container">
-            <h2>Training Workshops</h2>
+            <h2>
+                @if (session('language') == 'mar')
+                    {{ Config::get('marathi.TRAINING_WORKSHOP.TRAINING_WORKSHOP_HEADING') }}
+                @else
+                    {{ Config::get('english.TRAINING_WORKSHOP.TRAINING_WORKSHOP_HEADING') }}
+                @endif
+            </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li>Past Events And Trainings</li>
+                <li> <a href="{{ route('index') }}">
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.TRAINING_WORKSHOP.TRAINING_WORKSHOP_MAIN_LINK') }}
+                        @else
+                            {{ Config::get('english.TRAINING_WORKSHOP.TRAINING_WORKSHOP_MAIN_LINK') }}
+                        @endif
+                    </a> </li>
+                <li>
+                    @if (session('language') == 'mar')
+                        {{ Config::get('marathi.TRAINING_WORKSHOP.TRAINING_WORKSHOP_SUB_LINK2') }}
+                    @else
+                        {{ Config::get('english.TRAINING_WORKSHOP.TRAINING_WORKSHOP_SUB_LINK2') }}
+                    @endif
+                </li>
             </ul>
         </div>
     </section>

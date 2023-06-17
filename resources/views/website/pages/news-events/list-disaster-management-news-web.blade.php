@@ -4,10 +4,28 @@
         <!--Subheader Start-->
         <section class="wf100 subheader">
             <div class="container">
-                <h2>News & Events </h2>
+                <h2>
+                    @if (session('language') == 'mar')
+                        {{ Config::get('marathi.NEWS_EVENTS.NEWS_EVENTS_HEADING') }}
+                    @else
+                        {{ Config::get('english.NEWS_EVENTS.NEWS_EVENTS_HEADING') }}
+                    @endif
+                </h2>
                 <ul>
-                    <li> <a href="{{ route('index') }}">Home</a> </li>
-                    <li> Disaster Management News </li>
+                    <li> <a href="{{ route('index') }}">
+                            @if (session('language') == 'mar')
+                                {{ Config::get('marathi.NEWS_EVENTS.NEWS_EVENTS_MAIN_LINK') }}
+                            @else
+                                {{ Config::get('english.NEWS_EVENTS.NEWS_EVENTS_MAIN_LINK') }}
+                            @endif
+                        </a> </li>
+                    <li>
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.NEWS_EVENTS.NEWS_EVENTS_SUB_LINK1') }}
+                        @else
+                            {{ Config::get('english.NEWS_EVENTS.NEWS_EVENTS_SUB_LINK1') }}
+                        @endif
+                    </li>
                 </ul>
             </div>
         </section>
@@ -22,9 +40,9 @@
                         <div class="title-style-3">
                             <h3>
                                 @if (session('language') == 'mar')
-                                    {{ Config::get('marathi.HOME_PAGE.DISASTER_MANAGEMENT_NEWS') }}
+                                    {{ Config::get('marathi.NEWS_EVENTS.DISASTER_MANAGEMENT_NEWS') }}
                                 @else
-                                    {{ Config::get('english.HOME_PAGE.DISASTER_MANAGEMENT_NEWS') }}
+                                    {{ Config::get('english.NEWS_EVENTS.DISASTER_MANAGEMENT_NEWS') }}
                                 @endif
                             </h3>
 

@@ -9,7 +9,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Update Disaster Management News
                         </li>
                     </ol>
@@ -50,10 +50,10 @@
                                             <label for="english_title">Title English</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">
-@if (old('english_title'))
-{{ old('english_title') }}@else{{ $disaster_web_portal->english_title }}
-@endif
-</textarea>
+                                                @if (old('english_title'))
+                                                {{ old('english_title') }}@else{{ $disaster_web_portal->english_title }}
+                                                @endif
+                                                </textarea>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -64,10 +64,10 @@
                                             <label for="marathi_title">Title Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">
-@if (old('marathi_title'))
-{{ old('marathi_title') }}@else{{ $disaster_web_portal->marathi_title }}
-@endif
-</textarea>
+                                                @if (old('marathi_title'))
+                                                {{ old('marathi_title') }}@else{{ $disaster_web_portal->marathi_title }}
+                                                @endif
+                                                </textarea>
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -79,10 +79,10 @@
                                                 class="red-text">*</span>
                                             <textarea class="form-control english_description" name="english_description" id="english_description"
                                                 placeholder="Enter the Description">
-@if (old('english_description'))
-{{ old('english_description') }}@else{{ $disaster_web_portal->english_description }}
-@endif
-</textarea>
+                                                    @if (old('english_description'))
+                                                    {{ old('english_description') }}@else{{ $disaster_web_portal->english_description }}
+                                                    @endif
+                                                    </textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
                                             @endif
@@ -93,10 +93,10 @@
                                             <label> Description Marathi</label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="Enter the Description">
-@if (old('marathi_description'))
-{{ old('marathi_description') }}@else{{ $disaster_web_portal->marathi_description }}
-@endif  {{ $disaster_web_portal->marathi_description }}
-</textarea>
+                                                @if (old('marathi_description'))
+                                                {{ old('marathi_description') }}@else{{ $disaster_web_portal->marathi_description }}
+                                                @endif  {{ $disaster_web_portal->marathi_description }}
+                                                </textarea>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
                                             @endif
@@ -108,9 +108,9 @@
                                                 class="red-text">*</span><br>
                                             <input type="text" name="english_designation" id="english_designation"
                                                 class="form-control"
-                                                value="@if (old('english_designation')) {{ old('english_designation') }}@else{{ $disaster_web_portal->english_designation }} @endif>
+                                                value="@if (old('english_designation')) {{ old('english_designation') }}@else{{ $disaster_web_portal->english_designation }} @endif">
                                         @if ($errors->has('english_designation'))
-<span
+                                          <span
                                             class="red-text"><?php echo $errors->first('english_designation', ':message'); ?></span>
                                             @endif
                                         </div>

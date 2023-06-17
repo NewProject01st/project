@@ -29,7 +29,7 @@
                                             <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title"
                                                 name="english_title">
 @if (old('english_title'))
-{{ old('english_title') }}@else{{ $emergencycontactnumbers->english_title }}
+{{ old('english_title') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->english_title }}
 @endif
 </textarea>
                                             @if ($errors->has('english_title'))
@@ -44,7 +44,7 @@
                                             <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title"
                                                 name="marathi_title">
 @if (old('marathi_title'))
-{{ old('marathi_title') }}@else{{ $emergencycontactnumbers->marathi_title }}
+{{ old('marathi_title') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->marathi_title }}
 @endif
 </textarea>
                                             @if ($errors->has('marathi_title'))
@@ -59,7 +59,7 @@
                                             <textarea class="form-control english_description" name="english_description" id="english_description"
                                                 placeholder="Enter the Description" name="description">
 @if (old('english_description'))
-{{ old('english_description') }}@else{{ $emergencycontactnumbers->english_description }}
+{{ old('english_description') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->english_description }}
 @endif
 </textarea>
                                             @if ($errors->has('english_description'))
@@ -74,7 +74,7 @@
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="Enter the Description">
 @if (old('marathi_description'))
-{{ old('marathi_description') }}@else{{ $emergencycontactnumbers->marathi_description }}
+{{ old('marathi_description') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->marathi_description }}
 @endif
 </textarea>
                                             @if ($errors->has('marathi_description'))
@@ -93,7 +93,7 @@
                                             @endif
                                         </div>
                                         <img id="english"
-                                            src="{{ Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_VIEW') }}{{ $emergencycontactnumbers->english_image }}"
+                                            src="{{ Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_VIEW') }}{{ $emergencycontact_data['emergencycontactnumbers']->english_image }}"
                                             class="img-fluid img-thumbnail" width="150">
                                         <img id="english_imgPreview" src="#" alt="pic"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
@@ -110,7 +110,7 @@
                                             @endif
                                         </div>
                                         <img id="marathi"
-                                            src="{{ Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_VIEW') }}{{ $emergencycontactnumbers->marathi_image }}"
+                                            src="{{ Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_VIEW') }}{{ $emergencycontact_data['emergencycontactnumbers']->marathi_image }}"
                                             class="img-fluid img-thumbnail" width="150">
                                         <img id="marathi_imgPreview" src="#" alt="pic"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
@@ -126,14 +126,15 @@
                             <div id="items">
                                 <div class="item">
                                     <div class="row">
+                                    @forelse($emergencycontact_data['emergencycontactnumbersAddMore'] as $emergencycontact_data_all)
                                         <div class="col-lg-5 col-md-5 col-sm-5">
                                             <div class="form-group">
                                                 <label for="english_emergency_contact_title">English Emergency Contact
                                                     Title</label>&nbsp<span class="red-text">*</span><br>
                                                 <input class="form-control" type="text"
-                                                    name="english_emergency_contact_title_1"
+                                                    name="english_emergency_contact_title_{{ $emergencycontact_data_all['id'] }}"
                                                     placeholder="Emergency Chontact Title"
-                                                    value="{{ $emergencycontactnumbers->english_emergency_contact_title }}">
+                                                    value="{{ $emergencycontact_data_all['english_emergency_contact_title'] }}">
                                                 @if ($errors->has('english_emergency_contact_title_1'))
                                                     <span class="red-text"><?php echo $errors->first('english_emergency_contact_title_1', ':message'); ?></span>
                                                 @endif
@@ -141,11 +142,12 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-5">
                                             <div class="form-group">
-                                                <label for="marathi_emergency_contact_title">Marathi English Emergency
+                                                <label for="marathi_emergency_contact_title">Marathi Emergency
                                                     Contact Title</label>&nbsp<span class="red-text">*</span><br>
                                                 <input class="form-control" type="text"
-                                                    name="marathi_emergency_contact_title_1"
-                                                    placeholder="Emergency Contact Title">
+                                                    name="marathi_emergency_contact_title_{{ $emergencycontact_data_all['id'] }}"
+                                                    placeholder="Emergency Contact Title"
+                                                     value="{{ $emergencycontact_data_all['marathi_emergency_contact_title'] }}">
                                                 @if ($errors->has('marathi_emergency_contact_title_1'))
                                                     <span class="red-text"><?php echo $errors->first('marathi_emergency_contact_title_1', ':message'); ?></span>
                                                 @endif
@@ -156,8 +158,9 @@
                                                 <label for="english_emergency_contact_number">English Emergency Contact
                                                     Number</label>&nbsp<span class="red-text">*</span><br>
                                                 <input class="form-control" type="text"
-                                                    name="english_emergency_contact_number_1"
-                                                    placeholder="Emergency Contact Number">
+                                                    name="english_emergency_contact_number_{{ $emergencycontact_data_all['id'] }}"
+                                                    placeholder="Emergency Contact Number"
+                                                    value="{{ $emergencycontact_data_all['english_emergency_contact_number'] }}">
                                                 @if ($errors->has('english_emergency_contact_number_1'))
                                                     <span class="red-text"><?php echo $errors->first('english_emergency_contact_number_1', ':message'); ?></span>
                                                 @endif
@@ -168,13 +171,17 @@
                                                 <label for="marathi_emergency_contact_number">Marathi Emergency
                                                     Contact Number</label>&nbsp<span class="red-text">*</span><br>
                                                 <input class="form-control" type="text"
-                                                    name="marathi_emergency_contact_number_1"
-                                                    placeholder="Emergency Contact Number">
+                                                    name="marathi_emergency_contact_number_{{ $emergencycontact_data_all['id'] }}"
+                                                    placeholder="Emergency Contact Number"
+                                                    value="{{ $emergencycontact_data_all['marathi_emergency_contact_number'] }}">
                                                 @if ($errors->has('marathi_emergency_contact_number_1'))
                                                     <span class="red-text"><?php echo $errors->first('marathi_emergency_contact_number_1', ':message'); ?></span>
                                                 @endif
                                             </div>
                                         </div>
+                                        @empty
+                                        {{'No contact information found'}}
+                                        @endforelse
                                         <div class="col-md-2">
                                             <label for="marathi_image"></label>
                                             <button type="button" class="btn btn-danger remove-item">Remove</button>
@@ -191,7 +198,7 @@
                         </div>
                     </div>
                     <input type="hidden" name="id" id="id" class="form-control"
-                        value="{{ $emergencycontactnumbers->id }}" placeholder="">
+                        value="{{ $emergencycontact_data['emergencycontactnumbersAddMoreID'] }}" placeholder="">
 
                     </form>
                 </div>

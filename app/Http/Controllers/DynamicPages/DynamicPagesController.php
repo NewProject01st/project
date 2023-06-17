@@ -21,7 +21,6 @@ class DynamicPagesController extends Controller
     {
         try { 
             $dynamic_page = $this->service->getAll();
-            // dd($dynamic_page);
             return view('admin.pages.dynamic-pages.list-page', compact('dynamic_page'));
         } catch (\Exception $e) {
             return $e;
@@ -65,7 +64,7 @@ class DynamicPagesController extends Controller
                         
                     }
                 }
-                $this->savePageData($request, $menu_selected, $main_menu_data, $new_name, $menu_name, $publish_date, $data['menu_id']);
+                $this->savePageData($request, $menu_selected, $main_menu_data, $new_name, $menu_name, $publish_date, $menu_selected[0]);
                 $msg = "Page data saved successfully";
                 $status = "successfully";
                 return redirect('list-dynamic-page')->with(compact('msg','status'));
@@ -98,11 +97,6 @@ class DynamicPagesController extends Controller
         $html_marathi = file_get_contents($html_marathi_path);
         $html_english_path = "./resources/views/admin/pages/dynamic-pages-created/".$dynamic_page->actual_page_name_english.".blade.php";
         $html_english = file_get_contents($html_english_path);
-
-        // dd($get_publish_date);
-        // echo $dynamic_page;
-        // die();
-        // dd($dynamic_page);
         return view('admin.pages.dynamic-pages.edit-page', compact('html_marathi', 'html_english', 'edit_data_id', 'get_publish_date'));
     }
     public function update(Request $request) {
@@ -128,6 +122,7 @@ class DynamicPagesController extends Controller
                 $menu_name = '';
                 $publish_date = '';
                 $menu_selected = explode("_",$request->edit_id);
+                // dd($menu_selected);
                 $main_menu_data = getMenuItemsDynamicPageDetailsById($menu_selected[0]);
                 $new_name = str_replace(" ","-",$main_menu_data->menu_id.'-'.$main_menu_data->menu_name.'-'.$main_menu_data->menu_type);
                 $menu_name = $main_menu_data->menu_name;

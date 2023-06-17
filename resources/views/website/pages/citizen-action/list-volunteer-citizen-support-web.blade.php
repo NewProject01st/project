@@ -4,10 +4,28 @@
         <!--Subheader Start-->
         <section class="wf100 subheader">
             <div class="container">
-                <h2>Citizen Action </h2>
+                <h2>
+                    @if (session('language') == 'mar')
+                        {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_HEADING') }}
+                    @else
+                        {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_HEADING') }}
+                    @endif
+                </h2>
                 <ul>
-                    <li> <a href="{{ route('index') }}">Home</a> </li>
-                    <li> Volunteer Citizen Support </li>
+                    <li> <a href="{{ route('index') }}">
+                            @if (session('language') == 'mar')
+                                {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_MAIN_LINK') }}
+                            @else
+                                {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_MAIN_LINK') }}
+                            @endif
+                        </a> </li>
+                    <li>
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_SUB_LINK2') }}
+                        @else
+                            {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_SUB_LINK2') }}
+                        @endif
+                    </li>
                 </ul>
             </div>
         </section>
@@ -114,7 +132,7 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label class="col-form-label modal_lable">Mobile Number:</label>
-                                        <input type="input" class="form-control" name="mobile_number" id="mobile_number"
+                                        <input type="input" class="form-control" name="mobile_number" id="mobile_number" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
                                             required>
                                     </div>
                                     <div class="col-md-6 mb-3">

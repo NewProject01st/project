@@ -22,7 +22,7 @@
                                 enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title English <span
                                                     class="text-danger">*</span></label>
@@ -66,25 +66,25 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="forcast_date">Disaster Forcast Date <span
                                                     class="text-danger">*</span></label>
                                             <input type="date" class="form-control" placeholder="YYYY-MM-DD"
                                                 name="forcast_date" id="forcast_date" value="{{ old('forcast_date') }}">
                                             @if ($errors->has('forcast_date'))
-                                                <span class="red-text"><?php echo $errors->first('forcast_date', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('forcast_date', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    </div> --}}
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="expired_date">Expired Date <span
                                                     class="text-danger">*</span></label>
                                             <input type="date" class="form-control" placeholder="YYYY-MM-DD"
                                                 name="expired_date" id="expired_date" value="{{ old('expired_date') }}">
                                             @if ($errors->has('expired_date'))
-                                                <span class="red-text"><?php echo $errors->first('expired_date', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('expired_date', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
@@ -96,7 +96,7 @@
                                             <input type="file" name="english_image" id="english_image" accept="image/*"
                                                 value="{{ old('english_image') }}"><br>
                                             @if ($errors->has('english_image'))
-                                                <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('english_image', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
@@ -107,7 +107,7 @@
                                             <input type="file" name="marathi_image" id="marathi_image" accept="image/*"
                                                 value="{{ old('marathi_image') }}"><br>
                                             @if ($errors->has('marathi_image'))
-                                                <span class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('marathi_image', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
@@ -117,7 +117,7 @@
                                             <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"
                                                 value="{{ old('english_pdf') }}">
                                             @if ($errors->has('english_pdf'))
-                                                <span class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('english_pdf', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
@@ -127,10 +127,10 @@
                                             <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
                                                 value="{{ old('marathi_pdf') }}">
                                             @if ($errors->has('marathi_pdf'))
-                                                <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                         {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}

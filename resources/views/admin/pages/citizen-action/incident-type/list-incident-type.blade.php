@@ -98,6 +98,10 @@
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>
+        <form method="POST" action="{{ url('/update-one-incident_type') }}" id="activeform">
+            @csrf
+            <input type="hidden" name="active_id" id="active_id" value="">
+        </form>
 
         <!-- content-wrapper ends -->
     @endsection

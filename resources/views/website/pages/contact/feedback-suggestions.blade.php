@@ -3,10 +3,29 @@
     <!--Sub Header Start-->
     <section class="wf100 subheader">
         <div class="container">
-            <h2>Contact Us </h2>
+            <h2>
+                @if (session('language') == 'mar')
+                    {{ Config::get('marathi.CONTACT_US.CONTACT_US_HEADING') }}
+                @else
+                    {{ Config::get('english.CONTACT_US.CONTACT_US_HEADING') }}
+                @endif
+            </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">Home</a> </li>
-                <li>Feedback And Suggestions </li>
+
+                <li> <a href="{{ route('index') }}">
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.CONTACT_US.CONTACT_US_MAIN_LINK') }}
+                        @else
+                            {{ Config::get('english.CONTACT_US.CONTACT_US_MAIN_LINK') }}
+                        @endif
+                    </a> </li>
+                <li>
+                    @if (session('language') == 'mar')
+                        {{ Config::get('marathi.CONTACT_US.CONTACT_US_SUB_LINK2') }}
+                    @else
+                        {{ Config::get('english.CONTACT_US.CONTACT_US_SUB_LINK2') }}
+                    @endif
+                </li>
             </ul>
         </div>
     </section>
@@ -79,12 +98,27 @@
                                         <span class="red-text"><?php echo $errors->first('subject', ':message'); ?></span>
                                     @endif
                                 </div>
+
+
                                 <div class="col-md-12">
                                     <textarea class="gap-text" name="suggestion" placeholder="Write Any Feedback/Suggestion">{{ old('suggestion') }}</textarea>
                                     @if ($errors->has('suggestion'))
                                         <span class="red-text"><?php echo $errors->first('suggestion', ':message'); ?></span>
                                     @endif
                                 </div>
+
+                                <div class="col-md-12">
+                                    {!! NoCaptcha::renderJs() !!}
+                                    {!! NoCaptcha::display() !!}
+
+                                    @if ($errors->has('g-recaptcha-response'))
+                                        <span class="help-block">
+                                            <span class="red-text">{{ $errors->first('g-recaptcha-response') }}</span>
+                                        </span>
+                                    @endif
+                                </div>
+
+
                                 <div class="col-md-12">
                                     <input class="gap-text" type="submit" value="Send Message">
                                 </div>

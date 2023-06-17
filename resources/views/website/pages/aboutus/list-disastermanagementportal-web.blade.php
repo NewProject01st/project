@@ -1,13 +1,31 @@
     @extends('website.layout.master')
-    
+
     @section('content')
         <!--Subheader Start-->
         <section class="wf100 subheader">
             <div class="container">
-                <h2>About Us </h2>
+                <h2>
+                    @if (session('language') == 'mar')
+                        {{ Config::get('marathi.ABOUT_US.ABOUT_US_HEADING') }}
+                    @else
+                        {{ Config::get('english.ABOUT_US.ABOUT_US_HEADING') }}
+                    @endif
+                </h2>
                 <ul>
-                    <li> <a href="{{ route('index') }}">Home</a> </li>
-                    <li>Disaster Management Portal </li>
+                    <li> <a href="{{ route('index') }}">
+                            @if (session('language') == 'mar')
+                                {{ Config::get('marathi.ABOUT_US.ABOUT_US_MAIN_LINK') }}
+                            @else
+                                {{ Config::get('english.ABOUT_US.ABOUT_US_MAIN_LINK') }}
+                            @endif
+                        </a> </li>
+                    <li>
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.ABOUT_US.ABOUT_US_SUB_LINK1') }}
+                        @else
+                            {{ Config::get('english.ABOUT_US.ABOUT_US_SUB_LINK1') }}
+                        @endif
+                    </li>
                 </ul>
             </div>
         </section>
@@ -21,19 +39,19 @@
                         <div class="col-md-9">
                             <!--Department Details Txt Start-->
                             @forelse($data_output  as $item)
-                            <div class="deprt-txt">
-                                @if (session('language') == 'mar')
-                                    <h3><?php echo $item['marathi_title']; ?> </h3>
-                                    <img src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW')}}{{ $item['marathi_image'] }}"
-                                        class="d-block w-100" alt="{{ strip_tags($item['marathi_title'])}}">
-                                    <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
-                                @else
-                                    <h3><?php echo $item['english_title']; ?> </h3>
-                                    <img src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW')}}{{ $item['english_image'] }}"
-                                        class="d-block w-100" alt="{{ strip_tags($item['english_title'])}}">
-                                    <p style="text-align: justify;" class="mt-p2"> <?php echo $item['english_description']; ?></p>
-                                @endif
-                            </div>
+                                <div class="deprt-txt">
+                                    @if (session('language') == 'mar')
+                                        <h3><?php echo $item['marathi_title']; ?> </h3>
+                                        <img src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW') }}{{ $item['marathi_image'] }}"
+                                            class="d-block w-100" alt="{{ strip_tags($item['marathi_title']) }}">
+                                        <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
+                                    @else
+                                        <h3><?php echo $item['english_title']; ?> </h3>
+                                        <img src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW') }}{{ $item['english_image'] }}"
+                                            class="d-block w-100" alt="{{ strip_tags($item['english_title']) }}">
+                                        <p style="text-align: justify;" class="mt-p2"> <?php echo $item['english_description']; ?></p>
+                                    @endif
+                                </div>
                             @empty
                                 <h4>No Data Found For Disaster Management Portal</h4>
                             @endforelse
@@ -50,5 +68,4 @@
             <!--Department Details Page End-->
         </div>
         <!--Main Content End-->
-
     @endsection
