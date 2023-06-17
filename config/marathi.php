@@ -97,6 +97,8 @@ return [
 		'CITIZEN_ACTION_SUB_LINK1' =>'घटना क्राउडसोर्सिंगची तक्रार करा',
 		'CITIZEN_ACTION_SUB_LINK2' =>'स्वयंसेवक नागरिक समर्थन',
 		'CITIZEN_ACTION_SUB_LINK3' =>'नागरिकांच्या प्रतिक्रिया सूचना',
+		'CITIZEN_ACTION_SUB_LINK4' =>'घटना नोंदवा',
+
 	],
 
 	'TRAINING_WORKSHOP'=>[ 

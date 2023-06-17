@@ -4,8 +4,8 @@
         img {
             width: 100%;
             justify-content: center;
-            display: flex;
-            margin-bottom:25px;
+            /* display: flex; */
+            /* margin-bottom:25px; */
         }
 
      

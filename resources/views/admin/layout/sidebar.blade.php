@@ -18,8 +18,11 @@
                   </div>
               </li>
               {{-- @if (in_array('dashboard', $data_for_url)) --}}
-              <li class="nav-item active">
-                  <a class="nav-link" href="{{ route('/dashboard') }}">
+              <li
+              class="{{request()->is('dashboard*') 
+                    ? 'nav-item active' : 'nav-item' }}">
+                  <a class="{{request()->is('dashboard*') 
+                                    ? 'nav-link active' : 'nav-link' }}" href="{{ route('/dashboard') }}">
                       <i class="fa fa-home menu-icon"></i>
                       <span class="menu-title">Dashboard</span>
                   </a>
@@ -27,8 +30,10 @@
               {{-- @endif           --}}
               @if (in_array('list-role', $data_for_url) ||
                       in_array('list-incident-type', $data_for_url))
-                  <li class="nav-item">
-                      <a class="nav-link" data-toggle="collapse" href="#master" aria-expanded="false"
+                  <li class="{{request()->is('list-role*') 
+                    ? 'nav-item active' : 'nav-item' }}">
+                      <a class="{{request()->is('list-role*') 
+                                    ? 'nav-link active' : 'nav-link' }}" data-toggle="collapse" href="#master" aria-expanded="false"
                           aria-controls="master">
                           <i class="fa fa-th-large menu-icon"></i>
                           <span class="menu-title">Master</span>
@@ -37,11 +42,13 @@
                       <div class="collapse" id="master">
                           <ul class="nav flex-column sub-menu">
                               @if (in_array('list-role', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  <li class="nav-item d-none d-lg-block"><a class="{{request()->is('list-role*') 
+                                    ? 'nav-link active' : 'nav-link' }}"
                                           href="{{ route('list-role') }}">Role</a></li>
                               @endif
                               @if (in_array('list-incident-type', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  <li class="nav-item d-none d-lg-block"><a class="{{request()->is('list-incident-type*') 
+                                    ? 'nav-link active' : 'nav-link' }}"
                                           href="{{ route('list-incident-type') }}">Incident Type</a></li>
                               @endif
                           </ul>
@@ -52,7 +59,8 @@
                in_array('list-header-rti', $data_for_url) || 
                in_array('list-main-menu', $data_for_url) ||
                 in_array('list-sub-menu', $data_for_url))
-                  <li class="nav-item">
+                  <li class="{{request()->is('list-header-rti*') 
+                    ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#menu" aria-expanded="false"
                           aria-controls="menu">
                           <i class="fas fa-bars fa-lg menu-icon"></i>
@@ -119,7 +127,8 @@
                  </li>
              @endif
               @if (in_array('list-dynamic-page', $data_for_url))
-                  <li class="nav-item">
+                  <li class="{{request()->is('list-dynamic-page*') 
+                    ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#pages" aria-expanded="false"
                           aria-controls="pages">
                           <i class="fas fa-file-alt fa-lg menu-icon"></i>
@@ -145,7 +154,8 @@
                       in_array('list-department-information', $data_for_url) ||
                       in_array('list-general-contact', $data_for_url))
 
-                  <li class="nav-item">
+                  <li class="{{request()->is('list-general-contact*') 
+                    ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#home" aria-expanded="false"
                           aria-controls="home">
                           <i class="fas fa-home fa-lg menu-icon"></i>
@@ -205,7 +215,8 @@
               @if (in_array('list-disastermanagementportal', $data_for_url) ||
                       in_array('list-objectivegoals', $data_for_url) ||
                       in_array('list-statedisastermanagementauthority', $data_for_url))
-                  <li class="nav-item">
+                  <li class="{{request()->is('list-statedisastermanagementauthority*') 
+                    ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#aboutus" aria-expanded="false"
                           aria-controls="aboutus">
                           <i class="fas fa-address-card fa-lg menu-icon"></i>
@@ -239,7 +250,8 @@
                       in_array('list-early-warning-system', $data_for_url) ||
                       in_array('list-capacity-building-and-training', $data_for_url) ||
                       in_array('list-public-awareness-and-education', $data_for_url))
-                  <li class="nav-item">
+                  <li class="{{request()->is('list-public-awareness-and-education*') 
+                    ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#preparedness" aria-expanded="false"
                           aria-controls="preparedness">
                           <i class="fas fa-toolbox fa-lg menu-icon"></i>
@@ -280,7 +292,8 @@
                       in_array('list-evacuation-plans', $data_for_url) ||
                       in_array('list-relief-measures-resources', $data_for_url) ||
                       in_array('list-search-rescue-teams', $data_for_url))
-                  <li class="nav-item">
+                  <li class="{{request()->is('list-search-rescue-teams*') 
+                    ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#emergency-response" aria-expanded="false"
                           aria-controls="emergency-response">
                           <i class="fas fa-first-aid fa-lg menu-icon"></i>
@@ -331,7 +344,8 @@
                       in_array('list-incident-modal-info', $data_for_url) ||
                       in_array('list-volunteer-modal-info', $data_for_url) ||
                       in_array('list-feedback-modal-info', $data_for_url))
-                  <li class="nav-item">
+                  <li class="{{request()->is('list-feedback-modal-info*') 
+                    ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#citizen-action" aria-expanded="false"
                           aria-controls="citizen-action">
                           <i class="fas fa-building fa-lg menu-icon"></i>
@@ -383,7 +397,8 @@
                   </li>
               @endif
               @if (in_array('list-event', $data_for_url))
-                  <li class="nav-item">
+                  <li class="{{request()->is('list-event*') 
+                    ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" href="{{ route('list-event') }}">
                           <i class="fas fa-window-restore menu-icon"></i>
                           <span class="menu-title">Training Workshops</span>
@@ -394,7 +409,8 @@
                       in_array('list-district-disaster-management-plan', $data_for_url) ||
                       in_array('list-state-disaster-management-policy', $data_for_url) ||
                       in_array('list-relevant-laws-and-regulations', $data_for_url))
-                  <li class="nav-item">
+                  <li class="{{request()->is('list-relevant-laws-and-regulations*') 
+                    ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#policie-legislation" aria-expanded="false"
                           aria-controls="policie-legislation">
                           <i class="fa fa-th-large menu-icon menu-icon"></i>
@@ -437,7 +453,8 @@
               in_array('list-gallery-category', $data_for_url) ||
               in_array('list-video', $data_for_url)||
               in_array('list-training-workshop', $data_for_url))
-                  <li class="nav-item">
+                  <li class="{{request()->is('list-training-workshop*') 
+                    ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#resource-center" aria-expanded="false"
                           aria-controls="resource-center">
                           <i class="fas fa-search fa-lg menu-icon"></i>
@@ -482,7 +499,8 @@
                   </li>
               @endif
               @if (in_array('list-success-stories', $data_for_url))
-                  <li class="nav-item">
+                  <li  class="{{request()->is('list-success-stories*') 
+                    ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#news-events" aria-expanded="false"
                           aria-controls="news-events">
                           <i class="fas fa-newspaper fa-lg "></i>
@@ -503,7 +521,8 @@
                   </li>
               @endif
               @if (in_array('list-contact-suggestion', $data_for_url))
-                  <li class="nav-item">
+                  <li class="{{request()->is('list-contact-suggestion*') 
+                    ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" href="{{ route('list-contact-suggestion') }}">
                           <i class="fas fa-window-restore menu-icon"></i>
                           <span class="menu-title">Contact Us</span>
@@ -511,7 +530,8 @@
                   </li>
               @endif
               @if (in_array('list-metadata', $data_for_url))
-                  <li class="nav-item">
+                  <li class="{{request()->is('list-metadata*') 
+                    ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" href="{{ route('list-metadata') }}">
                           <i class="fas fa-window-restore menu-icon"></i>
                           <span class="menu-title">Metadata</span>
@@ -519,7 +539,8 @@
                   </li>
               @endif
               @if (in_array('list-users', $data_for_url))
-                  <li class="nav-item">
+                  <li class="{{request()->is('list-users*') 
+                    ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#master-management" aria-expanded="false"
                           aria-controls="master-management">
                           <i class="fas fa-user menu-icon"></i>
