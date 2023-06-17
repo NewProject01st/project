@@ -201,7 +201,7 @@
                             No Categries found
                         @endforelse
                         <div class="gallery">
-                            <div id="gallary_data">
+                            <div class="row" id="gallary_data">
                                 @forelse ($gallery_data as $item)
                                     <div class="col-md-4 nature">
                                         <figure class="card animals">
@@ -224,6 +224,8 @@
                                                     <img class="modal-content">
                                                 </div>
                                             @endif
+                                        </figure>
+                                    </div>
                                         @empty
                                             No Categries found
                                 @endforelse
@@ -248,11 +250,11 @@
                 },
                 success: function(data) {
                     $("#gallary_data").empty();
-                    $("#gallary_data").append('<div class="col-md-4 nature"><figure class="card animals">');
+                  
                     $.each(data, function(i, item) {
 
                         @if (session('language') == 'mar')
-                            $("#gallary_data").append(`
+                            $("#gallary_data").append(`<div class="col-md-4 nature"><figure class="card animals">
                                                 <img  data-id="Satish" style="border-radius: 5px;cursor: pointer;transition: 0.3s;width: 20%;object-fit: cover;height: 20%;"
                                                 src="item . english_image" 
                                                     alt="...">
@@ -260,20 +262,23 @@
                                                 <span class="close">&times;</span>
                                                 <img class="modal-content">
                                             </div>
+                                        </figure> </div>
                                             `);
                         @else
 
-                            $("#gallary_data").append(`
+                            $("#gallary_data").append(`<div class="col-md-4 nature"><figure class="card animals">
                                             <img data-id="Satish" style="border-radius: 5px;cursor: pointer;transition: 0.3s;width: 20%;object-fit: cover;height: 20%;"
                                                 src="` + item.english_image + `" class="d-block w-100 img-fluid"
                                                     alt="...">
                                                 <div class = "idMyModal modal" >
                                                 <span class = "close" >&times;< /span> <
                                                 img class = "modal-content" >
-                                                </div>`);
+                                                </div>
+                                            </figure> </div>
+                                                `);
                         @endif
                     });
-                    $("#gallary_data").append('</figure> </div>');
+             
 
                 },
                 error: function(data) {}

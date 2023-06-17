@@ -9,7 +9,7 @@ return [
 		'HELP_AND_EMERENCY_SERVICE' =>'हेल्पलाइन आणि आपत्कालीन सेवा',
 		'OPEN_VACANCIES' =>'रिक्त जागा उघडा	',
 		'DISASTER_MANAGEMENT_HEAD' =>'आपत्ती व्यवस्थापन प्रमुख',
-		'DISASTER_MANAGEMENT_NEWS' =>'आपत्ती व्यवस्थापन बातम्यांसह अद्ययावत रहा',
+		'DISASTER_MANAGEMENT_NEWS' =>'आपत्ती व्यवस्थापन बातम्या',
 		'DEPARTMENT_INFORMATION_DESK' =>'विभाग आणि माहिती डेस्क	',
 		'COUNCIL_ADDRESS' =>'परिषद पत्ता:',
 		'EMAIL' =>'ईमेल:',
@@ -130,7 +130,7 @@ return [
 		'NEWS_EVENTS_SUB_LINK1' =>'आपत्ती व्यवस्थापन बातम्या',
 		'NEWS_EVENTS_SUB_LINK3' =>' यशोगाथा	',
 
-		'DISASTER_MANAGEMENT_NEWS' =>'आपत्ती व्यवस्थापन बातम्यांसह अद्ययावत रहा',
+		'DISASTER_MANAGEMENT_NEWS' =>'आपत्ती व्यवस्थापन बातम्या',
 	],
 
 	'CONTACT_US'=>[ 
