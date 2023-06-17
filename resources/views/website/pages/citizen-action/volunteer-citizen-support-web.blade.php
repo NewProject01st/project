@@ -1,6 +1,14 @@
 @extends('website.layout.master')
 @section('content')
 
+<style>
+    .new_modal_page_btn{
+        width: 100%;
+        line-height: 25px;
+        padding: 10px 30px 10px;
+    }
+</style>
+
     <!--Sub Header Start-->
     <section class="wf100 subheader">
         <div class="container">
@@ -101,21 +109,22 @@
                                         <span class="red-text"><?php echo $errors->first('mobile_number', ':message'); ?></span>
                                     @endif
                                     </div>
-                                    <div class="col-md-6 mb-2">
-                                        <label class="col-form-label modal_lable">Media Upload:</label><br>
-                                        <input type="file" name="media_upload" id="media_upload">
-                                        @if ($errors->has('media_upload'))
-                                        <span class="red-text"><?php echo $errors->first('media_upload', ':message'); ?></span>
-                                    @endif
-                                    </div>
-                                    <div class="col-md-6 mb-2">
+
+                                    <div class="col-md-12 mb-4">
                                         <label class="col-form-label modal_lable">Description:</label>
                                         <textarea class="form-control set_m_form" name="description" id="description"></textarea>
                                         @if ($errors->has('description'))
                                         <span class="red-text"><?php echo $errors->first('description', ':message'); ?></span>
                                     @endif
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <label class="col-form-label modal_lable">Media Upload:</label><br>
+                                        <input type="file" name="media_upload" id="media_upload"> <br>
+                                        @if ($errors->has('media_upload'))
+                                        <span class="red-text"><?php echo $errors->first('media_upload', ':message'); ?></span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6">
                                     {!! NoCaptcha::renderJs() !!}
                                     {!! NoCaptcha::display() !!}
 
@@ -128,8 +137,8 @@
                                 </div>
                             </div>
 
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Send</button>
+                            <div class="modal-footer mt-4" style="float: right;">
+                                <button type="submit" class="btn btn-primary new_modal_page_btn">Send</button>
                             </div>
                         </form>
 
