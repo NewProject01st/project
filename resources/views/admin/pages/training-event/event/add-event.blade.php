@@ -66,8 +66,9 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="start_date">Start Date</label>&nbsp<span class="red-text">*</span>
-                                            <input type="date" class="form-control" name="start_date" id="start_date"
-                                                placeholder="Selecte Start Date" value="{{ old('start_date') }}">
+                                            <input type="text" class="form-control datePicker" name="start_date"
+                                                id="start_date" placeholder="Selecte Start Date"
+                                                value="{{ old('start_date') }}">
                                             @if ($errors->has('start_date'))
                                                 <span class="red-text"><?php echo $errors->first('start_date', ':message'); ?></span>
                                             @endif
@@ -76,8 +77,8 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="end_date">End Date</label>&nbsp<span class="red-text">*</span>
-                                            <input type="date" class="form-control" name="end_date" id="end_date"
-                                                placeholder="Selecte End Date" value="{{ old('end_date') }}">
+                                            <input type="text" class="form-control datePicker" name="end_date"
+                                                id="end_date" placeholder="Selecte End Date" value="{{ old('end_date') }}">
                                             @if ($errors->has('end_date'))
                                                 <span class="red-text"><?php echo $errors->first('end_date', ':message'); ?></span>
                                             @endif
@@ -119,4 +120,28 @@
                 </div>
             </div>
         </div>
+
+        <script>
+         $(function() {
+            $("#end_date").datepicker({
+                format: 'dd-mm-yyyy',
+                startDate: new Date(),
+                autoclose: true,
+                closeOnDateSelect: true
+            }).on('change', function() {
+                $(this).valid();
+            });
+        });
+
+        $(function() {
+            $("#start_date").datepicker({
+                format: 'dd-mm-yyyy',
+                startDate: new Date(),
+                autoclose: true,
+                closeOnDateSelect: true
+            }).on('change', function() {
+                $(this).valid();
+            });
+        });
+        </script>
     @endsection
