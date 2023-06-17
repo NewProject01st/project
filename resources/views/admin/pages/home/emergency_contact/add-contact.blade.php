@@ -64,7 +64,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="english_address">English Address</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -75,7 +75,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="marathi_address">Marathi Address</label>&nbsp<span
                                                 class="red-text">*</span>

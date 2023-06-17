@@ -127,7 +127,7 @@
                             </div>
                             <div class="col-md-8 col-sm-7">
                                 <div class="Mayor-welcome">
-                                    <h5><?php echo $item['english_title']; ?></h5>
+                                    <h5 class="h5-head"><?php echo $item['english_title']; ?></h5>
                                     <p><?php echo $item['english_description']; ?></p>
                                     <h6><?php echo $item['english_name']; ?></h6>
                                     <strong><?php echo $item['english_designation']; ?></strong>
@@ -169,8 +169,8 @@
                                             <?php echo $item['disaster_date']; ?></li>
                                         {{-- <li>176 Comments</li> --}}
                                     </ul>
-                                    <h6 class="card_title"><a href="#"><?php echo mb_substr($item['marathi_title'], 0, 31) ?>...</a></h6>
-                                    <p class="card_title"> <?php echo mb_substr($item['marathi_description'], 0, 74) ?>...</p>
+                                    <h6 class="card_title"><a href="#"><?php echo $item['marathi_title']; ?>...</a></h6>
+                                    <p class="card_title"> <?php echo $item['marathi_description']; ?>...</p>
                                 </div>
                                 <div class="news-box-f cursor-pointer">
                                      <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
@@ -193,8 +193,8 @@
                                     <?php echo $item['disaster_date']; ?></li>
                                 {{-- <li>176 Comments</li> --}}
                             </ul>
-                            <h6 class="card_title"><a href="#"><?php echo mb_substr($item['english_title'], 0, 31) ?>...</a></h6>
-                            <p class="card_title"> <?php echo mb_substr($item['english_description'], 0, 74) ?>...</p>
+                            <h6 class="card_title_main"><a href="#"><?php echo $item['english_title']; ?>...</a></h6>
+                            <p class="card_title"> <?php echo $item['english_description']; ?>...</p>
                         </div>
                         <div class="news-box-f cursor-pointer">
                              <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a data-id="{{ $item['id'] }}" class="show-btn"><i

@@ -47,7 +47,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="english_description">Description English</label>&nbsp<span
                                             class="red-text">*</span>
@@ -60,7 +60,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label for="marathi_description"> Description Marathi</label>&nbsp<span
                                             class="red-text">*</span>
@@ -69,15 +69,6 @@
                                         @if ($errors->has('marathi_description'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
-                                        <input class="form-control url" name="url" id="url" value="{{ old('url') }}" placeholder="Enter the URL">
-                                        @if ($errors->has('url'))
-                                        <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                         @endif
                                     </div>
                                 </div>
@@ -100,6 +91,15 @@
                                         @if ($errors->has('marathi_image'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
+                                        <input class="form-control url" name="url" id="url" value="{{ old('url') }}" placeholder="Enter the URL">
+                                        @if ($errors->has('url'))
+                                        <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                         @endif
                                     </div>
                                 </div>
