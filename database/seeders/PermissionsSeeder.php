@@ -226,7 +226,7 @@ class PermissionsSeeder extends Seeder
                         'created_at' => \Carbon\Carbon::now(),
                         'updated_at' => \Carbon\Carbon::now(),
                         'route_name' => 'Emergency Contact Numbers',
-                        'url' => 'list-emergency-contact-numbers',
+                        'url' => 'edit-emergency-contact-numbers',
                         'permission_name' => 'Emergency Contact Numbers',
                     ]);
             Permissions::create(

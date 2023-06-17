@@ -118,7 +118,8 @@ class EmergencyContactNumbersController extends Controller
         }
     }
     public function edit(Request $request){
-        $edit_data_id = $request->edit_id;
+        // $edit_data_id = $request->edit_id;
+        $edit_data_id = 1;
         $emergencycontact_data = $this->service->getById($edit_data_id);
         // dd($emergencycontactnumbers);
         return view('admin.pages.emergency-response.emergency-contact-numbers.edit-emergency-contact-numbers', compact('emergencycontact_data'));
