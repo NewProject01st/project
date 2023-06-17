@@ -178,22 +178,10 @@
  <footer class="home3 footer wf100">
      <div class="container">
          <div class="row">
-             <div class="col-md-7 col-sm-7">
-                 <p class="copyr">
-                     @if (session('language') == 'mar')
-                         {{ Config::get('marathi.FOOTER.COPYRIGHT1') }}
-                     @else
-                         {{ Config::get('english.FOOTER.COPYRIGHT1') }}
-                     @endif <a href="#">
-                         @if (session('language') == 'mar')
-                             {{ Config::get('marathi.FOOTER.COPYRIGHT2') }}
-                         @else
-                             {{ Config::get('english.FOOTER.COPYRIGHT2') }}
-                         @endif
-                     </a>
-                 </p>
+             <div class="col-6">
+                 <p class="copyr"> © 2023, <a href="#">All rights reserved</a></p>
              </div>
-             <div class="col-md-5 col-sm-5">
+             <div class="col-6">
                  <ul class="footer-social">
                      <li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>
                      <li><a href="#" class="tw"><i class="fab fa-twitter"></i></a></li>

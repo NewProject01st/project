@@ -97,17 +97,15 @@
                     <div class="col-4 lang-position">
                         <div class="row d-flex justify-content-end">
                             <div class="col-md-9 col-sm-9">
-
                                 <ul class="header-contact">
                                     <li class="city-exp for_pl_pr"> <i class="fas fa-street-view"></i>
                                         <strong>City<br>Nashik</strong>
                                     </li>
                                     <li class="header-weather for_pl_pr"> <i class="fas fa-cloud-sun"></i>
                                         {{ getTempratureData() }}°C
-                                        / {{ getTempratureData() * 1.8 + 32 }}°F </li>
-
+                                        / {{ getTempratureData() * 1.8 + 32 }}°F 
+                                    </li>
                                 </ul>
-
                             </div>
 
                             <div class="col-3">

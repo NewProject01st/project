@@ -290,7 +290,7 @@ function getTempratureData() {
     //     dd("in else ");
     //     getTemprature();
     // }
-    return getTempratureFromAPI();
+    return '32';//getTempratureFromAPI();
 
 }
 

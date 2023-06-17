@@ -15402,7 +15402,7 @@ button.bg-dark:focus,
 }
 
 .d-none {
-  display: none !important;
+  display: block !important;
 }
 
 .d-inline {
@@ -18592,6 +18592,7 @@ input:focus {
 .sidebar .nav.sub-menu .nav-item .nav-link.active {
   color: #392C70;
   background: transparent;
+  background-color: #ee671f42 !important;
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link.active:before {
@@ -29535,4 +29536,10 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
     margin-left: 13px;
 
   }
+}
+
+/*  */
+.sidebar .nav.sub-menu .nav-item:focus {
+  padding: 0;
+  background-color: #ee671f42 !important;
 }

@@ -51,7 +51,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="english_description">Description English</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -66,15 +66,15 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label> Description Marathi</label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="Enter the Description">
-@if (old('marathi_description'))
-{{ old('marathi_description') }}@else{{ $disaster_news->marathi_description }}
-@endif
-</textarea>
+                                                @if (old('marathi_description'))
+                                                {{ old('marathi_description') }}@else{{ $disaster_news->marathi_description }}
+                                                @endif
+                                            </textarea>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
                                             @endif

@@ -200,13 +200,14 @@
                         @empty
                             No Categries found
                         @endforelse
-                        <div class="gallery">
-                            <div class="row" id="gallary_data">
+                        <div class="row  d-flex gallery">
+                            <div class="d-flex" id="gallary_data">
+                                <?php $k=1; ?>
                                 @forelse ($gallery_data as $item)
                                     <div class="col-md-4 nature">
                                         <figure class="card animals">
                                             @if (session('language') == 'mar')
-                                                <img class="card__image toZoom" loading="lazy"
+                                                <img class="card__image toZoom" id="img{{$k}}" loading="lazy"
                                                     src="{{ $item['marathi_image'] }}" class="d-block w-100 img-fluid"
                                                     alt="...">
                                                 <!-- The Modal -->
@@ -215,8 +216,8 @@
                                                     <img class="modal-content">
                                                 </div>
                                             @else
-                                                <img class="card__image toZoom" loading="lazy"
-                                                    src="{{ $item['english_image'] }}" class="d-block w-100 img-fluid"
+                                                <img class="card__image toZoom p-3 d-block w-100 img-fluid" loading="lazy"
+                                                    src="{{ $item['english_image'] }}" 
                                                     alt="...">
                                                 <!-- The Modal -->
                                                 <div class="idMyModal modal">
@@ -224,10 +225,11 @@
                                                     <img class="modal-content">
                                                 </div>
                                             @endif
-                                        </figure>
-                                    </div>
+    </figure>
+    </div>
                                         @empty
                                             No Categries found
+                                            <?php $k++ ?>
                                 @endforelse
                             </div>
                         </div>
@@ -237,6 +239,10 @@
         </section>
     </div>
     <script>
+        // $(document).ready(function() {
+        //     myFunction('');
+        // });
+        
         function myFunction(category_id) {
             $("#gallary_data").empty();
             $.ajax({
@@ -250,46 +256,55 @@
                 },
                 success: function(data) {
                     $("#gallary_data").empty();
-                  
+                    // $("#gallary_data").append('<div class="col-md-4 nature"><figure class="card animals">');
                     $.each(data, function(i, item) {
 
+                            console.log(item.english_image);
                         @if (session('language') == 'mar')
-                            $("#gallary_data").append(`<div class="col-md-4 nature"><figure class="card animals">
-                                                <img  data-id="Satish" style="border-radius: 5px;cursor: pointer;transition: 0.3s;width: 20%;object-fit: cover;height: 20%;"
-                                                src="item . english_image" 
+                            $("#gallary_data").append(`<div class="col-md-4 nature">
+                                            <figure class="card animals">
+                                            <img class="card__image toZoom" loading="lazy"
+                                                    src="item . english_image" class="d-block w-100 img-fluid"
                                                     alt="...">
                                             <div class="idMyModal modal">
                                                 <span class="close">&times;</span>
                                                 <img class="modal-content">
                                             </div>
-                                        </figure> </div>
+                                            </figure>
+                                             </div>
                                             `);
                         @else
 
-                            $("#gallary_data").append(`<div class="col-md-4 nature"><figure class="card animals">
-                                            <img data-id="Satish" style="border-radius: 5px;cursor: pointer;transition: 0.3s;width: 20%;object-fit: cover;height: 20%;"
-                                                src="` + item.english_image + `" class="d-block w-100 img-fluid"
-                                                    alt="...">
-                                                <div class = "idMyModal modal" >
-                                                <span class = "close" >&times;< /span> <
-                                                img class = "modal-content" >
-                                                </div>
-                                            </figure> </div>
-                                                `);
+
+                        $("").attr();
+                            // $("#gallary_data").append(`<div class="col-md-4 nature">
+                            // <figure class="card animals">
+                            // <img class="card__image toZoom p-3 d-block w-100 img-fluid" loading="lazy"
+                            //                         src="`+item.english_image+`" class="d-block w-100 img-fluid"
+                            //                         alt="...">
+                            //                         <!-- The Modal -->
+                            //                     <div class="idMyModal modal">
+                            //                         <span class="close">&times;</span>
+                            //                         <img class="modal-content">
+                            //                     </div>
+                            //                     </figure>
+                            //                  </div>`);
                         @endif
                     });
-             
+                    // $("#gallary_data").append('</figure> </div>');
 
                 },
                 error: function(data) {}
             });
         }
+   
     </script>
     <!--Main Content End-->
     <script>
         const modal = document.getElementsByClassName('idMyModal');
         const img = document.getElementsByClassName('toZoom');
         const modalImg = document.getElementsByClassName('modal-content');
+        alert(img);
         for (let i = 0; i < img.length; i++) {
             img[i].onclick = function() {
                 modal[i].style.display = "block";
