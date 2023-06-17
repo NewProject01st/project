@@ -13,7 +13,7 @@ class ObjectiveGoals extends Migration
      */
     public function up()
     {
-        Schema::create('objective-goals', function (Blueprint $table) {
+        Schema::create('objective_goals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('english_title');
             $table->text('marathi_title');

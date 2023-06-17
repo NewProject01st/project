@@ -32,7 +32,7 @@ class DBBackupController extends Controller
          foreach ($result as $row) {
              array_push($tables,$row[0]);
          }
-         dd($result);
+        //  dd($result);
          $output = '';
          foreach($tables as $table)
          {
