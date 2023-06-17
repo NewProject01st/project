@@ -340,14 +340,14 @@
                             <li> <a href="#"><i class="fas fa-file-alt"></i> 30 Days Plans of Govt.</a> </li>
                             <li> <a href="#"><i class="fas fa-file-alt"></i> Court Case about TAX</a> </li>
                         </ul>
-
+--}}
                     <div class="emergency-info mt-2">
-                        <h5> Live Data </h5>
+                        <h5> Live Forcast Data </h5>
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item custom-accordion-item">
                                 <h2 class="accordion-header accordion-header-custom" id="flush-headingOne">
                                 <button class="accordion-button accordion-button-custom collapsed bg-secondary-custom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    Accordion Item #1
+                                    Disaster Forcast
                                 </button>
                                 </h2>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse bg-secondary-custom" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -357,29 +357,30 @@
                             <div class="accordion-item custom-accordion-item">
                                 <h2 class="accordion-header accordion-header-custom" id="flush-headingTwo">
                                 <button class="accordion-button accordion-button-custom collapsed bg-secondary-custom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                    Accordion Item #2
+                                    Weather Forcast
                                 </button>
                                 </h2>
                                 <div id="flush-collapseTwo" class="accordion-collapse collapse bg-secondary-custom" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                                </div>
-                            </div>
-                            <div class="accordion-item custom-accordion-item">
-                                <h2 class="accordion-header accordion-header-custom" id="flush-headingThree">
-                                <button class="accordion-button accordion-button-custom collapsed bg-secondary-custom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                    Accordion Item #3
-                                </button>
-                                </h2>
-                                <div id="flush-collapseThree" class="accordion-collapse collapse bg-secondary-custom" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
-                                    Placeholder content for this accordion, which is intended to demonstrate the accordion-flus class.</div>
+                                    {{-- <ul class="header-contact"> --}}
+                                        <div class="city-exp for_pl_pr w-100"> <i class="fas fa-street-view"></i>
+                                            <strong>City : Nashik</strong>
+                                        </div><br>
+                                        <div class="header-weather for_pl_pr"> <i class="fas fa-cloud-sun"></i>
+                                            {{ getTempratureData() }}°C
+                                            / {{ getTempratureData() * 1.8 + 32 }}°F </div>
+    
+                                    {{-- </ul> --}}
+                                    {{-- Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content. --}}
+                                </div>
                                 </div>
                             </div>
+                           
                             </div>
                         </div>
 
                     </div>
-                     --}}
+                     
                     </div>
                 </div>
             </div>

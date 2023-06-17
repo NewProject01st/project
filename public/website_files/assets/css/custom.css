@@ -2408,9 +2408,14 @@ justify-content: end;
 	list-style: none;
 	float: right;
 }
+.lang-position{
+	display: flex;
+	align-items: center;
+	justify-content: end !important;
+}
 .header-contact li {
 	float: left;
-	border-right: 1px solid #eeeeee;
+	/* border-right: 1px solid #eeeeee; */
 	text-align: left;
 	padding: 7px 3px;
 	font-size: 12px;
@@ -2425,6 +2430,11 @@ justify-content: end;
 .header-contact i {
 	color: #222;
 	font-size: 16px;
+}
+.city-exp{
+	display: flex;
+justify-content: start;
+align-items: baseline;
 }
 .city-exp i {
 	float: left;
