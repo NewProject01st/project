@@ -13,7 +13,7 @@ class CreateTrainingMaterialsWorkshops extends Migration
      */
     public function up()
     {
-        Schema::create('training-materials-workshops', function (Blueprint $table) {
+        Schema::create('training_materials_workshops', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('english_title');
             $table->text('marathi_title');
