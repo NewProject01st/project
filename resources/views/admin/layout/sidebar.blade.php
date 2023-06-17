@@ -558,5 +558,26 @@
                       @endif
                   </li>
               @endif
+
+               {{--@if (in_array('db-backup', $data_for_url)) --}}
+                  <li class="{{request()->is('db-backup*') 
+                    ? 'nav-item active' : 'nav-item' }}">
+                      <a class="nav-link" data-toggle="collapse" href="#db-backup" aria-expanded="false"
+                          aria-controls="db-backup">
+                          <i class="fas fa-user menu-icon"></i>
+                          <span class="menu-title">Data Base Backup</span>
+                          <i class="menu-arrow"></i>
+                      </a>
+                     {{-- @if (in_array('db-backup', $data_for_url)) --}}
+                          <?php $currenturl = Request::url(); ?>
+                          <div class="collapse" id="db-backup">
+                              <ul class="nav flex-column sub-menu">
+                                  <li class="nav-item d-none d-lg-block"> <a class="nav-link"
+                                          href="{{ route('db-backup') }}">Data Base Backup</a></li>
+                              </ul>
+                          </div>
+                     {{-- @endif --}}
+                  </li>
+             {{-- @endif --}}
           </ul>
       </nav><!-- partial -->
