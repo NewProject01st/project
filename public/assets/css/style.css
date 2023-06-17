@@ -29545,3 +29545,8 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
   padding: 0;
   background-color: #ee671f42 !important;
 }
+
+/* Summernote Pop set for image add time */
+.note-editor {
+  position: initial !important;
+}
