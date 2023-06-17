@@ -2,13 +2,15 @@
 @section('content')
     <style>
         img {
-            width: 50% !important;
-            float: left;
             height: 45% !important;
-            /* margin-top: 1% !important; */
+            margin-top: 1% !important;
             margin-right: 3% !important;
-            /* margin-bottom: 0% !important; */
-            border-radius: 10px !important;
+            float: left;
+            border-radius: 5px;
+        }
+
+        address{
+            padding-top: 10%;
         }
 
         h2 {
@@ -19,7 +21,6 @@
 
         p {
             margin-bottom: 0px !important;
-            color: #5e5c5c !important;
         }
 
         .gap-top {

@@ -2116,6 +2116,7 @@ body .btn-group.open .dropdown-toggle {
 	/* background: url(../images/footerbg.jpg) no-repeat; */
 	background-size: cover;
 	padding: 25px 0;
+	margin-top: 2%;
 }
 .home3.main-footer {
 	background: url(../images/footer.jpeg) no-repeat;
@@ -6581,6 +6582,18 @@ border-bottom: 1px solid #57578E;
 
 }
 
+.help_title {
+    /* display: inline-block; */
+    width: 100%;
+    /* white-space: nowrap; */
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+	-webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+	display: -webkit-box;
+
+}
+
 
 /* for sticky navbar */
 .fixed-top {
@@ -6613,4 +6626,10 @@ border-bottom: 1px solid #57578E;
 
 .set_m_form{
 	margin-top: 1px !important;
+}
+.btn:hover {
+    color: #fff;
+}
+.btn:first-child:active{
+	color: #fff;
 }

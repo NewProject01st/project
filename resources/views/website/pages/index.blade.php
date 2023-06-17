@@ -303,7 +303,8 @@
                                                 <h6 class="emergancy-contact"> <a role="button" data-toggle="collapse"
                                                         data-parent="#accordion" href="#collapse{{ $index }}"
                                                         aria-expanded="true"
-                                                        aria-controls="collapse{{ $index }}">{{ strip_tags($item['english_title']) }}
+                                                        aria-controls="collapse{{ $index }}" 
+                                                        class="help_title" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ strip_tags($item['english_title']) }}">{{ mb_substr(strip_tags($item['english_title']), 0, 19) }}
                                                     </a>
                                                 </h6>
                                             </div>
