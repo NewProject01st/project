@@ -1,0 +1,167 @@
+@extends('website.layout.master')
+@section('content')
+
+    <!--Sub Header Start-->
+    <section class="wf100 subheader">
+        <div class="container">
+            <h2>
+            @if (session('language') == 'mar')
+                        {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_HEADING') }}
+                    @else
+                        {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_HEADING') }}
+                    @endif
+            </h2>
+            <ul>
+
+                <li> <a href="{{ route('index') }}">
+                @if (session('language') == 'mar')
+                                {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_MAIN_LINK') }}
+                            @else
+                                {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_MAIN_LINK') }}
+                            @endif
+                    </a> </li>
+                <li>
+                @if (session('language') == 'mar')
+                            {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_SUB_LINK1') }}
+                        @else
+                            {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_SUB_LINK1') }}
+                        @endif
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--Sub Header End-->
+    <!--Main Content Start-->
+    <div class="main-content">
+
+        <!-- Google Map with Contact Form -->
+        <div class="map-form p80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 contact-form m80">
+                        <h3 class="stitle text-center">
+                            @if (session('language') == 'mar')
+                                {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_SUB_LINK4') }}
+                            @else
+                                {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_SUB_LINK4') }}
+                            @endif
+                        </h3>
+                        @if (Session::has('success_message'))
+                            <div class="alert alert-success">
+                                {{ Session::get('success_message') }}
+                            </div>
+                        @endif
+
+                        
+                        <form class="forms-sample" method="post" action="{{ url('report-modal') }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="col-md-12">
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label class="col-form-label modal_lable">Incident Type:</label>
+                                        <select class="form-control set_m_form" id="incident" name="incident">
+                                            <option value="">Select safdsafsafsafsafa</option>
+                                            @foreach ($data_output_incident as $incidenttype)
+                                                @if (session('language') == 'mar')
+                                                    <option value="{{ $incidenttype['id'] }}" selected>
+                                                        {{ $incidenttype['marathi_title'] }}</option>
+                                                @else
+                                                    <option value="{{ $incidenttype['id'] }}">
+                                                        {{ $incidenttype['english_title'] }}
+                                                    </option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                        @if ($errors->has('incident'))
+                                        <span class="red-text"><?php echo $errors->first('incident', ':message'); ?></span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="col-form-label modal_lable">Location:</label>
+                                        <input type="input" class="form-control set_m_form" name="location" id="location">
+
+                                        @if ($errors->has('location'))
+                                        <span class="red-text"><?php echo $errors->first('location', ':message'); ?></span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="col-form-label modal_lable">Date and Time:</label>
+                                        <input type="datetime-local" class="form-control set_m_form" name="datetime" id="datetime"
+                                        >
+                                        @if ($errors->has('datetime'))
+                                        <span class="red-text"><?php echo $errors->first('datetime', ':message'); ?></span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="col-form-label modal_lable">Mobile Number:</label>
+                                        <input type="input" class="form-control set_m_form" name="mobile_number" id="mobile_number" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
+                                        >
+                                        @if ($errors->has('mobile_number'))
+                                        <span class="red-text"><?php echo $errors->first('mobile_number', ':message'); ?></span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="col-form-label modal_lable">Media Upload:</label><br>
+                                        <input type="file" name="media_upload" id="media_upload">
+                                        @if ($errors->has('media_upload'))
+                                        <span class="red-text"><?php echo $errors->first('media_upload', ':message'); ?></span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="col-form-label modal_lable">Description:</label>
+                                        <textarea class="form-control set_m_form" name="description" id="description"></textarea>
+                                        @if ($errors->has('description'))
+                                        <span class="red-text"><?php echo $errors->first('description', ':message'); ?></span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-12">
+                                    {!! NoCaptcha::renderJs() !!}
+                                    {!! NoCaptcha::display() !!}
+
+                                    @if ($errors->has('g-recaptcha-response'))
+                                        <span class="help-block">
+                                            <span class="red-text">{{ $errors->first('g-recaptcha-response') }}</span>
+                                        </span>
+                                    @endif
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Send</button>
+                            </div>
+                        </form>
+
+
+
+                   
+                    </div>
+                </div>
+                {{-- <div class="row">
+                     <div class="col-md-12">
+                        <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3867187.666169696!2d76.76983739999999!3d18.81817715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1683036229388!5m2!1sen!2sin"></iframe>
+                        </div>
+                     </div>
+                  </div> --}}
+            </div>
+        </div>
+        <!-- Google Map with Contact Form End -->
+    </div>
+    <!--Main Content End-->
+    <script>
+        function addvalidateMobileNumber(number) {
+            var mobileNumberPattern = /^\d*$/;
+            var validationMessage = document.getElementById("number-validate");
+
+            if (mobileNumberPattern.test(number)) {
+                validationMessage.textContent = "";
+            } else {
+                validationMessage.textContent = "Only numbers are allowed.";
+            }
+        }
+    </script>
+@endsection
+{{-- @extends('website.layout.navbar')
+@extends('website.layout.header') --}}
