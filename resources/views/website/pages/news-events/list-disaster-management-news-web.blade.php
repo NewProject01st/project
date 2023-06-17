@@ -65,8 +65,8 @@
                                                         <?php echo $item['disaster_date']; ?></li>
                                                     {{-- <li>176 Comments</li> --}}
                                                 </ul>
-                                                <h6><a href="#"><?php echo $item['marathi_title']; ?></a></h6>
-                                                <p> <?php echo $item['marathi_description']; ?></p>
+                                                <h6 class="card_title_main"><a href="#"><?php echo $item['marathi_title']; ?>...</a></h6>
+                                                <p class="card_title"> <?php echo $item['marathi_description']; ?>...</p>
                                             </div>
                                             <div class="news-box-f cursor-pointer">
                                                 <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a
@@ -90,8 +90,8 @@
                                                         <?php echo $item['disaster_date']; ?></li>
                                                     {{-- <li>176 Comments</li> --}}
                                                 </ul>
-                                                <h6><a href="#"><?php echo $item['english_title']; ?></a></h6>
-                                                <p> <?php echo $item['english_description']; ?></p>
+                                                <h6 class="card_title_main"><a href="#"><?php echo $item['english_title']; ?>...</a></h6>
+                                                <p class="card_title"> <?php echo $item['english_description']; ?>...</p>
                                             </div>
                                             <div class="news-box-f"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more <a
                                                     data-id="{{ $item['id'] }}" class="show-btn"><i

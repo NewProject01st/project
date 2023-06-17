@@ -15402,7 +15402,7 @@ button.bg-dark:focus,
 }
 
 .d-none {
-  display: none !important;
+  display: block !important;
 }
 
 .d-inline {
@@ -29538,4 +29538,10 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
     margin-left: 13px;
 
   }
+}
+
+/*  */
+.sidebar .nav.sub-menu .nav-item:focus {
+  padding: 0;
+  background-color: #ee671f42 !important;
 }

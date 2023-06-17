@@ -127,7 +127,7 @@
                             </div>
                             <div class="col-md-8 col-sm-7">
                                 <div class="Mayor-welcome">
-                                    <h5><?php echo $item['english_title']; ?></h5>
+                                    <h5 class="h5-head"><?php echo $item['english_title']; ?></h5>
                                     <p><?php echo $item['english_description']; ?></p>
                                     <h6><?php echo $item['english_name']; ?></h6>
                                     <strong><?php echo $item['english_designation']; ?></strong>
@@ -169,8 +169,8 @@
                                             <?php echo $item['disaster_date']; ?></li>
                                         {{-- <li>176 Comments</li> --}}
                                     </ul>
-                                    <h6 class="card_title"><a href="#"><?php echo mb_substr($item['marathi_title'], 0, 31) ?>...</a></h6>
-                                    <p class="card_title"> <?php echo mb_substr($item['marathi_description'], 0, 74) ?>...</p>
+                                    <h6 class="card_title"><a href="#"><?php echo $item['marathi_title']; ?>...</a></h6>
+                                    <p class="card_title"> <?php echo $item['marathi_description']; ?>...</p>
                                 </div>
                                 <div class="news-box-f cursor-pointer">
                                      <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
@@ -193,8 +193,8 @@
                                     <?php echo $item['disaster_date']; ?></li>
                                 {{-- <li>176 Comments</li> --}}
                             </ul>
-                            <h6 class="card_title"><a href="#"><?php echo mb_substr($item['english_title'], 0, 31) ?>...</a></h6>
-                            <p class="card_title"> <?php echo mb_substr($item['english_description'], 0, 74) ?>...</p>
+                            <h6 class="card_title_main"><a href="#"><?php echo $item['english_title']; ?>...</a></h6>
+                            <p class="card_title"> <?php echo $item['english_description']; ?>...</p>
                         </div>
                         <div class="news-box-f cursor-pointer">
                              <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
@@ -340,14 +340,14 @@
                             <li> <a href="#"><i class="fas fa-file-alt"></i> 30 Days Plans of Govt.</a> </li>
                             <li> <a href="#"><i class="fas fa-file-alt"></i> Court Case about TAX</a> </li>
                         </ul>
-
+--}}
                     <div class="emergency-info mt-2">
-                        <h5> Live Data </h5>
+                        <h5> Live Forcast Data </h5>
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item custom-accordion-item">
                                 <h2 class="accordion-header accordion-header-custom" id="flush-headingOne">
                                 <button class="accordion-button accordion-button-custom collapsed bg-secondary-custom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    Accordion Item #1
+                                    Disaster Forcast
                                 </button>
                                 </h2>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse bg-secondary-custom" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -357,29 +357,30 @@
                             <div class="accordion-item custom-accordion-item">
                                 <h2 class="accordion-header accordion-header-custom" id="flush-headingTwo">
                                 <button class="accordion-button accordion-button-custom collapsed bg-secondary-custom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                    Accordion Item #2
+                                    Weather Forcast
                                 </button>
                                 </h2>
                                 <div id="flush-collapseTwo" class="accordion-collapse collapse bg-secondary-custom" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                                </div>
-                            </div>
-                            <div class="accordion-item custom-accordion-item">
-                                <h2 class="accordion-header accordion-header-custom" id="flush-headingThree">
-                                <button class="accordion-button accordion-button-custom collapsed bg-secondary-custom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                    Accordion Item #3
-                                </button>
-                                </h2>
-                                <div id="flush-collapseThree" class="accordion-collapse collapse bg-secondary-custom" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
-                                    Placeholder content for this accordion, which is intended to demonstrate the accordion-flus class.</div>
+                                    {{-- <ul class="header-contact"> --}}
+                                        <div class="city-exp for_pl_pr w-100"> <i class="fas fa-street-view"></i>
+                                            <strong>City : Nashik</strong>
+                                        </div><br>
+                                        <div class="header-weather for_pl_pr"> <i class="fas fa-cloud-sun"></i>
+                                            {{ getTempratureData() }}°C
+                                            / {{ getTempratureData() * 1.8 + 32 }}°F </div>
+    
+                                    {{-- </ul> --}}
+                                    {{-- Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content. --}}
+                                </div>
                                 </div>
                             </div>
+                           
                             </div>
                         </div>
 
                     </div>
-                     --}}
+                     
                     </div>
                 </div>
             </div>
