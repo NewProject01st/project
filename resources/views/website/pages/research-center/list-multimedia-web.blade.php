@@ -304,7 +304,7 @@
         const modal = document.getElementsByClassName('idMyModal');
         const img = document.getElementsByClassName('toZoom');
         const modalImg = document.getElementsByClassName('modal-content');
-        alert(img);
+        
         for (let i = 0; i < img.length; i++) {
             img[i].onclick = function() {
                 modal[i].style.display = "block";
