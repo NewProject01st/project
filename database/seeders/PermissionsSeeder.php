@@ -434,7 +434,15 @@ class PermissionsSeeder extends Seeder
                     'route_name' => 'Footer Link',
                     'url' => 'list-important-link',
                     'permission_name' => 'Footer Link',
-                ]);               
+                ]);   
+                Permissions::create(
+                    [
+                        'created_at' => \Carbon\Carbon::now(),
+                        'updated_at' => \Carbon\Carbon::now(),
+                        'route_name' => 'Twitter Link',
+                        'url' => 'list-tweeter-feed',
+                        'permission_name' => 'Twitter Link',
+                    ]);             
             // Permissions::create(
             //     [
             //         'created_at' => \Carbon\Carbon::now(),

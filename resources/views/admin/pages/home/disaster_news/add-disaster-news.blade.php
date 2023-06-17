@@ -26,7 +26,9 @@
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">{{ old('english_title') }}</textarea>
+                                                <input type="text" name="english_title" id="english_title"
+                                                class="form-control" id="english_title" placeholder="Enter the Title" 
+                                                value="{{ old('english_title') }}">
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -36,7 +38,9 @@
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">{{ old('marathi_title') }}</textarea>
+                                                <input type="text" name="marathi_title" id="marathi_title"
+                                                class="form-control" id="marathi_title" placeholder="Enter the Title" 
+                                                value="{{ old('marathi_title') }}">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif

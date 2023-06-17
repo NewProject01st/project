@@ -8,10 +8,10 @@
             <div class="page-header">
                 <h3 class="page-title">
                     State Disaster Management policy
-                    @if (in_array('per_add', $data_permission))
+                    {{-- @if (in_array('per_add', $data_permission))
                         <a href="{{ route('add-state-disaster-management-policy') }}" class="btn btn-sm btn-primary ml-3">+
                             Add</a>
-                    @endif
+                    @endif --}}
 
                 </h3>
                 <nav aria-label="breadcrumb">
@@ -68,11 +68,11 @@
                                                                 <a data-id="{{ $item->id }}"
                                                                     class="show-btn btn btn-sm btn-outline-primary m-1"
                                                                     title="Show"><i class="fas fa-eye"></i></a>
-                                                                @if (in_array('per_delete', $data_permission))
+                                                                {{-- @if (in_array('per_delete', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
                                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                                         title="Delete"><i class="fas fa-archive"></i></a>
-                                                                @endif
+                                                                @endif --}}
                                                             </div>
 
                                                         </td>

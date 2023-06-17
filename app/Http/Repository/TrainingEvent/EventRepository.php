@@ -67,32 +67,36 @@ class EventRepository{
             ];
         }
     }
-    
     public function updateAll($request){
+   
         try {
             $return_data = array();
-            $training_data = Event::find($request->id);
+            $evacuationplans_data = Event::find($request->id);
             
-            if (!$training_data) {
+            if (!$evacuationplans_data) {
                 return [
                     'msg' => 'Training Event not found.',
                     'status' => 'error'
                 ];
             }
-            // Store the previous image names
-            $previousEnglishImage = $training_data->english_image;
-            $previousMarathiImage = $training_data->marathi_image;
-            // Update the fields from the request       
-            $training_data->english_title = $request['english_title'];
-            $training_data->marathi_title = $request['marathi_title'];
-            $training_data->english_description = $request['english_description'];
-            $training_data->marathi_description = $request['marathi_description'];
-            $training_data->start_date = $request['start_date'];
-            $training_data->end_date = $request['end_date'];
-
-            $training_data->save();        
-            $last_insert_id = $training_data->id;
-
+             
+            //Store the previous image name
+            $previousEnglishImage = $evacuationplans_data->english_image;
+            $previousMarathiImage = $evacuationplans_data->marathi_image;
+      
+    
+    
+            $evacuationplans_data = Event::find($request->id);
+            $evacuationplans_data->english_title = $request['english_title'];
+            $evacuationplans_data->marathi_title = $request['marathi_title'];
+            $evacuationplans_data->english_description = $request['english_description'];
+            $evacuationplans_data->marathi_description = $request['marathi_description'];
+            $evacuationplans_data->start_date = $request['start_date'];
+            $evacuationplans_data->end_date = $request['end_date'];
+            $evacuationplans_data->save();       
+         
+            $last_insert_id = $evacuationplans_data->id;
+    
             $return_data['last_insert_id'] = $last_insert_id;
             $return_data['english_image'] = $previousEnglishImage;
             $return_data['marathi_image'] = $previousMarathiImage;
@@ -100,25 +104,26 @@ class EventRepository{
         } catch (\Exception $e) {
             return $e;
             return [
-                'msg' => 'Failed to update Training Event',
+                'msg' => 'Failed to update Training Event.',
                 'status' => 'error'
             ];
         }
     }
 
+
+   
     public function deleteById($id){
         try {
             $training = Event::find($id);
             if ($training) {
-                // Delete the images from the storage folder
-                unlink(storage_path(Config::get('DocumentConstant.SLIDER_DELETE') . $training->english_image));
-                unlink(storage_path(Config::get('DocumentConstant.SLIDER_DELETE') . $training->marathi_image));
+                if (file_exists(storage_path(Config::get('DocumentConstant.TRAINING_EVENT_VIEW') . $training->english_image))) {
+                    unlink(storage_path(Config::get('DocumentConstant.TRAINING_EVENT_VIEW') . $training->english_image));
+                }
+                if (file_exists(storage_path(Config::get('DocumentConstant.TRAINING_EVENT_VIEW') . $training->marathi_image))) {
+                    unlink(storage_path(Config::get('DocumentConstant.TRAINING_EVENT_VIEW') . $training->marathi_image));
+                }
                 $training->delete();
-
-                // Delete the record from the database
-                
-                $training->delete();
-                
+    
                 return $training;
             } else {
                 return null;

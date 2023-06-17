@@ -86,7 +86,8 @@
                   </li>
               @endif
               @if (in_array('list-important-link', $data_for_url)||
-              in_array('list-website-contact', $data_for_url))
+              in_array('list-website-contact', $data_for_url)||
+              in_array('list-tweeter-feed', $data_for_url))
                  <li class="nav-item">
                      <a class="nav-link" data-toggle="collapse" href="#footer" aria-expanded="false"
                          aria-controls="footer">
@@ -104,6 +105,11 @@
                             <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                     href="{{ route('list-website-contact') }}">Website Contact</a></li>
                              @endif
+                             @if (in_array('list-tweeter-feed', $data_for_url))
+                             <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                     href="{{ route('list-tweeter-feed') }}">Twitter Link</a></li>
+                              @endif
+                             
                             {{-- @if (in_array('list-social-icon', $data_for_url))
                             <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                     href="{{ route('list-social-icon') }}">Social Icon</a></li>
@@ -134,7 +140,6 @@
                       in_array('list-slide', $data_for_url) ||
                       in_array('list-disaster-management-web-portal', $data_for_url) ||
                       in_array('list-disaster-management-news', $data_for_url) ||
-                      in_array('list-weather', $data_for_url) ||
                       in_array('list-disasterforcast', $data_for_url) ||
                       in_array('list-emergency-contact', $data_for_url) ||
                       in_array('list-department-information', $data_for_url) ||
@@ -160,7 +165,7 @@
                               @endif
                               @if (in_array('list-disaster-management-web-portal', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-disaster-management-web-portal') }}">Disaster Web Portal</a></li>
+                                          href="{{ route('list-disaster-management-web-portal') }}">Welcome Section</a></li>
                               @endif
                               @if (in_array('list-disaster-management-news', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
@@ -170,10 +175,10 @@
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                           href="{{ route('list-emergency-contact') }}">Emergency Contact</a></li>
                               @endif
-                              @if (in_array('list-weather', $data_for_url))
+                              {{-- @if (in_array('list-weather', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                           href="{{ route('list-weather') }}">Weather</a></li>
-                              @endif
+                              @endif --}}
                               @if (in_array('list-disasterforcast', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                           href="{{ route('list-disasterforcast') }}">Disaster Forcast</a></li>

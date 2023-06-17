@@ -32,17 +32,17 @@
                                         <thead>
                                             <tr>
                                                 <th>S. No.</th>
-                                                <th>English Title</th>
-                                                <th>Marathi Title</th>
-                                                <th>English Name</th>
-                                                <th>Marathi Name</th>
-                                                <th>English Address</th>
-                                                <th>Marathi Address</th>
-                                                <th>Email </th>
-                                                <th>English No</th>
-                                                <th>Marathi No</th>
-                                                <th>English Landline No</th>
-                                                <th>Marathi Landline No</th>
+                                                <th>Title</th>
+                                                <th>शीर्षक</th>
+                                                <th>Name</th>
+                                                <th>नाव</th>
+                                                <th>Address</th>
+                                                <th>पत्ता</th>
+                                                <th>Email</th>
+                                                {{-- <th>Mobile Number</th>
+                                                <th>मोबाईल नंबर</th>
+                                                <th>Landline Number</th>
+                                                <th>दूरध्वनी क्रमांक</th> --}}
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -58,10 +58,10 @@
                                                 <td>{{ strip_tags($item->english_address) }}</td>
                                                 <td>{{ strip_tags($item->marathi_address) }}</td>
                                                 <td>{{ $item->email }}</td>
-                                                <td>{{ $item->english_number }}</td>
+                                                {{-- <td>{{ $item->english_number }}</td>
                                                 <td>{{ $item->marathi_number }}</td>
                                                 <td>{{ $item->english_landline_no }}</td>
-                                                <td>{{ $item->marathi_landline_no }}</td>
+                                                <td>{{ $item->marathi_landline_no }}</td> --}}
                                                 <td>
                                                     <label class="switch">
                                                         <input data-id="{{ $item->id }}" type="checkbox"
@@ -113,7 +113,7 @@
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">
     </form>
-    <form method="POST" action="{{ url('/edit-emergency-contact') }}" id="editform">
+    <form method="GET" action="{{ url('/edit-emergency-contact') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
     </form>

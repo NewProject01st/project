@@ -80,7 +80,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="start_date">Start Date</label>&nbsp<span class="red-text">*</span>
                                             <input type="date" class="form-control" name="start_date" id="start_date"
@@ -90,8 +90,20 @@
                                                 <span class="red-text"><?php echo $errors->first('start_date', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>
+                                    </div> --}}
+
                                     <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="start_date">Start Date</label>&nbsp<span class="red-text">*</span>
+                                            <input type="date" class="form-control" name="start_date" id="start_date"
+                                                value="{{ old('start_date') ?: $event->start_date }}"
+                                                placeholder="Select Start Date">
+                                            @if ($errors->has('start_date'))
+                                                <span class="red-text">{{ $errors->first('start_date') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="end_date">End Date</label>&nbsp<span class="red-text">*</span>
                                             <input type="date" class="form-control" name="end_date" id="end_date"
@@ -99,6 +111,17 @@
                                                 placeholder="Selecte End Date">
                                             @if ($errors->has('end_date'))
                                                 <span class="red-text"><?php echo $errors->first('end_date', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div> --}}
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="end_date">End Date</label>&nbsp<span class="red-text">*</span>
+                                            <input type="date" class="form-control" name="end_date" id="end_date"
+                                                value="{{ old('end_date') ?: $event->end_date }}"
+                                                placeholder="Select End Date">
+                                            @if ($errors->has('end_date'))
+                                                <span class="red-text">{{ $errors->first('end_date') }}</span>
                                             @endif
                                         </div>
                                     </div>
