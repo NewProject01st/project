@@ -58,8 +58,8 @@
                             <!--Department Details Txt End-->
                             <!-- Button trigger modal -->
                             <div class="d-flex justify-content-center">
-                                <button type="button" class="btn modal-btn-color" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
+                            <a href="{{ route('feedback-suggestions') }}">
+                                <button type="button" class="btn modal-btn-color">
                                     @if (session('language') == 'mar')
                                         {{ Config::get('marathi.HOME_PAGE.FEEDBACK_ADN_SUGGESTION') }}
                                     @else
@@ -67,6 +67,7 @@
                                     @endif
 
                                 </button>
+                            </a>    
                             </div>
                         </div>
                         <!--Sidebar Start-->

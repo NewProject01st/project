@@ -119,7 +119,7 @@
                                 </div>
 
 
-                                <div class="col-md-12">
+                                <div class="col-md-3 mt-4">
                                     <input class="gap-text" type="submit" value="Send Message">
                                 </div>
                             </div>

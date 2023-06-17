@@ -10,6 +10,8 @@ return [
 		'OPEN_VACANCIES' =>'Open Vacancies',
 		'DISASTER_MANAGEMENT_HEAD' =>'Disaster Management Head',
 		'DISASTER_MANAGEMENT_NEWS' =>'Disaster Management News',
+		'FORCAST_LIVE_DATA'=>'Forcast Live Data',
+		'DISASTER_FORCAST' =>'Forcast Disaster',
 		'DEPARTMENT_INFORMATION_DESK' =>'Departments & Information Desk',
 		'COUNCIL_ADDRESS' =>'Council Address:',
 		'EMAIL' =>'Email:',
@@ -95,6 +97,8 @@ return [
 		'CITIZEN_ACTION_SUB_LINK1' =>' Report Incident Crowdsourcing',
 		'CITIZEN_ACTION_SUB_LINK2' =>' Volunteer Citizen Support',
 		'CITIZEN_ACTION_SUB_LINK3' =>' Citizen Feedback Suggestions',
+		'CITIZEN_ACTION_SUB_LINK4' =>' Report Incident',
+
 	],
 
 	'TRAINING_WORKSHOP'=>[ 

@@ -7,16 +7,16 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Tweeter Feed List
-                    @if (in_array('per_add', $data_permission))
+                    Twitter Feed List
+                    {{-- @if (in_array('per_add', $data_permission))
                         <a href="{{ route('add-tweeter-feed') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
-                    @endif
+                    @endif --}}
 
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Footer</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Tweeter Feed List</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Twitter Feed </li>
                     </ol>
                 </nav>
             </div>
@@ -32,7 +32,7 @@
                                                 <tr>
                                                     <th>S. No.</th>
                                                     <th>URL</th>
-                                                    <th>Status</th>
+                                                    {{-- <th>Status</th> --}}
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -41,7 +41,7 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ strip_tags($item->url) }}</td>
-
+{{-- 
                                                         <td>
                                                             <label class="switch">
                                                                 <input data-id="{{ $item->id }}" type="checkbox"
@@ -52,7 +52,7 @@
                                                                 <span class="slider round "></span>
                                                             </label>
 
-                                                        </td>
+                                                        </td> --}}
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
@@ -62,14 +62,14 @@
                                                                             title="Edit"></i></a>
                                                                 @endif
 
-                                                                <a data-id="{{ $item->id }}"
+                                                                {{-- <a data-id="{{ $item->id }}"
                                                                     class="show-btn btn btn-sm btn-outline-primary m-1"><i
-                                                                        class="fas fa-eye" title="Show"></i></a>
-                                                                @if (in_array('per_delete', $data_permission))
+                                                                        class="fas fa-eye" title="Show"></i></a> --}}
+                                                                {{-- @if (in_array('per_delete', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
                                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                                         title="Delete"><i class="fas fa-archive"></i></a>
-                                                                @endif
+                                                                @endif --}}
                                                             </div>
                                                         </td>
                                                     </tr>
