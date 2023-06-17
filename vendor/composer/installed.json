@@ -35,7 +35,7 @@
                     }
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Anhskohbo\\NoCaptcha\\": "src/"

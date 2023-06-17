@@ -18592,7 +18592,7 @@ input:focus {
 .sidebar .nav.sub-menu .nav-item .nav-link.active {
   color: #392C70;
   background: transparent;
-  background-color: #ee671f42 !important;
+  background-color: #e68b5a26 !important;
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link.active:before {
@@ -29542,4 +29542,9 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
 .sidebar .nav.sub-menu .nav-item:focus {
   padding: 0;
   background-color: #ee671f42 !important;
+}
+
+/* Summernote Pop set for image add time */
+.note-editor {
+  position: initial !important;
 }
