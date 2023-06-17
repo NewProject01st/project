@@ -105,7 +105,7 @@ class EmergencyContactNumbersRepository {
     public function updateAll($request){
     
         try {
-            dd($request);
+            // dd($request);
             $return_data = array();
             $emergencycontactnumbers_data = EmergencyContactNumbers::find($request->id);
             
