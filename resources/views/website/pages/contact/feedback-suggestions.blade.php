@@ -119,8 +119,8 @@
                                 </div>
 
 
-                                <div class="col-md-12">
-                                    <input class="gap-text" type="submit" value="Send Message">
+                                <div class="col-md-12 mt-4">
+                                    <input class="gap-text" type="submit" value="Send Message" style="width: 27%;">
                                 </div>
                             </div>
                         </form>
