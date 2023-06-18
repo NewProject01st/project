@@ -47,6 +47,7 @@ Version:		1.0
 	.become-vol {
 		padding: 0 4px !important;
 	}
+	
   }
 
   @media (max-width: 1022px){
@@ -174,6 +175,14 @@ Version:		1.0
     height: 40vh;
     float: left;
     margin-right: 3%;
+	margin-bottom: 1%;
+}
+
+.to_set_img_right{
+	width: 54% !important;
+    height: 40vh;
+    float: right;
+    margin-left: 3%;
 	margin-bottom: 1%;
 }
 
@@ -6619,4 +6628,11 @@ border-bottom: 1px solid #57578E;
 }
 .btn:first-child:active{
 	color: #fff;
+}
+
+/* set can't click navbar coz navbar work on hover */
+
+.navbar-nav .dropdown-menu {
+    position: static;
+    display: none;
 }
