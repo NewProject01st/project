@@ -39,9 +39,9 @@
                 <div class="row">
                     <h3 class="stitle text-center d-flex justify-content-start">
                         @if (session('language') == 'mar')
-                            {{ Config::get('marathi.RTI.RTI_HEADING') }}
+                            {{ Config::get('marathi.RTI.RTI') }}
                         @else
-                            {{ Config::get('english.RTI.RTI_HEADING') }}
+                            {{ Config::get('english.RTI.RTI') }}
                         @endif
                     </h3>
                     <table id="order-listing" class="table table-striped table-hover table-bordered border-dark">
