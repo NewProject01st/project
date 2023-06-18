@@ -52,6 +52,10 @@ class DatabaseSeeder extends Seeder
         $this->call(FooterImportantLinksSeeder::class);   
         $this->call(WebsiteContactSeeder::class);   
         $this->call(IncidentTypeSeeder::class); 
+        // $this->call(WebsiteLogoSeeder::class); 
+        // $this->call(TollFreeNumberSeeder::class); 
+        
+        
         
         
     }
