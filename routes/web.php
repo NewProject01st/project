@@ -61,6 +61,11 @@ Route::get('/list-relief-measures-resources-web', ['as' => 'list-relief-measures
 Route::get('/list-evacuation-plans-web', ['as' => 'list-evacuation-plans-web', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllEvacuationPlans']);
 
 // Route::get('/volunteer-citizen-support-web', ['as' => 'volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllVolunteerCitizenSupport']);
+Route::get('/list-report-incident-crowdsourcing-web', ['as' => 'list-report-incident-crowdsourcing-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllReportIncidentCrowdsourcing']);
+Route::get('/volunteer-citizen-support-web', ['as' => 'volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllVolunteerCitizenSupport']);
+Route::get('/citizen-feedback-suggestions-web', ['as' => 'citizen-feedback-suggestions-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllCitizenFeedbackSuggestions']);
+// Route::get('/citizen-action-modal', ['as' => 'citizen-action-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getModalPage']);
+
 
 Route::post('/report-modal', ['as' => 'report-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeIncidentModalInfo']);
 Route::post('/volunteer-modal', ['as' => 'volunteer-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeVolunteerModalInfo']);
@@ -314,8 +319,9 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-emergency-contact-numbers', ['as' => 'show-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@show']);
     Route::post('/delete-emergency-contact-numbers', ['as' => 'delete-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@destroy']);
    
-    Route::get('/add-more-data', ['as' => 'add-more-data', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@addmore']);
-    Route::post('/add-more-data', ['as' => 'add-more-data', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@storeaddmore']);
+    Route::get('/add-more-emergency-contact-data', ['as' => 'add-more-emergency-contact-data', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@addmore']);
+    Route::post('/add-more-emergency-contact-data', ['as' => 'add-more-emergency-contact-data', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@storeaddmore']);
+    Route::post('/add-more-emergency-contact-data-delete', ['as' => 'add-more-emergency-contact-data-delete', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@deleteaddmore']);
 
     
     Route::get('/list-evacuation-plans', ['as' => 'list-evacuation-plans', 'uses' => 'App\Http\Controllers\EmergencyResponse\EvacuationPlansController@index']);
@@ -367,13 +373,22 @@ Route::post('/update-social-icon', ['as' => 'update-social-icon', 'uses' => 'App
 Route::post('/show-social-icon', ['as' => 'show-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@show']);
 Route::post('/delete-social-icon', ['as' => 'delete-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@destroy']);
 
-Route::get('/list-sub-header-info', ['as' => 'list-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@index']);
-Route::get('/add-sub-header-info', ['as' => 'add-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@add']);
-Route::post('/add-sub-header-info', ['as' => 'add-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@store']);
-Route::post('/edit-sub-header-info', ['as' => 'edit-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@edit']);
-Route::post('/update-sub-header-info', ['as' => 'update-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@update']);
-Route::post('/show-sub-header-info', ['as' => 'show-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@show']);
-Route::post('/delete-sub-header-info', ['as' => 'delete-sub-header-info', 'uses' => 'App\Http\Controllers\Header\SubHeaderInfoController@destroy']);
+Route::get('/list-tollfree-number', ['as' => 'list-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@index']);
+Route::get('/add-tollfree-number', ['as' => 'add-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@add']);
+Route::post('/add-tollfree-number', ['as' => 'add-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@store']);
+Route::post('/edit-tollfree-number', ['as' => 'edit-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@edit']);
+Route::post('/update-tollfree-number', ['as' => 'update-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@update']);
+Route::post('/show-tollfree-number', ['as' => 'show-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@show']);
+Route::post('/delete-tollfree-number', ['as' => 'delete-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@destroy']);
+
+Route::get('/list-website-logo', ['as' => 'list-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@index']);
+Route::get('/add-website-logo', ['as' => 'add-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@add']);
+Route::post('/add-website-logo', ['as' => 'add-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@store']);
+Route::post('/edit-website-logo', ['as' => 'edit-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@edit']);
+Route::post('/update-website-logo', ['as' => 'update-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@update']);
+Route::post('/show-website-logo', ['as' => 'show-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@show']);
+Route::post('/delete-website-logo', ['as' => 'delete-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@destroy']);
+
 
 Route::get('/list-header-vacancies', ['as' => 'list-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@index']);
 Route::get('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@add']);

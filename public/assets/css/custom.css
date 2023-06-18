@@ -525,7 +525,7 @@ ul.login_menu li a {
 table.table.table-bordered.app-sts th{background-color: #7c7e80; color: #fff; font-weight: 300;}
 .sidebar .nav .nav-item.active .nav-link{ background: #fff !important; color: #000 !important;}
 .sidebar .nav .nav-item.active > .nav-link{position: relative;}
-.sidebar .nav .nav-item.active > .nav-link i{color: #ec671f    !important;}
+.sidebar .nav .nav-item.active > .nav-link i{color: #1b8b21 !important;}
 .logo-title {    font-size: 1.2rem;    font-weight: 500;    color: #ec671f  ;}
 .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-search .form-control{border:1px solid #dedede !important; padding: 0.5em !important;}
 

@@ -18464,7 +18464,8 @@ input:focus {
 .sidebar .nav .nav-item.active > .nav-link i,
 .sidebar .nav .nav-item.active > .nav-link .menu-title,
 .sidebar .nav .nav-item.active > .nav-link .menu-arrow {
-  color: #ff646d;
+  /* color: #ff646d; */
+  color: #1b8b21;
 }
 
 .sidebar .nav .nav-item.active > .nav-link:before {
@@ -18513,7 +18514,8 @@ input:focus {
 }
 
 .sidebar .nav .nav-item.nav-profile .profile-name .name {
-  color: #ec671f;
+  /* color: #ec671f; */
+  color: #392C70;
   font-size: 13px;
   font-weight: 400;
 }
@@ -18590,11 +18592,10 @@ input:focus {
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link.active {
-  /* color: #392C70;
-  background: transparent; */
-  color: #392C70;
+  color: #392C70 !important;
   background: transparent;
-  background-color: #e68b5a26 !important;
+  /* background-color: #e68b5a26 !important; */
+  background-color: #1b8b2136 !important;
 }
 
 .sidebar .nav.sub-menu .nav-item .nav-link.active:before {
