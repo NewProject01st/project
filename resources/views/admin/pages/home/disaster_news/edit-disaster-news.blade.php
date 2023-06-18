@@ -128,6 +128,9 @@
                                             <label for="exampleInputUsername1">Disaster Date</label>&nbsp<span class="red-text">*</span>
                                             <input type="date" class="form-control" placeholder="YYYY-MM-DD" name="disaster_date" id="disaster_date"
                                                 value="{{ old('disaster_date') ?: $disaster_news->disaster_date }}">
+                                                @if ($errors->has('disaster_date'))
+                                                <span class="red-text"><?php echo $errors->first('disaster_date', ':message'); ?></span>
+                                            @endif
                                         </div>
                                     </div>
                                     {{-- <div class="col-lg-6 col-md-6 col-sm-6">
