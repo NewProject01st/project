@@ -561,7 +561,7 @@ Route::get('/edit-header-rti', ['as' => 'edit-header-rti', 'uses' => 'App\Http\C
 Route::post('/update-header-rti', ['as' => 'update-header-rti','uses' => 'App\Http\Controllers\Header\RTIController@update']);
 Route::post('/show-header-rti', ['as' => 'show-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@show']);
 Route::post('/delete-header-rti', ['as' => 'delete-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@destroy']);
-Route::post('/update-one-header-vacancies', ['as' => 'update-one-header-vacancies', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@updateOne']);
+Route::post('/update-one-rti', ['as' => 'update-one-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@updateOne']);
 
 
 Route::get('/db-backup', ['as' => 'db-backup', 'uses' => 'App\Http\Controllers\DBBackup\DBBackupController@downloadBackup']);
