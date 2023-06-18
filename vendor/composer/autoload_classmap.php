@@ -38,6 +38,7 @@ return array(
     'App\\Http\\Controllers\\CitizenAction\\VolunteerCitizenSupportController' => $baseDir . '/app/Http/Controllers/CitizenAction/VolunteerCitizenSupportController.php',
     'App\\Http\\Controllers\\ContactUs\\ContactUsController' => $baseDir . '/app/Http/Controllers/ContactUs/ContactUsController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\DBBackup\\DBBackupController' => $baseDir . '/app/Http/Controllers/DBBackup/DBBackupController.php',
     'App\\Http\\Controllers\\DynamicPages\\DynamicPagesController' => $baseDir . '/app/Http/Controllers/DynamicPages/DynamicPagesController.php',
     'App\\Http\\Controllers\\EmergencyResponse\\DistrictEmergencyOperationsCenterController' => $baseDir . '/app/Http/Controllers/EmergencyResponse/DistrictEmergencyOperationsCenterController.php',
     'App\\Http\\Controllers\\EmergencyResponse\\EmergencyContactNumbersController' => $baseDir . '/app/Http/Controllers/EmergencyResponse/EmergencyContactNumbersController.php',

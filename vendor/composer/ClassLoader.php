@@ -45,7 +45,7 @@ class ClassLoader
     /** @var \Closure(string):void */
     private static $includeFile;
 
-    /** @var ?string */
+    /** @var string|null */
     private $vendorDir;
 
     // PSR-4

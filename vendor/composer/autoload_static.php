@@ -539,6 +539,7 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'App\\Http\\Controllers\\CitizenAction\\VolunteerCitizenSupportController' => __DIR__ . '/../..' . '/app/Http/Controllers/CitizenAction/VolunteerCitizenSupportController.php',
         'App\\Http\\Controllers\\ContactUs\\ContactUsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ContactUs/ContactUsController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DBBackup\\DBBackupController' => __DIR__ . '/../..' . '/app/Http/Controllers/DBBackup/DBBackupController.php',
         'App\\Http\\Controllers\\DynamicPages\\DynamicPagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/DynamicPages/DynamicPagesController.php',
         'App\\Http\\Controllers\\EmergencyResponse\\DistrictEmergencyOperationsCenterController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmergencyResponse/DistrictEmergencyOperationsCenterController.php',
         'App\\Http\\Controllers\\EmergencyResponse\\EmergencyContactNumbersController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmergencyResponse/EmergencyContactNumbersController.php',
