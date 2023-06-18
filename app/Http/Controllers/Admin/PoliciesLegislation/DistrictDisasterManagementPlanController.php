@@ -31,6 +31,7 @@ class DistrictDisasterManagementPlanController extends Controller
         $rules = [
             'english_title' => 'required',
             'marathi_title' => 'required',
+            'policies_year' => 'required',
             'english_pdf' => 'required|file|mimes:pdf',
             'marathi_pdf' => 'required|file|mimes:pdf',
             'url' => 'required',
@@ -87,6 +88,7 @@ class DistrictDisasterManagementPlanController extends Controller
         $rules = [
             'english_title' => 'required',
             'marathi_title' => 'required',
+            'policies_year' => 'required',
             // 'english_pdf' => 'required|file|mimes:pdf',
             // 'marathi_pdf' => 'required|file|mimes:pdf',
             'url' => 'required',

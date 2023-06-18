@@ -54,6 +54,22 @@ class PermissionsSeeder extends Seeder
                     'url' => 'list-header-rti',
                     'permission_name' => 'RTI',
                 ]);
+                Permissions::create(
+                    [
+                        'created_at' => \Carbon\Carbon::now(),
+                        'updated_at' => \Carbon\Carbon::now(),
+                        'route_name' => 'Toll Free Number',
+                        'url' => 'list-tollfree-number',
+                        'permission_name' => 'Toll Free Number',
+                    ]);
+                    Permissions::create(
+                        [
+                            'created_at' => \Carbon\Carbon::now(),
+                            'updated_at' => \Carbon\Carbon::now(),
+                            'route_name' => 'Website Logo',
+                            'url' => 'list-website-logo',
+                            'permission_name' => 'Website Logo',
+                        ]);
             Permissions::create(
                 [
                     'created_at' => \Carbon\Carbon::now(),

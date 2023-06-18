@@ -33,6 +33,7 @@
                                                 <tr>
                                                     <th>S. No.</th>
                                                     <th>Title</th>
+                                                    <th>Year</th>
                                                     <th>शीर्षक</th>
                                                     <th>PDF</th>
                                                     <th>पीडीएफ</th>
@@ -46,7 +47,7 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ strip_tags($item->english_title) }}</td>
                                                         <td>{{ strip_tags($item->marathi_title) }}</td>
-
+                                                        <td>{{ strip_tags($item->policies_year) }}</td>
                                                         <td> <a href="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $item->english_pdf }}"
                                                                 target="_blank"><img
                                                                     src="{{ asset('assets/images/pdf.png/') }}"

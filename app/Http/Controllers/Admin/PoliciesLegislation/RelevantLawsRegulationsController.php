@@ -35,6 +35,7 @@ class RelevantLawsRegulationsController extends Controller
                 'english_pdf' => 'required|file|mimes:pdf',
                 'marathi_pdf' => 'required|file|mimes:pdf',
                 'url' => 'required',
+                'policies_year' => 'required',
              ];
             $messages = [   
                 'english_title.required'=>'Please enter title.',
@@ -95,6 +96,7 @@ class RelevantLawsRegulationsController extends Controller
             // 'english_pdf' => 'required|file|mimes:pdf',
             // 'marathi_pdf' => 'required|file|mimes:pdf',
             'url' => 'required',
+            'policies_year' => 'required',
             
         ];
         $messages = [   

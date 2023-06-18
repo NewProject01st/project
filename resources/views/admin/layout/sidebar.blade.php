@@ -57,6 +57,8 @@
               @endif
               @if (in_array('list-header-vacancies', $data_for_url) ||
                in_array('list-header-rti', $data_for_url) || 
+               in_array('list-tollfree-number', $data_for_url) || 
+               in_array('list-website-logo', $data_for_url) || 
                in_array('list-main-menu', $data_for_url) ||
                 in_array('list-sub-menu', $data_for_url))
                   <li class="{{request()->is('list-header-rti*') 
@@ -77,6 +79,14 @@
                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                      href="{{ route('list-header-rti') }}">RTI</a></li>
                               @endif
+                              @if (in_array('list-tollfree-number', $data_for_url))
+                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                      href="{{ route('list-tollfree-number') }}">Toll Free Number</a></li>
+                               @endif
+                               @if (in_array('list-website-logo', $data_for_url))
+                               <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                       href="{{ route('list-website-logo') }}">Website Logo</a></li>
+                                @endif
                               @if (in_array('list-main-menu', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                           href="{{ route('list-main-menu') }}">Main Menu</a></li>

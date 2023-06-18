@@ -76,6 +76,17 @@
                                             @endif
                                         </div>
                                     </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="url">Year</label>&nbsp<span class="red-text">*</span>
+                                            <select class="form-control" id="dYear" name="policies_year">
+                                                <option value="{{ old('policies_year') }}">Select Year</option> 
+                                               </select>
+                                            @if ($errors->has('url'))
+                                                <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                         {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}

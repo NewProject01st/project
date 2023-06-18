@@ -35,8 +35,8 @@ class TollFreeController extends Controller
          ];
     $messages = [   
                
-        'english_tollfree_no' => 'required',
-        'marathi_tollfree_no' => 'required',         
+        'english_tollfree_no.required' => 'Please enter toll free number',
+        'marathi_tollfree_no.required' => 'कृपया टोल फ्री नंबर टाका',         
        
     ];
 
@@ -88,9 +88,8 @@ class TollFreeController extends Controller
      ];
     $messages = [   
      
-        'english_toll_free_no' => 'required',
-        'marathi_toll_free_no' => 'required',         
-     
+        'english_tollfree_no.required' => 'Please enter toll free number',
+        'marathi_tollfree_no.required' => 'कृपया टोल फ्री नंबर टाका',     
       
     ];
 

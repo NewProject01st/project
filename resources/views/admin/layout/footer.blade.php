@@ -383,7 +383,18 @@ $(document).ready(() => {
     });
 </script>
 
+<script>
+    $(function() {
+  var option = function(i, j) {
+    return $("<option>").append(j + 1900);
+  };
 
+  var options = (new Array(150) + "").split(",").map(option);
+
+  $("select").append(options);
+});
+
+    </script>
 </body>
 
 </html> <!-- partial:partials/_footer.html -->

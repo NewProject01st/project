@@ -47,6 +47,7 @@
                             <thead class="" style="background-color: #47194a; color:#fff">
                                 <tr>
                                     <th scope="col" class="d-flex justify-content-center">Sr. No.</th>
+                                    <th scope="col" class="">Year</th>
                                     <th scope="col"><div class="d-flex justify-content-center">Title</div></th>
                                     <th scope="col"><div class="d-flex justify-content-center">Download File</div></th>
                                 </tr>
@@ -56,12 +57,14 @@
                                     <tr class="">
                                         @if (session('language') == 'mar')
                                             <td><div class="d-flex justify-content-center">{{ $loop->iteration }}</div></td>
+                                            <td><div class="d-flex justify-content-center">{{ $item['policies_year'] }}</div></td>
                                             <td><?php echo $item['marathi_title']; ?></td>
                                             <td><div class="d-flex justify-content-center"> <a href="{{ Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_VIEW') }}{{ $item['marathi_pdf'] }}"
                                                     target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
                                                         width="35px" height="35px"></a></div></td>
                                         @else
                                             <td><div class="d-flex justify-content-center">{{ $loop->iteration }}</div></td>
+                                            <td><div class="d-flex justify-content-center">{{ $item['policies_year'] }}</div></td>
                                             <td><?php echo $item['english_title']; ?></td>
                                             <td><div class="d-flex justify-content-center"> <a href="{{ Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_VIEW') }}{{ $item['english_pdf'] }}"
                                                     target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"

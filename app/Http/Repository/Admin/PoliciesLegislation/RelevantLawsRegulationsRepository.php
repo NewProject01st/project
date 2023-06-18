@@ -27,6 +27,7 @@ class RelevantLawsRegulationsRepository{
             $relevant_data->english_title = $request['english_title'];
             $relevant_data->marathi_title = $request['marathi_title'];
             $relevant_data->url = $request['url'];
+            $relevant_data->policies_year = $request['policies_year'];
 
             $relevant_data->save();       
             $last_insert_id = $relevant_data->id;
@@ -83,6 +84,7 @@ class RelevantLawsRegulationsRepository{
             $relevant_laws->english_title = $request['english_title'];
             $relevant_laws->marathi_title = $request['marathi_title'];
             $relevant_laws->url = $request['url'];
+            $relevant_data->policies_year = $request['policies_year'];
         
             $relevant_laws->save();
             $last_insert_id = $relevant_laws->id;

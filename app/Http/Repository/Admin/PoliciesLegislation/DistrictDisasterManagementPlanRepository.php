@@ -26,6 +26,7 @@ class DistrictDisasterManagementPlanRepository{
             $district_data->english_title = $request['english_title'];
             $district_data->marathi_title = $request['marathi_title'];
             $district_data->url = $request['url'];
+            $district_data->policies_year = $request['policies_year'];
 
             $district_data->save();       
             $last_insert_id = $district_data->id;
@@ -83,6 +84,7 @@ class DistrictDisasterManagementPlanRepository{
         $district_data->english_title = $request['english_title'];
         $district_data->marathi_title = $request['marathi_title'];
         $district_data->url = $request['url'];
+        $district_data->policies_year = $request['policies_year'];
     
         $district_data->save();
         $last_insert_id = $district_data->id;

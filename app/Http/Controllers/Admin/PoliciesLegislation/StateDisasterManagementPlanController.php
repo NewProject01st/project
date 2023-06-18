@@ -32,6 +32,7 @@ class StateDisasterManagementPlanController extends Controller
             'english_pdf' => 'required|file|mimes:pdf',
             'marathi_pdf' => 'required|file|mimes:pdf',
             'url' => 'required',
+            'policies_year' => 'required',
          ];
         $messages = [   
             'english_title.required'=>'Please enter title.',
@@ -95,6 +96,7 @@ class StateDisasterManagementPlanController extends Controller
             'english_title.required'=>'Please enter title.',
             'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
             'url.required'=>'Please enter url.',
+            'policies_year' => 'required',
             // 'english_pdf.required' => 'Please upload an PDF file.',
             // 'english_pdf.file' => 'The file must be of type: file.',
             // 'english_pdf.mimes' => 'The file must be a PDF.',
