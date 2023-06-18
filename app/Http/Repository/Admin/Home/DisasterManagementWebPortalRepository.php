@@ -68,6 +68,7 @@ public function getById($id)
 public function updateAll($request)
 {
     try {
+        $return_data = array();
         $disaster_data = DisasterManagementWebPortal::find($request->id);
 
         if (!$disaster_data) {
