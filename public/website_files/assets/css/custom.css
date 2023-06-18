@@ -6649,3 +6649,14 @@ border-bottom: 1px solid #57578E;
     position: static;
     display: none;
 }
+
+/* website datatable search and table set  */
+.dataTables_wrapper .dataTables_filter {
+    margin-right: -11px;
+}
+th {
+    text-align: center!important;
+}
+.set_tbl_td{
+	text-align: center!important;
+}
