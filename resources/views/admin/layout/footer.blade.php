@@ -383,7 +383,7 @@ $(document).ready(() => {
     });
 </script>
 
-<script>
+{{-- <script>
     $(function() {
   var option = function(i, j) {
     return $("<option>").append(j + 1900);
@@ -394,7 +394,7 @@ $(document).ready(() => {
   $("select").append(options);
 });
 
-    </script>
+    </script> --}}
 </body>
 
 </html> <!-- partial:partials/_footer.html -->
