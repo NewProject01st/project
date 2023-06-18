@@ -55,15 +55,15 @@
                                 @forelse ($data_output as $item)
                                     <tr class="">
                                         @if (session('language') == 'mar')
-                                            <td>{{ $loop->iteration }}</td>
+                                            <td class="set_tbl_td">{{ $loop->iteration }}</td>
                                             <td><?php echo $item['marathi_title']; ?></td>
-                                            <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item['marathi_pdf'] }}"
+                                            <td class="set_tbl_td"> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item['marathi_pdf'] }}"
                                                     target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
                                                         width="35px" height="35px"></a></td>
                                         @else
-                                            <td>{{ $loop->iteration }}</td>
+                                            <td class="set_tbl_td">{{ $loop->iteration }}</td>
                                             <td><?php echo $item['english_title']; ?></td>
-                                            <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item['english_pdf'] }}"
+                                            <td class="set_tbl_td"> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item['english_pdf'] }}"
                                                     target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
                                                         width="35px" height="35px"></a></td>
                                         @endif
