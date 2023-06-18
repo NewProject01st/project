@@ -99,7 +99,13 @@
                             <div class="col-md-9 col-sm-9">
                                 <ul class="header-contact">
                                     <li class="city-exp for_pl_pr"> <i class="fas fa-street-view"></i>
-                                        <strong>City<br>Nashik</strong>
+                                        <strong>
+                                            @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.HOME_PAGE.CITY') }}
+                                            @else
+                                            {{ Config::get('english.HOME_PAGE.CITY') }}
+                                            @endif
+                                        </strong>
                                     </li>
                                     <li class="header-weather for_pl_pr"> <i class="fas fa-cloud-sun"></i>
                                         {{ getTempratureData() }}°C
