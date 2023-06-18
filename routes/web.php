@@ -60,15 +60,11 @@ Route::get('/list-search-rescue-teams-web', ['as' => 'list-search-rescue-teams-w
 Route::get('/list-relief-measures-resources-web', ['as' => 'list-relief-measures-resources-web', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllReliefMeasuresResources']);
 Route::get('/list-evacuation-plans-web', ['as' => 'list-evacuation-plans-web', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllEvacuationPlans']);
 
-Route::get('/list-report-incident-crowdsourcing-web', ['as' => 'list-report-incident-crowdsourcing-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllReportIncidentCrowdsourcing']);
-Route::get('/volunteer-citizen-support-web', ['as' => 'volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllVolunteerCitizenSupport']);
-Route::get('/citizen-feedback-suggestions-web', ['as' => 'citizen-feedback-suggestions-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllCitizenFeedbackSuggestions']);
+// Route::get('/volunteer-citizen-support-web', ['as' => 'volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllVolunteerCitizenSupport']);
 
-// Route::get('/report-modal', ['as' => 'report-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@add']);
 Route::post('/report-modal', ['as' => 'report-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeIncidentModalInfo']);
 Route::post('/volunteer-modal', ['as' => 'volunteer-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeVolunteerModalInfo']);
-Route::post('/feedback-modal', ['as' => 'feedback-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeFeedbackModalInfo']);
-Route::get('/report-incident-crowdsourcing-web', ['as' => 'report-incident-crowdsourcing-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getReportIncidentCrowdsourcing']);
+Route::get('/report-incident-crowdsourcing-web', ['as' => 'report-incident-crowdsourcing-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllIncidentType']);
 Route::get('/add-volunteer-citizen-support-web', ['as' => 'add-volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAddVolunteerCitizenSupport']);
 
 
@@ -349,24 +345,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/delete-search-rescue-teams', ['as' => 'delete-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@destroy']);
 
 // ===== Citizen Action=======
-
-Route::get('/list-report-crowdsourcing', ['as' => 'list-report-crowdsourcing', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentCrowdsourcingController@index']);
-Route::get('/add-report-crowdsourcing', ['as' => 'add-report-crowdsourcing', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentCrowdsourcingController@add']);
-Route::post('/add-report-crowdsourcing', ['as' => 'add-report-crowdsourcing', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentCrowdsourcingController@store']);
-Route::get('/edit-report-crowdsourcing', ['as' => 'edit-report-crowdsourcing', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentCrowdsourcingController@edit']);
-Route::post('/update-report-crowdsourcing', ['as' => 'update-report-crowdsourcing', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentCrowdsourcingController@update']);
-Route::post('/show-report-crowdsourcing', ['as' => 'show-report-crowdsourcing', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentCrowdsourcingController@show']);
-Route::post('/delete-report-crowdsourcing', ['as' => 'delete-report-crowdsourcing', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentCrowdsourcingController@destroy']);
-
-
-Route::get('/list-volunteer-citizen-support', ['as' => 'list-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@index']);
-Route::get('/add-volunteer-citizen-support', ['as' => 'add-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@add']);
-Route::post('/add-volunteer-citizen-support', ['as' => 'add-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@store']);
-Route::get('/edit-volunteer-citizen-support', ['as' => 'edit-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@edit']);
-Route::post('/update-volunteer-citizen-support', ['as' => 'update-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@update']);
-Route::post('/show-volunteer-citizen-support', ['as' => 'show-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@show']);
-Route::post('/delete-volunteer-citizen-support', ['as' => 'delete-volunteer-citizen-support', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenSupportController@destroy']);
-
 Route::get('/list-incident-type', ['as' => 'list-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@index']);
 Route::get('/add-incident-type', ['as' => 'add-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@add']);
 Route::post('/add-incident-type', ['as' => 'add-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@store']);
@@ -375,15 +353,6 @@ Route::post('/update-incident-type', ['as' => 'update-incident-type', 'uses' => 
 Route::post('/show-incident-type', ['as' => 'show-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@show']);
 Route::post('/delete-incident-type', ['as' => 'delete-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@destroy']);
 Route::post('/update-one-incident_type', ['as' => 'update-one-incident_type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@updateOne']);
-
-
-Route::get('/list-citizen-feedback-and-suggestion', ['as' => 'list-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@index']);
-Route::get('/add-citizen-feedback-and-suggestion', ['as' => 'add-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@add']);
-Route::post('/add-citizen-feedback-and-suggestion', ['as' => 'add-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@store']);
-Route::get('/edit-citizen-feedback-and-suggestion', ['as' => 'edit-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@edit']);
-Route::post('/update-citizen-feedback-and-suggestion', ['as' => 'update-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@update']);
-Route::post('/show-citizen-feedback-and-suggestion', ['as' => 'show-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@show']);
-Route::post('/delete-citizen-feedback-and-suggestion', ['as' => 'delete-citizen-feedback-and-suggestion', 'uses' => 'App\Http\Controllers\CitizenAction\CitizenFeedbackSuggestionsController@destroy']);
 
 Route::get('/list-incident-modal-info', ['as' => 'list-incident-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentModalController@index']);
 Route::get('/list-volunteer-modal-info', ['as' => 'list-volunteer-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenModalController@index']);
@@ -431,6 +400,7 @@ Route::get('/edit-state-disaster-management-plan', ['as' => 'edit-state-disaster
 Route::post('/update-state-disaster-management-plan', ['as' => 'update-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPlanController@update']);
 Route::post('/show-state-disaster-management-plan', ['as' => 'show-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPlanController@show']);
 Route::post('/delete-state-disaster-management-plan', ['as' => 'delete-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPlanController@destroy']);
+Route::post('/update-one-state_disaster', ['as' => 'update-one-state_disaster', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPlanController@updateOne']);
 
 Route::get('/list-district-disaster-management-plan', ['as' => 'list-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\DistrictDisasterManagementPlanController@index']);
 Route::get('/add-district-disaster-management-plan', ['as' => 'add-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\DistrictDisasterManagementPlanController@add']);
@@ -439,6 +409,7 @@ Route::get('/edit-district-disaster-management-plan', ['as' => 'edit-district-di
 Route::post('/update-district-disaster-management-plan', ['as' => 'update-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\DistrictDisasterManagementPlanController@update']);
 Route::post('/show-district-disaster-management-plan', ['as' => 'show-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\DistrictDisasterManagementPlanController@show']);
 Route::post('/delete-district-disaster-management-plan', ['as' => 'delete-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\DistrictDisasterManagementPlanController@destroy']);
+Route::post('/update-one-disaster', ['as' => 'update-one-disaster', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\DistrictDisasterManagementPlanController@updateOne']);
 
 Route::get('/list-state-disaster-management-policy', ['as' => 'list-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPolicyController@index']);
 Route::get('/add-state-disaster-management-policy', ['as' => 'add-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPolicyController@add']);
@@ -447,7 +418,7 @@ Route::get('/edit-state-disaster-management-policy', ['as' => 'edit-state-disast
 Route::post('/update-state-disaster-management-policy', ['as' => 'update-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPolicyController@update']);
 Route::post('/show-state-disaster-management-policy', ['as' => 'show-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPolicyController@show']);
 Route::post('/delete-state-disaster-management-policy', ['as' => 'delete-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPolicyController@destroy']);
-
+Route::post('/update-one-disaster_policy', ['as' => 'update-one-disaster_policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPolicyController@updateOne']);
 
 Route::get('/list-relevant-laws-and-regulations', ['as' => 'list-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\RelevantLawsRegulationsController@index']);
 Route::get('/add-relevant-laws-and-regulations', ['as' => 'add-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\RelevantLawsRegulationsController@add']);
@@ -456,6 +427,7 @@ Route::get('/edit-relevant-laws-and-regulations', ['as' => 'edit-relevant-laws-a
 Route::post('/update-relevant-laws-and-regulations', ['as' => 'update-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\RelevantLawsRegulationsController@update']);
 Route::post('/show-relevant-laws-and-regulations', ['as' => 'show-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\RelevantLawsRegulationsController@show']);
 Route::post('/delete-relevant-laws-and-regulations', ['as' => 'delete-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\RelevantLawsRegulationsController@destroy']);
+Route::post('/update-one-relevant_law', ['as' => 'update-one-relevant_law', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\RelevantLawsRegulationsController@updateOne']);
 
 //=======Research And Center==========
 

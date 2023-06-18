@@ -27,7 +27,7 @@
                                 <div class="col-12">
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title English :</label>
+                                            <label>Title :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($state_management->english_title) }}</label>
@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title Marathi :</label>
+                                            <label>शीर्षक :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($state_management->marathi_title) }}</label>
@@ -43,36 +43,22 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Description English :</label>
+                                            <label>PDF :</label>
                                         </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($state_management->english_description) }}</label>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <a href="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $state_management->english_pdf }}"
+                                                target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
+                                                    width="50px" height="50px"></a>
                                         </div>
                                     </div>
-                                    <div class="row ">
+                                    <div class="row pt-2">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Description Marathi :</label>
+                                            <label>पीडीएफ :</label>
                                         </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($state_management->marathi_description) }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label> English Image :</label>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <img src="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $state_management->english_image }}"
-                                                style="width:300px; height:150px;" />
-                                        </div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label> Marathi Image:</label>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
-                                            <img src="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $state_management->marathi_image }}"
-                                                style="width:300px; height:150px;" />
+                                            <a href="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $state_management->marathi_pdf }}"
+                                                target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
+                                                    width="50px" height="50px"></a>
                                         </div>
                                     </div>
 

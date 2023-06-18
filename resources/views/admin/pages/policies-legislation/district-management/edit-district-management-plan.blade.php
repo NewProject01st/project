@@ -25,13 +25,12 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title English</label>&nbsp<span
+                                            <label for="english_title">Title</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">
-                                                @if (old('english_title'))
-{{ old('english_title') }}@else{{ $district_management->english_title }}
-@endif
-                                                </textarea>
+                                                <input type="text" class="form-control" name="english_title" id="english_title"
+                                                placeholder="Enter the Title" value="  @if (old('english_title'))
+                                                {{ old('english_title') }}@else{{ $district_management->english_title }}
+                                                @endif">
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -39,78 +38,50 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                            <label for="marathi_title">शीर्षक</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">
-                                                @if (old('marathi_title'))
-{{ old('marathi_title') }}@else{{ $district_management->marathi_title }}
-@endif
-                                                </textarea>
+                                                <input type="text" class="form-control" name="marathi_title" id="marathi_title"
+                                                placeholder="शीर्षक प्रविष्ट करा" value="@if (old('marathi_title'))
+                                                {{ old('marathi_title') }}@else{{ $district_management->marathi_title }}
+                                                @endif">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_description">Description English</label>&nbsp<span
-                                                class="red-text">*</span>
-                                            <textarea class="form-control english_description" name="english_description" id="english_description"
-                                                placeholder="Enter the Description">
-                                            @if (old('english_description'))
-{{ old('english_description') }}@else{{ $district_management->english_description }}
-@endif
-                                            </textarea>
-                                            @if ($errors->has('english_description'))
-                                                <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="form-group">
-                                            <label> Description Marathi</label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
-                                                placeholder="Enter the Description">
-                                                @if (old('marathi_description'))
-{{ old('marathi_description') }}@else{{ $district_management->marathi_description }}
-@endif
-                                                </textarea>
-                                            @if ($errors->has('marathi_description'))
-                                                <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
+                                            <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" name="url" id="url" class="form-control"
+                                                value="@if (old('url')) {{ old('url') }}@else{{ $district_management->url }} @endif"
+                                                placeholder="">
+                                            @if ($errors->has('url'))
+                                                <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_image">English Image</label>&nbsp<span
-                                                class="red-text">*</span>
-                                            <input type="file" name="english_image" class="form-control"
-                                                id="english_image" accept="image/*" placeholder="image">
-                                            @if ($errors->has('english_image'))
-                                                <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
+                                            <label for="english_pdf">PDF</label><br>
+                                            <input type="file" name="english_pdf" id="english_pdf" accept=".pdf">
+                                            @if ($errors->has('english_pdf'))
+                                                <span class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
                                             @endif
+                                            <a
+                                                href="{{ Config::get('DocumentConstant.DISTRICT_DISATSER_PLAN_VIEW') }}{{ $district_management->english_pdf }}"></a>
                                         </div>
-                                        <img id="english"
-                                            src="{{ Config::get('DocumentConstant.DISTRICT_DISATSER_PLAN_VIEW') }}{{ $district_management->english_image }}"
-                                            class="img-fluid img-thumbnail" width="150">
-                                        <img id="english_imgPreview" src="#" alt="pic"
-                                            class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_image">Marathi Image</label>&nbsp<span
-                                                class="red-text">*</span>
-                                            <input type="file" name="marathi_image" id="marathi_image" accept="image/*"
+                                            <label for="marathi_pdf">पीडीएफ</label>
+                                            <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
                                                 class="form-control">
-                                            @if ($errors->has('marathi_image'))
-                                                <span class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
+                                            @if ($errors->has('marathi_pdf'))
+                                                <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <img id="marathi"
-                                            src="{{ Config::get('DocumentConstant.DISTRICT_DISATSER_PLAN_VIEW') }}{{ $district_management->marathi_image }}"
-                                            class="img-fluid img-thumbnail" width="150">
-                                        <img id="marathi_imgPreview" src="#" alt="pic"
-                                            class="img-fluid img-thumbnail" width="150" style="display:none">
+                                        <a
+                                            href="{{ Config::get('DocumentConstant.DISTRICT_DISATSER_PLAN_VIEW') }}{{ $district_management->marathi_pdf }}"></a>
                                     </div>
 
                                     <div class="col-md-12 col-sm-12 text-center">

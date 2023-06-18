@@ -21,9 +21,9 @@ class PoliciesLegislationRepository  {
         try {
             $data_output = StateDisasterManagementPlan::where('is_active','=',true);
             if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('marathi_title', 'marathi_description','marathi_image');
+                $data_output =  $data_output->select('marathi_title', 'marathi_pdf');
             } else {
-                $data_output = $data_output->select('english_title', 'english_description','english_image');
+                $data_output = $data_output->select('english_title', 'english_pdf');
             }
             $data_output =  $data_output->get()
                             ->toArray();
@@ -37,9 +37,9 @@ class PoliciesLegislationRepository  {
         try {
             $data_output = DistrictDisasterManagementPlan::where('is_active','=',true);
             if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('marathi_title', 'marathi_description', 'marathi_image');
+                $data_output =  $data_output->select('marathi_title', 'marathi_pdf');
             } else {
-                $data_output = $data_output->select('english_title', 'english_description', 'english_image');
+                $data_output = $data_output->select('english_title', 'english_pdf');
             }
             $data_output =  $data_output->get()
                             ->toArray();
@@ -53,9 +53,9 @@ class PoliciesLegislationRepository  {
         try {
             $data_output = StateDisasterManagementPolicy::where('is_active','=',true);
             if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('marathi_title','marathi_description', 'marathi_image');
+                $data_output =  $data_output->select('marathi_title', 'marathi_pdf');
             } else {
-                $data_output = $data_output->select('english_title', 'english_description','english_image');
+                $data_output = $data_output->select('english_title', 'english_pdf');
             }
             $data_output =  $data_output->get()
                             ->toArray();
@@ -69,9 +69,9 @@ class PoliciesLegislationRepository  {
         try {
             $data_output = RelevantLawsRegulation::where('is_active','=',true);
             if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('marathi_title','marathi_description', 'marathi_image');
+                $data_output =  $data_output->select('marathi_title', 'marathi_pdf');
             } else {
-                $data_output = $data_output->select('english_title', 'english_description','english_image');
+                $data_output = $data_output->select('english_title', 'english_pdf');
             }
             $data_output =  $data_output->get()
                             ->toArray();

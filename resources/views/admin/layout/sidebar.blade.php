@@ -338,13 +338,10 @@
                       </div>
                   </li>
               @endif
-              @if (in_array('list-report-crowdsourcing', $data_for_url) ||
-                      in_array('list-volunteer-citizen-support', $data_for_url) ||
-                      in_array('list-citizen-feedback-and-suggestion', $data_for_url) ||
-                      in_array('list-incident-modal-info', $data_for_url) ||
+              @if (in_array('list-incident-modal-info', $data_for_url) ||
                       in_array('list-volunteer-modal-info', $data_for_url) ||
-                      in_array('list-feedback-modal-info', $data_for_url))
-                  <li class="{{request()->is('list-feedback-modal-info*') 
+                      in_array('list-contact-suggestion', $data_for_url))
+                  <li class="{{request()->is('list-contact-suggestion*') 
                     ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#citizen-action" aria-expanded="false"
                           aria-controls="citizen-action">
@@ -355,24 +352,6 @@
 
                       <div class="collapse" id="citizen-action">
                           <ul class="nav flex-column sub-menu">
-                              @if (in_array('list-report-crowdsourcing', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-report-crowdsourcing') }}">Report Incident Crowdsourcing
-                                      </a>
-                                  </li>
-                              @endif
-                              @if (in_array('list-volunteer-citizen-support', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-volunteer-citizen-support') }}">Volunteer Citizen Support
-                                      </a>
-                                  </li>
-                              @endif
-                              @if (in_array('list-citizen-feedback-and-suggestion', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-citizen-feedback-and-suggestion') }}">Feedback and Suggestions
-                                      </a>
-                                  </li>
-                              @endif
                               @if (in_array('list-incident-modal-info', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                           href="{{ route('list-incident-modal-info') }}">List Report Incident
@@ -385,9 +364,9 @@
                                       </a>
                                   </li>
                               @endif
-                              @if (in_array('list-feedback-modal-info', $data_for_url))
+                              @if (in_array('list-contact-suggestion', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-feedback-modal-info') }}">List Report Feedback
+                                          href="{{ route('list-contact-suggestion') }}">List Report Feedback
                                       </a>
                                   </li>
                               @endif

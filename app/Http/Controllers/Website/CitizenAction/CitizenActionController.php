@@ -29,70 +29,6 @@ class CitizenActionController extends Controller
         Session::put('language', $request->language);
     }  
 
-
-    public function getAllReportIncidentCrowdsourcing()
-    {
-        try {
-
-            $menu = $this->menu;
-            $socialicon = $this->socialicon;
-             $data_output = $this->service->getAllReportIncidentCrowdsourcing();
-            //  dd($data_output);
-             $data_output_new = $data_output['data_output'];
-             $data_output_incident = $data_output['data_output_incident'];
-            if (Session::get('language') == 'mar') {
-                $language = Session::get('language');
-            } else {
-                $language = 'en';
-            }
-        } catch (\Exception $e) {
-            return $e;
-        }
-        return view('website.pages.citizen-action.list-report-incident-crowdsourcing-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident'));
-    }  
-
-
-    public function getAllVolunteerCitizenSupport()
-    {
-        try {
-
-            $menu = $this->menu;
-            $socialicon = $this->socialicon;
-             $data_output = $this->service->getAllVolunteerCitizenSupport();
-            //  dd($data_output);
-             $data_output_new = $data_output['data_output'];
-             $data_output_incident = $data_output['data_output_incident'];
-            if (Session::get('language') == 'mar') {
-                $language = Session::get('language');
-            } else {
-                $language = 'en';
-            }
-        } catch (\Exception $e) {
-            return $e;
-        }
-        return view('website.pages.citizen-action.list-volunteer-citizen-support-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident'));
-    }  
-
-    public function getAllCitizenFeedbackSuggestions()
-    {
-        try {
-
-            $menu = $this->menu;
-            $socialicon = $this->socialicon;
-             $data_output = $this->service->getAllCitizenFeedbackSuggestions();
-            //  dd($data_output);
-             $data_output_new = $data_output['data_output'];
-             $data_output_incident = $data_output['data_output_incident'];
-            if (Session::get('language') == 'mar') {
-                $language = Session::get('language');
-            } else {
-                $language = 'en';
-            }
-        } catch (\Exception $e) {
-            return $e;
-        }
-        return view('website.pages.citizen-action.list-citizen-feedback-suggestions-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident'));
-    }  
     public function storeIncidentModalInfo(Request $request) {
      
         $rules = [
@@ -135,17 +71,17 @@ class CitizenActionController extends Controller
                     $status = $add_modal['status'];
                     if($status=='success') {
                         Session::flash('success_message', 'Form submitted successfully!');
-                        return redirect('list-report-incident-crowdsourcing-web')->with(compact('msg','status'));
+                        return redirect('report-incident-crowdsourcing-web')->with(compact('msg','status'));
                     }
                     else {
-                        return redirect('list-report-incident-crowdsourcing-web')->withInput()->with(compact('language','menu','msg','status'));
+                        return redirect('report-incident-crowdsourcing-web')->withInput()->with(compact('language','menu','msg','status'));
     
                     }
                 }
     
             }
         } catch (Exception $e) {
-            return redirect('list-report-incident-crowdsourcing-web')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+            return redirect('report-incident-crowdsourcing-web')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
     }
 
@@ -191,81 +127,29 @@ class CitizenActionController extends Controller
                     $status = $add_modal['status'];
                     if($status=='success') {
                         Session::flash('success_message', 'Form submitted successfully!');
-                        return redirect('volunteer-citizen-support-web')->with(compact('msg','status'));
+                        return redirect('add-volunteer-citizen-support-web')->with(compact('msg','status'));
                     }
                     else {
-                        return redirect('volunteer-citizen-support-web')->withInput()->with(compact('language','menu','msg','status'));
+                        return redirect('add-volunteer-citizen-support-web')->withInput()->with(compact('language','menu','msg','status'));
     
                     }
                 }
     
             }
         } catch (Exception $e) {
-            return redirect('volunteer-citizen-support-web')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+            return redirect('add-volunteer-citizen-support-web')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
     }
 
-    public function storeFeedbackModalInfo(Request $request) {
-     
-        $rules = [
-            'incident' => 'required',
-            'location' => 'required',
-            'datetime' => 'required',
-            'mobile_number' => 'required',
-            'description' => 'required',
-            'media_upload' => 'required',
-            ];
-        $messages = [   
-            'incident' => 'required',
-            'location' => 'required',
-            'datetime' => 'required',
-            'mobile_number' => 'required',
-            'description' => 'required',
-            'media_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ];
     
-        try {
-            $validation = Validator::make($request->all(),$rules,$messages);
-            if($validation->fails() )
-            {
-                return redirect('feedback-modal')
-                    ->withInput()
-                    ->withErrors($validation);
-            }
-            else
-            {
-                $add_modal = $this->service->addFeedbackModalInfo($request);
-    
-                // dd($add_contact);
-                if($add_modal)
-                {
-    
-                    $msg = $add_modal['msg'];
-                    $status = $add_modal['status'];
-                    if($status=='success') {
-                        Session::flash('success_message', 'Form submitted successfully!');
-                        return redirect('citizen-feedback-suggestions-web')->with(compact('msg','status'));
-                    }
-                    else {
-                        return redirect('citizen-feedback-suggestions-web')->withInput()->with(compact('language','menu','msg','status'));
-    
-                    }
-                }
-    
-            }
-        } catch (Exception $e) {
-            return redirect('feedback-modal')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
-        }
-    }
 
-    public function getReportIncidentCrowdsourcing()
+    public function getAllIncidentType()
     {
         try {
             $menu = $this->menu;
             $socialicon = $this->socialicon;
-             $data_output = $this->service->getAllReportIncidentCrowdsourcing();
-            //  dd($data_output);
-             $data_output_new = $data_output['data_output'];
+             $data_output = $this->service->getAllIncidentType();
+            // dd($data_output);
         $data_output_incident = $data_output['data_output_incident'];
         if (Session::get('language') == 'mar') {
             $language = Session::get('language');
@@ -275,7 +159,7 @@ class CitizenActionController extends Controller
         } catch (\Exception $e) {
         return $e;
         }
-        return view('website.pages.citizen-action.report-incident-crowdsourcing-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident'));
+        return view('website.pages.citizen-action.report-incident-crowdsourcing-web',compact('language','menu','socialicon', 'data_output_incident'));
     }  
 
 
@@ -286,8 +170,7 @@ class CitizenActionController extends Controller
             $menu = $this->menu;
             $socialicon = $this->socialicon;
              $data_output = $this->service->getAllVolunteerCitizenSupport();
-            //  dd($data_output);
-             $data_output_new = $data_output['data_output'];
+            // dd($data_output);
              $data_output_incident = $data_output['data_output_incident'];
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -297,25 +180,7 @@ class CitizenActionController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.citizen-action.volunteer-citizen-support-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident'));
+        return view('website.pages.citizen-action.volunteer-citizen-support-web',compact('language','menu','socialicon', 'data_output_incident'));
     }
     
-    // public function getAllPublicAwarenessEducation()
-    // {
-    //     try {
-
-    //         $menu = $this->menu;
-    //         $data_output = $this->service->getAllPublicAwarenessEducation();
-    //         if (Session::get('language') == 'mar') {
-    //             $language = Session::get('language');
-    //         } else {
-    //             $language = 'en';
-    //         }
-
-    //     } catch (\Exception $e) {
-    //         return $e;
-    //     }
-    //     return view('website.pages.citizen-action.list-capacity-training-web',compact('language','menu', 'data_output'));
-    // }
-
 }
