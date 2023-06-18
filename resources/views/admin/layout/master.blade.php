@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/stepwizard.css') }}">
     <!-- favicon -->
-    <link rel="shortcut icon" href="images/CMRS-logo2.png" />
+    <link rel="shortcut icon" href="{{ asset('website_files/images/home/DMS.png') }}" />
     <!-- toastr-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
     <!-- {{-- CKEditor CDN --}} -->

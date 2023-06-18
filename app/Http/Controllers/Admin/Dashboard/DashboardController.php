@@ -273,7 +273,7 @@ class DashboardController extends Controller {
             }
 
             
-            if($value['url'] == 'list-emergency-contact-numbers') {
+            if($value['url'] == 'edit-emergency-contact-numbers') {
                 $data_dashboard['url'] =  $value['url'];
                 $data_dashboard['permission_name'] =  $value['permission_name'];
                 $roles = EmergencyContactNumbers::all();

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ObjectiveGoals extends Migration
+class CreateTrainingMaterialsWorkshops extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,15 @@ class ObjectiveGoals extends Migration
      */
     public function up()
     {
-        Schema::create('objective-goals', function (Blueprint $table) {
+        Schema::create('training_materials_workshops', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('english_title');
             $table->text('marathi_title');
-            $table->text('english_description');
-            $table->text('marathi_description');
-            $table->string('english_image')->default('null');
-            $table->string('marathi_image')->default('null');
-            $table->string('url')->default('null');
+            // $table->string('url')->default(null);
+            $table->string('english_pdf')->default('null');
+            $table->string('marathi_pdf')->default('null');          
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
-            // Add more columns here
             $table->timestamps();
         });
     }

@@ -34,13 +34,13 @@ class DepartmentInformationServices
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_ADD');
             $englishImageName = $last_id . '_english.' . $request->english_image->extension();
-            $englishImageName1 = $last_id . '_english1.' . $request->english_image1->extension();
+            $englishImageName1 = $last_id . '_english1.' . $request->english_image_new->extension();
             $marathiImageName = $last_id . '_marathi.' . $request->marathi_image->extension();
-            $marathiImageName1 = $last_id . '_marathi1.' . $request->marathi_image1->extension();
+            $marathiImageName1 = $last_id . '_marathi1.' . $request->marathi_image_new->extension();
             uploadImage($request, 'english_image', $path, $englishImageName);
-            uploadImage($request, 'english_image', $path, $englishImageName1);
+            uploadImage($request, 'english_image_new', $path, $englishImageName1);
             uploadImage($request, 'marathi_image', $path, $marathiImageName);
-            uploadImage($request, 'marathi_image', $path, $marathiImageName1);
+            uploadImage($request, 'marathi_image_new', $path, $marathiImageName1);
             if ($last_id) {
                 return ['status' => 'success', 'msg' => 'State Disaster Management Authority Added Successfully.'];
             } else {

@@ -5,12 +5,12 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Disaster Forcast
+                    Disaster Forecast
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Update Disaster Forcast</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Update Disaster Forecast</li>
                     </ol>
                 </nav>
             </div>
@@ -37,32 +37,32 @@
                                             @endif
                                         </div>
                                     </div> --}}
-                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
+                                   {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi <span
                                                     class="text-danger">*</span></label>
                                             <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title"
                                                 name="marathi_title">
-@if (old('marathi_title'))
-{{ old('marathi_title') }}@else{{ $disasterforcast->marathi_title }}
-@endif
-</textarea>
+                                                @if (old('marathi_title'))
+                                                {{ old('marathi_title') }}@else{{ $disasterforcast->marathi_title }}
+                                                @endif
+                                                </textarea>
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php //echo $errors->first('marathi_title', ':message');
                                                 ?></span>
                                             @endif
                                         </div>
                                     </div> --}}
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="english_description">Description English <span
                                                     class="text-danger">*</span></label>
                                             <textarea class="form-control english_description" name="english_description" id="english_description"
                                                 placeholder="Enter the Description" name="english_description">
-@if (old('english_description'))
-{{ old('english_description') }}@else{{ $disasterforcast->english_description }}
-@endif
-</textarea>
+                                                @if (old('english_description'))
+                                                {{ old('english_description') }}@else{{ $disasterforcast->english_description }}
+                                                @endif
+                                                </textarea>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php //echo $errors->first('english_title', ':message');
                                                 ?></span>
@@ -70,23 +70,23 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label> Description Marathi <span class="text-danger">*</span></label>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="Enter the Description">
-@if (old('marathi_description'))
-{{ old('marathi_description') }}@else{{ $disasterforcast->marathi_description }}
-@endif
-</textarea>
+                                                @if (old('marathi_description'))
+                                                {{ old('marathi_description') }}@else{{ $disasterforcast->marathi_description }}
+                                                @endif
+                                                </textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"marathi_description><?php echo $errors->first('english_description', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
+                                   {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="forcast_date">Disaster Forcast Date <span
+                                            <label for="forcast_date">Disaster Forecast Date <span
                                                     class="text-danger">*</span></label>
                                             <input type="date" class="form-control" placeholder="YYYY-MM-DD"
                                                 value="@if (old('forcast_date')) {{ old('forcast_date') }}@else{{ $disasterforcast->forcast_date }} @endif"
@@ -95,7 +95,7 @@
                                                 <span class="red-text"><?php echo $errors->first('forcast_date', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div> --}}
+                                    </div>  --}}
                                     {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="expired_date">Expired Date <span

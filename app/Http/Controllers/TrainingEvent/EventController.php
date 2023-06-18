@@ -36,6 +36,8 @@ class EventController extends Controller
             'marathi_description' => 'required',
             'english_image' => 'required',
             'marathi_image' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
             
          ];
     $messages = [   
@@ -45,6 +47,8 @@ class EventController extends Controller
         'marathi_description' => 'required',
         'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'start_date.required' => 'Please select Start Date.',
+        'end_date.required' => 'Please select End Date',
 
     ];
 
@@ -93,8 +97,10 @@ class EventController extends Controller
         'marathi_title' => 'required',
         'english_description' => 'required',
         'marathi_description' => 'required',
-        'english_image' => 'required',
-        'marathi_image' => 'required',
+        // 'english_image' => 'required',
+        // 'marathi_image' => 'required',
+        'start_date' => 'required',
+        'end_date' => 'required',
         
      ];
     $messages = [   
@@ -102,8 +108,10 @@ class EventController extends Controller
         'marathi_title'=>'Please  enter marathi title.',
         'english_description' => 'required',
         'marathi_description' => 'required',
-        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // 'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'start_date.required' => 'Please select Start Date.',
+        'end_date.required' => 'Please select End Date',
       
     ];
 

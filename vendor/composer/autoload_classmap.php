@@ -6,6 +6,9 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha' => $vendorDir . '/anhskohbo/no-captcha/src/Facades/NoCaptcha.php',
+    'Anhskohbo\\NoCaptcha\\NoCaptcha' => $vendorDir . '/anhskohbo/no-captcha/src/NoCaptcha.php',
+    'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider' => $vendorDir . '/anhskohbo/no-captcha/src/NoCaptchaServiceProvider.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Aboutus\\DisasterManagementPortalController' => $baseDir . '/app/Http/Controllers/Aboutus/DisasterManagementPortalController.php',
@@ -35,6 +38,7 @@ return array(
     'App\\Http\\Controllers\\CitizenAction\\VolunteerCitizenSupportController' => $baseDir . '/app/Http/Controllers/CitizenAction/VolunteerCitizenSupportController.php',
     'App\\Http\\Controllers\\ContactUs\\ContactUsController' => $baseDir . '/app/Http/Controllers/ContactUs/ContactUsController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\DBBackup\\DBBackupController' => $baseDir . '/app/Http/Controllers/DBBackup/DBBackupController.php',
     'App\\Http\\Controllers\\DynamicPages\\DynamicPagesController' => $baseDir . '/app/Http/Controllers/DynamicPages/DynamicPagesController.php',
     'App\\Http\\Controllers\\EmergencyResponse\\DistrictEmergencyOperationsCenterController' => $baseDir . '/app/Http/Controllers/EmergencyResponse/DistrictEmergencyOperationsCenterController.php',
     'App\\Http\\Controllers\\EmergencyResponse\\EmergencyContactNumbersController' => $baseDir . '/app/Http/Controllers/EmergencyResponse/EmergencyContactNumbersController.php',

@@ -18,7 +18,7 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action='{{ route('update-emergency-contact-numbers') }}'
+                            <form class="forms-sample" action="{{ route('update-emergency-contact-numbers') }}"
                                 method="post" id="regForm" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
@@ -28,10 +28,10 @@
                                                 class="red-text">*</span>
                                             <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title"
                                                 name="english_title">
-@if (old('english_title'))
+                                                    @if (old('english_title'))
 {{ old('english_title') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->english_title }}
 @endif
-</textarea>
+                                                    </textarea>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -43,40 +43,40 @@
                                                 class="red-text">*</span>
                                             <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title"
                                                 name="marathi_title">
-@if (old('marathi_title'))
+                                                @if (old('marathi_title'))
 {{ old('marathi_title') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->marathi_title }}
 @endif
-</textarea>
+                                                </textarea>
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="english_description">Description English</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control english_description" name="english_description" id="english_description"
                                                 placeholder="Enter the Description" name="description">
-@if (old('english_description'))
+                                                    @if (old('english_description'))
 {{ old('english_description') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->english_description }}
 @endif
-</textarea>
+                                                    </textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="marathi_description"> Description Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="Enter the Description">
-@if (old('marathi_description'))
+                                                    @if (old('marathi_description'))
 {{ old('marathi_description') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->marathi_description }}
 @endif
-</textarea>
+                                                    </textarea>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
                                             @endif
@@ -117,93 +117,73 @@
                                     </div>
                                 </div>
 
-                        </div>
-
-                        <div class="col-md-12 col-sm-12 ">
-                            <div class="d-flex justify-content-end">
-                                <button type="button" class="btn btn-primary" id="add-item">Add More</button>
-                            </div>
-                            <div id="items">
-                                <div class="item">
-                                    <div class="row">
-                                    @forelse($emergencycontact_data['emergencycontactnumbersAddMore'] as $emergencycontact_data_all)
-                                        <div class="col-lg-5 col-md-5 col-sm-5">
-                                            <div class="form-group">
-                                                <label for="english_emergency_contact_title">English Emergency Contact
-                                                    Title</label>&nbsp<span class="red-text">*</span><br>
-                                                <input class="form-control" type="text"
-                                                    name="english_emergency_contact_title_{{ $emergencycontact_data_all['id'] }}"
-                                                    placeholder="Emergency Chontact Title"
-                                                    value="{{ $emergencycontact_data_all['english_emergency_contact_title'] }}">
-                                                @if ($errors->has('english_emergency_contact_title_1'))
-                                                    <span class="red-text"><?php echo $errors->first('english_emergency_contact_title_1', ':message'); ?></span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5 col-md-5 col-sm-5">
-                                            <div class="form-group">
-                                                <label for="marathi_emergency_contact_title">Marathi Emergency
-                                                    Contact Title</label>&nbsp<span class="red-text">*</span><br>
-                                                <input class="form-control" type="text"
-                                                    name="marathi_emergency_contact_title_{{ $emergencycontact_data_all['id'] }}"
-                                                    placeholder="Emergency Contact Title"
-                                                     value="{{ $emergencycontact_data_all['marathi_emergency_contact_title'] }}">
-                                                @if ($errors->has('marathi_emergency_contact_title_1'))
-                                                    <span class="red-text"><?php echo $errors->first('marathi_emergency_contact_title_1', ':message'); ?></span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5 col-md-5 col-sm-5">
-                                            <div class="form-group">
-                                                <label for="english_emergency_contact_number">English Emergency Contact
-                                                    Number</label>&nbsp<span class="red-text">*</span><br>
-                                                <input class="form-control" type="text"
-                                                    name="english_emergency_contact_number_{{ $emergencycontact_data_all['id'] }}"
-                                                    placeholder="Emergency Contact Number"
-                                                    value="{{ $emergencycontact_data_all['english_emergency_contact_number'] }}">
-                                                @if ($errors->has('english_emergency_contact_number_1'))
-                                                    <span class="red-text"><?php echo $errors->first('english_emergency_contact_number_1', ':message'); ?></span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5 col-md-5 col-sm-5">
-                                            <div class="form-group">
-                                                <label for="marathi_emergency_contact_number">Marathi Emergency
-                                                    Contact Number</label>&nbsp<span class="red-text">*</span><br>
-                                                <input class="form-control" type="text"
-                                                    name="marathi_emergency_contact_number_{{ $emergencycontact_data_all['id'] }}"
-                                                    placeholder="Emergency Contact Number"
-                                                    value="{{ $emergencycontact_data_all['marathi_emergency_contact_number'] }}">
-                                                @if ($errors->has('marathi_emergency_contact_number_1'))
-                                                    <span class="red-text"><?php echo $errors->first('marathi_emergency_contact_number_1', ':message'); ?></span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        @empty
-                                        {{'No contact information found'}}
-                                        @endforelse
-                                        <div class="col-md-2">
-                                            <label for="marathi_image"></label>
-                                            <button type="button" class="btn btn-danger remove-item">Remove</button>
-                                        </div>
-                                    </div>
+                                <div class="col-md-12 col-sm-12 text-center">
+                                    <input type="hidden" name="edit_id" id="edit_id" value="{{ $emergencycontact_data['emergencycontactnumbers']->id }}">
+                                    <button type="submit" class="btn btn-success">Save &amp; Update</button>
+                                    <span><a href="{{ route('list-emergency-contact-numbers') }}"
+                                            class="btn btn-sm btn-primary ">Back</a></span>
                                 </div>
-                            </div>
+                            </form>
                         </div>
-                        <div class="col-md-12 col-sm-12 text-center">
-                            <button type="submit" class="btn btn-success">Save &amp; Update</button>
-                            {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
-                            <span><a href="{{ route('list-emergency-contact-numbers') }}"
-                                    class="btn btn-sm btn-primary ">Back</a></span>
-                        </div>
-                    </div>
-                    <input type="hidden" name="id" id="id" class="form-control"
-                        value="{{ $emergencycontact_data['emergencycontactnumbersAddMoreID'] }}" placeholder="">
 
-                    </form>
+                        <div class="col-md-12 col-sm-12 text-center">
+
+                            <div class="pt-3 d-flex justify-content-end" style="margin-bottom: 10px">
+                                <a href="{{ route('add-more-emergency-contact-data') }}"
+                                    class="btn btn-sm btn-primary ml-3">Add Contact
+                                    Number</a>
+                            </div>
+                            <table class="table table-striped table-hover table-bordered border-dark">
+                                <thead class="" style="background-color: #47194a; color:#fff">
+                                    <tr>
+                                        <th scope="col">Sr. No.</th>
+                                        <th scope="col">English English Emergency Contact Title</th>
+                                        <th scope="col">Marathi English Emergency Contact Title</th>
+                                        <th scope="col">English Emergency Contact Number</th>
+                                        <th scope="col">Marathi Emergency Contact Number</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($add_more_contact_numbers as $key => $contact_data)
+                                        <tr>
+                                            <td scope="col">{{ $key + 1 }}</td>
+                                            <td scope="col">{{ $contact_data['english_emergency_contact_title'] }}</td>
+                                            <td scope="col">{{ $contact_data['marathi_emergency_contact_title'] }}</td>
+                                            <td scope="col">{{ $contact_data['english_emergency_contact_number'] }}
+                                            </td>
+                                            <td scope="col">{{ $contact_data['marathi_emergency_contact_number'] }}
+                                            </td>
+                                            <td>
+                                                <div class="d-flex">
+    
+                                                    <a data-id="{{ $contact_data['id'] }}"
+                                                        class="delete-btn btn btn-sm btn-outline-danger m-1" title="Delete"><i
+                                                            class="fas fa-archive"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <h4 style="text-align: center">No Data Found For Emergency Contact</h4>
+                                    @endforelse
+                                </tbody>
+                            </table>
+    
+    
+                        </div>
+
+
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
+
+
+    <form method="POST" action="{{ url('/add-more-emergency-contact-data-delete') }}" id="deleteform">
+        @csrf
+        <input type="hidden" name="delete_id" id="delete_id" value="">
+    </form>
 @endsection

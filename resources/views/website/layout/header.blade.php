@@ -20,7 +20,7 @@
     {{-- <link href="{{ asset('website_files/bootstrap.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/font-awesome.min.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/custom.css') }}" type="text/css" rel="stylesheet">
-    <script src="{{ asset('website_files/asset/js/jquery.min.js') }}"></scripthttps:>
+    <script src="{{ asset('website_files/asset/js/jquery.min.js') }}"></script>
     <script src="{{ asset('website_files/asset/js/bootstrap.js') }}"></script>
     <script src="{{ asset('website_files/ajax/libs/jquery/1.12.2/jquery.min.js') }}"></script>
     <script src="{{ asset('website_files/bootstrap/3.3.6/js/bootstrap.min.js') }}"></script>
@@ -53,15 +53,15 @@
         rel="stylesheet">
     <link href="{{ asset('website_files/assets/bootstrap-5.0.2-dist/css/bootstrap.min.css') }}" type="text/css"
         rel="stylesheet">
-    <link href="{{ asset('website_files/assets/font-awesome.min') }}" type="text/css" rel="stylesheet">
-    <script src="{{ asset('website_files/assets/bootstrap-5.0.2-dist/js/jquery.min.js') }}"></script>
+    <!-- <link href="{{ asset('website_files/assets/font-awesome.min') }}" type="text/css" rel="stylesheet"> -->
+    <!-- ss -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <link href="{{ asset('website_files/assets/css/all.css') }}" type="text/css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
         integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-    <link href="{{ asset('website_files/assets/css/all.css') }}" type="text/css" rel="stylesheet">
+    <!-- <link href="{{ asset('website_files/assets/css/all.css') }}" type="text/css" rel="stylesheet"> -->
     <link href="{{ asset('website_files/assets/css/custom.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/assets/css/responsive.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/assets/css/color.css') }}" type="text/css" rel="stylesheet">
@@ -91,9 +91,9 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    // url: "http://52.66.216.5/change-language",
-                    // url: "http://localhost/project/change-language",
-                    url: "http://localhost/new_pro/project/change-language",
+                     url: "http://52.66.216.5/change-language",
+                    // url: "http://localhost/new_pro/change-language",
+                   // url: "http://localhost/new_pro/project/change-language",
                     cache: false,
                     success: function(response) {
                         location.reload();

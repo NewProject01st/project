@@ -37,7 +37,7 @@
                                                 <th>English No</th>
                                                 <th>Marathi No</th>
                                                 <th>Email</th>
-                                                <th>Status</th>
+                                                {{-- <th>Status</th> --}}
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -51,7 +51,7 @@
                                                 <td>{{ $item->english_number }}</td>
                                                 <td>{{ $item->marathi_number }}</td>
 
-                                               <td>
+                                               {{-- <td>
                                                     <label class="switch">
                                                         <input data-id="{{ $item->id }}" type="checkbox"
                                                             {{ $item->is_active ? 'checked' : '' }}
@@ -61,7 +61,7 @@
                                                         <span class="slider round "></span>
                                                     </label>
 
-                                                </td>
+                                                </td> --}}
 
                                                 <td class="d-flex">
                                                     @if (in_array("per_update", $data_permission))
@@ -74,9 +74,9 @@
                                                         class="show-btn btn btn-sm btn-outline-primary m-1" title="Show"><i
                                                             class="fas fa-eye"></i></a>
                                                     @if (in_array("per_delete", $data_permission))
-                                                    <a data-id="{{ $item->id }}"
+                                                    {{-- <a data-id="{{ $item->id }}"
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                        title="Delete"><i class="fas fa-archive"></i></a>
+                                                        title="Delete"><i class="fas fa-archive"></i></a> --}}
                                                     @endif
 
 

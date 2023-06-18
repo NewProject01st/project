@@ -8,7 +8,7 @@
         <div class="page-header">
             <h3 class="page-title">
                 @if (in_array("per_add", $data_permission))
-                Disaster Management Web Portal List
+                Welcome Section
                 {{-- <a href="{{ route('add-disaster-management-web-portal') }}"
                 class="btn btn-sm btn-primary ml-3">+ Add</a> --}}
                 @endif
@@ -17,7 +17,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#"> Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Disaster Management Web Portal List</li>
+                    <li class="breadcrumb-item active" aria-current="page"> Welcome Section</li>
                 </ol>
             </nav>
         </div>
@@ -76,10 +76,10 @@
                                                             class="show-btn btn btn-sm btn-outline-primary m-1" title="Show"><i
                                                                 class="fas fa-eye"></i></a>
                                                         @if (in_array("per_delete", $data_permission))
-                                                        <a data-id="{{ $item->id }}"
+                                                        {{-- <a data-id="{{ $item->id }}"
                                                             class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                             title="Delete"><i
-                                                                class="fas fa-archive"></i></a>
+                                                                class="fas fa-archive"></i></a> --}}
                                                         @endif
 
                                                     </div>

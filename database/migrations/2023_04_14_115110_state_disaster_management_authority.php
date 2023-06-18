@@ -13,7 +13,7 @@ class StateDisasterManagementAuthority  extends Migration
      */
     public function up()
     {
-        Schema::create('state_disaster_management _authority', function (Blueprint $table) {
+        Schema::create('state_disaster_management_authority', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('english_title');
             $table->text('marathi_title');

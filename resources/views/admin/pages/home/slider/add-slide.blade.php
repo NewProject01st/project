@@ -21,7 +21,7 @@
                             enctype="multipart/form-data" id="regForm">
                             @csrf
                             <div class="row">
-                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label for="english_title">Title English</label>&nbsp<span
                                             class="red-text">*</span>
@@ -34,20 +34,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <div class="form-group">
-                                        <label for="english_description">Description English</label>&nbsp<span
-                                            class="red-text">*</span>
-                                        <textarea class="form-control english_description" name="english_description"
-                                            id="english_description" placeholder="Enter the Description"
-                                            name="description">{{ old('english_description') }}</textarea>
-                                        @if ($errors->has('english_description'))
-                                        <span
-                                            class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="marathi_title">Title Marathi</label>&nbsp<span
                                             class="red-text">*</span>
@@ -60,7 +47,21 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="english_description">Description English</label>&nbsp<span
+                                            class="red-text">*</span>
+                                        <textarea class="form-control english_description" name="english_description"
+                                            id="english_description" placeholder="Enter the Description"
+                                            name="description">{{ old('english_description') }}</textarea>
+                                        @if ($errors->has('english_description'))
+                                        <span
+                                            class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
+                                        @endif
+                                    </div>
+                                </div>
+                               
+                                <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label for="marathi_description"> Description Marathi</label>&nbsp<span
                                             class="red-text">*</span>
@@ -69,15 +70,6 @@
                                         @if ($errors->has('marathi_description'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
-                                        <input class="form-control url" name="url" id="url" value="{{ old('url') }}" placeholder="Enter the URL">
-                                        @if ($errors->has('url'))
-                                        <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                         @endif
                                     </div>
                                 </div>
@@ -100,6 +92,15 @@
                                         @if ($errors->has('marathi_image'))
                                         <span
                                             class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
+                                        <input class="form-control url" name="url" id="url" value="{{ old('url') }}" placeholder="Enter the URL">
+                                        @if ($errors->has('url'))
+                                        <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                         @endif
                                     </div>
                                 </div>

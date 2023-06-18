@@ -102,6 +102,7 @@ class CitizenActionController extends Controller
             'mobile_number' => 'required',
             'description' => 'required',
             'media_upload' => 'required',
+            'g-recaptcha-response' => 'required|captcha',
             ];
         $messages = [   
             'incident' => 'required',
@@ -110,13 +111,15 @@ class CitizenActionController extends Controller
             'mobile_number' => 'required',
             'description' => 'required',
             'media_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'g-recaptcha-response.captcha' => 'Captcha error! try again later or contact site admin.',
+            'g-recaptcha-response.required' =>'Please verify that you are not a robot.',
         ];
     
         try {
             $validation = Validator::make($request->all(),$rules,$messages);
             if($validation->fails() )
             {
-                return redirect('report-modal')
+                return redirect('report-incident-crowdsourcing-web')
                     ->withInput()
                     ->withErrors($validation);
             }
@@ -155,6 +158,7 @@ class CitizenActionController extends Controller
             'mobile_number' => 'required',
             'description' => 'required',
             'media_upload' => 'required',
+            'g-recaptcha-response' => 'required|captcha',
             ];
         $messages = [   
             'incident' => 'required',
@@ -163,13 +167,15 @@ class CitizenActionController extends Controller
             'mobile_number' => 'required',
             'description' => 'required',
             'media_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'g-recaptcha-response.captcha' => 'Captcha error! try again later or contact site admin.',
+            'g-recaptcha-response.required' =>'Please verify that you are not a robot.',
         ];
     
         try {
             $validation = Validator::make($request->all(),$rules,$messages);
             if($validation->fails() )
             {
-                return redirect('volunteer-modal')
+                return redirect('add-volunteer-citizen-support-web')
                     ->withInput()
                     ->withErrors($validation);
             }
@@ -250,6 +256,48 @@ class CitizenActionController extends Controller
         } catch (Exception $e) {
             return redirect('feedback-modal')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
+    }
+
+    public function getReportIncidentCrowdsourcing()
+    {
+        try {
+            $menu = $this->menu;
+            $socialicon = $this->socialicon;
+             $data_output = $this->service->getAllReportIncidentCrowdsourcing();
+            //  dd($data_output);
+             $data_output_new = $data_output['data_output'];
+        $data_output_incident = $data_output['data_output_incident'];
+        if (Session::get('language') == 'mar') {
+            $language = Session::get('language');
+        } else {
+            $language = 'en';
+        }
+        } catch (\Exception $e) {
+        return $e;
+        }
+        return view('website.pages.citizen-action.report-incident-crowdsourcing-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident'));
+    }  
+
+
+    public function getAddVolunteerCitizenSupport()
+    {
+        try {
+
+            $menu = $this->menu;
+            $socialicon = $this->socialicon;
+             $data_output = $this->service->getAllVolunteerCitizenSupport();
+            //  dd($data_output);
+             $data_output_new = $data_output['data_output'];
+             $data_output_incident = $data_output['data_output_incident'];
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+        } catch (\Exception $e) {
+            return $e;
+        }
+        return view('website.pages.citizen-action.volunteer-citizen-support-web',compact('language','menu','socialicon', 'data_output_new', 'data_output_incident'));
     }
     
     // public function getAllPublicAwarenessEducation()

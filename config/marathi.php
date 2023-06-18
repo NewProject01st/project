@@ -9,7 +9,9 @@ return [
 		'HELP_AND_EMERENCY_SERVICE' =>'हेल्पलाइन आणि आपत्कालीन सेवा',
 		'OPEN_VACANCIES' =>'रिक्त जागा उघडा	',
 		'DISASTER_MANAGEMENT_HEAD' =>'आपत्ती व्यवस्थापन प्रमुख',
-		'DISASTER_MANAGEMENT_NEWS' =>'आपत्ती व्यवस्थापन बातम्यांसह अद्ययावत रहा',
+		'DISASTER_MANAGEMENT_NEWS' =>'आपत्ती व्यवस्थापन बातम्या',
+		'FORCAST_LIVE_DATA'=>'थेट डेटा फोरकास्ट करा',
+		'DISASTER_FORCAST'=>'आपत्ती अंदाज',
 		'DEPARTMENT_INFORMATION_DESK' =>'विभाग आणि माहिती डेस्क	',
 		'COUNCIL_ADDRESS' =>'परिषद पत्ता:',
 		'EMAIL' =>'ईमेल:',
@@ -55,7 +57,7 @@ return [
 	],
 	
 	'RTI'=>[ 
-		'RTI' =>'अधिक माहिती',
+		'RTI' =>'माहितीचा अधिकार',
 		'RTI_HEADING' =>'तुम्ही इथे आहात',
 		'RTI_MAIN_LINK' =>'अधिक माहिती',
 		'RTI_SUB_LINK' =>'अधिक माहिती',
@@ -95,6 +97,8 @@ return [
 		'CITIZEN_ACTION_SUB_LINK1' =>'घटना क्राउडसोर्सिंगची तक्रार करा',
 		'CITIZEN_ACTION_SUB_LINK2' =>'स्वयंसेवक नागरिक समर्थन',
 		'CITIZEN_ACTION_SUB_LINK3' =>'नागरिकांच्या प्रतिक्रिया सूचना',
+		'CITIZEN_ACTION_SUB_LINK4' =>'घटना नोंदवा',
+
 	],
 
 	'TRAINING_WORKSHOP'=>[ 
@@ -130,7 +134,7 @@ return [
 		'NEWS_EVENTS_SUB_LINK1' =>'आपत्ती व्यवस्थापन बातम्या',
 		'NEWS_EVENTS_SUB_LINK3' =>' यशोगाथा	',
 
-		'DISASTER_MANAGEMENT_NEWS' =>'आपत्ती व्यवस्थापन बातम्यांसह अद्ययावत रहा',
+		'DISASTER_MANAGEMENT_NEWS' =>'आपत्ती व्यवस्थापन बातम्या',
 	],
 
 	'CONTACT_US'=>[ 

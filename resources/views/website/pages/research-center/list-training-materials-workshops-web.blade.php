@@ -46,26 +46,26 @@
                     <table id="order-listing" class="table table-striped table-hover table-bordered border-dark">
                         <thead class="" style="background-color: #47194a; color:#fff">
                             <tr>
-                                <th scope="col">Sr. No.</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Download File</th>
+                                <th scope="col"><div class="d-flex justify-content-center">Sr. No.</div></th>
+                                <th scope="col"><div class="d-flex justify-content-center">Title</div></th>
+                                <th scope="col"><div class="d-flex justify-content-center">Download File</div></th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($data_output as $item)
                                 <tr class="">
                                     @if (session('language') == 'mar')
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td><div class="d-flex justify-content-center">{{ $loop->iteration }}</div></td>
                                         <td><?php echo $item['marathi_title']; ?></td>
-                                        <td> <a href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $item['marathi_pdf'] }}"
+                                        <td> <div class="d-flex justify-content-center"><a href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $item['marathi_pdf'] }}"
                                                 target="_blank"><img src="{{ asset('website_files/images/pdf/pdf.png/') }}"
-                                                    width="35px" height="35px"></a></td>
+                                                    width="35px" height="35px"></a></div></td>
                                     @else
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td><div class="d-flex justify-content-center">{{ $loop->iteration }}</div></td>
                                         <td><?php echo $item['english_title']; ?></td>
-                                        <td> <a href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $item['english_pdf'] }}"
+                                        <td><div class="d-flex justify-content-center"> <a href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $item['english_pdf'] }}"
                                                 target="_blank"><img src="{{ asset('website_files/images/pdf/pdf.png/') }}"
-                                                    width="35px" height="35px"></a></td>
+                                                    width="35px" height="35px"></a></div></td>
                                     @endif
                                 </tr>
                             @empty

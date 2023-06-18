@@ -24,9 +24,10 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title English</label>&nbsp<span
+                                            <label for="english_title">Title</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">{{ old('english_title') }}</textarea>
+                                                <input class="form-control" name="english_title" id="english_title" placeholder="Enter the Title">
+                                            {{-- <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">{{ old('english_title') }}</textarea> --}}
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -34,9 +35,10 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                            <label for="myInput" class="form-control-label">शीर्षक</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">{{ old('marathi_title') }}</textarea>
+                                                <input class=" form-control" name="marathi_title" id="myInput" placeholder="शीर्षक प्रविष्ट करा">
+                                            {{-- <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">{{ old('marathi_title') }}</textarea> --}}
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -44,9 +46,9 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_name">Name English</label>&nbsp<span
+                                            <label for="english_name">Name</label>&nbsp<span
                                                 class="red-text">*</span><br>
-                                            <input type="text" name="english_name" id="english_name" class="form-control"
+                                            <input type="text" name="english_name" id="english_name" class="form-control" placeholder="Enter the Name"
                                                 value="{{ old('english_name') }}">
                                             @if ($errors->has('english_name'))
                                                 <span class="red-text"><?php echo $errors->first('english_name', ':message'); ?></span>
@@ -55,32 +57,32 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_name">Name Marathi</label>&nbsp<span
+                                            <label for="marathi_name">नाव</label>&nbsp<span
                                                 class="red-text">*</span><br>
-                                            <input type="text" name="marathi_name" id="marathi_name" class="form-control"
+                                            <input type="text" name="marathi_name" id="marathi_name" class="form-control" placeholder="नाव प्रविष्ट करा"
                                                 value="{{ old('marathi_name') }}">
                                             @if ($errors->has('marathi_name'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_name', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_address">English Address</label>&nbsp<span
+                                            <label for="english_address">Address</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control english_description" name="english_address" id="english_address"
-                                                placeholder="Enter the Address">{{ old('english_description') }}</textarea>
+                                            <textarea class="form-control " name="english_address" id="english_address"
+                                                placeholder="Enter the Address">{{ old('english_address') }}</textarea>
                                             @if ($errors->has('english_address'))
                                                 <span class="red-text"><?php echo $errors->first('english_address', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_address">Marathi Address</label>&nbsp<span
+                                            <label for="marathi_address">पत्ता</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control marathi_description" name="marathi_address" id="marathi_address"
-                                                placeholder="Enter the Address">{{ old('marathi_description') }}</textarea>
+                                            <textarea class="form-control" name="marathi_address" id="marathi_address"
+                                                placeholder="पत्ता प्रविष्ट करा">{{ old('marathi_description') }}</textarea>
                                             @if ($errors->has('marathi_address'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_address', ':message'); ?></span>
                                             @endif
@@ -88,10 +90,10 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_number">English No</label>&nbsp<span
+                                            <label for="english_number">Mobile Number</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="english_number" id="english_number"
-                                                class="form-control" id="english_number" placeholder=""
+                                                class="form-control" id="english_number" placeholder="Enter the Mobile Number" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
                                                 value="{{ old('english_number') }}">
                                             @if ($errors->has('english_number'))
                                                 <span class="red-text"><?php echo $errors->first('english_number', ':message'); ?></span>
@@ -100,10 +102,10 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_number"> Marathi No</label>&nbsp<span
+                                            <label for="marathi_number">मोबाईल नंबर</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="marathi_number" id="marathi_number"
-                                                class="form-control" id="marathi_number" placeholder=""
+                                                class="form-control" id="marathi_number" placeholder="मोबाईल नंबर टाका" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
                                                 value="{{ old('marathi_number') }}">
                                             @if ($errors->has('marathi_number'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_number', ':message'); ?></span>
@@ -112,10 +114,10 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_landline_no">English Landline No</label>&nbsp<span
+                                            <label for="english_landline_no">Landline Number</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="english_landline_no" id="english_landline_no"
-                                                class="form-control" id="english_landline_no" placeholder=""
+                                                class="form-control" id="english_landline_no" placeholder="Enter the Landline Number"
                                                 value="{{ old('english_landline_no') }}">
                                             @if ($errors->has('english_landline_no'))
                                                 <span class="red-text"><?php echo $errors->first('english_landline_no', ':message'); ?></span>
@@ -124,10 +126,10 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_landline_no"> Marathi Landline No</label>&nbsp<span
+                                            <label for="marathi_landline_no">दूरध्वनी क्रमांक</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="marathi_landline_no" id="marathi_landline_no"
-                                                class="form-control" id="marathi_landline_no" placeholder=""
+                                                class="form-control" id="marathi_landline_no" placeholder="लँडलाइन क्रमांक प्रविष्ट करा"
                                                 value="{{ old('marathi_landline_no') }}">
                                             @if ($errors->has('marathi_landline_no'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_landline_no', ':message'); ?></span>
@@ -138,7 +140,7 @@
                                         <div class="form-group">
                                             <label for="email">Email</label>&nbsp<span class="red-text">*</span>
                                             <input type="email" name="email" id="email" class="form-control"
-                                                id="email" placeholder="" value="{{ old('email') }}">
+                                                id="email" placeholder="Enter the Email" value="{{ old('email') }}">
                                             @if ($errors->has('email'))
                                                 <span class="red-text"><?php echo $errors->first('email', ':message'); ?></span>
                                             @endif

@@ -369,6 +369,9 @@ ul.reports a {
 	width: 100%;
 }
 li.header-weather {
+	display: block;
+}
+li.city-exp {
 	display: none;
 }
 .h3-navbar .navbar .navbar-nav>li>a {

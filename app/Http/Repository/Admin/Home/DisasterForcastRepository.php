@@ -71,7 +71,7 @@ public function getById($id)
     } catch (\Exception $e) {
         return $e;
 		return [
-            'msg' => 'Failed to get by id Disaster Forcast.',
+            'msg' => 'Failed to get by id Disaster Forecast.',
             'status' => 'error'
         ];
     }
@@ -83,7 +83,7 @@ public function updateAll($request)
         
         if (!$disasterforcast_data) {
             return [
-                'msg' => 'Disaster Forcast not found.',
+                'msg' => 'Disaster Forecast not found.',
                 'status' => 'error'
             ];
         }
@@ -111,13 +111,13 @@ public function updateAll($request)
         $disasterforcast_data->save();        
      
         return [
-            'msg' => 'Disaster Forcast updated successfully.',
+            'msg' => 'Disaster Forecast updated successfully.',
             'status' => 'success'
         ];
     } catch (\Exception $e) {
         return $e;
         return [
-            'msg' => 'Failed to update Disaster Forcast.',
+            'msg' => 'Failed to update Disaster Forecast.',
             'status' => 'error'
         ];
     }
