@@ -83,6 +83,8 @@ public function updateAll($request)
         $previousMarathiImage = $disaster_data->marathi_image;
 
         // Update the fields from the request
+        $disaster_data->english_name = $request['english_name'];
+        $disaster_data->marathi_name = $request['marathi_name'];
         $disaster_data->english_title = $request['english_title'];
         $disaster_data->marathi_title = $request['marathi_title'];
         $disaster_data->english_description = $request['english_description'];
