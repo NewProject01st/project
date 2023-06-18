@@ -1,3 +1,8 @@
+<?php  $data_output_websitelogo = App\Http\Controllers\Website\IndexController::getWebsiteLogo(); 
+$data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getWebTollFreeNumber(); 
+// print_r($data_output_tollfreenumber);
+// die();
+?>
 <div class="wrapper">
     <!--Header Start-->
     <header class="wf100 header-two">
@@ -42,11 +47,19 @@
 
                         <ul class="quick-links">
                             <li><a href="#">
-                                    @if (session('language') == 'mar')
+                               
+                                @foreach ($data_output_tollfreenumber as $item)
+                                @if (session('language') == 'mar')
+                                <span><?php echo $item['marathi_tollfree_no']; ?></span>
+                                @else
+                                <span><?php echo $item['english_tollfree_no']; ?></span>
+                                @endif
+                                @endforeach
+                                    {{-- @if (session('language') == 'mar')
                                         {{ Config::get('marathi.NAVBAR.TOLL_FREE') }}
                                     @else
                                         {{ Config::get('english.NAVBAR.TOLL_FREE') }}
-                                    @endif
+                                    @endif --}}
                                 </a></li>
                         </ul>
                         <button class="webpage_zoom_btn" id="zoomouttextbody">A-</button>
@@ -89,9 +102,18 @@
                         @endif
                     @endforeach --}}
                     <div class="col-md-4 col-sm-4">
-                        <div class="h3-logo"> <a href="/"><img
-                                    src="{{ asset('website_files/images/home/DMS.png') }}" alt=""
+
+                        @foreach ($data_output_websitelogo as $item)
+                        @if (session('language') == 'mar')
+                        <div class="h3-logo"> <a href="/">
+                            <img src="{{ Config::get('DocumentConstant.WEBSITE_LOGO_VIEW') }}{{ $item['logo'] }}" alt=""
                                     style="width: 50%;"></a></div>
+                                    @else
+                                    <div class="h3-logo"> <a href="/">
+                                        <img src="{{ Config::get('DocumentConstant.WEBSITE_LOGO_VIEW') }}{{ $item['logo'] }}" alt=""
+                                                style="width: 50%;"></a></div>
+                        @endif
+                      @endforeach
                     </div>
 
                     <div class="col-4 lang-position">

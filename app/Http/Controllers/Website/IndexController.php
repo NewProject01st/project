@@ -12,7 +12,9 @@ use App\Models\ {
     WebsiteContact,
     DepartmentInformation,
     FooterImportantLinks,
-    Event
+    Event,
+    Tollfree,
+    WebsiteLogo
 };
 
 class IndexController extends Controller
@@ -114,6 +116,41 @@ class IndexController extends Controller
                             ->toArray();
     
             return $weballfooterlink_data ;
+        } catch (\Exception $e) {
+            return $e;
+        }
+                            
+    }
+    Static function getWebTollFreeNumber() {
+        try {
+        $webtollfree_data = array();
+        $webtollfree_data =  Tollfree::where('is_active', '=',true)
+                            ->select( 
+                                'tollfrees.english_tollfree_no', 
+                                'tollfrees.marathi_tollfree_no',
+                                'tollfrees.id',
+                            )
+                            ->get()
+                            ->toArray();
+  
+            return $webtollfree_data ;
+        } catch (\Exception $e) {
+            return $e;
+        }
+                            
+    }
+    Static function getWebsiteLogo() {
+        try {
+        $weballdepartment_data = array();
+        $weballdepartment_data =  WebsiteLogo::where('is_active', '=',true)
+                            ->select( 
+                                'website_logos.logo', 
+                                'website_logos.id',
+                            )
+                            ->get()
+                            ->toArray();
+    
+            return $weballdepartment_data ;
         } catch (\Exception $e) {
             return $e;
         }
