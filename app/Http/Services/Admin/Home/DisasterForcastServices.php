@@ -33,9 +33,9 @@ class DisasterForcastServices
         try {
             $add_disasterforcast = $this->repo->addAll($request);
             if ($add_disasterforcast) {
-                return ['status' => 'success', 'msg' => 'Disaster Forcast Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Disaster Forecast Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Disaster Forcast Not Added.'];
+                return ['status' => 'error', 'msg' => 'Disaster Forecast Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -47,9 +47,9 @@ class DisasterForcastServices
         try {
             $update_disasterforcast = $this->repo->updateAll($request);
             if ($update_disasterforcast) {
-                return ['status' => 'success', 'msg' => 'Disaster Forcast Updated Successfully.'];
+                return ['status' => 'success', 'msg' => 'Disaster Forecast Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Disaster Forcast Not Updated.'];
+                return ['status' => 'error', 'msg' => 'Disaster Forecast Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];

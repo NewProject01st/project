@@ -7,7 +7,7 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Disaster Forcast List
+                Disaster Forecast List
                 @if (in_array("per_add", $data_permission))
                 <a href="{{ route('add-disasterforcast') }}" class="btn btn-sm btn-primary ml-3">+
                     Add</a>
@@ -17,7 +17,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"> Disaster Forcast List</li>
+                    <li class="breadcrumb-item active" aria-current="page"> Disaster Forecast List</li>
                 </ol>
             </nav>
         </div>

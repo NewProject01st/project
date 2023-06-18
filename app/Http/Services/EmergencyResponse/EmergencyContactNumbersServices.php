@@ -47,6 +47,19 @@ class EmergencyContactNumbersServices{
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
+    public function addAllAddMore($request){
+        try {
+            $last_id = $this->repo->addAllAddMore($request);
+            if ($last_id) {
+                return ['status' => 'success', 'msg' => 'District Emergency Operations Center Added Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => 'District Emergency Operations Center get Not Added.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        }      
+    }
+    
     public function updateAll($request){
         try {
             $return_data = $this->repo->updateAll($request);

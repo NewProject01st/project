@@ -71,6 +71,7 @@ class EmergencyContactNumbersRepository {
             $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
             
             $emergencyContactNumbers = EmergencyContactNumbers::find($last_insert_id); // Assuming $request directly contains the ID
+          
             $emergencyContactNumbers->english_image = $englishImageName; // Save the image filename to the database
             $emergencyContactNumbers->marathi_image = $marathiImageName; // Save the image filename to the database
             $emergencyContactNumbers->save();
@@ -84,6 +85,33 @@ class EmergencyContactNumbersRepository {
             ];
         }
     }
+
+
+    public function addAllAddMore($request)
+{
+    try {
+        $emergencyContactNumbers = new EmergencyContactNumbers();
+        $last_insert_id = $emergencyContactNumbers->id;
+        $contact_data = new AddMoreEmergencyContactNumbers(); 
+        
+        $contact_data->emergency_contact_id = $last_insert_id;
+        $contact_data->english_emergency_contact_title = $request->input('english_emergency_contact_title');
+        $contact_data->marathi_emergency_contact_title = $request->input('marathi_emergency_contact_title');
+        $contact_data->english_emergency_contact_number = $request->input('english_emergency_contact_number');
+        $contact_data->marathi_emergency_contact_number = $request->input('marathi_emergency_contact_number');
+
+        $contact_data->save();       
+              
+		return $contact_data;
+
+    } catch (\Exception $e) {
+        return [
+            'msg' => $e,
+            'status' => 'error'
+        ];
+    }
+}
+
     public function getById($id){
         try {
             $return_data = [];

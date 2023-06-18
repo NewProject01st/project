@@ -47,16 +47,16 @@ class EmergencyContactNumbersController extends Controller
         'marathi_image' => 'required',
         ];
 
-    for($i =1;$i<=$request['no_of_text_boxes'];$i++) {
-        $english_emergency_contact_title = 'english_emergency_contact_title_'.$i;
-        $marathi_emergency_contact_title = 'marathi_emergency_contact_title_'.$i;
-        $english_emergency_contact_number = 'english_emergency_contact_number_'.$i;
-        $marathi_emergency_contact_number = 'marathi_emergency_contact_number_'.$i;
-        $rules[$english_emergency_contact_title] = 'required';
-        $rules[$marathi_emergency_contact_title] = 'required';
-        $rules[$english_emergency_contact_number] = 'required';
-        $rules[$marathi_emergency_contact_number] = 'required';
-    }
+    // for($i =1;$i<=$request['no_of_text_boxes'];$i++) {
+    //     $english_emergency_contact_title = 'english_emergency_contact_title_'.$i;
+    //     $marathi_emergency_contact_title = 'marathi_emergency_contact_title_'.$i;
+    //     $english_emergency_contact_number = 'english_emergency_contact_number_'.$i;
+    //     $marathi_emergency_contact_number = 'marathi_emergency_contact_number_'.$i;
+    //     $rules[$english_emergency_contact_title] = 'required';
+    //     $rules[$marathi_emergency_contact_title] = 'required';
+    //     $rules[$english_emergency_contact_number] = 'required';
+    //     $rules[$marathi_emergency_contact_number] = 'required';
+    // }
     $messages = [   
         'english_title.required' => 'Please  enter english title.',
         'marathi_title.required' => 'Please enter marathi title.',
@@ -66,16 +66,16 @@ class EmergencyContactNumbersController extends Controller
         'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ];
 
-    for($i =1;$i<=$request['no_of_text_boxes'];$i++) {
-        $english_emergency_contact_title = 'english_emergency_contact_title_'.$i.'required';
-        $marathi_emergency_contact_title = 'marathi_emergency_contact_title_'.$i.'required';
-        $english_emergency_contact_number = 'english_emergency_contact_number_'.$i.'required';
-        $marathi_emergency_contact_number = 'marathi_emergency_contact_number_'.$i.'required';
-        $messages[$english_emergency_contact_title] = 'Please enter english title';
-        $messages[$marathi_emergency_contact_title] = 'Please enter marathi title.';
-        $messages[$english_emergency_contact_number] = 'Please enter english contact number.';
-        $messages[$marathi_emergency_contact_number] = 'Please enter marathi contact number.';
-    }
+    // for($i =1;$i<=$request['no_of_text_boxes'];$i++) {
+    //     $english_emergency_contact_title = 'english_emergency_contact_title_'.$i.'required';
+    //     $marathi_emergency_contact_title = 'marathi_emergency_contact_title_'.$i.'required';
+    //     $english_emergency_contact_number = 'english_emergency_contact_number_'.$i.'required';
+    //     $marathi_emergency_contact_number = 'marathi_emergency_contact_number_'.$i.'required';
+    //     $messages[$english_emergency_contact_title] = 'Please enter english title';
+    //     $messages[$marathi_emergency_contact_title] = 'Please enter marathi title.';
+    //     $messages[$english_emergency_contact_number] = 'Please enter english contact number.';
+    //     $messages[$marathi_emergency_contact_number] = 'Please enter marathi contact number.';
+    // }
 
     try {
         $validation = Validator::make($request->all(),$rules,$messages);
@@ -109,6 +109,65 @@ class EmergencyContactNumbersController extends Controller
         return redirect('add-emergency-contact-numbers')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
     }
+
+    public function addmore(){
+        return view('admin.pages.emergency-response.emergency-contact-numbers.add-more-data');
+    }
+
+    public function storeaddmore(Request $request){
+        //dd($request['no_of_text_boxes']);
+    $rules = [
+        'english_title' => 'required',
+        'marathi_title' => 'required',
+        'english_description' => 'required',
+        'marathi_description' => 'required',
+        'english_image' => 'required',
+        'marathi_image' => 'required',
+        ];
+    $messages = [   
+        'english_title.required' => 'Please  enter english title.',
+        'marathi_title.required' => 'Please enter marathi title.',
+        'english_description.required' => 'Please  enter english description.',
+        'marathi_description.required' => 'Please enter marathi description.',
+        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ];
+
+  
+
+    try {
+        $validation = Validator::make($request->all(),$rules,$messages);
+        if($validation->fails() )
+        {
+            return redirect('add-more-data')
+                ->withInput()
+                ->withErrors($validation);
+        }
+        else
+        {
+            $add_emergencycontactnumbers = $this->service->addAllAddMore($request);
+           
+            // dd($add_emergencycontactnumbers);
+
+            if($add_emergencycontactnumbers)
+            {
+
+                $msg = $add_emergencycontactnumbers['msg'];
+                $status = $add_emergencycontactnumbers['status'];
+                if($status=='success') {
+                    return redirect('list-emergency-contact-numbers')->with(compact('msg','status'));
+                }
+                else {
+                    return redirect('add-more-data')->withInput()->with(compact('msg','status'));
+                }
+            }
+
+        }
+    } catch (Exception $e) {
+        return redirect('add-more-data')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+    }
+    }
+    
     public function show(Request $request){
         try {
             $emergencycontactnumbers = $this->service->getById($request->show_id);

@@ -90,7 +90,7 @@
                                     </div>
 
                                 </div>
-                                <div class="d-flex justify-content-end">
+                                {{-- <div class="d-flex justify-content-end">
                                     <button type="button" class="btn btn-primary" id="add-item">Add More</button>
                                 </div>
                                 <div id="items">
@@ -158,14 +158,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <button type="submit" class="btn btn-success">Save &amp; Submit</button>
-                                    {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
                                     <span><a href="{{ route('list-disastermanagementportal') }}"
                                             class="btn btn-sm btn-primary ">Back</a></span>
-                                    <input class="form-control" type="text" name="no_of_text_boxes"
-                                        id="no_of_text_boxes" value="1">
+                                    {{-- <input class="form-control" type="text" name="no_of_text_boxes"
+                                        id="no_of_text_boxes" value="1"> --}}
                                 </div>
                             </form>
                         </div>
@@ -175,7 +174,7 @@
         </div>
 
         {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
-        <script>
+        {{-- <script>
             let i = 1;
             $(document).ready(function() {
 
@@ -278,5 +277,5 @@
                     validationMessage.textContent = "Please enter only numbers.";
                 }
             }
-        </script>
+        </script> --}}
     @endsection

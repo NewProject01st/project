@@ -28,10 +28,10 @@
                                                 class="red-text">*</span>
                                             <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title"
                                                 name="english_title">
-@if (old('english_title'))
-{{ old('english_title') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->english_title }}
-@endif
-</textarea>
+                                                    @if (old('english_title'))
+                                                    {{ old('english_title') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->english_title }}
+                                                    @endif
+                                                    </textarea>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -43,10 +43,10 @@
                                                 class="red-text">*</span>
                                             <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title"
                                                 name="marathi_title">
-@if (old('marathi_title'))
-{{ old('marathi_title') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->marathi_title }}
-@endif
-</textarea>
+                                                @if (old('marathi_title'))
+                                                {{ old('marathi_title') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->marathi_title }}
+                                                @endif
+                                                </textarea>
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -58,10 +58,10 @@
                                                 class="red-text">*</span>
                                             <textarea class="form-control english_description" name="english_description" id="english_description"
                                                 placeholder="Enter the Description" name="description">
-@if (old('english_description'))
-{{ old('english_description') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->english_description }}
-@endif
-</textarea>
+                                                    @if (old('english_description'))
+                                                    {{ old('english_description') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->english_description }}
+                                                    @endif
+                                                    </textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
                                             @endif
@@ -73,10 +73,10 @@
                                                 class="red-text">*</span>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="Enter the Description">
-@if (old('marathi_description'))
-{{ old('marathi_description') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->marathi_description }}
-@endif
-</textarea>
+                                                    @if (old('marathi_description'))
+                                                    {{ old('marathi_description') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->marathi_description }}
+                                                    @endif
+                                                    </textarea>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
                                             @endif
@@ -116,10 +116,16 @@
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
                                 </div>
+                            </form>
 
+                             {{-- @if (in_array('per_add', $data_permission)) --}}
+                             <div class="pt-3 d-flex justify-content-end">
+                         <a href="{{ route('add-more-data') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
+                             </div>
+                         {{-- @endif --}}
                         </div>
 
-                        <div class="col-md-12 col-sm-12 ">
+                        {{-- <div class="col-md-12 col-sm-12 ">
                             <div class="d-flex justify-content-end">
                                 <button type="button" class="btn btn-primary" id="add-item">Add More</button>
                             </div>
@@ -189,7 +195,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
+
                         <div class="col-md-12 col-sm-12 text-center">
                             <button type="submit" class="btn btn-success">Save &amp; Update</button>
                             {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
@@ -199,7 +206,6 @@
                     </div>
                     <input type="hidden" name="id" id="id" class="form-control"
                         value="{{ $emergencycontact_data['emergencycontactnumbersAddMoreID'] }}" placeholder="">
-
                     </form>
                 </div>
             </div>

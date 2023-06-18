@@ -191,7 +191,7 @@
                               @endif --}}
                               @if (in_array('list-disasterforcast', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-disasterforcast') }}">Disaster Forcast</a></li>
+                                          href="{{ route('list-disasterforcast') }}">Disaster Forecast</a></li>
                               @endif
 
                               @if (in_array('list-home-tender', $data_for_url))

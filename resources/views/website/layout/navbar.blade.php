@@ -30,9 +30,9 @@
                                 </a></li>
                             <li><a href="{{ route('list-rti') }}">
                                     @if (session('language') == 'mar')
-                                        {{ Config::get('marathi.RTI.RTI') }}
+                                        {{ Config::get('marathi.RTI.RTI_MAIN_LINK') }}
                                     @else
-                                        {{ Config::get('english.RTI.RTI') }}
+                                        {{ Config::get('english.RTI.RTI_MAIN_LINK') }}
                                     @endif
                                 </a></li>
                         </ul>

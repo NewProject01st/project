@@ -57,7 +57,7 @@ return [
 	],
 	
 	'RTI'=>[ 
-		'RTI' =>'RTI',
+		'RTI' =>'Right to Information',
 		'RTI_HEADING' =>'You Are Here',
 		'RTI_MAIN_LINK' =>'RTI',
 		'RTI_SUB_LINK' =>'RTI',

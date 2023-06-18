@@ -131,9 +131,9 @@ class PermissionsSeeder extends Seeder
                 [
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Disaster Forcast',
+                    'route_name' => 'Disaster Forecast',
                     'url' => 'list-disasterforcast',
-                    'permission_name' => 'Disaster Forcast',
+                    'permission_name' => 'Disaster Forecast',
                 ]);
 
             Permissions::create(

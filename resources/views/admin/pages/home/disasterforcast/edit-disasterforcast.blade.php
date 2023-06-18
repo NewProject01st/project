@@ -5,12 +5,12 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Disaster Forcast
+                    Disaster Forecast
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Update Disaster Forcast</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Update Disaster Forecast</li>
                     </ol>
                 </nav>
             </div>
@@ -86,7 +86,7 @@
                                     </div>
                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="forcast_date">Disaster Forcast Date <span
+                                            <label for="forcast_date">Disaster Forecast Date <span
                                                     class="text-danger">*</span></label>
                                             <input type="date" class="form-control" placeholder="YYYY-MM-DD"
                                                 value="@if (old('forcast_date')) {{ old('forcast_date') }}@else{{ $disasterforcast->forcast_date }} @endif"

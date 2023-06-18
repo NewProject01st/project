@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
                             <h3 class="page-title">
-                                Disaster Forcast 
+                                Disaster Forecast 
                             </h3>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
@@ -58,7 +58,7 @@
                                     </div>
                                     {{-- <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Disaster Forcast Date :</label>
+                                            <label>Disaster Forecast Date :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label> {{ $disasterforcast->forcast_date }}</label>
