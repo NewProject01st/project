@@ -26,11 +26,14 @@
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">
+                                                <input class="form-control url" name="english_title" id="english_title"
+                                                placeholder="Enter the Title" name="english_title" value="{{ $links->english_title }}">
+
+                                            {{-- <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">
 @if (old('english_title'))
 {{ old('english_title') }}@else{{ $links->english_title }}
 @endif
-</textarea>
+</textarea> --}}
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -40,11 +43,14 @@
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">
+                                                <input class="form-control url" name="marathi_title" id="marathi_title"
+                                                placeholder="Enter the Title" name="marathi_title" value="{{ $links->marathi_title }}">
+
+                                            {{-- <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">
 @if (old('marathi_title'))
 {{ old('marathi_title') }}@else{{ $links->marathi_title }}
 @endif
-</textarea>
+</textarea> --}}
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
