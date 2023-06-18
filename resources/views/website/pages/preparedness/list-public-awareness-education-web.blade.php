@@ -43,12 +43,12 @@
                                 @if (session('language') == 'mar')
                                     <h3><?php echo $item['marathi_title']; ?> </h3>
                                     <img src="{{ Config::get('DocumentConstant.PUBLIC_AWARENESS_EDUCATION_VIEW') }}{{ $item['marathi_image'] }}"
-                                        class="d-block w-100" alt="...">
+                                        class="d-block w-100 to_set_img_right" alt="...">
                                     <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                 @else
                                     <h3><?php echo $item['english_title']; ?> </h3>
                                     <img src="{{ Config::get('DocumentConstant.PUBLIC_AWARENESS_EDUCATION_VIEW') }}{{ $item['english_image'] }}"
-                                        class="d-block w-100" alt="...">
+                                        class="d-block w-100 to_set_img_right" alt="...">
                                     <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
                                 @endif
                             </div>
