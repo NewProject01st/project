@@ -37,7 +37,7 @@
         <div class="events-wrapper events-listing">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9 col-sm-8">
+                    <div class="col-lg-12  col-md-12 col-sm-12">
                         <div class="title-style-3">
                             <h3>
                                 @if (session('language') == 'mar')
@@ -93,9 +93,7 @@
                         </form>
                     </div>
                     
-                    <div class="col-md-3 col-sm-4">
-                        @include('website.pages.training-event.upcoming-events')
-                    </div>
+                   
                 </div>
             </div>
             <!--Events End-->

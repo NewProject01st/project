@@ -36,52 +36,71 @@
                                                     </option>
                                                 @endforeach
                                             </select>
+                                            @if ($errors->has('menu_data'))
+                                                <span class="red-text"><?php echo $errors->first('menu_data', ':message'); ?></span>
+                                            @endif
                                         </div>
                                     </div>
-                                    {{--    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>&nbsp<span
-                                            class="red-text">*</span>
-                                                <textarea class="form-control" name="english_title" id="summernote"
-                                                placeholder="Enter the Tilte"></textarea>
+                                                class="red-text">*</span>
+                                            <input type="text" class="form-control" name="english_title"
+                                                id="english_title" placeholder="Enter the Tilte" />
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                     <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi</label>&nbsp<span
-                                            class="red-text">*</span>
-                                                <textarea class="form-control" name="marathi_title" id="summernote1"
-                                                placeholder="Enter the Tilte"></textarea>
+                                                class="red-text">*</span>
+                                            <input type="text" class="form-control" name="marathi_title"
+                                                id="marathi_title" placeholder="Enter the Tilte" />
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div> --}}
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                    </div>
+
+
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <label for="english_description">Description English</label>&nbsp<span
+                                            <label for="english_description">Page Content In English</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control" name="english_description" id="summernote2" placeholder="Enter the Description">{{ old('english_description') }}</textarea>
+                                            <textarea class="form-control" name="english_description" id="summernote2" placeholder="Page Content In English">{{ old('english_description') }}</textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php //echo $errors->first('english_description', ':message');
                                                 ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <label for="english_description">Description Marathi</label>&nbsp<span
+                                            <label for="english_description">Page Content In Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control" name="marathi_description" id="summernote3" placeholder="Enter the Description">{{ old('marathi_description') }}</textarea>
+                                            <textarea class="form-control" name="marathi_description" id="summernote3" placeholder="Page Content In Marathi">{{ old('marathi_description') }}</textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php //echo $errors->first('english_description', ':message');
                                                 ?></span>
                                             @endif
                                         </div>
                                     </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="meta_data">Page Meta Data</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input type="text" class="form-control" name="meta_data"
+                                                placeholder="Enter Page Meta Data" />
+                                            @if ($errors->has('meta_data'))
+                                                <span class="red-text"><?php echo $errors->first('meta_data', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="publish_date">Publish Date</label>&nbsp<span

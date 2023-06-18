@@ -4,7 +4,9 @@ namespace App\Constants;
 
 return [
 	'HOME_PAGE'=>[
-
+		'CITY' =>'Nasik City',
+		'READ_MORE' =>'Nasik City',
+		'ALL_RIGHT_RESERVED'=>' All rights reserved',
 		'SELECT_LANGUAGE'	         =>'Select Language',
 		'HELP_AND_EMERENCY_SERVICE' =>'Helplines & Emergency Services',
 		'OPEN_VACANCIES' =>'Open Vacancies',

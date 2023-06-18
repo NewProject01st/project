@@ -15,7 +15,7 @@
     ?>
     <meta name="english_name" content="{{ $metadata->english_name }}">
 
-    <meta name="keywords" content="{{ $metadata->keywords }}">
+    <meta name="keywords" content="@if(isset($dynamic_meta_data)) {{$dynamic_meta_data}} @else  {{ $metadata->keywords }} @endif">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{-- <link href="{{ asset('website_files/bootstrap.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/font-awesome.min.css') }}" type="text/css" rel="stylesheet">
@@ -92,7 +92,7 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                      url: "http://52.66.216.5/change-language",
-                    // url: "http://localhost/new_pro/change-language",
+                    // url: "http://localhost/project/change-language",
                    // url: "http://localhost/new_pro/project/change-language",
                     cache: false,
                     success: function(response) {
