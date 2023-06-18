@@ -288,7 +288,7 @@
               @endif
               @if (in_array('list-state-emergency-operations-center', $data_for_url) ||
                       in_array('list-district-emergency-operations-center', $data_for_url) ||
-                      in_array('list-emergency-contact-numbers', $data_for_url) ||
+                      in_array('edit-emergency-contact-numbers', $data_for_url) ||
                       in_array('list-evacuation-plans', $data_for_url) ||
                       in_array('list-relief-measures-resources', $data_for_url) ||
                       in_array('list-search-rescue-teams', $data_for_url))
@@ -314,9 +314,9 @@
                                           href="{{ route('list-district-emergency-operations-center') }}">District Emergency Operations Center (DEOC)</a>
                                   </li>
                               @endif
-                              @if (in_array('list-emergency-contact-numbers', $data_for_url))
+                              @if (in_array('edit-emergency-contact-numbers', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-emergency-contact-numbers') }}">Emergency Contact Numbers</a>
+                                          href="{{ route('edit-emergency-contact-numbers') }}">Emergency Contact Numbers</a>
                                   </li>
                               @endif
                               @if (in_array('list-evacuation-plans', $data_for_url))
