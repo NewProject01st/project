@@ -149,4 +149,8 @@ return [
     'SOCIAL_ICON_DELETE' => '/all_web_data/images/header/social-icon/',
     'SOCIAL_ICON_VIEW'	 => env("APP_URL").'/storage/all_web_data/images/header/social-icon/',
 
+    'WEBSITE_LOGO_ADD'	 => "/all_web_data/images/header/website-logo//",
+    'WEBSITE_LOGO_DELETE' => '/all_web_data/images/header/website-logo/',
+    'WEBSITE_LOGO_VIEW'	 => env("APP_URL").'/storage/all_web_data/images/header/website-logo/',
+
 ];
