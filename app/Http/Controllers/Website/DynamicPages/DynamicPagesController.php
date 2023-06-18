@@ -41,12 +41,16 @@ class DynamicPagesController extends Controller
             } else {
                 if (Session::get('language') == 'mar') {
                     $dynamic_page = $path_new.$dynamic_web_page_name->actual_page_name_marathi;
+                    $page_title = $dynamic_web_page_name->marathi_title;
+                    $dynamic_meta_data = $dynamic_web_page_name->meta_data;
                     $language = 'mar';
                 } else {
                     $dynamic_page = $path_new.$dynamic_web_page_name->actual_page_name_english;
+                    $page_title = $dynamic_web_page_name->english_title;
+                    $dynamic_meta_data =$dynamic_web_page_name->meta_data;
                     $language = 'en';
                 }
-                return view('website.pages.dynamic-page',compact('language','menu','dynamic_page'));
+                return view('website.pages.dynamic-page',compact('language','menu','dynamic_page','page_title','dynamic_meta_data'));
             }
         } catch (\Exception $e) {
             return $e;

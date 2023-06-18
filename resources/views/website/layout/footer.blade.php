@@ -179,7 +179,13 @@
      <div class="container">
          <div class="row">
              <div class="col-6">
-                 <p class="copyr"> © 2023, <a href="#">All rights reserved</a></p>
+                 <p class="copyr"> © 2023, <a href="#">
+                    @if (session('language') == 'mar')
+                    {{ Config::get('marathi.HOME_PAGE.ALL_RIGHT_RESERVED') }}
+                    @else
+                    {{ Config::get('english.HOME_PAGE.ALL_RIGHT_RESERVED') }}
+                    @endif
+                </a></p>
              </div>
              <div class="col-6">
                  <ul class="footer-social">

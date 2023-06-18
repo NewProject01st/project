@@ -10,5 +10,5 @@ class StateDisasterManagementPlan extends Model
     use HasFactory;
     protected $table = 'state_disaster_management_plans';
     protected $primaryKey = 'id';
-    protected $fillable = ['english_title', 'marathi_title', 'english_description', 'marathi_description','english_image', 'marathi_image'];
+    protected $fillable = ['english_title', 'marathi_title','policies_year','english_pdf', 'marathi_pdf'];
 }

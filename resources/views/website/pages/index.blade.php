@@ -54,7 +54,13 @@
                                     <h1><?php echo $slider['marathi_title']; ?></h1>
                                     <p><?php echo $slider['marathi_description']; ?> </p>
                                     <div class="slide-content-box pt-3"> <a href="{{ $slider['url'] }}" class="con"
-                                            target="_blank">Read More</a> </div>
+                                            target="_blank">
+                                         @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                            @else
+                                            {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                            @endif
+                                        </a> </div>
                                 </div>
                             </div>
                         @elseif (array_key_exists('english_title', $slider))
@@ -65,7 +71,13 @@
                                     <h1><?php echo $slider['english_title']; ?></h1>
                                     <p><?php echo $slider['english_description']; ?> </p>
                                     <div class="slide-content-box pt-3"> <a href="{{ $slider['url'] }}" class="con"
-                                            target="_blank">Read More</a> </div>
+                                            target="_blank">
+                                             @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                            @else
+                                            {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                            @endif
+                                        </a> </div>
                                 </div>
 
                             </div>
@@ -173,7 +185,13 @@
                                         <p class="card_title"> <?php echo mb_substr($item['marathi_description'], 0, 74); ?></p>
                                     </div>
                                     <div class="news-box-f cursor-pointer">
-                                        <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a
+                                        <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                            @else
+                                            {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                            @endif
+                                        </span> <a
                                             data-id="{{ $item['id'] }}" class="show-btn"><i
                                                 class="fas fa-arrow-right"></i></a>
                                     </div>

@@ -166,7 +166,7 @@ function getMenuItemsForDynamicPageAdd() {
                 
 }
 
-function savePageNameInMenu($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date) {
+function savePageNameInMenu($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date,$english_title,$marathi_title,$meta_data) {
 
 
     if($main_sub =='main') {
@@ -177,7 +177,7 @@ function savePageNameInMenu($main_sub, $id, $url, $actual_page_name_marathi, $ac
                                     ]);
 
         
-        addOrUpdateDynamicWebPages($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date);
+        addOrUpdateDynamicWebPages($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date,$english_title,$marathi_title,$meta_data);
             
     } else {
         $subMenus  = MainSubMenus::where('id', '=', $id)
@@ -186,13 +186,13 @@ function savePageNameInMenu($main_sub, $id, $url, $actual_page_name_marathi, $ac
                                         'is_static'=> false
                                     ]);
 
-        addOrUpdateDynamicWebPages($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date);
+        addOrUpdateDynamicWebPages($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date,$english_title,$marathi_title,$meta_data);
                                    
     }
     return 'ok';
 }
 
-function addOrUpdateDynamicWebPages($main_sub,$id,$url,$actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date) {
+function addOrUpdateDynamicWebPages($main_sub,$id,$url,$actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date,$english_title,$marathi_title,$meta_data) {
 
         $dynamic_web_page_name = DynamicWebPages::where('is_active',true)
                                                 ->where('menu_id',$id)
@@ -202,12 +202,16 @@ function addOrUpdateDynamicWebPages($main_sub,$id,$url,$actual_page_name_marathi
             $dynamic_web_page_name = DynamicWebPages::where('is_active',true)
                                                     ->where('menu_id',$id)
                                                     ->where('menu_type',$main_sub)
+
                                                     ->update([
                                                                 'slug'=> $url,
                                                                 'actual_page_name_marathi'=> $actual_page_name_marathi,
                                                                 'actual_page_name_english'=> $actual_page_name_english,
                                                                 'menu_name' =>$menu_name,
-                                                                'publish_date' =>$publish_date
+                                                                'publish_date' =>$publish_date,
+                                                                'english_title' =>$english_title,
+                                                                'marathi_title' =>$marathi_title,
+                                                                'meta_data' =>$meta_data,
                                                             ]);
         } else {
             $data_for_insert = [
@@ -217,6 +221,9 @@ function addOrUpdateDynamicWebPages($main_sub,$id,$url,$actual_page_name_marathi
                 'menu_name' => $menu_name,
                 'menu_id' => $id,
                 'publish_date' => $publish_date,
+                'english_title' =>$english_title,
+                'marathi_title' =>$marathi_title,
+                'meta_data' =>$meta_data,
             ];
 
             if($main_sub =='main') { 

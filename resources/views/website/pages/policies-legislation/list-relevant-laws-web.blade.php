@@ -36,33 +36,46 @@
             <div class="department-details">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-9">
-                            <!--Department Details Txt Start-->
-                            @forelse ($data_output as $item)
-                                <div class="deprt-txt">
-                                    @if (session('language') == 'mar')
-                                        <h3><?php echo $item['marathi_title']; ?> </h3>
-                                        <img src="{{ Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_VIEW') }}{{ $item['marathi_image'] }}"
-                                            class="d-block w-100" alt="...">
-                                        <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
-                                    @else
-                                        <h3><?php echo $item['english_title']; ?> </h3>
-                                        <img src="{{ Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_VIEW') }}{{ $item['english_image'] }}"
-                                            class="d-block w-100" alt="...">
-                                        <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
-                                    @endif
-                                </div>
-                            @empty
-                                <h4>No Data Found For Relevant Laws And Regulations</h4>
-                            @endforelse
-
-                            <!--Department Details Txt End-->
-                        </div>
-                        <!--Sidebar Start-->
-                        <div class="col-md-3">
-                            @include('website.pages.training-event.upcoming-events')
-                        </div>
-                        <!--Sidebar End-->
+                        <h3 class="stitle text-center d-flex justify-content-start">
+                            @if (session('language') == 'mar')
+                                {{ Config::get('marathi.POLICIES_LEGISLATION.POLICIES_LEGISLATION_SUB_LINK4') }}
+                            @else
+                                {{ Config::get('english.POLICIES_LEGISLATION.POLICIES_LEGISLATION_SUB_LINK4') }}
+                            @endif
+                        </h3>
+                        <table id="order-listing" class="table table-striped table-hover table-bordered border-dark">
+                            <thead class="" style="background-color: #47194a; color:#fff">
+                                <tr>
+                                    <th scope="col" class="d-flex justify-content-center">Sr. No.</th>
+                                    <th scope="col" class="">Year</th>
+                                    <th scope="col"><div class="d-flex justify-content-center">Title</div></th>
+                                    <th scope="col"><div class="d-flex justify-content-center">Download File</div></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($data_output as $item)
+                                    <tr class="">
+                                        @if (session('language') == 'mar')
+                                            <td><div class="d-flex justify-content-center">{{ $loop->iteration }}</div></td>
+                                            <td><div class="d-flex justify-content-center">{{ $item['policies_year'] }}</div></td>
+                                            <td><?php echo $item['marathi_title']; ?></td>
+                                            <td><div class="d-flex justify-content-center"> <a href="{{ Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_VIEW') }}{{ $item['marathi_pdf'] }}"
+                                                    target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
+                                                        width="35px" height="35px"></a></div></td>
+                                        @else
+                                            <td><div class="d-flex justify-content-center">{{ $loop->iteration }}</div></td>
+                                            <td><div class="d-flex justify-content-center">{{ $item['policies_year'] }}</div></td>
+                                            <td><?php echo $item['english_title']; ?></td>
+                                            <td><div class="d-flex justify-content-center"> <a href="{{ Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_VIEW') }}{{ $item['english_pdf'] }}"
+                                                    target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
+                                                        width="35px" height="35px"></a><div class="d-flex justify-content-center"></td>
+                                        @endif
+                                    </tr>
+                                @empty
+                                    {{-- <h4>No Data Found For District Disaster Management Plan</h4> --}}
+                                @endforelse
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

@@ -4,7 +4,9 @@ namespace App\Constants;
 
 return [
 	'HOME_PAGE'=>[
-
+		'CITY' =>'नाशिक शहर',
+		'READ_MORE' =>'पुढे वाचा',
+		'ALL_RIGHT_RESERVED'=>'सर्व हक्क राखीव',
 		'SELECT_LANGUAGE' =>'भाषा निवडा',
 		'HELP_AND_EMERENCY_SERVICE' =>'हेल्पलाइन आणि आपत्कालीन सेवा',
 		'OPEN_VACANCIES' =>'रिक्त जागा उघडा	',

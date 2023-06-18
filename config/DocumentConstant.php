@@ -105,9 +105,9 @@ return [
     'RELEVANT_LAWS_REGULATIONS_DELETE'   => '/all_web_data/images/policies_legislation/relevant_laws_regulations/',
     'RELEVANT_LAWS_REGULATIONS_VIEW'	 => env("APP_URL").'/storage/all_web_data/images/policies_legislation/relevant_laws_regulations/',
 
-    'STATE_DISASTER_PLAN_ADD'	 => "/all_web_data/images/policies_legislation/state_disaster_management_plan/",
-    'STATE_DISASTER_PLAN_DELETE' => '/all_web_data/images/policies_legislation/state_disaster_management_plan/',
-    'STATE_DISASTER_PLAN_VIEW'	 => env("APP_URL").'/storage/all_web_data/images/policies_legislation/state_disaster_management_plan/',
+    'STATE_DISASTER_PLAN_ADD'	 => "/all_web_data/pdf/policies_legislation/state_disaster_management_plan/",
+    'STATE_DISASTER_PLAN_DELETE' => '/all_web_data/pdf/policies_legislation/state_disaster_management_plan/',
+    'STATE_DISASTER_PLAN_VIEW'	 => env("APP_URL").'/storage/all_web_data/pdf/policies_legislation/state_disaster_management_plan/',
 
     'STATE_DISASTER_POLICY_ADD'	   => "/all_web_data/images/policies_legislation/state_disaster_management_policy/",
     'STATE_DISASTER_POLICY_DELETE' => '/all_web_data/images/policies_legislation/state_disaster_management_policy/',

@@ -24,9 +24,10 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title English</label>&nbsp<span
+                                            <label for="english_title">Title</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">{{ old('english_title') }}</textarea>
+                                                <input type="text" name="english_title" id="english_title" class="form-control"
+                                                id="english_title" placeholder="Please enter Title" value="{{ old('english_title') }}">
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -34,58 +35,58 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                            <label for="marathi_title">शीर्षक</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">{{ old('marathi_title') }}</textarea>
+                                                <input type="text" name="marathi_title" id="marathi_title" class="form-control"
+                                                id="marathi_title" placeholder="शीर्षक प्रविष्ट करा" value="{{ old('marathi_title') }}">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_description">Description English</label>&nbsp<span
-                                                class="red-text">*</span>
-                                            <textarea class="form-control english_description" name="english_description" id="english_description"
-                                                placeholder="Enter the Description" name="english_description">{{ old('english_description') }}</textarea>
-                                            @if ($errors->has('english_description'))
-                                                <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="form-group">
-                                            <label> Description Marathi</label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
-                                                placeholder="Enter the Description">{{ old('marathi_description') }}</textarea>
-                                            @if ($errors->has('marathi_description'))
-                                                <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
+                                            <label for="english_pdf">PDF</label>&nbsp<span
+                                                class="red-text">*</span><br>
+                                            <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"
+                                                {{ old('english_pdf') }}><br>
+                                            @if ($errors->has('english_pdf'))
+                                                <span class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_image">Image English</label>&nbsp<span
+                                            <label for="marathi_pdf">पीडीएफ</label>&nbsp<span
                                                 class="red-text">*</span><br>
-                                            <input type="file" name="english_image" id="english_image" accept="image/*"
-                                                {{ old('english_image') }}><br>
-                                            @if ($errors->has('english_image'))
-                                                <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
+                                            <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
+                                                {{ old('marathi_pdf') }}><br>
+                                            @if ($errors->has('marathi_pdf'))
+                                                <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_image">Image Marathi</label>&nbsp<span
-                                                class="red-text">*</span><br>
-                                            <input type="file" name="marathi_image" id="marathi_image" accept="image/*"
-                                                {{ old('marathi_image') }}><br>
-                                            @if ($errors->has('marathi_image'))
-                                                <span class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
+                                            <label for="url">URL</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" name="url" id="url" class="form-control"
+                                                id="url" placeholder="Please enter URL" value="{{ old('url') }}">
+                                            @if ($errors->has('url'))
+                                                <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="url">Year</label>&nbsp<span class="red-text">*</span>
+                                            <select class="form-control" id="dYear" name="policies_year">
+                                                <option value="{{ old('policies_year') }}">Select Year</option> 
+                                               </select>
+                                            @if ($errors->has('url'))
+                                                <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                         {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}

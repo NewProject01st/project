@@ -40,24 +40,6 @@
               </ul>
           </div>
       </div>
-      <!--Widget End-->
-
-      {{--          <div class="widget">
-              <h4>Important Links</h4>
-              <div class="archives inner">
-                  <ul>
-                      <li><a href="#">Emergency Services</a></li>
-                      <li><a href="#">Environmental Conditions</a></li>
-                      <li><a href="#">Disaster Preparedness</a></li>
-                      <li><a href="#">Disaster Response</a></li>
-                      <li><a href="#">Disaster Recovery</a></li>
-                      <li><a href="#">Volunteer Opportunities</a></li>
-                      <li><a href="#">Donations and Aid</a></li>
-                      <li><a href="#">Local Resources</a></li>
-                  </ul>
-              </div>
-          </div>
-          --}}
-      <!--Widget End-->
+    
   </div>
   </div>

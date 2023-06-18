@@ -17,10 +17,10 @@ class CreateDistrictDisasterManagementPlansTable extends Migration
             $table->bigIncrements('id');
             $table->text('english_title');
             $table->text('marathi_title');
-            $table->text('english_description');
-            $table->text('marathi_description');
-            $table->string('english_image')->default('null');
-            $table->string('marathi_image')->default('null');
+            $table->string('policies_year');
+            $table->string('url')->default('null');
+            $table->string('english_pdf')->default('null');
+            $table->string('marathi_pdf')->default('null'); 
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

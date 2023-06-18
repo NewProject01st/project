@@ -10,12 +10,12 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
                             <h3 class="page-title">
-                                Feedback and suggestions
+                                Relevant Laws And Regulation
                             </h3>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
                             <div>
-                                <a href="{{ route('list-citizen-feedback-and-suggestion') }}"
+                                <a href="{{ route('list-relevant-laws-and-regulations') }}"
                                     class="btn btn-sm btn-primary ml-3">Back</a>
                             </div>
                         </div>
@@ -25,55 +25,40 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
-
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title English :</label>
+                                            <label>Title :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($feedback_suggestion->english_title) }}</label>
+                                            <label>{{ strip_tags($relevant_laws->english_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title Marathi :</label>
+                                            <label>शीर्षक :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($feedback_suggestion->marathi_title) }}</label>
+                                            <label>{{ strip_tags($relevant_laws->marathi_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Description English :</label>
+                                            <label>PDF :</label>
                                         </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($feedback_suggestion->english_description) }}</label>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <a href="{{ Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_VIEW') }}{{ $relevant_laws->english_pdf }}"
+                                                target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
+                                                    width="50px" height="50px"></a>
                                         </div>
                                     </div>
-                                    <div class="row ">
+                                    <div class="row pt-2">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Description Marathi :</label>
+                                            <label>पीडीएफ :</label>
                                         </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($feedback_suggestion->marathi_description) }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label> English Image :</label>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <img src="{{ Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_VIEW') }}{{ $feedback_suggestion->english_image }}"
-                                                style="width:300px; height:150px;" />
-                                        </div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label> Marathi Image:</label>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
-                                            <img src="{{ Config::get('DocumentConstant.CITIZEN_FEEDBACK_SUGGESTION_VIEW') }}{{ $feedback_suggestion->marathi_image }}"
-                                                style="width:300px; height:150px;" />
+                                            <a href="{{ Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_VIEW') }}{{ $relevant_laws->marathi_pdf }}"
+                                                target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
+                                                    width="50px" height="50px"></a>
                                         </div>
                                     </div>
 

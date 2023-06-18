@@ -27,7 +27,7 @@
                                         <div class="form-group">
                                             <label for="english_address">English Address</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control english_title" name="english_address" id="english_address" placeholder="Enter the Name">
+                                            <textarea class="form-control" name="english_address" id="english_address" placeholder="Enter the Name">
 @if (old('english_address'))
 {{ old('english_address') }}@else{{ $website_contact->english_address }}
 @endif
@@ -41,7 +41,7 @@
                                         <div class="form-group">
                                             <label for="marathi_address">Marathi Address</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control marathi_title" name="marathi_address" id="marathi_address" placeholder="Enter the Name">
+                                            <textarea class="form-control" name="marathi_address" id="marathi_address" placeholder="Enter the Name">
 @if (old('marathi_address'))
 {{ old('marathi_address') }}@else{{ $website_contact->marathi_address }}
 @endif
@@ -66,7 +66,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_number">Marathi No</label>&nbsp<span
+                                            <label for="marathi_number">दूरध्वनी क्रमांक</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="marathi_number" id="marathi_number" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
                                                 class="form-control"

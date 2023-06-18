@@ -20,10 +20,10 @@ class CitizenActionServices
     {
         $this->repo = new CitizenActionRepository();
     }
-    public function getAllReportIncidentCrowdsourcing()
+    public function getAllIncidentType()
     {
         try {
-            return $this->repo->getAllReportIncidentCrowdsourcing();
+            return $this->repo->getAllIncidentType();
         } catch (\Exception $e) {
             return $e;
         }
@@ -37,14 +37,7 @@ class CitizenActionServices
             return $e;
         }
     } 
-    public function getAllCitizenFeedbackSuggestions()
-    {
-        try {
-            return $this->repo->getAllCitizenFeedbackSuggestions();
-        } catch (\Exception $e) {
-            return $e;
-        }
-    } 
+  
     
     public function addIncidentModalInfo($request)
     {
@@ -80,20 +73,5 @@ class CitizenActionServices
         }      
     }
 
-    public function addFeedbackModalInfo($request)
-    {
-        try {
-            $last_id = $this->repo->addFeedbackModalInfo($request);
-            $path = Config::get('DocumentConstant.FEEDBACK_CITIZEN_MODAL_ADD');
-            $englishImageName = $last_id . '_english.' . $request->media_upload->extension();
-            uploadImage($request, 'media_upload', $path, $englishImageName);
-            if ($last_id) {
-                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing  Added Successfully.'];
-            } else {
-                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Added.'];
-            }  
-        } catch (Exception $e) {
-            return ['status' => 'error', 'msg' => $e->getMessage()];
-        }      
-    }
+
 }

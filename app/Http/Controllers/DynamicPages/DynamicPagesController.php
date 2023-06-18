@@ -36,12 +36,22 @@ class DynamicPagesController extends Controller
 
         try {
             $rules = [
+                'menu_data' => 'required',
                 'marathi_description' => 'required',
                 'english_description' => 'required',
+                'english_title' => 'required',
+                'marathi_title' => 'required',
+                'meta_data' => 'required', 
+                'publish_date' => 'required',  
                 ];
             $messages = [   
-                'marathi_description.required' => 'Please  enter english title.',
-                'english_description.required' => 'Please enter marathi title.',
+                'menu_data.required' => 'Please select menu.',
+                'marathi_description.required' => 'Please  enter english page content.',
+                'english_description.required' => 'Please enter marathi page content.',
+                'english_title.required' => 'Please enter title in english.',
+                'marathi_title.required' => 'Please enter title in marathi.',
+                'meta_data.required' => 'Please content of meta data.',
+                'publish_date.required' => 'Please select publish date.',
             ];
         
             $validation = Validator::make($request->all(),$rules,$messages);
@@ -86,8 +96,10 @@ class DynamicPagesController extends Controller
     
     public function edit(Request $request)
     {
+        $main_menu_data = getMenuItemsForDynamicPageAdd();
         $edit_data_id = $request->edit_id;
         $dynamic_page = $this->service->getById($edit_data_id);
+        $menu_selected = $dynamic_page->menu_id.'_'.$dynamic_page->menu_type;
 
         $edit_data_id = $edit_data_id.'_'.$dynamic_page->menu_type;
 
@@ -97,18 +109,29 @@ class DynamicPagesController extends Controller
         $html_marathi = file_get_contents($html_marathi_path);
         $html_english_path = "./resources/views/admin/pages/dynamic-pages-created/".$dynamic_page->actual_page_name_english.".blade.php";
         $html_english = file_get_contents($html_english_path);
-        return view('admin.pages.dynamic-pages.edit-page', compact('html_marathi', 'html_english', 'edit_data_id', 'get_publish_date'));
+        return view('admin.pages.dynamic-pages.edit-page', compact('html_marathi', 'html_english', 'edit_data_id', 'get_publish_date','dynamic_page','main_menu_data','menu_selected'));
     }
     public function update(Request $request) {
        
         try {
+           
             $rules = [
+                'menu_data' => 'required',
                 'marathi_description' => 'required',
                 'english_description' => 'required',
+                'english_title' => 'required',
+                'marathi_title' => 'required',
+                'meta_data' => 'required', 
+                'publish_date' => 'required',  
                 ];
             $messages = [   
-                'marathi_description.required' => 'Please  enter english title.',
-                'english_description.required' => 'Please enter marathi title.',
+                'menu_data.required' => 'Please select menu.',
+                'marathi_description.required' => 'Please  enter english page content.',
+                'english_description.required' => 'Please enter marathi page content.',
+                'english_title.required' => 'Please enter title in english.',
+                'marathi_title.required' => 'Please enter title in marathi.',
+                'meta_data.required' => 'Please content of meta data.',
+                'publish_date.required' => 'Please select publish date.',
             ];
         
             $validation = Validator::make($request->all(),$rules,$messages);
@@ -152,6 +175,11 @@ class DynamicPagesController extends Controller
         $final_content_marathi = $request->marathi_description;
         $final_content_english = $request->english_description;
         $publish_date = $request->publish_date;
+        $english_title = $request->english_title;
+        $marathi_title = $request->marathi_title;
+        $meta_data = $request->meta_data;
+
+      
        
         $save = file_put_contents("./resources/views/admin/pages/dynamic-pages-created/{$actual_page_name_english}",$final_content_english);
         $save = file_put_contents("./resources/views/admin/pages/dynamic-pages-created/{$actual_page_name_marathi}",$final_content_marathi);
@@ -159,7 +187,8 @@ class DynamicPagesController extends Controller
         savePageNameInMenu( $menu_selected[1], $menu_id, $new_name, 
                             $actual_page_name_marathi_without_ext, 
                             $actual_page_name_english_without_ext,
-                            $menu_name, $publish_date);
+                            $menu_name, $publish_date,
+                            $english_title,$marathi_title,$meta_data);
 
         return "ok";
     }

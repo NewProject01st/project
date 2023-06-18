@@ -54,6 +54,22 @@ class PermissionsSeeder extends Seeder
                     'url' => 'list-header-rti',
                     'permission_name' => 'RTI',
                 ]);
+                Permissions::create(
+                    [
+                        'created_at' => \Carbon\Carbon::now(),
+                        'updated_at' => \Carbon\Carbon::now(),
+                        'route_name' => 'Toll Free Number',
+                        'url' => 'list-tollfree-number',
+                        'permission_name' => 'Toll Free Number',
+                    ]);
+                    Permissions::create(
+                        [
+                            'created_at' => \Carbon\Carbon::now(),
+                            'updated_at' => \Carbon\Carbon::now(),
+                            'route_name' => 'Website Logo',
+                            'url' => 'list-website-logo',
+                            'permission_name' => 'Website Logo',
+                        ]);
             Permissions::create(
                 [
                     'created_at' => \Carbon\Carbon::now(),
@@ -261,30 +277,7 @@ class PermissionsSeeder extends Seeder
                     'url' => 'list-search-rescue-teams',
                     'permission_name' => 'Search Rescue Teams',
                 ]);
-            Permissions::create(
-                [
-                    'created_at' => \Carbon\Carbon::now(),
-                    'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Report Incident Crowdsourcing',
-                    'url' => 'list-report-crowdsourcing',
-                    'permission_name' => 'Report Incident Crowdsourcing',
-                ]);
-            Permissions::create(
-                [
-                    'created_at' => \Carbon\Carbon::now(),
-                    'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Volunteer Citizen Support',
-                    'url' => 'list-volunteer-citizen-support',
-                    'permission_name' => 'Volunteer Citizen Support',
-                ]);
-            Permissions::create(
-                [
-                    'created_at' => \Carbon\Carbon::now(),
-                    'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Feedback and suggestions',
-                    'url' => 'list-citizen-feedback-and-suggestion',
-                    'permission_name' => 'Feedback and suggestions',
-                ]);
+            
             Permissions::create(
                 [
                     'created_at' => \Carbon\Carbon::now(),
@@ -308,7 +301,7 @@ class PermissionsSeeder extends Seeder
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                     'route_name' => 'Feedback and suggestions List',
-                    'url' => 'list-feedback-modal-info',
+                    'url' => 'list-contact-suggestion',
                     'permission_name' => 'Feedback and suggestions List',
                 ]);
             Permissions::create(

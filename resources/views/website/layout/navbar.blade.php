@@ -1,3 +1,8 @@
+<?php  $data_output_websitelogo = App\Http\Controllers\Website\IndexController::getWebsiteLogo(); 
+$data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getWebTollFreeNumber(); 
+// print_r($data_output_tollfreenumber);
+// die();
+?>
 <div class="wrapper">
     <!--Header Start-->
     <header class="wf100 header-two">
@@ -21,7 +26,7 @@
                                         {{ Config::get('english.VACANCIES.VACANCIES') }}
                                     @endif
                                 </a></li>
-                            <li><a href="{{ route('list-report-incident-crowdsourcing-web') }}">
+                            <li><a href="{{ route('report-incident-crowdsourcing-web') }}">
                                     @if (session('language') == 'mar')
                                         {{ Config::get('marathi.NAVBAR.REPORT_IT') }}
                                     @else
@@ -42,11 +47,19 @@
 
                         <ul class="quick-links">
                             <li><a href="#">
-                                    @if (session('language') == 'mar')
+                               
+                                @foreach ($data_output_tollfreenumber as $item)
+                                @if (session('language') == 'mar')
+                                <span><?php echo $item['marathi_tollfree_no']; ?></span>
+                                @else
+                                <span><?php echo $item['english_tollfree_no']; ?></span>
+                                @endif
+                                @endforeach
+                                    {{-- @if (session('language') == 'mar')
                                         {{ Config::get('marathi.NAVBAR.TOLL_FREE') }}
                                     @else
                                         {{ Config::get('english.NAVBAR.TOLL_FREE') }}
-                                    @endif
+                                    @endif --}}
                                 </a></li>
                         </ul>
                         <button class="webpage_zoom_btn" id="zoomouttextbody">A-</button>
@@ -54,7 +67,7 @@
 
                     </div>
                     <div class="col-2 set_volunteer">
-                        <a href="{{ route('volunteer-citizen-support-web') }}" class="become-vol">
+                        <a href="{{ route('add-volunteer-citizen-support-web') }}" class="become-vol">
                             @if (session('language') == 'mar')
                                 {{ Config::get('marathi.NAVBAR.BECOME_VOLUNTEER') }}
                             @else
@@ -89,9 +102,18 @@
                         @endif
                     @endforeach --}}
                     <div class="col-md-4 col-sm-4">
-                        <div class="h3-logo"> <a href="/"><img
-                                    src="{{ asset('website_files/images/home/DMS.png') }}" alt=""
+
+                        @foreach ($data_output_websitelogo as $item)
+                        @if (session('language') == 'mar')
+                        <div class="h3-logo"> <a href="/">
+                            <img src="{{ Config::get('DocumentConstant.WEBSITE_LOGO_VIEW') }}{{ $item['logo'] }}" alt=""
                                     style="width: 50%;"></a></div>
+                                    @else
+                                    <div class="h3-logo"> <a href="/">
+                                        <img src="{{ Config::get('DocumentConstant.WEBSITE_LOGO_VIEW') }}{{ $item['logo'] }}" alt=""
+                                                style="width: 50%;"></a></div>
+                        @endif
+                      @endforeach
                     </div>
 
                     <div class="col-4 lang-position">
@@ -99,7 +121,13 @@
                             <div class="col-md-9 col-sm-9">
                                 <ul class="header-contact">
                                     <li class="city-exp for_pl_pr"> <i class="fas fa-street-view"></i>
-                                        <strong>City<br>Nashik</strong>
+                                        <strong>
+                                            @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.HOME_PAGE.CITY') }}
+                                            @else
+                                            {{ Config::get('english.HOME_PAGE.CITY') }}
+                                            @endif
+                                        </strong>
                                     </li>
                                     <li class="header-weather for_pl_pr"> <i class="fas fa-cloud-sun"></i>
                                         {{ getTempratureData() }}°C

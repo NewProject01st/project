@@ -27,7 +27,7 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_tollfree_no">English Toll Free No</label>&nbsp<span
+                                            <label for="english_tollfree_no">Toll Free Number</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="english_tollfree_no" id="english_tollfree_no"
                                                 value="{{ $tollfree_no->english_tollfree_no }}" class="form-control"
@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_tollfree_no">Marathi Toll Free No</label>&nbsp<span
+                                            <label for="marathi_tollfree_no">टोल फ्री क्र</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="marathi_tollfree_no" id="marathi_tollfree_no"
                                                 value="{{ $tollfree_no->marathi_tollfree_no }}" class="form-control"

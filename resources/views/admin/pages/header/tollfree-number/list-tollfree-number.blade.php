@@ -33,8 +33,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
-                                                    <th>English Toll Free No</th>
-                                                    <th>Marathi Toll Free No</th>
+                                                    <th>Toll Free Number</th>
+                                                    <th>टोल फ्री क्र</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>

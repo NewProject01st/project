@@ -25,19 +25,19 @@ class StateDisasterManagementPolicyRepository{
             $state_data = new StateDisasterManagementPolicy();
             $state_data->english_title = $request['english_title'];
             $state_data->marathi_title = $request['marathi_title'];
-            $state_data->english_description = $request['english_description'];
-            $state_data->marathi_description = $request['marathi_description'];
-        
+            $state_data->url = $request['url'];
+            $state_data->policies_year = $request['policies_year'];
+
             $state_data->save();       
             $last_insert_id = $state_data->id;
 
-            $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
-            $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+            $englishPDFName = $last_insert_id . '_english.' . $request->english_pdf->extension();
+            $marathiPDFName = $last_insert_id . '_marathi.' . $request->marathi_pdf->extension();
             
-            $disaster = StateDisasterManagementPolicy::find($last_insert_id); // Assuming $request directly contains the ID
-            $disaster->english_image = $englishImageName; // Save the image filename to the database
-            $disaster->marathi_image = $marathiImageName; // Save the image filename to the database
-            $disaster->save();
+            $state = StateDisasterManagementPolicy::find($last_insert_id); // Assuming $request directly contains the ID
+            $state->english_pdf = $englishPDFName; // Save the image filename to the database
+            $state->marathi_pdf = $marathiPDFName; // Save the image filename to the database
+            $state->save();
             
             return $last_insert_id;
 
@@ -77,22 +77,23 @@ class StateDisasterManagementPolicyRepository{
                     'status' => 'error'
                 ];
             }
-        // Store the previous image names
-        $previousEnglishImage = $state_data->english_image;
-        $previousMarathiImage = $state_data->marathi_image;
+       // Store the previous image names
+       $previousEnglishPDF = $state_data->english_pdf;
+       $previousMarathiPDF = $state_data->marathi_pdf;
 
-            $state_data->english_title = $request['english_title'];
-            $state_data->marathi_title = $request['marathi_title'];
-            $state_data->english_description = $request['english_description'];
-            $state_data->marathi_description = $request['marathi_description'];
-        
-            $state_data->save();
-            $last_insert_id = $state_data->id;
+       $state_data->english_title = $request['english_title'];
+       $state_data->marathi_title = $request['marathi_title'];
+       $state_data->url = $request['url'];
+       $state_data->policies_year = $request['policies_year'];
+   
+       $state_data->save();
+       $last_insert_id = $state_data->id;
 
-            $return_data['last_insert_id'] = $last_insert_id;
-            $return_data['english_image'] = $previousEnglishImage;
-            $return_data['marathi_image'] = $previousMarathiImage;
-            return  $return_data;
+       $return_data['last_insert_id'] = $last_insert_id;
+       $return_data['english_pdf'] = $previousEnglishPDF;
+       $return_data['marathi_pdf'] = $previousMarathiPDF;
+       
+       return  $return_data;
 
         } catch (\Exception $e) {
             return $e;
@@ -102,20 +103,44 @@ class StateDisasterManagementPolicyRepository{
             ];
         }
     }
+    public function updateOne($request){
+        try {
+            $vacancy = StateDisasterManagementPolicy::find($request); // Assuming $request directly contains the ID
 
+            // Assuming 'is_active' is a field in the Slider model
+            if ($vacancy) {
+                $is_active = $vacancy->is_active === 1 ? 0 : 1;
+                $vacancy->is_active = $is_active;
+                $vacancy->save();
+
+                return [
+                    'msg' => 'State Disaster Management Policy data updated successfully.',
+                    'status' => 'success'
+                ];
+            }
+            return [
+                'msg' => 'State Disaster Management Policy data not found.',
+                'status' => 'error'
+            ];
+        } catch (\Exception $e) {
+            return [
+                'msg' => 'Failed to update State Disaster Management Policy data.',
+                'status' => 'error'
+            ];
+        }
+    }
     public function deleteById($id){
         try {
             $state_plan = StateDisasterManagementPolicy::find($id);
             if ($state_plan) {
                 // Delete the images from the storage folder
-                unlink(storage_path(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $state_plan->english_image));
-                unlink(storage_path(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $state_plan->marathi_image));
+                if (file_exists(storage_path(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $state_plan->english_pdf))) {
+                    unlink(storage_path(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $state_plan->english_pdf));
+                }
+                if (file_exists(storage_path(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $state_plan->marathi_pdf))) {
+                    unlink(storage_path(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $state_plan->marathi_pdf));
+                }
                 $state_plan->delete();
-
-                // Delete the record from the database
-                
-                $state_plan->delete();
-                
                 return $state_plan;
             } else {
                 return null;

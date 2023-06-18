@@ -9,7 +9,7 @@
             border-radius: 5px;
         }
 
-        address{
+        address {
             padding-top: 10%;
         }
 
@@ -24,9 +24,30 @@
         }
 
         .gap-top {
-            margin-top: 10px;
+            margin-top: 50px;
+        }
+
+        .gap-bottom {
+            margin-bottom: 50px;
         }
     </style>
+
+    <section class="wf100 subheader gap-bottom">
+        <div class="container">
+            <h2>
+                @if (session('language') == 'mar')
+                    {{ Config::get('marathi.CONTACT_US.CONTACT_US_HEADING') }}
+                @else
+                    {{ Config::get('english.CONTACT_US.CONTACT_US_HEADING') }}
+                @endif
+            </h2>
+            <ul>
+                <h6 style="color: white">
+                    {{ $page_title }}
+                </h6>
+            </ul>
+        </div>
+    </section>
 
     <div class="container gap-top">
         <div class="row">
