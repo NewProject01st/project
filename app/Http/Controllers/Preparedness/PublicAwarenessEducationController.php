@@ -39,10 +39,10 @@ class PublicAwarenessEducationController extends Controller
             
          ];
     $messages = [   
-        'english_title'=>'Please  enter english title.',
-        'marathi_title'=>'Please  enter marathi title.',
-        'english_description' => 'required',
-        'marathi_description' => 'required',
+        'english_title.required' => 'Please enter title.',
+        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+        'english_description.required' => 'Please enter description.',
+        'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
         'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
@@ -96,11 +96,10 @@ class PublicAwarenessEducationController extends Controller
         
      ];
     $messages = [   
-        'english_title'=>'Please  enter english title.',
-        'marathi_title'=>'Please  enter marathi title.',
-        'english_description' => 'required',
-        'marathi_description' => 'required',
-        
+        'english_title.required' => 'Please enter title.',
+        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+        'english_description.required' => 'Please enter description.',
+        'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
     ];
 
     try {
