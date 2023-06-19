@@ -1,7 +1,7 @@
 <?php
-namespace App\Http\Services\CitizenAction;
+namespace App\Http\Services\Admin\Master;
 
-use App\Http\Repository\CitizenAction\IncidentTypeRepository;
+use App\Http\Repository\Admin\Master\IncidentTypeRepository;
 
 use App\IncidentType;
 use Carbon\Carbon;

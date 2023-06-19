@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\CitizenAction;
+namespace App\Http\Controllers\Admin\Master;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\IncidentType;
-use App\Http\Services\CitizenAction\IncidentTypeServices;
+use App\Http\Services\Admin\Master\IncidentTypeServices;
 use Validator;
 class IncidentTypeController extends Controller
 {
