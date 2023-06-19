@@ -25,7 +25,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title English</label>&nbsp<span
+                                            <label for="english_title">Title</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input class="form-control" name="english_title" id="english_title"
                                                 placeholder="Enter the Title"
@@ -37,10 +37,10 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                            <label for="marathi_title">शीर्षक</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input class="form-control" name="marathi_title" id="marathi_title"
-                                                placeholder="Enter the Title"
+                                                placeholder="शीर्षक प्रविष्ट करा"
                                                 value="@if (old('marathi_title')) {{ old('marathi_title') }}@else{{ $incidenttype_data->marathi_title }} @endif">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>

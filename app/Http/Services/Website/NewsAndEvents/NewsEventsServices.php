@@ -35,5 +35,13 @@ class NewsEventsServices
             return $e;
         }
     }  
+    public function getById($id)
+    {
+        try {
+            return $this->repo->getById($id);
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
     
 }
