@@ -29,7 +29,7 @@
                                             <label> English Image :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <img src="{{ asset('storage/images/news-events/gallery/' . $gallery->english_image) }}"
+                                            <img src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $gallery->english_image }}"
                                                 style="width:300px; height:150px;" />
                                         </div>
                                     </div>
@@ -38,7 +38,7 @@
                                             <label> Marathi Image:</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
-                                            <img src="{{ asset('storage/images/news-events/gallery/' . $gallery->marathi_image) }}"
+                                            <img src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $gallery->marathi_image }}"
                                                 style="width:300px; height:150px;" />
                                         </div>
                                     </div>

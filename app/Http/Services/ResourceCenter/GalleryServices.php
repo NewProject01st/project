@@ -4,7 +4,7 @@ namespace App\Http\Services\ResourceCenter;
 use App\Http\Repository\ResourceCenter\GalleryRepository;
 
 use App\Models\
-{ SuccessStories };
+{ Gallery };
 use Carbon\Carbon;
 use Config;
 use Storage;
@@ -73,7 +73,7 @@ class GalleryServices
     
                 $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
-                $gallery = Event::find($return_data['last_insert_id']);
+                $gallery = Gallery::find($return_data['last_insert_id']);
                 $gallery->english_image = $englishImageName;
                 $gallery->save();
     
@@ -89,7 +89,7 @@ class GalleryServices
     
                 $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
-                $district_plan = Event::find($return_data['last_insert_id']);
+                $district_plan = Gallery::find($return_data['last_insert_id']);
                 $district_plan->marathi_image = $marathiImageName;
                 $district_plan->save();
             }       
