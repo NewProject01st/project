@@ -27,9 +27,6 @@ class IndexController extends Controller
         $this->menu = getMenuItems();
         $this->socialicon = getSocialIcon();
         // $this->websitecontact = getWebsiteContact();
-        
-        // $this->subheaderinfo = getSubHeaderInfo();
-       
     }
 
     static function getCommonWebData() {
@@ -191,7 +188,6 @@ class IndexController extends Controller
             //  dd($request->show_id);
               $menu = $this->menu;
               $socialicon = $this->socialicon;
-            //   $subheaderinfo = $this->subheaderinfo;
             $disaster_news = $this->service->getById($request->show_id);
             //  dd($disaster_news);
             if (Session::get('language') == 'mar') {
@@ -214,7 +210,6 @@ class IndexController extends Controller
             // dd($request->department_show_id);
                 $menu = $this->menu;
                 $socialicon = $this->socialicon;
-            //   $subheaderinfo = $this->subheaderinfo;
             $department_information = $this->service->getByIdDepartmentInformation($request->department_show_id);
             //  dd($department_information);
             if (Session::get('language') == 'mar') {

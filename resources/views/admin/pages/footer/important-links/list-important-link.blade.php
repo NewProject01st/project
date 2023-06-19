@@ -31,8 +31,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
-                                                    <th>Title English</th>
-                                                    <th>Title Marathi</th>
+                                                    <th>Title</th>
+                                                    <th>शीर्षक</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>

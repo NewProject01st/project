@@ -76,7 +76,7 @@
                                             alt="<?php echo $item['english_title']; ?>"> </div>
                                     <div class="event-post-content">
                                         <div class="event-post-txt">
-                                            <h5 class="card_title"><a href="#"><?php echo mb_substr($item['english_title'], 0, 35) ?></a></h5>
+                                            <h5 class="card_title"><a data-id="{{ $item['id'] }}" class="show-btn"><?php echo mb_substr($item['english_title'], 0, 35) ?></a></h5>
                                             <ul class="event-meta">
                                                 <li><i class="fas fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
                                             </ul>

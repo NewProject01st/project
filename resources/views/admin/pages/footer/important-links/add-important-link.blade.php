@@ -24,13 +24,10 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title English</label>&nbsp<span
+                                            <label for="english_title">Title</label>&nbsp<span
                                                 class="red-text">*</span>
                                                 <input type="text" name="english_title" id="english_title" class="form-control"
                                                 id="english_title" placeholder="Please enter Title" value="{{ old('english_title') }}">
-
-                                            {{-- <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title"
-                                                name="english_title">{{ old('english_title') }}</textarea> --}}
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -38,10 +35,10 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                            <label for="marathi_title">शीर्षक</label>&nbsp<span
                                                 class="red-text">*</span>
                                                 <input type="text" name="marathi_title" id="marathi_title" class="form-control"
-                                                id="marathi_title" placeholder="Please enter Title" value="{{ old('marathi_title') }}">
+                                                id="marathi_title" placeholder="शीर्षक प्रविष्ट करा" value="{{ old('marathi_title') }}">
 
                                             {{-- <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title"
                                                 name="marathi_title">{{ old('marathi_title') }}</textarea> --}}
@@ -54,7 +51,7 @@
                                         <div class="form-group">
                                             <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                             <input class="form-control url" name="url" id="url"
-                                                placeholder="Enter the Title" name="url" value="{{ old('url') }}">
+                                                placeholder="Enter the URL" name="url" value="{{ old('url') }}">
                                             @if ($errors->has('url'))
                                                 <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                             @endif

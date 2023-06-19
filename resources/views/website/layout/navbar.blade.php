@@ -84,23 +84,6 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                     <div class="col-md-4 col-sm-4">
 
                     </div>
-                    {{--
-                    @foreach ($subheaderinfo as $item)
-                        @if (session('language') == 'mar')
-                            <div class="col-md-4 col-sm-4">
-                                <div class="h3-logo"> <a href="index.html"><img
-                                            src="{{ asset('storage/images/header/sub-header/' . $item['logo']) }}"
-                                            alt="" style="width: 50%;"></a>
-                                </div>
-                            </div>
-                        @else
-                            <div class="col-md-4 col-sm-4">
-                                <div class="h3-logo"> <a href="index.html"><img
-                                            src="{{ asset('storage/images/header/sub-header/' . $item['logo']) }}"
-                                            alt="" style="width: 50%;"></a></div>
-                            </div>
-                        @endif
-                    @endforeach --}}
                     <div class="col-md-4 col-sm-4">
 
                         @foreach ($data_output_websitelogo as $item)

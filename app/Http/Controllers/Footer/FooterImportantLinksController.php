@@ -36,9 +36,9 @@ class FooterImportantLinksController extends Controller
             
          ];
     $messages = [   
-        'english_title.required' => 'Please  enter english title.',
-        'marathi_title.required' => 'Please  enter marathi title.',
-        'url' => 'required',
+        'english_title.required'=>'Please enter title.',
+        'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+        'url.required'=>'Please enter url.',
        
     ];
     // print_r($messages);
@@ -100,8 +100,9 @@ class FooterImportantLinksController extends Controller
      ];
 
     $messages = [   
-        'english_title.required' => 'Please  enter english title.',
-        'marathi_title.required' => 'Please  enter marathi title.',
+        'english_title.required'=>'Please enter title.',
+        'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+        // 'url.required'=>'Please enter url.',
        
     ];
 

@@ -73,25 +73,6 @@ function getSocialIcon() {
                         return $socialicon_data ;
                         
 }
-function getSubHeaderInfo() {
-    $subheaderinfo_data = array();
-    $subheaderinfo_data =  SubHeaderInfo::where('is_active', '=',true)
-                        ->select( 
-                            'sub_header_infos.logo', 
-                            'sub_header_infos.english_tollfree_no',
-                            'sub_header_infos.marathi_tollfree_no',
-                            'sub_header_infos.english_city',
-                            'sub_header_infos.marathi_city',
-                            'sub_header_infos.id',
-                        )
-                        ->get()
-                        ->toArray();
-                        // dd($subheaderinfo_data);
-
-                        return $subheaderinfo_data ;
-                        
-}
-
 function getMenuItems() {
 
     $menu_data = array();

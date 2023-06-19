@@ -31,10 +31,10 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
-                                                    <th>Title English</th>
-                                                    <th>Title Marathi</th>
-                                                    <th>English Pdf</th>
-                                                    <th>Marathi Pdf</th>
+                                                    <th>Titleh</th>
+                                                    <th>शीर्षक</th>
+                                                    <th>PDF</th>
+                                                    <th>पीडीएफ</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
