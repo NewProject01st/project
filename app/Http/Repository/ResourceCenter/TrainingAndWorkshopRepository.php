@@ -116,10 +116,14 @@ public function deleteById($id)
         $training = TrainingMaterialsWorkshops::find($id);
         if ($training) {
              // Delete the images from the storage folder
-             unlink(storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $training->english_image));
-             unlink(storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $training->marathi_image));
-             $training->delete();
-            
+             if (file_exists(storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $training->english_image))) {
+                unlink(storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $training->english_image));
+            }
+            if (file_exists(storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $training->marathi_image))) {
+                unlink(storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $training->marathi_image));
+            }
+            $training->delete();
+                        
             return $training;
         } else {
             return null;

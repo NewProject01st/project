@@ -137,9 +137,13 @@ public function deleteById($id)
         $gallery = Gallery::find($id);
         if ($gallery) {
              // Delete the images from the storage folder
-             unlink(storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->english_image));
-             unlink(storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->marathi_image));
-             $gallery->delete();
+             if (file_exists(storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->english_image))) {
+                unlink(storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->english_image));
+            }
+            if (file_exists(storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->marathi_image))) {
+                unlink(storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->marathi_image));
+            }
+            $gallery->delete();
 
             return $gallery;
         } else {
