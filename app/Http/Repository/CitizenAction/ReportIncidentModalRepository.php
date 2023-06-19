@@ -8,6 +8,7 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	ReportIncidentModal
 };
+use Config;
 
 class ReportIncidentModalRepository{
 	public function getAll(){
@@ -21,6 +22,24 @@ class ReportIncidentModalRepository{
         }
     }
 
+    public function deleteById($id){
+        try {
+            $slider = ReportIncidentModal::find($id);
+            if ($slider) {
+                if (file_exists(storage_path(Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_MODAL_DELETE') . $slider->media_upload))) {
+                    unlink(storage_path(Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_MODAL_DELETE') . $slider->media_upload));
+                }
+               
+                $slider->delete();
+                
+                return $slider;
+            } else {
+                return null;
+            }
+        } catch (\Exception $e) {
+            return $e;
+        }
+}
 // 	public function addAll($request){
 //     try {
 //         $englishImageName = time() . '_media.' . $request->media_upload->extension();

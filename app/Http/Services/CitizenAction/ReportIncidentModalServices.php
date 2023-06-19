@@ -37,6 +37,13 @@ class ReportIncidentModalServices{
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
+    public function deleteById($id){
+        try {
+            return $this->repo->deleteById($id);
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
 
     // public function getById($id)
     // {

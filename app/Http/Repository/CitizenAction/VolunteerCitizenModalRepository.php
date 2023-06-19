@@ -8,6 +8,7 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	CitizenVolunteerModal
 };
+use Config;
 
 class VolunteerCitizenModalRepository{
 	public function getAll(){
@@ -22,6 +23,25 @@ class VolunteerCitizenModalRepository{
             return $e;
         }
     }
+
+    public function deleteById($id){
+        try {
+            $slider = CitizenVolunteerModal::find($id);
+            if ($slider) {
+                if (file_exists(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $slider->media_upload))) {
+                    unlink(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $slider->media_upload));
+                }
+              
+                $slider->delete();
+                
+                return $slider;
+            } else {
+                return null;
+            }
+        } catch (\Exception $e) {
+            return $e;
+        }
+}
 
 // 	public function addAll($request){
 //     try {

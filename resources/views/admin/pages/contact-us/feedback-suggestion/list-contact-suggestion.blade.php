@@ -7,8 +7,8 @@
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    {{-- Contact Feedback and suggestions
-                    @if (in_array('per_add', $data_permission))
+                    Contact Feedback and Suggestions
+                    {{-- @if (in_array('per_add', $data_permission))
                         <a href="{{ route('add-contact-suggestion') }}" class="btn btn-sm btn-primary ml-3">+
                             Add</a>
                     @endif --}}
@@ -60,9 +60,9 @@
                                                                             class="fas fa-pencil-alt"></i></a>
                                                                 @endif --}}
 
-                                                                <a data-id="{{ $item->id }}"
+                                                                {{-- <a data-id="{{ $item->id }}"
                                                                     class="show-btn btn btn-sm btn-outline-primary m-1"><i
-                                                                        class="fas fa-eye"></i></a>
+                                                                        class="fas fa-eye"></i></a> --}}
                                                                 @if (in_array('per_add', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
                                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"

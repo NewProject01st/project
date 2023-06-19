@@ -79,77 +79,16 @@ class ReportIncidentModalController extends Controller
         return redirect('add-incident-modal-info')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
 }
-    
-//     public function edit(Request $request)
-//     {
-//         $edit_data_id = $request->edit_id;
-//         $crowdsourcing = $this->service->getById($edit_data_id);
-//         return view('admin.pages.citizen-action.report-crowdsourcing.edit-report-crowdsourcing', compact('crowdsourcing'));
-//     }
-//     public function update(Request $request)
-// {
-//     $rules = [
-//         'english_title' => 'required',
-//         'marathi_title' => 'required',
-//         'english_description' => 'required',
-//         'marathi_description' => 'required',
-        
-        
-//      ];
-//     $messages = [   
-//         'english_title'=>'Please  enter english title.',
-//         'marathi_title'=>'Please  enter marathi title.',
-//         'english_description' => 'required',
-//         'marathi_description' => 'required',
-       
-//     ];
 
-//     try {
-//         $validation = Validator::make($request->all(),$rules, $messages);
-//         if ($validation->fails()) {
-//             return redirect()->back()
-//                 ->withInput()
-//                 ->withErrors($validation);
-//         } else {
-//             $update_crowdsourcing = $this->service->updateAll($request);
-//             if ($update_crowdsourcing) {
-//                 $msg = $update_crowdsourcing['msg'];
-//                 $status = $update_crowdsourcing['status'];
-//                 if ($status == 'success') {
-//                     return redirect('list-report-crowdsourcing')->with(compact('msg', 'status'));
-//                 } else {
-//                     return redirect()->back()
-//                         ->withInput()
-//                         ->with(compact('msg', 'status'));
-//                 }
-//             }
-//         }
-//     } catch (Exception $e) {
-//         return redirect()->back()
-//             ->withInput()
-//             ->with(['msg' => $e->getMessage(), 'status' => 'error']);
-//     }
-//  }
-// public function show(Request $request)
-//     {
-//         try {
-//             //  dd($request->show_id);
-//             $crowdsourcing = $this->service->getById($request->show_id);
-//             return view('admin.pages.citizen-action.report-crowdsourcing.show-report-crowdsourcing', compact('crowdsourcing'));
-//         } catch (\Exception $e) {
-//             return $e;
-//         }
-//     }
-
-//     public function destroy(Request $request)
-//     {
-//         try {
-//             // dd($request->delete_id);
-//             $crowdsourcing = $this->service->deleteById($request->delete_id);
-//             return redirect('list-report-crowdsourcing')->with('flash_message', 'Deleted!');  
-//         } catch (\Exception $e) {
-//             return $e;
-//         }
-//     }   
+    public function destroy(Request $request)
+    {
+        try {
+            $crowdsourcing = $this->service->deleteById($request->delete_id);
+            // dd($crowdsourcing);
+            return redirect('list-incident-modal-info')->with('flash_message', 'Deleted!');  
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }   
 
 }

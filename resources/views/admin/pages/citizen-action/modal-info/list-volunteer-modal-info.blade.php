@@ -17,7 +17,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Citizen Action</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Be Volunteer: Modal Information</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Be Volunteer</li>
                     </ol>
                 </nav>
             </div>
@@ -38,7 +38,7 @@
                                                     <th>Mobile Number</th>
                                                     <th>description</th>
                                                     <th>Image</th>
-                                                    {{-- <th>Action</th> --}}
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -55,9 +55,9 @@
                                                         </td>
 
 
-                                                        {{-- <td>
+                                                        <td>
                                                             <div class="d-flex">
-                                                                @if (in_array('per_update', $data_permission))
+                                                                {{-- @if (in_array('per_update', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
                                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                                             class="fas fa-pencil-alt"></i></a>
@@ -65,15 +65,15 @@
 
                                                                 <a data-id="{{ $item->id }}"
                                                                     class="show-btn btn btn-sm btn-outline-primary m-1"><i
-                                                                        class="fas fa-eye"></i></a>
+                                                                        class="fas fa-eye"></i></a> --}}
                                                                 @if (in_array('per_delete', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
                                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                                        title="Delete Disaster News"><i
+                                                                        title="Delete"><i
                                                                             class="fas fa-archive"></i></a>
                                                                 @endif
                                                             </div>
-                                                        </td> --}}
+                                                        </td>
                                                     </tr>
                                                 @endforeach
 
@@ -87,10 +87,11 @@
                 </div>
             </div>
         </div>
-        {{-- <form method="POST" action="{{ url('/delete-volunteer-model-info') }}" id="deleteform">
-        @csrf
-        <input type="hidden" name="delete_id" id="delete_id" value="">
-    </form>
+        <form method="POST" action="{{ url('/delete-volunteer-modal-info') }}" id="deleteform">
+            @csrf
+            <input type="hidden" name="delete_id" id="delete_id" value="">
+        </form>
+        {{-- 
     <form method="POST" action="{{ url('/show-volunteer-model-info') }}" id="showform">
         @csrf
         <input type="hidden" name="show_id" id="show_id" value="">

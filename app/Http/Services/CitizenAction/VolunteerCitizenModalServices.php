@@ -24,6 +24,13 @@ class VolunteerCitizenModalServices{
             return $e;
         }
     }
+    public function deleteById($id){
+        try {
+            return $this->repo->deleteById($id);
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
 
     // public function addAll($request)
     // {
