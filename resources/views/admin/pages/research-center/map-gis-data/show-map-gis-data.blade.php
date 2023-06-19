@@ -10,12 +10,12 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
                             <h3 class="page-title">
-                                Slide
+                                MAP GIS Data
                             </h3>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
                             <div>
-                                <a href="{{ route('list-slide') }}" class="btn btn-sm btn-primary ml-3">Back</a>
+                                <a href="{{ route('list-map-gis-data') }}" class="btn btn-sm btn-primary ml-3">Back</a>
                             </div>
                         </div>
 
@@ -24,54 +24,57 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+
                                     <div class="row ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Title :</label>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>Title English :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($slider->english_title) }}</label>
+                                            <label>{{ strip_tags($documents_publications->english_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>शीर्षक :</label>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>Title Marathi :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($slider->marathi_title) }}</label>
+                                            <label>{{ strip_tags($documents_publications->marathi_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Description :</label>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>Description English :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($slider->english_description) }}</label>
+                                            <label>{{ strip_tags($documents_publications->english_description) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>वर्णन :</label>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>Description Marathi :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($slider->marathi_description) }}</label>
+                                            <label>{{ strip_tags($documents_publications->marathi_description) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label> Image :</label>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>English Pdf :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider->english_image }}"
-                                                style="width:300px; height:150px;" />
+                                            <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $documents_publications->english_pdf }}"
+                                                target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
+                                                    width="50px" height="50px"></a>
                                         </div>
                                     </div>
-                                    <div class="row ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>प्रतिमा :</label>
+                                    <div class="row pt-2">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>Marathi Pdf :</label>
                                         </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
-                                            <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider->marathi_image }}"
-                                                style="width:300px; height:150px;" />
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $documents_publications->marathi_pdf }}"
+                                                target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
+                                                    width="50px" height="50px"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +84,5 @@
                 </div>
             </div>
         </div>
-
-
         <!-- content-wrapper ends -->
     @endsection

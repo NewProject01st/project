@@ -27,7 +27,7 @@
                                 <div class="col-12">
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Title English :</label>
+                                            <label>Title :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($districtemergencyoperationscenter->english_title) }}</label>
@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Title Marathi :</label>
+                                            <label>शीर्षक :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($districtemergencyoperationscenter->marathi_title) }}</label>
@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Description English :</label>
+                                            <label>Description :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($districtemergencyoperationscenter->english_description) }}</label>
@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Description Marathi :</label>
+                                            <label>वर्णन :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($districtemergencyoperationscenter->marathi_description) }}</label>
@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Image English :</label>
+                                            <label>Image :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <img src="{{ Config::get('DocumentConstant.DISTRICT_OPERATION_CENTER_VIEW') }}{{ $districtemergencyoperationscenter->english_image }}"
@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Image Marathi :</label>
+                                            <label>प्रतिमा :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                             <img src="{{ Config::get('DocumentConstant.DISTRICT_OPERATION_CENTER_VIEW') }}{{ $districtemergencyoperationscenter->marathi_image }}"

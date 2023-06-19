@@ -1,23 +1,21 @@
 @extends('admin.layout.master')
 
 @section('content')
-    <?php $data_permission = getPermissionForCRUDPresentOrNot('list-weather', session('permissions'));
+    <?php $data_permission = getPermissionForCRUDPresentOrNot('list-map-gis-data', session('permissions'));
     ?>
-
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Weather List
+                    MAP GIS Data List
                     @if (in_array('per_add', $data_permission))
-                        <a href="{{ route('add-weather') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
+                        <a href="{{ url('add-map-gis-data') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
                     @endif
-
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Weather List</li>
+                        <li class="breadcrumb-item"><a href="#">Resource Center</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> MAP GIS Data List</li>
                     </ol>
                 </nav>
             </div>
@@ -32,58 +30,49 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
-                                                    <th>Title </th>
-                                                    <th>शीर्षक </th>
-                                                    <th>Description </th>
-                                                    <th>वर्णन </th>
-                                                    <th>Date</th>
-                                                    <th>Expired Date</th>
-                                                    {{-- <th>Image English</th>
-                                                    <th>Image Marathi</th> --}}
+                                                    <th>Title English</th>
+                                                    <th>Title Marathi</th>
+                                                    <th>Description English</th>
+                                                    <th>Description Marathi</th>
+                                                    <th>English Pdf</th>
+                                                    <th>Marathi Pdf</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($weather as $item)
+                                                @foreach ($documents_publications as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ strip_tags($item->english_title) }}</td>
                                                         <td>{{ strip_tags($item->marathi_title) }}</td>
                                                         <td>{{ strip_tags($item->english_description) }}</td>
                                                         <td>{{ strip_tags($item->marathi_description) }}</td>
-                                                        <td>{{ $item->weather_date }}</td>
-                                                        <td>{{ $item->expired_date }}</td>
-                                                        {{-- <td> <img
-                                                            src="{{ asset('storage/images/home/weather/' . $item->english_image) }}"
-                                                />
-                                                </td>
-                                                <td> <img
-                                                        src="{{ asset('storage/images/home/weather/' . $item->marathi_image) }}" />
-                                                </td> --}}
-
-
-
-                                                        <!-- <td>
-                                                                        <span class="badge badge-success">Active</span>
-                                                                    </td> -->
+                                                        <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item->english_pdf }}"
+                                                                target="_blank"><img
+                                                                    src="{{ asset('assets/images/pdf.png/') }}"
+                                                                    width="35px" height="35px"></a></td>
+                                                        <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item->english_pdf }}"
+                                                                target="_blank"><img
+                                                                    src="{{ asset('assets/images/pdf.png/') }}"
+                                                                    width="35px" height="35px"></a></td>
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
-                                                                        class="edit-btn btn btn-sm btn-outline-primary m-1"
-                                                                        title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                                                        class="edit-btn btn btn-sm btn-outline-primary m-1"><i
+                                                                            class="fas fa-pencil-alt"></i></a>
                                                                 @endif
-
                                                                 <a data-id="{{ $item->id }}"
-                                                                    class="show-btn btn btn-sm btn-outline-primary m-1"
-                                                                    title="Show"><i class="fas fa-eye"></i></a>
+                                                                    class="show-btn btn btn-sm btn-outline-primary m-1"><i
+                                                                        class="fas fa-eye"></i></a>
                                                                 @if (in_array('per_delete', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
                                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                                        title="Delete"><i class="fas fa-archive"></i></a>
+                                                                        title="Delete Tender"><i
+                                                                            class="fas fa-archive"></i></a>
                                                                 @endif
-                                                            </div>
 
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -98,15 +87,15 @@
                 </div>
             </div>
         </div>
-        <form method="POST" action="{{ url('/delete-weather') }}" id="deleteform">
+        <form method="POST" action="{{ route('delete-map-gis-data') }}" id="deleteform">
             @csrf
             <input type="hidden" name="delete_id" id="delete_id" value="">
         </form>
-        <form method="POST" action="{{ url('/show-weather') }}" id="showform">
+        <form method="POST" action="{{ route('show-map-gis-data') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="GET" action="{{ url('/edit-weather') }}" id="editform">
+        <form method="GET" action="{{ route('edit-map-gis-data') }}" id="editform">
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>

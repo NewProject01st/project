@@ -25,8 +25,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title English</label>&nbsp<span
-                                                class="red-text">*</span>
+                                            <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">
 @if (old('english_title'))
 {{ old('english_title') }}@else{{ $department_info->english_title }}
@@ -39,8 +38,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">Title Marathi</label>&nbsp<span
-                                                class="red-text">*</span>
+                                            <label for="marathi_title">शीर्षक </label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">
 @if (old('marathi_title'))
 {{ old('marathi_title') }}@else{{ $department_info->marathi_title }}
@@ -53,7 +51,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
-                                            <label for="english_description">Description English</label>&nbsp<span
+                                            <label for="english_description">Description </label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control english_description" name="english_description" id="english_description"
                                                 placeholder="Enter the Description">
@@ -68,7 +66,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
-                                            <label> Description Marathi</label>&nbsp<span class="red-text">*</span>
+                                            <label> वर्णन </label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="Enter the Description">
 @if (old('marathi_description'))
@@ -82,7 +80,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_image">English Icon</label>
+                                            <label for="english_image"> Icon</label>
                                             <input type="file" name="english_image" class="form-control"
                                                 id="english_image" accept="image/*" placeholder="image">
                                             @if ($errors->has('english_image'))
@@ -98,7 +96,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_image">Marathi Icon</label>
+                                            <label for="marathi_image"> चिन्ह</label>
                                             <input type="file" name="marathi_image" id="marathi_image" accept="image/*"
                                                 class="form-control">
                                             @if ($errors->has('marathi_image'))
@@ -113,7 +111,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_image_new">English Image</label>
+                                            <label for="english_image_new">English </label>
                                             <input type="file" name="english_image_new" class="form-control"
                                                 id="english_image_new" accept="image/*" placeholder="image">
                                             @if ($errors->has('english_image_new'))
@@ -129,7 +127,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_image_new">Marathi Icon</label>
+                                            <label for="marathi_image_new">प्रतिमा</label>
                                             <input type="file" name="marathi_image_new" id="marathi_image_new"
                                                 accept="image/*" class="form-control">
                                             @if ($errors->has('marathi_image_new'))

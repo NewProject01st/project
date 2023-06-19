@@ -24,8 +24,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title English <span
-                                                    class="text-danger">*</span></label>
+                                            <label for="english_title">Title <span class="text-danger">*</span></label>
                                             <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title"
                                                 name="english_title">{{ old('english_title') }}</textarea>
                                             @if ($errors->has('english_title'))
@@ -35,8 +34,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">Title Marathi <span
-                                                    class="text-danger">*</span></label>
+                                            <label for="marathi_title">शीर्षक <span class="text-danger">*</span></label>
                                             <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title"
                                                 name="marathi_title">{{ old('marathi_title') }}</textarea>
                                             @if ($errors->has('marathi_title'))
@@ -46,7 +44,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
-                                            <label for="english_description">Description English <span
+                                            <label for="english_description">Description <span
                                                     class="text-danger">*</span></label>
                                             <textarea class="form-control english_description" name="english_description" id="english_description"
                                                 placeholder="Enter the Description" name="english_description">{{ old('english_description') }}</textarea>
@@ -58,7 +56,7 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
-                                            <label> Description Marathi <span class="text-danger">*</span></label>
+                                            <label> वर्णन<span class="text-danger">*</span></label>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="Enter the Description">{{ old('english_description') }}</textarea>
                                             @if ($errors->has('english_description'))
