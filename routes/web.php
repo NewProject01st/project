@@ -363,6 +363,8 @@ Route::post('/update-one-incident_type', ['as' => 'update-one-incident_type', 'u
 Route::get('/list-incident-modal-info', ['as' => 'list-incident-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentModalController@index']);
 Route::get('/list-volunteer-modal-info', ['as' => 'list-volunteer-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenModalController@index']);
 Route::get('/list-feedback-modal-info', ['as' => 'list-feedback-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\FeedbackCitizenModalController@index']);
+Route::post('/delete-incident-modal-info', ['as' => 'delete-incident-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentModalController@destroy']);
+Route::post('/delete-volunteer-modal-info', ['as' => 'delete-volunteer-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenModalController@destroy']);
 
 //=======Header=======
 Route::get('/list-social-icon', ['as' => 'list-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@index']);

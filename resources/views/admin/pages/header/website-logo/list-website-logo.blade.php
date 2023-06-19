@@ -40,8 +40,8 @@
                                                 @foreach ($website_logo as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.WEBSITE_LOGO_VIEW') }}{{ $item->logo }}" />
+                                                        <td> <img class=""
+                                                                src="{{ Config::get('DocumentConstant.WEBSITE_LOGO_VIEW') }}{{ $item->logo }}"  width="120px" height="70px"/>
                                                         </td>
                                                         <td>
                                                             <div class="d-flex">
