@@ -4,8 +4,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>
-        My Website
+        {{env('APP_NAME')}}
     </title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('website_files/images/home/DM.ico') }}">
+
     <?php
     $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData();
     ?>

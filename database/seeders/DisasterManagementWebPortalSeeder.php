@@ -17,8 +17,8 @@ class DisasterManagementWebPortalSeeder extends Seeder
         DisasterManagementWebPortal::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_name' => 'Jhon Sharma',
-            'marathi_name' => ' ABC ',
+            'english_name' => 'Disaster Management Web Portal',
+            'marathi_name' => 'आपत्ती व्यवस्थापन वेब पोर्टलवर',
             'english_title' => 'Welcome to Visit Disaster Management Web Portal',
             'marathi_title' => ' आपत्ती व्यवस्थापन वेब पोर्टलवर आपले स्वागत आहे',
             'english_description' => 'To build a safer and disaster resilient India by a holistic, pro-active, technology driven and sustainable development strategy that involves all stakeholders and fosters a culture of prevention, preparedness and mitigation.',
