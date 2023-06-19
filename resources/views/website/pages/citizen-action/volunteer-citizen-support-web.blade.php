@@ -109,7 +109,7 @@
                                         <span class="red-text"><?php echo $errors->first('mobile_number', ':message'); ?></span>
                                     @endif
                                     </div>
-
+ 
                                     <div class="col-md-12 mb-4">
                                         <label class="col-form-label modal_lable">Description:</label>
                                         <textarea class="form-control set_m_form" name="description" id="description"></textarea>
@@ -117,27 +117,33 @@
                                         <span class="red-text"><?php echo $errors->first('description', ':message'); ?></span>
                                     @endif
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-8">
                                         <label class="col-form-label modal_lable">Media Upload:</label><br>
                                         <input type="file" name="media_upload" id="media_upload"> <br>
                                         @if ($errors->has('media_upload'))
                                         <span class="red-text"><?php echo $errors->first('media_upload', ':message'); ?></span>
                                     @endif
                                     </div>
-                                    <div class="col-md-6">
-                                    {!! NoCaptcha::renderJs() !!}
-                                    {!! NoCaptcha::display() !!}
 
-                                    @if ($errors->has('g-recaptcha-response'))
-                                        <span class="help-block">
-                                            <span class="red-text">{{ $errors->first('g-recaptcha-response') }}</span>
-                                        </span>
-                                    @endif
-                                </div>
+                                    <div class="col-md-4 captcha_set" style="text-align: -webkit-right;">
+                                        {!! NoCaptcha::renderJs() !!}
+                                        {!! NoCaptcha::display() !!}
+
+                                        @if ($errors->has('g-recaptcha-response'))
+                                            <span class="help-block">
+                                                <span class="red-text">{{ $errors->first('g-recaptcha-response') }}</span>
+                                            </span>
+                                        @endif
+                                    </div>
+
+                                    <div class="col-md-8">
+
+                                    </div>
+
                                 </div>
                             </div>
 
-                            <div class="modal-footer mt-4" style="float: right;">
+                            <div class="modal-footer mt-4" style="float: right;width:300px">
                                 <button type="submit" class="btn btn-primary new_modal_page_btn">Send</button>
                             </div>
                         </form>
