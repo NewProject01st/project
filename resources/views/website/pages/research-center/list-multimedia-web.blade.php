@@ -122,53 +122,7 @@
     <div class="main-content">
         <!--Video Start-->
 
-        <section class="testimonials-section wf100 p80 graybg">
-            <div class="container">
-                <div class="title-style-3">
-                    <h3 class="stitle text-center d-flex justify-content-start">
-                        @if (session('language') == 'mar')
-                            {{ Config::get('marathi.HOME_PAGE.VIDEO') }}
-                        @else
-                            {{ Config::get('english.HOME_PAGE.VIDEO') }}
-                        @endif
-                    </h3>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="Container video_cont">
-                            <div class="SlickCarousel">
-                                <!-- Item -->
-                                @foreach ($data_getallvideo as $item)
-                                    @if (session('language') == 'mar')
-                                        <div class="ProductBlock">
-                                            <div class="Content">
-                                                <div class="img-fill">
-                                                    <iframe class="embed-responsive-item"
-                                                        src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
-                                                        allowfullscreen></iframe>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="ProductBlock">
-                                            <div class="Content">
-                                                <div class="img-fill">
-                                                    <iframe class="embed-responsive-item"
-                                                        src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
-                                                        allowfullscreen></iframe>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
         <!--Video End-->
         <section class="">
             <div class="container photo_g">
@@ -203,33 +157,33 @@
                         <div class="row  d-flex gallery">
                             <div class="d-flex" id="gallary_data">
                                 <?php $k=1; ?>
-                                @forelse ($gallery_data as $item)
+                                @forelse ($gallery_data as $key=>$item)
                                     <div class="col-md-4 nature">
                                         <figure class="card animals">
                                             @if (session('language') == 'mar')
-                                                <img class="card__image toZoom" id="img{{$k}}" loading="lazy"
+                                                <img class="card__image toZoom" id="img{{$key}}" attr="if" loading="lazy"
                                                     src="{{ $item['marathi_image'] }}" class="d-block w-100 img-fluid"
                                                     alt="...">
                                                 <!-- The Modal -->
-                                                <div class="idMyModal modal">
-                                                    <span class="close">&times;</span>
-                                                    <img class="modal-content">
+                                                <div class="idMyModal modal" attr-modal_id="img{{$key}}">
+                                                    <span class="close" attr-close="img{{$key}}">&times;</span>
+                                                    <img class="modal-content" attr-img_id="img{{$key}}">
                                                 </div>
                                             @else
-                                                <img class="card__image toZoom p-3 d-block w-100 img-fluid" loading="lazy"
+                                                <img class="card__image toZoom p-3 d-block w-100 img-fluid" id="img{{$key}}" attr="else" loading="lazy"
                                                     src="{{ $item['english_image'] }}" 
                                                     alt="...">
                                                 <!-- The Modal -->
-                                                <div class="idMyModal modal">
-                                                    <span class="close">&times;</span>
-                                                    <img class="modal-content">
+                                                <div class="idMyModal modal" attr-modal_id="img{{$key}}">
+                                                    <span class="close" attr-close="img{{$key}}">&times;</span>
+                                                    <img class="modal-content" attr-img_id="img{{$key}}">
                                                 </div>
                                             @endif
-    </figure>
-    </div>
+                                        </figure>
+                                        </div>
                                         @empty
                                             No Categries found
-                                            <?php $k++ ?>
+                                            <?php $k++; ?>
                                 @endforelse
                             </div>
                         </div>
@@ -256,43 +210,41 @@
                 },
                 success: function(data) {
                     $("#gallary_data").empty();
-                    // $("#gallary_data").append('<div class="col-md-4 nature"><figure class="card animals">');
+                    // $("#gallary_data").append('< class="col-md-4 nature">< class="card animals">');
+                    var kid=1;
                     $.each(data, function(i, item) {
-
-                            console.log(item.english_image);
-                        @if (session('language') == 'mar')
+                        // console.log(data);
+                        @if(session('language') == 'mar')
                             $("#gallary_data").append(`<div class="col-md-4 nature">
-                                            <figure class="card animals">
-                                            <img class="card__image toZoom" loading="lazy"
-                                                    src="item . english_image" class="d-block w-100 img-fluid"
+                                        <figure class="card animals">
+                                                <img class="card__image toZoom d-block w-100 img-fluid" id="img`+i+`" loading="lazy"
+                                                    src="`+item.english_image+`"
                                                     alt="...">
-                                            <div class="idMyModal modal">
-                                                <span class="close">&times;</span>
-                                                <img class="modal-content">
-                                            </div>
-                                            </figure>
-                                             </div>
-                                            `);
+                                                <!-- The Modal -->
+                                                <div class="idMyModal modal" attr-modal_id="img`+i+`">
+                                                    <span class="close" attr-close="img`+i+`">&times;</span>
+                                                    <img class="modal-content" attr-img_id="img`+i+`">
+                                                </div>
+                                                </figure>
+                                             </div>`);
                         @else
 
 
-                        $("").attr();
-                            // $("#gallary_data").append(`<div class="col-md-4 nature">
-                            // <figure class="card animals">
-                            // <img class="card__image toZoom p-3 d-block w-100 img-fluid" loading="lazy"
-                            //                         src="`+item.english_image+`" class="d-block w-100 img-fluid"
-                            //                         alt="...">
-                            //                         <!-- The Modal -->
-                            //                     <div class="idMyModal modal">
-                            //                         <span class="close">&times;</span>
-                            //                         <img class="modal-content">
-                            //                     </div>
-                            //                     </figure>
-                            //                  </div>`);
+                        // $("").attr();
+                            $("#gallary_data").append(`<div class="col-md-4 nature">
+                            <figure class="card animals" attr="else">
+                            <img class="card__image toZoom p-3 d-block w-100 img-fluid" id="img`+i+`" attr="else" loading="lazy"
+                                                    src="`+item.english_image+`" 
+                                                    alt="...">
+                                                <!-- The Modal -->
+                                                <div class="idMyModal modal" attr-modal_id="img`+i+`">
+                                                    <span class="close" attr-close="img`+i+`">&times;</span>
+                                                    <img class="modal-content" attr-img_id="img`+i+`">
+                                                </div>
+                                                </figure>
+                                             </div>`);
                         @endif
                     });
-                    // $("#gallary_data").append('</figure> </div>');
-
                 },
                 error: function(data) {}
             });
@@ -300,25 +252,22 @@
    
     </script>
     <!--Main Content End-->
-    <script>
-        const modal = document.getElementsByClassName('idMyModal');
-        const img = document.getElementsByClassName('toZoom');
-        const modalImg = document.getElementsByClassName('modal-content');
-        
-        for (let i = 0; i < img.length; i++) {
-            img[i].onclick = function() {
-                modal[i].style.display = "block";
-                modalImg[i].src = this.src;
-            }
-        }
 
-        var span = document.getElementsByClassName("close");
-        for (let i = 0; i < span.length; i++) {
-            span[i].onclick = function() {
-                modal[i].style.display = "none";
-            }
-        }
-    </script>
+
+    <script>
+        $(document).on('click', '.toZoom', function(){ 
+           var button_id = $(this).attr("id");  
+           var img_attr = $(this).attr("src");  
+           $("[attr-img_id="+button_id+"]").attr("src",img_attr); 
+           $("[attr-modal_id="+button_id+"]").css('display','block'); 
+      });
+
+      $(document).on('click', '.close', function(){ 
+           var close_id = $(this).attr("attr-close");  
+           $("[attr-modal_id="+close_id+"]").css('display','none'); 
+      });
+    </script>    
+    
 
     <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js' type='text/javascript'></script>
     <script src='https://cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/slick.js' type='text/javascript'></script>
