@@ -170,7 +170,7 @@
                                                     <img class="modal-content" attr-img_id="img{{$key}}">
                                                 </div>
                                             @else
-                                                <img class="card__image toZoom p-3 d-block w-100 img-fluid" id="img{{$key}}" attr="else" loading="lazy"
+                                                <img class="card__image toZoom d-block w-100 img-fluid" id="img{{$key}}" attr="else" loading="lazy"
                                                     src="{{ $item['english_image'] }}" 
                                                     alt="...">
                                                 <!-- The Modal -->
@@ -233,7 +233,7 @@
                         // $("").attr();
                             $("#gallary_data").append(`<div class="col-md-4 nature">
                             <figure class="card animals" attr="else">
-                            <img class="card__image toZoom p-3 d-block w-100 img-fluid" id="img`+i+`" attr="else" loading="lazy"
+                            <img class="card__image toZoom d-block w-100 img-fluid" id="img`+i+`" attr="else" loading="lazy"
                                                     src="`+item.english_image+`" 
                                                     alt="...">
                                                 <!-- The Modal -->
