@@ -46,6 +46,7 @@ Version:		1.0
 	} */
 	.become-vol {
 		padding: 0 4px !important;
+		line-height: 35px !important;
 	}
 	
   }
@@ -76,8 +77,11 @@ Version:		1.0
 		padding-left: 68px !important;
 	}
 	.widget .upcoming-events .edate {
-		width: 51px !important;
-		left: 5px !important;
+		/* width: 51px !important;
+		left: 5px !important; */
+		width: 61px !important;
+		left: 1px !important;
+		font-size: 11px;
 	}
 	/* ------------footer------------------------- */
 	.tw-txt {
@@ -3932,10 +3936,10 @@ a.join-now {
 .widget .upcoming-events li {
 	position: relative;
 	padding-left: 78px;
-	margin-bottom: 40px;
+	margin-bottom: 61px;
 }
 .widget .upcoming-events .edate {
-	width: 62px;
+	width: 70px;
 	background: #d94148;
 	position: absolute;
 	left: 0;
@@ -6633,7 +6637,9 @@ border-bottom: 1px solid #57578E;
 		font-weight: 600;
 		padding: 0 7px;
 		font-size: 12px;
-		margin-top: 65% !important;
+		/* margin-top: 65% !important; */
+		margin-top: 21% !important;
+    	margin-bottom: 10px;
 	}
 }
 
