@@ -39,10 +39,10 @@ class DisasterManagementPortalController extends Controller
             
             ];
         $messages = [   
-            'english_title.required' => 'Please  enter english title.',
-            'marathi_title.required' => 'Please enter marathi title.',
-            'english_description.required' => 'Please  enter english description.',
-            'marathi_description.required' => 'Please enter marathi description.',
+            'english_title.required' => 'Please  enter title.',
+            'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+            'english_description.required' => 'Please  enter description.',
+            'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
             'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
@@ -100,10 +100,10 @@ class DisasterManagementPortalController extends Controller
         ];
 
         $messages = [   
-            'english_title.required' => 'Please enter English title.',
-            'marathi_title.required' => 'Please enter Marathi title.',
-            'english_description.required' => 'Please  enter english description.',
-            'marathi_description.required' => 'Please enter marathi description.',
+            'english_title.required' => 'Please enter title.',
+            'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+            'english_description.required' => 'Please enter description.',
+            'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
             
         ];
 

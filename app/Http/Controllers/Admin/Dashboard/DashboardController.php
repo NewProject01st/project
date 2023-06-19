@@ -40,7 +40,7 @@ use App\Models\ {
     CitizenFeedbackSuggestion,
     ReportIncidentModal,
     CitizenVolunteerModal,
-    CitizenFeedbackSuggestionModal,
+    // CitizenFeedbackSuggestionModal,
     StateDisasterManagementPlan,
     DistrictDisasterManagementPlan,
     StateDisasterManagementPolicy,
@@ -357,13 +357,13 @@ class DashboardController extends Controller {
                 array_push($return_data, $data_dashboard);
             }
 
-            if($value['url'] == 'list-feedback-modal-info') {
-                $data_dashboard['url'] =  $value['url'];
-                $data_dashboard['permission_name'] =  $value['permission_name'];
-                $roles = CitizenFeedbackSuggestionModal::all();
-                $data_dashboard['count'] = $roles->count();
-                array_push($return_data, $data_dashboard);
-            }
+            // if($value['url'] == 'list-feedback-modal-info') {
+            //     $data_dashboard['url'] =  $value['url'];
+            //     $data_dashboard['permission_name'] =  $value['permission_name'];
+            //     $roles = CitizenFeedbackSuggestionModal::all();
+            //     $data_dashboard['count'] = $roles->count();
+            //     array_push($return_data, $data_dashboard);
+            // }
 
             
             if($value['url'] == 'list-state-disaster-management-plan') {

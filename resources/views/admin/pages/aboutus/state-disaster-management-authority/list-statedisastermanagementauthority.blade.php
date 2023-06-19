@@ -1,5 +1,5 @@
  @extends('admin.layout.master')
- 
+
  @section('content')
      <?php $data_permission = getPermissionForCRUDPresentOrNot('list-statedisastermanagementauthority', session('permissions'));
      ?>
@@ -32,12 +32,12 @@
                                              <thead>
                                                  <tr>
                                                      <th>S. No.</th>
-                                                     <th>Title English</th>
-                                                     <th>Title Marathi</th>
-                                                     <th>Description English</th>
-                                                     <th>Description Marathi</th>
-                                                     <th>Image English</th>
-                                                     <th>Image Marathi</th>
+                                                     <th>Title </th>
+                                                     <th>शीर्षक </th>
+                                                     <th>Description </th>
+                                                     <th>वर्णन </th>
+                                                     <th>Image </th>
+                                                     <th>प्रतिमा </th>
                                                      <!-- <th>Status</th> -->
                                                      <th>Action</th>
                                                  </tr>
@@ -51,25 +51,26 @@
                                                          <td>{{ strip_tags($item->english_description) }}</td>
                                                          <td>{{ strip_tags($item->marathi_description) }}</td>
                                                          <td> <img class="img-size"
-                                                                 src="{{ Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_VIEW')}}{{$item->english_image }}" />
+                                                                 src="{{ Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_VIEW') }}{{ $item->english_image }}" />
                                                          </td>
                                                          <td> <img class="img-size"
-                                                                 src="{{ Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_VIEW')}}{{$item->marathi_image }}" />
+                                                                 src="{{ Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_VIEW') }}{{ $item->marathi_image }}" />
                                                          </td>
                                                          <!-- <td>
-                                                                    <span class="badge badge-success">Active</span>
-                                                                </td> -->
+                                                                        <span class="badge badge-success">Active</span>
+                                                                    </td> -->
                                                          <td>
                                                              <div class="d-flex">
                                                                  @if (in_array('per_update', $data_permission))
                                                                      <a data-id="{{ $item->id }}"
-                                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"  title="Edit"><i
+                                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"
+                                                                         title="Edit"><i
                                                                              class="fas fa-pencil-alt"></i></a>
                                                                  @endif
 
                                                                  <a data-id="{{ $item->id }}"
-                                                                     class="show-btn btn btn-sm btn-outline-primary m-1"  title="Show"><i
-                                                                         class="fas fa-eye"></i></a>
+                                                                     class="show-btn btn btn-sm btn-outline-primary m-1"
+                                                                     title="Show"><i class="fas fa-eye"></i></a>
                                                                  @if (in_array('per_delete', $data_permission))
                                                                      {{-- <a data-id="{{ $item->id }}"
                                                                          class="delete-btn btn btn-sm btn-outline-danger m-1"
@@ -108,5 +109,4 @@
          </form>
 
          <!-- content-wrapper ends -->
-
      @endsection

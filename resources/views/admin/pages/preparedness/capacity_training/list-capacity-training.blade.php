@@ -32,12 +32,12 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
-                                                    <th>Title English</th>
-                                                    <th>Title Marathi</th>
-                                                    <th>Description English</th>
-                                                    <th>Description Marathi</th>
-                                                    <th>English Image</th>
-                                                    <th>Marathi Image</th>
+                                                    <th>Title </th>
+                                                    <th>शीर्षक </th>
+                                                    <th>Description </th>
+                                                    <th>वर्णन </th>
+                                                    <th>Image </th>
+                                                    <th>प्रतिमा </th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
