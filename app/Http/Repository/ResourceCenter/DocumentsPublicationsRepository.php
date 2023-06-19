@@ -112,11 +112,16 @@ class DocumentsPublicationsRepository  {
             $documents = Documentspublications::find($id);
             if ($documents) {
                 // Delete the images from the storage folder
-                unlink(storage_path(Config::get('DocumentConstant.DOCUMENT_PUBLICATION_DELETE') . $documents->english_image));
-                unlink(storage_path(Config::get('DocumentConstant.DOCUMENT_PUBLICATION_DELETE') . $documents->marathi_image));
+                if (file_exists(storage_path(Config::get('DocumentConstant.DOCUMENT_PUBLICATION_DELETE') . $documents->english_image))) {
+                    unlink(storage_path(Config::get('DocumentConstant.DOCUMENT_PUBLICATION_DELETE') . $documents->english_image));
+                }
+                if (file_exists(storage_path(Config::get('DocumentConstant.DOCUMENT_PUBLICATION_DELETE') . $documents->marathi_image))) {
+                    unlink(storage_path(Config::get('DocumentConstant.DOCUMENT_PUBLICATION_DELETE') . $documents->marathi_image));
+                }
                 $documents->delete();
                 
-                return $documents;
+                return $documents;  
+
             } else {
                 return null;
             }
@@ -124,5 +129,7 @@ class DocumentsPublicationsRepository  {
             return $e;
         }
     }
+
+    
        
 }

@@ -205,7 +205,8 @@ class IndexController extends Controller
             return $e;
         }
     } 
-
+    
+    
     public function showDepartmentInformation(Request $request)
     {
         try {
@@ -266,6 +267,42 @@ class IndexController extends Controller
         }
     } 
         
+    
+
+    public function getPrivacyPolicy(Request $request)
+    {
+        try {
+
+            $menu = $this->menu;
+            $socialicon = $this->socialicon;
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+            return view('website.pages.privacy-policy',compact('language','menu','socialicon'));
+
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
+    public function getTermConditions(Request $request)
+    {
+        try {
+
+            $menu = $this->menu;
+            $socialicon = $this->socialicon;
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+            return view('website.pages.terms_condition',compact('language','menu','socialicon'));
+
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
     
     public function changeLanguage(Request $request) {
         Session::put('language', $request->language);

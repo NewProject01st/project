@@ -128,6 +128,12 @@
                                              class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
                              @endif
                          @endforeach
+
+                         <li><a href="{{ route('privacy-policy') }}"  target="_blank"><i
+                            class="fas fa-star"></i>Privacy Policy</a></li>
+                            <li><a href="{{ route('terms_condition') }}" target="_blank"><i
+                                class="fas fa-star"></i>Terms and Conditions</a></li>
+
                      </ul>
                  </div>
              </div>

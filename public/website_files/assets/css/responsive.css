@@ -544,7 +544,9 @@ li.city-exp {
 
 @media (min-width: 413px) and (max-width: 414px) {
 .become-vol {
-	margin-top: 60% !important;
+	/* margin-top: 60% !important; */
+	margin-top: 21% !important;
+    margin-bottom: 10px;
 }
 }
 
@@ -648,7 +650,8 @@ li.city-exp {
 	font-weight: 600;
 	padding: 0 7px;
 	font-size: 12px;
-	margin-top: 30%;
+	/* margin-top: 30%; */
+	margin-top: 0%;
 }
 .cross-btn {
 	font-size: 12px;
