@@ -1,10 +1,11 @@
 @extends('website.layout.master')
 @section('content')
-    <!-- <style>
-                                .accordion-button.collapsed {
-                                  background: blue
-                                } -->
-    <!-- </style> -->
+<style>
+    .main-footer {
+    margin-top: 0%;
+    }
+
+ </style>
     <script>
         $('li.dropdown.mega-dropdown a').on('click', function(event) {
             $(this).parent().toggleClass('open');
