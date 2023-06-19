@@ -116,7 +116,7 @@
                                         <span class="red-text"><?php echo $errors->first('description', ':message'); ?></span>
                                     @endif
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-8">
                                         <label class="col-form-label modal_lable">Media Upload:</label><br>
                                         <input type="file" name="media_upload" id="media_upload"> <br>
                                         @if ($errors->has('media_upload'))
@@ -124,7 +124,7 @@
                                     @endif
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-4 captcha_set" style="text-align: -webkit-right;">
                                     {!! NoCaptcha::renderJs() !!}
                                     {!! NoCaptcha::display() !!}
 
@@ -137,7 +137,7 @@
                                 </div>
                             </div>
 
-                            <div class="modal-footer" style="float: right;">
+                            <div class="modal-footer mt-4" style="float: right;width:300px">
                                 <button type="submit" class="btn btn-primary new_modal_page_btn">Send</button>
                             </div>
                         </form>

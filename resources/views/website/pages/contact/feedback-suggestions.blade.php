@@ -55,23 +55,25 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
-
-                                    <input class="gap-text" type="text" name="full_name" placeholder="Enter Full Name"
+                                    <label class="col-form-label modal_lable">Enter Full Name:</label>
+                                    <input class="gap-text" type="text" name="full_name"
                                         value="{{ old('full_name') }}">
                                     @if ($errors->has('full_name'))
                                         <span class="red-text"><?php echo $errors->first('full_name', ':message'); ?></span>
                                     @endif
                                 </div>
                                 <div class="col-md-6">
+                                <label class="col-form-label modal_lable">Enter Email Id:</label>
                                     <input class="gap-text form_text_set" type="email" name="email"
-                                        placeholder="Enter Email Id" value="{{ old('email') }}">
+                                        value="{{ old('email') }}">
                                     @if ($errors->has('email'))
                                         <span class="red-text"><?php echo $errors->first('email', ':message'); ?></span>
                                     @endif
                                 </div>
                                 <div class="col-md-6">
+                                     <label class="col-form-label modal_lable">Enter Mobile Number:</label>
                                     <input class="gap-text" type="text" name="mobile_number"
-                                        placeholder="Enter Mobile Number"
+                                        
                                         value="{{ old('mobile_number') }}"onkeyup="addvalidateMobileNumber(this.value)">
                                     <span id="number-validate" class="red-text"></span>
                                     @if ($errors->has('mobile_number'))
@@ -79,6 +81,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-6">
+                                    <label class="col-form-label modal_lable">Select Feedback Type:</label>
                                     <select class="form_text_set select_box_set" name="contact_type" id="contact_type">
                                         <option value="">Select</option>
                                         <option value="Feedback" {{ old('contact_type') == 'Feedback' ? 'selected' : '' }}>
@@ -92,22 +95,27 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <input class="gap-text" type="text" name="subject" placeholder="Enter Subject"
+                                     <label class="col-form-label modal_lable">Enter Subject:</label>
+                                    <input class="gap-text" type="text" name="subject"
                                         value="{{ old('subject') }}">
                                     @if ($errors->has('subject'))
                                         <span class="red-text"><?php echo $errors->first('subject', ':message'); ?></span>
                                     @endif
                                 </div>
 
-
                                 <div class="col-md-12">
-                                    <textarea class="gap-text" name="suggestion" placeholder="Write Any Feedback/Suggestion">{{ old('suggestion') }}</textarea>
+                                    <label class="col-form-label modal_lable">Write Any Feedback/Suggestion:</label>
+                                    <textarea class="gap-text" name="suggestion" >{{ old('suggestion') }}</textarea>
                                     @if ($errors->has('suggestion'))
                                         <span class="red-text"><?php echo $errors->first('suggestion', ':message'); ?></span>
                                     @endif
                                 </div>
 
-                                <div class="col-md-12">
+                                <div class="col-md-8">
+
+                                </div>
+
+                                <div class="col-md-4 captcha_set" style="text-align: -webkit-right;">
                                     {!! NoCaptcha::renderJs() !!}
                                     {!! NoCaptcha::display() !!}
 
@@ -118,9 +126,12 @@
                                     @endif
                                 </div>
 
+                                <div class="col-md-8">
 
-                                <div class="col-md-12 mt-4">
-                                    <input class="gap-text" type="submit" value="Send Message" style="width: 27%;">
+                                </div>
+
+                                <div class=" col-md-4 mt-4">
+                                    <button type="submit" class="btn btn-primary new_modal_page_btn" style="float: right;width:300px">Send</button>
                                 </div>
                             </div>
                         </form>
