@@ -184,7 +184,7 @@ Version:		1.0
 
 .to_set_img_right{
 	width: 54% !important;
-    height: 40vh;
+    height: auto;
     float: right;
     margin-left: 3%;
 	margin-bottom: 1%;
@@ -6185,8 +6185,8 @@ label{
   margin-top: 1rem;
 }
 .card{
-  margin: 0;
-  background: #d94148;
+  margin: 20px;
+  /* background: #d94148; */
   border-radius: 0.25rem;
   overflow: hidden;
   box-shadow: 0 0 10px silver;
@@ -6696,4 +6696,85 @@ th {
 	/* box-shadow: 0 6px 11px 2px rgba(0, 0, 0, 0.14), 0 1px 9px 2px rgba(0, 0, 0, 0.12), 0 5px 3px -7px rgba(0, 0, 0, 0.2); */
 	padding: 15px;
 	border-radius: 5px;
+}
+
+.hazard_img{
+	box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+}
+
+.emrg_cont_title h3{
+	background-color: transparent !important;
+    padding: 4px;
+    color: #D94148;
+    border: 1px solid;
+    font-size: 25px;
+    line-height: 46px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.deprt-txt h3{
+	background-color: transparent !important;
+	/* padding: 4px; */
+	color: #D94148;
+	font-size: 22px;
+	line-height: 46px;
+	font-weight: 700;
+}
+
+.hazard_title h3{
+	background-color: transparent !important;
+    padding: 4px;
+    color: #D94148;
+    border: 1px solid;
+    font-size: 25px;
+    line-height: 46px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.capacity_train_img{
+	object-fit: cover;
+	border-radius: 0.5rem;
+	box-shadow: 0 0 10px #0008;
+}
+
+.public_edu_img{
+	border-radius: 7px;
+    animation: larger 0.3s;
+	box-shadow: 0 0 10px lightcoral;
+    /* box-shadow: 5px 6px lightcoral; */
+}
+.public_edu_img:hover{
+	animation: smaller 0.3s;
+    cursor: pointer;
+	/* box-shadow: 0 0 10px lightcoral; */
+    box-shadow: 3px 4px lightcoral;
+}
+.state_emerg{
+	box-shadow: 0px 5px 10px #262626;
+}
+.district_emerg{
+	background-position: center;
+    border-radius: 8px;
+    border: 2px solid #E04748;
+}
+.search_team{
+border-radius: 4px;
+box-shadow: 0 0 4px #000;
+}
+.relief_img{
+	border-radius: 7px;
+    box-shadow: 15px 15px 15px -15px #111;
+
+}
+
+.evacuation_pln_img{
+	padding: 15px;
+	box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+}
+
+/* client change */
+.new_city_head_change{
+	float: left;
 }

@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Repository\CitizenAction;
+namespace App\Http\Repository\Admin\Master;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\QueryException;
 use DB;

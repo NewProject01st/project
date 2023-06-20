@@ -43,7 +43,7 @@
                       <!--Sidebar Start-->
                       <div class="col-md-3">
                         <div class="pb-3">
-                            <button type="button" class="btn back-btn-color"><a href="{{ route('/') }}">
+                            <button type="button" class="btn back-btn-color"><a href="{{ route('list-upcoming-training-event-web') }}">
                                     Back</a>
                             </button>
                         </div>

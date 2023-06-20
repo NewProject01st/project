@@ -27,7 +27,7 @@
 
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title English :</label>
+                                            <label>Title :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>{{ strip_tags($incidenttype_data->english_title) }}</label>
@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title Marathi :</label>
+                                            <label>शीर्षक :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>{{ strip_tags($incidenttype_data->marathi_title) }}</label>

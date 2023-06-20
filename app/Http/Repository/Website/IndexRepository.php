@@ -7,7 +7,6 @@ use Illuminate\Support\Carbon;
 use Session;
 use App\Models\ {
     SocialIcon,
-    SubHeaderInfo,
 	Marquee,
     Slider,
     DisasterManagementWebPortal,

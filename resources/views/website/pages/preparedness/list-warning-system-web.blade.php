@@ -36,19 +36,19 @@
         <div class="department-details">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-9 new_design_about_obj">
                         <!--Department Details Txt Start-->
                         @forelse ($data_output as $item)
                             <div class="deprt-txt">
                                 @if (session('language') == 'mar')
                                     <h3><?php echo $item['marathi_title']; ?> </h3>
                                     <img src="{{ Config::get('DocumentConstant.EARLY_WARNING_SYSTEM_VIEW') }}{{ $item['marathi_image'] }}"
-                                        class="d-block w-100 to_set_img_right" alt="...">
+                                        class="d-block w-100" alt="...">
                                     <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                 @else
                                     <h3><?php echo $item['english_title']; ?> </h3>
                                     <img src="{{ Config::get('DocumentConstant.EARLY_WARNING_SYSTEM_VIEW') }}{{ $item['english_image'] }}"
-                                        class="d-block w-100 to_set_img_right" alt="...">
+                                        class="d-block w-100" alt="...">
                                     <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
                                 @endif
                             </div>

@@ -31,11 +31,10 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
-                                                    <th>Title English</th>
-                                                    <th>Title Marathi</th>
-                                                    <th> URL</th>
-                                                    <th>English Pdf</th>
-                                                    <th>Marathi Pdf</th>
+                                                    <th>Title</th>
+                                                    <th>शीर्षक</th>
+                                                    <th>PDF</th>
+                                                    <th>पीडीएफ</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -46,7 +45,6 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td><?php echo $item->english_title; ?></td>
                                                         <td><?php echo $item->marathi_title; ?></td>
-                                                        <td>{{ $item->url }}</td>
                                                         <td> <a href="{{ Config::get('DocumentConstant.RTI_PDF_VIEW') }}{{ $item->english_pdf }}"
                                                                 target="_blank"><img
                                                                     src="{{ asset('assets/images/pdf.png/') }}"

@@ -53,8 +53,10 @@
                                                     <div class="col-md-5">
                                                         <div class="profile">
                                                             <div class="img-area">
+                                                                <a data-id="{{ $item['id'] }}"
+                                                                class="show-btn cursor-pointer">
                                                                 <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item['marathi_image'] }}"
-                                                                    alt="">
+                                                                    alt=""></a>
                                                             </div>
                                                             <div class="bio">
                                                                 <h2>{{ $item['marathi_title'] }}</h2>
@@ -64,8 +66,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="content">
-                                                            <p><span><i
-                                                                        class="fa fa-quote-left"></i></span>{{ strip_tags($item['marathi_description']) }}
+                                                            <p><span><i class="fa fa-quote-left"></i></span>{{ strip_tags($item['marathi_description']) }}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -76,9 +77,10 @@
                                                 <div class="row">
                                                     <div class="col-md-5">
                                                         <div class="profile">
-                                                            <div class="img-area">
+                                                            <div class="img-area"><a  data-id="{{ $item['id'] }}"
+                                                                class="show-btn cursor-pointer">
                                                                 <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item['english_image'] }}"
-                                                                    alt="">
+                                                                    alt=""></a>
                                                             </div>
                                                             <div class="new-txt">
                                                                 <h4>{{ $item['english_title'] }}</h4>
@@ -88,7 +90,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="content">
-                                                            <p><span><i class="fa fa-quote-left"></i></span>{{ mb_substr(strip_tags($item['english_description']), 0, 204) }}
+                                                            <p><span><i class="fa fa-quote-left"></i></span><a>{{ mb_substr(strip_tags($item['english_description']), 0, 204) }}</a>
                                                             ...</p>
                                                         </div>
                                                     </div>
@@ -99,6 +101,10 @@
                                 @empty
                                     <h4>No Data Found For Success Stories</h4>
                                 @endforelse
+                                <form method="POST" action="{{ url('/list-particular-success-stories-web') }}" id="showform">
+                                    @csrf
+                                    <input type="hidden" name="show_id" id="show_id" value="">
+                                </form>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
                                 data-bs-slide="prev">

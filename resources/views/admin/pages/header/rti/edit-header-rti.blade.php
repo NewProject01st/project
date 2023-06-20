@@ -24,12 +24,11 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title English</label>&nbsp<span
+                                            <label for="english_title">Title</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title"> @if (old('english_title'))
-{{ old('english_title') }}@else{{ $rti->english_title }}
-@endif
-</textarea>
+                                          <input class="form-control" name="english_title" id="english_title"
+                                                placeholder="Enter the Title"
+                                                value="@if (old('english_title')) {{ old('english_title') }}@else{{ $vacancy->english_title }} @endif">
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -37,13 +36,11 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">Title Marathi</label>&nbsp<span
+                                            <label for="marathi_title">शीर्षक</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">
-@if (old('marathi_title'))
-{{ old('marathi_title') }}@else{{ $rti->marathi_title }}
-@endif
-</textarea>
+                                                <input class="form-control" name="marathi_title" id="marathi_title"
+                                                placeholder="शीर्षक प्रविष्ट करा"
+                                                value="@if (old('marathi_title')) {{ old('marathi_title') }}@else{{ $vacancy->marathi_title }} @endif">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -53,7 +50,8 @@
                                         <div class="form-group">
                                             <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="url" id="url" class="form-control"
-                                                value="{{ $rti->url }}" placeholder="">
+                                                value="@if (old('url')) {{ old('url') }}@else{{ $vacancy->url }} @endif"
+                                                placeholder="">
                                             @if ($errors->has('url'))
                                                 <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                             @endif
@@ -61,18 +59,18 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_pdf">Pdf English</label><br>
+                                            <label for="english_pdf">PDF</label><br>
                                             <input type="file" name="english_pdf" id="english_pdf" accept=".pdf">
                                             @if ($errors->has('english_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
                                             @endif
                                             <a
-                                                href="{{ Config::get('DocumentConstant.RTI_PDF_VIEW') }}{{ $rti->english_pdf }}"></a>
+                                                href="{{ Config::get('DocumentConstant.VACANCIES_PDF_VIEW') }}{{ $vacancy->english_pdf }}"></a>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_pdf">Pdf Marathi</label>
+                                            <label for="marathi_pdf">पीडीएफ</label>
                                             <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
                                                 class="form-control">
                                             @if ($errors->has('marathi_pdf'))
@@ -80,7 +78,7 @@
                                             @endif
                                         </div>
                                         <a
-                                            href="{{ Config::get('DocumentConstant.RTI_PDF_VIEW') }}{{ $rti->marathi_pdf }}"></a>
+                                            href="{{ Config::get('DocumentConstant.VACANCIES_PDF_VIEW') }}{{ $vacancy->marathi_pdf }}"></a>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Update</button>
