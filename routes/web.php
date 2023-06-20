@@ -490,6 +490,14 @@ Route::post('/update-video', ['as' => 'update-video', 'uses' => 'App\Http\Contro
 Route::post('/show-video', ['as' => 'show-video', 'uses' => 'App\Http\Controllers\ResourceCenter\VideoController@show']);
 Route::post('/delete-video', ['as' => 'delete-video', 'uses' => 'App\Http\Controllers\ResourceCenter\VideoController@destroy']);
 
+Route::get('/list-map-lat-lons', ['as' => 'list-map-lat-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@index']);
+Route::get('/add-map-lot-lons', ['as' => 'add-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@add']);
+Route::post('/add-map-lot-lons', ['as' => 'add-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@store']);
+Route::get('/edit-map-lot-lons', ['as' => 'edit-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@edit']);
+Route::post('/update-map-lot-lons', ['as' => 'update-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@update']);
+Route::post('/show-map-lot-lons', ['as' => 'show-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@show']);
+Route::post('/delete-map-lot-lons', ['as' => 'delete-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@destroy']);
+
 // =======Contact Us==========
 
 Route::get('/list-contact-suggestion', ['as' => 'list-contact-suggestion', 'uses' => 'App\Http\Controllers\ContactUs\ContactUsController@index']);

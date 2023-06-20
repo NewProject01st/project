@@ -61,10 +61,10 @@ class EmergencyContactNumbersController extends Controller
         //     $rules[$marathi_emergency_contact_number] = 'required';
         // }
         $messages = [
-            'english_title.required' => 'Please  enter english title.',
-            'marathi_title.required' => 'Please enter marathi title.',
-            'english_description.required' => 'Please  enter english description.',
-            'marathi_description.required' => 'Please enter marathi description.',
+            'english_title.required' => 'Please enter title.',
+            'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+            'english_description.required' => 'Please enter description.',
+            'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
             'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
@@ -120,10 +120,10 @@ class EmergencyContactNumbersController extends Controller
             'marathi_emergency_contact_number' => 'required',
         ];
         $messages = [
-            'english_emergency_contact_title.required' => 'Please Enter Emergency Title In English.',
-            'marathi_emergency_contact_title.required' => 'Please Enter Emergency Title In Marathi.',
-            'english_emergency_contact_number.required' => 'Please Enter Emergency Contact In English.',
-            'marathi_emergency_contact_number.required' => 'Please Enter Emergency Contact In Marathi.',
+            'english_emergency_contact_title.required' => 'Please Enter Emergency Title.',
+            'marathi_emergency_contact_title.required' => 'कृपया आणीबाणी शीर्षक प्रविष्ट करा.',
+            'english_emergency_contact_number.required' => 'Please Enter Emergency Contact.',
+            'marathi_emergency_contact_number.required' => 'कृपया आपत्कालीन संपर्क प्रविष्ट करा.',
         ];
 
         try
@@ -181,10 +181,10 @@ class EmergencyContactNumbersController extends Controller
         ];
 
         $messages = [
-            'english_title.required' => 'Please enter English title.',
-            'marathi_title.required' => 'Please enter Marathi title.',
-            'english_description.required' => 'Please  enter english description.',
-            'marathi_description.required' => 'Please enter marathi description.',
+            'english_title.required' => 'Please enter title.',
+            'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+            'english_description.required' => 'Please enter description.',
+            'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
         ];
 
         try {

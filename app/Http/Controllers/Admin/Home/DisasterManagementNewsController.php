@@ -40,10 +40,10 @@ class DisasterManagementNewsController extends Controller
             
             ];
     $messages = [   
-        'english_title'=>'Please  enter english title.',
-        'marathi_title'=>'Please  enter marathi title.',
-        'english_description' => 'required',
-        'marathi_description' => 'required',
+        'english_title.required' => 'Please enter title.',
+        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+        'english_description.required' => 'Please enter description.',
+        'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
         'english_image.required' => 'The English image is required.',
         'english_image.image' => 'The English image must be a valid image file.',
         'english_image.mimes' => 'The English image must be in JPEG, PNG, JPG, GIF, or SVG format.',
@@ -113,10 +113,10 @@ class DisasterManagementNewsController extends Controller
             $rules['marathi_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_NEWS_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_NEWS_IMAGE_MIN_SIZE");
         }
         $messages = [   
-            'english_title'=>'Please  enter english title.',
-            'marathi_title'=>'Please  enter marathi title.',
-            'english_description' => 'required',
-            'marathi_description' => 'required',
+            'english_title.required' => 'Please enter title.',
+            'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+            'english_description.required' => 'Please enter description.',
+            'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
             'english_url'=>'required',
             'disaster_date' => 'required',
             'english_image.required' => 'The English image is required.',

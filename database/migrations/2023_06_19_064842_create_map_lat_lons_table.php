@@ -17,8 +17,11 @@ class CreateMapLatLonsTable extends Migration
             $table->bigIncrements('id');
             $table->string('lat');
             $table->string('lon');
-            $table->string('location_name');
-            $table->string('location_address')->default('police_station');
+            $table->string('location_name_english');
+            $table->string('location_name_marathi');
+            $table->string('location_address_english');
+            $table->string('location_address_marathi');
+            // $table->string('data_for')->default('police_station');
             $table->boolean('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

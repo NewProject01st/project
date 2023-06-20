@@ -32,14 +32,12 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
-                                                    <th>Title English</th>
-                                                    <th>Title Marathi</th>
-                                                    <th>Description English</th>
-                                                    <th>Description Marathi</th>
-                                                    {{-- <th>Url</th> --}}
-                                                    {{-- <th>Date</th> --}}
-                                                    <th>English Icon</th>
-                                                    <th>Marathi Icon</th>
+                                                    <th>Title </th>
+                                                    <th>शीर्षक </th>
+                                                    <th>Description </th>
+                                                    <th>वर्णन </th>
+                                                    <th>Icon </th>
+                                                    <th>चिन्ह</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -55,10 +53,10 @@
                                                         {{-- <td>{{ $item->url }}</td> --}}
                                                         {{-- <td>{{ $item->date }}</td> --}}
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW')}}{{$item->english_image }}" />
+                                                                src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item->english_image }}" />
                                                         </td>
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW')}}{{$item->marathi_image }}" />
+                                                                src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item->marathi_image }}" />
                                                         </td>
                                                         <td>
                                                             <label class="switch">

@@ -24,7 +24,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_address">English Address</label>&nbsp<span
+                                            <label for="english_address"> Address</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control english_title" name="english_address" id="english_address"
                                                 placeholder="Enter the english address">{{ old('english_address') }}</textarea>
@@ -35,8 +35,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_address">Marathi Address</label>&nbsp<span
-                                                class="red-text">*</span>
+                                            <label for="marathi_address">पत्ता </label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control marathi_title" name="marathi_address" id="marathi_address"
                                                 placeholder="Enter the marathi address">{{ old('marathi_address') }}</textarea>
                                             @if ($errors->has('marathi_address'))
@@ -47,11 +46,12 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_number">English Number</label>&nbsp<span
-                                                class="red-text">*</span>
+                                            <label for="english_number"> Number</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="english_number" id="english_number"
-                                                class="form-control" id="english_number" placeholder="" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
-                                                value="{{ old('english_number') }}">
+                                                class="form-control" id="english_number" placeholder=""
+                                                pattern="[789]{1}[0-9]{9}"
+                                                oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                                                maxlength="10" minlength="10" value="{{ old('english_number') }}">
                                             @if ($errors->has('english_number'))
                                                 <span class="red-text"><?php echo $errors->first('english_number', ':message'); ?></span>
                                             @endif
@@ -59,11 +59,13 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_number"> Marathi Number</label>&nbsp<span
+                                            <label for="marathi_number"> क्रमांक </label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" name="marathi_number" id="marathi_number" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
-                                                class="form-control" id="marathi_number" placeholder=""
-                                                value="{{ old('marathi_number') }}">
+                                            <input type="text" name="marathi_number" id="marathi_number"
+                                                pattern="[789]{1}[0-9]{9}"
+                                                oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                                                maxlength="10" minlength="10" class="form-control" id="marathi_number"
+                                                placeholder="" value="{{ old('marathi_number') }}">
                                             @if ($errors->has('marathi_number'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_number', ':message'); ?></span>
                                             @endif
