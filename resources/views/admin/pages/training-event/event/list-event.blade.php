@@ -45,10 +45,10 @@
                                             @foreach ($event as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><?php echo $item->english_title; ?></td>
-                                                <td><?php echo $item->marathi_title; ?></td>
-                                                <td><?php echo $item->english_description; ?></td>
-                                                <td><?php echo $item->marathi_description; ?></td>
+                                                <td>{{ strip_tags($item->english_title)}}</td>
+                                                <td>{{ strip_tags($item->marathi_title)}}</td>
+                                                <td>{{ strip_tags($item->english_description)}}</td>
+                                                <td>{{ strip_tags($item->marathi_description)}}</td>
                                                 <td><?php echo $item->start_date; ?></td>
                                                 <td><?php echo $item->end_date; ?></td>
                                                 <td>

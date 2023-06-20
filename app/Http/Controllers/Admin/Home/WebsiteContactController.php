@@ -39,11 +39,11 @@ class WebsiteContactController extends Controller
             
          ];
     $messages = [   
-        'english_address' => 'required',
-            'marathi_address' => 'required',           
-            'email' => 'required',
-            'english_number' => 'required',
-            'marathi_number' => 'required',
+        'english_address' => 'Please enter address.',
+            'marathi_address' => 'कृपया पत्ता प्रविष्ट करा.',           
+            'email' => 'आवश्यक',
+            'english_number' => 'Please enter number.',
+            'marathi_number' => 'कृपया क्रमांक प्रविष्ट करा ',
         
         
     ];
@@ -97,12 +97,11 @@ class WebsiteContactController extends Controller
         
      ];
     $messages = [   
-        'english_address' => 'required',
-        'marathi_address' => 'required',           
-        'email' => 'required',
-        'english_number' => 'required',
-        'marathi_number' => 'required',
-            
+        'english_address' => 'Please enter address.',
+        'marathi_address' => 'कृपया पत्ता प्रविष्ट करा.',           
+        'email' => 'आवश्यक',
+        'english_number' => 'Please enter number.',
+        'marathi_number' => 'कृपया क्रमांक प्रविष्ट करा ',
         
     ];
 

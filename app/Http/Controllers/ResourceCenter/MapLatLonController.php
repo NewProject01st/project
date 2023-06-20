@@ -4,20 +4,21 @@ namespace App\Http\Controllers\ResourceCenter;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\MAPGISData;
-use App\Http\Services\ResourceCenter\MapGisDataServices;
+use App\Models\MapLatLon;
+use App\Http\Services\ResourceCenter\MapLatLonServices;
 use Validator;
-class MapGisDataController extends Controller
+class MapLatLonController extends Controller
 {
 
    public function __construct()
     {
-        $this->service = new MapGisDataServices();
+        $this->service = new MapLatLonServices();
     }
     public function index()
     {
         try {
             $map_gis = $this->service->getAll();
+            // dd($map_gis);
             return view('admin.pages.research-center.map-gis-data.list-map-gis-data', compact('map_gis'));
         } catch (\Exception $e) {
             return $e;
@@ -30,21 +31,23 @@ class MapGisDataController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'latitude' => 'required',
-            'longitude' => 'required',
-            'english_police_station' => 'required',
-            'marathi_police_station' => 'required',
-            'english_address' => 'required',
-            'marathi_address' => 'required',
+            'lat' => 'required',
+            'lon' => 'required',
+            'location_name_english' => 'required',
+            'location_name_marathi' => 'required',
+            'location_address_english' => 'required',
+            'location_address_marathi' => 'required',
+            // 'data_for' => 'required',
             
          ];
     $messages = [   
-        'latitude' => 'Please enter latitude.',
-        'longitude' => 'Please enter longitude.',
-        'english_police_station' => 'Please enter police station name.',
-        'marathi_police_station' => 'कृपया पोलीस ठाण्याचे नाव टाका. ',
-        'english_address' => 'Please enter address.',
-        'marathi_address' => 'कृपया पत्ता प्रविष्ट करा.',
+        'lat.required' => 'Please enter latitude.',
+        'lon.required' => 'Please enter longitude.',
+        'location_name_english.required' => 'Please enter location name.',
+        'location_name_marathi.required' => 'कृपया स्थानाचे नाव प्रविष्ट करा.',
+        'location_address_english.required' => 'Please enter address.',
+        'location_address_marathi.required' => 'कृपया पत्ता प्रविष्ट करा.',
+        // 'data_for.required' => 'Please enter data.',
        
     ];
     // print_r($messages);
@@ -55,28 +58,28 @@ class MapGisDataController extends Controller
      
         if($validation->fails() )
         {
-            return redirect('add-map-gis-data')
+            return redirect('add-map-lot-lons')
                 ->withInput()
                 ->withErrors($validation);
         }
         else
         {
-            $add_map_gis = $this->service->add($request);
+            $add_map_gis = $this->service->addAll($request);
             if($add_map_gis)
             {
                 $msg = $add_map_gis['msg'];
                 $status = $add_map_gis['status'];
                 if($status=='success') {
-                    return redirect('list-map-gis-data')->with(compact('msg','status'));
+                    return redirect('list-map-lat-lons')->with(compact('msg','status'));
                 }
                 else {
-                    return redirect('add-map-gis-data')->withInput()->with(compact('msg','status'));
+                    return redirect('add-map-lot-lons')->withInput()->with(compact('msg','status'));
                 }
             }
 
         }
     } catch (Exception $e) {
-        return redirect('add-map-gis-data')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+        return redirect('add-map-lot-lons')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
 }
     public function show(Request $request)
@@ -90,7 +93,7 @@ class MapGisDataController extends Controller
         }
     }
     public function edit(Request $request) {
-        $map_gis = MAPGISData::find($request->edit_id);
+        $map_gis = MapLatLon::find($request->edit_id);
         // dd($budgets);
 
         return view('admin.pages.research-center.map-gis-data.edit-map-gis-data', compact('map_gis'));
@@ -98,22 +101,23 @@ class MapGisDataController extends Controller
 
     public function update(Request $request) {
         $rules = [
-            'latitude' => 'required',
-            'longitude' => 'required',
-            'english_police_station' => 'required',
-            'marathi_police_station' => 'required',
-            'english_address' => 'required',
-            'marathi_address' => 'required',
+            'lat' => 'required',
+            'lon' => 'required',
+            'location_name_english' => 'required',
+            'location_name_marathi' => 'required',
+            'location_address_english' => 'required',
+            'location_address_marathi' => 'required',
+            // 'data_for' => 'required',
             
          ];
     $messages = [   
-        'latitude' => 'Please enter latitude.',
-        'longitude' => 'Please enter longitude.',
-        'english_police_station' => 'Please enter police station name.',
-        'marathi_police_station' => 'कृपया पोलीस ठाण्याचे नाव टाका. ',
-        'english_address' => 'Please enter address.',
-        'marathi_address' => 'कृपया पत्ता प्रविष्ट करा.',
-       
+        'lat.required' => 'Please enter latitude.',
+        'lon.required' => 'Please enter longitude.',
+        'location_name_english.required' => 'Please enter location name.',
+        'location_name_marathi.required' => 'कृपया स्थानाचे नाव प्रविष्ट करा.',
+        'location_address_english.required' => 'Please enter address.',
+        'location_address_marathi.required' => 'कृपया पत्ता प्रविष्ट करा.',
+        // 'data_for.required' => 'Please enter data.',
     ];
     try {
         $validation = Validator::make($request->all(),$rules, $messages);
@@ -122,12 +126,12 @@ class MapGisDataController extends Controller
                 ->withInput()
                 ->withErrors($validation);
         } else {
-            $update_marquee = $this->service->update($request);
-            if ($update_marquee) {
-                $msg = $update_marquee['msg'];
-                $status = $update_marquee['status'];
+            $update_gis = $this->service->updateAll($request);
+            if ($update_gis) {
+                $msg = $update_gis['msg'];
+                $status = $update_gis['status'];
                 if ($status == 'success') {
-                    return redirect('list-map-gis-data')->with(compact('msg', 'status'));
+                    return redirect('list-map-lat-lons')->with(compact('msg', 'status'));
                 } else {
                     return redirect()->back()
                         ->withInput()
@@ -157,7 +161,7 @@ class MapGisDataController extends Controller
         try {
             // dd($request->delete_id);
             $map_gis = $this->service->deleteById($request->delete_id);
-            return redirect('list-map-gis-data')->with('flash_message', 'Deleted!');  
+            return redirect('list-map-lat-lons')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {
             return $e;
         }

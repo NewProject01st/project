@@ -125,7 +125,7 @@ class RegisterController extends Controller {
         $rules = [
                     'u_email' => 'required',
                     // 'u_uname' => 'required',
-                    'u_password'=>'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z\d]).{8}$/',
+                    'u_password'=>'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z\d]).{8,}$/',
                     // 'u_password'=>'required',
                     // 'u_password'=>'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[a-zA-Z0-9])(?=.*[^a-zA-Z0-9]).{8}$/',
                     // 'u_password' => 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
@@ -147,7 +147,7 @@ class RegisterController extends Controller {
                         'u_email.email' => 'Please enter valid email.',
                         // 'u_uname.required' => 'Please enter user uname.',
                         // 'u_password.required' => 'Please enter password.',
-                        'u_password.regex' => 'Please enter 8 digit password with atleast 1 capital letter,1 small letter, 1 number and 1 alpha numeric char.',
+                        'u_password.regex' => 'Password should be more than 8 numbers with atleast 1 capital letter,1 small letter, 1 number and 1 alpha numeric char.',
                         // 'u_password.min' => 'Please combination of number character of 8 char.',
                         'role_id.required' => 'Select role',
                         'f_name.required' => 'Please enter first name.',

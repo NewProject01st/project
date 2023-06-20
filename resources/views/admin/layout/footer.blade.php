@@ -383,7 +383,7 @@ $(document).ready(() => {
     });
 </script>
 
-{{-- <script>
+<script>
     $(function() {
   var option = function(i, j) {
     return $("<option>").append(j + 1900);
@@ -391,10 +391,10 @@ $(document).ready(() => {
 
   var options = (new Array(150) + "").split(",").map(option);
 
-  $("select").append(options);
+  $("#dYear").append(options);
 });
 
-    </script> --}}
+    </script>
 </body>
 
 </html> <!-- partial:partials/_footer.html -->

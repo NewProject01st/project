@@ -1,15 +1,15 @@
 <?php
 namespace App\Http\Services\ResourceCenter;
 
-use App\Http\Repository\ResourceCenter\MapGisDataRepository;
+use App\Http\Repository\ResourceCenter\MapLatLonRepository;
 
 use App\Models\
-{ MAPGISData };
+{ MapLatLon };
 use Carbon\Carbon;
 use Config;
 use Storage;
 
-class MapGisDataServices
+class MapLatLonServices
 {
 
 	protected $repo;
@@ -19,7 +19,7 @@ class MapGisDataServices
      */
     public function __construct()
     {
-        $this->repo = new MapGisDataRepository();
+        $this->repo = new MapLatLonRepository();
     }
     public function getAll()
     {
@@ -30,10 +30,10 @@ class MapGisDataServices
         }
     }
 
-    public function add($request)
+    public function addAll($request)
     {
         try {
-            $add_gisdata = $this->repo->add($request);
+            $add_gisdata = $this->repo->addAll($request);
             if ($add_gisdata) {
                 return ['status' => 'success', 'msg' => 'Map Gis Added Successfully.'];
             } else {
@@ -54,9 +54,9 @@ class MapGisDataServices
     }
    
    
-    public function update($request)
+    public function updateAll($request)
     {
-        $update_map = $this->repo->update($request);
+        $update_map = $this->repo->updateAll($request);
         if ($update_map) {
             return ['status' => 'success', 'msg' => 'Map Gis Added Successfully.'];
         } else {

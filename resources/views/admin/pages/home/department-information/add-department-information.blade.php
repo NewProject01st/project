@@ -84,7 +84,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_image_new">Image</label>&nbsp<span
+                                            <label for="english_image_new">Image </label>&nbsp<span
                                                 class="red-text">*</span><br>
                                             <input type="file" name="english_image_new" id="english_image_new"
                                                 accept="image/*" value="{{ old('english_image_new') }}"><br>
@@ -95,7 +95,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_image_new">प्रतिमा </label>&nbsp<span
+                                            <label for="marathi_image_new">Image </label>&nbsp<span
                                                 class="red-text">*</span><br>
                                             <input type="file" name="marathi_image_new" id="marathi_image_new"
                                                 accept="image/*" value="{{ old('marathi_image_new') }}"><br>

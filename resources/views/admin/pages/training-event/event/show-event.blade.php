@@ -30,7 +30,7 @@
                                         <label>Title English :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <label><?php echo $event->english_title ?></label>
+                                        <label>{{ strip_tags($event->english_title)}}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -38,7 +38,7 @@
                                         <label>Title Marathi :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <label><?php echo $event->marathi_title ?></label>
+                                        <label>{{ strip_tags($event->marathi_title)}}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -46,7 +46,7 @@
                                         <label>Description English :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <label><?php echo $event->english_description ?></label>
+                                        <label>{{ strip_tags($event->english_description)}}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -54,7 +54,7 @@
                                         <label>Description Marathi :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <label><?php echo $event->marathi_description ?></label>
+                                        <label>{{ strip_tags($event->marathi_description)}}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -62,7 +62,7 @@
                                         <label>Start Date :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <label><?php echo $event->start_date ?></label>
+                                        <label>{{ strip_tags($event->start_date)}}</label>
                                     </div>
                                 </div>
                                 <div class="row ">
@@ -70,7 +70,7 @@
                                         <label>End Date :</label>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8">
-                                        <label><?php echo $event->end_date ?></label>
+                                        <label>{{ strip_tags($event->end_date)}}</label>
                                     </div>
                                 </div>
 

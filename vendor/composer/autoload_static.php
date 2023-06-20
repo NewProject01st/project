@@ -749,6 +749,7 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'App\\Models\\MAPGISData' => __DIR__ . '/../..' . '/app/Models/MAPGISData.php',
         'App\\Models\\MainMenus' => __DIR__ . '/../..' . '/app/Models/MainMenus.php',
         'App\\Models\\MainSubMenus' => __DIR__ . '/../..' . '/app/Models/MainSubMenus.php',
+        'App\\Models\\MapLatLon' => __DIR__ . '/../..' . '/app/Models/MapLatLon.php',
         'App\\Models\\Marquee' => __DIR__ . '/../..' . '/app/Models/Marquee.php',
         'App\\Models\\Metadata' => __DIR__ . '/../..' . '/app/Models/Metadata.php',
         'App\\Models\\ObjectiveGoals' => __DIR__ . '/../..' . '/app/Models/ObjectiveGoals.php',

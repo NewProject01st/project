@@ -10,12 +10,12 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
                             <h3 class="page-title">
-                                MAP GIS Data
+                                MAP Lat Data
                             </h3>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
                             <div>
-                                <a href="{{ route('list-map-gis-data') }}" class="btn btn-sm btn-primary ml-3">Back</a>
+                                <a href="{{ route('list-map-lat-lons') }}" class="btn btn-sm btn-primary ml-3">Back</a>
                             </div>
                         </div>
 
@@ -27,56 +27,61 @@
 
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title English :</label>
+                                            <label>Latitude :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($documents_publications->english_title) }}</label>
+                                            <label>{{ strip_tags($map_gis->lat) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title Marathi :</label>
+                                            <label>Longitude :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($documents_publications->marathi_title) }}</label>
+                                            <label>{{ strip_tags($map_gis->lon) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Description English :</label>
+                                            <label>Location Name :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($documents_publications->english_description) }}</label>
+                                            <label>{{ strip_tags($map_gis->location_name_english) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Description Marathi :</label>
+                                            <label>स्थानाचे नाव :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($documents_publications->marathi_description) }}</label>
+                                            <label>{{ strip_tags($map_gis->location_name_marathi) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>English Pdf :</label>
+                                            <label>Location Address :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $documents_publications->english_pdf }}"
-                                                target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
-                                                    width="50px" height="50px"></a>
+                                            <label>{{ strip_tags($map_gis->location_address_english) }}</label>
                                         </div>
                                     </div>
-                                    <div class="row pt-2">
+                                    <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Marathi Pdf :</label>
+                                            <label>स्थान पत्ता :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $documents_publications->marathi_pdf }}"
-                                                target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
-                                                    width="50px" height="50px"></a>
+                                            <label>{{ strip_tags($map_gis->location_address_marathi) }}</label>
                                         </div>
                                     </div>
+                                    {{-- <div class="row ">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>Data For :</label>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label>{{ strip_tags($map_gis->data_for) }}</label>
+                                        </div>
+                                    </div> --}}
+
                                 </div>
                             </div>
                         </div>

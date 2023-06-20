@@ -1,21 +1,21 @@
 @extends('admin.layout.master')
 
 @section('content')
-    <?php $data_permission = getPermissionForCRUDPresentOrNot('list-map-gis-data', session('permissions'));
+    <?php $data_permission = getPermissionForCRUDPresentOrNot('list-map-lot-lons', session('permissions'));
     ?>
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    MAP GIS Data List
+                    MAP Lat Data List
                     @if (in_array('per_add', $data_permission))
-                        <a href="{{ url('add-map-gis-data') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
+                        <a href="{{ url('add-map-lot-lons') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
                     @endif
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Resource Center</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> MAP GIS Data List</li>
+                        <li class="breadcrumb-item active" aria-current="page"> MAP Lat Data List</li>
                     </ol>
                 </nav>
             </div>
@@ -30,31 +30,27 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
-                                                    <th>Title English</th>
-                                                    <th>Title Marathi</th>
-                                                    <th>Description English</th>
-                                                    <th>Description Marathi</th>
-                                                    <th>English Pdf</th>
-                                                    <th>Marathi Pdf</th>
+                                                    <th>Latitude</th>
+                                                    <th>Longitude</th>
+                                                    <th>Location Name</th>
+                                                    <th>स्थानाचे नाव </th>
+                                                    <th>Location Address</th>
+                                                    <th>स्थान पत्ता</th>
+                                                    {{-- <th>Data For</th> --}}
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($documents_publications as $item)
+                                                @foreach ($map_gis as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ strip_tags($item->english_title) }}</td>
-                                                        <td>{{ strip_tags($item->marathi_title) }}</td>
-                                                        <td>{{ strip_tags($item->english_description) }}</td>
-                                                        <td>{{ strip_tags($item->marathi_description) }}</td>
-                                                        <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item->english_pdf }}"
-                                                                target="_blank"><img
-                                                                    src="{{ asset('assets/images/pdf.png/') }}"
-                                                                    width="35px" height="35px"></a></td>
-                                                        <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item->english_pdf }}"
-                                                                target="_blank"><img
-                                                                    src="{{ asset('assets/images/pdf.png/') }}"
-                                                                    width="35px" height="35px"></a></td>
+                                                        <td>{{ strip_tags($item->lat) }}</td>
+                                                        <td>{{ strip_tags($item->lon) }}</td>
+                                                        <td>{{ strip_tags($item->location_name_english) }}</td>
+                                                        <td>{{ strip_tags($item->location_name_marathi) }}</td>
+                                                        <td>{{ strip_tags($item->location_address_english) }}</td>
+                                                        <td>{{ strip_tags($item->location_address_marathi) }}</td>
+                                                        {{-- <td>{{ strip_tags($item->data_for) }}</td> --}}
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
@@ -87,15 +83,15 @@
                 </div>
             </div>
         </div>
-        <form method="POST" action="{{ route('delete-map-gis-data') }}" id="deleteform">
+        <form method="POST" action="{{ route('delete-map-lot-lons') }}" id="deleteform">
             @csrf
             <input type="hidden" name="delete_id" id="delete_id" value="">
         </form>
-        <form method="POST" action="{{ route('show-map-gis-data') }}" id="showform">
+        <form method="POST" action="{{ route('show-map-lot-lons') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="GET" action="{{ route('edit-map-gis-data') }}" id="editform">
+        <form method="GET" action="{{ route('edit-map-lot-lons') }}" id="editform">
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>

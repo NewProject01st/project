@@ -55,7 +55,7 @@
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="form-group">
+                                        <div class="form-group">शीर्षक वर्णन
                                             <label> वर्णन<span class="text-danger">*</span></label>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="Enter the Description">{{ old('english_description') }}</textarea>
@@ -89,8 +89,7 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_image">Image English <span
-                                                    class="text-danger">*</span></label><br>
+                                            <label for="english_image">Image <span class="text-danger">*</span></label><br>
                                             <input type="file" name="english_image" id="english_image" accept="image/*"
                                                 value="{{ old('english_image') }}"><br>
                                             @if ($errors->has('english_image'))
@@ -100,7 +99,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_image">Image Marathi <span
+                                            <label for="marathi_image">प्रतिमा <span
                                                     class="text-danger">*</span></label><br>
                                             <input type="file" name="marathi_image" id="marathi_image" accept="image/*"
                                                 value="{{ old('marathi_image') }}"><br>
@@ -111,7 +110,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_pdf">PDF English</label><br>
+                                            <label for="english_pdf">PDF </label><br>
                                             <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"
                                                 value="{{ old('english_pdf') }}">
                                             @if ($errors->has('english_pdf'))
@@ -121,7 +120,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_pdf">PDF Marathi</label><br>
+                                            <label for="marathi_pdf">पीडीएफ</label><br>
                                             <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
                                                 value="{{ old('marathi_pdf') }}">
                                             @if ($errors->has('marathi_pdf'))

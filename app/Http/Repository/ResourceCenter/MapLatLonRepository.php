@@ -6,15 +6,15 @@ use DB;
 use Illuminate\Support\Carbon;
 // use Session;
 use App\Models\ {
-	MAPGISData
+	MapLatLon
 };
 use Config;
 
-class MapGisDataRepository  {
+class MapLatLonRepository  {
     public function getAll()
     {
         try {
-            return MAPGISData::all();
+            return MapLatLon::all();
         } catch (\Exception $e) {
             return $e;
         }
@@ -23,13 +23,14 @@ class MapGisDataRepository  {
 	public function addAll($request){
         try {
         
-            $mapgis_data = new MAPGISData();
-            $mapgis_data->latitude = $request['latitude'];
-            $mapgis_data->longitude = $request['longitude'];
-            $mapgis_data->english_police_station = $request['english_police_station'];
-            $mapgis_data->marathi_police_station = $request['marathi_police_station'];
-            $mapgis_data->english_address = $request['english_address'];
-            $mapgis_data->marathi_address = $request['marathi_address'];
+            $mapgis_data = new MapLatLon();
+            $mapgis_data->lat = $request['lat'];
+            $mapgis_data->lon = $request['lon'];
+            $mapgis_data->location_name_english = $request['location_name_english'];
+            $mapgis_data->location_name_marathi = $request['location_name_marathi'];
+            $mapgis_data->location_address_english = $request['location_address_english'];
+            $mapgis_data->location_address_marathi = $request['location_address_marathi'];
+            // $mapgis_data->data_for = $request['data_for'];
             $mapgis_data->save();       
      
 		return $mapgis_data;
@@ -45,7 +46,7 @@ class MapGisDataRepository  {
     public function getById($id)
     {
         try {
-            $mapgis = MAPGISData::find($id);
+            $mapgis = MapLatLon::find($id);
             if ($mapgis) {
                 return $mapgis;
             } else {
@@ -63,14 +64,14 @@ class MapGisDataRepository  {
     public function updateAll($request)
     {
         try {
-            $mapgis_data = MAPGISData::find($request->id);
-            $mapgis_data->latitude = $request['latitude'];
-            $mapgis_data->longitude = $request['longitude'];
-            $mapgis_data->english_police_station = $request['english_police_station'];
-            $mapgis_data->marathi_police_station = $request['marathi_police_station'];
-            $mapgis_data->english_address = $request['english_address'];
-            $mapgis_data->marathi_address = $request['marathi_address'];
-          
+            $mapgis_data = MapLatLon::find($request->id);
+            $mapgis_data->lat = $request['lat'];
+            $mapgis_data->lon = $request['lon'];
+            $mapgis_data->location_name_english = $request['location_name_english'];
+            $mapgis_data->location_name_marathi = $request['location_name_marathi'];
+            $mapgis_data->location_address_english = $request['location_address_english'];
+            $mapgis_data->location_address_marathi = $request['location_address_marathi'];
+            // $mapgis_data->data_for = $request['data_for'];
             $mapgis_data->update();  
             
         //    dd($budget_data);
@@ -92,7 +93,7 @@ class MapGisDataRepository  {
 
     public function deleteById($id)
     { try {
-        $mapgis = MAPGISData::destroy($id);
+        $mapgis = MapLatLon::destroy($id);
         if ($mapgis) {
             return $mapgis;
         } else {

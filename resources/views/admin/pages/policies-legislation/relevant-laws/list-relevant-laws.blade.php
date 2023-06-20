@@ -33,8 +33,8 @@
                                                 <tr>
                                                     <th>S. No.</th>
                                                     <th>Title</th>
-                                                    <th>Year</th>
                                                     <th>शीर्षक</th>
+                                                    <th>Year</th>
                                                     <th>PDF</th>
                                                     <th>पीडीएफ</th>
                                                     <th>Status</th>

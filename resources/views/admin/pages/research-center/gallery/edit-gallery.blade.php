@@ -34,11 +34,21 @@
                                         </div>
 
                                         <img id="english"
-                                            src="{{ asset('storage/images/news-events/gallery/' . $gallery->english_image) }}"
+                                            src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $gallery->english_image }}"
                                             class="img-fluid img-thumbnail" width="150">
-                                        <img id="english_imgPreview" src="#" alt="pic"
+                                        <img id="english_imgPreview" src="" alt="pic"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
+
+
+
+
+
+
+
+
+
+                                    
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_image">Marathi Image</label>
@@ -49,7 +59,7 @@
                                             @endif
                                         </div>
                                         <img id="marathi"
-                                            src="{{ asset('storage/images/news-events/gallery/' . $gallery->marathi_image) }}"
+                                            src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $gallery->marathi_image }}"
                                             class="img-fluid img-thumbnail" width="150">
                                         <img id="marathi_imgPreview" src="#" alt="pic"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">

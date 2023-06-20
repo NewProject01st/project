@@ -248,6 +248,7 @@ return array(
     'App\\Models\\MAPGISData' => $baseDir . '/app/Models/MAPGISData.php',
     'App\\Models\\MainMenus' => $baseDir . '/app/Models/MainMenus.php',
     'App\\Models\\MainSubMenus' => $baseDir . '/app/Models/MainSubMenus.php',
+    'App\\Models\\MapLatLon' => $baseDir . '/app/Models/MapLatLon.php',
     'App\\Models\\Marquee' => $baseDir . '/app/Models/Marquee.php',
     'App\\Models\\Metadata' => $baseDir . '/app/Models/Metadata.php',
     'App\\Models\\ObjectiveGoals' => $baseDir . '/app/Models/ObjectiveGoals.php',
