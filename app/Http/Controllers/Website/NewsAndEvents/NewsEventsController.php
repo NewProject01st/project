@@ -61,5 +61,25 @@ class NewsEventsController extends Controller
             return $e;
         }
         return view('website.pages.news-events.list-success-stories-web',compact('language','menu','socialicon', 'data_output'));
-    }  
+    }
+    public function show(Request $request)
+    {
+        try {
+           
+            //  dd($request->show_id);
+              $menu = $this->menu;
+              $socialicon = $this->socialicon;
+            $success_storage_data = $this->service->getById($request->show_id);
+            //  dd($disaster_news);
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+            return view('website.pages.news-events.list-particular-success-stories-web', compact('language','menu','socialicon','success_storage_data'));
+
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }   
 }

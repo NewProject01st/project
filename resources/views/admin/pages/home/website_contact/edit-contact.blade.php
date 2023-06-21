@@ -25,7 +25,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_address">English Address</label>&nbsp<span
+                                            <label for="english_address"> Address</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control" name="english_address" id="english_address" placeholder="Enter the Name">
 @if (old('english_address'))
@@ -39,8 +39,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_address">Marathi Address</label>&nbsp<span
-                                                class="red-text">*</span>
+                                            <label for="marathi_address">पत्ता</label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control" name="marathi_address" id="marathi_address" placeholder="Enter the Name">
 @if (old('marathi_address'))
 {{ old('marathi_address') }}@else{{ $website_contact->marathi_address }}
@@ -53,10 +52,11 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_number">English No</label>&nbsp<span
-                                                class="red-text">*</span>
+                                            <label for="english_number"> Number</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="english_number" id="english_number"
-                                                class="form-control" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
+                                                class="form-control" pattern="[789]{1}[0-9]{9}"
+                                                oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                                                maxlength="10" minlength="10"
                                                 value="@if (old('english_number')) {{ old('english_number') }}@else{{ $website_contact->english_number }} @endif"
                                                 placeholder="">
                                             @if ($errors->has('english_number'))
@@ -68,8 +68,10 @@
                                         <div class="form-group">
                                             <label for="marathi_number">दूरध्वनी क्रमांक</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" name="marathi_number" id="marathi_number" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
-                                                class="form-control"
+                                            <input type="text" name="marathi_number" id="marathi_number"
+                                                pattern="[789]{1}[0-9]{9}"
+                                                oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                                                maxlength="10" minlength="10" class="form-control"
                                                 value="@if (old('marathi_number')) {{ old('marathi_number') }}@else{{ $website_contact->marathi_number }} @endif"
                                                 placeholder="">
                                             @if ($errors->has('marathi_number'))

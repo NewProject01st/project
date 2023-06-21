@@ -56,7 +56,7 @@
                                             alt="<?php echo $item['marathi_title']; ?>"> </div>
                                     <div class="event-post-content">
                                         <div class="event-post-txt">
-                                            <h5><a href="#"><?php echo $item['marathi_title']; ?></a></h5>
+                                            <h5><a data-id="{{ $item['id'] }}" class="show-btn"><?php echo $item['marathi_title']; ?></a></h5>
                                             <ul class="event-meta">
                                                 <li><i class="fas fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
                                             </ul>
@@ -71,7 +71,7 @@
                                             alt="<?php echo $item['english_title']; ?>"> </div>
                                     <div class="event-post-content">
                                         <div class="event-post-txt">
-                                            <h5><a href="#"><?php echo $item['english_title']; ?></a></h5>
+                                            <h5><a data-id="{{ $item['id'] }}" class="show-btn"><?php echo $item['english_title']; ?></a></h5>
                                             <ul class="event-meta">
                                                 <li><i class="far fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
                                             </ul>
@@ -86,7 +86,10 @@
                             <h4>No Data Found For Past Events And Trainings</h4>
                         @endforelse
                         <!--Event List Box End-->
-
+                        <form method="POST" action="{{ url('/list-particular-event') }}" id="showform">
+                            @csrf
+                            <input type="hidden" name="show_id" id="show_id" value="">
+                        </form>
 
                         <!--Event List Box Start-->
 

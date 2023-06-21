@@ -45,6 +45,10 @@ Route::get('/list-rti', ['as' => 'list-rti', 'uses' => 'App\Http\Controllers\Web
 Route::get('/information-map', ['as' => 'information-map', 'uses' => 'App\Http\Controllers\Website\Map\MapController@index']);
 Route::post('/information-map-ajax', ['as' => 'information-map-ajax', 'uses' => 'App\Http\Controllers\Website\Map\MapController@mapDataAjax']);
 
+Route::get('/privacy-policy', ['as' => 'privacy-policy', 'uses' => 'App\Http\Controllers\Website\IndexController@getPrivacyPolicy']);
+Route::get('/terms_condition', ['as' => 'terms_condition', 'uses' => 'App\Http\Controllers\Website\IndexController@getTermConditions']);
+
+
 
 Route::get('/list-disastermanagementportal-web', ['as' => 'list-disastermanagementportal-web', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllDisasterManagmentPortal']);
 Route::get('/list-objectivegoals-web', ['as' => 'list-objectivegoals-web', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllObjectiveGoals']);
@@ -66,9 +70,9 @@ Route::get('/list-relief-measures-resources-web', ['as' => 'list-relief-measures
 Route::get('/list-evacuation-plans-web', ['as' => 'list-evacuation-plans-web', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllEvacuationPlans']);
 
 // Route::get('/volunteer-citizen-support-web', ['as' => 'volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllVolunteerCitizenSupport']);
-Route::get('/list-report-incident-crowdsourcing-web', ['as' => 'list-report-incident-crowdsourcing-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllReportIncidentCrowdsourcing']);
+// Route::get('/list-report-incident-crowdsourcing-web', ['as' => 'list-report-incident-crowdsourcing-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllReportIncidentCrowdsourcing']);
 Route::get('/volunteer-citizen-support-web', ['as' => 'volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllVolunteerCitizenSupport']);
-Route::get('/citizen-feedback-suggestions-web', ['as' => 'citizen-feedback-suggestions-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllCitizenFeedbackSuggestions']);
+// Route::get('/citizen-feedback-suggestions-web', ['as' => 'citizen-feedback-suggestions-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllCitizenFeedbackSuggestions']);
 // Route::get('/citizen-action-modal', ['as' => 'citizen-action-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getModalPage']);
 
 
@@ -80,7 +84,7 @@ Route::get('/add-volunteer-citizen-support-web', ['as' => 'add-volunteer-citizen
 
 Route::get('/list-upcoming-training-event-web', ['as' => 'list-upcoming-training-event-web', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllUpcomingEvent']);
 Route::get('/list-past-training-event-web', ['as' => 'list-past-training-event-web', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllPastEvent']);
-Route::get('/list-particular-event', ['as' => 'list-particular-event', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@show']);
+Route::post('/list-particular-event', ['as' => 'list-particular-event', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@show']);
 
 Route::get('/list-state-disaster-managementplan-web', ['as' => 'list-state-disaster-managementplan-web', 'uses' => 'App\Http\Controllers\Website\PoliciesLegislation\PoliciesLegislationController@getAllStateDisasterManagementPlan']);
 Route::get('/list-district-disaster-managementplan-web', ['as' => 'list-district-disaster-managementplan-web', 'uses' => 'App\Http\Controllers\Website\PoliciesLegislation\PoliciesLegislationController@getAllDistrictDisasterManagementPlan']);
@@ -95,6 +99,8 @@ Route::get('/list-training-materials-workshops-web', ['as' => 'list-training-mat
 
 Route::get('/list-disaster-management-news-web', ['as' => 'list-disaster-management-news-web', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@getAllDisasterManagementNews']);
 Route::get('/list-success-stories-web', ['as' => 'list-success-stories-web', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@getAllSuccessStories']);
+Route::post('/list-particular-success-stories-web', ['as' => 'list-particular-success-stories-web', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@show']);
+
 Route::get('/site-map', ['as' => 'site-map', 'uses' => 'App\Http\Controllers\Website\SiteMap\SiteMapController@index']);
 
 
@@ -238,14 +244,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/delete-disaster-management-news', ['as' => 'delete-disaster-management-news', 'uses' => 'App\Http\Controllers\Admin\Home\DisasterManagementNewsController@destroy']);
     Route::post('/update-one', ['as' => 'update-one', 'uses' => 'App\Http\Controllers\Admin\Home\DisasterManagementNewsController@updateOne']);
 
-    Route::get('/list-home-tender', ['as' => 'list-home-tender', 'uses' => 'App\Http\Controllers\Admin\Home\HomeTenderController@index']);
-    Route::get('/add-home-tender', ['as' => 'add-home-tender', 'uses' => 'App\Http\Controllers\Admin\Home\HomeTenderController@add']);
-    Route::post('/add-home-tender', ['as' => 'add-home-tender', 'uses' => 'App\Http\Controllers\Admin\Home\HomeTenderController@store']);
-    Route::post('/edit-home-tender', ['as' => 'edit-home-tender', 'uses' => 'App\Http\Controllers\Admin\Home\HomeTenderController@edit']);
-    Route::post('/update-home-tender', ['as' => 'update-home-tender', 'uses' => 'App\Http\Controllers\Admin\Home\HomeTenderController@update']);
-    Route::post('/show-home-tender', ['as' => 'show-home-tender', 'uses' => 'App\Http\Controllers\Admin\Home\HomeTenderController@show']);
-    Route::post('/delete-home-tender', ['as' => 'delete-home-tender', 'uses' => 'App\Http\Controllers\Admin\Home\HomeTenderController@destroy']);
-
     Route::get('/list-website-contact', ['as' => 'list-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\WebsiteContactController@index']);
     Route::get('/add-website-contact', ['as' => 'add-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\WebsiteContactController@add']);
     Route::post('/add-website-contact', ['as' => 'add-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\WebsiteContactController@store']);
@@ -254,7 +252,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-website-contact', ['as' => 'show-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\WebsiteContactController@show']);
     Route::post('/delete-website-contact', ['as' => 'delete-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\WebsiteContactController@destroy']);
     Route::post('/update-one-website-contact', ['as' => 'update-one-website-contact', 'uses' => 'App\Http\Controllers\Admin\Home\WebsiteContactController@updateOne']);
-
     
     Route::get('/list-disaster-management-web-portal', ['as' => 'list-disaster-management-web-portal', 'uses' => 'App\Http\Controllers\Admin\Home\DisasterManagementWebPortalController@index']);
     Route::get('/add-disaster-management-web-portal', ['as' => 'add-disaster-management-web-portal', 'uses' => 'App\Http\Controllers\Admin\Home\DisasterManagementWebPortalController@add']);
@@ -263,7 +260,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/update-disaster-management-web-portal', ['as' => 'update-disaster-management-web-portal', 'uses' => 'App\Http\Controllers\Admin\Home\DisasterManagementWebPortalController@update']);
     Route::post('/show-disaster-management-web-portal', ['as' => 'show-disaster-management-web-portal', 'uses' => 'App\Http\Controllers\Admin\Home\DisasterManagementWebPortalController@show']);
     Route::post('/delete-disaster-management-web-portal', ['as' => 'delete-disaster-management-web-portal', 'uses' => 'App\Http\Controllers\Admin\Home\DisasterManagementWebPortalController@destroy']);
-
     
     Route::get('/list-hazard-vulnerability-assessment', ['as' => 'list-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Preparedness\HazardVulnerabilityController@index']);
     Route::get('/add-hazard-vulnerability-assessment', ['as' => 'add-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Preparedness\HazardVulnerabilityController@add']);
@@ -298,7 +294,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-public-awareness-and-education', ['as' => 'show-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Preparedness\PublicAwarenessEducationController@show']);
     Route::post('/delete-public-awareness-and-education', ['as' => 'delete-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Preparedness\PublicAwarenessEducationController@destroy']);
 
-
     // ==========EmergencyResponse=======
     Route::get('/list-state-emergency-operations-center', ['as' => 'list-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\StateEmergencyOperationsCenterController@index']);
     Route::get('/add-state-emergency-operations-center', ['as' => 'add-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\StateEmergencyOperationsCenterController@add']);
@@ -327,7 +322,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/add-more-emergency-contact-data', ['as' => 'add-more-emergency-contact-data', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@addmore']);
     Route::post('/add-more-emergency-contact-data', ['as' => 'add-more-emergency-contact-data', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@storeaddmore']);
     Route::post('/add-more-emergency-contact-data-delete', ['as' => 'add-more-emergency-contact-data-delete', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@deleteaddmore']);
-
     
     Route::get('/list-evacuation-plans', ['as' => 'list-evacuation-plans', 'uses' => 'App\Http\Controllers\EmergencyResponse\EvacuationPlansController@index']);
     Route::get('/add-evacuation-plans', ['as' => 'add-evacuation-plans', 'uses' => 'App\Http\Controllers\EmergencyResponse\EvacuationPlansController@add']);
@@ -337,7 +331,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-evacuation-plans', ['as' => 'show-evacuation-plans', 'uses' => 'App\Http\Controllers\EmergencyResponse\EvacuationPlansController@show']);
     Route::post('/delete-evacuation-plans', ['as' => 'delete-evacuation-plans', 'uses' => 'App\Http\Controllers\EmergencyResponse\EvacuationPlansController@destroy']);
     
-    
     Route::get('/list-relief-measures-resources', ['as' => 'list-relief-measures-resources', 'uses' => 'App\Http\Controllers\EmergencyResponse\ReliefMeasuresResourcesController@index']);
     Route::get('/add-relief-measures-resources', ['as' => 'add-relief-measures-resources', 'uses' => 'App\Http\Controllers\EmergencyResponse\ReliefMeasuresResourcesController@add']);
     Route::post('/add-relief-measures-resources', ['as' => 'add-relief-measures-resources', 'uses' => 'App\Http\Controllers\EmergencyResponse\ReliefMeasuresResourcesController@store']);
@@ -345,7 +338,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/update-relief-measures-resources', ['as' => 'update-relief-measures-resources', 'uses' => 'App\Http\Controllers\EmergencyResponse\ReliefMeasuresResourcesController@update']);
     Route::post('/show-relief-measures-resources', ['as' => 'show-relief-measures-resources', 'uses' => 'App\Http\Controllers\EmergencyResponse\ReliefMeasuresResourcesController@show']);
     Route::post('/delete-relief-measures-resources', ['as' => 'delete-relief-measures-resources', 'uses' => 'App\Http\Controllers\EmergencyResponse\ReliefMeasuresResourcesController@destroy']);
-
 
     Route::get('/list-search-rescue-teams', ['as' => 'list-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@index']);
     Route::get('/add-search-rescue-teams', ['as' => 'add-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@add']);
@@ -356,14 +348,14 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/delete-search-rescue-teams', ['as' => 'delete-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@destroy']);
 
 // ===== Citizen Action=======
-Route::get('/list-incident-type', ['as' => 'list-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@index']);
-Route::get('/add-incident-type', ['as' => 'add-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@add']);
-Route::post('/add-incident-type', ['as' => 'add-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@store']);
-Route::get('/edit-incident-type', ['as' => 'edit-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@edit']);
-Route::post('/update-incident-type', ['as' => 'update-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@update']);
-Route::post('/show-incident-type', ['as' => 'show-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@show']);
-Route::post('/delete-incident-type', ['as' => 'delete-incident-type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@destroy']);
-Route::post('/update-one-incident_type', ['as' => 'update-one-incident_type', 'uses' => 'App\Http\Controllers\CitizenAction\IncidentTypeController@updateOne']);
+Route::get('/list-incident-type', ['as' => 'list-incident-type', 'uses' => 'App\Http\Controllers\Admin\Master\IncidentTypeController@index']);
+Route::get('/add-incident-type', ['as' => 'add-incident-type', 'uses' => 'App\Http\Controllers\Admin\Master\IncidentTypeController@add']);
+Route::post('/add-incident-type', ['as' => 'add-incident-type', 'uses' => 'App\Http\Controllers\Admin\Master\IncidentTypeController@store']);
+Route::get('/edit-incident-type', ['as' => 'edit-incident-type', 'uses' => 'App\Http\Controllers\Admin\Master\IncidentTypeController@edit']);
+Route::post('/update-incident-type', ['as' => 'update-incident-type', 'uses' => 'App\Http\Controllers\Admin\Master\IncidentTypeController@update']);
+Route::post('/show-incident-type', ['as' => 'show-incident-type', 'uses' => 'App\Http\Controllers\Admin\Master\IncidentTypeController@show']);
+Route::post('/delete-incident-type', ['as' => 'delete-incident-type', 'uses' => 'App\Http\Controllers\Admin\Master\IncidentTypeController@destroy']);
+Route::post('/update-one-incident_type', ['as' => 'update-one-incident_type', 'uses' => 'App\Http\Controllers\Admin\Master\IncidentTypeController@updateOne']);
 
 Route::get('/list-incident-modal-info', ['as' => 'list-incident-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentModalController@index']);
 Route::get('/list-volunteer-modal-info', ['as' => 'list-volunteer-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenModalController@index']);
@@ -395,7 +387,6 @@ Route::post('/edit-website-logo', ['as' => 'edit-website-logo', 'uses' => 'App\H
 Route::post('/update-website-logo', ['as' => 'update-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@update']);
 Route::post('/show-website-logo', ['as' => 'show-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@show']);
 Route::post('/delete-website-logo', ['as' => 'delete-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@destroy']);
-
 
 Route::get('/list-header-vacancies', ['as' => 'list-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@index']);
 Route::get('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@add']);
@@ -469,7 +460,6 @@ Route::post('/update-training-workshop', ['as' => 'update-training-workshop', 'u
 Route::post('/show-training-workshop', ['as' => 'show-training-workshop', 'uses' => 'App\Http\Controllers\ResourceCenter\TrainingWorkshopController@show']);
 Route::post('/delete-training-workshop', ['as' => 'delete-training-workshop', 'uses' => 'App\Http\Controllers\ResourceCenter\TrainingWorkshopController@destroy']);
 
-
 //======News And Events=======
 Route::get('/list-success-stories', ['as' => 'list-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@index']);
 Route::get('/add-success-stories', ['as' => 'add-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@add']);
@@ -505,6 +495,14 @@ Route::get('/edit-video', ['as' => 'edit-video', 'uses' => 'App\Http\Controllers
 Route::post('/update-video', ['as' => 'update-video', 'uses' => 'App\Http\Controllers\ResourceCenter\VideoController@update']);
 Route::post('/show-video', ['as' => 'show-video', 'uses' => 'App\Http\Controllers\ResourceCenter\VideoController@show']);
 Route::post('/delete-video', ['as' => 'delete-video', 'uses' => 'App\Http\Controllers\ResourceCenter\VideoController@destroy']);
+
+Route::get('/list-map-lat-lons', ['as' => 'list-map-lat-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@index']);
+Route::get('/add-map-lot-lons', ['as' => 'add-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@add']);
+Route::post('/add-map-lot-lons', ['as' => 'add-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@store']);
+Route::get('/edit-map-lot-lons', ['as' => 'edit-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@edit']);
+Route::post('/update-map-lot-lons', ['as' => 'update-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@update']);
+Route::post('/show-map-lot-lons', ['as' => 'show-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@show']);
+Route::post('/delete-map-lot-lons', ['as' => 'delete-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@destroy']);
 
 // =======Contact Us==========
 
@@ -558,7 +556,6 @@ Route::post('/update-header-vacancies', ['as' => 'update-header-vacancies','uses
 Route::post('/show-header-vacancies', ['as' => 'show-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@show']);
 Route::post('/delete-header-vacancies', ['as' => 'delete-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@destroy']);
 Route::post('/update-one-header-vacancies', ['as' => 'update-one-header-vacancies', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@updateOne']);
-
 
 Route::get('/list-header-rti', ['as' => 'list-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@index']);
 Route::get('/add-header-rti', ['as' => 'add-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@add']);

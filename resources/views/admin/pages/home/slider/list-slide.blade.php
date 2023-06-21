@@ -32,12 +32,12 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
-                                                    <th>Title English</th>
-                                                    <th>Title Marathi</th>
-                                                    <th>Description English</th>
-                                                    <th>Description Marathi</th>
-                                                    <th>Image English</th>
-                                                    <th>Image Marathi</th>
+                                                    <th>Title </th>
+                                                    <th>शीर्षक </th>
+                                                    <th>Description </th>
+                                                    <th>वर्णन </th>
+                                                    <th>Image </th>
+                                                    <th>प्रतिमा </th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -51,10 +51,10 @@
                                                         <td>{{ strip_tags($item->english_description) }}</td>
                                                         <td>{{ strip_tags($item->marathi_description) }}</td>
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.SLIDER_VIEW')}}{{ $item->english_image }}" />
+                                                                src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $item->english_image }}" />
                                                         </td>
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.SLIDER_VIEW')}}{{ $item->marathi_image }}" />
+                                                                src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $item->marathi_image }}" />
                                                         </td>
 
                                                         <td>

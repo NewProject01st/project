@@ -37,7 +37,7 @@
                                             @endif
                                         </div>
                                     </div> --}}
-                                   {{-- <div class="col-lg-6 col-md-6 col-sm-6">
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi <span
                                                     class="text-danger">*</span></label>
@@ -55,13 +55,13 @@
                                     </div> --}}
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
-                                            <label for="english_description">Description English <span
+                                            <label for="english_description">Description <span
                                                     class="text-danger">*</span></label>
                                             <textarea class="form-control english_description" name="english_description" id="english_description"
                                                 placeholder="Enter the Description" name="english_description">
                                                 @if (old('english_description'))
-                                                {{ old('english_description') }}@else{{ $disasterforcast->english_description }}
-                                                @endif
+{{ old('english_description') }}@else{{ $disasterforcast->english_description }}
+@endif
                                                 </textarea>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php //echo $errors->first('english_title', ':message');
@@ -72,19 +72,19 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
-                                            <label> Description Marathi <span class="text-danger">*</span></label>
+                                            <label> वर्णन <span class="text-danger">*</span></label>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="Enter the Description">
                                                 @if (old('marathi_description'))
-                                                {{ old('marathi_description') }}@else{{ $disasterforcast->marathi_description }}
-                                                @endif
+{{ old('marathi_description') }}@else{{ $disasterforcast->marathi_description }}
+@endif
                                                 </textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"marathi_description><?php echo $errors->first('english_description', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                   {{-- <div class="col-lg-6 col-md-6 col-sm-6">
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="forcast_date">Disaster Forecast Date <span
                                                     class="text-danger">*</span></label>

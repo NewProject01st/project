@@ -55,8 +55,7 @@ class EmergencyContactController extends Controller
         'marathi_number.required' => 'कृपया ईमेल प्रविष्ट करा.',
         'english_landline_no.required' => 'Please enter landline number.',
         'marathi_landline_no.required' => 'कृपया लँडलाइन नंबर प्रविष्ट करा.',
-        
-        
+           
     ];
 
     try {
@@ -112,15 +111,17 @@ class EmergencyContactController extends Controller
         
      ];
     $messages = [   
-        'english_name' => 'required',
-        'marathi_name' => 'required',
-        'english_address' => 'required',
-        'marathi_address' => 'required',
-        'email' => 'required',   
-        'english_number' => 'required',
-        'marathi_number' => 'required',
-        'english_landline_no' => 'required',
-        'marathi_landline_no' => 'required',
+        'english_title.required' => 'Please enter title.',
+        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा.',
+       'english_name.required' => 'Please enter name.',
+       'marathi_name.required' => 'कृपया नाव प्रविष्ट करा.',
+       'english_address.required' => 'Please enter address.',
+       'marathi_address.required' => 'कृपया पत्ता प्रविष्ट करा.',
+       'email.required' => 'Please enter email.',   
+       'english_number.required' => 'Please enter number.',
+       'marathi_number.required' => 'कृपया ईमेल प्रविष्ट करा.',
+       'english_landline_no.required' => 'Please enter landline number.',
+       'marathi_landline_no.required' => 'कृपया लँडलाइन नंबर प्रविष्ट करा.',
             
         
     ];

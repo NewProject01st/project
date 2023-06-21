@@ -1,13 +1,15 @@
 <?php
-namespace App\Http\Services\Admin\Home;
+namespace App\Http\Services\ResourceCenter;
 
-use App\Http\Repository\Admin\Home\HomeTenderRepository;
+use App\Http\Repository\ResourceCenter\MapLatLonRepository;
 
-use App\HomeTender;
+use App\Models\
+{ MapLatLon };
 use Carbon\Carbon;
+use Config;
+use Storage;
 
-
-class HomeTenderServices
+class MapLatLonServices
 {
 
 	protected $repo;
@@ -17,7 +19,7 @@ class HomeTenderServices
      */
     public function __construct()
     {
-        $this->repo = new HomeTenderRepository();
+        $this->repo = new MapLatLonRepository();
     }
     public function getAll()
     {
@@ -28,21 +30,19 @@ class HomeTenderServices
         }
     }
 
-
     public function addAll($request)
     {
         try {
-            $add_tender = $this->repo->addAll($request);
-            if ($add_tender) {
-                return ['status' => 'success', 'msg' => 'Tender Added Successfully.'];
+            $add_gisdata = $this->repo->addAll($request);
+            if ($add_gisdata) {
+                return ['status' => 'success', 'msg' => 'Map Gis Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Tender Not Added.'];
+                return ['status' => 'error', 'msg' => 'Map Gis Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
-
     
     public function getById($id)
     {
@@ -52,22 +52,22 @@ class HomeTenderServices
             return $e;
         }
     }
-    
+   
+   
     public function updateAll($request)
     {
-        try {
-            $update_tender = $this->repo->updateAll($request);
-            if ($update_tender) {
-                return ['status' => 'success', 'msg' => 'Tender Updated Successfully.'];
-            } else {
-                return ['status' => 'error', 'msg' => 'Tender Not Updated.'];
-            }  
-        } catch (Exception $e) {
-            return ['status' => 'error', 'msg' => $e->getMessage()];
-        }      
+        $update_map = $this->repo->updateAll($request);
+        if ($update_map) {
+            return ['status' => 'success', 'msg' => 'Map Gis Added Successfully.'];
+        } else {
+            return ['status' => 'error', 'msg' => 'Map Gis Not Added.'];
+        }  
+       
     }
-    
-
+    // public function updateOne($id)
+    // {
+    //     return $this->repo->updateOne($id);
+    // }
     public function deleteById($id)
     {
         try {
@@ -76,8 +76,6 @@ class HomeTenderServices
             return $e;
         }
     }
-   
-    
    
 
 

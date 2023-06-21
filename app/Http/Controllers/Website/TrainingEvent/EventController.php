@@ -72,7 +72,6 @@ class EventController extends Controller
             //  dd($request->show_id);
               $menu = $this->menu;
               $socialicon = $this->socialicon;
-            //   $subheaderinfo = $this->subheaderinfo;
             $event_data = $this->service->getById($request->show_id);
             //  dd($disaster_news);
             if (Session::get('language') == 'mar') {

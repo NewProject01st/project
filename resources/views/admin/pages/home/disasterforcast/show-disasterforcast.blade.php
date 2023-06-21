@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
                             <h3 class="page-title">
-                                Disaster Forecast 
+                                Disaster Forecast
                             </h3>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
@@ -42,7 +42,7 @@
                                     </div> --}}
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Description English :</label>
+                                            <label>Description :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>{{ strip_tags($disasterforcast->english_description) }}</label>
@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Description Marathi :</label>
+                                            <label>वर्णन :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>{{ strip_tags($disasterforcast->marathi_description) }}</label>
@@ -119,5 +119,4 @@
             </div>
         </div>
         <!-- content-wrapper ends -->
-
     @endsection

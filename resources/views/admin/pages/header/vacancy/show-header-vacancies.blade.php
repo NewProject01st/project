@@ -27,7 +27,7 @@
 
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title English :</label>
+                                            <label>Title :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label><?php echo $vacancy->english_title; ?></label>
@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title Marathi :</label>
+                                            <label>शीर्षक :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label><?php echo $vacancy->marathi_title; ?></label>
@@ -52,7 +52,7 @@
 
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>English Pdf :</label>
+                                            <label>PDF :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <a href="{{ Config::get('DocumentConstant.VACANCIES_PDF_VIEW') }}{{ $vacancy->english_pdf }}"
@@ -62,7 +62,7 @@
                                     </div>
                                     <div class="row pt-2">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Marathi Pdf :</label>
+                                            <label>पीडीएफ :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <a href="{{ Config::get('DocumentConstant.VACANCIES_PDF_VIEW') }}{{ $vacancy->marathi_pdf }}"

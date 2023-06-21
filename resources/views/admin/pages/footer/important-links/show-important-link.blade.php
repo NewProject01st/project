@@ -25,7 +25,7 @@
                             <div class="col-12">
                                 <div class="row ">
                                     <div class="col-lg-3 col-md-3 col-sm-3">
-                                        <label>Title English :</label>
+                                        <label>Title :</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label><?php echo $links->english_title; ?></label>
@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="row ">
                                     <div class="col-lg-3 col-md-3 col-sm-3">
-                                        <label>Title Marathi :</label>
+                                        <label>शीर्षक:</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <label><?php echo $links->marathi_title; ?></label>

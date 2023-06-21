@@ -24,8 +24,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title English</label>&nbsp<span
-                                                class="red-text">*</span>
+                                            <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">{{ $tender->english_title }}</textarea>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
@@ -34,8 +33,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">Title Marathi</label>&nbsp<span
-                                                class="red-text">*</span>
+                                            <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">{{ $tender->marathi_title }}</textarea>
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
@@ -44,7 +42,7 @@
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <label for="english_description">Description English</label>&nbsp<span
+                                            <label for="english_description">Description</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control english_description" name="english_description" id="english_description"
                                                 placeholder="Enter the Description">{{ $tender->english_description }}</textarea>
@@ -55,7 +53,7 @@
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <label> Description Marathi</label>&nbsp<span class="red-text">*</span>
+                                            <label>वर्णन</label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="Enter the Description">{{ $tender->marathi_description }}</textarea>
                                             @if ($errors->has('marathi_description'))
@@ -74,7 +72,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="url">English URL</label>&nbsp<span class="red-text">*</span>
+                                            <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="url" id="url" class="form-control"
                                                 value="{{ $tender->url }}" placeholder="">
                                             @if ($errors->has('url'))
@@ -84,7 +82,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_pdf">Pdf English</label><br>
+                                            <label for="english_pdf">Pdf </label><br>
                                             <input type="file" name="english_pdf" id="english_pdf" accept=".pdf">
                                             @if ($errors->has('english_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
@@ -94,7 +92,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_pdf">Pdf Marathi</label>
+                                            <label for="marathi_pdf">पीडीएफ</label>
                                             <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
                                                 class="form-control">
                                             @if ($errors->has('marathi_pdf'))

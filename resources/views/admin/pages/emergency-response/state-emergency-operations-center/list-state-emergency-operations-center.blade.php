@@ -32,12 +32,12 @@
                                              <thead>
                                                  <tr>
                                                      <th>S. No.</th>
-                                                     <th>Title English</th>
-                                                     <th>Title Marathi</th>
-                                                     <th>Description English</th>
-                                                     <th>Description Marathi</th>
-                                                     <th>Image English</th>
-                                                     <th>Image Marathi</th>
+                                                     <th>Title </th>
+                                                     <th>शीर्षक </th>
+                                                     <th>Description </th>
+                                                     <th>वर्णन </th>
+                                                     <th>Image </th>
+                                                     <th>प्रतिमा </th>
                                                      <!-- <th>Status</th> -->
                                                      <th>Action</th>
                                                  </tr>
@@ -57,8 +57,8 @@
                                                                  src="{{ Config::get('DocumentConstant.STATE_OPERATION_CENTER_VIEW') }}{{ $item->marathi_image }}" />
                                                          </td>
                                                          <!-- <td>
-                                                                            <span class="badge badge-success">Active</span>
-                                                                        </td> -->
+                                                                                <span class="badge badge-success">Active</span>
+                                                                            </td> -->
                                                          <td>
                                                              <div class="d-flex">
                                                                  @if (in_array('per_update', $data_permission))

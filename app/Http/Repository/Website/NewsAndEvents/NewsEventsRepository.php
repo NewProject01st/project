@@ -35,9 +35,9 @@ public function getAllSuccessStories()
         try {
             $data_output = SuccessStories::where('is_active','=',true);
             if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('marathi_title','marathi_description','marathi_designation','marathi_image');
+                $data_output =  $data_output->select('id','marathi_title','marathi_description','marathi_designation','marathi_image');
             } else {
-                $data_output = $data_output->select('english_title','english_description','english_designation','english_image');
+                $data_output = $data_output->select('id','english_title','english_description','english_designation','english_image');
             }
             $data_output =  $data_output->get()
                             ->toArray();
@@ -45,5 +45,23 @@ public function getAllSuccessStories()
         } catch (\Exception $e) {
             return $e;
         }  
+}
+
+public function getById($id)
+{
+    try {
+        $data_output = SuccessStories::where('is_active','=',true);
+        if (Session::get('language') == 'mar') {
+            $data_output =  $data_output->select('marathi_title', 'marathi_description','marathi_designation','marathi_image');
+        } else {
+            $data_output = $data_output->select('english_title', 'english_description','english_designation','english_image');
+        }
+        // $data_output =  $data_output->get()
+        //                 ->toArray();
+        $data_output = $data_output->where('id', $id)->get()->toArray();
+        return  $data_output;
+    } catch (\Exception $e) {
+        return $e;
+    }
 }
 }
