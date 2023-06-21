@@ -23,6 +23,9 @@ Route::get('/login', function () {
 Route::get('/', ['as' => '/', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
 Route::post('/change-language', ['as' => '/change-language', 'uses' => 'App\Http\Controllers\Website\IndexController@changeLanguage']);
 
+Route::get('/error-handling', ['as' => 'error-handling', 'uses' => 'App\Http\Controllers\ErrorHandlingController@errorHandling']);
+
+
 
 // Route::get('/add-users', function () {
 //     return view('admin.pages.users.add-users');
@@ -38,6 +41,9 @@ Route::post('/new-paricular-data-web', ['as' => 'new-paricular-data-web', 'uses'
 Route::post('/particular-department-information', ['as' => 'particular-department-information', 'uses' => 'App\Http\Controllers\Website\IndexController@showDepartmentInformation']);
 Route::get('/list-vacancies', ['as' => 'list-vacancies', 'uses' => 'App\Http\Controllers\Website\IndexController@showVacancies']);
 Route::get('/list-rti', ['as' => 'list-rti', 'uses' => 'App\Http\Controllers\Website\IndexController@showRTI']);
+
+Route::get('/information-map', ['as' => 'information-map', 'uses' => 'App\Http\Controllers\Website\Map\MapController@index']);
+Route::post('/information-map-ajax', ['as' => 'information-map-ajax', 'uses' => 'App\Http\Controllers\Website\Map\MapController@mapDataAjax']);
 
 Route::get('/privacy-policy', ['as' => 'privacy-policy', 'uses' => 'App\Http\Controllers\Website\IndexController@getPrivacyPolicy']);
 Route::get('/terms_condition', ['as' => 'terms_condition', 'uses' => 'App\Http\Controllers\Website\IndexController@getTermConditions']);
@@ -109,7 +115,11 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/delete-users', ['as' => 'delete-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@delete']);
     Route::post('/show-users', ['as' => 'show-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@show']);
 
+    Route::get('/edit-user-profile', ['as' => 'edit-user-profile', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@editUsersProfile']);
+    Route::post('/update-user-profile', ['as' => 'update-user-profile', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateProfile']);
 
+    // Route::post('/update--one-user-profile', ['as' => 'update--one-user-profile', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateOne']);
+    
     Route::get('/list-main-menu', ['as' => 'list-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@index']);
     Route::get('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@add']);
     Route::post('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@store']);

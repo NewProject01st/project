@@ -116,6 +116,19 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                     <div class="col-4 lang-position">
                         <div class="row d-flex justify-content-end">
                             <div class="col-md-9 col-sm-9">
+                                <ul class="header-contact new_city_head_change">
+                                <li class="city-exp for_pl_pr mt-3">
+
+                                <!-- <input type="text" placeholder="Search.." name="search" > -->
+                                <!-- <button class="btn btn-success btn-sm" type="submit">Go</button> -->
+                                <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
+
+                                    <form>
+                                    <input type="search" placeholder="Search...">
+                                    <button type="submit">Search</button>
+                                    </form>
+                                </li>
+                                </ul>
 
                             </div>
 

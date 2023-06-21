@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('state');
             $table->string('city');
             $table->string('pincode');
+            $table->string('otp_number')->default(false);
             $table->string('ip_address');
             $table->rememberToken();
             $table->boolean('is_active')->default(true);

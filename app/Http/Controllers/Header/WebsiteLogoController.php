@@ -30,7 +30,7 @@ class WebsiteLogoController extends Controller
     public function store(Request $request){
         $rules = [
            
-            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.WEBSITE_LOGO_MAX_SIZE").'|dimensions:min_width=150,min_height=45,max_width=200,max_height=46|min:'.Config::get("AllFileValidation.WEBSITE_LOGO_MIN_SIZE").'',
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.WEBSITE_LOGO_MAX_SIZE").'|dimensions:min_width=200,min_height=100,max_width=800,max_height=400|min:'.Config::get("AllFileValidation.WEBSITE_LOGO_MIN_SIZE").'',
             // 'url'=>'required'                   
             ];
     $messages = [   
@@ -40,7 +40,7 @@ class WebsiteLogoController extends Controller
         'logo.mimes' => 'The Website logo must be in JPEG, PNG, JPG, GIF, or SVG format.',
         'logo.max' => 'The Website logo size must not exceed '.Config::get("AllFileValidation.WEBSITE_LOGO_MAX_SIZE").'KB .',
         'logo.min' => 'The Website logosize must not be less than '.Config::get("AllFileValidation.WEBSITE_LOGO_MIN_SIZE").'KB .',
-        'logo.dimensions' => 'The Website logo dimensions must be between 150x45 and 200x46 pixels.',
+        'logo.dimensions' => 'The Website logo dimensions must be between 200x100 and 800x400 pixels.',
         'logo.min' => 'The Website logo size must not be less than '.Config::get("AllFileValidation.WEBSITE_LOGO_MIN_SIZE").'KB .',
 
       

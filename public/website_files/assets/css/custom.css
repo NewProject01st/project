@@ -2438,7 +2438,7 @@ justify-content: end;
 	font-size: 12px;
 }
 .set_lang{
-	margin-left: 24%;
+	/* margin-left: 24%; */
 }
 .header-contact li span {
 	display: block;
@@ -6778,3 +6778,8 @@ box-shadow: 0 0 4px #000;
 .new_city_head_change{
 	float: left;
 }
+
+/*  */
+button, input, optgroup, select, textarea {
+    border: 1px solid !important;
+	}

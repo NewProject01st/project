@@ -260,6 +260,12 @@
          $("body").attr("style", "font-size:12px !important;");
      });
  </script>
+
+<script>
+    /* global HTMLMagnifier */
+    const magnifier = new HTMLMagnifier({ width: 400 });
+    magnifier.show();
+  </script>
  </body>
 
  </html>

@@ -225,6 +225,7 @@ class RegisterRepository  {
 							'users.is_active',
 						)->get()
 						->toArray();
+						
 		$data_users['data_users'] = $data_users_data[0];
 		// $data_users['permissions_user'] = User::join('roles_permissions', function($join) {
 		// 					$join->on('users.id', '=', 'roles_permissions.user_id');
@@ -275,4 +276,41 @@ class RegisterRepository  {
 		}
 	}
 
+	public function getProfile(){
+		$user_detail = User::where('is_active', true)
+			->where('id', session()->get('user_id'))
+			->select('id','f_name', 'm_name', 'l_name','u_email', 'u_password', 'number','designation')
+			->first();
+			// echo $user_detail;
+			// die();
+		return $user_detail;
+	}
+
+
+	public function updateProfile($request){
+		$update_data = [
+			'f_name' => $request->f_name,
+			'm_name' => $request->m_name,
+			'l_name' => $request->l_name,
+			'designation' => $request->designation,
+			'u_password' => $request->u_password,
+			// 'u_email' => $request->u_email,
+			// 'number' => $request->number,
+		];
+	
+		if(isset($request->number) && $request->number!== '') {
+			
+			$update_data['otp_number'] = rand(6,999999);
+			$update_data['number'] = $request->number;
+			// print_r($update_data);
+			// die();
+		}
+	
+		$user_data = User::where('id', $request->edit_user_id)->update($update_data);
+		// print_r($update_data);
+		// 	        die();
+		return $update_data;
+	}
+	
 }
+

@@ -65,5 +65,15 @@ class RegisterServices
             return $e;
         }
     }
+    public function getProfile($request) {
+        $data_users = $this->repo->getProfile($request);
+        // dd($data_users);
+        return $data_users;
+    }
+
+    public function updateProfile($request) {
+        $user_register_id = $this->repo->updateProfile($request);
+        return ['status'=>'success','msg'=>'Data Updated Successful.'];
+     }
 
 }

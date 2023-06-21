@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Exceptions;
-
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -37,5 +37,27 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    public function render($request, Throwable $exception)
+    {
+        $email_data = [
+            'exception' => $exception,
+        ];
+
+        $toEmail = env('MAIL_ID_ERROR_REPORTING');
+        // $nameOfSender = "Disater Management Administrator";
+        $senderSubject = 'Disaster Management Page Error '.date('d-m-Y H:i:s');
+        $fromEmail = env('MAIL_USERNAME');
+
+        Mail::send('admin.email.exception', ['email_data' => $email_data], function ($message) use ($toEmail, $fromEmail, $senderSubject) {
+            $message->to($toEmail)->subject
+                ($senderSubject);
+            $message->from($fromEmail, 'Disaster Management Page Error');
+        });
+
+        return redirect()->route('error-handling'); // Redirect to the custom error page
+
+        // // return parent::render($request, $exception);
     }
 }
