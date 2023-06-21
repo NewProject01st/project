@@ -62,11 +62,11 @@ class DBBackupController extends Controller
    
         try {
 
-            $email_data['msg'] = 'HI';
+            $email_data['msg'] = '';
             $data = array();
             $toEmail = env('MAIL_ID_DB_BACKUP');
             $nameOfSender = "Disater Management Administrator";
-            $senderSubject = 'Disaster Management Database Backup Dated '.date('d-m-Y');
+            $senderSubject = 'Database Backup - Disaster Management Web Portal Dated '.date('d-m-Y');
             $fromEmail = env('MAIL_USERNAME');
 
             Mail::send('admin.email.emailsend', ['email_data' => $email_data], function ($message) use ($toEmail, $fromEmail, $data, $senderSubject,$file_name) {
