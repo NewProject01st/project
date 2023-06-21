@@ -311,7 +311,15 @@ class RegisterRepository
 
 			if (isset($request->number) && $request->number !== '') {
 				$update_data['otp_number'] = $otp;
-				// $update_data['number'] = $request->number;
+	
+				if (isset($request->otp_number) && $request->otp_number !== '') {
+					// alert("hii");
+					if ($request->otp_number == $otp) {
+						 $update_data['number'] = $request->number;
+					} else {
+						echo "invalid otp";
+					}
+				}
 			}
 
 			if (isset($request->u_password) && $request->u_password !== '') {
@@ -324,7 +332,7 @@ class RegisterRepository
 				'otp' => $otp,
 			];
 
-			$toEmail = $request->u_email;
+			$toEmail = $request->u_email;	
 			$senderSubject = 'Disaster Management OTP ' . date('d-m-Y H:i:s');
 			$fromEmail = env('MAIL_USERNAME');
 			Mail::send('admin.email.emailotp', ['email_data' => $email_data], function ($message) use ($toEmail, $fromEmail, $senderSubject) {
@@ -332,6 +340,7 @@ class RegisterRepository
 				($senderSubject);
 				$message->from($fromEmail, 'Disaster Management OTP');
 			});
+			
 
 
 		} catch (\Exception $e) {
