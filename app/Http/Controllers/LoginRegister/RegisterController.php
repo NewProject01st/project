@@ -10,6 +10,7 @@ use App\Models\ {
     Permissions
 };
 use Validator;
+use session;
 
 class RegisterController extends Controller {
     /**
@@ -199,6 +200,74 @@ class RegisterController extends Controller {
         $msg = 'User deleted successfully';
         $status = 'success';
         return redirect('list-users')->with(compact('msg','status'));
+    }
+    // ======================================
+
+    public function updateOne(Request $request)
+    {
+        try {
+            $active_id = $request->active_id;
+        $result = $this->service->updateOne($active_id);
+            return redirect('list-users')->with('flash_message', 'Updated!');  
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
+    public function editUsersProfile(Request $request) {
+        $user_data = $this->service->getProfile($request);
+        // $user_detail= session()->get('user_id');
+        // $id = $user_data->id;
+        // dd($user_data);
+        // return view('admin.layout.master',compact('user_data'));
+        return view('admin.pages.users.edit-user-profile',compact('user_data'));
+    }
+
+    public function updateProfile(Request $request) {
+        $rules = [
+            // 'u_email' => 'required',
+            // 'u_password' => 'required',
+            // 'number' => 'regex:/^\d{10}$/',
+         ];       
+
+        $messages = [   
+                        // 'u_email.required' => 'Please enter email.',
+                        // 'u_email.email' => 'Please enter valid email.',
+                        // 'u_password.required' => 'Please enter password.',
+                        // 'number.regex' => 'Please enter 10 digit number.',
+                    ];
+
+
+        try {
+            $validation = Validator::make($request->all(),$rules, $messages);
+            if ($validation->fails()) {
+                return redirect()->back()
+                    ->withInput()
+                    ->withErrors($validation);
+            } else {
+                $register_user = $this->service->updateProfile($request);
+            // dd($register_user);
+                if($register_user)
+                {
+                
+                    $msg = $register_user['msg'];
+                    $status = $register_user['status'];
+                    if($status=='success') {
+                        return redirect('list-users')->with(compact('msg','status'));
+                    }
+                    else {
+                        return redirect('list-users')->withInput()->with(compact('msg','status'));
+                    }
+                }
+                
+            }
+
+        } catch (Exception $e) {
+            return redirect()->back()
+                ->withInput()
+                ->with(['msg' => $e->getMessage(), 'status' => 'error']);
+        }
+
     }
    
 }

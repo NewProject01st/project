@@ -96,6 +96,8 @@
                                         <img id="english_imgPreview" src="#" alt="pic"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
+
+
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_image">Marathi Icon</label>
@@ -111,6 +113,7 @@
                                         <img id="marathi_imgPreview" src="#" alt="pic"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
+
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_image_new">English Image</label>
@@ -120,11 +123,10 @@
                                                 <span class="red-text"><?php echo $errors->first('english_image_new', ':message'); ?></span>
                                             @endif
                                         </div>
-
-                                        <img id="english"
+                                        <img id="english1"
                                             src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $department_info->english_image_new }}"
                                             class="img-fluid img-thumbnail" width="150">
-                                        <img id="english_imgPreview" src="#" alt="pic"
+                                        <img id="english_imgPreview1" src="#" alt="pic"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -136,12 +138,14 @@
                                                 <span class="red-text"><?php echo $errors->first('marathi_image_new', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <img id="marathi"
+                                        <img id="marathi1"
                                             src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $department_info->marathi_image_new }}"
                                             class="img-fluid img-thumbnail" width="150">
-                                        <img id="marathi_imgPreview" src="#" alt="pic"
+                                        <img id="marathi_imgPreview1" src="#" alt="pic"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
+
+
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="url"> URL</label>&nbsp<span class="red-text">*</span>

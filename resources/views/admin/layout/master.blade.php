@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>
-        {{env('APP_NAME')}}
+        {{ env('APP_NAME') }}
     </title>
     <link rel="icon" type="image/x-icon" href="{{ asset('website_files/images/home/DM.ico') }}">
     <!-- global css -->
@@ -168,14 +168,39 @@
                         </div>
                         --}}
                     </li>
+
+
                     <li class="nav-item nav-profile dropdown mr-0">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                            <img src="{{ asset('assets/images/faces/face4.jp') }}g" alt="profile" />
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
+                            aria-labelledby="profileDropdown">
+                            {{-- @foreach ($user_data as $item) --}}
+                            <a 
+                            {{-- data-id="{{ $user_data->id }}"  --}}
+                            class="dropdown-item edit-user-btn"
+                                href="{{ route('edit-user-profile') }}">
+                                <i class="fas fa-user text-primary"></i>
+                                Profile
+                            </a>
+                            {{-- @endforeach --}}
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ url('log-out') }}">
+                                <i class="fas fa-power-off text-primary"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+
+                    {{-- <li class="nav-item nav-profile dropdown mr-0">
                         
                             <a class="dropdown-item" href="{{ url('log-out') }}">
                                 <i class="fas fa-power-off text-primary"></i>
                                 Logout
                             </a>
                         
-                    </li>
+                    </li> --}}
 
                 </ul>
 
@@ -185,6 +210,13 @@
                 </button>
             </div>
         </nav>
+
+
+        <form method="GET" action="{{ url('/edit-user-profile') }}" id="edituserform">
+            @csrf
+            <input type="hidden" name="edit_user_id" id="edit_user_id" value="">
+        </form>
+
         <div class="container-fluid page-body-wrapper newpdr">
             @include('admin.layout.sidebar')
             @yield('content')

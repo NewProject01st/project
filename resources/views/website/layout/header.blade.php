@@ -72,6 +72,8 @@
     <link href="{{ asset('website_files/assets/css/jquery.dataTables.min.css') }}" type="text/css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
+    {{-- <script src="{{ asset('website_files/assets/js/html-magnifier.js') }}"></script> --}}
+    
     <!-- webpage A+ A- button script -->
     <style type="text/css">
         #zoomtext {

@@ -288,6 +288,14 @@ $('.edit-btn').click(function(e) {
     $("#editform").submit();
 })
 </script>
+
+<script>
+    $('.edit-user-btn').click(function(e) {
+        $("#edit_user_id").val($(this).attr("data-id"));
+        $("#edituserform").submit();
+    })
+    </script>
+
 <script>
 $('.active-btn').click(function(e) {
     $("#active_id").val($(this).attr("data-id"));
