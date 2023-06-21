@@ -6780,6 +6780,6 @@ box-shadow: 0 0 4px #000;
 }
 
 /*  */
-button, input, optgroup, select, textarea {
+[type=search] {
     border: 1px solid !important;
-	}
+}
