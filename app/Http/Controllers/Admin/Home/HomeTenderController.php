@@ -37,8 +37,8 @@ class HomeTenderController extends Controller
             'marathi_description' => 'required', 
             'url' => 'required',
             'tender_date' => 'required',
-            'english_pdf' => 'required',
-            'marathi_pdf' => 'required',
+            'english_pdf' => 'required|file|mimes:pdf',
+            'marathi_pdf' => 'required|file|mimes:pdf',
             
          ];
     $messages = [   
@@ -48,8 +48,12 @@ class HomeTenderController extends Controller
         'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
         'url' => 'required',
         'tender_date' => 'required',
-        'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'english_pdf.required' => 'Please upload an PDF file.',
+        'english_pdf.file' => 'The file must be of type: file.',
+        'english_pdf.mimes' => 'The file must be a PDF.',
+        'marathi_pdf.required' => 'कृपया PDF फाइल अपलोड करा.',
+        'marathi_pdf.file' => 'फाइल प्रकार: फाइल होणे आवश्यक आहे.',
+        'marathi_pdf.mimes' => 'फाइल पीडीएफ असावी.',
     ];
 
     try {

@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="url">English URL</label>&nbsp<span class="red-text">*</span>
+                                            <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="url" id="url" class="form-control"
                                                 id="url" placeholder="" value="{{ old('url') }}">
                                             @if ($errors->has('url'))

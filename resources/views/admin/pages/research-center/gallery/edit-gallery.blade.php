@@ -24,7 +24,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_image">English Image</label>
+                                            <label for="english_image"> Image</label>
                                             <input type="file" name="english_image" class="form-control"
                                                 id="english_image" accept="image/*" placeholder="image"
                                                 value="{{ old('english_title') }}">
@@ -48,7 +48,7 @@
 
 
 
-                                    
+
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_image">Marathi Image</label>

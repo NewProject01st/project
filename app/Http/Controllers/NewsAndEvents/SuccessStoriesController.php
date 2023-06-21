@@ -36,20 +36,21 @@ class SuccessStoriesController extends Controller
             'marathi_description' => 'required',
             'english_designation' => 'required',
             'marathi_designation' => 'required',
-            'english_image' => 'required',
-            'marathi_image' => 'required',
+            'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+           
            
             
          ];
     $messages = [   
-        'english_title'=>'Please  enter english title.',
-        'marathi_title'=>'Please  enter marathi title.',
-        'english_description' => 'required',
-        'marathi_description' => 'required',
-        'english_designation' => 'required',
-        'marathi_designation' => 'required',
-        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'english_title.required' => 'Please enter the title.',
+        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा.',
+        'english_description.required' => 'Please enter the description.',
+        'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
+        'english_designation.required' => 'Please enter the designation.',
+        'marathi_designation.required' => 'कृपया पदनाम प्रविष्ट करा. ',
+        'english_image.required' => 'The image field is required.',
+        'marathi_image.required' => 'कृपया प्रतिमा आवश्यक आहे.',
        
 
     ];

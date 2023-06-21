@@ -34,19 +34,19 @@ class EventController extends Controller
             'marathi_title' => 'required',
             'english_description' => 'required',
             'marathi_description' => 'required',
-            'english_image' => 'required',
-            'marathi_image' => 'required',
+            'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        '   marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'start_date' => 'required',
             'end_date' => 'required',
             
          ];
     $messages = [   
-        'english_title'=>'Please  enter english title.',
-        'marathi_title'=>'Please  enter marathi title.',
-        'english_description' => 'required',
-        'marathi_description' => 'required',
-        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'english_title.required' => 'Please enter title.',
+        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+        'english_description.required' => 'Please enter description.',
+        'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
+        'english_image.required' => 'The image field is required.',
+        'marathi_image.required' => 'कृपया प्रतिमा आवश्यक आहे.',
         'start_date.required' => 'Please select Start Date.',
         'end_date.required' => 'Please select End Date',
 
@@ -104,10 +104,10 @@ class EventController extends Controller
         
      ];
     $messages = [   
-        'english_title'=>'Please  enter english title.',
-        'marathi_title'=>'Please  enter marathi title.',
-        'english_description' => 'required',
-        'marathi_description' => 'required',
+        'english_title.required' => 'Please enter title.',
+        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+        'english_description.required' => 'Please enter description.',
+        'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
         // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         // 'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'start_date.required' => 'Please select Start Date.',

@@ -34,12 +34,12 @@
                                                     <th>S. No.</th>
                                                     {{-- <th>English Toll Free Title</th>
                                                 <th>Marathi Toll Free Title</th> --}}
-                                                    <th>English Toll Free No</th>
-                                                    <th>Marathi Toll Free No</th>
+                                                    <th> Toll Free Number</th>
+                                                    <th>टोल फ्री क्रमांक</th>
                                                     {{-- <th>English City Title</th>
                                                 <th>Marathi City Title</th> --}}
-                                                    <th>English City </th>
-                                                    <th>Marathi City </th>
+                                                    <th> City Name</th>
+                                                    <th> शहराचे नाव</th>
                                                     <th>Logo</th>
 
                                                     <th>Action</th>
@@ -106,5 +106,4 @@
         </form>
 
         <!-- content-wrapper ends -->
-
     @endsection

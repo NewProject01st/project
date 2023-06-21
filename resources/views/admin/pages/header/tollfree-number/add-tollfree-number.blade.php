@@ -27,10 +27,10 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_tollfree_no">English Toll Free No</label>&nbsp<span
+                                            <label for="english_tollfree_no"> Toll Free Number</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="english_tollfree_no" id="english_tollfree_no"
-                                                class="form-control" placeholder=""
+                                                class="form-control" placeholder="Enter toll free number"
                                                 value="{{ old('english_tollfree_no') }}">
                                             @if ($errors->has('english_tollfree_no'))
                                                 <span class="red-text"><?php echo $errors->first('english_tollfree_no', ':message'); ?></span>
@@ -39,10 +39,10 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_tollfree_no">Marathi Toll Free No</label>&nbsp<span
+                                            <label for="marathi_tollfree_no">टोल फ्री क्रमांक </label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="marathi_tollfree_no" id="marathi_tollfree_no"
-                                                class="form-control" placeholder=""
+                                                class="form-control" placeholder="टोल फ्री क्रमांक प्रविष्ट करा "
                                                 value="{{ old('marathi_tollfree_no') }}">
                                             @if ($errors->has('marathi_tollfree_no'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_tollfree_no', ':message'); ?></span>

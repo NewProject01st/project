@@ -52,7 +52,7 @@
                     </div> --}}
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_tollfree_no">English Toll Free No</label>&nbsp<span
+                                            <label for="english_tollfree_no"> Toll Free Number</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="english_tollfree_no" id="english_tollfree_no"
                                                 value="{{ $subheader_info->english_tollfree_no }}" class="form-control"
@@ -64,7 +64,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_tollfree_no">Marathi Toll Free No</label>&nbsp<span
+                                            <label for="marathi_tollfree_no">टोल फ्री क्रमांक</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="marathi_tollfree_no" id="marathi_tollfree_no"
                                                 value="{{ $subheader_info->marathi_tollfree_no }}" class="form-control"
@@ -99,8 +99,7 @@
             </div> --}}
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_city">English City Name</label>&nbsp<span
-                                                class="red-text">*</span>
+                                            <label for="english_city"> City Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="english_city" id="english_city" class="form-control"
                                                 value="{{ $subheader_info->english_city }}" placeholder="">
                                             @if ($errors->has('english_city'))
@@ -110,8 +109,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_city">Marathi City Name</label>&nbsp<span
-                                                class="red-text">*</span>
+                                            <label for="marathi_city">शहराचे नाव</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="marathi_city" id="marathi_city" class="form-control"
                                                 value="{{ $subheader_info->marathi_city }}" placeholder="">
                                             @if ($errors->has('marathi_city'))

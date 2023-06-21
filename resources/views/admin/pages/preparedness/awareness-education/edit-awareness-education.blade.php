@@ -39,7 +39,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">
+                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा">
 @if (old('marathi_title'))
 {{ old('marathi_title') }}@else{{ $awareness_education->marathi_title }}
 @endif
@@ -68,7 +68,7 @@
                                         <div class="form-group">
                                             <label> वर्णन</label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
-                                                placeholder="Enter the Description">
+                                                placeholder="वर्णन प्रविष्ट करा">
 @if (old('marathi_description'))
 {{ old('marathi_description') }}@else{{ $awareness_education->marathi_description }}
 @endif

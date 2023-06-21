@@ -52,7 +52,7 @@ class EmergencyContactController extends Controller
         'marathi_address.required' => 'कृपया पत्ता प्रविष्ट करा.',
         'email.required' => 'Please enter email.',   
         'english_number.required' => 'Please enter number.',
-        'marathi_number.required' => 'कृपया ईमेल प्रविष्ट करा.',
+        'marathi_number.required' => 'कृपया नंबर प्रविष्ट करा.',
         'english_landline_no.required' => 'Please enter landline number.',
         'marathi_landline_no.required' => 'कृपया लँडलाइन नंबर प्रविष्ट करा.',
            
@@ -119,7 +119,7 @@ class EmergencyContactController extends Controller
        'marathi_address.required' => 'कृपया पत्ता प्रविष्ट करा.',
        'email.required' => 'Please enter email.',   
        'english_number.required' => 'Please enter number.',
-       'marathi_number.required' => 'कृपया ईमेल प्रविष्ट करा.',
+       'marathi_number.required' => 'कृपया नंबर प्रविष्ट करा.',
        'english_landline_no.required' => 'Please enter landline number.',
        'marathi_landline_no.required' => 'कृपया लँडलाइन नंबर प्रविष्ट करा.',
             

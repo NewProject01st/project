@@ -40,8 +40,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_image">Image English</label>&nbsp<span
-                                                class="red-text">*</span><br>
+                                            <label for="english_image">Image</label>&nbsp<span class="red-text">*</span><br>
                                             <input type="file" name="english_image" id="english_image" accept="image/*"
                                                 value="{{ old('english_title') }}">
                                             @if ($errors->has('english_image'))
@@ -51,7 +50,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_image">Image Marathi</label>&nbsp<span
+                                            <label for="marathi_image">प्रतिमा</label>&nbsp<span
                                                 class="red-text">*</span><br>
                                             <input type="file" name="marathi_image" id="marathi_image" accept="image/*">
                                             @if ($errors->has('marathi_image'))

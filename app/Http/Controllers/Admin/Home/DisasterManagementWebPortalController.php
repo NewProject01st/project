@@ -44,18 +44,26 @@ class DisasterManagementWebPortalController extends Controller
             
          ];
     $messages = [   
-            'english_image.required' => 'The English image is required.',
-            'english_image.image' => 'The English image must be a valid image file.',
-            'english_image.mimes' => 'The English image must be in JPEG, PNG, JPG, GIF, or SVG format.',
-            'english_image.max' => 'The English image size must not exceed '.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MAX_SIZE").'KB .',
-            'english_image.min' => 'The English image size must not be less than '.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MIN_SIZE").'KB .',
-            'english_image.dimensions' => 'The English image dimensions must be between 200x200 and 300x300 pixels.',
-            'marathi_image.required' => 'The Marathi image is required.',
-            'marathi_image.image' => 'The Marathi image must be a valid image file.',
-            'marathi_image.mimes' => 'The Marathi image must be in JPEG, PNG, JPG, GIF, or SVG format.',
-            'marathi_image.max' => 'The Marathi image size must not exceed  '.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MAX_SIZE").'KB .',
-            'english_image.min' => 'The English image size must not be less than '.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MIN_SIZE").'KB .',
-            'marathi_image.dimensions' => 'The Marathi image dimensions must be between 200x200 and 300x300 pixels.',
+            'english_name.required' => 'Please enter the name.',
+            'marathi_name.required' => 'कृपया नाव प्रविष्ट करा.',
+            'english_title.required' => 'Please enter the title.',
+            'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा.',
+            'english_description.required' => 'Please enter the description.',
+            'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
+            'english_designation.required' => 'Please enter the designation.',
+            'marathi_designation.required' => 'कृपया पदनाम प्रविष्ट करा. ',
+            'english_image.required' => 'The image is required.',
+            'english_image.image' => 'The image must be a valid image file.',
+            'english_image.mimes' => 'The image must be in JPEG, PNG, JPG, GIF, or SVG format.',
+            'english_image.max' => 'The image size must not exceed '.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MAX_SIZE").'KB .',
+            'english_image.min' => 'The image size must not be less than '.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MIN_SIZE").'KB .',
+            'english_image.dimensions' => 'The image dimensions must be between 200x200 and 300x300 pixels.',
+            'marathi_image.required' => 'कृपया प्रतिमा आवश्यक आहे.',
+            'marathi_image.image' => 'कृपया प्रतिमा फाइल कायदेशीर असणे आवश्यक आहे.',
+            'marathi_image.mimes' => 'कृपया प्रतिमा JPEG, PNG, JPG, GIF, किंवा SVG स्वरूपात असणे आवश्यक आहे.',
+            'marathi_image.max' => 'कृपया प्रतिमेचा आकार जास्त नसावा. '.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MAX_SIZE").'KB .',
+            'marathi_image.min' => 'कृपया प्रतिमेचा आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MIN_SIZE").'KB .',
+            'marathi_image.dimensions' => 'कृपया प्रतिमा 200x200  आणि 300x300  पिक्सेल दरम्यान असणे आवश्यक आहे.',
         
         
     ];
@@ -117,6 +125,14 @@ class DisasterManagementWebPortalController extends Controller
             $rules['marathi_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MAX_SIZE").'|dimensions:min_width=200,min_height=200,max_width=300,max_height=300|min:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MIN_SIZE").'';
         }
     $messages = [   
+        'english_name.required' => 'Please enter the name.',
+        'marathi_name.required' => 'कृपया नाव प्रविष्ट करा.',
+        'english_title.required' => 'Please enter the title.',
+        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा.',
+        'english_description.required' => 'Please enter the description.',
+        'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
+        'english_designation.required' => 'Please enter the designation.',
+        'marathi_designation.required' => 'कृपया पदनाम प्रविष्ट करा. ',
         'english_image.required' => 'The English image is required.',
         'english_image.image' => 'The English image must be a valid image file.',
         'english_image.mimes' => 'The English image must be in JPEG, PNG, JPG, GIF, or SVG format.',

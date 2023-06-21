@@ -35,14 +35,14 @@ class GalleryController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'english_image' => 'required',
-            'marathi_image' => 'required',
+            'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
            
             
          ];
     $messages = [   
-        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'english_image.required' => 'The image field is required.',
+        'marathi_image.required' => 'कृपया प्रतिमा आवश्यक आहे.',
        
 
     ];

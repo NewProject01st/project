@@ -34,7 +34,7 @@
                                                 <tr>
                                                     <th>S. No.</th>
                                                     <th>Toll Free Number</th>
-                                                    <th>टोल फ्री क्र</th>
+                                                    <th>टोल फ्री क्रमांक</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>

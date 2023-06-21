@@ -27,7 +27,7 @@
 
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Toll Free No :</label>
+                                            <label>Toll Free Number :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label><?php echo $tollfree_number->english_tollfree_no; ?></label>
@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>टोल फ्री क्र :</label>
+                                            <label>टोल फ्री क्रमांक :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label><?php echo $tollfree_number->marathi_tollfree_no; ?></label>

@@ -26,7 +26,7 @@
                                 <div class="col-12">
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title English :</label>
+                                            <label>Name :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label><?php echo $metadata->english_name; ?></label>
@@ -48,5 +48,4 @@
             </div>
         </div>
         <!-- content-wrapper ends -->
-
     @endsection

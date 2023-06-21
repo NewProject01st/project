@@ -30,11 +30,11 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
-                                                    <th>Title English</th>
-                                                    <th>Title Marathi</th>
+                                                    <th>Title </th>
+                                                    <th>शीर्षक</th>
                                                     {{-- <th>URL</th> --}}
-                                                    <th>English Pdf</th>
-                                                    <th>Marathi Pdf</th>
+                                                    <th> Pdf</th>
+                                                    <th> पीडीएफ </th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -44,23 +44,23 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ strip_tags($item->english_title) }}</td>
                                                         <td>{{ strip_tags($item->marathi_title) }}</td>
-                                                        <td> <a  href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $item->english_pdf }}"
+                                                        <td> <a href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $item->english_pdf }}"
                                                                 target="_blank"><img
-                                                                src="{{ asset('assets/images/pdf.png/') }}" width="35px"
-                                                                    height="35px"></a></td>
-                                                        <td> <a  href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $item->marathi_pdf }}"
+                                                                    src="{{ asset('assets/images/pdf.png/') }}"
+                                                                    width="35px" height="35px"></a></td>
+                                                        <td> <a href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $item->marathi_pdf }}"
                                                                 target="_blank"><img
-                                                                src="{{ asset('assets/images/pdf.png/') }}" width="35px"
-                                                                    height="35px"></a></td>
+                                                                    src="{{ asset('assets/images/pdf.png/') }}"
+                                                                    width="35px" height="35px"></a></td>
                                                         <td class="d-flex">
                                                             @if (in_array('per_update', $data_permission))
                                                                 <a data-id="{{ $item->id }}"
-                                                                    class="edit-btn btn btn-sm btn-outline-primary m-1" title="Edit"><i
-                                                                        class="fas fa-pencil-alt"></i></a>
+                                                                    class="edit-btn btn btn-sm btn-outline-primary m-1"
+                                                                    title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                                             @endif
                                                             <a data-id="{{ $item->id }}"
-                                                                class="show-btn btn btn-sm btn-outline-primary m-1" title="Show"><i
-                                                                    class="fas fa-eye"></i></a>
+                                                                class="show-btn btn btn-sm btn-outline-primary m-1"
+                                                                title="Show"><i class="fas fa-eye"></i></a>
                                                             @if (in_array('per_delete', $data_permission))
                                                                 <a data-id="{{ $item->id }}"
                                                                     class="delete-btn btn btn-sm btn-outline-danger m-1"

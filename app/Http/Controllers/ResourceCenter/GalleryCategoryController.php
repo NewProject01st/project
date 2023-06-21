@@ -34,8 +34,8 @@ class GalleryCategoryController extends Controller
             'marathi_name' => 'required',           
          ];
     $messages = [   
-        'english_name'=>'Please  enter english Name.',
-        'marathi_name'=>'Please  enter marathi Name.',
+        'english_name.required'=>'Please enter Name.',
+        'marathi_name.required'=>'कृपया नाव टाका.',
     ];
 
     try {
@@ -84,8 +84,8 @@ class GalleryCategoryController extends Controller
         'marathi_name' => 'required',
      ];
     $messages = [   
-        'english_name'=>'Please  enter english Name.',
-        'marathi_name'=>'Please  enter marathi Name.',
+        'english_name.required'=>'Please  enter english Name.',
+        'marathi_name.required'=>'कृपया नाव टाका.',
     ];
 
     try {
