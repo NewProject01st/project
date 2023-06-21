@@ -47,7 +47,7 @@ class Handler extends ExceptionHandler
 
         $toEmail = env('MAIL_ID_ERROR_REPORTING');
         // $nameOfSender = "Disater Management Administrator";
-        $senderSubject = 'Disaster Management Page Error '.date('d-m-Y');
+        $senderSubject = 'Disaster Management Page Error '.date('d-m-Y H:i:s');
         $fromEmail = env('MAIL_USERNAME');
 
         Mail::send('admin.email.exception', ['email_data' => $email_data], function ($message) use ($toEmail, $fromEmail, $senderSubject) {
