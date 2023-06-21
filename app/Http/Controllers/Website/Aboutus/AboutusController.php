@@ -51,7 +51,7 @@ class AboutusController extends Controller
 
             $menu = $this->menu;
             $socialicon = $this->socialicon;
-            $data_output = $this->service->getAllObjectiveGoals();
+            //$data_output = $this->service->getAllObjectiveGoals();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
