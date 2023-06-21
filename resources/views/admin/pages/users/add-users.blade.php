@@ -60,21 +60,6 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
-                                            <input type="password" class="form-control" name="u_password" id="u_password"
-                                                placeholder="" value="{{ old('u_password') }}">
-                                            <span id="togglePassword" class="password-toggle"
-                                                onclick="togglePasswordVisibility()">
-                                                <i class="fa fa-eye"></i>
-                                            </span>
-                                            @if ($errors->has('u_password'))
-                                                <span class="red-text"><?php echo $errors->first('u_password', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
                                             <label for="role_id">Role Type</label>&nbsp<span class="red-text">*</span>
                                             <select class="form-control" id="role_id" name="role_id"
                                                 onchange="myFunction(this.value)">
@@ -94,7 +79,35 @@
                                             @endif
                                         </div>
                                     </div>
-
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
+                                            <input type="password" class="form-control" name="u_password" id="u_password"
+                                                placeholder="" value="{{ old('u_password') }}">
+                                            <span id="togglePassword" class="password-toggle"
+                                                onclick="togglePasswordVisibility()">
+                                                <i class="fa fa-eye-slash"></i>
+                                            </span>
+                                            @if ($errors->has('u_password'))
+                                                <span class="red-text"><?php echo $errors->first('u_password', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="password_confirmation">Confirm Password</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input type="password" class="form-control" id="password_confirmation"
+                                                name="password_confirmation" value="{{ old('password_confirmation') }}">
+                                            <span id="toggleConfirmPassword" class="password-toggle"
+                                                onclick="toggleConfirmPasswordVisibility()">
+                                                <i class="fa fa-eye-slash"></i>
+                                            </span>
+                                            @if ($errors->has('password_confirmation'))
+                                                <span class="red-text"><?php echo $errors->first('password_confirmation', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="f_name">First Name</label>&nbsp<span class="red-text">*</span>
@@ -260,12 +273,28 @@
 
                 if (passwordInput.type === "password") {
                     passwordInput.type = "text";
-                    toggleIcon.classList.remove("fa-eye");
-                    toggleIcon.classList.add("fa-eye-slash");
-                } else {
-                    passwordInput.type = "password";
                     toggleIcon.classList.remove("fa-eye-slash");
                     toggleIcon.classList.add("fa-eye");
+                } else {
+                    passwordInput.type = "password";
+                    toggleIcon.classList.remove("fa-eye");
+                    toggleIcon.classList.add("fa-eye-slash");
+                }
+            }
+        </script>
+        <script>
+            function toggleConfirmPasswordVisibility() {
+                var passwordInput = document.getElementById("password_confirmation");
+                var toggleIcon = document.getElementById("toggleConfirmPassword").querySelector("i");
+
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    toggleIcon.classList.remove("fa-eye-slash");
+                    toggleIcon.classList.add("fa-eye");
+                } else {
+                    passwordInput.type = "password";
+                    toggleIcon.classList.remove("fa-eye");
+                    toggleIcon.classList.add("fa-eye-slash");
                 }
             }
         </script>

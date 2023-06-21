@@ -35,7 +35,7 @@ class IncidentTypeController extends Controller
          ];
     $messages = [   
         'english_title'=>'Please  enter english title.',
-        'marathi_title'=>'Please  enter marathi title.',
+        'marathi_title'=>'कृपया शीर्षक प्रविष्ट करा.',
     ];
 
     try {
@@ -83,7 +83,7 @@ class IncidentTypeController extends Controller
         ];
         $messages = [   
             'english_title'=>'Please  enter english title.',
-            'marathi_title'=>'Please  enter marathi title.',
+            'marathi_title'=>'कृपया शीर्षक प्रविष्ट करा.',
         ];
 
         try {

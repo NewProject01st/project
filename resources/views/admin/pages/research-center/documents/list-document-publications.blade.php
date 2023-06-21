@@ -30,12 +30,12 @@
                                             <thead>
                                                 <tr>
                                                     <th>S. No.</th>
-                                                    <th>Title English</th>
-                                                    <th>Title Marathi</th>
-                                                    <th>Description English</th>
-                                                    <th>Description Marathi</th>
-                                                    <th>English Pdf</th>
-                                                    <th>Marathi Pdf</th>
+                                                    <th>Title </th>
+                                                    <th>शीर्षक </th>
+                                                    <th>Description </th>
+                                                    <th>वर्णन </th>
+                                                    <th> Pdf</th>
+                                                    <th> पीडीएफ</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -47,30 +47,30 @@
                                                         <td>{{ strip_tags($item->marathi_title) }}</td>
                                                         <td>{{ strip_tags($item->english_description) }}</td>
                                                         <td>{{ strip_tags($item->marathi_description) }}</td>
-                                                        <td> <a  href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item->english_pdf }}"
-                                                                target="_blank"><img
-                                                                    src="{{ asset('assets/images/pdf.png/') }}"
-                                                                    width="35px"
-                                                                    height="35px"></a></td>
                                                         <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item->english_pdf }}"
                                                                 target="_blank"><img
-                                                                    src="{{ asset('assets/images/pdf.png/') }}" width="35px"
-                                                                    height="35px"></a></td>
-                                                        <td >
+                                                                    src="{{ asset('assets/images/pdf.png/') }}"
+                                                                    width="35px" height="35px"></a></td>
+                                                        <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item->english_pdf }}"
+                                                                target="_blank"><img
+                                                                    src="{{ asset('assets/images/pdf.png/') }}"
+                                                                    width="35px" height="35px"></a></td>
+                                                        <td>
                                                             <div class="d-flex">
-                                                            @if (in_array('per_update', $data_permission))
+                                                                @if (in_array('per_update', $data_permission))
+                                                                    <a data-id="{{ $item->id }}"
+                                                                        class="edit-btn btn btn-sm btn-outline-primary m-1"><i
+                                                                            class="fas fa-pencil-alt"></i></a>
+                                                                @endif
                                                                 <a data-id="{{ $item->id }}"
-                                                                    class="edit-btn btn btn-sm btn-outline-primary m-1"><i
-                                                                        class="fas fa-pencil-alt"></i></a>
-                                                            @endif
-                                                            <a data-id="{{ $item->id }}"
-                                                                class="show-btn btn btn-sm btn-outline-primary m-1"><i
-                                                                    class="fas fa-eye"></i></a>
-                                                            @if (in_array('per_delete', $data_permission))
-                                                                <a data-id="{{ $item->id }}"
-                                                                    class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                                    title="Delete Tender"><i class="fas fa-archive"></i></a>
-                                                            @endif
+                                                                    class="show-btn btn btn-sm btn-outline-primary m-1"><i
+                                                                        class="fas fa-eye"></i></a>
+                                                                @if (in_array('per_delete', $data_permission))
+                                                                    <a data-id="{{ $item->id }}"
+                                                                        class="delete-btn btn btn-sm btn-outline-danger m-1"
+                                                                        title="Delete Tender"><i
+                                                                            class="fas fa-archive"></i></a>
+                                                                @endif
 
                                                             </div>
                                                         </td>
@@ -101,5 +101,4 @@
         </form>
 
         <!-- content-wrapper ends -->
-
     @endsection

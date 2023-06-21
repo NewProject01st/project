@@ -26,22 +26,22 @@
                                 <div class="col-12">
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Menu Name English :</label>
+                                            <label>Menu Name :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label><?php echo $menu_data->menu_name_english; ?>
-                                                  </label>
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Menu Name Marathi :</label>
+                                            <label>मेनूचे नाव :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label><?php echo $menu_data->menu_name_marathi; ?></label>
                                         </div>
                                     </div>
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -52,5 +52,4 @@
 
 
         <!-- content-wrapper ends -->
-
     @endsection

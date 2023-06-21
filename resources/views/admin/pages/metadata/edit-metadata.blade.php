@@ -24,8 +24,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_name">English Name <span
-                                                    class="text-danger">*</span></label>
+                                            <label for="english_name"> Name <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" placeholder="YYYY-MM-DD"
                                                 value="{{ $metadata->english_name }}" name="english_name" id="english_name">
                                             @if ($errors->has('english_name'))

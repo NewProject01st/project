@@ -23,10 +23,10 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="menu_name_english">Menu Name English</label>&nbsp<span
+                                            <label for="menu_name_english">Menu Name </label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="menu_name_english" id="menu_name_english"
-                                                class="form-control" id="menu_name_english" placeholder=""
+                                                class="form-control" id="menu_name_english" placeholder="Enter menu name"
                                                 value="@if (old('menu_name_english')) {{ old('menu_name_english') }} @endif">
                                             @if ($errors->has('menu_name_english'))
                                                 <span class="red-text"><?php echo $errors->first('menu_name_english', ':message'); ?></span>
@@ -35,10 +35,11 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="menu_name_marathi">Menu Name Marathi</label>&nbsp<span
+                                            <label for="menu_name_marathi">मेनूचे नाव </label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="menu_name_marathi" id="menu_name_marathi"
-                                                class="form-control" id="menu_name_marathi" placeholder=""
+                                                class="form-control" id="menu_name_marathi"
+                                                placeholder="मेनूचे नाव प्रविष्ट करा "
                                                 value="@if (old('menu_name_marathi')) {{ old('menu_name_marathi') }} @endif">
                                             @if ($errors->has('menu_name_marathi'))
                                                 <span class="red-text"><?php echo $errors->first('menu_name_marathi', ':message'); ?></span>

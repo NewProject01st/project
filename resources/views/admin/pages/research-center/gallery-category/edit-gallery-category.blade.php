@@ -24,7 +24,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_name">English Name</label>&nbsp<span
+                                            <label for="english_name">Category Name</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input class="form-control english_name" name="english_name" id="english_name"
                                                 value="{{ $success_stories->english_name }}" placeholder="Enter the Name">
@@ -36,10 +36,10 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_name">Marathi Name</label>&nbsp<span
+                                            <label for="marathi_name">श्रेणीचे नाव</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input class="form-control marathi_name" name="marathi_name" id="marathi_name"
-                                                value="{{ $success_stories->marathi_name }}" placeholder="Enter the Name">
+                                                value="{{ $success_stories->marathi_name }}" placeholder="नाव प्रविष्ट करा">
                                             {{-- <textarea class="form-control marathi_name" name="marathi_name" id="marathi_name" placeholder="Enter the Title">{{ $success_stories->marathi_name }}</textarea> --}}
                                             @if ($errors->has('marathi_name'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_name', ':message'); ?></span>

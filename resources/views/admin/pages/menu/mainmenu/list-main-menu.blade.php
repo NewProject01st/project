@@ -1,15 +1,15 @@
 @extends('admin.layout.master')
 
 @section('content')
-<?php  $data_permission = getPermissionForCRUDPresentOrNot('list-main-menu',session('permissions')); 
-                                            ?>
+    <?php $data_permission = getPermissionForCRUDPresentOrNot('list-main-menu', session('permissions'));
+    ?>
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Main Menu List 
-                    @if (in_array("per_add", $data_permission))
-                    <a href="{{ route('add-main-menu') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
+                    Main Menu List
+                    @if (in_array('per_add', $data_permission))
+                        <a href="{{ route('add-main-menu') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
                     @endif
                 </h3>
                 <nav aria-label="breadcrumb">
@@ -30,8 +30,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
-                                                    <th>Menu Name English</th>
-                                                    <th>Menu Name Marathi</th>
+                                                    <th>Menu Name </th>
+                                                    <th>मेनूचे नाव</th>
                                                     {{-- <th>URL</th> --}}
                                                     <!-- <th>Status</th> -->
                                                     <th>Action</th>
@@ -44,25 +44,26 @@
                                                         <td><?php echo $key + 1; ?></td>
                                                         <td><?php echo $item->menu_name_english; ?></td>
                                                         <td><?php echo $item->menu_name_marathi; ?></td>
-                                                        {{-- <td><?php //echo $item->url; ?></td> --}}
+                                                        {{-- <td><?php //echo $item->url;
+                                                        ?></td> --}}
                                                         <!--  <td><?php echo $item->order_no; ?></td> -->
                                                         <!-- <td>
-                                                                    <span class="badge badge-success">Active</span>
-                                                                </td> -->
+                                                                        <span class="badge badge-success">Active</span>
+                                                                    </td> -->
                                                         <td class="d-flex">
-                                                        @if (in_array("per_update", $data_permission))
+                                                            @if (in_array('per_update', $data_permission))
+                                                                <a data-id="{{ $item->id }}"
+                                                                    class="edit-btn btn btn-sm btn-outline-primary m-1"
+                                                                    title="Show"><i class="fas fa-pencil-alt"></i></a>
+                                                            @endif
+                                                            @if (in_array('per_delete', $data_permission))
+                                                                <a data-id="{{ $item->id }}"
+                                                                    class="delete-btn btn btn-sm btn-outline-danger m-1"
+                                                                    title="Delete"><i class="fas fa-archive"></i></a>
+                                                            @endif
                                                             <a data-id="{{ $item->id }}"
-                                                                class="edit-btn btn btn-sm btn-outline-primary m-1" title="Show"><i
-                                                                    class="fas fa-pencil-alt"></i></a>
-                                                        @endif
-                                                        @if (in_array("per_delete", $data_permission))
-                                                            <a data-id="{{ $item->id }}"
-                                                                class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                                title="Delete"><i class="fas fa-archive"></i></a>
-                                                        @endif
-                                                         <a data-id="{{ $item->id }}"
-                                                                class="show-btn btn btn-sm btn-outline-primary m-1" title="Edit"><i
-                                                                    class="fas fa-eye"></i></a>
+                                                                class="show-btn btn btn-sm btn-outline-primary m-1"
+                                                                title="Edit"><i class="fas fa-eye"></i></a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -90,5 +91,4 @@
         </form>
 
         <!-- content-wrapper ends -->
-
     @endsection

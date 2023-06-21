@@ -35,17 +35,17 @@ class StateDisasterManagementAuthorityController extends Controller
         'marathi_title' => 'required',
         'english_description' => 'required',
         'marathi_description' => 'required',
-        'english_image' => 'required',
-        'marathi_image' => 'required'
+        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         
         ];
     $messages = [   
         'english_title.required' => 'Please enter title.',
-        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा.',
         'english_description.required' => 'Please enter description.',
         'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
-        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'english_image.required' => 'The image field is required.',
+        'marathi_image.required' => 'कृपया प्रतिमा आवश्यक आहे.',
     ];
 
     try {

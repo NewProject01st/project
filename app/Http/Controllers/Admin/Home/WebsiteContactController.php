@@ -39,9 +39,9 @@ class WebsiteContactController extends Controller
             
          ];
     $messages = [   
-        'english_address' => 'Please enter address.',
+             'english_address' => 'Please enter address.',
             'marathi_address' => 'कृपया पत्ता प्रविष्ट करा.',           
-            'email' => 'आवश्यक',
+            'email' => 'required',
             'english_number' => 'Please enter number.',
             'marathi_number' => 'कृपया क्रमांक प्रविष्ट करा ',
         

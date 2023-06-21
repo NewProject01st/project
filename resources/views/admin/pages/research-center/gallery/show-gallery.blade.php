@@ -26,7 +26,7 @@
                                 <div class="col-12">
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label> English Image :</label>
+                                            <label>Image :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <img src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $gallery->english_image }}"
@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label> Marathi Image:</label>
+                                            <label> प्रतिमा :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                             <img src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $gallery->marathi_image }}"
@@ -51,5 +51,4 @@
             </div>
         </div>
         <!-- content-wrapper ends -->
-
     @endsection

@@ -38,7 +38,7 @@ class MarqueeController extends Controller
     $messages = [   
         'english_title.required' => 'Please enter title.',
         'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
-        'url' => 'आवश्यक',
+        'url' => 'required',
        
     ];
     // print_r($messages);
