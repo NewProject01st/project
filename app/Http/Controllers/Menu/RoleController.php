@@ -13,7 +13,7 @@ use Validator;
 class RoleController extends Controller
 {
 
-   public function __construct()
+    public function __construct()
     {
         $this->service = new RoleServices();
     }
@@ -28,41 +28,44 @@ class RoleController extends Controller
     }
     public function add()
     {
-        $permissions = Permissions::where('is_active', true)
-                            ->select('id','route_name','permission_name','url')
-                            ->get()
-                            ->toArray();
-        return view('admin.pages.menu.roles.add-role',compact('permissions'));
+        try {
+            $permissions = Permissions::where('is_active', true)
+                ->select('id', 'route_name', 'permission_name', 'url')
+                ->get()
+                ->toArray();
+            return view('admin.pages.menu.roles.add-role', compact('permissions'));
+        } catch (\Exception $e) {
+            return $e;
+        }
     }
 
-    public function store(Request $request) {
-        $rules = [
-            'role_name' => 'required',
-         ];
-        $messages = [   
-            'role_name.required' => 'Please  enter english title.',
-        ];
+    public function store(Request $request)
+    {
 
         try {
-            $validation = Validator::make($request->all(),$rules,$messages);
-            if($validation->fails() )
-            {
+
+            $rules = [
+                'role_name' => 'required',
+            ];
+            $messages = [
+                'role_name.required' => 'Please  enter english title.',
+            ];
+
+
+            $validation = Validator::make($request->all(), $rules, $messages);
+            if ($validation->fails()) {
                 return redirect('add-role')
                     ->withInput()
                     ->withErrors($validation);
-            }
-            else
-            {
+            } else {
                 $add_role = $this->service->addRole($request);
-                if($add_role)
-                {
+                if ($add_role) {
                     $msg = $add_role['msg'];
                     $status = $add_role['status'];
-                    if($status=='success') {
-                        return redirect('list-role')->with(compact('msg','status'));
-                    }
-                    else {
-                        return redirect('add-role')->withInput()->with(compact('msg','status'));
+                    if ($status == 'success') {
+                        return redirect('list-role')->with(compact('msg', 'status'));
+                    } else {
+                        return redirect('add-role')->withInput()->with(compact('msg', 'status'));
                     }
                 }
 
@@ -74,32 +77,34 @@ class RoleController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $roles = $this->service->getById($request->show_id);
             return view('admin.pages.menu.roles.show-role', compact('roles'));
         } catch (\Exception $e) {
             return $e;
         }
     }
-    public function edit(Request $request) {
-        $user_data = $this->service->edit($request->edit_id);
-        // dd($user_data);
-
-        return view('admin.pages.menu.roles.edit-role', compact('user_data'));
+    public function edit(Request $request)
+    {
+        try {
+            $user_data = $this->service->edit($request->edit_id);
+            return view('admin.pages.menu.roles.edit-role', compact('user_data'));
+        } catch (\Exception $e) {
+            return $e;
+        }
     }
 
-    public function update(Request $request) {
-
-        $rules = [
-                'role_name' => 'required',
-        ];
-
-        $messages = [   
-            'role_name.required' => 'Please  enter english title.',
-        ];
-
+    public function update(Request $request)
+    {
         try {
-            $validation = Validator::make($request->all(),$rules, $messages);
+            $rules = [
+                'role_name' => 'required',
+            ];
+
+            $messages = [
+                'role_name.required' => 'Please  enter english title.',
+            ];
+
+            $validation = Validator::make($request->all(), $rules, $messages);
             if ($validation->fails()) {
                 return redirect()->back()
                     ->withInput()
@@ -118,7 +123,7 @@ class RoleController extends Controller
                     }
                 }
             }
-            
+
         } catch (Exception $e) {
             return redirect()->back()
                 ->withInput()
@@ -130,27 +135,27 @@ class RoleController extends Controller
     {
         try {
             $active_id = $request->active_id;
-        $result = $this->service->updateOneRole($active_id);
-            return redirect('list-role')->with('flash_message', 'Updated!');  
+            $result = $this->service->updateOneRole($active_id);
+            return redirect('list-role')->with('flash_message', 'Updated!');
         } catch (\Exception $e) {
             return $e;
         }
     }
-        public function destroy(Request $request)
+    public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $roles = $this->service->deleteById($request->delete_id);
-            return redirect('list-role')->with('flash_message', 'Deleted!');  
+            return redirect('list-role')->with('flash_message', 'Deleted!');
         } catch (\Exception $e) {
             return $e;
         }
-    } 
-    
-    public function listRoleWisePermission(Request $request) {
+    }
+
+    public function listRoleWisePermission(Request $request)
+    {
         try {
             $permissions = $this->service->listRoleWisePermission($request->role_id);
-            return view('admin.pages.users.roles-permission',compact('permissions'));
+            return view('admin.pages.users.roles-permission', compact('permissions'));
         } catch (\Exception $e) {
             return $e;
         }
