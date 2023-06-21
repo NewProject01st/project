@@ -81,9 +81,9 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="u_password" id="u_password"
+                                            <input type="password" class="form-control" name="u_password" id="u_password"
                                                 placeholder=""
-                                                value="@if (old('u_password')) {{ old('u_password') }}@else{{ $user_data->u_password }} @endif">
+                                                value="@if (old('u_password')) {{ old('u_password') }}@endif">
                                             @if ($errors->has('u_password'))
                                                 <span class="red-text"><?php echo $errors->first('u_password', ':message'); ?></span>
                                             @endif

@@ -5,51 +5,56 @@ use Illuminate\Database\QueryException;
 use DB;
 use Illuminate\Support\Carbon;
 use Session;
-use App\Models\ {
+use App\Models\{
 	User,
 	Permissions,
 	RolesPermissions,
 	Roles
 };
+use Illuminate\Support\Facades\Mail;
 
-class RegisterRepository  {
+class RegisterRepository
+{
 
-	public function getUsersList() {
-        $data_users = User::join('roles', function($join) {
-							$join->on('users.role_id', '=', 'roles.id');
-						})
-						// ->where('users.is_active','=',true)
-						->select('roles.role_name',
-								'users.u_email',
-								'users.f_name',
-								'users.m_name',
-								'users.l_name',
-								'users.number',
-								'users.designation',
-								'users.address',
-								'users.state',
-								'users.city',
-								'users.pincode',
-								'users.id',
-								'users.is_active'
-							)->get();
-							// ->toArray();
+	public function getUsersList()
+	{
+		$data_users = User::join('roles', function ($join) {
+			$join->on('users.role_id', '=', 'roles.id');
+		})
+			// ->where('users.is_active','=',true)
+			->select(
+				'roles.role_name',
+				'users.u_email',
+				'users.f_name',
+				'users.m_name',
+				'users.l_name',
+				'users.number',
+				'users.designation',
+				'users.address',
+				'users.state',
+				'users.city',
+				'users.pincode',
+				'users.id',
+				'users.is_active'
+			)->get();
+		// ->toArray();
 
 		return $data_users;
-    }
+	}
 
 
-	public function permissionsData() {
+	public function permissionsData()
+	{
 		$permissions = Permissions::where('is_active', true)
-						->select('id','route_name','permission_name','url')
-						->get()
-						->toArray();
+			->select('id', 'route_name', 'permission_name', 'url')
+			->get()
+			->toArray();
 
 		return $permissions;
 	}
 	public function register($request)
 	{
-        $ipAddress = getIPAddress($request);
+		$ipAddress = getIPAddress($request);
 		$user_data = new User();
 		$user_data->u_email = $request['u_email'];
 		// $user_data->u_uname = $request['u_uname'];
@@ -65,35 +70,35 @@ class RegisterRepository  {
 		$user_data->city = $request['city'];
 		$user_data->pincode = $request['pincode'];
 		$user_data->ip_address = $ipAddress;
-		$user_data->is_active = isset($request['is_active']) ? true :false;
+		$user_data->is_active = isset($request['is_active']) ? true : false;
 		$user_data->save();
 
 		$last_insert_id = $user_data->id;
 		// $this->insertRolesPermissions($request, $last_insert_id);
-        return $last_insert_id;
+		return $last_insert_id;
 	}
 
 	public function update($request)
 	{
-        $ipAddress = getIPAddress($request);
-		$user_data = User::where('id',$request['edit_id']) 
-						->update([
-							// 'u_uname' => $request['u_uname'],
-							'role_id' => $request['role_id'],
-							'f_name' => $request['f_name'],
-							'm_name' => $request['m_name'],
-							'l_name' => $request['l_name'],
-							'number' => $request['number'],
-							'designation' => $request['designation'],
-							'address' => $request['address'],
-							'state' => $request['state'],
-							'city' => $request['city'],
-							'pincode' => $request['pincode'],
-							'is_active' => isset($request['is_active']) ? true :false,
-						]);
-		
+		$ipAddress = getIPAddress($request);
+		$user_data = User::where('id', $request['edit_id'])
+			->update([
+				// 'u_uname' => $request['u_uname'],
+				'role_id' => $request['role_id'],
+				'f_name' => $request['f_name'],
+				'm_name' => $request['m_name'],
+				'l_name' => $request['l_name'],
+				'number' => $request['number'],
+				'designation' => $request['designation'],
+				'address' => $request['address'],
+				'state' => $request['state'],
+				'city' => $request['city'],
+				'pincode' => $request['pincode'],
+				'is_active' => isset($request['is_active']) ? true : false,
+			]);
+
 		// $this->updateRolesPermissions($request, $request->edit_id);
-        return $request->edit_id;
+		return $request->edit_id;
 	}
 
 
@@ -113,13 +118,13 @@ class RegisterRepository  {
 	// 		} else {
 	// 			$update_data['per_add']  = false;
 	// 		}
-			
+
 	// 		if($request->has($per_update)) {
 	// 			$update_data['per_update']  = true;
 	// 		} else {
 	// 			$update_data['per_update']  = false;
 	// 		}
-			
+
 	// 		if($request->has($per_delete)) {
 	// 			$update_data['per_delete']  = true;
 	// 		} else {
@@ -141,7 +146,7 @@ class RegisterRepository  {
 	// 			$update_data['permission_id']  = $data['id'];
 	// 			$permissions_data = RolesPermissions::insert($update_data);
 	// 		}
-			
+
 	// 	}
 	// 	return "ok";
 	// }
@@ -161,71 +166,74 @@ class RegisterRepository  {
 	// 			$permissions_data->permission_id = $data['id'];
 	// 			$permissions_data->role_id = $request->role_id;
 	// 			$permissions_data->user_id = $last_insert_id;
-				
+
 	// 			if($request->has($per_add)) {
 	// 				$permissions_data->per_add  = true;
 	// 			}
-				
+
 	// 			if($request->has($per_update)) {
 	// 				$permissions_data->per_update  = true;
 	// 			}
-				
+
 	// 			if($request->has($per_delete)) {
 	// 				$permissions_data->per_delete  = true;
 	// 			}
 	// 			$permissions_data->save();
 	// 		}
-			
+
 	// 	}
 	// 	return "ok";
 	// }
 
-   public function checkDupCredentials($request) {
-   		return User::where('u_email','=',$request['u_email'])
-   					// ->orWhere('u_uname','=',$request['u_uname'])
-					->select('id')->get();
-   }
+	public function checkDupCredentials($request)
+	{
+		return User::where('u_email', '=', $request['u_email'])
+			// ->orWhere('u_uname','=',$request['u_uname'])
+			->select('id')->get();
+	}
 
-   public function editUsers($reuest) {
+	public function editUsers($reuest)
+	{
 
-	$data_users = [];
+		$data_users = [];
 
-	$data_users['roles'] = Roles::where('is_active', true)
-							->select('id','role_name')
-							->get()
-							->toArray();
-	$data_users['permissions'] = Permissions::where('is_active', true)
-						->select('id','route_name','permission_name','url')
-						->get()
-						->toArray();
+		$data_users['roles'] = Roles::where('is_active', true)
+			->select('id', 'role_name')
+			->get()
+			->toArray();
+		$data_users['permissions'] = Permissions::where('is_active', true)
+			->select('id', 'route_name', 'permission_name', 'url')
+			->get()
+			->toArray();
 
-	$data_users_data = User::join('roles', function($join) {
-						$join->on('users.role_id', '=', 'roles.id');
-					})
-					// ->join('roles_permissions', function($join) {
-					// 	$join->on('users.id', '=', 'roles_permissions.user_id');
-					// })
-					->where('users.id','=',$reuest->edit_id)
-					// ->where('roles_permissions.is_active','=',true)
-					// ->where('users.is_active','=',true)
-					->select('roles.id as role_id',
-							// 'users.u_uname',
-							'users.u_password',
-							'users.u_email',
-							'users.f_name',
-							'users.m_name',
-							'users.l_name',
-							'users.number',
-							'users.designation',
-							'users.address',
-							'users.state',
-							'users.city',
-							'users.pincode',
-							'users.id',
-							'users.is_active',
-						)->get()
-						->toArray();
-						
+		$data_users_data = User::join('roles', function ($join) {
+			$join->on('users.role_id', '=', 'roles.id');
+		})
+			// ->join('roles_permissions', function($join) {
+			// 	$join->on('users.id', '=', 'roles_permissions.user_id');
+			// })
+			->where('users.id', '=', $reuest->edit_id)
+			// ->where('roles_permissions.is_active','=',true)
+			// ->where('users.is_active','=',true)
+			->select(
+				'roles.id as role_id',
+				// 'users.u_uname',
+				'users.u_password',
+				'users.u_email',
+				'users.f_name',
+				'users.m_name',
+				'users.l_name',
+				'users.number',
+				'users.designation',
+				'users.address',
+				'users.state',
+				'users.city',
+				'users.pincode',
+				'users.id',
+				'users.is_active',
+			)->get()
+			->toArray();
+
 		$data_users['data_users'] = $data_users_data[0];
 		// $data_users['permissions_user'] = User::join('roles_permissions', function($join) {
 		// 					$join->on('users.id', '=', 'roles_permissions.user_id');
@@ -247,16 +255,18 @@ class RegisterRepository  {
 		return $data_users;
 	}
 
-	public function delete($request) {
-		$user = User::where([ 'id' => $request->delete_id ])
-		-> update([ 'is_active' => false ]);
-		$rolesPermissions = RolesPermissions::where([ 'user_id' => $request->delete_id ])
-							-> update([ 'is_active' => false ]);
+	public function delete($request)
+	{
+		$user = User::where(['id' => $request->delete_id])
+			->update(['is_active' => false]);
+		$rolesPermissions = RolesPermissions::where(['user_id' => $request->delete_id])
+			->update(['is_active' => false]);
 
 		return "ok";
 	}
 
-	public function getById($id){
+	public function getById($id)
+	{
 		try {
 			$user = User::find($id);
 			// $user = User::join('roles', 'roles.id','=', 'users.role_id')
@@ -276,41 +286,59 @@ class RegisterRepository  {
 		}
 	}
 
-	public function getProfile(){
+	public function getProfile()
+	{
 		$user_detail = User::where('is_active', true)
 			->where('id', session()->get('user_id'))
-			->select('id','f_name', 'm_name', 'l_name','u_email', 'u_password', 'number','designation')
+			->select('id', 'f_name', 'm_name', 'l_name', 'u_email', 'u_password', 'number', 'designation')
 			->first();
-			// echo $user_detail;
-			// die();
+		// echo $user_detail;
+		// die();
 		return $user_detail;
 	}
 
 
-	public function updateProfile($request){
-		$update_data = [
-			'f_name' => $request->f_name,
-			'm_name' => $request->m_name,
-			'l_name' => $request->l_name,
-			'designation' => $request->designation,
-			'u_password' => $request->u_password,
-			// 'u_email' => $request->u_email,
-			// 'number' => $request->number,
-		];
-	
-		if(isset($request->number) && $request->number!== '') {
-			
-			$update_data['otp_number'] = rand(6,999999);
-			$update_data['number'] = $request->number;
-			// print_r($update_data);
-			// die();
+	public function updateProfile($request)
+	{
+		try {
+			$otp = rand(6, 999999);
+			$update_data = [
+				'f_name' => $request->f_name,
+				'm_name' => $request->m_name,
+				'l_name' => $request->l_name,
+				'designation' => $request->designation,
+			];
+
+			if (isset($request->number) && $request->number !== '') {
+				$update_data['otp_number'] = $otp;
+				// $update_data['number'] = $request->number;
+			}
+
+			if (isset($request->u_password) && $request->u_password !== '') {
+				$update_data['u_password'] = bcrypt($request->u_password);
+			}
+
+			User::where('id', $request->edit_user_id)->update($update_data);
+
+			$email_data = [
+				'otp' => $otp,
+			];
+
+			$toEmail = $request->u_email;
+			$senderSubject = 'Disaster Management OTP ' . date('d-m-Y H:i:s');
+			$fromEmail = env('MAIL_USERNAME');
+			Mail::send('admin.email.emailotp', ['email_data' => $email_data], function ($message) use ($toEmail, $fromEmail, $senderSubject) {
+				$message->to($toEmail)->subject
+				($senderSubject);
+				$message->from($fromEmail, 'Disaster Management OTP');
+			});
+
+
+		} catch (\Exception $e) {
+			info($e);
 		}
-	
-		$user_data = User::where('id', $request->edit_user_id)->update($update_data);
-		// print_r($update_data);
-		// 	        die();
+
 		return $update_data;
 	}
-	
-}
 
+}
