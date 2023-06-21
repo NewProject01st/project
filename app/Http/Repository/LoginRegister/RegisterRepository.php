@@ -28,7 +28,7 @@ class RegisterRepository  {
 								'users.designation',
 								'users.address',
 								'users.state',
-								'users.city',
+								'users.district',
 								'users.pincode',
 								'users.id',
 								'users.is_active'
@@ -62,7 +62,7 @@ class RegisterRepository  {
 		$user_data->designation = $request['designation'];
 		$user_data->address = $request['address'];
 		$user_data->state = $request['state'];
-		$user_data->city = $request['city'];
+		$user_data->district = $request['district'];
 		$user_data->pincode = $request['pincode'];
 		$user_data->ip_address = $ipAddress;
 		$user_data->is_active = isset($request['is_active']) ? true :false;
@@ -87,7 +87,7 @@ class RegisterRepository  {
 							'designation' => $request['designation'],
 							'address' => $request['address'],
 							'state' => $request['state'],
-							'city' => $request['city'],
+							'district' => $request['district'],
 							'pincode' => $request['pincode'],
 							'is_active' => isset($request['is_active']) ? true :false,
 						]);
@@ -219,7 +219,7 @@ class RegisterRepository  {
 							'users.designation',
 							'users.address',
 							'users.state',
-							'users.city',
+							'users.district',
 							'users.pincode',
 							'users.id',
 							'users.is_active',
@@ -313,4 +313,3 @@ class RegisterRepository  {
 	}
 	
 }
-

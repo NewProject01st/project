@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Services\LoginRegister\RegisterServices;
 use App\Models\ {
     Roles,
-    Permissions
+    Permissions,
+    TblArea
 };
 use Validator;
 use session;
@@ -38,7 +39,22 @@ class RegisterController extends Controller {
                             ->select('id','route_name','permission_name','url')
                             ->get()
                             ->toArray();
-    	return view('admin.pages.users.add-users',compact('roles','permissions'));
+        $dynamic_state = TblArea::where('location_type', 1)
+                            ->select('location_id','name')
+                            ->get()
+                            ->toArray();
+    	return view('admin.pages.users.add-users',compact('roles','permissions','dynamic_state'));
+    }
+
+    public function getDistrict(Request $request)
+    {
+        $stateId = $request->input('stateId');
+
+        $district = TblArea::where('location_type', 2) // 4 represents cities
+                    ->where('parent_id', $stateId)
+                    ->get(['location_id', 'name']);
+              return response()->json(['district' => $district]);
+
     }
 
     public function editUsers(Request $request) {
@@ -140,7 +156,7 @@ class RegisterController extends Controller {
                     'address' => 'required',
                     
                     'state' => 'required',
-                    'city' => 'required',
+                    'district' => 'required',
                     'pincode' => 'regex:/^[0-9]+$/'
                  ];       
 
@@ -161,7 +177,7 @@ class RegisterController extends Controller {
                         'designation.required' =>'Please enter designation.',
                         'address.required' => 'Please enter address.',
                         'state.required' => 'Please enter state.',
-                        'city.required' =>'Please enter city.',
+                        'district.required' =>'Please enter district.',
                         'pincode.required' => 'Please enter pincode.',
                         'pincode.regex' => 'Please enter pincode.',
 
