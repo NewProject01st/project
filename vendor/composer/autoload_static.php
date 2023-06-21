@@ -746,6 +746,7 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'App\\Models\\HazardVulnerability' => __DIR__ . '/../..' . '/app/Models/HazardVulnerability.php',
         'App\\Models\\HomeTender' => __DIR__ . '/../..' . '/app/Models/HomeTender.php',
         'App\\Models\\IncidentType' => __DIR__ . '/../..' . '/app/Models/IncidentType.php',
+        'App\\Models\\MAPGISData' => __DIR__ . '/../..' . '/app/Models/MAPGISData.php',
         'App\\Models\\MainMenus' => __DIR__ . '/../..' . '/app/Models/MainMenus.php',
         'App\\Models\\MainSubMenus' => __DIR__ . '/../..' . '/app/Models/MainSubMenus.php',
         'App\\Models\\MapLatLon' => __DIR__ . '/../..' . '/app/Models/MapLatLon.php',

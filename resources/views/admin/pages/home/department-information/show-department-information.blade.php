@@ -28,7 +28,7 @@
 
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title English :</label>
+                                            <label>Title :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($department_info->english_title) }}</label>
@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title Marathi :</label>
+                                            <label>शीर्षक :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($department_info->marathi_title) }}</label>
@@ -44,7 +44,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Description English :</label>
+                                            <label>Description :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($department_info->english_description) }}</label>
@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Description Marathi :</label>
+                                            <label>वर्णन :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($department_info->marathi_description) }}</label>
@@ -79,37 +79,37 @@
                                 </div> --}}
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label> English Icon :</label>
+                                            <label> Icon :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <img src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW')}}{{$department_info->english_image }}"
+                                            <img src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $department_info->english_image }}"
                                                 style="width:150px; height:150px;" />
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label> Marathi Icon:</label>
+                                            <label> चिन्ह :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
-                                            <img src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW')}}{{$department_info->marathi_image }}"
+                                            <img src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $department_info->marathi_image }}"
                                                 style="width:150px; height:150px;" />
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label> English Image :</label>
+                                            <label> Image :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <img src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW')}}{{$department_info->english_image_new }}"
+                                            <img src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $department_info->english_image_new }}"
                                                 style="width:300px; height:150px;" />
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label> Marathi Image:</label>
+                                            <label>प्रतिमा :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
-                                            <img src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW')}}{{$department_info->marathi_image_new }}"
+                                            <img src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $department_info->marathi_image_new }}"
                                                 style="width:300px; height:150px;" />
                                         </div>
                                     </div>

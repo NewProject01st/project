@@ -45,8 +45,9 @@ class DisasterForcastController extends Controller
     $messages = [   
         // 'english_title'=>'required',
         // 'marathi_title'=>'required',
-        'english_description'=>'required',
-        'marathi_description'=>'required',
+        'english_description.required' => 'Please enter description.',
+        'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
+      
         // 'forcast_date' => 'required',
         // 'expired_date' => 'required',
         // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -118,8 +119,9 @@ class DisasterForcastController extends Controller
 $messages = [   
     // 'english_title'=>'required',
     // 'marathi_title'=>'required',
-    'english_description'=>'required',
-    'marathi_description'=>'required',
+    'english_description.required' => 'Please enter description.',
+    'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
+  
     // 'forcast_date' => 'required',
     // 'expired_date' => 'required',
     // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',

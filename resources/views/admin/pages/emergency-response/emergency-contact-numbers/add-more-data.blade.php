@@ -18,17 +18,18 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action='{{ route('add-more-emergency-contact-data') }}' method="POST"
-                                enctype="multipart/form-data" id="regForm">
+                            <form class="forms-sample" action='{{ route('add-more-emergency-contact-data') }}'
+                                method="POST" enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_emergency_contact_title">English Emergency
+                                            <label for="english_emergency_contact_title"> Emergency
                                                 Contact</label>&nbsp<span class="red-text">*</span>
                                             <input class="form-control" name="english_emergency_contact_title"
                                                 id="english_emergency_contact_title"
-                                                placeholder="Enter the Emergency Contact" value="{{old('english_emergency_contact_title')}}">
+                                                placeholder="Enter the Emergency Contact"
+                                                value="{{ old('english_emergency_contact_title') }}">
                                             @if ($errors->has('english_emergency_contact_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_emergency_contact_title', ':message'); ?></span>
                                             @endif
@@ -36,11 +37,12 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_emergency_contact_title">Marathi English Emergency Contact
-                                                Title</label>&nbsp<span class="red-text">*</span>
+                                            <label for="marathi_emergency_contact_title">आणीबाणी
+                                                संपर्क करा</label>&nbsp<span class="red-text">*</span>
                                             <input class="form-control" name="marathi_emergency_contact_title"
                                                 id="marathi_emergency_contact_title"
-                                                placeholder="Enter the Emergency Contact" value="{{old('marathi_emergency_contact_title')}}">
+                                                placeholder="Enter the Emergency Contact"
+                                                value="{{ old('marathi_emergency_contact_title') }}">
                                             @if ($errors->has('marathi_emergency_contact_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_emergency_contact_title', ':message'); ?></span>
                                             @endif
@@ -48,11 +50,12 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
-                                            <label for="english_emergency_contact_number">English Emergency Contact
+                                            <label for="english_emergency_contact_number"> Emergency Contact
                                                 Number</label>&nbsp<span class="red-text">*</span>
                                             <input class="form-control" name="english_emergency_contact_number"
                                                 id="english_emergency_contact_number"
-                                                placeholder="Enter the Emergency Contact" value="{{old('english_emergency_contact_number')}}">
+                                                placeholder="Enter the Emergency Contact"
+                                                value="{{ old('english_emergency_contact_number') }}">
                                             {{-- placeholder="Enter the Description" name="description">{{ old('english_emergency_contact_number') }}</textarea> --}}
                                             @if ($errors->has('english_emergency_contact_number'))
                                                 <span class="red-text"><?php echo $errors->first('english_emergency_contact_number', ':message'); ?></span>
@@ -61,11 +64,12 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
-                                            <label for="marathi_emergency_contact_number">Marathi Emergency
-                                                Contact Number</label>&nbsp<span class="red-text">*</span>
+                                            <label for="marathi_emergency_contact_number">आपत्कालीन संपर्क
+                                                क्रमांक</label>&nbsp<span class="red-text">*</span>
                                             <input class="form-control" name="marathi_emergency_contact_number"
                                                 id="marathi_emergency_contact_number"
-                                                placeholder="Enter the Emergency Contact" value="{{old('marathi_emergency_contact_number')}}">
+                                                placeholder="Enter the Emergency Contact"
+                                                value="{{ old('marathi_emergency_contact_number') }}">
                                             {{-- placeholder="Enter the Description">{{ old('marathi_emergency_contact_number') }}</textarea> --}}
                                             @if ($errors->has('marathi_emergency_contact_number'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_emergency_contact_number', ':message'); ?></span>

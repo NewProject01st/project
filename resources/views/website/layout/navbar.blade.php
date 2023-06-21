@@ -82,7 +82,21 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-sm-4">
-
+                        <ul class="header-contact new_city_head_change">
+                            <li class="city-exp for_pl_pr"> <i class="fas fa-street-view"></i>
+                                <strong>
+                                    @if (session('language') == 'mar')
+                                    {{ Config::get('marathi.HOME_PAGE.CITY') }}
+                                    @else
+                                    {{ Config::get('english.HOME_PAGE.CITY') }}
+                                    @endif
+                                </strong>
+                            </li>
+                            <li class="header-weather for_pl_pr"> <i class="fas fa-cloud-sun"></i>
+                                {{ getTempratureData() }}°C
+                                / {{ getTempratureData() * 1.8 + 32 }}°F 
+                            </li>
+                        </ul>
                     </div>
                     <div class="col-md-4 col-sm-4">
 
@@ -102,21 +116,20 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                     <div class="col-4 lang-position">
                         <div class="row d-flex justify-content-end">
                             <div class="col-md-9 col-sm-9">
-                                <ul class="header-contact">
-                                    <li class="city-exp for_pl_pr"> <i class="fas fa-street-view"></i>
-                                        <strong>
-                                            @if (session('language') == 'mar')
-                                            {{ Config::get('marathi.HOME_PAGE.CITY') }}
-                                            @else
-                                            {{ Config::get('english.HOME_PAGE.CITY') }}
-                                            @endif
-                                        </strong>
-                                    </li>
-                                    <li class="header-weather for_pl_pr"> <i class="fas fa-cloud-sun"></i>
-                                        {{ getTempratureData() }}°C
-                                        / {{ getTempratureData() * 1.8 + 32 }}°F 
-                                    </li>
+                                <ul class="header-contact new_city_head_change">
+                                <li class="city-exp for_pl_pr mt-3">
+
+                                <!-- <input type="text" placeholder="Search.." name="search" > -->
+                                <!-- <button class="btn btn-success btn-sm" type="submit">Go</button> -->
+                                <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
+
+                                    <form>
+                                    <input type="search" placeholder="Search...">
+                                    <button type="submit">Search</button>
+                                    </form>
+                                </li>
                                 </ul>
+
                             </div>
 
                             <div class="col-3">

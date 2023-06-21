@@ -23,6 +23,9 @@ Route::get('/login', function () {
 Route::get('/', ['as' => '/', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
 Route::post('/change-language', ['as' => '/change-language', 'uses' => 'App\Http\Controllers\Website\IndexController@changeLanguage']);
 
+Route::get('/error-handling', ['as' => 'error-handling', 'uses' => 'App\Http\Controllers\ErrorHandlingController@errorHandling']);
+
+
 
 // Route::get('/add-users', function () {
 //     return view('admin.pages.users.add-users');
@@ -38,6 +41,9 @@ Route::post('/new-paricular-data-web', ['as' => 'new-paricular-data-web', 'uses'
 Route::post('/particular-department-information', ['as' => 'particular-department-information', 'uses' => 'App\Http\Controllers\Website\IndexController@showDepartmentInformation']);
 Route::get('/list-vacancies', ['as' => 'list-vacancies', 'uses' => 'App\Http\Controllers\Website\IndexController@showVacancies']);
 Route::get('/list-rti', ['as' => 'list-rti', 'uses' => 'App\Http\Controllers\Website\IndexController@showRTI']);
+
+Route::get('/information-map', ['as' => 'information-map', 'uses' => 'App\Http\Controllers\Website\Map\MapController@index']);
+Route::post('/information-map-ajax', ['as' => 'information-map-ajax', 'uses' => 'App\Http\Controllers\Website\Map\MapController@mapDataAjax']);
 
 Route::get('/privacy-policy', ['as' => 'privacy-policy', 'uses' => 'App\Http\Controllers\Website\IndexController@getPrivacyPolicy']);
 Route::get('/terms_condition', ['as' => 'terms_condition', 'uses' => 'App\Http\Controllers\Website\IndexController@getTermConditions']);
@@ -493,6 +499,14 @@ Route::get('/edit-video', ['as' => 'edit-video', 'uses' => 'App\Http\Controllers
 Route::post('/update-video', ['as' => 'update-video', 'uses' => 'App\Http\Controllers\ResourceCenter\VideoController@update']);
 Route::post('/show-video', ['as' => 'show-video', 'uses' => 'App\Http\Controllers\ResourceCenter\VideoController@show']);
 Route::post('/delete-video', ['as' => 'delete-video', 'uses' => 'App\Http\Controllers\ResourceCenter\VideoController@destroy']);
+
+Route::get('/list-map-lat-lons', ['as' => 'list-map-lat-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@index']);
+Route::get('/add-map-lot-lons', ['as' => 'add-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@add']);
+Route::post('/add-map-lot-lons', ['as' => 'add-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@store']);
+Route::get('/edit-map-lot-lons', ['as' => 'edit-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@edit']);
+Route::post('/update-map-lot-lons', ['as' => 'update-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@update']);
+Route::post('/show-map-lot-lons', ['as' => 'show-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@show']);
+Route::post('/delete-map-lot-lons', ['as' => 'delete-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@destroy']);
 
 // =======Contact Us==========
 

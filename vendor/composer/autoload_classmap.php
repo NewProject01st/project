@@ -245,6 +245,7 @@ return array(
     'App\\Models\\HazardVulnerability' => $baseDir . '/app/Models/HazardVulnerability.php',
     'App\\Models\\HomeTender' => $baseDir . '/app/Models/HomeTender.php',
     'App\\Models\\IncidentType' => $baseDir . '/app/Models/IncidentType.php',
+    'App\\Models\\MAPGISData' => $baseDir . '/app/Models/MAPGISData.php',
     'App\\Models\\MainMenus' => $baseDir . '/app/Models/MainMenus.php',
     'App\\Models\\MainSubMenus' => $baseDir . '/app/Models/MainSubMenus.php',
     'App\\Models\\MapLatLon' => $baseDir . '/app/Models/MapLatLon.php',

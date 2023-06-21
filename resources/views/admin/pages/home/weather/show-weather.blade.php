@@ -26,7 +26,7 @@
                                 <div class="col-12">
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title English :</label>
+                                            <label>Title :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($weather->english_title) }}</label>
@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Title Marathi :</label>
+                                            <label>शीर्षक :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($weather->marathi_title) }}</label>
@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Description English :</label>
+                                            <label>Description :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($weather->english_description) }}</label>
@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Description Marathi :</label>
+                                            <label> वर्णन :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($weather->marathi_description) }}</label>
@@ -74,26 +74,26 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Image English :</label>
+                                            <label>Image :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <img src="{{ asset('storage/images/home/weather/' . $weather->english_image) }}"
-                                            style="width:300px; height:150px;" />
+                                                style="width:300px; height:150px;" />
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Image Marathi :</label>
+                                            <label>प्रतिमा :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                             <img src="{{ asset('storage/images/home/weather/' . $weather->marathi_image) }}"
-                                            style="width:300px; height:150px;"/>
+                                                style="width:300px; height:150px;" />
                                         </div>
                                     </div>
-                                
+
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>English Pdf :</label>
+                                            <label> Pdf :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <a href="{{ asset('/storage/pdf/weather/' . $weather->english_pdf) }}"
@@ -103,7 +103,7 @@
                                     </div>
                                     <div class="row pt-2">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Marathi Pdf :</label>
+                                            <label>पीडीएफ :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <a href="{{ asset('/storage/pdf/weather/' . $weather->marathi_pdf) }}"
@@ -119,5 +119,4 @@
             </div>
         </div>
         <!-- content-wrapper ends -->
-
     @endsection
