@@ -35,7 +35,7 @@ class WebsiteLogoServices
             $last_id = $this->repo->addAll($request);
             // dd($last_id);
             $path = Config::get('DocumentConstant.WEBSITE_LOGO_ADD');
-            $englishImageName = $last_id . '_english.' . $request->logo->extension();
+            $englishImageName = 'logo' . $request->logo->extension();
             uploadImage($request, 'logo', $path, $englishImageName);
 
             if ($last_id) {
@@ -65,12 +65,12 @@ class WebsiteLogoServices
             $path = Config::get('DocumentConstant.WEBSITE_LOGO_ADD');
             if ($request->hasFile('logo')) {
                 if ($return_data['logo']) {
-                    $delete_file_path_eng  = storage_path(Config::get('DocumentConstant.WEBSITE_LOGO_DELETE') . $return_data['logo']);
+                    $delete_file_path_eng  = storage_path(Config::get('DocumentConstant.WEBSITE_LOGO_DELETE'));
                     if (file_exists($delete_file_path_eng)) {
                         unlink($delete_file_path_eng);
                     }
                 }
-                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->logo->extension();
+                $englishImageName = 'logo' . $request->logo->extension();
                 uploadImage($request, 'logo', $path, $englishImageName);
                 $website_logo = WebsiteLogo::find($return_data['last_insert_id']);
                 $website_logo->logo = $englishImageName;

@@ -14,7 +14,7 @@ return [
     'DISASTER_MANAGEMENT_NEWS_IMAGE_MIN_SIZE'=>'180',
     
     'WEBSITE_LOGO_MAX_SIZE'=>'100',
-    'WEBSITE_LOGO_MIN_SIZE'=>'2',
+    'WEBSITE_LOGO_MIN_SIZE'=>'5',
     
 	
 
