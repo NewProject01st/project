@@ -67,8 +67,8 @@ class RegisterServices
     }
 
     public function updateProfile($request) {
-        $user_register_id = $this->repo->updateProfile($request);
-        return ['status'=>'success','msg'=>'Data Updated Successful.'];
+        $profile_data = $this->repo->updateProfile($request);
+        return $profile_data;
     }
 
     //  public function verifyOtp($otp){

@@ -1,11 +1,10 @@
 @extends('website.layout.master')
 @section('content')
-<style>
-    .main-footer {
-    margin-top: 0%;
-    }
-
- </style>
+    <style>
+        .main-footer {
+            margin-top: 0%;
+        }
+    </style>
     <script>
         $('li.dropdown.mega-dropdown a').on('click', function(event) {
             $(this).parent().toggleClass('open');
@@ -56,10 +55,10 @@
                                     <p><?php echo $slider['marathi_description']; ?> </p>
                                     <div class="slide-content-box pt-3"> <a href="{{ $slider['url'] }}" class="con"
                                             target="_blank">
-                                         @if (session('language') == 'mar')
-                                            {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
                                             @else
-                                            {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
                                             @endif
                                         </a> </div>
                                 </div>
@@ -73,10 +72,10 @@
                                     <p><?php echo $slider['english_description']; ?> </p>
                                     <div class="slide-content-box pt-3"> <a href="{{ $slider['url'] }}" class="con"
                                             target="_blank">
-                                             @if (session('language') == 'mar')
-                                            {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
                                             @else
-                                            {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
                                             @endif
                                         </a> </div>
                                 </div>
@@ -188,12 +187,11 @@
                                     <div class="news-box-f cursor-pointer">
                                         <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             @if (session('language') == 'mar')
-                                            {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
                                             @else
-                                            {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
                                             @endif
-                                        </span> <a
-                                            data-id="{{ $item['id'] }}" class="show-btn"><i
+                                        </span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
                                                 class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
@@ -217,8 +215,13 @@
                                         <p class="card_title"> <?php echo mb_substr($item['english_description'], 0, 74); ?></p>
                                     </div>
                                     <div class="news-box-f cursor-pointer">
-                                        <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more</span> <a
-                                            data-id="{{ $item['id'] }}" class="show-btn"><i
+                                        <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                            @else
+                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                            @endif
+                                        </span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
                                                 class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
@@ -260,7 +263,13 @@
                                                 alt="">
                                             <h6> <a><?php echo $item['marathi_title']; ?></a> </h6>
                                             <a data-id="{{ $item['id'] }}"
-                                                class="department-show-btn rm cursor-pointer">Read More</a>
+                                                class="department-show-btn rm cursor-pointer">
+                                                @if (session('language') == 'mar')
+                                                    {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                                @else
+                                                    {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                @endif
+                                            </a>
                                         </div>
                                     </div>
                                 @else
@@ -270,7 +279,13 @@
                                                 alt="">
                                             <h6> <a><?php echo $item['english_title']; ?></a> </h6>
                                             <a data-id="{{ $item['id'] }}"
-                                                class="department-show-btn rm cursor-pointer">Read More</a>
+                                                class="department-show-btn rm cursor-pointer">
+                                                @if (session('language') == 'mar')
+                                                    {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                                @else
+                                                    {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                @endif
+                                            </a>
                                         </div>
                                     </div>
                                     <!--Icon Box End-->
@@ -431,57 +446,75 @@
                         --}}
                         <div class="emergency-info mt-2">
                             <h5>
-                               @if (session('language') == 'mar')
-                               {{ Config::get('marathi.HOME_PAGE.FORCAST_LIVE_DATA') }}
-                           @else
-                               {{ Config::get('english.HOME_PAGE.FORCAST_LIVE_DATA') }}
-                           @endif
+                                @if (session('language') == 'mar')
+                                    {{ Config::get('marathi.HOME_PAGE.FORCAST_LIVE_DATA') }}
+                                @else
+                                    {{ Config::get('english.HOME_PAGE.FORCAST_LIVE_DATA') }}
+                                @endif
                             </h5>
                             <div class="accordion accordion-flush" id="accordionFlushExample1">
                                 @foreach ($data_output_disasterforcast as $index => $item)
-                                @if (session('language') == 'mar')
-                                <div class="accordion-item custom-accordion-item">
-                                    <h2 class="accordion-header accordion-header-custom" id="flush-heading1{{ $index }}">
-                                        <button class="accordion-button accordion-button-custom collapsed bg-secondary-custom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1{{ $index }}" aria-expanded="false" aria-controls="flush-collapse1{{ $index }}">
-                                            
-                                                @if (session('language') == 'mar')
-                                                    {{ Config::get('marathi.HOME_PAGE.DISASTER_FORCAST') }}
-                                                @else
-                                                    {{ Config::get('english.HOME_PAGE.DISASTER_FORCAST') }}
-                                                @endif
-                                            
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapse1{{ $index }}" class="accordion-collapse collapse bg-secondary-custom" aria-labelledby="flush-heading1{{ $index }}" data-bs-parent="#accordionFlushExample1">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li><?php echo $item['marathi_description']; ?></li>
-                                            </ul>
+                                    @if (session('language') == 'mar')
+                                        <div class="accordion-item custom-accordion-item">
+                                            <h2 class="accordion-header accordion-header-custom"
+                                                id="flush-heading1{{ $index }}">
+                                                <button
+                                                    class="accordion-button accordion-button-custom collapsed bg-secondary-custom"
+                                                    type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapse1{{ $index }}"
+                                                    aria-expanded="false"
+                                                    aria-controls="flush-collapse1{{ $index }}">
+
+                                                    @if (session('language') == 'mar')
+                                                        {{ Config::get('marathi.HOME_PAGE.DISASTER_FORCAST') }}
+                                                    @else
+                                                        {{ Config::get('english.HOME_PAGE.DISASTER_FORCAST') }}
+                                                    @endif
+
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapse1{{ $index }}"
+                                                class="accordion-collapse collapse bg-secondary-custom"
+                                                aria-labelledby="flush-heading1{{ $index }}"
+                                                data-bs-parent="#accordionFlushExample1">
+                                                <div class="accordion-body">
+                                                    <ul>
+                                                        <li><?php echo $item['marathi_description']; ?></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                @else
-                                <div class="accordion-item custom-accordion-item">
-                                    <h2 class="accordion-header accordion-header-custom" id="flush-heading1{{ $index }}">
-                                        <button class="accordion-button accordion-button-custom collapsed bg-secondary-custom" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1{{ $index }}" aria-expanded="false" aria-controls="flush-collapse1{{ $index }}">
-                                            
-                                                @if (session('language') == 'mar')
-                                                    {{ Config::get('marathi.HOME_PAGE.DISASTER_FORCAST') }}
-                                                @else
-                                                    {{ Config::get('english.HOME_PAGE.DISASTER_FORCAST') }}
-                                                @endif
-                                            
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapse1{{ $index }}" class="accordion-collapse collapse bg-secondary-custom" aria-labelledby="flush-heading1{{ $index }}" data-bs-parent="#accordionFlushExample1">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li> <?php echo $item['english_description']; ?></li>
-                                            </ul>
+                                    @else
+                                        <div class="accordion-item custom-accordion-item">
+                                            <h2 class="accordion-header accordion-header-custom"
+                                                id="flush-heading1{{ $index }}">
+                                                <button
+                                                    class="accordion-button accordion-button-custom collapsed bg-secondary-custom"
+                                                    type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapse1{{ $index }}"
+                                                    aria-expanded="false"
+                                                    aria-controls="flush-collapse1{{ $index }}">
+
+                                                    @if (session('language') == 'mar')
+                                                        {{ Config::get('marathi.HOME_PAGE.DISASTER_FORCAST') }}
+                                                    @else
+                                                        {{ Config::get('english.HOME_PAGE.DISASTER_FORCAST') }}
+                                                    @endif
+
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapse1{{ $index }}"
+                                                class="accordion-collapse collapse bg-secondary-custom"
+                                                aria-labelledby="flush-heading1{{ $index }}"
+                                                data-bs-parent="#accordionFlushExample1">
+                                                <div class="accordion-body">
+                                                    <ul>
+                                                        <li> <?php echo $item['english_description']; ?></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                @endif
+                                    @endif
                                 @endforeach
                             </div>
                         </div>

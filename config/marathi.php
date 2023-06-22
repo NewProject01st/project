@@ -12,7 +12,7 @@ return [
 		'OPEN_VACANCIES' =>'रिक्त जागा उघडा	',
 		'DISASTER_MANAGEMENT_HEAD' =>'आपत्ती व्यवस्थापन प्रमुख',
 		'DISASTER_MANAGEMENT_NEWS' =>'आपत्ती व्यवस्थापन बातम्या',
-		'FORCAST_LIVE_DATA'=>'थेट डेटा फोरकास्ट करा',
+		'FORCAST_LIVE_DATA'=>'अंदाज थेट डेटा',
 		'DISASTER_FORCAST'=>'आपत्ती अंदाज',
 		'DEPARTMENT_INFORMATION_DESK' =>'विभाग आणि माहिती डेस्क	',
 		'COUNCIL_ADDRESS' =>'परिषद पत्ता:',
@@ -42,6 +42,8 @@ return [
 		'REPORT_IT' =>'तक्रार करा',
 		'BECOME_VOLUNTEER' =>'स्वयंसेवक व्हा',
 		'TOLL_FREE' =>'टोल फ्री क्रमांक: 000 0000 000',
+		'SEARCH' =>'शोधा',
+		'SEARCH_PLACEHOLDER' =>'शोधा...',
 	],
 
 	'SITE_MAP'=>[ 
@@ -107,6 +109,10 @@ return [
 		'EMERGENCY_RESPONSES_SUB_LINK4' =>'शोध आणि बचाव पथके',
 		'EMERGENCY_RESPONSES_SUB_LINK5' =>'मदत उपाय आणि संसाधने	',
 		'EMERGENCY_RESPONSES_SUB_LINK6' =>'निर्वासन योजना',
+		'EMERGENCY_RESPONSES_SR_NO' =>'अनुक्रमांक',
+		'EMERGENCY_RESPONSES_CONTACT_NAME' =>'संपर्काचे नाव',
+		'EMERGENCY_RESPONSES_CONTACT_NUMBER' =>'संपर्क क्रमांक',
+
 		'NO_DATA_FOUND_DISTRICT_EMERGENCY_OPERATIONS'   => 'जिल्हा आपत्कालीन ऑपरेशन केंद्रासाठी कोणताही डेटा आढळला नाही.',
 		'NO_DATA_FOUND_EMERGENCY_CONTACT_NUMBERS'   => 'आपत्कालीन संपर्क क्रमांकांसाठी कोणताही डेटा आढळला नाही.',
 		'NO_DATA_FOUND_EVACUATION_PLANS'   => 'निर्वासन योजनांसाठी कोणताही डेटा आढळला नाही.',
@@ -168,6 +174,9 @@ return [
 		'RESOURCE_CENTER_SUB_LINK2' =>'नकाशे आणि GIS डेटा',
 		'RESOURCE_CENTER_SUB_LINK3' =>'व्हिडिओ आणि मल्टीमीडिया',
 		'RESOURCE_CENTER_SUB_LINK4' =>'प्रशिक्षण साहित्य आणि कार्यशाळा',
+		'RESOURCE_CENTER_SR_NO' =>'अनुक्रमांक',
+		'RESOURCE_CENTER_TITLE' =>'शीर्षक',
+		'RESOURCE_CENTER_DOWNLOAD_FIL' =>'फाइल डाउनलोड करा',
 	],
 
 	'NEWS_EVENTS'=>[ 
