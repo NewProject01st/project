@@ -26,9 +26,12 @@ class IndexController extends Controller
         $this->service = new IndexServices();  
         $this->menu = getMenuItems();
         $this->socialicon = getSocialIcon();
+        // $this->$menuDataSearch = getMenuForSearch();
+        // dd($menuDataSearch);
         // $this->websitecontact = getWebsiteContact();
     }
 
+   
     static function getCommonWebData() {
         try {
             $retun_data = [];
@@ -158,6 +161,7 @@ class IndexController extends Controller
         try {
             $menu = $this->menu;
             $socialicon = $this->socialicon;
+            // $menuDataSearch = $this->menuDataSearch;
             // $websitecontact = $this->websitecontact;
             $data_output_slider = $this->service->getAllSlider();
             $data_output_marquee = $this->service->getAllMarquee();
@@ -302,4 +306,7 @@ class IndexController extends Controller
     public function changeLanguage(Request $request) {
         Session::put('language', $request->language);
     }    
+
+
+    
 }

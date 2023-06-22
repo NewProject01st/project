@@ -127,6 +127,13 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                                     <input type="search" placeholder="Search...">
                                     <button type="submit">Search</button>
                                     </form>
+
+                                    {{-- <form method="GET" action="">
+                                        <input type="search" name="query" placeholder="Search...">
+                                        <button type="submit">Search</button>
+                                    </form> --}}
+                                    
+                                    
                                 </li>
                                 </ul>
 

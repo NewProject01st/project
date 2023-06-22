@@ -283,6 +283,35 @@ function getTempratureData() {
 }
 
 
+// ==============
+function getMenuForSearch(Request $request) {
+  
+    $query = $request->input('query');
+    $menu_data_search = array();
+    $main_menu_data = MainMenus::where('is_active', true)
+        ->where(function ($queryBuilder) use ($query) {
+            if ($query) {
+                $queryBuilder->where('menu_name_marathi', 'like', '%' . $query . '%')
+                    ->orWhere('menu_name_english', 'like', '%' . $query . '%');
+            }
+        })
+        ->select(
+            'main_menuses.menu_name_marathi',
+            'main_menuses.menu_name_english',
+            'main_menuses.id',
+            'main_menuses.url',
+            'main_menuses.is_static',
+        )
+        ->get()
+        ->toArray();
+  
+    // Rest of the code remains the same...
+    
+    return $menu_data_search;
+}
+
+
+
 
 
 

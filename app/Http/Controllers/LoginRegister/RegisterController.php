@@ -118,8 +118,6 @@ class RegisterController extends Controller {
 
     }
 
-
-
     public function register(Request $request){
 
         $rules = [
@@ -196,6 +194,17 @@ class RegisterController extends Controller {
 
     }
 
+    public function show(Request $request)
+    {
+        try {
+            //  dd($request->show_id);
+            $user_detail = $this->service->getById($request->show_id);
+            return view('admin.pages.users.show-users', compact('user_detail'));
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+  
     public function delete(Request $request){
         $delete_user = $this->service->delete($request);
         $msg = 'User deleted successfully';

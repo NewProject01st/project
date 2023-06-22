@@ -87,7 +87,7 @@
                                     </div>
                                     <div class="col-md-6 mb-2">
                                         <label class="col-form-label modal_lable">Location:</label>
-                                        <input type="input" class="form-control set_m_form" name="location" id="location">
+                                        <input type="text" class="form-control set_m_form" name="location" id="location">
 
                                         @if ($errors->has('location'))
                                         <span class="red-text"><?php echo $errors->first('location', ':message'); ?></span>
@@ -103,7 +103,7 @@
                                     </div>
                                     <div class="col-md-6 mb-2">
                                         <label class="col-form-label modal_lable">Mobile Number:</label>
-                                        <input type="input" class="form-control set_m_form" name="mobile_number" id="mobile_number" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
+                                        <input type="tel" class="form-control set_m_form" name="mobile_number" id="mobile_number" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
                                         >
                                         @if ($errors->has('mobile_number'))
                                         <span class="red-text"><?php echo $errors->first('mobile_number', ':message'); ?></span>
@@ -133,7 +133,7 @@
 
                                     <div class="col-md-6 mb-2">
                                         <label for="ngo_name" class="col-form-label modal_lable">NGO name:</label>
-                                        <input type="input" class="form-control set_m_form" name="ngo_name" id="ngo_name">
+                                        <input type="text" class="form-control set_m_form" name="ngo_name" id="ngo_name">
 
                                         @if ($errors->has('ngo_name'))
                                         <span class="red-text"><?php echo $errors->first('ngo_name', ':message'); ?></span>
@@ -141,7 +141,7 @@
                                     </div>
                                     <div class="col-md-6 mb-2">
                                         <label class="col-form-label ngo_email modal_lable">NGO Email:</label>
-                                        <input type="input" class="form-control set_m_form" name="ngo_email" id="ngo_email">
+                                        <input type="email" class="form-control set_m_form" name="ngo_email" id="ngo_email">
 
                                         @if ($errors->has('ngo_email'))
                                         <span class="red-text"><?php echo $errors->first('ngo_email', ':message'); ?></span>
@@ -149,7 +149,7 @@
                                     </div>
                                     <div class="col-md-6 mb-2">
                                         <label for="ngo_contact_number" class="col-form-label  modal_lable">NGO Mobile Number:</label>
-                                        <input type="input" class="form-control set_m_form" name="ngo_contact_number" id="ngo_contact_number">
+                                        <input type="tel" class="form-control set_m_form" name="ngo_contact_number" id="ngo_contact_number" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10">
 
                                         @if ($errors->has('ngo_contact_number'))
                                         <span class="red-text"><?php echo $errors->first('ngo_contact_number', ':message'); ?></span>
