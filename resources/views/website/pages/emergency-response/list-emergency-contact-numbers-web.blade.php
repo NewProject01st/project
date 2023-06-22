@@ -53,7 +53,13 @@
                                     @endif
                                 </div>
                             @empty
-                                <h4>No Data Found For Emergency Contact Numbers</h4>
+                                <h4>
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.EMERGENCY_RESPONSES.NO_DATA_FOUND_EMERGENCY_CONTACT_NUMBERS') }}
+                                    @else
+                                        {{ Config::get('english.EMERGENCY_RESPONSES.NO_DATA_FOUND_EMERGENCY_CONTACT_NUMBERS') }}
+                                    @endif
+                                </h4>
                             @endforelse
                             <!--Department Details Txt End-->
                             <table class="table table-striped table-hover table-bordered border-dark">

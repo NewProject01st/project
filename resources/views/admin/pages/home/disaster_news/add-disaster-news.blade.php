@@ -37,7 +37,7 @@
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक </label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="marathi_title" id="marathi_title"
-                                                class="form-control" id="marathi_title" placeholder="Enter the Title"
+                                                class="form-control" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा  "
                                                 value="{{ old('marathi_title') }}">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
@@ -59,7 +59,7 @@
                                         <div class="form-group">
                                             <label> वर्णन </label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
-                                                placeholder="Enter the Description">{{ old('marathi_description') }}</textarea>
+                                                placeholder="वर्णन प्रविष्ट करा ">{{ old('marathi_description') }}</textarea>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
                                             @endif
@@ -91,7 +91,8 @@
                                         <div class="form-group">
                                             <label for="english_url">URL</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="english_url" id="english_url" class="form-control"
-                                                id="english_url" placeholder="" value="{{ old('english_url') }}">
+                                                id="english_url" placeholder="Enter the url"
+                                                value="{{ old('english_url') }}">
                                             @if ($errors->has('english_url'))
                                                 <span class="red-text"><?php echo $errors->first('english_url', ':message'); ?></span>
                                             @endif

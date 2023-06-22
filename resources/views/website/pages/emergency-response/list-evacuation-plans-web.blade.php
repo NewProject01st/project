@@ -53,7 +53,13 @@
                                     @endif
                                 </div>
                             @empty
-                                <h4>No Data Found For Evacuation Plans</h4>
+                                <h4>
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.EMERGENCY_RESPONSES.NO_DATA_FOUND_EVACUATION_PLANS') }}
+                                    @else
+                                        {{ Config::get('english.EMERGENCY_RESPONSES.NO_DATA_FOUND_EVACUATION_PLANS') }}
+                                    @endif
+                                </h4>
                             @endforelse
 
                             <!--Department Details Txt End-->

@@ -46,29 +46,74 @@
                         <table id="order-listing" class="table table-striped table-hover table-bordered border-dark">
                             <thead class="" style="background-color: #47194a; color:#fff">
                                 <tr>
-                                    <th scope="col" class="d-flex justify-content-center">Sr. No.</th>
-                                    <th scope="col" class="">Year</th>
-                                    <th scope="col"><div class="d-flex justify-content-center">Title</div></th>
-                                    <th scope="col"><div class="d-flex justify-content-center">Download File</div></th>
+                                    <th scope="col" class="d-flex justify-content-center">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.POLICIES_LEGISLATION.POLICIES_LEGISLATION_SR_NO') }}
+                                        @else
+                                            {{ Config::get('english.POLICIES_LEGISLATION.POLICIES_LEGISLATION_SR_NO') }}
+                                        @endif
+                                    </th>
+                                    <th scope="col" class="">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.POLICIES_LEGISLATION.POLICIES_LEGISLATION_YEAR') }}
+                                        @else
+                                            {{ Config::get('english.POLICIES_LEGISLATION.POLICIES_LEGISLATION_YEAR') }}
+                                        @endif
+                                    </th>
+                                    <th scope="col">
+                                        <div class="d-flex justify-content-center">
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.POLICIES_LEGISLATION.POLICIES_LEGISLATION_TITLE') }}
+                                            @else
+                                                {{ Config::get('english.POLICIES_LEGISLATION.POLICIES_LEGISLATION_TITLE') }}
+                                            @endif
+                                        </div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="d-flex justify-content-center">
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.POLICIES_LEGISLATION.POLICIES_LEGISLATION_DOWNLOAD_FILE') }}
+                                            @else
+                                                {{ Config::get('english.POLICIES_LEGISLATION.POLICIES_LEGISLATION_DOWNLOAD_FILE') }}
+                                            @endif
+                                        </div>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($data_output as $item)
                                     <tr class="">
                                         @if (session('language') == 'mar')
-                                            <td><div class="d-flex justify-content-center">{{ $loop->iteration }}</div></td>
-                                            <td><div class="d-flex justify-content-center">{{ $item['policies_year'] }}</div></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center">{{ $loop->iteration }}</div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex justify-content-center">{{ $item['policies_year'] }}
+                                                </div>
+                                            </td>
                                             <td><?php echo $item['marathi_title']; ?></td>
-                                            <td><div class="d-flex justify-content-center"> <a href="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $item['marathi_pdf'] }}"
-                                                    target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
-                                                        width="35px" height="35px"></a></div></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center"> <a
+                                                        href="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $item['marathi_pdf'] }}"
+                                                        target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
+                                                            width="35px" height="35px"></a></div>
+                                            </td>
                                         @else
-                                            <td><div class="d-flex justify-content-center">{{ $loop->iteration }}</div></td>
-                                            <td><div class="d-flex justify-content-center">{{ $item['policies_year'] }}</div></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center">{{ $loop->iteration }}</div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex justify-content-center">{{ $item['policies_year'] }}
+                                                </div>
+                                            </td>
                                             <td><?php echo $item['english_title']; ?></td>
-                                            <td><div class="d-flex justify-content-center"> <a href="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $item['english_pdf'] }}"
-                                                    target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
-                                                        width="35px" height="35px"></a><div class="d-flex justify-content-center"></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center"> <a
+                                                        href="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $item['english_pdf'] }}"
+                                                        target="_blank"><img src="{{ asset('assets/images/pdf.png/') }}"
+                                                            width="35px" height="35px"></a>
+                                                    <div class="d-flex justify-content-center">
+                                            </td>
                                         @endif
                                     </tr>
                                 @empty

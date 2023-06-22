@@ -53,7 +53,13 @@
                                 @endif
                             </div>
                         @empty
-                            <h4>No Data Found For State Disaster Management Authority</h4>
+                            <h4>
+                                @if (session('language') == 'mar')
+                                    {{ Config::get('marathi.ABOUT_US.NO_DATA_FOUND_DISASTER_AUTHORITY') }}
+                                @else
+                                    {{ Config::get('english.ABOUT_US.NO_DATA_FOUND_DISASTER_AUTHORITY') }}
+                                @endif
+                            </h4>
                         @endforelse
 
                         <!--Department Details Txt End-->

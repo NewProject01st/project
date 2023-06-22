@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>
-        {{env('APP_NAME')}}
+        {{ env('APP_NAME') }}
     </title>
     <link rel="icon" type="image/x-icon" href="{{ asset('website_files/images/home/DM.ico') }}">
 
@@ -17,7 +17,8 @@
     ?>
     <meta name="english_name" content="{{ $metadata->english_name }}">
 
-    <meta name="keywords" content="@if(isset($dynamic_meta_data)) {{$dynamic_meta_data}} @else  {{ $metadata->keywords }} @endif">
+    <meta name="keywords"
+        content="@if (isset($dynamic_meta_data)) {{ $dynamic_meta_data }} @else  {{ $metadata->keywords }} @endif">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{-- <link href="{{ asset('website_files/bootstrap.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/font-awesome.min.css') }}" type="text/css" rel="stylesheet">
@@ -72,12 +73,8 @@
     <link href="{{ asset('website_files/assets/css/jquery.dataTables.min.css') }}" type="text/css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-    <script src="{{ asset('website_files/assets/js/html-magnifier.js') }}"></script>
-    <script>
-        /* global HTMLMagnifier */
-        const magnifier = new HTMLMagnifier({ width: 400 });
-        magnifier.show();
-      </script>
+    {{-- <script src="{{ asset('website_files/assets/js/html-magnifier.js') }}"></script> --}}
+
     <!-- webpage A+ A- button script -->
     <style type="text/css">
         #zoomtext {
@@ -100,9 +97,9 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     //  url: "http://52.66.216.5/change-language",
-                     url: "https://newpro.sumagotest.in/change-language",
+                    //  url: "https://newpro.sumagotest.in/change-language",
                     // url: "http://localhost/project/change-language",
-                   // url: "http://localhost/new_pro/project/change-language",
+                    url: "http://localhost/new_pro/project/change-language",
                     cache: false,
                     success: function(response) {
                         location.reload();
