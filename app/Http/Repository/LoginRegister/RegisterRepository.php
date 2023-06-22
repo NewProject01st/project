@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Mail;
 class RegisterRepository
 {
 
-<<<<<<< HEAD
 	public function getUsersList() {
         $data_users = User::join('roles', function($join) {
 							$join->on('users.role_id', '=', 'roles.id');
@@ -31,36 +30,12 @@ class RegisterRepository
 								'users.designation',
 								'users.address',
 								'users.state',
-								'users.district',
+								'users.city',
 								'users.pincode',
 								'users.id',
 								'users.is_active'
 							)->get();
 							// ->toArray();
-=======
-	public function getUsersList()
-	{
-		$data_users = User::join('roles', function ($join) {
-			$join->on('users.role_id', '=', 'roles.id');
-		})
-			// ->where('users.is_active','=',true)
-			->select(
-				'roles.role_name',
-				'users.u_email',
-				'users.f_name',
-				'users.m_name',
-				'users.l_name',
-				'users.number',
-				'users.designation',
-				'users.address',
-				'users.state',
-				'users.city',
-				'users.pincode',
-				'users.id',
-				'users.is_active'
-			)->get();
-		// ->toArray();
->>>>>>> 6dcbe802286b4659973a5e631c3532e0441bda04
 
 		return $data_users;
 	}
@@ -90,7 +65,7 @@ class RegisterRepository
 		$user_data->designation = $request['designation'];
 		$user_data->address = $request['address'];
 		$user_data->state = $request['state'];
-		$user_data->district = $request['district'];
+		$user_data->city = $request['city'];
 		$user_data->pincode = $request['pincode'];
 		$user_data->ip_address = $ipAddress;
 		$user_data->is_active = isset($request['is_active']) ? true : false;
@@ -103,7 +78,6 @@ class RegisterRepository
 
 	public function update($request)
 	{
-<<<<<<< HEAD
         $ipAddress = getIPAddress($request);
 		$user_data = User::where('id',$request['edit_id']) 
 						->update([
@@ -116,30 +90,11 @@ class RegisterRepository
 							'designation' => $request['designation'],
 							'address' => $request['address'],
 							'state' => $request['state'],
-							'district' => $request['district'],
+							'city' => $request['city'],
 							'pincode' => $request['pincode'],
 							'is_active' => isset($request['is_active']) ? true :false,
 						]);
 		
-=======
-		$ipAddress = getIPAddress($request);
-		$user_data = User::where('id', $request['edit_id'])
-			->update([
-				// 'u_uname' => $request['u_uname'],
-				'role_id' => $request['role_id'],
-				'f_name' => $request['f_name'],
-				'm_name' => $request['m_name'],
-				'l_name' => $request['l_name'],
-				'number' => $request['number'],
-				'designation' => $request['designation'],
-				'address' => $request['address'],
-				'state' => $request['state'],
-				'city' => $request['city'],
-				'pincode' => $request['pincode'],
-				'is_active' => isset($request['is_active']) ? true : false,
-			]);
-
->>>>>>> 6dcbe802286b4659973a5e631c3532e0441bda04
 		// $this->updateRolesPermissions($request, $request->edit_id);
 		return $request->edit_id;
 	}
@@ -277,7 +232,6 @@ class RegisterRepository
 			)->get()
 			->toArray();
 
-<<<<<<< HEAD
 	$data_users_data = User::join('roles', function($join) {
 						$join->on('users.role_id', '=', 'roles.id');
 					})
@@ -298,15 +252,13 @@ class RegisterRepository
 							'users.designation',
 							'users.address',
 							'users.state',
-							'users.district',
+							'users.city',
 							'users.pincode',
 							'users.id',
 							'users.is_active',
 						)->get()
 						->toArray();
 						
-=======
->>>>>>> 6dcbe802286b4659973a5e631c3532e0441bda04
 		$data_users['data_users'] = $data_users_data[0];
 		// $data_users['permissions_user'] = User::join('roles_permissions', function($join) {
 		// 					$join->on('users.id', '=', 'roles_permissions.user_id');
@@ -413,9 +365,5 @@ class RegisterRepository
 
 		return $update_data;
 	}
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> 6dcbe802286b4659973a5e631c3532e0441bda04
 }

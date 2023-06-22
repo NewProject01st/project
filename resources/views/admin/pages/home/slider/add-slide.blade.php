@@ -34,7 +34,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक </label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title"
+                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा "
                                                 name="marathi_title">{{ old('marathi_title') }}</textarea>
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>

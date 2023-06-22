@@ -1,39 +1,38 @@
 @extends('website.layout.master')
 @section('content')
-
-<style>
-    .new_modal_page_btn{
-        width: 100%;
-        line-height: 25px;
-        padding: 10px 30px 10px;
-    }
-</style>
+    <style>
+        .new_modal_page_btn {
+            width: 100%;
+            line-height: 25px;
+            padding: 10px 30px 10px;
+        }
+    </style>
 
     <!--Sub Header Start-->
     <section class="wf100 subheader">
         <div class="container">
             <h2>
-            @if (session('language') == 'mar')
-                        {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_HEADING') }}
-                    @else
-                        {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_HEADING') }}
-                    @endif
+                @if (session('language') == 'mar')
+                    {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_HEADING') }}
+                @else
+                    {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_HEADING') }}
+                @endif
             </h2>
             <ul>
 
                 <li> <a href="{{ route('index') }}">
-                            @if (session('language') == 'mar')
-                                {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_MAIN_LINK') }}
-                            @else
-                                {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_MAIN_LINK') }}
-                            @endif
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_MAIN_LINK') }}
+                        @else
+                            {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_MAIN_LINK') }}
+                        @endif
                     </a> </li>
                 <li>
-                        @if (session('language') == 'mar')
-                            {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_SUB_LINK2') }}
-                        @else
-                            {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_SUB_LINK2') }}
-                        @endif
+                    @if (session('language') == 'mar')
+                        {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_SUB_LINK2') }}
+                    @else
+                        {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_SUB_LINK2') }}
+                    @endif
                 </li>
             </ul>
         </div>
@@ -60,14 +59,21 @@
                             </div>
                         @endif
 
-                        
-                        <form class="forms-sample" method="post" action="{{ url('volunteer-modal') }}" enctype="multipart/form-data">
+
+                        <form class="forms-sample" method="post" action="{{ url('volunteer-modal') }}"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="col-md-12">
 
                                 <div class="row">
                                     <div class="col-md-6 mb-2">
-                                        <label class="col-form-label modal_lable">Volunteer Type:</label>
+                                        <label class="col-form-label modal_lable">
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.CITIZEN_ACTION.FORM_VOLUNTEER_TYPE') }}
+                                            @else
+                                                {{ Config::get('english.CITIZEN_ACTION.FORM_VOLUNTEER_TYPE') }}
+                                            @endif
+                                        </label>
                                         <select class="form-control set_m_form" id="incident" name="incident">
                                             <option value="">Select</option>
                                             @foreach ($data_output_incident as $incidenttype)
@@ -82,47 +88,80 @@
                                             @endforeach
                                         </select>
                                         @if ($errors->has('incident'))
-                                        <span class="red-text"><?php echo $errors->first('incident', ':message'); ?></span>
-                                    @endif
+                                            <span class="red-text"><?php echo $errors->first('incident', ':message'); ?></span>
+                                        @endif
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <label class="col-form-label modal_lable">Location:</label>
-                                        <input type="input" class="form-control set_m_form" name="location" id="location">
+                                        <label class="col-form-label modal_lable">
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.CITIZEN_ACTION.FORM_INCIDENT_LOCATION') }}
+                                            @else
+                                                {{ Config::get('english.CITIZEN_ACTION.FORM_INCIDENT_LOCATION') }}
+                                            @endif
+                                        </label>
+                                        <input type="input" class="form-control set_m_form" name="location"
+                                            id="location">
 
                                         @if ($errors->has('location'))
-                                        <span class="red-text"><?php echo $errors->first('location', ':message'); ?></span>
-                                    @endif
+                                            <span class="red-text"><?php echo $errors->first('location', ':message'); ?></span>
+                                        @endif
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <label class="col-form-label modal_lable">Date and Time:</label>
-                                        <input type="datetime-local" class="form-control set_m_form" name="datetime" id="datetime"
-                                        >
+                                        <label class="col-form-label modal_lable">
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.CITIZEN_ACTION.FORM_DATE_AND_TIME') }}
+                                            @else
+                                                {{ Config::get('english.CITIZEN_ACTION.FORM_DATE_AND_TIME') }}
+                                            @endif
+                                        </label>
+                                        <input type="datetime-local" class="form-control set_m_form" name="datetime"
+                                            id="datetime">
                                         @if ($errors->has('datetime'))
-                                        <span class="red-text"><?php echo $errors->first('datetime', ':message'); ?></span>
-                                    @endif
+                                            <span class="red-text"><?php echo $errors->first('datetime', ':message'); ?></span>
+                                        @endif
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <label class="col-form-label modal_lable">Mobile Number:</label>
-                                        <input type="input" class="form-control set_m_form" name="mobile_number" id="mobile_number" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
-                                        >
+                                        <label class="col-form-label modal_lable">
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.CITIZEN_ACTION.FORM_MOBILE_NUMBER') }}
+                                            @else
+                                                {{ Config::get('english.CITIZEN_ACTION.FORM_MOBILE_NUMBER') }}
+                                            @endif
+                                        </label>
+                                        <input type="input" class="form-control set_m_form" name="mobile_number"
+                                            id="mobile_number" pattern="[789]{1}[0-9]{9}"
+                                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                                            maxlength="10" minlength="10">
                                         @if ($errors->has('mobile_number'))
-                                        <span class="red-text"><?php echo $errors->first('mobile_number', ':message'); ?></span>
-                                    @endif
+                                            <span class="red-text"><?php echo $errors->first('mobile_number', ':message'); ?></span>
+                                        @endif
                                     </div>
- 
+
                                     <div class="col-md-12 mb-4">
-                                        <label class="col-form-label modal_lable">Description:</label>
+                                        <label class="col-form-label modal_lable">
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.CITIZEN_ACTION.FORM_DESCRIPTION') }}
+                                            @else
+                                                {{ Config::get('english.CITIZEN_ACTION.FORM_DESCRIPTION') }}
+                                            @endif
+                                        </label>
                                         <textarea class="form-control set_m_form" name="description" id="description"></textarea>
                                         @if ($errors->has('description'))
-                                        <span class="red-text"><?php echo $errors->first('description', ':message'); ?></span>
-                                    @endif
+                                            <span class="red-text"><?php echo $errors->first('description', ':message'); ?></span>
+                                        @endif
                                     </div>
                                     <div class="col-md-8">
-                                        <label class="col-form-label modal_lable">Media Upload:</label><br>
+                                        <label class="col-form-label modal_lable">
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.CITIZEN_ACTION.FORM_MEDIA_UPLOAD') }}
+                                            @else
+                                                {{ Config::get('english.CITIZEN_ACTION.FORM_MEDIA_UPLOAD') }}
+                                            @endif
+                                        </label><br>
                                         <input type="file" name="media_upload" id="media_upload"> <br>
                                         @if ($errors->has('media_upload'))
-                                        <span class="red-text"><?php echo $errors->first('media_upload', ':message'); ?></span>
-                                    @endif
+                                            <span class="red-text"><?php echo $errors->first('media_upload', ':message'); ?></span>
+                                        @endif
                                     </div>
 
                                     <div class="col-md-4 captcha_set" style="text-align: -webkit-right;">
@@ -144,13 +183,19 @@
                             </div>
 
                             <div class="modal-footer mt-4" style="float: right;width:300px">
-                                <button type="submit" class="btn btn-primary new_modal_page_btn">Send</button>
+                                <button type="submit" class="btn btn-primary new_modal_page_btn">
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.CITIZEN_ACTION.FORM_SEND') }}
+                                    @else
+                                        {{ Config::get('english.CITIZEN_ACTION.FORM_SEND') }}
+                                    @endif
+                                </button>
                             </div>
                         </form>
 
 
 
-                   
+
                     </div>
                 </div>
                 {{-- <div class="row">

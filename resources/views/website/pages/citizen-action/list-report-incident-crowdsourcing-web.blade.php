@@ -53,21 +53,27 @@
                                     @endif
                                 </div>
                             @empty
-                                <h4>No Data Found For Report Incident Crowdsourcing</h4>
+                                <h4>
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.CITIZEN_ACTION.NO_DATA_FOUND_INCIDENT_CROWDSOURCING_WEB') }}
+                                    @else
+                                        {{ Config::get('english.CITIZEN_ACTION.NO_DATA_FOUND_INCIDENT_CROWDSOURCING_WEB') }}
+                                    @endif
+                                </h4>
                             @endforelse
                             <!--Department Details Txt End-->
                             <!-- Button trigger modal -->
                             <div class="d-flex justify-content-center">
-                            <a href="{{ route('report-incident-crowdsourcing-web') }}">
-                                <button type="button" class="btn modal-btn-color">
-                                    @if (session('language') == 'mar')
-                                        {{ Config::get('marathi.HOME_PAGE.REPORT_AN_INCIDENT') }}
-                                    @else
-                                        {{ Config::get('english.HOME_PAGE.REPORT_AN_INCIDENT') }}
-                                    @endif
+                                <a href="{{ route('report-incident-crowdsourcing-web') }}">
+                                    <button type="button" class="btn modal-btn-color">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.HOME_PAGE.REPORT_AN_INCIDENT') }}
+                                        @else
+                                            {{ Config::get('english.HOME_PAGE.REPORT_AN_INCIDENT') }}
+                                        @endif
 
-                                </button>
-                            </a>
+                                    </button>
+                                </a>
                             </div>
                         </div>
                         <!--Sidebar Start-->
@@ -85,6 +91,4 @@
             <!--Department Details Page End-->
         </div>
         <!--Main Content End-->
-
-        
     @endsection

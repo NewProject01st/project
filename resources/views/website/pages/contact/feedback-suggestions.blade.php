@@ -55,15 +55,26 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label class="col-form-label modal_lable">Enter Full Name:</label>
-                                    <input class="gap-text" type="text" name="full_name"
-                                        value="{{ old('full_name') }}">
+                                    <label class="col-form-label modal_lable">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.CONTACT_US.FORM_FULL_NAME') }}
+                                        @else
+                                            {{ Config::get('english.CONTACT_US.FORM_FULL_NAME') }}
+                                        @endif
+                                    </label>
+                                    <input class="gap-text" type="text" name="full_name" value="{{ old('full_name') }}">
                                     @if ($errors->has('full_name'))
                                         <span class="red-text"><?php echo $errors->first('full_name', ':message'); ?></span>
                                     @endif
                                 </div>
                                 <div class="col-md-6">
-                                <label class="col-form-label modal_lable">Enter Email Id:</label>
+                                    <label class="col-form-label modal_lable">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.CONTACT_US.FORM_EMAIL') }}
+                                        @else
+                                            {{ Config::get('english.CONTACT_US.FORM_EMAIL') }}
+                                        @endif
+                                    </label>
                                     <input class="gap-text form_text_set" type="email" name="email"
                                         value="{{ old('email') }}">
                                     @if ($errors->has('email'))
@@ -71,9 +82,14 @@
                                     @endif
                                 </div>
                                 <div class="col-md-6">
-                                     <label class="col-form-label modal_lable">Enter Mobile Number:</label>
+                                    <label class="col-form-label modal_lable">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.CONTACT_US.FORM_MOBILE_NUMBER') }}
+                                        @else
+                                            {{ Config::get('english.CONTACT_US.FORM_MOBILE_NUMBER') }}
+                                        @endif
+                                    </label>
                                     <input class="gap-text" type="text" name="mobile_number"
-                                        
                                         value="{{ old('mobile_number') }}"onkeyup="addvalidateMobileNumber(this.value)">
                                     <span id="number-validate" class="red-text"></span>
                                     @if ($errors->has('mobile_number'))
@@ -81,7 +97,13 @@
                                     @endif
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="col-form-label modal_lable">Select Feedback Type:</label>
+                                    <label class="col-form-label modal_lable">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.CONTACT_US.FORM_FEEDBACK_TYPE') }}
+                                        @else
+                                            {{ Config::get('english.CONTACT_US.FORM_FEEDBACK_TYPE') }}
+                                        @endif
+                                    </label>
                                     <select class="form_text_set select_box_set" name="contact_type" id="contact_type">
                                         <option value="">Select</option>
                                         <option value="Feedback" {{ old('contact_type') == 'Feedback' ? 'selected' : '' }}>
@@ -95,17 +117,28 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                     <label class="col-form-label modal_lable">Enter Subject:</label>
-                                    <input class="gap-text" type="text" name="subject"
-                                        value="{{ old('subject') }}">
+                                    <label class="col-form-label modal_lable">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.CONTACT_US.FORM_SUBJECT') }}
+                                        @else
+                                            {{ Config::get('english.CONTACT_US.FORM_SUBJECT') }}
+                                        @endif
+                                    </label>
+                                    <input class="gap-text" type="text" name="subject" value="{{ old('subject') }}">
                                     @if ($errors->has('subject'))
                                         <span class="red-text"><?php echo $errors->first('subject', ':message'); ?></span>
                                     @endif
                                 </div>
 
                                 <div class="col-md-12">
-                                    <label class="col-form-label modal_lable">Write Any Feedback/Suggestion:</label>
-                                    <textarea class="gap-text" name="suggestion" >{{ old('suggestion') }}</textarea>
+                                    <label class="col-form-label modal_lable">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.CONTACT_US.FORM_WRITE_FEEDBACK_SUGGESTION') }}
+                                        @else
+                                            {{ Config::get('english.CONTACT_US.FORM_WRITE_FEEDBACK_SUGGESTION') }}
+                                        @endif
+                                    </label>
+                                    <textarea class="gap-text" name="suggestion">{{ old('suggestion') }}</textarea>
                                     @if ($errors->has('suggestion'))
                                         <span class="red-text"><?php echo $errors->first('suggestion', ':message'); ?></span>
                                     @endif
@@ -131,7 +164,14 @@
                                 </div>
 
                                 <div class=" col-md-4 mt-4">
-                                    <button type="submit" class="btn btn-primary new_modal_page_btn" style="float: right;width:300px">Send</button>
+                                    <button type="submit" class="btn btn-primary new_modal_page_btn"
+                                        style="float: right;width:300px">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.CONTACT_US.FORM_SEND') }}
+                                        @else
+                                            {{ Config::get('english.CONTACT_US.FORM_SEND') }}
+                                        @endif
+                                    </button>
                                 </div>
                             </div>
                         </form>

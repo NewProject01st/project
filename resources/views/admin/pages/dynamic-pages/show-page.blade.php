@@ -26,22 +26,22 @@
                                 <div class="col-12">
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>English Title :</label>
+                                            <label> Title :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label><?php echo $dynamic_page->english_title; ?>
-                                                  </label>
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Marathi Title :</label>
+                                            <label> शीर्षक :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label><?php echo $dynamic_page->marathi_title; ?></label>
                                         </div>
                                     </div>
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -52,5 +52,4 @@
 
 
         <!-- content-wrapper ends -->
-
     @endsection
