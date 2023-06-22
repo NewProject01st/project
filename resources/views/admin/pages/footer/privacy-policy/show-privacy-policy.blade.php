@@ -10,12 +10,12 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
                             <h3 class="page-title">
-                                Important Links
+                                Privacy Policy
                             </h3>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
                             <div>
-                                <a href="{{ route('list-important-link') }}" class="btn btn-sm btn-primary ml-3">Back</a>
+                                <a href="{{ route('list-privacy-policy') }}" class="btn btn-sm btn-primary ml-3">Back</a>
                             </div>
                         </div>
                     </div>
@@ -27,16 +27,32 @@
                                         <div class="col-lg-3 col-md-3 col-sm-3">
                                             <label>Title :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $links->english_title; ?></label>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label>{{ strip_tags($privacy_policy->english_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>शीर्षक:</label>
+                                            <label>शीर्षक :</label>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label><?php echo $links->marathi_title; ?></label>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label>{{ strip_tags($privacy_policy->marathi_title) }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <label>Description :</label>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label>{{ strip_tags($privacy_policy->english_description) }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <label>वर्णन :</label>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label>{{ strip_tags($privacy_policy->marathi_description) }}</label>
                                         </div>
                                     </div>
                                 </div>

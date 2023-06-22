@@ -65,9 +65,27 @@
                             <table class="table table-striped table-hover table-bordered border-dark">
                                 <thead class="" style="background-color: #47194a; color:#fff">
                                     <tr>
-                                        <th scope="col">Sr. No.</th>
-                                        <th scope="col">Contact Name</th>
-                                        <th scope="col">Contact Number</th>
+                                        <th scope="col">
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.EMERGENCY_RESPONSES.EMERGENCY_RESPONSES_SR_NO') }}
+                                            @else
+                                                {{ Config::get('english.EMERGENCY_RESPONSES.EMERGENCY_RESPONSES_SR_NO') }}
+                                            @endif
+                                        </th>
+                                        <th scope="col">
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.EMERGENCY_RESPONSES.EMERGENCY_RESPONSES_CONTACT_NAME') }}
+                                            @else
+                                                {{ Config::get('english.EMERGENCY_RESPONSES.EMERGENCY_RESPONSES_CONTACT_NAME') }}
+                                            @endif
+                                        </th>
+                                        <th scope="col">
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.EMERGENCY_RESPONSES.EMERGENCY_RESPONSES_CONTACT_NUMBER') }}
+                                            @else
+                                                {{ Config::get('english.EMERGENCY_RESPONSES.EMERGENCY_RESPONSES_CONTACT_NUMBER') }}
+                                            @endif
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
