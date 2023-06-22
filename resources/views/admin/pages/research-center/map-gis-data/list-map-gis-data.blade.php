@@ -29,7 +29,7 @@
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>S. No.</th>
+                                                    <th>Sr. No.</th>
                                                     <th>Latitude</th>
                                                     <th>Longitude</th>
                                                     <th>Location Name</th>

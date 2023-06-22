@@ -124,8 +124,54 @@
                                         <span class="red-text"><?php echo $errors->first('media_upload', ':message'); ?></span>
                                     @endif
                                     </div>
+                                    <div class="col-md-12 ">                           
+                                         <div class="form-group py-4">
+                                          <input type="checkbox" id="checkboxField">
+                                          <label for="checkboxField">Checkbox Field</label>
+                                        
+                                    <div class="hiddenField row" style="display: none;">
 
-                                    <div class="col-md-4 captcha_set" style="text-align: -webkit-right;">
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ngo_name" class="col-form-label modal_lable">NGO name:</label>
+                                        <input type="input" class="form-control set_m_form" name="ngo_name" id="ngo_name">
+
+                                        @if ($errors->has('ngo_name'))
+                                        <span class="red-text"><?php echo $errors->first('ngo_name', ':message'); ?></span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="col-form-label ngo_email modal_lable">NGO Email:</label>
+                                        <input type="input" class="form-control set_m_form" name="ngo_email" id="ngo_email">
+
+                                        @if ($errors->has('ngo_email'))
+                                        <span class="red-text"><?php echo $errors->first('ngo_email', ':message'); ?></span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ngo_contact_number" class="col-form-label  modal_lable">NGO Mobile Number:</label>
+                                        <input type="input" class="form-control set_m_form" name="ngo_contact_number" id="ngo_contact_number">
+
+                                        @if ($errors->has('ngo_contact_number'))
+                                        <span class="red-text"><?php echo $errors->first('ngo_contact_number', ':message'); ?></span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="ngo_photo" class="col-form-label modal_lable">Photo:</label><br>
+                                        <input type="file" name="ngo_photo" id="ngo_photo"> <br>
+                                        @if ($errors->has('ngo_photo'))
+                                        <span class="red-text"><?php echo $errors->first('ngo_photo', ':message'); ?></span>
+                                    @endif
+                                    </div>
+                                    <div class="col-md-12 mb-4">
+                                        <label class="col-form-label modal_lable">Address:</label>
+                                        <textarea class="form-control set_m_form" name="ngo_address" id="ngo_address"></textarea>
+                                        @if ($errors->has('ngo_address'))
+                                        <span class="red-text"><?php echo $errors->first('ngo_address', ':message'); ?></span>
+                                    @endif
+                                    </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                    <div class="captcha_set" style="text-align: -webkit-right;">
                                         {!! NoCaptcha::renderJs() !!}
                                         {!! NoCaptcha::display() !!}
 
@@ -135,22 +181,17 @@
                                             </span>
                                         @endif
                                     </div>
-
-                                    <div class="col-md-8">
-
                                     </div>
-
+                                  
                                 </div>
                             </div>
-
+                            <div class="d-flex justify-content-end">
                             <div class="modal-footer mt-4" style="float: right;width:300px">
                                 <button type="submit" class="btn btn-primary new_modal_page_btn">Send</button>
                             </div>
+                            </div>
                         </form>
 
-
-
-                   
                     </div>
                 </div>
                 {{-- <div class="row">
@@ -177,6 +218,18 @@
             }
         }
     </script>
+
+<script>
+    $(document).ready(function() {
+        $('#checkboxField').change(function() {
+            if ($(this).is(':checked')) {
+                $('.hiddenField').show();
+            } else {
+                $('.hiddenField').hide();
+            }
+        });
+    });
+</script>
 @endsection
 {{-- @extends('website.layout.navbar')
 @extends('website.layout.header') --}}

@@ -30,7 +30,7 @@
                                     <table id="order-listing" class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>S. No.</th>
+                                                <th>Sr. No.</th>
                                                 <th>Role Name</th>
                                                 <th>Status</th>
                                                 <th>Action</th>

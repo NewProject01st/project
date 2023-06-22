@@ -52,7 +52,8 @@
                                                         <!-- <td>
                                                                             <span class="badge badge-success">Active</span>
                                                                         </td> -->
-                                                        <td class="d-flex">
+                                                        <td>
+                                                            <div class="d-flex">
                                                             @if (in_array('per_update', $data_permission))
                                                                 <a data-id="{{ $item->id }}"
                                                                     class="edit-btn btn btn-sm btn-outline-primary m-1" title="Edit"><i
@@ -67,7 +68,7 @@
                                                                     class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                                     title="Delete"><i class="fas fa-archive"></i></a>
                                                             @endif
-
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 @endforeach

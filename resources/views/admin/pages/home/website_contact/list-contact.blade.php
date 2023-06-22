@@ -31,7 +31,7 @@
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>S. No.</th>
+                                                    <th>Sr. No.</th>
                                                     <th>Address</th>
                                                     <th>पत्ता</th>
                                                     <th>English</th>
