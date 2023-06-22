@@ -1,23 +1,23 @@
 @extends('admin.layout.master')
 
 @section('content')
-    <?php $data_permission = getPermissionForCRUDPresentOrNot('list-state-disaster-management-plan', session('permissions'));
+    <?php $data_permission = getPermissionForCRUDPresentOrNot('list-incident-type', session('permissions'));
     ?>
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    State Disaster Management Plan
+                    Incident Type
                     @if (in_array('per_add', $data_permission))
-                        <a href="{{ route('add-state-disaster-management-plan') }}" class="btn btn-sm btn-primary ml-3">+
+                        <a href="{{ route('add-incident-type') }}" class="btn btn-sm btn-primary ml-3">+
                             Add</a>
                     @endif
 
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Policies and Legislation</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> State Disaster Management Plan</li>
+                        <li class="breadcrumb-item"><a href="#">Master</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> Incident Type</li>
                     </ol>
                 </nav>
             </div>
@@ -32,41 +32,29 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
-                                                    <th>Title</th>
-                                                    <th>शीर्षक</th>
-                                                    <th>Year</th>
-                                                    <th>PDF</th>
-                                                    <th>पीडीएफ</th>
+                                                    <th>Title English</th>
+                                                    <th>Title Marathi</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($state_management as $item)
+                                                @foreach ($incidenttype_data as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ strip_tags($item->english_title) }}</td>
                                                         <td>{{ strip_tags($item->marathi_title) }}</td>
-                                                        <td>{{ strip_tags($item->policies_year) }}</td>
-                                                        <td> <a href="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $item->english_pdf }}"
-                                                                target="_blank"><img
-                                                                    src="{{ asset('assets/images/pdf.png/') }}"
-                                                                    width="35px" height="35px"></a></td>
-                                                        <td> <a href="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $item->marathi_pdf }}"
-                                                                target="_blank"><img class="pdf-size"
-                                                                    src="{{ asset('assets/images/pdf.png/') }}"
-                                                                    width="35px" height="35px"></a></td>
-                                                                    <td>
-                                                                        <label class="switch">
-                                                                            <input data-id="{{ $item->id }}" type="checkbox"
-                                                                                {{ $item->is_active ? 'checked' : '' }}
-                                                                                class="active-btn btn btn-sm btn-outline-primary m-1"
-                                                                                data-toggle="tooltip" data-placement="top"
-                                                                                title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
-                                                                            <span class="slider round "></span>
-                                                                        </label>
-            
-                                                                    </td>
+                                                        <td>
+                                                            <label class="switch">
+                                                                <input data-id="{{ $item->id }}" type="checkbox"
+                                                                    {{ $item->is_active ? 'checked' : '' }}
+                                                                    class="active-btn btn btn-sm btn-outline-primary m-1"
+                                                                    data-toggle="tooltip" data-placement="top"
+                                                                    title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
+                                                                <span class="slider round "></span>
+                                                            </label>
+
+                                                        </td>
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
@@ -83,7 +71,6 @@
                                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                                         title="Delete"><i class="fas fa-archive"></i></a>
                                                                 @endif
-
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -99,23 +86,22 @@
                 </div>
             </div>
         </div>
-        <form method="POST" action="{{ url('/delete-state-disaster-management-plan') }}" id="deleteform">
+        <form method="POST" action="{{ url('/delete-incident-type') }}" id="deleteform">
             @csrf
             <input type="hidden" name="delete_id" id="delete_id" value="">
         </form>
-        <form method="POST" action="{{ url('/show-state-disaster-management-plan') }}" id="showform">
+        <form method="POST" action="{{ url('/show-incident-type') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="GET" action="{{ url('/edit-state-disaster-management-plan') }}" id="editform">
+        <form method="GET" action="{{ url('/edit-incident-type') }}" id="editform">
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>
-        <form method="POST" action="{{ url('/update-one-state_disaster') }}" id="activeform">
+        <form method="POST" action="{{ url('/update-one-incident_type') }}" id="activeform">
             @csrf
             <input type="hidden" name="active_id" id="active_id" value="">
         </form>
-        
 
         <!-- content-wrapper ends -->
     @endsection
