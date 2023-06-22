@@ -297,9 +297,7 @@ class RegisterRepository
 		return $user_detail;
 	}
 
-
-	public function updateProfile($request)
-	{
+	public function updateProfile($request){
 		try {
 			$otp = rand(6, 999999);
 			$update_data = [
@@ -313,7 +311,7 @@ class RegisterRepository
 				$update_data['otp_number'] = $otp;
 	
 				if (isset($request->otp_number) && $request->otp_number !== '') {
-					// alert("hii");
+					
 					if ($request->otp_number == $otp) {
 						 $update_data['number'] = $request->number;
 					} else {
@@ -349,5 +347,9 @@ class RegisterRepository
 
 		return $update_data;
 	}
+
+
+
+
 
 }

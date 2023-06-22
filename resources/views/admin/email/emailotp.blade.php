@@ -1,6 +1,7 @@
 {{ $email_data['otp'] }}
 
-<form class="forms-sample" action="{{ url('emailotp') }}" method="POST" enctype="multipart/form-data" id="regForm">
+<form class="forms-sample" action="{{ route('otp-verification') }}" method="POST" enctype="multipart/form-data"
+    id="regForm">
     @csrf
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6">

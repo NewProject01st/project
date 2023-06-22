@@ -118,6 +118,8 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/edit-user-profile', ['as' => 'edit-user-profile', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@editUsersProfile']);
     Route::post('/update-user-profile', ['as' => 'update-user-profile', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateProfile']);
 
+    Route::post('/otp-verification', ['as' => 'otp-verification', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateEmailOtp']);
+
     // Route::post('/update--one-user-profile', ['as' => 'update--one-user-profile', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateOne']);
     
     Route::get('/list-main-menu', ['as' => 'list-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@index']);

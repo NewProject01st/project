@@ -19,12 +19,10 @@ class RegisterServices
         $this->repo = new RegisterRepository();
     }
 
-
     public function index() {
         $data_users = $this->repo->getUsersList();
         return $data_users;
     }
-
 
     public function register($request) {
        // $academicYear = 1;
@@ -43,15 +41,12 @@ class RegisterServices
     public function update($request) {
             $user_register_id = $this->repo->update($request);
             return ['status'=>'success','msg'=>'Data Updated Successful.'];
-    }
-
-    
+    }    
 
     public function editUsers($request) {
         $data_users = $this->repo->editUsers($request);
         return $data_users;
     }
-
     
     public function delete($request) {
         $delete_user = $this->repo->delete($request);
@@ -74,6 +69,19 @@ class RegisterServices
     public function updateProfile($request) {
         $user_register_id = $this->repo->updateProfile($request);
         return ['status'=>'success','msg'=>'Data Updated Successful.'];
-     }
+    }
+
+    //  public function verifyOtp($otp){
+    //     $user = User::where('otp_number', $otp)->first();
+    //     if ($user) {
+    //         // Clear OTP after successful verification
+    //         $user->otp_number = null;
+    //         $user->save();
+
+    //         return true; // Valid OTP
+    //     }
+
+    //     return false; // Invalid OTP
+    // }
 
 }
