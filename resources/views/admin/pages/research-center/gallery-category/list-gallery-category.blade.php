@@ -31,7 +31,7 @@
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>S. No.</th>
+                                                    <th>Sr. No.</th>
                                                     <th>Category Name </th>
                                                     <th>श्रेणीचे नाव </th>
                                                     <th>Status</th>

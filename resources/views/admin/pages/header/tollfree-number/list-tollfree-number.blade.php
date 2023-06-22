@@ -32,7 +32,7 @@
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>S. No.</th>
+                                                    <th>Sr. No.</th>
                                                     <th>Toll Free Number</th>
                                                     <th>टोल फ्री क्रमांक</th>
                                                     <th>Action</th>

@@ -29,8 +29,7 @@ class RegisterController extends Controller {
     }
 
 
-    public function addUsers()
-    {
+    public function addUsers(){
         $roles = Roles::where('is_active', true)
                         ->select('id','role_name')
                         ->get()
@@ -57,13 +56,13 @@ class RegisterController extends Controller {
 
     }
 
-    public function editUsers(Request $request) {
+    public function editUsers(Request $request){
         $user_data = $this->service->editUsers($request);
         // dd($user_data);
         return view('admin.pages.users.edit-users',compact('user_data'));
     }
 
-    public function update(Request $request) {
+    public function update(Request $request){
         // $user_data = $this->service->editUsers($request);
         // return view('admin.pages.users.users-list',compact('user_data'));
 
@@ -137,7 +136,7 @@ class RegisterController extends Controller {
 
 
 
-    public function register(Request $request) {
+    public function register(Request $request){
 
         $rules = [
                     'u_email' => 'required',
@@ -213,7 +212,7 @@ class RegisterController extends Controller {
 
     }
 
-    public function delete(Request $request) {
+    public function delete(Request $request){
         $delete_user = $this->service->delete($request);
         $msg = 'User deleted successfully';
         $status = 'success';
@@ -221,8 +220,7 @@ class RegisterController extends Controller {
     }
     // ======================================
 
-    public function updateOne(Request $request)
-    {
+    public function updateOne(Request $request){
         try {
             $active_id = $request->active_id;
         $result = $this->service->updateOne($active_id);
@@ -232,7 +230,7 @@ class RegisterController extends Controller {
         }
     }
 
-    public function editUsersProfile(Request $request) {
+    public function editUsersProfile(Request $request){
         $user_data = $this->service->getProfile($request);
         // $user_detail= session()->get('user_id');
         // $id = $user_data->id;
@@ -241,7 +239,7 @@ class RegisterController extends Controller {
         return view('admin.pages.users.edit-user-profile',compact('user_data'));
     }
 
-    public function updateProfile(Request $request) {
+    public function updateProfile(Request $request){
         $rules = [
             // 'u_email' => 'required',
             // 'u_password' => 'required',
@@ -288,4 +286,40 @@ class RegisterController extends Controller {
 
     }
    
+
+    // public function updateEmailOtp(Request $request){
+    //     $rules = [
+    //         'otp_number' => 'required|numeric', // Add validation rules for otp_number field
+    //     ];
+    
+    //     $messages = [
+    //         'otp_number.required' => 'Please enter the OTP.',
+    //         'otp_number.numeric' => 'The OTP must be a numeric value.',
+    //     ];
+    
+    //     try {
+    //         $validation = Validator::make($request->all(), $rules, $messages);
+    //         if ($validation->fails()) {
+    //             return redirect()->back()
+    //                 ->withInput()
+    //                 ->withErrors($validation);
+    //         } else {
+    //             $verification_result = $this->service->verifyOtp($request->otp_number);
+    //             if ($verification_result) {
+    //                 // Redirect to success page or desired location
+    //                 return redirect('list-users')->with(['msg' => 'OTP verified successfully.', 'status' => 'success']);
+    //             } else {
+    //                 return redirect()->back()
+    //                     ->withInput()
+    //                     ->with(['msg' => 'Invalid OTP.', 'status' => 'error']);
+    //             }
+    //         }
+    //     } catch (Exception $e) {
+    //         return redirect()->back()
+    //             ->withInput()
+    //             ->with(['msg' => $e->getMessage(), 'status' => 'error']);
+    //     }
+    // }
+    
+
 }

@@ -31,7 +31,7 @@
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>S. No.</th>
+                                                    <th>Sr. No.</th>
                                                     <th>Gallery Category</th>
                                                     <th> Image</th>
                                                     <th>प्रतिमा</th>

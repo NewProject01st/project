@@ -30,7 +30,7 @@
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>S. No.</th>
+                                                    <th>Sr. No.</th>
                                                     <th>Title </th>
                                                     <th>शीर्षक </th>
                                                     <th>Description </th>

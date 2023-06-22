@@ -346,6 +346,15 @@ class PermissionsSeeder extends Seeder
                     'url' => 'list-document-publications',
                     'permission_name' => 'Documents And Publications',
                 ]);
+                
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'Longitude Latitude',
+                    'url' => 'list-map-lat-lons',
+                    'permission_name' => 'Longitude Latitude',
+                ]);
             Permissions::create(
                 [
                     'created_at' => \Carbon\Carbon::now(),
