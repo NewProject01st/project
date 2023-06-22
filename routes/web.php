@@ -554,6 +554,24 @@ Route::post('/show-tweeter-feed', ['as' => 'show-tweeter-feed', 'uses' => 'App\H
 Route::post('/delete-tweeter-feed', ['as' => 'delete-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@destroy']);
 Route::post('/update-one-tweeter-feed', ['as' => 'update-one-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@updateOne']);
 
+Route::get('/list-privacy-policy', ['as' => 'list-privacy-policy', 'uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@index']);
+Route::get('/add-privacy-policy', ['as' => 'add-privacy-policy', 'uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@add']);
+Route::post('/add-privacy-policy', ['as' => 'add-privacy-policy', 'uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@store']);
+Route::get('/edit-privacy-policy', ['as' => 'edit-privacy-policy', 'uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@edit']);
+Route::post('/update-privacy-policy', ['as' => 'update-privacy-policy','uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@update']);
+Route::post('/show-privacy-policy', ['as' => 'show-privacy-policy', 'uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@show']);
+Route::post('/delete-privacy-policy', ['as' => 'delete-privacy-policy', 'uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@destroy']);
+// Route::post('/update-one-privacy-policy', ['as' => 'update-one-privacy-policy', 'uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@updateOne']);
+
+Route::get('/list-terms-conditions', ['as' => 'list-terms-conditions', 'uses' => 'App\Http\Controllers\Footer\TermsConditionController@index']);
+Route::get('/add-terms-conditions', ['as' => 'add-terms-conditions', 'uses' => 'App\Http\Controllers\Footer\TermsConditionController@add']);
+Route::post('/add-terms-conditions', ['as' => 'add-terms-conditions', 'uses' => 'App\Http\Controllers\Footer\TermsConditionController@store']);
+Route::get('/edit-terms-conditions', ['as' => 'edit-terms-conditions', 'uses' => 'App\Http\Controllers\Footer\TermsConditionController@edit']);
+Route::post('/update-terms-conditions', ['as' => 'update-terms-conditions','uses' => 'App\Http\Controllers\Footer\TermsConditionController@update']);
+Route::post('/show-terms-conditions', ['as' => 'show-terms-conditions', 'uses' => 'App\Http\Controllers\Footer\TermsConditionController@show']);
+Route::post('/delete-terms-conditions', ['as' => 'delete-terms-conditions', 'uses' => 'App\Http\Controllers\Footer\TermsConditionController@destroy']);
+// Route::post('/update-one-terms-conditions', ['as' => 'update-one-terms-conditions', 'uses' => 'App\Http\Controllers\Footer\TermsConditionController@updateOne']);
+
 //====Header Vacancies=====
 Route::get('/list-header-vacancies', ['as' => 'list-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@index']);
 Route::get('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@add']);

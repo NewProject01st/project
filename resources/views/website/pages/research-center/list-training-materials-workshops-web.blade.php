@@ -46,26 +46,62 @@
                     <table id="order-listing" class="table table-striped table-hover table-bordered border-dark">
                         <thead class="" style="background-color: #47194a; color:#fff">
                             <tr>
-                                <th scope="col"><div class="d-flex justify-content-center">Sr. No.</div></th>
-                                <th scope="col"><div class="d-flex justify-content-center">Title</div></th>
-                                <th scope="col"><div class="d-flex justify-content-center">Download File</div></th>
+                                <th scope="col">
+                                    <div class="d-flex justify-content-center">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.RESOURCE_CENTER.RESOURCE_CENTER_SR_NO') }}
+                                        @else
+                                            {{ Config::get('english.RESOURCE_CENTER.RESOURCE_CENTER_SR_NO') }}
+                                        @endif
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="d-flex justify-content-center">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.RESOURCE_CENTER.RESOURCE_CENTER_TITLE') }}
+                                        @else
+                                            {{ Config::get('english.RESOURCE_CENTER.RESOURCE_CENTER_TITLE') }}
+                                        @endif
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="d-flex justify-content-center">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.RESOURCE_CENTER.RESOURCE_CENTER_DOWNLOAD_FIL') }}
+                                        @else
+                                            {{ Config::get('english.RESOURCE_CENTER.RESOURCE_CENTER_DOWNLOAD_FIL') }}
+                                        @endif
+                                    </div>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($data_output as $item)
                                 <tr class="">
                                     @if (session('language') == 'mar')
-                                        <td><div class="d-flex justify-content-center">{{ $loop->iteration }}</div></td>
+                                        <td>
+                                            <div class="d-flex justify-content-center">{{ $loop->iteration }}</div>
+                                        </td>
                                         <td><?php echo $item['marathi_title']; ?></td>
-                                        <td> <div class="d-flex justify-content-center"><a href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $item['marathi_pdf'] }}"
-                                                target="_blank"><img src="{{ asset('website_files/images/pdf/pdf.png/') }}"
-                                                    width="35px" height="35px"></a></div></td>
+                                        <td>
+                                            <div class="d-flex justify-content-center"><a
+                                                    href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $item['marathi_pdf'] }}"
+                                                    target="_blank"><img
+                                                        src="{{ asset('website_files/images/pdf/pdf.png/') }}"
+                                                        width="35px" height="35px"></a></div>
+                                        </td>
                                     @else
-                                        <td><div class="d-flex justify-content-center">{{ $loop->iteration }}</div></td>
+                                        <td>
+                                            <div class="d-flex justify-content-center">{{ $loop->iteration }}</div>
+                                        </td>
                                         <td><?php echo $item['english_title']; ?></td>
-                                        <td><div class="d-flex justify-content-center"> <a href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $item['english_pdf'] }}"
-                                                target="_blank"><img src="{{ asset('website_files/images/pdf/pdf.png/') }}"
-                                                    width="35px" height="35px"></a></div></td>
+                                        <td>
+                                            <div class="d-flex justify-content-center"> <a
+                                                    href="{{ Config::get('DocumentConstant.TRAINING_MATERIAL_VIEW') }}{{ $item['english_pdf'] }}"
+                                                    target="_blank"><img
+                                                        src="{{ asset('website_files/images/pdf/pdf.png/') }}"
+                                                        width="35px" height="35px"></a></div>
+                                        </td>
                                     @endif
                                 </tr>
                             @empty

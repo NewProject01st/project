@@ -1,22 +1,22 @@
 @extends('admin.layout.master')
 
 @section('content')
-    <?php $data_permission = getPermissionForCRUDPresentOrNot('list-important-link', session('permissions'));
+    <?php $data_permission = getPermissionForCRUDPresentOrNot('list-privacy-policy', session('permissions'));
     ?>
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="page-header">
                 <h3 class="page-title">
-                    Important Links List
+                    Privacy Policy List
                     @if (in_array('per_add', $data_permission))
-                        <a href="{{ route('add-important-link') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
+                        <a href="{{ route('add-privacy-policy') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
                     @endif
 
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Footer</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Important Links List</li>
+                        <li class="breadcrumb-item active" aria-current="page">Privacy Policy List</li>
                     </ol>
                 </nav>
             </div>
@@ -33,28 +33,22 @@
                                                     <th>Sr. No.</th>
                                                     <th>Title</th>
                                                     <th>शीर्षक</th>
-                                                    <th>Status</th>
+                                                    <th>Description </th>
+                                                    <th>वर्णन </th>
+                                                    {{-- <th>Status</th> --}}
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($links as $item)
+                                                @foreach ($privacy_policy as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td><?php echo $item->english_title; ?></td>
                                                         <td><?php echo $item->marathi_title; ?></td>
-                                                        <!-- <td>
-                                                                    <button data-id="{{ $item->id }}" type="submit"
-                                                                        class="active-btn btn btn-sm btn-outline-primary m-1"
-                                                                        data-toggle="tooltip" data-placement="top"
-                                                                        title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
-                                                                        <span class="status-icon {{ $item->is_active ? '1' : '0' }}">
-                                                                            <i
-                                                                                class="fa {{ $item->is_active ? 'fa-thumbs-up' : 'fa-thumbs-down' }}"></i>
-                                                                        </span>
-                                                                    </button>
-                                                                </td> -->
-                                                        <td>
+                                                        <td>{{ strip_tags($item->english_description) }}</td>
+                                                        <td>{{ strip_tags($item->marathi_description) }}</td>
+
+                                                        {{-- <td>
                                                             <label class="switch">
                                                                 <input data-id="{{ $item->id }}" type="checkbox"
                                                                     {{ $item->is_active ? 'checked' : '' }}
@@ -64,7 +58,7 @@
                                                                 <span class="slider round "></span>
                                                             </label>
 
-                                                        </td>
+                                                        </td> --}}
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
@@ -96,19 +90,19 @@
                 </div>
             </div>
         </div>
-        <form method="POST" action="{{ url('/delete-important-link') }}" id="deleteform">
+        <form method="POST" action="{{ url('/delete-privacy-policy') }}" id="deleteform">
             @csrf
             <input type="hidden" name="delete_id" id="delete_id" value="">
         </form>
-        <form method="POST" action="{{ url('/show-important-link') }}" id="showform">
+        <form method="POST" action="{{ url('/show-privacy-policy') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="GET" action="{{ url('/edit-important-link') }}" id="editform">
+        <form method="GET" action="{{ url('/edit-privacy-policy') }}" id="editform">
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>
-        <form method="POST" action="{{ url('/update-one-important-link') }}" id="activeform">
+        <form method="POST" action="{{ url('/update-one-privacy-policy') }}" id="activeform">
             @csrf
             <input type="hidden" name="active_id" id="active_id" value="">
         </form>

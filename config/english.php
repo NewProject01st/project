@@ -5,7 +5,7 @@ namespace App\Constants;
 return [
 	'HOME_PAGE'=>[
 		'CITY' =>'Nasik City',
-		'READ_MORE' =>'Nasik City',
+		'READ_MORE' =>'Read More',
 		'ALL_RIGHT_RESERVED'=>' All rights reserved',
 		'SELECT_LANGUAGE'	         =>'Select Language',
 		'HELP_AND_EMERENCY_SERVICE' =>'Helplines & Emergency Services',
@@ -40,6 +40,8 @@ return [
 		'REPORT_IT' =>'Report It',
 		'BECOME_VOLUNTEER' =>'Become a Volunteer',
 		'TOLL_FREE' =>'Toll Free: 000 0000 000',
+		'SEARCH' =>'Search',
+		'SEARCH_PLACEHOLDER' =>'Search...',
 
 	],
 	
@@ -104,6 +106,10 @@ return [
 		'EMERGENCY_RESPONSES_SUB_LINK4' =>'Search Rescue Teams',
 		'EMERGENCY_RESPONSES_SUB_LINK5' =>'Relief Measures and Resources ',
 		'EMERGENCY_RESPONSES_SUB_LINK6' =>' Evacuation Plans',
+		'EMERGENCY_RESPONSES_SR_NO' =>'Sr. No.',
+		'EMERGENCY_RESPONSES_CONTACT_NAME' =>'Contact Name',
+		'EMERGENCY_RESPONSES_CONTACT_NUMBER' =>'Contact Number',
+
 		'NO_DATA_FOUND_DISTRICT_EMERGENCY_OPERATIONS'   => 'No Data Found For District Emergency Operations Center.',
 		'NO_DATA_FOUND_EMERGENCY_CONTACT_NUMBERS'   => 'No Data Found For Emergency Contact Numbers.',
 		'NO_DATA_FOUND_EVACUATION_PLANS'   => 'No Data Found For Evacuation Plans.',
@@ -166,6 +172,9 @@ return [
 		'RESOURCE_CENTER_SUB_LINK2' =>' Maps and GIS Data',
 		'RESOURCE_CENTER_SUB_LINK3' =>' Videos And Multimedia',
 		'RESOURCE_CENTER_SUB_LINK4' =>' Training Materials And Workshops',
+		'RESOURCE_CENTER_SR_NO' =>'Sr. No.',
+		'RESOURCE_CENTER_TITLE' =>'Title',
+		'RESOURCE_CENTER_DOWNLOAD_FIL' =>'Download File',
 	],
 
 	'NEWS_EVENTS'=>[ 
