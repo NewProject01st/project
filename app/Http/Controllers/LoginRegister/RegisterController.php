@@ -8,7 +8,8 @@ use App\Http\Services\LoginRegister\RegisterServices;
 use App\Models\ {
     Roles,
     Permissions,
-    TblArea
+    TblArea,
+    User
 };
 use Validator;
 use session;
@@ -289,39 +290,57 @@ class RegisterController extends Controller {
     }
    
 
-    // public function updateEmailOtp(Request $request){
-    //     $rules = [
-    //         'otp_number' => 'required|numeric', // Add validation rules for otp_number field
-    //     ];
+    public function updateEmailOtp(Request $request){
+        $rules = [
+            'otp_number' => 'required|numeric', // Add validation rules for otp_number field
+        ];
     
-    //     $messages = [
-    //         'otp_number.required' => 'Please enter the OTP.',
-    //         'otp_number.numeric' => 'The OTP must be a numeric value.',
-    //     ];
+        $messages = [
+            'otp_number.required' => 'Please enter the OTP.',
+            'otp_number.numeric' => 'The OTP must be a numeric value.',
+        ];
     
-    //     try {
-    //         $validation = Validator::make($request->all(), $rules, $messages);
-    //         if ($validation->fails()) {
-    //             return redirect()->back()
-    //                 ->withInput()
-    //                 ->withErrors($validation);
-    //         } else {
-    //             $verification_result = $this->service->verifyOtp($request->otp_number);
-    //             if ($verification_result) {
-    //                 // Redirect to success page or desired location
-    //                 return redirect('list-users')->with(['msg' => 'OTP verified successfully.', 'status' => 'success']);
-    //             } else {
-    //                 return redirect()->back()
-    //                     ->withInput()
-    //                     ->with(['msg' => 'Invalid OTP.', 'status' => 'error']);
-    //             }
-    //         }
-    //     } catch (Exception $e) {
-    //         return redirect()->back()
-    //             ->withInput()
-    //             ->with(['msg' => $e->getMessage(), 'status' => 'error']);
-    //     }
-    // }
+        try {
+            $validation = Validator::make($request->all(), $rules, $messages);
+            if ($validation->fails()) {
+                return redirect()->back()
+                    ->withInput()
+                    ->withErrors($validation);
+            } else {
+                // $verification_result = $this->service->verifyOtp($request->otp_number);
+                $update_data = array();
+                $otp = User::where('id', $request->user_id)->first();
+                if($otp->otp == $request->otp_number) {
+                    
+                    if($request->password_change =='yes') {
+                        $update_data['password'] = $request->u_password_new;
+                    }
+                    if($request->mobile_change =='yes') {
+                        $update_data['number'] = $request->new_mobile_number;
+                    }
+            
+                    User::where('id', $request->user_id)->update($update_data);
+                    return redirect()->route('log-out');
+
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(['msg' => 'Invalid OTP.', 'status' => 'error']);
+                }
+            }
+        } catch (Exception $e) {
+            return redirect()->back()
+                ->withInput()
+                ->with(['msg' => $e->getMessage(), 'status' => 'error']);
+        }
+    }
     
 
+    public function updateProfileDataAfterOTP(Request $request) {
+
+ 
+
+
+				
+    }
 }

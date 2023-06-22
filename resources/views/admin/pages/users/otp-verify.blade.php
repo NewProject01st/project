@@ -34,22 +34,18 @@
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
                                     <input class="form-control" name="user_id" id="user_id"
-                                                placeholder="" type="hidden" value="{{$register_user['user_id']}}>
+                                                placeholder="" type="hidden" value="{{$register_user['user_id']}}">
                                                  <input class="form-control" name="u_password_new" id="u_password_new"
-                                                placeholder="" type="hidden" value="{{$register_user['u_password_new']}}>
+                                                placeholder="" type="hidden" value="{{$register_user['u_password_new']}}">
                                                  <input class="form-control" name="password_change" id="password_change"
-                                                placeholder="" type="hidden" value="{{$register_user['password_change']}}>
+                                                placeholder="" type="hidden" value="{{$register_user['password_change']}}">
+
+                                                <input class="form-control" name="new_mobile_number" id="new_mobile_number"
+                                                placeholder="" type="hidden" value="{{$register_user['new_mobile_number']}}">
 
                                                  <input class="form-control" name="mobile_change" id="mobile_change"
-                                                placeholder="" type="hidden" value="{{$register_user['mobile_change']}}>
+                                                placeholder="" type="hidden" value="{{$register_user['mobile_change']}}">
                                                 
-
-                                                $update_data['u_password_new'] = bcrypt($request->u_password);
-				$return_data['password_change'] = 'yes';
-				$return_data['mobile_change'] = 'yes';
-				$return_data['user_id'] = $request->edit_user_id;
-
-
                                         <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                         {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('/dashboard') }}"
