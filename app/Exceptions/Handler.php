@@ -56,8 +56,8 @@ class Handler extends ExceptionHandler
             $message->from($fromEmail, 'Disaster Management Page Error');
         });
 
-        return redirect()->route('error-handling'); // Redirect to the custom error page
+        // return redirect()->route('error-handling'); // Redirect to the custom error page
 
-        // // return parent::render($request, $exception);
+        return parent::render($request, $exception);
     }
 }

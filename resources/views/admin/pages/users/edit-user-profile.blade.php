@@ -92,10 +92,10 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="number">Number</label>&nbsp<span class="red-text">*</span>
+                                            <label for="number">Mobile Number</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="number" id="number"
                                                 placeholder=""
-                                                value="@if (old('number')) {{ old('number') }}@else{{ $user_data->number }} @endif"
+                                                value="@if(old('number')){{old('number')}}@else{{$user_data->number}}@endif"
                                                 {{-- onkeyup="editvalidateMobileNumber(this.value)" --}}
                                                 >
                                             <span id="edit-message" class="red-text"></span>
@@ -122,10 +122,10 @@
                                             value="{{ $user_data->designation }}">
 
                                             <input type="hidden" class="form-check-input" name="u_password" id="u_password"
-                                            value="{{ $user_data->u_password }}">
+                                            value="{{ $user_data->u_password }}"> --}}
 
-                                            <input type="hidden" class="form-check-input" name="number" id="number"
-                                            value="{{ $user_data->number }}"> --}}
+                                            <input type="hidden" class="form-check-input" name="old_number" id="old_number"
+                                            value="{{ $user_data->number }}">
 
                                         <button type="submit" class="btn btn-success">Save
                                             &amp; Submit</button>

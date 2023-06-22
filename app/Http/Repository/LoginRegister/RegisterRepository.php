@@ -326,6 +326,8 @@ class RegisterRepository
 	public function updateProfile($request)
 	{
 		try {
+			// dd($request);
+			$return_data = array();
 			$otp = rand(6, 999999);
 			$update_data = [
 				'f_name' => $request->f_name,
@@ -334,36 +336,60 @@ class RegisterRepository
 				'designation' => $request->designation,
 			];
 
-			if (isset($request->number) && $request->number !== '') {
-				$update_data['otp_number'] = $otp;
-				// $update_data['number'] = $request->number;
+			if (($request->number != $request->old_number) && !isset($request->u_password)) {
+				$this->sendOTPEMAIL($otp, $request);
+				info("only mobile change");
+				$return_data['password_change'] = 'no';
+				$update_data['otp'] = $otp;
+				$return_data['mobile_change'] = 'yes';
+				$return_data['user_id'] = $request->edit_user_id;
+				$return_data['new_mobile_number'] = $request->number;
 			}
 
-			if (isset($request->u_password) && $request->u_password !== '') {
-				$update_data['u_password'] = bcrypt($request->u_password);
+			if ((isset($request->u_password) && $request->u_password !== '') && ($request->number == $request->old_number)) {
+				info("only password change");
+				// $update_data['u_password'] = bcrypt($request->u_password);
+				$return_data['password_change'] = 'yes';
+				$return_data['user_id'] = $request->edit_user_id;
+				$return_data['password'] = bcrypt($request->u_password);
+				$this->sendOTPEMAIL($otp, $request);
 			}
 
+			if ((isset($request->u_password) && $request->u_password !== '') && ($request->number != $request->old_number)) {
+				info("only password and mobile number changed");
+				$update_data['u_password_new'] = bcrypt($request->u_password);
+				$return_data['password_change'] = 'yes';
+				$return_data['mobile_change'] = 'yes';
+				$return_data['user_id'] = $request->edit_user_id;
+				$this->sendOTPEMAIL($otp, $request);
+			}
 			User::where('id', $request->edit_user_id)->update($update_data);
-
-			$email_data = [
-				'otp' => $otp,
-			];
-
-			$toEmail = $request->u_email;
-			$senderSubject = 'Disaster Management OTP ' . date('d-m-Y H:i:s');
-			$fromEmail = env('MAIL_USERNAME');
-			Mail::send('admin.email.emailotp', ['email_data' => $email_data], function ($message) use ($toEmail, $fromEmail, $senderSubject) {
-				$message->to($toEmail)->subject
-				($senderSubject);
-				$message->from($fromEmail, 'Disaster Management OTP');
-			});
+			return $return_data;
 
 
 		} catch (\Exception $e) {
 			info($e);
 		}
 
-		return $update_data;
+		// return $update_data;
+	}
+
+	public function sendOTPEMAIL($otp, $request) {
+		try {
+			$email_data = [
+				'otp' => $otp,
+			];
+			$toEmail = $request->u_email;
+			$senderSubject = 'Disaster Management OTP ' . date('d-m-Y H:i:s');
+			$fromEmail = env('MAIL_USERNAME');
+			Mail::send('admin.email.emailotp', ['email_data' => $email_data], function ($message) use ($toEmail, $fromEmail, $senderSubject) {
+				$message->to($toEmail)->subject($senderSubject);
+				$message->from($fromEmail, 'Disaster Management OTP');
+			});
+			return 'ok';
+		} catch (\Exception $e) {
+			info($e);
+		}
 	}
 	
 }
