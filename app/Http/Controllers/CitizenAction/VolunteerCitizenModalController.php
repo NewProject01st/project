@@ -25,6 +25,17 @@ class VolunteerCitizenModalController extends Controller
         }
     }
     
+    public function show(Request $request)
+    {
+        try {
+            $volunteercitizen = $this->service->getById($request->show_id);
+            dd($volunteercitizen);
+            return view('admin.pages.citizen-action.modal-info.show-volunteer-modal-info', compact('volunteercitizen'));
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
     public function destroy(Request $request)
     {
         try {

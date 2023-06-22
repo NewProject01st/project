@@ -24,6 +24,24 @@ class VolunteerCitizenModalRepository{
         }
     }
 
+    public function getById($id){
+        try {
+            $citizenvolunteer = CitizenVolunteerModal::find($id);
+            
+            dd($citizenvolunteer);
+            if ($citizenvolunteer) {
+                return $citizenvolunteer;
+            } else {
+                return null;
+            }
+        } catch (\Exception $e) {
+            return $e;
+            return [
+                'msg' => 'Failed to get by id Citizen Volunteer.',
+                'status' => 'error'
+            ];
+        }
+    }
     public function deleteById($id){
         try {
             $slider = CitizenVolunteerModal::find($id);
@@ -42,6 +60,7 @@ class VolunteerCitizenModalRepository{
             return $e;
         }
 }
+
 
 // 	public function addAll($request){
 //     try {

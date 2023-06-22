@@ -189,4 +189,5 @@ class CitizenActionController extends Controller
         return view('website.pages.citizen-action.volunteer-citizen-support-web',compact('language','menu','socialicon', 'data_output_incident'));
     }
     
+    
 }

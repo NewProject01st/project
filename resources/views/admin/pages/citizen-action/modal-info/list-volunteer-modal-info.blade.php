@@ -62,10 +62,10 @@
                                                                         class="edit-btn btn btn-sm btn-outline-primary m-1"><i
                                                                             class="fas fa-pencil-alt"></i></a>
                                                                 @endif
-
+--}}
                                                                 <a data-id="{{ $item->id }}"
                                                                     class="show-btn btn btn-sm btn-outline-primary m-1"><i
-                                                                        class="fas fa-eye"></i></a> --}}
+                                                                        class="fas fa-eye"></i></a> 
                                                                 @if (in_array('per_delete', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
                                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
@@ -91,11 +91,12 @@
             @csrf
             <input type="hidden" name="delete_id" id="delete_id" value="">
         </form>
+        <form method="POST" action="{{ url('/show-volunteer-modal-info') }}" id="showform">
+            @csrf
+            <input type="hidden" name="show_id" id="show_id" value="">
+        </form>
         {{-- 
-    <form method="POST" action="{{ url('/show-volunteer-model-info') }}" id="showform">
-        @csrf
-        <input type="hidden" name="show_id" id="show_id" value="">
-    </form>
+   
     <form method="POST" action="{{ url('/edit-volunteer-model-info') }}" id="editform">
         @csrf
         <input type="hidden" name="edit_id" id="edit_id" value="">
