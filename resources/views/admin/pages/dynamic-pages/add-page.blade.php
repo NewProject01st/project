@@ -43,8 +43,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title English</label>&nbsp<span
-                                                class="red-text">*</span>
+                                            <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="english_title"
                                                 id="english_title" placeholder="Enter the Tilte" />
                                             @if ($errors->has('english_title'))
@@ -54,10 +53,9 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">Title Marathi</label>&nbsp<span
-                                                class="red-text">*</span>
+                                            <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="marathi_title"
-                                                id="marathi_title" placeholder="Enter the Tilte" />
+                                                id="marathi_title" placeholder="शीर्षक प्रविष्ट करा " />
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -68,9 +66,9 @@
 
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <label for="english_description">Page Content In English</label>&nbsp<span
+                                            <label for="english_description">Page Content </label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control" name="english_description" id="summernote2" placeholder="Page Content In English">{{ old('english_description') }}</textarea>
+                                            <textarea class="form-control" name="english_description" id="summernote2" placeholder="Enter Page Content ">{{ old('english_description') }}</textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php //echo $errors->first('english_description', ':message');
                                                 ?></span>
@@ -79,9 +77,9 @@
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <label for="english_description">Page Content In Marathi</label>&nbsp<span
+                                            <label for="english_description">पृष्ठ सामग्री</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control" name="marathi_description" id="summernote3" placeholder="Page Content In Marathi">{{ old('marathi_description') }}</textarea>
+                                            <textarea class="form-control" name="marathi_description" id="summernote3" placeholder="पृष्ठ सामग्री प्रविष्ट करा ">{{ old('marathi_description') }}</textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php //echo $errors->first('english_description', ':message');
                                                 ?></span>

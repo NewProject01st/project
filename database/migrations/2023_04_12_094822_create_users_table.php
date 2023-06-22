@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('designation');
             $table->string('address');
             $table->string('state');
-            $table->string('district');
+            $table->string('city');
             $table->string('pincode');
             $table->string('otp_number')->default(false);
             $table->string('ip_address');

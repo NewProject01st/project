@@ -103,6 +103,7 @@
                                                 onclick="toggleConfirmPasswordVisibility()">
                                                 <i class="fa fa-eye-slash"></i>
                                             </span>
+                                            <span id="password-error" class="error-message red-text"></span>
                                             @if ($errors->has('password_confirmation'))
                                                 <span class="red-text"><?php echo $errors->first('password_confirmation', ':message'); ?></span>
                                             @endif
@@ -195,16 +196,15 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="city">City</label>&nbsp<span class="red-text">*</span>
-                                            {{-- <input type="text" class="form-control" name="city" id="city"
-                                                placeholder="" value="{{ old('city') }}"> --}}
-                                            <select class="form-control" name="district" id="district">
+                                            <select class="form-control" name="city" id="city">
                                                 <option value="">Select City</option>
                                             </select>
-                                            @if ($errors->has('district'))
-                                                <span class="red-text"><?php echo $errors->first('district', ':message'); ?></span>
+                                            @if ($errors->has('city'))
+                                                <span class="red-text"><?php echo $errors->first('city', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
+
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="pincode">Pincode</label>&nbsp<span class="red-text">*</span>
@@ -311,30 +311,45 @@
         </script>
         <script>
             $(document).ready(function() {
+                $('#password_confirmation').on('input', function() {
+                    var password = $('#u_password').val();
+                    var confirmPassword = $(this).val();
+                    var errorSpan = $('#password-error');
+
+                    if (password !== confirmPassword) {
+                        errorSpan.text('Password does not match.');
+                    } else {
+                        errorSpan.text('');
+                    }
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
 
                 $('#state').change(function(e) {
                     e.preventDefault();
                     var stateId = $('#state').val();
                     // console.log(stateId);
-                    $('#district').html('<option value="">Select City</option>');
+                    $('#city').html('<option value="">Select City</option>');
 
                     if (stateId !== '') {
                         $.ajax({
-                            url: '{{ route('district') }}',
+                            url: '{{ route('cities') }}',
                             type: 'GET',
                             data: {
                                 stateId: stateId
                             },
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            },
+                            // headers: {
+                            //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            // },
                             success: function(response) {
                                 // console.log(response);
-                                if (response.district.length > 0) {
-                                    $.each(response.district, function(index, district) {
-                                        $('#district').append('<option value="' + district
+                                if (response.city.length > 0) {
+                                    $.each(response.city, function(index, city) {
+                                        $('#city').append('<option value="' + city
                                             .location_id +
-                                            '">' + district.name + '</option>');
+                                            '">' + city.name + '</option>');
                                     });
                                 }
                             }

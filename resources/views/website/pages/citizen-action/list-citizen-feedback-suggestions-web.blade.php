@@ -53,21 +53,27 @@
                                     @endif
                                 </div>
                             @empty
-                                <h4>No Data Found For Citizen Feedback Suggestions </h4>
+                                <h4>
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.CITIZEN_ACTION.NO_DATA_FOUND_CITIZEN_FEEDBACK_SUGGESTION') }}
+                                    @else
+                                        {{ Config::get('english.CITIZEN_ACTION.NO_DATA_FOUND_CITIZEN_FEEDBACK_SUGGESTION') }}
+                                    @endif
+                                </h4>
                             @endforelse
                             <!--Department Details Txt End-->
                             <!-- Button trigger modal -->
                             <div class="d-flex justify-content-center">
-                            <a href="{{ route('feedback-suggestions') }}">
-                                <button type="button" class="btn modal-btn-color">
-                                    @if (session('language') == 'mar')
-                                        {{ Config::get('marathi.HOME_PAGE.FEEDBACK_ADN_SUGGESTION') }}
-                                    @else
-                                        {{ Config::get('english.HOME_PAGE.FEEDBACK_ADN_SUGGESTION') }}
-                                    @endif
+                                <a href="{{ route('feedback-suggestions') }}">
+                                    <button type="button" class="btn modal-btn-color">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.HOME_PAGE.FEEDBACK_ADN_SUGGESTION') }}
+                                        @else
+                                            {{ Config::get('english.HOME_PAGE.FEEDBACK_ADN_SUGGESTION') }}
+                                        @endif
 
-                                </button>
-                            </a>    
+                                    </button>
+                                </a>
                             </div>
                         </div>
                         <!--Sidebar Start-->
@@ -130,8 +136,10 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label class="col-form-label modal_lable">Mobile Number:</label>
-                                        <input type="input" class="form-control" name="mobile_number" id="mobile_number" pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
-                                            required>
+                                        <input type="input" class="form-control" name="mobile_number" id="mobile_number"
+                                            pattern="[789]{1}[0-9]{9}"
+                                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                                            maxlength="10" minlength="10" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label class="col-form-label modal_lable">Media Upload:</label><br>

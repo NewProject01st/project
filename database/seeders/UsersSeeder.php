@@ -27,7 +27,7 @@ class UsersSeeder extends Seeder
                 'designation' => 'designation',
                 'address' => 'address',
                 'state' => 'state',
-                'district' => 'district',
+                'city' => 'city',
                 'pincode' => 'pincode',
                 'ip_address' => '192.168.1.32',
             ]);
@@ -45,7 +45,7 @@ class UsersSeeder extends Seeder
             'designation' => 'designation',
             'address' => 'address',
             'state' => 'state',
-            'district' => 'district',
+            'city' => 'city',
             'pincode' => 'pincode',
             'ip_address' => '192.168.1.32',
         ]);

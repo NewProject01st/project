@@ -45,14 +45,14 @@ class RegisterController extends Controller {
     	return view('admin.pages.users.add-users',compact('roles','permissions','dynamic_state'));
     }
 
-    public function getDistrict(Request $request)
+    public function getCities(Request $request)
     {
         $stateId = $request->input('stateId');
 
-        $district = TblArea::where('location_type', 2) // 4 represents cities
+        $city = TblArea::where('location_type', 2) // 4 represents cities
                     ->where('parent_id', $stateId)
                     ->get(['location_id', 'name']);
-              return response()->json(['district' => $district]);
+              return response()->json(['city' => $city]);
 
     }
 
@@ -155,7 +155,7 @@ class RegisterController extends Controller {
                     'address' => 'required',
                     
                     'state' => 'required',
-                    'district' => 'required',
+                    'city' => 'required',
                     'pincode' => 'regex:/^[0-9]+$/'
                  ];       
 
@@ -176,7 +176,7 @@ class RegisterController extends Controller {
                         'designation.required' =>'Please enter designation.',
                         'address.required' => 'Please enter address.',
                         'state.required' => 'Please enter state.',
-                        'district.required' =>'Please enter district.',
+                        'city.required' =>'Please enter city.',
                         'pincode.required' => 'Please enter pincode.',
                         'pincode.regex' => 'Please enter pincode.',
 

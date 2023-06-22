@@ -65,18 +65,18 @@
                                                         <?php echo $item['disaster_date']; ?></li>
                                                     {{-- <li>176 Comments</li> --}}
                                                 </ul>
-                                                <h6 class="card_title_main"><a href="#"><?php echo $item['marathi_title']; ?>...</a></h6>
+                                                <h6 class="card_title_main"><a href="#"><?php echo $item['marathi_title']; ?>...</a>
+                                                </h6>
                                                 <p class="card_title"> <?php echo $item['marathi_description']; ?>...</p>
                                             </div>
                                             <div class="news-box-f cursor-pointer">
                                                 <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        @if (session('language') == 'mar')
+                                                    @if (session('language') == 'mar')
                                                         {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                                        @else
+                                                    @else
                                                         {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                                        @endif
-                                                    </span> <a
-                                                    data-id="{{ $item['id'] }}" class="show-btn"><i
+                                                    @endif
+                                                </span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
                                                         class="fas fa-arrow-right"></i></a>
                                             </div>
                                         </div>
@@ -96,7 +96,8 @@
                                                         <?php echo $item['disaster_date']; ?></li>
                                                     {{-- <li>176 Comments</li> --}}
                                                 </ul>
-                                                <h6 class="card_title_main"><a href="#"><?php echo $item['english_title']; ?>...</a></h6>
+                                                <h6 class="card_title_main"><a href="#"><?php echo $item['english_title']; ?>...</a>
+                                                </h6>
                                                 <p class="card_title"> <?php echo $item['english_description']; ?>...</p>
                                             </div>
                                             <div class="news-box-f"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more <a
@@ -107,7 +108,13 @@
                                     </div>
                                 @endif
                             @empty
-                                <h4>No Data Found For Disaster Management News </h4>
+                                <h4>
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.NEWS_EVENTS.NO_DATA_FOUND_DISASTER_MANAGEMENT_NEWS') }}
+                                    @else
+                                        {{ Config::get('english.NEWS_EVENTS.NO_DATA_FOUND_DISASTER_MANAGEMENT_NEWS') }}
+                                    @endif
+                                </h4>
                             @endforelse
                             <form method="POST" action="{{ url('/new-paricular-data-web') }}" id="showform">
                                 @csrf

@@ -23,26 +23,24 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
-                                            <label for="menu_name_english">Main Menu</label>&nbsp<span
-                                                class="red-text">*</span>
-                                            <select class="form-select form-control" name="menu_data" id="menu_data"
-                                                aria-label="Default select example" value="{{ old('menu_data') }}" readonly>
-                                                <option selected>Select Name</option>
-                                                @foreach ($main_menu_data as $key => $data)
-                                                    <option value="{{ $data['menu_id'] }}_{{ $data['main_sub'] }}"
-                                                        @if ($menu_selected == $data['menu_id'].'_'.$data['main_sub']) <?php echo 'selected';?> @endif>
-                                                        {{ $data['menu_name_english'] }}({{ $data['menu_name_marathi'] }})
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                            @if ($errors->has('menu_data'))
-                                                <span class="red-text"><?php echo $errors->first('menu_data', ':message'); ?></span>
-                                            @endif
-                                        </div>
+                                        <label for="menu_name_english">Main Menu</label>&nbsp<span class="red-text">*</span>
+                                        <select class="form-select form-control" name="menu_data" id="menu_data"
+                                            aria-label="Default select example" value="{{ old('menu_data') }}" readonly>
+                                            <option selected>Select Name</option>
+                                            @foreach ($main_menu_data as $key => $data)
+                                                <option value="{{ $data['menu_id'] }}_{{ $data['main_sub'] }}"
+                                                    @if ($menu_selected == $data['menu_id'] . '_' . $data['main_sub']) <?php echo 'selected'; ?> @endif>
+                                                    {{ $data['menu_name_english'] }}({{ $data['menu_name_marathi'] }})
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @if ($errors->has('menu_data'))
+                                            <span class="red-text"><?php echo $errors->first('menu_data', ':message'); ?></span>
+                                        @endif
+                                    </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title English</label>&nbsp<span
-                                                class="red-text">*</span>
+                                            <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="english_title"
                                                 id="english_title" placeholder="Enter the Tilte"
                                                 value="{{ $dynamic_page->english_title }}" />
@@ -53,10 +51,9 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">Title Marathi</label>&nbsp<span
-                                                class="red-text">*</span>
+                                            <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="marathi_title"
-                                                id="marathi_title" placeholder="Enter the Tilte"
+                                                id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"
                                                 value="{{ $dynamic_page->marathi_title }}" />
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
@@ -66,7 +63,7 @@
 
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <label for="english_description">Page Content In English</label>&nbsp<span
+                                            <label for="english_description">Page Content</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control" name="english_description" id="summernote2" placeholder="Enter the Description">
                                             {{ $html_english }}
@@ -78,7 +75,7 @@
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <label for="marathi_description">Page Content In Marathi</label>&nbsp<span
+                                            <label for="marathi_description">Page Content</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control" name="marathi_description" id="summernote3" placeholder="Enter the Description">
                                             {{ $html_marathi }}

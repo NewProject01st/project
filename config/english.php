@@ -56,6 +56,10 @@ return [
 		'VACANCIES_HEADING' =>'You Are Here',
 		'VACANCIES_MAIN_LINK' =>'Vacancies',
 		'VACANCIES_SUB_LINK' =>'Vacancies',
+		'VACANCIES_SR_NO' =>'Sr. No.',
+		'VACANCIES_TITLE' =>'Title',
+		'VACANCIES_DOWNLOAD_FILE' =>'Download File',
+		'NO_DATA_FOUND_VACANCIES'   => 'No Data Found For Vacancies.',
 	],
 	
 	'RTI'=>[ 
@@ -63,14 +67,19 @@ return [
 		'RTI_HEADING' =>'You Are Here',
 		'RTI_MAIN_LINK' =>'RTI',
 		'RTI_SUB_LINK' =>'RTI',
+		'NO_DATA_FOUND_RTI'   => 'No Data Found For RTI.',
 	],
 
 	'ABOUT_US'=>[ 
 		'ABOUT_US_HEADING' =>'You Are Here',
 		'ABOUT_US_MAIN_LINK' =>'About Us',
-		'ABOUT_US_SUB_LINK1' =>' Disaster Management Portal',
-		'ABOUT_US_SUB_LINK2' =>' Objective and Goals',
-		'ABOUT_US_SUB_LINK3' =>'  State Disaster Management Authority',
+		'ABOUT_US_SUB_LINK1' =>'Disaster Management Portal',
+		'ABOUT_US_SUB_LINK2' =>'Objective and Goals',
+		'ABOUT_US_SUB_LINK3' =>'State Disaster Management Authority',
+		'NO_DATA_FOUND_DISASTER_PORTAL'   => 'No Data Found For Disaster Management Portal.',
+		// 'NO_DATA_FOUND_OBJECTIVE_GOALS'   => 'No Data Found For Disaster Management Portal.',
+		'NO_DATA_FOUND_DISASTER_AUTHORITY'   => 'No Data Found For State Disaster Management Authority.',
+
 	],
 
 	'PREPAREDNESS'=>[ 
@@ -80,6 +89,10 @@ return [
 		'PREPAREDNESS_SUB_LINK2' =>'Early Warning Systems',
 		'PREPAREDNESS_SUB_LINK3' =>'Capacity Building And Training',
 		'PREPAREDNESS_SUB_LINK4' =>' Public Awareness and Education',
+		'NO_DATA_FOUND_CAPACITY_TRAINING'   => 'No Data Found For Capacity Building And Training.',
+		'NO_DATA_FOUND_HAZARD_VULNERABILITY'   => 'No Data Found For Hazard And Vulnerability.',
+		'NO_DATA_FOUND_AWARENESS_EDUCATION'   => 'No Data Found For Public Awareness and Education.',
+
 	],
 
 	'EMERGENCY_RESPONSES'=>[ 
@@ -91,6 +104,12 @@ return [
 		'EMERGENCY_RESPONSES_SUB_LINK4' =>'Search Rescue Teams',
 		'EMERGENCY_RESPONSES_SUB_LINK5' =>'Relief Measures and Resources ',
 		'EMERGENCY_RESPONSES_SUB_LINK6' =>' Evacuation Plans',
+		'NO_DATA_FOUND_DISTRICT_EMERGENCY_OPERATIONS'   => 'No Data Found For District Emergency Operations Center.',
+		'NO_DATA_FOUND_EMERGENCY_CONTACT_NUMBERS'   => 'No Data Found For Emergency Contact Numbers.',
+		'NO_DATA_FOUND_EVACUATION_PLANS'   => 'No Data Found For Evacuation Plans.',
+		'NO_DATA_FOUND_RELIEF_MEASURES_RESOURCES'   => 'No Data Found For Relief Measures Resources.',
+		'NO_DATA_FOUND_SEARCH_RESCUE_TEAM'   => 'No Data Found For Search Rescue Teams.',
+		'NO_DATA_FOUND_STATE_EMERGENCY_OPERATIONS_CENTER'   => 'No Data Found For State Emergency Operations Center.',
 	],
 
 	'CITIZEN_ACTION'=>[ 
@@ -100,6 +119,19 @@ return [
 		'CITIZEN_ACTION_SUB_LINK2' =>' Volunteer Citizen Support',
 		'CITIZEN_ACTION_SUB_LINK3' =>' Citizen Feedback Suggestions',
 		'CITIZEN_ACTION_SUB_LINK4' =>' Report Incident',
+		'NO_DATA_FOUND_CITIZEN_FEEDBACK_SUGGESTION'   => 'No Data Found For Citizen Feedback Suggestions.',
+		'NO_DATA_FOUND_INCIDENT_CROWDSOURCING_WEB'   => 'No Data Found For Report Incident Crowdsourcing.',
+		'NO_DATA_FOUND_VOLUNTEER_CITIZEN_SUPPORT'   => 'No Data Found For Volunteer Citizen Support.',
+		'FORM_INCIDENT_TYPE'   => 'Incident Type:',
+		'FORM_SELECT'   => 'Select',
+		'FORM_INCIDENT_LOCATION'   => 'Location:',
+		'FORM_DATE_AND_TIME'   => 'Date and Time:',
+		'FORM_MOBILE_NUMBER'   => 'Mobile Number:',
+		'FORM_DESCRIPTION'   => 'Description:',
+		'FORM_MEDIA_UPLOAD'   => 'Media Upload:',
+		'FORM_SEND'   => 'Send',
+		'FORM_VOLUNTEER_TYPE'   => 'Volunteer Type:',
+
 
 	],
 
@@ -118,6 +150,12 @@ return [
 		'POLICIES_LEGISLATION_SUB_LINK2' =>'District Disaster Management Plans',
 		'POLICIES_LEGISLATION_SUB_LINK3' =>'State Disaster Management Policy',
 		'POLICIES_LEGISLATION_SUB_LINK4' =>'Relevant Laws And Regulations',
+		'POLICIES_LEGISLATION_SR_NO' =>'Sr. No.',
+		'POLICIES_LEGISLATION_TITLE' =>'Title',
+		'POLICIES_LEGISLATION_YEAR' =>'Year',
+		'POLICIES_LEGISLATION_DOWNLOAD_FILE' =>'Download File',
+
+
 	],
 
 	
@@ -135,8 +173,15 @@ return [
 		'NEWS_EVENTS_MAIN_LINK' =>'News & Events',
 		'NEWS_EVENTS_SUB_LINK1' =>' Disaster Management News',
 		'NEWS_EVENTS_SUB_LINK3' =>'  Success Stories',
+		'NEWS_EVENTS_HOME' =>'Home',
+		'NEWS_EVENTS_EVENT' =>'Event',
+		'NEWS_EVENTS_BACK' =>'Back',
+
 
 		'DISASTER_MANAGEMENT_NEWS' =>'Disaster Management News',
+		'NO_DATA_FOUND_DISASTER_MANAGEMENT_NEWS'   => 'No Data Found For Disaster Management News.',
+		'NO_DATA_FOUND_SUCCESS_AND_STORIES'   => 'No Data Found For Success Stories.',
+
 	],
 
 	'CONTACT_US'=>[ 
@@ -149,6 +194,13 @@ return [
 		'CALL_US' =>'Call us',
 		'MOBILE' =>'Mobile:',
 		'MAIL_US' =>'Mail us',
+		'FORM_FULL_NAME'   => 'Enter Full Name:',
+		'FORM_EMAIL'   => 'Enter Email Id:',
+		'FORM_MOBILE_NUMBER'   => 'Enter Mobile Number:',
+		'FORM_FEEDBACK_TYPE'   => 'Select Feedback Type:',
+		'FORM_SUBJECT'   => 'Enter Subject:',
+		'FORM_WRITE_FEEDBACK_SUGGESTION'   => 'Write Any Feedback/Suggestion:',
+		'FORM_SEND'   => 'Send',
 
 	],
 	

@@ -53,7 +53,13 @@
                                 @endif
                             </div>
                         @empty
-                            <h4>No Data Found For Public Awareness and Education</h4>
+                            <h4>
+                                @if (session('language') == 'mar')
+                                    {{ Config::get('marathi.PREPAREDNESS.NO_DATA_FOUND_AWARENESS_EDUCATION') }}
+                                @else
+                                    {{ Config::get('english.PREPAREDNESS.NO_DATA_FOUND_AWARENESS_EDUCATION') }}
+                                @endif
+                            </h4>
                         @endforelse
 
                         <!--Department Details Txt End-->

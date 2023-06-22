@@ -52,7 +52,13 @@
                                     @endif
                                 </div>
                             @empty
-                                <h4>No Data Found For Capacity Building And Training</h4>
+                                <h4>
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.PREPAREDNESS.NO_DATA_FOUND_CAPACITY_TRAINING') }}
+                                    @else
+                                        {{ Config::get('english.PREPAREDNESS.NO_DATA_FOUND_CAPACITY_TRAINING') }}
+                                    @endif
+                                </h4>
                             @endforelse
 
                             <!--Department Details Txt End-->
