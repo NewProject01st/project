@@ -379,14 +379,23 @@ class RegisterRepository
 				$return_data['mobile_change'] = 'yes';
 				$return_data['user_id'] = $request->edit_user_id;
 				$return_data['new_mobile_number'] = $request->number;
+				$return_data['u_password_new'] = '';
+				$register_user['msg'] = "OTP sent on registered on email";
+				$register_user['msg_alert'] = "green";
+
 			}
 
 			if ((isset($request->u_password) && $request->u_password !== '') && ($request->number == $request->old_number)) {
 				info("only password change");
 				// $update_data['u_password'] = bcrypt($request->u_password);
 				$return_data['password_change'] = 'yes';
+				$return_data['mobile_change'] = 'no';
 				$return_data['user_id'] = $request->edit_user_id;
-				$return_data['password'] = bcrypt($request->u_password);
+				$return_data['u_password_new'] = bcrypt($request->u_password);
+				$return_data['new_mobile_number'] = '';
+				$register_user['msg'] = "OTP sent on registered on email";
+				$register_user['msg_alert'] = "green";
+
 				$this->sendOTPEMAIL($otp, $request);
 
 
@@ -408,6 +417,10 @@ class RegisterRepository
 				$return_data['password_change'] = 'yes';
 				$return_data['mobile_change'] = 'yes';
 				$return_data['user_id'] = $request->edit_user_id;
+				$return_data['new_mobile_number'] = $request->number;
+				$register_user['msg'] = "OTP sent on registered on email";
+				$register_user['msg_alert'] = "green";
+
 				$this->sendOTPEMAIL($otp, $request);
 			}
 			User::where('id', $request->edit_user_id)->update($update_data);
@@ -424,16 +437,16 @@ class RegisterRepository
 
 	public function sendOTPEMAIL($otp, $request) {
 		try {
-			$email_data = [
-				'otp' => $otp,
-			];
-			$toEmail = $request->u_email;
-			$senderSubject = 'Disaster Management OTP ' . date('d-m-Y H:i:s');
-			$fromEmail = env('MAIL_USERNAME');
-			Mail::send('admin.email.emailotp', ['email_data' => $email_data], function ($message) use ($toEmail, $fromEmail, $senderSubject) {
-				$message->to($toEmail)->subject($senderSubject);
-				$message->from($fromEmail, 'Disaster Management OTP');
-			});
+			// $email_data = [
+			// 	'otp' => $otp,
+			// ];
+			// $toEmail = $request->u_email;
+			// $senderSubject = 'Disaster Management OTP ' . date('d-m-Y H:i:s');
+			// $fromEmail = env('MAIL_USERNAME');
+			// Mail::send('admin.email.emailotp', ['email_data' => $email_data], function ($message) use ($toEmail, $fromEmail, $senderSubject) {
+			// 	$message->to($toEmail)->subject($senderSubject);
+			// 	$message->from($fromEmail, 'Disaster Management OTP');
+			// });
 			return 'ok';
 		} catch (\Exception $e) {
 			info($e);

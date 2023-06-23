@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
                             <h3 class="page-title">
-                                District Disaster Management Plan
+                                User Details
                             </h3>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
@@ -91,6 +91,16 @@
                                             <label>{{ strip_tags($user_detail->pincode) }}</label>
                                         </div>
                                     </div>
+
+                                    {{-- <div class="row ">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>Profile :</label>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <img src="{{ Config::get('DocumentConstant.USER_PROFILE_VIEW') }}{{ $user_detail->user_profile }}"
+                                                style="width:300px; height:150px;" />
+                                        </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>

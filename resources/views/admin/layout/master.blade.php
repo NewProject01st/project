@@ -173,8 +173,13 @@
                     <li class="nav-item nav-profile dropdown mr-0">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img
-                             {{-- src="{{ asset('assets/images/faces/face4.jpg') }}"  --}}
+                             src="{{ asset('assets/images/faces/face4.jpg') }}" 
                              alt="profile" />
+                             
+                             {{-- @foreach ($register_user as $item)
+                             <img class="img-size" src="{{ Config::get('DocumentConstant.USER_PROFILE_VIEW') }}{{ $item->user_profile }}" alt="profile" />
+                             @endforeach --}}
+
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
