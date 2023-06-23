@@ -128,13 +128,19 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                                     <button type="submit">Search</button>
                                     </form>
 
+                                    {{-- <form action="{{ route('/') }}" method="GET">
+                                        <input type="text" name="query" placeholder="Search...">
+                                        <button type="submit">Search</button>
+                                    </form>
+                                     --}}
+
                                     {{-- <form method="GET" action="">
                                         <input type="search" name="query" placeholder="Search...">
                                         <button type="submit">Search</button>
                                     </form> --}}
                                     
                                     
-                                </li>
+                                {{-- </li>
                                         <form>
                                             <input type="search" placeholder="Search...">
                                             <button type="submit">
@@ -145,7 +151,7 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                                                 @endif
                                             </button>
                                         </form>
-                                    </li>
+                                    </li> --}}
                                 </ul>
 
                             </div>

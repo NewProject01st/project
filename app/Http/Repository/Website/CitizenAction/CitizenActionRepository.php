@@ -108,7 +108,7 @@ class CitizenActionRepository  {
                 $last_insert_id = $modal_data->id;
 
                 $englishImageName = $last_insert_id . '_english.' . $request->media_upload->extension();
-                 $englishNGOImage = $last_insert_id . '_english.' . $request->ngo_photo->extension();
+                 $englishNGOImage = $last_insert_id . '_english1.' . $request->ngo_photo->extension();
 
                 $modal_data = CitizenVolunteerModal::find($last_insert_id); // Assuming $request directly contains the ID
                 $modal_data->media_upload = $englishImageName; // Save the image filename to the database

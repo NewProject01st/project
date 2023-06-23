@@ -29,7 +29,7 @@ class VolunteerCitizenModalController extends Controller
     {
         try {
             $volunteercitizen = $this->service->getById($request->show_id);
-            dd($volunteercitizen);
+            // dd($volunteercitizen);
             return view('admin.pages.citizen-action.modal-info.show-volunteer-modal-info', compact('volunteercitizen'));
         } catch (\Exception $e) {
             return $e;

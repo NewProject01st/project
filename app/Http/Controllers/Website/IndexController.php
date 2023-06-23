@@ -307,6 +307,24 @@ class IndexController extends Controller
         Session::put('language', $request->language);
     }    
 
+    // public function search(Request $request)
+    // {
+    //     $query = $request->input('query');
+    //     $menu = $this->menu;
+    //     $socialicon = $this->socialicon;
 
+    //     if (Session::get('language') == 'mar') {
+    //         $language = Session::get('language');
+    //     } else {
+    //         $language = 'en';
+    //     }
+
+    //     // Perform the search using Laravel's query builder or Eloquent ORM
+    //     $results = MainMenus::where('title', 'like', "%$query%")
+    //         ->orWhere('content', 'like', "%$query%")
+    //         ->get();
+
+    //     return view('website.pages.index', compact('language','menu','socialicon'));
+    // }
     
 }

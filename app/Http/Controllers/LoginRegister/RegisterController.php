@@ -271,12 +271,19 @@ class RegisterController extends Controller {
                     ->withErrors($validation);
             } else {
                 $register_user = $this->service->updateProfile($request);
+                // dd($register_user);
                 if($register_user)
                 {
                     if((isset($register_user['password_change']) && ($register_user['password_change'] =='yes')) || (isset($register_user['mobile_change']) && $register_user['mobile_change'] =='yes')) {
                         return view('admin.pages.users.otp-verify')->with(compact('register_user'));
                     }
+                    elseif((isset($request->u_password) && $request->u_password !== '') && ($request->number == $request->old_number)) {
+                        
+                        return view('log-out');
+
+                    }
                 
+
                     $msg = $register_user['msg'];
                     $status = $register_user['status'];
                     if($status=='success') {

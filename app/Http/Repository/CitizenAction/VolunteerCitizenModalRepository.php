@@ -28,7 +28,7 @@ class VolunteerCitizenModalRepository{
         try {
             $citizenvolunteer = CitizenVolunteerModal::find($id);
             
-            dd($citizenvolunteer);
+        //    dd($citizenvolunteer);
             if ($citizenvolunteer) {
                 return $citizenvolunteer;
             } else {
@@ -45,14 +45,15 @@ class VolunteerCitizenModalRepository{
     public function deleteById($id){
         try {
             $slider = CitizenVolunteerModal::find($id);
-            if ($slider) {
-                if (file_exists(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $slider->media_upload))) {
-                    unlink(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $slider->media_upload));
+            if ($ciizen) {
+                if (file_exists(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $ciizen->media_upload))) {
+                    unlink(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $ciizen->media_upload));
                 }
-              
-                $slider->delete();
-                
-                return $slider;
+                if (file_exists(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $ciizen->ngo_photo))) {
+                    unlink(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $ciizen->ngo_photo));
+                }
+                $ciizen->delete();
+                return $ciizen;
             } else {
                 return null;
             }
