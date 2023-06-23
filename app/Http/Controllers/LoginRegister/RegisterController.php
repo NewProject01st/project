@@ -309,18 +309,21 @@ class RegisterController extends Controller {
             } else {
                 // $verification_result = $this->service->verifyOtp($request->otp_number);
                 $update_data = array();
+                $return_data = array();
                 $otp = User::where('id', $request->user_id)->first();
                 if($otp->otp == $request->otp_number) {
                     
                     if($request->password_change =='yes') {
-                        $update_data['password'] = $request->u_password_new;
+                        $update_data['u_password'] = $request->u_password_new;
                     }
                     if($request->mobile_change =='yes') {
                         $update_data['number'] = $request->new_mobile_number;
                     }
             
                     User::where('id', $request->user_id)->update($update_data);
-                    return redirect()->route('log-out');
+                    $return_data['msg'] = 'Please login again to use services';
+                    $return_data['msg_alert'] = 'green';
+                    return redirect()->route('log-out')->with(compact('return_data'));
 
                 } else {
                     $register_user = array();
