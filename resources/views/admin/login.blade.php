@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>
-        {{env('APP_NAME')}}
+        {{ env('APP_NAME') }}
     </title>
     <link rel="icon" type="image/x-icon" href="{{ asset('website_files/images/home/DM.ico') }}">
     <!-- css global-->
@@ -38,6 +38,12 @@
                                 <img src="{{ asset('website_files/images/home/DMS.png') }}" alt="logo">
                             </div>
                             <!--  Login Form -->
+
+                            @if (isset($return_data['msg_alert']) && $return_data['msg_alert'] == 'green')
+                                <div class="alert alert-primary" role="alert">
+                                    {{ $return_data['msg'] }}
+                                </div>
+                            @endif
 
                             @if (session('error'))
                                 <div class="alert alert-primary" role="alert">
@@ -115,7 +121,8 @@
                     <!--  Copyright text -->
                     <div class="col-lg-6 login-half-bg d-flex flex-row">
                         <!--  <img src="{{ asset('website_files\images\home\slide3.jpeg') }}" alt="logo"> -->
-                        <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright © {{date('Y')}}.
+                        <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright ©
+                            {{ date('Y') }}.
                             All rights reserved with Admin.</p>
                     </div>
                 </div>
