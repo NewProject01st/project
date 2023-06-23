@@ -55,32 +55,32 @@ class DBBackupController extends Controller
                 $output .= "'" . implode("','", $table_value_array) . "');\n";
             }
         }
-        $file_name = 'database_backup_on_' . date('y-m-d') . '.sql';
+        $file_name = Config::get('DocumentConstant.DB_BACKUP').'database_backup_on_' . date('y-m-d') . '.sql';
         $file_handle = fopen($file_name, 'w+');
         fwrite($file_handle, $output);
         fclose($file_handle);
    
-        try {
+        // try {
 
-            $email_data['msg'] = '';
-            $data = array();
-            $toEmail = env('MAIL_ID_DB_BACKUP');
-            $nameOfSender = "Disater Management Administrator";
-            $senderSubject = 'Database Backup - Disaster Management Web Portal Dated '.date('d-m-Y');
-            $fromEmail = env('MAIL_USERNAME');
+        //     $email_data['msg'] = '';
+        //     $data = array();
+        //     $toEmail = env('MAIL_ID_DB_BACKUP');
+        //     $nameOfSender = "Disater Management Administrator";
+        //     $senderSubject = 'Database Backup - Disaster Management Web Portal Dated '.date('d-m-Y');
+        //     $fromEmail = env('MAIL_USERNAME');
 
-            Mail::send('admin.email.emailsend', ['email_data' => $email_data], function ($message) use ($toEmail, $fromEmail, $data, $senderSubject,$file_name) {
-                $message->to($toEmail)->subject
-                    ($senderSubject);
-                $message->from($fromEmail, 'Disaster Management Database Backup');
-                $message->attach($file_name);
+        //     Mail::send('admin.email.emailsend', ['email_data' => $email_data], function ($message) use ($toEmail, $fromEmail, $data, $senderSubject,$file_name) {
+        //         $message->to($toEmail)->subject
+        //             ($senderSubject);
+        //         $message->from($fromEmail, 'Disaster Management Database Backup');
+        //         $message->attach($file_name);
                 
-            });
-            unlink($file_name);
+        //     });
+        //     unlink($file_name);
 
-        } catch (\Exception $e) {
-            info($e);
-        }
+        // } catch (\Exception $e) {
+        //     info($e);
+        // }
 
         if (Mail::failures()) {
             return Redirect()->back()->with('error', 'There is error while sending mail.');

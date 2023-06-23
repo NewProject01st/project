@@ -323,9 +323,20 @@ class RegisterController extends Controller {
                     return redirect()->route('log-out');
 
                 } else {
-                    return redirect()->back()
-                        ->withInput()
-                        ->with(['msg' => 'Invalid OTP.', 'status' => 'error']);
+                    $register_user = array();
+                    $register_user['user_id'] = $request->user_id;
+                    $register_user['u_password_new'] = $request->u_password_new;
+                    $register_user['password_change'] = $request->password_change;
+                    $register_user['new_mobile_number'] = $request->new_mobile_number;
+                    $register_user['mobile_change'] = $request->mobile_change;
+                    $register_user['msg'] = 'Please Enter Valid OTP';
+                    $register_user['msg_alert'] = "red";
+
+
+                    // return redirect()->back()
+                    //     ->withInput()
+                    //     ->with(['msg' => 'Invalid OTP.', 'status' => 'error']);
+                    return view('admin.pages.users.otp-verify')->with(compact('register_user'));
                 }
             }
         } catch (Exception $e) {

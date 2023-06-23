@@ -345,6 +345,8 @@ class RegisterRepository
 				$return_data['user_id'] = $request->edit_user_id;
 				$return_data['new_mobile_number'] = $request->number;
 				$return_data['u_password_new'] = '';
+				$register_user['msg'] = "OTP sent on registered on email";
+				$register_user['msg_alert'] = "green";
 
 			}
 
@@ -356,6 +358,8 @@ class RegisterRepository
 				$return_data['user_id'] = $request->edit_user_id;
 				$return_data['u_password_new'] = bcrypt($request->u_password);
 				$return_data['new_mobile_number'] = '';
+				$register_user['msg'] = "OTP sent on registered on email";
+				$register_user['msg_alert'] = "green";
 
 				$this->sendOTPEMAIL($otp, $request);
 			}
@@ -367,6 +371,8 @@ class RegisterRepository
 				$return_data['mobile_change'] = 'yes';
 				$return_data['user_id'] = $request->edit_user_id;
 				$return_data['new_mobile_number'] = $request->number;
+				$register_user['msg'] = "OTP sent on registered on email";
+				$register_user['msg_alert'] = "green";
 
 				$this->sendOTPEMAIL($otp, $request);
 			}
