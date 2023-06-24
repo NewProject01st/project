@@ -28,6 +28,7 @@
                                                 Contact</label>&nbsp<span class="red-text">*</span>
                                             <input class="form-control" name="english_emergency_contact_title"
                                                 id="english_emergency_contact_title"
+                                                pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
                                                 placeholder="Enter the Emergency Contact"
                                                 value="{{ old('english_emergency_contact_title') }}">
                                             @if ($errors->has('english_emergency_contact_title'))
@@ -41,6 +42,7 @@
                                                 संपर्क करा</label>&nbsp<span class="red-text">*</span>
                                             <input class="form-control" name="marathi_emergency_contact_title"
                                                 id="marathi_emergency_contact_title"
+                                                pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
                                                 placeholder="Enter the Emergency Contact"
                                                 value="{{ old('marathi_emergency_contact_title') }}">
                                             @if ($errors->has('marathi_emergency_contact_title'))

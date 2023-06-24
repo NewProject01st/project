@@ -92,7 +92,7 @@
                                         </div>
                                     </div>
 
-                                    {{-- <div class="row ">
+                                    <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Profile :</label>
                                         </div>
@@ -100,7 +100,7 @@
                                             <img src="{{ Config::get('DocumentConstant.USER_PROFILE_VIEW') }}{{ $user_detail->user_profile }}"
                                                 style="width:300px; height:150px;" />
                                         </div>
-                                    </div> --}}
+                                    </div>
                                 </div>
                             </div>
                         </div>

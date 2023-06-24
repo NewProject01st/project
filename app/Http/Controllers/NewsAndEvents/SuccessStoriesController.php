@@ -37,7 +37,7 @@ class SuccessStoriesController extends Controller
             'english_designation' => 'required',
             'marathi_designation' => 'required',
             'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+         
            
            
             
@@ -50,7 +50,6 @@ class SuccessStoriesController extends Controller
         'english_designation.required' => 'Please enter the designation.',
         'marathi_designation.required' => 'कृपया पदनाम प्रविष्ट करा. ',
         'english_image.required' => 'The image field is required.',
-        'marathi_image.required' => 'कृपया प्रतिमा आवश्यक आहे.',
        
 
     ];
@@ -101,7 +100,7 @@ class SuccessStoriesController extends Controller
         'english_designation' => 'required',
         'marathi_designation' => 'required',
         // 'english_image' => 'required',
-        // 'marathi_image' => 'required',
+      
        
         
      ];
@@ -113,7 +112,7 @@ class SuccessStoriesController extends Controller
         'english_designation' => 'required',
         'marathi_designation' => 'required',
         // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // 'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    
        
     ];
 

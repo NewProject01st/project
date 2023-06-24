@@ -55,8 +55,8 @@
                                                             <div class="img-area">
                                                                 <a data-id="{{ $item['id'] }}"
                                                                     class="show-btn cursor-pointer">
-                                                                    <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item['marathi_image'] }}"
-                                                                        alt=""></a>
+                                                                    <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item['english_image'] }}"
+                                                                    alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा"></a>
                                                             </div>
                                                             <div class="bio">
                                                                 <h2>{{ $item['marathi_title'] }}</h2>
@@ -81,7 +81,7 @@
                                                             <div class="img-area"><a data-id="{{ $item['id'] }}"
                                                                     class="show-btn cursor-pointer">
                                                                     <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item['english_image'] }}"
-                                                                        alt=""></a>
+                                                                    alt="{{ strip_tags($item['english_title']) }} Image"></a>
                                                             </div>
                                                             <div class="new-txt">
                                                                 <h4>{{ $item['english_title'] }}</h4>

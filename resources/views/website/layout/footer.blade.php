@@ -5,7 +5,10 @@
              <?php $data_output_contact = App\Http\Controllers\Website\IndexController::getWebsiteContact();
              $data_output_department = App\Http\Controllers\Website\IndexController::getWebAllDepartment();
              $data_output_footerlink = App\Http\Controllers\Website\IndexController::getWebAllFooterLink();
-             //   dd($data_output_contact);
+             
+             $data_output_privacypolicy = App\Http\Controllers\Website\IndexController::getWebPrivacyPolicy();//   dd($data_output_contact);
+             $data_output_termcondition = App\Http\Controllers\Website\IndexController::getWebTermCondition();//   dd($data_output_contact);
+
              ?>
              <!--Footer Widget Start-->
              @foreach ($data_output_contact as $item)
@@ -121,18 +124,34 @@
                      <ul>
                          @foreach ($data_output_footerlink as $item)
                              @if (session('language') == 'mar')
-                                 <li><a href="https://www.google.com/" target="_blank"><i
+                                 <li><a href="" target="_blank"><i
                                              class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                              @else
-                                 <li><a href="https://www.google.com/" target="_blank"><i
+                                 <li><a href="" target="_blank"><i
                                              class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
                              @endif
                          @endforeach
+                         @foreach ($data_output_privacypolicy as $item)
+                         @if (session('language') == 'mar')
+                                <li><a href="{{ route('privacy-policy') }}"><i
+                                     class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
+                                @else
+                                    <li><a href="{{ route('privacy-policy') }}"><i class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
+                                @endif
+                         @endforeach
 
-                         <li><a href="{{ route('privacy-policy') }}"  target="_blank"><i
+                          @foreach ($data_output_termcondition as $item)
+                         @if (session('language') == 'mar')
+                                <li><a href="{{ route('privacy-policy') }}"><i
+                                     class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
+                                @else
+                                    <li><a href="{{ route('terms_condition') }}"><i class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
+                                @endif
+                         @endforeach
+                         {{-- <li><a href="{{ route('privacy-policy') }}"  target="_blank"><i
                             class="fas fa-star"></i>Privacy Policy</a></li>
                             <li><a href="{{ route('terms_condition') }}" target="_blank"><i
-                                class="fas fa-star"></i>Terms and Conditions</a></li>
+                                class="fas fa-star"></i>Terms and Conditions</a></li> --}}
 
                      </ul>
                  </div>

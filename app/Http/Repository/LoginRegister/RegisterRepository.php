@@ -325,10 +325,17 @@ class RegisterRepository
 		return "ok";
 	}
 
+
+
+
+
 	public function getById($id)
 	{
 		try {
 			$user = User::find($id);
+
+
+			
 			// $user = User::join('roles', 'roles.id','=', 'users.role_id')
 			// ->get();
 			// return $user;
@@ -345,6 +352,35 @@ class RegisterRepository
 			];
 		}
 	}
+
+
+	public function updateOne($request){
+        try {
+            $user = User::find($request); // Assuming $request directly contains the ID
+
+            // Assuming 'is_active' is a field in the userr model
+            if ($user) {
+                $is_active = $user->is_active === 1 ? 0 : 1;
+                $user->is_active = $is_active;
+                $user->save();
+
+                return [
+                    'msg' => 'User updated successfully.',
+                    'status' => 'success'
+                ];
+            }
+
+            return [
+                'msg' => 'User not found.',
+                'status' => 'error'
+            ];
+        } catch (\Exception $e) {
+            return [
+                'msg' => 'Failed to update User.',
+                'status' => 'error'
+            ];
+        }
+    }
 
 	public function getProfile()
 	{

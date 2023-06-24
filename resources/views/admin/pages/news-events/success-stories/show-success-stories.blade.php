@@ -77,19 +77,10 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Image :</label>
+                                            <label>Profile :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $success_stories->english_image }}"
-                                                style="width:150px; height:150px;" />
-                                        </div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>प्रतिमा :</label>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
-                                            <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $success_stories->marathi_image }}"
                                                 style="width:150px; height:150px;" />
                                         </div>
                                     </div>

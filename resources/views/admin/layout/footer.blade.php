@@ -403,6 +403,39 @@ $(document).ready(() => {
 });
 
     </script>
+
+<script>
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("u_password");
+        var toggleIcon = document.getElementById("togglePassword").querySelector("i");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleIcon.classList.remove("fa-eye-slash");
+            toggleIcon.classList.add("fa-eye");
+        } else {
+            passwordInput.type = "password";
+            toggleIcon.classList.remove("fa-eye");
+            toggleIcon.classList.add("fa-eye-slash");
+        }
+    }
+</script>
+<script>
+    function toggleConfirmPasswordVisibility() {
+        var passwordInput = document.getElementById("password_confirmation");
+        var toggleIcon = document.getElementById("toggleConfirmPassword").querySelector("i");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleIcon.classList.remove("fa-eye-slash");
+            toggleIcon.classList.add("fa-eye");
+        } else {
+            passwordInput.type = "password";
+            toggleIcon.classList.remove("fa-eye");
+            toggleIcon.classList.add("fa-eye-slash");
+        }
+    }
+</script>
 </body>
 
 </html> <!-- partial:partials/_footer.html -->

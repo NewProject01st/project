@@ -18,7 +18,19 @@
         <div class="department-details">
             <div class="container">
                 <div class="row">
-                    <div class="deprt-txt">
+                    @foreach ($data_output as $item)
+                        <div class="deprt-txt">
+                            @if (session('language') == 'mar')
+                            <h3><?php echo $item['marathi_title']; ?></h3>
+                            <p><?php echo $item['marathi_description']; ?></p>
+                            @else
+                            <h3><?php echo $item['english_title']; ?></h3>
+                            <p><?php echo $item['english_description']; ?></p>
+                            @endif
+                        </div>
+                    @endforeach
+
+                    {{-- <div class="deprt-txt">
                         <h3>Privacy Policy</h3>
                         <p>At Disaster Management, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, and safeguard the data you provide to us in the context of our disaster management services. Please read this policy carefully to understand our practices regarding your personal information.
                         </p>
@@ -57,7 +69,7 @@
                             
                             <b>Contact Us:</b>
                             <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, Please Mail and call us at official contact details given on the contact us page.</p>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

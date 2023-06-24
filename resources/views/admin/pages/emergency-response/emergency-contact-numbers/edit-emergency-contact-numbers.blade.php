@@ -136,8 +136,8 @@
                                 <thead class="" style="background-color: #47194a; color:#fff">
                                     <tr>
                                         <th scope="col">Sr. No.</th>
-                                        <th scope="col">English English Emergency Contact Title</th>
-                                        <th scope="col">Marathi English Emergency Contact Title</th>
+                                        <th scope="col">English Emergency Contact Title</th>
+                                        <th scope="col">Marathi Emergency Contact Title</th>
                                         <th scope="col">English Emergency Contact Number</th>
                                         <th scope="col">Marathi Emergency Contact Number</th>
                                         <th>Action</th>

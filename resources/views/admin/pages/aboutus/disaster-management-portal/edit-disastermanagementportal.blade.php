@@ -54,10 +54,10 @@
                                                 class="red-text">*</span>
                                             <textarea class="form-control english_description" name="english_description" id="english_description"
                                                 placeholder="Enter the Description">
-@if (old('english_description'))
-{{ old('english_description') }}@else{{ $disastermanagementportal->english_description }}
-@endif
-</textarea>
+                                            @if (old('english_description'))
+                                            {{ old('english_description') }}@else{{ $disastermanagementportal->english_description }}
+                                            @endif
+                                            </textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
                                             @endif
@@ -69,10 +69,10 @@
                                                 class="red-text">*</span>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="Enter the Description">
-@if (old('marathi_description'))
-{{ old('marathi_description') }}@else{{ $disastermanagementportal->marathi_description }}
-@endif
-</textarea>
+                                            @if (old('marathi_description'))
+                                            {{ old('marathi_description') }}@else{{ $disastermanagementportal->marathi_description }}
+                                            @endif
+                                            </textarea>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
                                             @endif
@@ -90,7 +90,7 @@
                                         <img id="english"
                                             src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW') }}{{ $disastermanagementportal->english_image }}"
                                             class="img-fluid img-thumbnail" width="150">
-                                        <img id="english_imgPreview" src="#" alt="pic"
+                                        <img id="english_imgPreview" src="#" alt=" {{ strip_tags($disastermanagementportal['marathi_title']) }} प्रतिमा"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -105,7 +105,7 @@
                                         <img id="marathi"
                                             src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW') }}{{ $disastermanagementportal->marathi_image }}"
                                             class="img-fluid img-thumbnail" width="150">
-                                        <img id="marathi_imgPreview" src="#" alt="pic"
+                                        <img id="marathi_imgPreview" src="#" alt=" {{ strip_tags($disastermanagementportal['english_title']) }} Image"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">

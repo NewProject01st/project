@@ -32,9 +32,8 @@ class RTIController extends Controller
         $rules = [
             'english_title' => 'required',
             'marathi_title' => 'required',
-            'policies_year' => 'required',
-            'english_pdf' => 'required|file|mimes:pdf',
-            'marathi_pdf' => 'required|file|mimes:pdf',
+            // 'english_pdf' => 'required|file|mimes:pdf',
+            // 'marathi_pdf' => 'required|file|mimes:pdf',
             'url' => 'required',
             
          ];
@@ -42,12 +41,12 @@ class RTIController extends Controller
         'english_title.required'=>'Please enter title.',
         'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
         'url.required'=>'Please enter url.',
-        'english_pdf.required' => 'Please upload an PDF file.',
-        'english_pdf.file' => 'The file must be of type: file.',
-        'english_pdf.mimes' => 'The file must be a PDF.',
-        'marathi_pdf.required' => 'कृपया PDF फाइल अपलोड करा.',
-        'marathi_pdf.file' => 'फाइल प्रकार: फाइल होणे आवश्यक आहे.',
-        'marathi_pdf.mimes' => 'फाइल पीडीएफ असावी.',
+        // 'english_pdf.required' => 'Please upload an PDF file.',
+        // 'english_pdf.file' => 'The file must be of type: file.',
+        // 'english_pdf.mimes' => 'The file must be a PDF.',
+        // 'marathi_pdf.required' => 'कृपया PDF फाइल अपलोड करा.',
+        // 'marathi_pdf.file' => 'फाइल प्रकार: फाइल होणे आवश्यक आहे.',
+        // 'marathi_pdf.mimes' => 'फाइल पीडीएफ असावी.',
     ];
 
     try {
@@ -60,14 +59,12 @@ class RTIController extends Controller
         }
         else
         {
-            $add_vacancy = $this->service->addAll($request);
-            // print_r($add_tenders);
-            // die();
-            if($add_vacancy)
+            $add_rti = $this->service->addAll($request);           
+            if($add_rti)
             {
 
-                $msg = $add_vacancy['msg'];
-                $status = $add_vacancy['status'];
+                $msg = $add_rti['msg'];
+                $status = $add_rti['status'];
                 if($status=='success') {
                     return redirect('list-header-rti')->with(compact('msg','status'));
                 }
@@ -95,7 +92,6 @@ public function update(Request $request)
     $rules = [
         'english_title' => 'required',
         'marathi_title' => 'required',
-        'policies_year' => 'required',
         // 'english_pdf' => 'required|file|mimes:pdf',
         // 'marathi_pdf' => 'required|file|mimes:pdf',
         'url' => 'required',

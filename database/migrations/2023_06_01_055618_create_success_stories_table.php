@@ -20,7 +20,6 @@ class CreateSuccessStoriesTable extends Migration
             $table->text('english_description');
             $table->text('marathi_description');
             $table->string('english_image')->default('null');
-            $table->string('marathi_image')->default('null');      
             $table->string('english_designation');
             $table->string('marathi_designation');            
             $table->string('is_deleted')->default(false);

@@ -15,7 +15,9 @@ use App\Models\ {
     DepartmentInformation,
     VacanciesHeader,
     RTI,
-    DisasterForcast
+    DisasterForcast,
+    PolicyPrivacy,
+    TermsCondition
 };
 
 class IndexRepository  {
@@ -264,6 +266,38 @@ class IndexRepository  {
         }
     }
 
+    public function getPrivacyPolicy(){
+        try {
+            $data_output =  PolicyPrivacy::where('is_active','=',true);
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->select('marathi_title','marathi_description');
+            } else {
+                $data_output = $data_output->select('english_title','english_description');
+            }
+            $data_output =  $data_output->get()
+                            ->toArray();
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+    
+    public function getTermCondition(){
+        try {
+            $data_output =  TermsCondition::where('is_active','=',true);
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->select('marathi_title','marathi_description');
+            } else {
+                $data_output = $data_output->select('english_title','english_description');
+            }
+            $data_output =  $data_output->get()
+                            ->toArray();
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+    
     // public function getWebContact()
     // {
     //     try {

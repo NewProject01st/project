@@ -39,12 +39,27 @@
                                                         <td>{{ $item->f_name }} {{ $item->m_name }} {{ $item->l_name }}
                                                             ({{ $item->u_email }})</td>
                                                         <td>{{ $item->role_name }}</td>
-                                                        <td>@if($item->is_active)
+
+
+                                                        <td>
+                                                            <label class="switch">
+                                                                <input data-id="{{ $item->id }}" type="checkbox"
+                                                                    {{ $item->is_active ? 'checked' : '' }}
+                                                                    class="active-btn btn btn-sm btn-outline-primary m-1"
+                                                                    data-toggle="tooltip" data-placement="top"
+                                                                    title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
+                                                                <span class="slider round "></span>
+                                                            </label>
+
+                                                        </td>
+
+
+                                                        {{-- <td>@if($item->is_active)
                                                         <button type="button" class="btn btn-success btn-sm">Active</button>
                                                         @else 
                                                         <button type="button" class="btn btn-danger btn-sm">In Active</button>
                                                         
-                                                        @endif</td>
+                                                        @endif</td> --}}
                                                         <td class="d-flex">
                                                             <a data-id="{{ $item->id }}"
                                                                 class="edit-btn btn btn-sm btn-outline-primary m-1"><i
@@ -84,6 +99,10 @@
         <form method="GET" action="{{ url('/edit-users') }}" id="editform">
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
+        </form>
+        <form method="POST" action="{{ url('/update-active-user') }}" id="activeform">
+            @csrf
+            <input type="hidden" name="active_id" id="active_id" value="">
         </form>
 
         <!-- content-wrapper ends -->

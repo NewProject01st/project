@@ -7,7 +7,8 @@ use App\Models\ {
     MainSubMenus,
     DynamicWebPages,
     SocialIcon,
-    WebsiteContact
+    WebsiteContact,
+    PolicyPrivacy
 };
 
 function getIPAddress($req)
@@ -57,6 +58,7 @@ function getPermissionForCRUDPresentOrNot($url,$data_for_session) {
     }
     return $data;
 }
+
 
 function getSocialIcon() {
     $socialicon_data = array();

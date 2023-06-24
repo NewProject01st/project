@@ -58,7 +58,7 @@
                                 @if (session('language') == 'mar')
                                     <div class="thumb"><img
                                             src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['marathi_image'] }}"
-                                            alt="<?php echo $item['marathi_title']; ?>"> </div>
+                                            alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा"> </div>
                                     <div class="event-post-content">
                                         <div class="event-post-txt">
                                             <h5 class="card_title"><a href="#"><?php echo mb_substr($item['marathi_title'], 0, 35) ?></a></h5>
@@ -73,7 +73,7 @@
                                 @else
                                     <div class="thumb"> <img
                                             src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['english_image'] }}"
-                                            alt="<?php echo $item['english_title']; ?>"> </div>
+                                            alt="{{ strip_tags($item['english_title']) }} Image"> </div>
                                     <div class="event-post-content">
                                         <div class="event-post-txt">
                                             <h5 class="card_title"><a data-id="{{ $item['id'] }}" class="show-btn"><?php echo mb_substr($item['english_title'], 0, 35) ?></a></h5>

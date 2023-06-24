@@ -55,16 +55,6 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="designation">Designation</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="designation" id="designation"
-                                                placeholder="" value="@if (old('designation')) {{ old('designation') }}@else{{ $user_data->designation }} @endif">
-                                            @if ($errors->has('designation'))
-                                                <span class="red-text"><?php echo $errors->first('designation', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="u_email">Email ID</label>&nbsp<span class="red-text">*</span>
@@ -74,6 +64,39 @@
 
                                             @if ($errors->has('u_email'))
                                                 <span class="red-text"><?php echo $errors->first('u_email', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
+                                            <input type="password" class="form-control" name="u_password" id="u_password"
+                                                placeholder="" value="@if (old('u_password')) {{ old('u_password') }}@endif">
+                                            <span id="togglePassword" class="password-toggle"
+                                                onclick="togglePasswordVisibility()">
+                                                <i class="fa fa-eye-slash"></i>
+                                            </span>
+                                            @if ($errors->has('u_password'))
+                                                <span class="red-text"><?php echo $errors->first('u_password', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="password_confirmation">Confirm Password</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input type="password" class="form-control" id="password_confirmation"
+                                                name="password_confirmation" value="@if (old('password_confirmation')) {{ old('password_confirmation') }}@endif">
+                                            <span id="toggleConfirmPassword" class="password-toggle"
+                                                onclick="toggleConfirmPasswordVisibility()">
+                                                <i class="fa fa-eye-slash"></i>
+                                            </span>
+                                            <span id="password-error" class="error-message red-text"></span>
+                                            @if ($errors->has('password_confirmation'))
+                                                <span class="red-text"><?php echo $errors->first('password_confirmation', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
@@ -89,7 +112,16 @@
                                             @endif
                                         </div>
                                     </div>
-
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="designation">Designation</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" class="form-control" name="designation" id="designation"
+                                                placeholder="" value="@if (old('designation')) {{ old('designation') }}@else{{ $user_data->designation }} @endif">
+                                            @if ($errors->has('designation'))
+                                                <span class="red-text"><?php echo $errors->first('designation', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="number">Mobile Number</label>&nbsp<span class="red-text">*</span>

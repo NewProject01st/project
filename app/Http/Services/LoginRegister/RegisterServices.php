@@ -101,7 +101,9 @@ class RegisterServices
         $profile_data = $this->repo->updateProfile($request);
         return $profile_data;
     }
-
+    public function updateOne($id){
+        return $this->repo->updateOne($id);
+    }
     //  public function verifyOtp($otp){
     //     $user = User::where('otp_number', $otp)->first();
     //     if ($user) {

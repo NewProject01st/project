@@ -117,6 +117,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-users', ['as' => 'show-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@show']);
     Route::get('/cities', ['as' => 'cities', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@getCities']);
 
+    Route::post('/update-active-user', ['as' => 'update-active-user', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateOne']);
     // Route::get('/prof', ['as' => 'prof', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@getProf']);
 
     Route::get('/edit-user-profile', ['as' => 'edit-user-profile', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@editUsersProfile']);
