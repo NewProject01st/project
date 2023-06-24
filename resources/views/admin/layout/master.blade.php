@@ -224,7 +224,7 @@
             <input type="hidden" name="edit_user_id" id="edit_user_id" value="">
         </form>
 
-        <div class="container-fluid page-body-wrapper newpdr">
+        <div class="container-fluid page-body-wrapper">
             @include('admin.layout.sidebar')
             @yield('content')
             @extends('admin.layout.footer')
