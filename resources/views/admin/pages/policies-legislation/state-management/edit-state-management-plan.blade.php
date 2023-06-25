@@ -25,12 +25,10 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title</label>&nbsp<span
-                                                class="red-text">*</span>
-                                                <input type="text" class="form-control" name="english_title" id="english_title"
-                                                placeholder="Enter the Title" value="  @if (old('english_title'))
-                                                {{ old('english_title') }}@else{{ $state_management->english_title }}
-                                                @endif">
+                                            <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" class="form-control" name="english_title"
+                                                id="english_title" placeholder="Enter the Title"
+                                                value="  @if (old('english_title')) {{ old('english_title') }}@else{{ $state_management->english_title }} @endif">
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -38,12 +36,10 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">शीर्षक</label>&nbsp<span
-                                                class="red-text">*</span>
-                                                <input type="text" class="form-control" name="marathi_title" id="marathi_title"
-                                                placeholder="शीर्षक प्रविष्ट करा" value="@if (old('marathi_title'))
-                                                {{ old('marathi_title') }}@else{{ $state_management->marathi_title }}
-                                                @endif">
+                                            <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" class="form-control" name="marathi_title"
+                                                id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"
+                                                value="@if (old('marathi_title')) {{ old('marathi_title') }}@else{{ $state_management->marathi_title }} @endif">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -64,13 +60,20 @@
                                         <div class="form-group">
                                             <label for="policies_year">Year</label>&nbsp;<span class="red-text">*</span>
                                             <select class="form-control" id="policies_year" name="policies_year">
-                                                <option value="">Select Year</option>
+                                                {{-- <option value="">Select Year</option>
                                                 @for ($year = date('Y'); $year >= 1950; $year--)
                                                 <option value="{{ $year }}" @if (old('policies_year') == $year) selected @endif>{{ $year }}</option>
-                                                @endfor
+                                                @endfor --}}
+                                                @php dd($years);  @endphp
+                                                @foreach ($years as $year)
+                                                    <option value="{{ $year }}"
+                                                        {{ $state_management->policies_year == $year ? 'selected' : '' }}>
+                                                        {{ $year }}
+                                                    </option>
+                                                @endforeach
                                             </select>
                                             @if ($errors->has('policies_year'))
-                                            <span class="red-text"><?php echo $errors->first('policies_year', ':message'); ?></span>
+                                                <span class="red-text"><?php echo $errors->first('policies_year', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>

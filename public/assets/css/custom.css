@@ -1252,3 +1252,11 @@ button.btn.btn-outline-warning.btn-fw {  display: block;   width: 100%;   margin
   .emergancy-contact p {
     color: #fff !important;
   }
+  .password-toggle {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
