@@ -24,10 +24,10 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" name="english_title" id="english_title"
-                                                class="form-control" id="english_title" placeholder="Please enter Title"
-                                                value="{{ old('english_title') }}">
+                                            <label for="english_title">Title</label>&nbsp<span
+                                                class="red-text">*</span>
+                                                <input type="text" name="english_title" id="english_title" class="form-control"
+                                                id="english_title" placeholder="Please enter Title" value="{{ old('english_title') }}">
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -35,10 +35,10 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" name="marathi_title" id="marathi_title"
-                                                class="form-control" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"
-                                                value="{{ old('marathi_title') }}">
+                                            <label for="marathi_title">शीर्षक</label>&nbsp<span
+                                                class="red-text">*</span>
+                                                <input type="text" name="marathi_title" id="marathi_title" class="form-control"
+                                                id="marathi_title" placeholder="शीर्षक प्रविष्ट करा" value="{{ old('marathi_title') }}">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -46,7 +46,8 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_pdf">PDF</label>&nbsp<span class="red-text">*</span><br>
+                                            <label for="english_pdf">PDF</label>&nbsp<span
+                                                class="red-text">*</span><br>
                                             <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"
                                                 {{ old('english_pdf') }}><br>
                                             @if ($errors->has('english_pdf'))
@@ -56,7 +57,8 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_pdf">पीडीएफ</label>&nbsp<span class="red-text">*</span><br>
+                                            <label for="marathi_pdf">पीडीएफ</label>&nbsp<span
+                                                class="red-text">*</span><br>
                                             <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
                                                 {{ old('marathi_pdf') }}><br>
                                             @if ($errors->has('marathi_pdf'))
@@ -78,10 +80,10 @@
                                         <div class="form-group">
                                             <label for="url">Year</label>&nbsp<span class="red-text">*</span>
                                             <select class="form-control" id="dYear" name="policies_year">
-                                                <option value="{{ old('policies_year') }}">Select Year</option>
-                                            </select>
-                                            @if ($errors->has('policies_year'))
-                                                <span class="red-text"><?php echo $errors->first('policies_year', ':message'); ?></span>
+                                                <option value="{{ old('policies_year') }}">Select Year</option> 
+                                               </select>
+                                            @if ($errors->has('url'))
+                                                <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>

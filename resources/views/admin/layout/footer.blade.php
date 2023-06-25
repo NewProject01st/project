@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    /*window.addEventListener('load', e => {
+/*window.addEventListener('load', e => {
   if ('serviceWorker' in navigator) {
     try{
       
@@ -50,209 +50,209 @@
 
 
 <script>
-    $("select.non-food-select").change(function() {
-        var selectedOption = $(this).children("option:selected").val();
-        //alert("You have selected the country - " + selectedCountry);
-        $(".declare-field").show();
+$("select.non-food-select").change(function() {
+    var selectedOption = $(this).children("option:selected").val();
+    //alert("You have selected the country - " + selectedCountry);
+    $(".declare-field").show();
+});
+
+
+$(".btn-user-approve").click(function() {
+    $(".modal-approve").hide();
+    $(".modal-backdrop").hide();
+});
+
+$(".btn-product-form").click(function() {
+    $(".food-product-form").slideDown();
+});
+
+$(".calender-pop-close").click(function() {
+    $(".calender-pop-area").hide();
+});
+
+$(".btn-product-save").click(function() {
+    // $(".food-product-form").addClass("d-none");
+    $(".food-product-form").slideUp();
+});
+
+
+$(".major").click(function() {
+    $("#major").slideToggle("slow", function() {
+        // Animation complete.
     });
+});
 
-
-    $(".btn-user-approve").click(function() {
-        $(".modal-approve").hide();
-        $(".modal-backdrop").hide();
+if ($("#morris-donut-example").length) {
+    Morris.Donut({
+        element: 'morris-donut-example',
+        colors: ['#FF5E6D ', '#63CF72', '#F5A623 ', '#FABA66'],
+        width: 300,
+        data: [{
+                label: "NOC",
+                value: 50
+            },
+            {
+                label: "P-NOC",
+                value: 30
+            },
+            {
+                label: "NCC",
+                value: 20
+            }
+        ]
     });
+}
 
-    $(".btn-product-form").click(function() {
-        $(".food-product-form").slideDown();
-    });
+$("#year_picker").datepicker({
+    format: "yyyy",
+    viewMode: "years",
+    minViewMode: "years",
+    year: 2017
+});
 
-    $(".calender-pop-close").click(function() {
-        $(".calender-pop-area").hide();
-    });
+var g8 = new JustGage({
+    id: 'g8',
+    value: 600,
+    min: 0,
+    max: 1000,
+    reverse: true,
+    gaugeWidthScale: 0.6,
+    counter: true
+});
 
-    $(".btn-product-save").click(function() {
-        // $(".food-product-form").addClass("d-none");
-        $(".food-product-form").slideUp();
-    });
+//   (function ($) {
+//     "use strict";
+//     $('.incentive-trigger').on('click', function () {
+//         $(this).parent().toggleClass('switcher-palate');
+//     });
+
+// }(jQuery));
 
 
-    $(".major").click(function() {
-        $("#major").slideToggle("slow", function() {
-            // Animation complete.
+$(document).ready(function() {
+
+    var current_fs, next_fs, previous_fs; //fieldsets
+    var opacity;
+    var current = 1;
+    var steps = $("fieldset").length;
+
+    setProgressBar(current);
+
+    $(".next").click(function() {
+
+        current_fs = $(this).parent();
+        next_fs = $(this).parent().next();
+
+        //Add Class Active
+        //$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+        $(".progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+        //show the next fieldset
+        next_fs.show();
+        //hide the current fieldset with style
+        current_fs.animate({
+            opacity: 0
+        }, {
+            step: function(now) {
+                // for making fielset appear animation
+                opacity = 1 - now;
+
+                current_fs.css({
+                    'display': 'none',
+                    'position': 'relative'
+                });
+                next_fs.css({
+                    'opacity': opacity
+                });
+            },
+            duration: 500
         });
+        setProgressBar(++current);
     });
 
-    if ($("#morris-donut-example").length) {
-        Morris.Donut({
-            element: 'morris-donut-example',
-            colors: ['#FF5E6D ', '#63CF72', '#F5A623 ', '#FABA66'],
-            width: 300,
-            data: [{
-                    label: "NOC",
-                    value: 50
-                },
-                {
-                    label: "P-NOC",
-                    value: 30
-                },
-                {
-                    label: "NCC",
-                    value: 20
-                }
-            ]
+    $(".previous").click(function() {
+
+        current_fs = $(this).parent();
+        previous_fs = $(this).parent().prev();
+
+        //Remove class active
+        //$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+        $(".progressbar li").eq($("fieldset").index(next_fs)).removeClass("active");
+
+        //show the previous fieldset
+        previous_fs.show();
+
+        //hide the current fieldset with style
+        current_fs.animate({
+            opacity: 0
+        }, {
+            step: function(now) {
+                // for making fielset appear animation
+                opacity = 1 - now;
+
+                current_fs.css({
+                    'display': 'none',
+                    'position': 'relative'
+                });
+                previous_fs.css({
+                    'opacity': opacity
+                });
+            },
+            duration: 500
         });
+        setProgressBar(--current);
+    });
+
+    function setProgressBar(curStep) {
+        var percent = parseFloat(100 / steps) * curStep;
+        percent = percent.toFixed();
+        $(".progress-bar")
+            .css("width", percent + "%")
     }
 
-    $("#year_picker").datepicker({
-        format: "yyyy",
-        viewMode: "years",
-        minViewMode: "years",
-        year: 2017
-    });
+    $(".submit").click(function() {
+        return false;
+    })
 
-    var g8 = new JustGage({
-        id: 'g8',
-        value: 600,
-        min: 0,
-        max: 1000,
-        reverse: true,
-        gaugeWidthScale: 0.6,
-        counter: true
-    });
-
-    //   (function ($) {
-    //     "use strict";
-    //     $('.incentive-trigger').on('click', function () {
-    //         $(this).parent().toggleClass('switcher-palate');
-    //     });
-
-    // }(jQuery));
-
-
-    $(document).ready(function() {
-
-        var current_fs, next_fs, previous_fs; //fieldsets
-        var opacity;
-        var current = 1;
-        var steps = $("fieldset").length;
-
-        setProgressBar(current);
-
-        $(".next").click(function() {
-
-            current_fs = $(this).parent();
-            next_fs = $(this).parent().next();
-
-            //Add Class Active
-            //$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-            $(".progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-            //show the next fieldset
-            next_fs.show();
-            //hide the current fieldset with style
-            current_fs.animate({
-                opacity: 0
-            }, {
-                step: function(now) {
-                    // for making fielset appear animation
-                    opacity = 1 - now;
-
-                    current_fs.css({
-                        'display': 'none',
-                        'position': 'relative'
-                    });
-                    next_fs.css({
-                        'opacity': opacity
-                    });
-                },
-                duration: 500
-            });
-            setProgressBar(++current);
-        });
-
-        $(".previous").click(function() {
-
-            current_fs = $(this).parent();
-            previous_fs = $(this).parent().prev();
-
-            //Remove class active
-            //$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-            $(".progressbar li").eq($("fieldset").index(next_fs)).removeClass("active");
-
-            //show the previous fieldset
-            previous_fs.show();
-
-            //hide the current fieldset with style
-            current_fs.animate({
-                opacity: 0
-            }, {
-                step: function(now) {
-                    // for making fielset appear animation
-                    opacity = 1 - now;
-
-                    current_fs.css({
-                        'display': 'none',
-                        'position': 'relative'
-                    });
-                    previous_fs.css({
-                        'opacity': opacity
-                    });
-                },
-                duration: 500
-            });
-            setProgressBar(--current);
-        });
-
-        function setProgressBar(curStep) {
-            var percent = parseFloat(100 / steps) * curStep;
-            percent = percent.toFixed();
-            $(".progress-bar")
-                .css("width", percent + "%")
-        }
-
-        $(".submit").click(function() {
-            return false;
-        })
-
-    });
+});
 </script>
 
 <script>
-    //after window is loaded completely 
-    window.onload = function() {
-        //hide the preloader
-        document.querySelector(".preloader").style.display = "none";
-    }
+//after window is loaded completely 
+window.onload = function() {
+    //hide the preloader
+    document.querySelector(".preloader").style.display = "none";
+}
 </script>
 <!-- New Pro Code  -->
 
 
 <script>
-    $('.delete-btn').click(function(e) {
+$('.delete-btn').click(function(e) {
 
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $("#delete_id").val($(this).attr("data-id"));
-                $("#deleteform").submit();
-            }
-        })
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $("#delete_id").val($(this).attr("data-id"));
+            $("#deleteform").submit();
+        }
+    })
 
-    });
+});
 </script>
 
 <script>
-    $('.show-btn').click(function(e) {
-        $("#show_id").val($(this).attr("data-id"));
-        $("#showform").submit();
-    })
+$('.show-btn').click(function(e) {
+    $("#show_id").val($(this).attr("data-id"));
+    $("#showform").submit();
+})
 </script>
 {{-- <script>
     $('.edit-btn').click(function(e) {
@@ -283,10 +283,10 @@
 
 
 <script>
-    $('.edit-btn').click(function(e) {
-        $("#edit_id").val($(this).attr("data-id"));
-        $("#editform").submit();
-    })
+$('.edit-btn').click(function(e) {
+    $("#edit_id").val($(this).attr("data-id"));
+    $("#editform").submit();
+})
 </script>
 
 <script>
@@ -294,47 +294,47 @@
         $("#edit_user_id").val($(this).attr("data-id"));
         $("#edituserform").submit();
     })
-</script>
+    </script>
 
 <script>
-    $('.active-btn').click(function(e) {
-        $("#active_id").val($(this).attr("data-id"));
-        $("#activeform").submit();
-    })
+$('.active-btn').click(function(e) {
+    $("#active_id").val($(this).attr("data-id"));
+    $("#activeform").submit();
+})
 </script>
 
 <script type="text/javascript">
-    function submitRegister() {
-        document.getElementById("frm_register").submit();
-    }
+function submitRegister() {
+    document.getElementById("frm_register").submit();
+}
 </script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('.english_title'))
-        .catch(error => {
-            console.error(error);
-        });
+ClassicEditor
+    .create(document.querySelector('.english_title'))
+    .catch(error => {
+        console.error(error);
+    });
 </script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('.marathi_title'))
-        .catch(error => {
-            console.error(error);
-        });
+ClassicEditor
+    .create(document.querySelector('.marathi_title'))
+    .catch(error => {
+        console.error(error);
+    });
 </script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('.english_description'))
-        .catch(error => {
-            console.error(error);
-        });
+ClassicEditor
+    .create(document.querySelector('.english_description'))
+    .catch(error => {
+        console.error(error);
+    });
 </script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('.marathi_description'))
-        .catch(error => {
-            console.error(error);
-        });
+ClassicEditor
+    .create(document.querySelector('.marathi_description'))
+    .catch(error => {
+        console.error(error);
+    });
 </script>
 
 
@@ -350,73 +350,59 @@
 
 <!-- Summernote Editor End -->
 <script>
-    $(document).ready(() => {
-        $("#english_image").change(function() {
-            $('#english').css('display', 'none');
-            $("#english_imgPreview").show();
+$(document).ready(() => {
+    $("#english_image").change(function() {
+        $('#english').css('display', 'none');
+        $("#english_imgPreview").show();
 
-            const file = this.files[0];
-            if (file) {
-                let reader = new FileReader();
-                reader.onload = function(event) {
-                    $("#english_imgPreview")
-                        .attr("src", event.target.result);
-                };
-                reader.readAsDataURL(file);
-            }
-        });
+        const file = this.files[0];
+        if (file) {
+            let reader = new FileReader();
+            reader.onload = function(event) {
+                $("#english_imgPreview")
+                    .attr("src", event.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
     });
+});
 </script>
 <script>
-    $(document).ready(() => {
-        $("#marathi_image").change(function() {
-            $('#marathi').css('display', 'none');
-            $("#marathi_imgPreview").show();
-            const file = this.files[0];
-            if (file) {
-                let reader = new FileReader();
-                reader.onload = function(event) {
-                    $("#marathi_imgPreview")
-                        .attr("src", event.target.result);
-                };
-                reader.readAsDataURL(file);
-            }
-        });
+$(document).ready(() => {
+    $("#marathi_image").change(function() {
+        $('#marathi').css('display', 'none');
+        $("#marathi_imgPreview").show();
+        const file = this.files[0];
+        if (file) {
+            let reader = new FileReader();
+            reader.onload = function(event) {
+                $("#marathi_imgPreview")
+                    .attr("src", event.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
     });
+});
 </script>
 <script>
-    $(document).ready(function() {
-        $('#order-listing').DataTable({
-            searching: true,
-            ordering: false,
-            lengthChange: false,
-            showNEntries: false
-        });
+    $(document).ready(function()
+    {
+            $('#order-listing').DataTable({searching: true,ordering: false,lengthChange: false,showNEntries: false});
     });
 </script>
 
 <script>
     $(function() {
-        var option = function(i, j) {
-            var year = j + 1900;
-            return $("<option>", {
-                value: year
-            }).text(year);
-        };
+  var option = function(i, j) {
+    return $("<option>").append(j + 1900);
+  };
 
-        var options = (new Array(150) + "").split(",").map(option);
+  var options = (new Array(150) + "").split(",").map(option);
 
-        var previousValue = "{{ old('policies_year') }}";
-        if (previousValue !== '') {
-            options.push($("<option>", {
-                value: previousValue,
-                selected: "selected"
-            }).text(previousValue));
-        }
+  $("#dYear").append(options);
+});
 
-        $("#dYear").append(options);
-    });
-</script>
+    </script>
 
 <script>
     function togglePasswordVisibility() {
@@ -449,21 +435,6 @@
             toggleIcon.classList.add("fa-eye-slash");
         }
     }
-</script>
-<script>
-    $(document).ready(function() {
-        $('#password_confirmation').on('input', function() {
-            var password = $('#u_password').val();
-            var confirmPassword = $(this).val();
-            var errorSpan = $('#password-error');
-
-            if (password !== confirmPassword) {
-                errorSpan.text('Password does not match.');
-            } else {
-                errorSpan.text('');
-            }
-        });
-    });
 </script>
 </body>
 

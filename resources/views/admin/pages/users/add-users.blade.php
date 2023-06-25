@@ -206,8 +206,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="user_profile">Profile Photo</label>&nbsp<span
-                                                class="red-text">*</span><br>
+                                            <label for="user_profile">Profile Photo</label>&nbsp<span class="red-text">*</span><br>
                                             <input type="file" name="user_profile" id="user_profile" accept="image/*"
                                                 value="{{ old('user_profile') }}"><br>
                                             @if ($errors->has('user_profile'))
@@ -287,8 +286,22 @@
                 }
             }
         </script>
+     
+        <script>
+            $(document).ready(function() {
+                $('#password_confirmation').on('input', function() {
+                    var password = $('#u_password').val();
+                    var confirmPassword = $(this).val();
+                    var errorSpan = $('#password-error');
 
-
+                    if (password !== confirmPassword) {
+                        errorSpan.text('Password does not match.');
+                    } else {
+                        errorSpan.text('');
+                    }
+                });
+            });
+        </script>
         <script>
             $(document).ready(function() {
 
