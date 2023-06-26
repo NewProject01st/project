@@ -127,7 +127,6 @@ Route::group(['middleware' => ['admin']], function () {
     // Route::get('/prof', ['as' => 'prof', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@getProf']);
 
     Route::get('/edit-user-profile', ['as' => 'edit-user-profile', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@editUsersProfile']);
-    // Route::get('/get-profile-image', ['as' => 'get-profile-image', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@editUsersProfileImage']);
 
     Route::post('/update-user-profile', ['as' => 'update-user-profile', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateProfile']);
 

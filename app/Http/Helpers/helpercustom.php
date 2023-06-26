@@ -8,7 +8,8 @@ use App\Models\ {
     DynamicWebPages,
     SocialIcon,
     WebsiteContact,
-    PolicyPrivacy
+    PolicyPrivacy,
+    User
 };
 
 function getIPAddress($req)
@@ -311,6 +312,18 @@ function getMenuForSearch(Request $request) {
     
     return $menu_data_search;
 }
+
+function getProfileImage()
+{
+    $user_detail = User::where('is_active', true)
+        ->where('id', session()->get('user_id'))
+        ->select('id', 'f_name', 'm_name', 'l_name', 'u_email', 'u_password', 'number', 'designation','user_profile')
+        ->first();
+    // echo $user_detail;
+    // die();
+    return $user_detail;
+}
+
 
 
 

@@ -287,21 +287,7 @@
             }
         </script>
      
-        <script>
-            $(document).ready(function() {
-                $('#password_confirmation').on('input', function() {
-                    var password = $('#u_password').val();
-                    var confirmPassword = $(this).val();
-                    var errorSpan = $('#password-error');
-
-                    if (password !== confirmPassword) {
-                        errorSpan.text('Password does not match.');
-                    } else {
-                        errorSpan.text('');
-                    }
-                });
-            });
-        </script>
+     
         <script>
             $(document).ready(function() {
 

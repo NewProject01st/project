@@ -403,11 +403,40 @@ $(document).ready(() => {
 });
 
     </script>
+ <script>
+    $(document).ready(function() {
+        $('.password_confirmation').on('input', function() {
+            var password = $('.u_password').val();
+            var confirmPassword = $(this).val();
+            var errorSpan = $('.password-error');
 
+            if (password !== confirmPassword) {
+                errorSpan.text('Password does not match.');
+            } else {
+                errorSpan.text('');
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#password_confirmation').on('input', function() {
+            var password = $('#u_password').val();
+            var confirmPassword = $(this).val();
+            var errorSpan = $('#password-error');
+
+            if (password !== confirmPassword) {
+                errorSpan.text('Password does not match.');
+            } else {
+                errorSpan.text('');
+            }
+        });
+    });
+</script>
 <script>
     function togglePasswordVisibility() {
-        var passwordInput = document.getElementById("u_password");
-        var toggleIcon = document.getElementById("togglePassword").querySelector("i");
+        var passwordInput = document.getElementsByClassName("u_password");
+        var toggleIcon = document.getElementsByClassName("togglePassword").querySelector("i");
 
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
@@ -422,8 +451,8 @@ $(document).ready(() => {
 </script>
 <script>
     function toggleConfirmPasswordVisibility() {
-        var passwordInput = document.getElementById("password_confirmation");
-        var toggleIcon = document.getElementById("toggleConfirmPassword").querySelector("i");
+        var passwordInput = document.getElementsByClassName("password_confirmation");
+        var toggleIcon = document.getElementsByClassName("toggleConfirmPassword").querySelector("i");
 
         if (passwordInput.type === "password") {
             passwordInput.type = "text";

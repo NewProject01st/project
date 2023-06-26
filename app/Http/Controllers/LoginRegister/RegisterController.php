@@ -246,16 +246,6 @@ class RegisterController extends Controller {
             return $e;
         }
     }
-
-    // public function editUsersProfileImage(Request $request){
-    //      $user_data_image = $this->service->getProfile($request);
-    //      dd($user_data_image);
-    //     //$user_detail= session()->get('user_id');
-    //     // $id = $user_data->id;
-    //     // dd($user_data);
-    //     // return view('admin.layout.master',compact('user_data'));
-    //     return view('admin.layout.master',compact('user_data_image'));
-    // }
     
     public function editUsersProfile(Request $request){
         $user_data = $this->service->getProfile($request);
@@ -385,5 +375,9 @@ class RegisterController extends Controller {
                 ->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
     }
-    
+    // public function getProfileImage($request)
+	// {
+    // $profileimage = getProfileImage($request);
+    // dd($profileimage);
+    // }
 }

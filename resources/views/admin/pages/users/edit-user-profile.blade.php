@@ -4,6 +4,18 @@
         .error {
             color: red
         }
+   
+        .password-toggle {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        .fa-eye-slash {
+            /* display: none; */
+        }
     </style>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="main-panel">
