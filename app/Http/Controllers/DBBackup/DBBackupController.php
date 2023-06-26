@@ -4,7 +4,8 @@ namespace App\Http\Controllers\DBBackup;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
-
+use Config;
+use File;
 class DBBackupController extends Controller
 {
 
@@ -55,7 +56,12 @@ class DBBackupController extends Controller
                 $output .= "'" . implode("','", $table_value_array) . "');\n";
             }
         }
-        $file_name = Config::get('DocumentConstant.DB_BACKUP').'database_backup_on_' . date('y-m-d') . '.sql';
+        $path = storage_path().'/'.Config::get('DocumentConstant.DB_BACKUP');
+        if (!file_exists($path)) {
+            File::makeDirectory($path,0777,true);
+        }
+        
+        $file_name = $path."/".'database_backup_on_' . date('y-m-d') . '.sql';
         $file_handle = fopen($file_name, 'w+');
         fwrite($file_handle, $output);
         fclose($file_handle);
