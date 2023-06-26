@@ -400,12 +400,18 @@ class RegisterRepository
 			// dd($request);
 			$return_data = array();
 			$otp = rand(6, 999999);
+
+			
 			$update_data = [
 				'f_name' => $request->f_name,
 				'm_name' => $request->m_name,
 				'l_name' => $request->l_name,
 				'designation' => $request->designation,
+
 			];
+			// $previousEnglishImage = $update_data->user_profile;
+			// $last_insert_id = $update_data->id;
+
 
 			if (($request->number != $request->old_number) && !isset($request->u_password)) {
 				$this->sendOTPEMAIL($otp, $request);
@@ -460,8 +466,11 @@ class RegisterRepository
 
 				$this->sendOTPEMAIL($otp, $request);
 			}
+			
 			User::where('id', $request->edit_user_id)->update($update_data);
 			
+			// $return_data['last_insert_id'] = $last_insert_id;
+            // $return_data['user_profile'] = $previousEnglishImage;
 			return $return_data;
 
 

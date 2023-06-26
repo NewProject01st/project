@@ -53,116 +53,76 @@ class IndexController extends Controller
                             ->toArray();
             //self::$event_repository->getAllUpcomingEvent();
             $retun_data['upcoming_event']  = $upcoming_event;
+
+            $websitecontact_data =  WebsiteContact::where('is_active', '=',true)
+            ->select( 
+                'website_contacts.marathi_address',
+                'website_contacts.english_address',
+                'website_contacts.email',
+                'website_contacts.marathi_number',
+                'website_contacts.english_number',
+                'website_contacts.id',
+            )
+            ->get()
+            ->toArray();
+            $retun_data['website_contact_details']  = $websitecontact_data;
+ 
+            $weballdepartment_data =  DepartmentInformation::where('is_active', '=',true)
+            ->select( 
+                'department_information.english_title', 
+                'department_information.marathi_title',
+                'department_information.english_description',
+                'department_information.marathi_description',
+                'department_information.english_image',
+                'department_information.marathi_image',
+                'department_information.id',
+            )
+            ->get()
+            ->toArray();
+            $retun_data['web_department_data']  = $weballdepartment_data;
+
+
+            $weballfooterlink_data =  FooterImportantLinks::where('is_active', '=',true)
+            ->select( 
+                'footer_important_links.english_title', 
+                'footer_important_links.marathi_title',
+                'footer_important_links.url',
+                'footer_important_links.id',
+            )
+            ->get()
+            ->toArray();
+            $retun_data['weballfooterlink_data']  = $weballfooterlink_data;
+
+            $data_output_privacypolicy =  PolicyPrivacy::where('is_active', '=',true)
+            ->select( 
+                'policy_privacies.english_title', 
+                'policy_privacies.marathi_title',
+                'policy_privacies.english_description', 
+                'policy_privacies.marathi_description',
+                'policy_privacies.id',
+            )
+            ->get()
+            ->toArray();
+            $retun_data['privacypolicy_data']  = $data_output_privacypolicy;
+
+            $data_output_termcondition =  TermsCondition::where('is_active', '=',true)
+            ->select( 
+                'terms_conditions.english_title', 
+                'terms_conditions.marathi_title',
+                'terms_conditions.english_description', 
+                'terms_conditions.marathi_description',
+                'terms_conditions.id',
+            )
+            ->get()
+            ->toArray();
+            $retun_data['termcondition_data']  = $data_output_termcondition;
+
             return $retun_data ;
         } catch (\Exception $e) {
             return $e;
         }
 
                    
-    }
-
-    static function getWebsiteContact() {
-        try {
-            $websitecontact_data = array();
-            $websitecontact_data =  WebsiteContact::where('is_active', '=',true)
-                            ->select( 
-                                'website_contacts.marathi_address',
-                                'website_contacts.english_address',
-                                'website_contacts.email',
-                                'website_contacts.marathi_number',
-                                'website_contacts.english_number',
-                                'website_contacts.id',
-                            )
-                            ->get()
-                            ->toArray();
-    
-            return $websitecontact_data ;
-        } catch (\Exception $e) {
-            return $e;
-        }
-                            
-    }
-    Static function getWebAllDepartment() {
-        try {
-        $weballdepartment_data = array();
-        $weballdepartment_data =  DepartmentInformation::where('is_active', '=',true)
-                            ->select( 
-                                'department_information.english_title', 
-                                'department_information.marathi_title',
-                                'department_information.english_description',
-                                'department_information.marathi_description',
-                                'department_information.english_image',
-                                'department_information.marathi_image',
-                                'department_information.id',
-                            )
-                            ->get()
-                            ->toArray();
-    
-            return $weballdepartment_data ;
-        } catch (\Exception $e) {
-            return $e;
-        }
-                            
-    }
-
-    Static function getWebAllFooterLink() {
-        try {
-        $weballfooterlink_data = array();
-        $weballfooterlink_data =  FooterImportantLinks::where('is_active', '=',true)
-                            ->select( 
-                                'footer_important_links.english_title', 
-                                'footer_important_links.marathi_title',
-                                'footer_important_links.url',
-                                'footer_important_links.id',
-                            )
-                            ->get()
-                            ->toArray();
-    
-            return $weballfooterlink_data ;
-        } catch (\Exception $e) {
-            return $e;
-        }
-                            
-    }
-    Static function getWebPrivacyPolicy() {
-        try {
-        $data_output_privacypolicy = array();
-        $data_output_privacypolicy =  PolicyPrivacy::where('is_active', '=',true)
-                            ->select( 
-                                'policy_privacies.english_title', 
-                                'policy_privacies.marathi_title',
-                                'policy_privacies.english_description', 
-                                'policy_privacies.marathi_description',
-                                'policy_privacies.id',
-                            )
-                            ->get()
-                            ->toArray();
-    
-            return $data_output_privacypolicy ;
-        } catch (\Exception $e) {
-            return $e;
-        }
-                            
-    }
-    Static function getWebTermCondition() {
-        try {
-        $data_output_termcondition = array();
-        $data_output_termcondition =  TermsCondition::where('is_active', '=',true)
-                            ->select( 
-                                'terms_conditions.english_title', 
-                                'terms_conditions.marathi_title',
-                                'terms_conditions.english_description', 
-                                'terms_conditions.marathi_description',
-                                'terms_conditions.id',
-                            )
-                            ->get()
-                            ->toArray();
-    
-            return $data_output_termcondition ;
-        } catch (\Exception $e) {
-            return $e;
-        }
-                            
     }
     Static function getWebTollFreeNumber() {
         try {

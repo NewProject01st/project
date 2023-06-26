@@ -68,8 +68,7 @@
                                             <label for="u_email">Email ID</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="u_email" id="u_email"
                                                 placeholder="" readonly
-                                                value="@if (old('u_email')) {{ old('u_email') }}@else{{ $user_data->u_email }} @endif">
-
+                                                value="@if (old('u_email')) {{ old('u_email') }}@else{{$user_data->u_email }} @endif">
                                             @if ($errors->has('u_email'))
                                                 <span class="red-text"><?php echo $errors->first('u_email', ':message'); ?></span>
                                             @endif
@@ -112,15 +111,14 @@
                                             </span>
                                         </div>
                                     </div>
-
-                                    {{-- <div class="col-md-6">
+                                     {{-- <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
                                             <input type="password" class="form-control" name="u_password" id="u_password"
                                                 placeholder=""
                                                 value="@if (old('u_password')) {{ old('u_password') }}@endif">
                                             @if ($errors->has('u_password'))
-                                                <span class="red-text"><?php echo $errors->first('u_password', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('u_password', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div> --}}
@@ -150,6 +148,22 @@
                                             @endif
                                         </div>
                                     </div>
+
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="user_profile"> Image</label>
+                                            <input type="file" name="user_profile" class="form-control"
+                                                id="user_profile" accept="image/*" placeholder="image">
+                                            @if ($errors->has('user_profile'))
+                                                <span class="red-text"><?php echo //$errors->first('user_profile', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                        <img id="english" 
+                                            src="{{ Config::get('DocumentConstant.USER_PROFILE_VIEW') }}{{ $user_data->user_profile }}"
+                                            class="img-fluid img-thumbnail" width="150">
+                                        <img id="english_imgPreview" src="#" alt="pic"
+                                            class="img-fluid img-thumbnail" width="150" style="display:none">
+                                    </div> --}}
 
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <input type="hidden" class="form-check-input" name="edit_user_id"

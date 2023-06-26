@@ -175,10 +175,11 @@
                             <img
                              src="{{ asset('assets/images/faces/face4.jpg') }}" 
                              alt="profile" />
-                             
-                             {{-- @foreach ($register_user as $item)
+                            <form action="{{route(get-profile-image)}}">
+                             @foreach ($user_data as $item)
                              <img class="img-size" src="{{ Config::get('DocumentConstant.USER_PROFILE_VIEW') }}{{ $item->user_profile }}" alt="profile" />
-                             @endforeach --}}
+                             @endforeach
+                            </form>
 
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"

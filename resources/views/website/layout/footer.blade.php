@@ -2,16 +2,11 @@
  <footer class="home3 main-footer wf100">
      <div class="container">
          <div class="row">
-             <?php $data_output_contact = App\Http\Controllers\Website\IndexController::getWebsiteContact();
-             $data_output_department = App\Http\Controllers\Website\IndexController::getWebAllDepartment();
-             $data_output_footerlink = App\Http\Controllers\Website\IndexController::getWebAllFooterLink();
-             
-             $data_output_privacypolicy = App\Http\Controllers\Website\IndexController::getWebPrivacyPolicy();//   dd($data_output_contact);
-             $data_output_termcondition = App\Http\Controllers\Website\IndexController::getWebTermCondition();//   dd($data_output_contact);
-
+             <?php 
+             $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData();
              ?>
              <!--Footer Widget Start-->
-             @foreach ($data_output_contact as $item)
+             @forelse ($common_data['website_contact_details'] as $item)
                  @if (session('language') == 'mar')
                      <div class="col-md-3 col-sm-6">
                          <div class="textwidget"> <img src="{{ asset('website_files/images/footer/footer_logo.png') }}"
@@ -81,7 +76,15 @@
                          </div>
                      </div>
                  @endif
-             @endforeach
+                 @empty
+                                <h4>
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.FOOTER.WEBSITE_CONTACT') }}
+                                    @else
+                                        {{ Config::get('english.FOOTER.WEBSITE_CONTACT') }}
+                                    @endif
+                                </h4>
+             @endforelse
              <!--Footer Widget End-->
              <!--Footer Widget Start-->
              <div class="col-md-3 col-sm-6">
@@ -94,14 +97,22 @@
                          @endif
                      </h6>
                      <ul>
-                         @foreach ($data_output_department as $item)
+                        @forelse ($common_data['web_department_data']  as $item)
                              @if (session('language') == 'mar')
                                  <li><a href="#"><i class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                              @else
                                  <li><a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer"><i
                                              class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
                              @endif
-                         @endforeach
+                              @empty
+                                <h4>
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.FOOTER.DEPARTMENT_DATA') }}
+                                    @else
+                                        {{ Config::get('english.FOOTER.DEPARTMENT_DATA') }}
+                                    @endif
+                                </h4>
+                             @endforelse
                      </ul>
                      <form method="POST" action="{{ url('/particular-department-information') }}"
                          id="departmentshowform">
@@ -122,7 +133,7 @@
                          @endif
                      </h6>
                      <ul>
-                         @foreach ($data_output_footerlink as $item)
+                        @forelse ($common_data['weballfooterlink_data']  as $item)
                              @if (session('language') == 'mar')
                                  <li><a href="" target="_blank"><i
                                              class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
@@ -130,24 +141,48 @@
                                  <li><a href="" target="_blank"><i
                                              class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
                              @endif
-                         @endforeach
-                         @foreach ($data_output_privacypolicy as $item)
-                         @if (session('language') == 'mar')
+                             @empty
+                             <h4>
+                                 @if (session('language') == 'mar')
+                                     {{ Config::get('marathi.FOOTER.WEB_FOOTER_LINK') }}
+                                 @else
+                                     {{ Config::get('english.FOOTER.WEB_FOOTER_LINK') }}
+                                 @endif
+                             </h4>
+                             @endforelse
+                             @forelse ($common_data['privacypolicy_data'] as $item)
+                             @if (session('language') == 'mar')
                                 <li><a href="{{ route('privacy-policy') }}"><i
                                      class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                                 @else
                                     <li><a href="{{ route('privacy-policy') }}"><i class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
                                 @endif
-                         @endforeach
+                                @empty
+                                <p>
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.FOOTER.PRIVACY_POLICY') }}
+                                    @else
+                                        {{ Config::get('english.FOOTER.PRIVACY_POLICY') }}
+                                    @endif
+                                </p>
+                                @endforelse
 
-                          @foreach ($data_output_termcondition as $item)
+                                @forelse ($common_data['termcondition_data'] as $item)
                          @if (session('language') == 'mar')
                                 <li><a href="{{ route('privacy-policy') }}"><i
                                      class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                                 @else
                                     <li><a href="{{ route('terms_condition') }}"><i class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
                                 @endif
-                         @endforeach
+                                @empty
+                                <p>
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.FOOTER.TERM_CONDITION') }}
+                                    @else
+                                        {{ Config::get('english.FOOTER.TERM_CONDITION') }}
+                                    @endif
+                                </p>
+                                @endforelse
                          {{-- <li><a href="{{ route('privacy-policy') }}"  target="_blank"><i
                             class="fas fa-star"></i>Privacy Policy</a></li>
                             <li><a href="{{ route('terms_condition') }}" target="_blank"><i
