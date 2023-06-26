@@ -60,8 +60,9 @@ class DBBackupController extends Controller
         if (!file_exists($path)) {
             File::makeDirectory($path,0777,true);
         }
-        
-        $file_name = $path."/".'database_backup_on_' . date('y-m-d') . '.sql';
+        date_default_timezone_set("Asia/Kolkata");
+
+        $file_name = $path."/".'database_backup_on_' . date('d-m-Y H-i-s') . '.sql';
         $file_handle = fopen($file_name, 'w+');
         fwrite($file_handle, $output);
         fclose($file_handle);

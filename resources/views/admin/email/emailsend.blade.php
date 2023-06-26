@@ -28,6 +28,7 @@
                         <p>
                         Dear Sir/Ma'am,
                         <br><br>
+                        {{date_default_timezone_set("Asia/Kolkata")}}
                         Please find attached database backup file for dated {{date('d-m-Y')}} of <b>Disaster Management Web Portal</b>. Please store it securely.
                         <br><br>
                         Thank you.
