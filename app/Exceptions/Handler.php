@@ -58,7 +58,7 @@ class Handler extends ExceptionHandler
         //         ($senderSubject);
         //     $message->from($fromEmail, 'Disaster Management Page Error');
         // });
-
+        date_default_timezone_set("Asia/Kolkata");
         $subject = 'Disaster Management Page Error '.date('d-m-Y H:i:s');
 try {
         $data_insert = array();

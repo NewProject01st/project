@@ -1,5 +1,10 @@
 @extends('admin.layout.master')
 @section('content')
+    <style>
+        .error {
+            color: red
+        }
+    </style>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="main-panel">
         <div class="content-wrapper">
@@ -27,7 +32,8 @@
                                         <div class="form-group">
                                             <label for="f_name">First Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="f_name" id="f_name"
-                                                placeholder="" value="@if (old('f_name')) {{ old('f_name') }}@else{{ $user_data->f_name }} @endif">
+                                                placeholder=""
+                                                value="@if (old('f_name')) {{ old('f_name') }}@else{{ $user_data->f_name }} @endif">
                                             @if ($errors->has('f_name'))
                                                 <span class="red-text"><?php echo $errors->first('f_name', ':message'); ?></span>
                                             @endif
@@ -38,7 +44,8 @@
                                         <div class="form-group">
                                             <label for="m_name">Middle Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="m_name" id="m_name"
-                                                placeholder="" value="@if (old('m_name')) {{ old('m_name') }}@else{{ $user_data->m_name }} @endif">
+                                                placeholder=""
+                                                value="@if (old('m_name')) {{ old('m_name') }}@else{{ $user_data->m_name }} @endif">
                                             @if ($errors->has('m_name'))
                                                 <span class="red-text"><?php echo $errors->first('m_name', ':message'); ?></span>
                                             @endif
@@ -49,7 +56,8 @@
                                         <div class="form-group">
                                             <label for="l_name">Last Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="l_name" id="l_name"
-                                                placeholder="" value="@if (old('l_name')) {{ old('l_name') }}@else{{ $user_data->l_name }} @endif">
+                                                placeholder=""
+                                                value="@if (old('l_name')) {{ old('l_name') }}@else{{ $user_data->l_name }} @endif">
                                             @if ($errors->has('l_name'))
                                                 <span class="red-text"><?php echo $errors->first('l_name', ':message'); ?></span>
                                             @endif
@@ -73,14 +81,16 @@
                                         <div class="form-group">
                                             <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
                                             <input type="password" class="form-control" name="u_password" id="u_password"
-                                                placeholder="" value="@if (old('u_password')) {{ old('u_password') }}@endif">
+                                                placeholder=""
+                                                value="@if (old('u_password')) {{ old('u_password') }} @endif">
+
+                                            @if ($errors->has('u_password'))
+                                                <span class="red-text"><?php echo $errors->first('u_password', ':message'); ?></span>
+                                            @endif
                                             <span id="togglePassword" class="password-toggle"
                                                 onclick="togglePasswordVisibility()">
                                                 <i class="fa fa-eye-slash"></i>
                                             </span>
-                                            @if ($errors->has('u_password'))
-                                                <span class="red-text"><?php echo $errors->first('u_password', ':message'); ?></span>
-                                            @endif
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -88,23 +98,38 @@
                                             <label for="password_confirmation">Confirm Password</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="password" class="form-control" id="password_confirmation"
-                                                name="password_confirmation" value="@if (old('password_confirmation')) {{ old('password_confirmation') }}@endif">
-                                            <span id="toggleConfirmPassword" class="password-toggle"
-                                                onclick="toggleConfirmPasswordVisibility()">
-                                                <i class="fa fa-eye-slash"></i>
-                                            </span>
+                                                name="password_confirmation"
+                                                value="@if (old('password_confirmation')) {{ old('password_confirmation') }} @endif">
+
                                             <span id="password-error" class="error-message red-text"></span>
                                             @if ($errors->has('password_confirmation'))
                                                 <span class="red-text"><?php echo $errors->first('password_confirmation', ':message'); ?></span>
                                             @endif
+                                            <span id="toggleConfirmPassword" class="password-toggle"
+                                                onclick="toggleConfirmPasswordVisibility()">
+                                                <i class="fa fa-eye-slash"></i>
+                                            </span>
                                         </div>
                                     </div>
 
+                                    {{-- <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
+                                            <input type="password" class="form-control" name="u_password" id="u_password"
+                                                placeholder=""
+                                                value="@if (old('u_password')) {{ old('u_password') }}@endif">
+                                            @if ($errors->has('u_password'))
+                                                <span class="red-text"><?php //echo $errors->first('u_password', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div> --}}
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="designation">Designation</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="designation" id="designation"
-                                                placeholder="" value="@if (old('designation')) {{ old('designation') }}@else{{ $user_data->designation }} @endif">
+                                            <label for="designation">Designation</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input type="text" class="form-control" name="designation"
+                                                id="designation" placeholder=""
+                                                value="@if (old('designation')) {{ old('designation') }}@else{{ $user_data->designation }} @endif">
                                             @if ($errors->has('designation'))
                                                 <span class="red-text"><?php echo $errors->first('designation', ':message'); ?></span>
                                             @endif
@@ -112,12 +137,12 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="number">Mobile Number</label>&nbsp<span class="red-text">*</span>
+                                            <label for="number">Mobile Number</label>&nbsp<span
+                                                class="red-text">*</span>
                                             <input type="text" class="form-control" name="number" id="number"
                                                 placeholder=""
-                                                value="@if(old('number')){{old('number')}}@else{{$user_data->number}}@endif"
-                                                {{-- onkeyup="editvalidateMobileNumber(this.value)" --}}
-                                                >
+                                                value="@if (old('number')) {{ old('number') }}@else{{ $user_data->number }} @endif"
+                                                {{-- onkeyup="editvalidateMobileNumber(this.value)" --}}>
                                             <span id="edit-message" class="red-text"></span>
                                             @if ($errors->has('number'))
                                                 <span class="red-text"><?php echo $errors->first('number', ':message'); ?></span>
@@ -142,10 +167,10 @@
                                     </div> --}}
 
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <input type="hidden" class="form-check-input" name="edit_user_id" id="edit_user_id"
-                                            value="{{ $user_data->id }}">
+                                        <input type="hidden" class="form-check-input" name="edit_user_id"
+                                            id="edit_user_id" value="{{ $user_data->id }}">
 
-                                            {{-- <input type="hidden" class="form-check-input" name="f_name" id="f_name"
+                                        {{-- <input type="hidden" class="form-check-input" name="f_name" id="f_name"
                                             value="{{ $user_data->f_name }}">
 
                                             <input type="hidden" class="form-check-input" name="m_name" id="m_name"
@@ -160,7 +185,7 @@
                                             <input type="hidden" class="form-check-input" name="u_password" id="u_password"
                                             value="{{ $user_data->u_password }}"> --}}
 
-                                            <input type="hidden" class="form-check-input" name="old_number" id="old_number"
+                                        <input type="hidden" class="form-check-input" name="old_number" id="old_number"
                                             value="{{ $user_data->number }}">
 
                                         <button type="submit" class="btn btn-success">Save
@@ -195,4 +220,56 @@
                 }
             }
         </script> --}}
+
+        <script>
+            $(document).ready(function() {
+                $.validator.addMethod('mypassword', function(value, element) {
+                        return this.optional(element) || (value.match(/[a-z]/) && value.match(/[A-Z]/) && value
+                            .match(/[0-9]/));
+                    },
+                    'Password must contain at least one uppercase, lowercase and numeric');
+
+                $("#frm_register1").validate({
+                    rules: {
+
+                        u_password: {
+                            required: true,
+                            minlength: 6,
+                            mypassword: true
+
+                        },
+                        password_confirmation: {
+                            required: true,
+                            equalTo: "#u_password"
+                        },
+                    },
+                    messages: {
+                        u_password: {
+                            required: "Please enter your new password",
+                            minlength: "Password should be minimum 8 characters"
+                        },
+                        password_confirmation: {
+                            required: "Please Enter Password Same as New Password for Confirmation",
+                            equalTo: "Password does not Match! Please check the Password"
+                        }
+                    }
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                $("#show_hide_password a").on('click', function(event) {
+                    event.preventDefault();
+                    if ($('#show_hide_password input').attr("type") == "text") {
+                        $('#show_hide_password input').attr('type', 'password');
+                        $('#show_hide_password i').addClass("bx-hide");
+                        $('#show_hide_password i').removeClass("bx-show");
+                    } else if ($('#show_hide_password input').attr("type") == "password") {
+                        $('#show_hide_password input').attr('type', 'text');
+                        $('#show_hide_password i').removeClass("bx-hide");
+                        $('#show_hide_password i').addClass("bx-show");
+                    }
+                });
+            });
+        </script>
     @endsection
