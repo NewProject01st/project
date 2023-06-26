@@ -111,8 +111,7 @@
                                             </span>
                                         </div>
                                     </div>
-
-                                    {{-- <div class="col-md-6">
+                                     {{-- <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
                                             <input type="password" class="form-control" name="u_password" id="u_password"
