@@ -118,6 +118,25 @@ class IndexServices
             return $e;
         }
     }  
+
+    public function getPrivacyPolicy()
+    {
+        try {
+            return $this->repo->getPrivacyPolicy();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }  
+
+    public function getTermCondition()
+    {
+        try {
+            return $this->repo->getTermCondition();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
     
     public function getAllDisaterForcast()
     {

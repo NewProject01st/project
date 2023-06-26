@@ -33,12 +33,10 @@ class SuccessStoriesRepository  {
         $last_insert_id = $news_events->id;
 
         $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
-        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
         
 
         $news_events = SuccessStories::find($last_insert_id); // Assuming $request directly contains the ID
         $news_events->english_image = $englishImageName; // Save the image filename to the database
-        $news_events->marathi_image = $marathiImageName; // Save the image filename to the database
         $news_events->save();
         
         return $last_insert_id;
@@ -81,7 +79,6 @@ class SuccessStoriesRepository  {
             }
         // Store the previous image names
         $previousEnglishImage = $update_news_events->english_image;
-        $previousMarathiImage = $update_news_events->marathi_image;
 
             $update_news_events->english_title = $request['english_title'];
             $update_news_events->marathi_title = $request['marathi_title'];
@@ -95,7 +92,6 @@ class SuccessStoriesRepository  {
 
             $return_data['last_insert_id'] = $last_insert_id;
             $return_data['english_image'] = $previousEnglishImage;
-            $return_data['marathi_image'] = $previousMarathiImage;
             return  $return_data;
 
         } catch (\Exception $e) {
@@ -138,16 +134,15 @@ class SuccessStoriesRepository  {
     public function deleteById($id)
     {
         try {
-            $news_events = SuccessStories::find($id);
-            if ($news_events) {
-                // Delete the images from the storage folder
-                unlink(storage_path(Config::get('DocumentConstant.SLIDER_DELETE') . $news_events->english_image));
-                unlink(storage_path(Config::get('DocumentConstant.SLIDER_DELETE') . $news_events->marathi_image));
-                $slider->delete();
-                // Delete the record from the database
-                $news_events->delete();
+            $stories = SuccessStories::find($id);
+            if ($stories) {
                 
-                return $news_events;
+                if (file_exists(storage_path(Config::get('DocumentConstant.SUCCESS_STORIES_DELETE') . $stories->english_image))) {
+                    unlink(storage_path(Config::get('DocumentConstant.SUCCESS_STORIES_DELETE') . $stories->english_image));
+                }
+                $stories->delete();
+               
+                return $stories;
             } else {
                 return null;
             }

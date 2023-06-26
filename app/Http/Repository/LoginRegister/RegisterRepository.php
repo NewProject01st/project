@@ -50,6 +50,32 @@ class RegisterRepository
 
 		return $permissions;
 	}
+	// public function register($request)
+	// {
+	// 	$ipAddress = getIPAddress($request);
+	// 	$user_data = new User();
+	// 	$user_data->u_email = $request['u_email'];
+	// 	// $user_data->u_uname = $request['u_uname'];
+	// 	$user_data->u_password = bcrypt($request['u_password']);
+	// 	$user_data->role_id = $request['role_id'];
+	// 	$user_data->f_name = $request['f_name'];
+	// 	$user_data->m_name = $request['m_name'];
+	// 	$user_data->l_name = $request['l_name'];
+	// 	$user_data->number = $request['number'];
+	// 	$user_data->designation = $request['designation'];
+	// 	$user_data->address = $request['address'];
+	// 	$user_data->state = $request['state'];
+	// 	$user_data->city = $request['city'];
+	// 	$user_data->pincode = $request['pincode'];
+	// 	$user_data->ip_address = $ipAddress;
+	// 	$user_data->is_active = isset($request['is_active']) ? true : false;
+	// 	$user_data->save();
+
+	// 	$last_insert_id = $user_data->id;
+	// 	// $this->insertRolesPermissions($request, $last_insert_id);
+	// 	return $last_insert_id;
+	// }
+
 	public function register($request)
 	{
 		$ipAddress = getIPAddress($request);
@@ -73,7 +99,16 @@ class RegisterRepository
 
 		$last_insert_id = $user_data->id;
 		// $this->insertRolesPermissions($request, $last_insert_id);
-		return $last_insert_id;
+
+		$imageProfile = $last_insert_id . '_english.' . $request->user_profile->extension();
+        
+        $user_detail = User::find($last_insert_id); // Assuming $request directly contains the ID
+        $user_detail->user_profile = $imageProfile; // Save the image filename to the database
+        $user_detail->save();
+        // echo  $user_detail;
+		// die();
+        return $last_insert_id;
+
 	}
 
 	public function update($request)
@@ -290,10 +325,17 @@ class RegisterRepository
 		return "ok";
 	}
 
+
+
+
+
 	public function getById($id)
 	{
 		try {
 			$user = User::find($id);
+
+
+			
 			// $user = User::join('roles', 'roles.id','=', 'users.role_id')
 			// ->get();
 			// return $user;
@@ -310,6 +352,35 @@ class RegisterRepository
 			];
 		}
 	}
+
+
+	public function updateOne($request){
+        try {
+            $user = User::find($request); // Assuming $request directly contains the ID
+
+            // Assuming 'is_active' is a field in the userr model
+            if ($user) {
+                $is_active = $user->is_active === 1 ? 0 : 1;
+                $user->is_active = $is_active;
+                $user->save();
+
+                return [
+                    'msg' => 'User updated successfully.',
+                    'status' => 'success'
+                ];
+            }
+
+            return [
+                'msg' => 'User not found.',
+                'status' => 'error'
+            ];
+        } catch (\Exception $e) {
+            return [
+                'msg' => 'Failed to update User.',
+                'status' => 'error'
+            ];
+        }
+    }
 
 	public function getProfile()
 	{
@@ -363,6 +434,18 @@ class RegisterRepository
 				$return_data['msg_alert'] = "green";
 
 				$this->sendOTPEMAIL($otp, $request);
+
+
+				$user_data = User::where('id',$request['edit_id']) 
+						->update([
+							// 'u_uname' => $request['u_uname'],
+							'u_password' => $request['u_password_new'],
+						]);
+		
+				
+
+			// 	print_r($return_data);
+			// die();
 			}
 
 			if ((isset($request->u_password) && $request->u_password !== '') && ($request->number != $request->old_number)) {
@@ -378,6 +461,7 @@ class RegisterRepository
 				$this->sendOTPEMAIL($otp, $request);
 			}
 			User::where('id', $request->edit_user_id)->update($update_data);
+			
 			return $return_data;
 
 

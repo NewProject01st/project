@@ -14,7 +14,9 @@ use App\Models\ {
     FooterImportantLinks,
     Event,
     Tollfree,
-    WebsiteLogo
+    WebsiteLogo,
+    PolicyPrivacy,
+    TermsCondition
 };
 
 class IndexController extends Controller
@@ -26,9 +28,13 @@ class IndexController extends Controller
         $this->service = new IndexServices();  
         $this->menu = getMenuItems();
         $this->socialicon = getSocialIcon();
+        
+        // $this->$menuDataSearch = getMenuForSearch();
+        // dd($menuDataSearch);
         // $this->websitecontact = getWebsiteContact();
     }
 
+   
     static function getCommonWebData() {
         try {
             $retun_data = [];
@@ -118,6 +124,46 @@ class IndexController extends Controller
         }
                             
     }
+    Static function getWebPrivacyPolicy() {
+        try {
+        $data_output_privacypolicy = array();
+        $data_output_privacypolicy =  PolicyPrivacy::where('is_active', '=',true)
+                            ->select( 
+                                'policy_privacies.english_title', 
+                                'policy_privacies.marathi_title',
+                                'policy_privacies.english_description', 
+                                'policy_privacies.marathi_description',
+                                'policy_privacies.id',
+                            )
+                            ->get()
+                            ->toArray();
+    
+            return $data_output_privacypolicy ;
+        } catch (\Exception $e) {
+            return $e;
+        }
+                            
+    }
+    Static function getWebTermCondition() {
+        try {
+        $data_output_termcondition = array();
+        $data_output_termcondition =  TermsCondition::where('is_active', '=',true)
+                            ->select( 
+                                'terms_conditions.english_title', 
+                                'terms_conditions.marathi_title',
+                                'terms_conditions.english_description', 
+                                'terms_conditions.marathi_description',
+                                'terms_conditions.id',
+                            )
+                            ->get()
+                            ->toArray();
+    
+            return $data_output_termcondition ;
+        } catch (\Exception $e) {
+            return $e;
+        }
+                            
+    }
     Static function getWebTollFreeNumber() {
         try {
         $webtollfree_data = array();
@@ -158,6 +204,7 @@ class IndexController extends Controller
         try {
             $menu = $this->menu;
             $socialicon = $this->socialicon;
+            // $menuDataSearch = $this->menuDataSearch;
             // $websitecontact = $this->websitecontact;
             $data_output_slider = $this->service->getAllSlider();
             $data_output_marquee = $this->service->getAllMarquee();
@@ -166,6 +213,7 @@ class IndexController extends Controller
             $data_output_emergencycontact = $this->service->getAllEmergencyContact();
             $data_output_disasterforcast = $this->service->getAllDisaterForcast();
             $data_output_departmentinformation = $this->service->getAllDepartmentInformation();
+           
             // $data_output_contact = $this->service->getWebContact();
             // dd(  $data_output_contact);
 
@@ -270,12 +318,13 @@ class IndexController extends Controller
 
             $menu = $this->menu;
             $socialicon = $this->socialicon;
+            $data_output = $this->service->getPrivacyPolicy();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
                 $language = 'en';
             }
-            return view('website.pages.privacy-policy',compact('language','menu','socialicon'));
+            return view('website.pages.privacy-policy',compact('language','menu','socialicon', 'data_output'));
 
         } catch (\Exception $e) {
             return $e;
@@ -287,19 +336,43 @@ class IndexController extends Controller
 
             $menu = $this->menu;
             $socialicon = $this->socialicon;
+            $data_output = $this->service->getTermCondition();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
                 $language = 'en';
             }
-            return view('website.pages.terms_condition',compact('language','menu','socialicon'));
+            return view('website.pages.terms_condition',compact('language','menu','socialicon', 'data_output'));
 
         } catch (\Exception $e) {
             return $e;
         }
     } 
+
+
     
     public function changeLanguage(Request $request) {
         Session::put('language', $request->language);
     }    
+
+    // public function search(Request $request)
+    // {
+    //     $query = $request->input('query');
+    //     $menu = $this->menu;
+    //     $socialicon = $this->socialicon;
+
+    //     if (Session::get('language') == 'mar') {
+    //         $language = Session::get('language');
+    //     } else {
+    //         $language = 'en';
+    //     }
+
+    //     // Perform the search using Laravel's query builder or Eloquent ORM
+    //     $results = MainMenus::where('title', 'like', "%$query%")
+    //         ->orWhere('content', 'like', "%$query%")
+    //         ->get();
+
+    //     return view('website.pages.index', compact('language','menu','socialicon'));
+    // }
+    
 }

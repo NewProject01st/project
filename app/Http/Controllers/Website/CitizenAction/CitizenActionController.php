@@ -39,6 +39,12 @@ class CitizenActionController extends Controller
             'description' => 'required',
             'media_upload' => 'required',
             'g-recaptcha-response' => 'required|captcha',
+
+            'ngo_name' => 'required',
+            'ngo_email' => 'required',
+            'ngo_contact_number' => 'required',
+            'ngo_photo' => 'required',
+
             ];
         $messages = [   
             'incident' => 'required',
@@ -182,5 +188,6 @@ class CitizenActionController extends Controller
         }
         return view('website.pages.citizen-action.volunteer-citizen-support-web',compact('language','menu','socialicon', 'data_output_incident'));
     }
+    
     
 }

@@ -173,8 +173,13 @@
                     <li class="nav-item nav-profile dropdown mr-0">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img
-                             {{-- src="{{ asset('assets/images/faces/face4.jpg') }}"  --}}
+                             src="{{ asset('assets/images/faces/face4.jpg') }}" 
                              alt="profile" />
+                             
+                             {{-- @foreach ($register_user as $item)
+                             <img class="img-size" src="{{ Config::get('DocumentConstant.USER_PROFILE_VIEW') }}{{ $item->user_profile }}" alt="profile" />
+                             @endforeach --}}
+
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
@@ -219,7 +224,7 @@
             <input type="hidden" name="edit_user_id" id="edit_user_id" value="">
         </form>
 
-        <div class="container-fluid page-body-wrapper newpdr">
+        <div class="container-fluid page-body-wrapper">
             @include('admin.layout.sidebar')
             @yield('content')
             @extends('admin.layout.footer')

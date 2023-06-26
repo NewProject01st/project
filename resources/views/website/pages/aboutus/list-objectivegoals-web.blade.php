@@ -61,7 +61,7 @@
 
                                     <p style="text-align: justify;">
                                         <img src="{{ Config::get('DocumentConstant.OBJECTIVE_GOALS_VIEW') }}{{ $data_output[0]['marathi_image'] }}"
-                                            class="d-block w-100 to_set_img" alt="{{ strip_tags($data_output[0]['marathi_title']) }}">
+                                            class="d-block w-100 to_set_img" alt="{{ strip_tags($data_output[0]['marathi_title']) }} Image">
                                         <?php echo $data_output[0]['marathi_description']; ?>
                                     </p>
                                 @else
@@ -70,7 +70,7 @@
                                     <p style="text-align: justify;" class="mt-p2">
                                         <img src="{{ Config::get('DocumentConstant.OBJECTIVE_GOALS_VIEW') }}{{ $data_output[0]['english_image'] }}"
                                             class="d-block w-100 to_set_img"
-                                            alt="{{ strip_tags($data_output[0]['english_title']) }}">
+                                            alt="{{ strip_tags($data_output[0]['english_title']) }} Image">
                                         <?php echo $data_output[0]['english_description']; ?>
                                     </p>
                                 @endif

@@ -3,6 +3,9 @@
 namespace App\Constants;
 
 return [
+    'USER_PROFILE_ADD'	         => "/all_web_data/images/userProfile/",
+    'USER_PROFILE_DELETE'	         => '/all_web_data/images/userProfile/',
+    'USER_PROFILE_VIEW'	         => env("APP_URL").'/storage/all_web_data/images/userProfile/',
 
     'SLIDER_ADD'	         => "/all_web_data/images/home/slides/",
     'SLIDER_DELETE'	         => '/all_web_data/images/home/slides/',
@@ -133,6 +136,10 @@ return [
     'VOLUNTEER_CITIZEN_MODAL_DELETE'  => '/all_web_data/images/citizen-action/modal/volunteer-citizen-modal/',
     'VOLUNTEER_CITIZEN_MODAL_VIEW'    => env("APP_URL").'/storage/all_web_data/images/citizen-action/modal/volunteer-citizen-modal/',
     
+    'VOLUNTEER_CITIZEN_NGO_ADD'	    => "/all_web_data/images/citizen-action/modal/volunteer-citizen-ngo//",
+    'VOLUNTEER_CITIZEN_NGO_DELETE'  => '/all_web_data/images/citizen-action/modal/volunteer-citizen-ngo/',
+    'VOLUNTEER_CITIZEN_NGO_VIEW'    => env("APP_URL").'/storage/all_web_data/images/citizen-action/modal/volunteer-citizen-ngo/',
+
     'FEEDBACK_CITIZEN_MODAL_ADD'	    => "/all_web_data/images/citizen-action/modal/feedback-citizen-modal//",
     'FEEDBACK_CITIZEN_MODAL_DELETE'  => '/all_web_data/images/citizen-action/modal/feedback-citizen-modal/',
     'FEEDBACK_CITIZEN_MODAL_VIEW'    => env("APP_URL").'/storage/all_web_data/images/citizen-action/modal/feedback-citizen-modal/',

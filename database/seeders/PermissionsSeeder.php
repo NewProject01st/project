@@ -444,7 +444,23 @@ class PermissionsSeeder extends Seeder
                         'route_name' => 'Twitter Link',
                         'url' => 'list-tweeter-feed',
                         'permission_name' => 'Twitter Link',
-                    ]);             
+                    ]);  
+                    Permissions::create(
+                        [
+                            'created_at' => \Carbon\Carbon::now(),
+                            'updated_at' => \Carbon\Carbon::now(),
+                            'route_name' => 'Privacy Policy',
+                            'url' => 'list-privacy-policy',
+                            'permission_name' => 'Privacy Policy',
+                        ]);  
+                    Permissions::create(
+                        [
+                            'created_at' => \Carbon\Carbon::now(),
+                            'updated_at' => \Carbon\Carbon::now(),
+                            'route_name' => 'Terms and Conditions',
+                            'url' => 'list-terms-conditions',
+                            'permission_name' => 'Terms and Conditions',
+                        ]);             
             // Permissions::create(
             //     [
             //         'created_at' => \Carbon\Carbon::now(),

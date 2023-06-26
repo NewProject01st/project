@@ -53,10 +53,10 @@
                                                          <td>{{ strip_tags($item->english_description) }}</td>
                                                          <td>{{ strip_tags($item->marathi_description) }}</td>
                                                          <td> <img class="img-size"
-                                                                 src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW') }}{{ $item->english_image }}" />
+                                                                 src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW') }}{{ $item->english_image }}" alt=" {{ strip_tags($item['english_title']) }} Image"/>
                                                          </td>
                                                          <td> <img class="img-size"
-                                                                 src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW') }}{{ $item->marathi_image }}" />
+                                                                 src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW') }}{{ $item->marathi_image }}" alt=" {{ strip_tags($item['english_title']) }} Image"/>
                                                          </td>
                                                          <!-- <td>
                                                                                 <span class="badge badge-success">Active</span>

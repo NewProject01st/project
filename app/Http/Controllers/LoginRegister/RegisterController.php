@@ -29,6 +29,13 @@ class RegisterController extends Controller {
         return view('admin.pages.users.users-list',compact('register_user'));
     }
 
+    // public function getProf()
+    // {
+    //     $register_user = $this->service->index();
+    //     return view('admin.layout.master',compact('register_user'));
+    // }
+
+
 
     public function addUsers(){
         $roles = Roles::where('is_active', true)
@@ -135,8 +142,6 @@ class RegisterController extends Controller {
 
     }
 
-
-
     public function register(Request $request){
 
         $rules = [
@@ -213,6 +218,17 @@ class RegisterController extends Controller {
 
     }
 
+    public function show(Request $request)
+    {
+        try {
+            //  dd($request->show_id);
+            $user_detail = $this->service->getById($request->show_id);
+            return view('admin.pages.users.show-users', compact('user_detail'));
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+  
     public function delete(Request $request){
         $delete_user = $this->service->delete($request);
         $msg = 'User deleted successfully';
@@ -263,12 +279,19 @@ class RegisterController extends Controller {
                     ->withErrors($validation);
             } else {
                 $register_user = $this->service->updateProfile($request);
+                // dd($register_user);
                 if($register_user)
                 {
                     if((isset($register_user['password_change']) && ($register_user['password_change'] =='yes')) || (isset($register_user['mobile_change']) && $register_user['mobile_change'] =='yes')) {
                         return view('admin.pages.users.otp-verify')->with(compact('register_user'));
                     }
+                    elseif((isset($request->u_password) && $request->u_password !== '') && ($request->number == $request->old_number)) {
+                        
+                        return view('log-out');
+
+                    }
                 
+
                     $msg = $register_user['msg'];
                     $status = $register_user['status'];
                     if($status=='success') {

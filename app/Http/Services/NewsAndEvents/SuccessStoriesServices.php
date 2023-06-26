@@ -37,9 +37,8 @@ class SuccessStoriesServices
             $path = Config::get('DocumentConstant.SUCCESS_STORIES_ADD');
             // $path =  "\all_web_data\images\home\slides\\"."\\";
             $englishImageName = $last_id . '_english.' . $request->english_image->extension();
-            $marathiImageName = $last_id . '_marathi.' . $request->marathi_image->extension();
             uploadImage($request, 'english_image', $path, $englishImageName);
-            uploadImage($request, 'marathi_image', $path, $marathiImageName);
+           
 
             if ($last_id) {
                 return ['status' => 'success', 'msg' => 'Success Stories Added Successfully.'];
@@ -79,19 +78,8 @@ class SuccessStoriesServices
                 uploadImage($request, 'english_image', $path, $englishImageName);
             }
     
-            if ($request->hasFile('marathi_image')) {
-                if ($return_data['marathi_image']) {
-                    $delete_file_mar= storage_path(Config::get('DocumentConstant.SUCCESS_STORIES_DELETE') . $return_data['marathi_image']);
-                    if(file_exists($delete_file_mar)){
-                        unlink($delete_file_mar);
-                    }
-                }
-    
-                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
-                uploadImage($request, 'marathi_image', $path, $marathiImageName);
-            }
+            
             $success_stories_data = SuccessStories::find($return_data['last_insert_id']);
-            $success_stories_data->marathi_image = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
             $success_stories_data->english_image = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
             $success_stories_data->save();
             if ($return_data) {

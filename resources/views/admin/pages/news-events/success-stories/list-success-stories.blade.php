@@ -38,8 +38,7 @@
                                                     <th>वर्णन </th>
                                                     <th>Designation </th>
                                                     <th>पदनाम </th>
-                                                    <th>Image</th>
-                                                    <th>प्रतिमा</th>
+                                                    <th>Profile</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -57,9 +56,7 @@
                                                         <td> <img class="img-size"
                                                                 src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item->english_image }}" />
                                                         </td>
-                                                        <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item->marathi_image }}" />
-                                                        </td>
+                                                       
                                                         <td>
                                                             <label class="switch">
                                                                 <input data-id="{{ $item->id }}" type="checkbox"

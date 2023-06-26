@@ -72,38 +72,7 @@
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="english_image">Image</label>
-                                            <input type="file" name="english_image" class="form-control"
-                                                id="english_image" accept="image/*" placeholder="image">
-                                            @if ($errors->has('english_image'))
-                                                <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
-                                            @endif
-                                        </div>
-
-                                        <img id="english"
-                                            src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $success_stories->english_image }}"
-                                            class="img-fluid img-thumbnail" width="150">
-                                        <img id="english_imgPreview" src="#" alt="pic"
-                                            class="img-fluid img-thumbnail" width="150" style="display:none">
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="marathi_image">प्रतिमा</label>
-                                            <input type="file" name="marathi_image" id="marathi_image" accept="image/*"
-                                                class="form-control">
-                                            @if ($errors->has('marathi_image'))
-                                                <span class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                        <img id="marathi"
-                                            src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $success_stories->marathi_image }}"
-                                            class="img-fluid img-thumbnail" width="150">
-                                        <img id="marathi_imgPreview" src="#" alt="pic"
-                                            class="img-fluid img-thumbnail" width="150" style="display:none">
-                                    </div>
+                                    </div>                                   
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_designation">Designation</label>&nbsp<span
@@ -126,6 +95,22 @@
                                                 value="@if (old('marathi_designation')) {{ old('marathi_designation') }}@else{{ $success_stories->marathi_designation }} @endif"
                                                 required="">
                                         </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="english_image">Profile</label>
+                                            <input type="file" name="english_image" class="form-control"
+                                                id="english_image" accept="image/*" placeholder="image">
+                                            @if ($errors->has('english_image'))
+                                                <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
+                                            @endif
+                                        </div>
+
+                                        <img id="english"
+                                            src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $success_stories->english_image }}"
+                                            class="img-fluid img-thumbnail" width="150">
+                                        <img id="english_imgPreview" src="#" alt="pic"
+                                            class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Update</button>

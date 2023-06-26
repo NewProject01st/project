@@ -49,7 +49,7 @@
                         @if (session('language') == 'mar')
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
                                 <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider['marathi_image'] }}"
-                                    class="d-block w-100" alt="{{ $slider['marathi_title'] }}">
+                                    class="d-block w-100" alt="{{ strip_tags($slider['marathi_title']) }} Image">
                                 <div class="carousel-caption">
                                     <h1><?php echo $slider['marathi_title']; ?></h1>
                                     <p><?php echo $slider['marathi_description']; ?> </p>
@@ -66,7 +66,7 @@
                         @elseif (array_key_exists('english_title', $slider))
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
                                 <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider['english_image'] }}"
-                                    class="d-block w-100" alt="{{ $slider['english_title'] }}">
+                                    class="d-block w-100" alt="{{ strip_tags($slider['english_title']) }} Image">
                                 <div class="carousel-caption">
                                     <h1><?php echo $slider['english_title']; ?></h1>
                                     <p><?php echo $slider['english_description']; ?> </p>
@@ -112,7 +112,7 @@
                                         @endif
                                     </strong>
                                     <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $item['marathi_image'] }}"
-                                        class="d-block w-100">
+                                    alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा"  class="d-block w-100">
                                 </div>
                             </div>
                             <div class="col-md-8 col-sm-7">
@@ -134,7 +134,7 @@
                                         @endif
                                     </strong>
                                     <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $item['english_image'] }}"
-                                        class="d-block w-100">
+                                      alt="{{ strip_tags($item['english_title']) }} Image"  class="d-block w-100">
                                 </div>
                             </div>
                             <div class="col-md-8 col-sm-7">
@@ -172,7 +172,7 @@
                                     <div class="new-thumb">
                                         {{-- <span class="cat c1">Fire</span> --}}
                                         <img src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW') }}{{ $item['marathi_image'] }}"
-                                            class="d-block w-100">
+                                        alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा"  class="d-block w-100">
                                     </div>
                                     <div class="new-txt">
                                         <ul class="news-meta">
@@ -202,7 +202,7 @@
                                     <div class="new-thumb">
                                         {{-- <span class="cat c1">Fire</span> --}}
                                         <img src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW') }}{{ $item['english_image'] }}"
-                                            class="d-block w-100">
+                                        alt="{{ strip_tags($item['english_title']) }} Image"  class="d-block w-100">
                                     </div>
                                     <div class="new-txt">
                                         <ul class="news-meta">
@@ -260,7 +260,7 @@
                                     <div class="col-md-4 col-sm-4">
                                         <div class="deprt-icon-box"> <img
                                                 src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item['marathi_image'] }}"
-                                                alt="">
+                                                alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा">
                                             <h6> <a><?php echo $item['marathi_title']; ?></a> </h6>
                                             <a data-id="{{ $item['id'] }}"
                                                 class="department-show-btn rm cursor-pointer">
@@ -276,7 +276,7 @@
                                     <div class="col-md-4 col-sm-4">
                                         <div class="deprt-icon-box"> <img
                                                 src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item['english_image'] }}"
-                                                alt="">
+                                                alt="{{ strip_tags($item['english_title']) }} Image">
                                             <h6> <a><?php echo $item['english_title']; ?></a> </h6>
                                             <a data-id="{{ $item['id'] }}"
                                                 class="department-show-btn rm cursor-pointer">

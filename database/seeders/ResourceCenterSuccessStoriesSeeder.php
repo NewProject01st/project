@@ -25,7 +25,6 @@ class ResourceCenterSuccessStoriesSeeder extends Seeder
             'english_designation' => 'Accountant',
             'marathi_designation' => 'लेखापाल ',
             'english_image' => 'head_english.png',
-            'marathi_image' => 'head_marathi.png',
             'is_deleted'=>false,
             'is_active'=>true,
         
@@ -42,7 +41,6 @@ class ResourceCenterSuccessStoriesSeeder extends Seeder
             'english_designation' => 'Project Manager            ',
             'marathi_designation' => 'प्रकल्प व्यवस्थापक            ',
             'english_image' => 'head_english.png',
-            'marathi_image' => 'head_marathi.png',
             'is_deleted'=>false,
             'is_active'=>true,
         

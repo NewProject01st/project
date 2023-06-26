@@ -20,11 +20,18 @@ Route::get('/login', function () {
     return view('admin.login');
 });
 
+Route::get('/4BMkMvsUzt', ['as' => '/4BMkMvsUzt', 'uses' => 'App\Http\Controllers\Admin\ErrorLogsController@index']);
+Route::post('/show-error', ['as' => '/show-error', 'uses' => 'App\Http\Controllers\Admin\ErrorLogsController@show']);
+Route::post('/resolve-error', ['as' => '/resolve-error', 'uses' => 'App\Http\Controllers\Admin\ErrorLogsController@resolve']);
+
+
+
 Route::get('/', ['as' => '/', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
 Route::post('/change-language', ['as' => '/change-language', 'uses' => 'App\Http\Controllers\Website\IndexController@changeLanguage']);
 
 Route::get('/error-handling', ['as' => 'error-handling', 'uses' => 'App\Http\Controllers\ErrorHandlingController@errorHandling']);
 
+// Route::get('/search', 'App\Http\Controllers\Website\IndexController@SearchController@search')->name('search');
 
 
 // Route::get('/add-users', function () {
@@ -115,6 +122,9 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/delete-users', ['as' => 'delete-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@delete']);
     Route::post('/show-users', ['as' => 'show-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@show']);
     Route::get('/cities', ['as' => 'cities', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@getCities']);
+
+    Route::post('/update-active-user', ['as' => 'update-active-user', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateOne']);
+    // Route::get('/prof', ['as' => 'prof', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@getProf']);
 
     Route::get('/edit-user-profile', ['as' => 'edit-user-profile', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@editUsersProfile']);
     Route::post('/update-user-profile', ['as' => 'update-user-profile', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateProfile']);
@@ -369,6 +379,7 @@ Route::get('/list-volunteer-modal-info', ['as' => 'list-volunteer-modal-info', '
 Route::get('/list-feedback-modal-info', ['as' => 'list-feedback-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\FeedbackCitizenModalController@index']);
 Route::post('/delete-incident-modal-info', ['as' => 'delete-incident-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentModalController@destroy']);
 Route::post('/delete-volunteer-modal-info', ['as' => 'delete-volunteer-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenModalController@destroy']);
+Route::post('/show-volunteer-modal-info', ['as' => 'show-volunteer-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenModalController@show']);
 
 //=======Header=======
 Route::get('/list-social-icon', ['as' => 'list-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@index']);

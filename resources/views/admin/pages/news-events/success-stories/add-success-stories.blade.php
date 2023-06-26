@@ -64,28 +64,7 @@
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="english_image">Image</label>&nbsp<span class="red-text">*</span><br>
-                                            <input type="file" name="english_image" id="english_image"
-                                                accept="image/*"><br>
-                                            @if ($errors->has('english_image'))
-                                                <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="marathi_image">प्रतिमा </label>&nbsp<span
-                                                class="red-text">*</span><br>
-                                            <input type="file" name="marathi_image" id="marathi_image"
-                                                accept="image/*"><br>
-                                            @if ($errors->has('marathi_image'))
-                                                <span class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
+                                    </div>                                    
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_designation">Designation</label>&nbsp<span
@@ -108,6 +87,16 @@
                                                 value="{{ old('marathi_designation') }}">
                                             @if ($errors->has('marathi_designation'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_designation', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="english_image">Profile</label>&nbsp<span class="red-text">*</span><br>
+                                            <input type="file" name="english_image" id="english_image"
+                                                accept="image/*"><br>
+                                            @if ($errors->has('english_image'))
+                                                <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>

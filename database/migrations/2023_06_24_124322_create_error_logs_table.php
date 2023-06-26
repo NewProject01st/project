@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSuccessStoriesTable extends Migration
+class CreateErrorLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateSuccessStoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('success_stories', function (Blueprint $table) {
+        Schema::create('error_logs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('english_title');
-            $table->text('marathi_title');
-            $table->text('english_description');
-            $table->text('marathi_description');
-            $table->string('english_image')->default('null');
-            $table->string('english_designation');
-            $table->string('marathi_designation');            
+            $table->string('subject');
+            $table->text('messege');
+            $table->string('is_read')->default(false);
+            $table->string('is_resolved')->default(false);
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
@@ -35,6 +32,6 @@ class CreateSuccessStoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('success_stories');
+        Schema::dropIfExists('error_logs');
     }
 }

@@ -4,6 +4,9 @@ namespace App\Exceptions;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use App\Models\ {
+    ErrorLogs
+};
 
 class Handler extends ExceptionHandler
 {
@@ -41,23 +44,34 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception)
     {
-        $email_data = [
-            'exception' => $exception,
-        ];
+        // $email_data = [
+        //     'exception' => $exception,
+        // ];
 
-        $toEmail = env('MAIL_ID_ERROR_REPORTING');
-        // $nameOfSender = "Disater Management Administrator";
-        $senderSubject = 'Disaster Management Page Error '.date('d-m-Y H:i:s');
-        $fromEmail = env('MAIL_USERNAME');
+        // $toEmail = env('MAIL_ID_ERROR_REPORTING');
+        // // $nameOfSender = "Disater Management Administrator";
+        // $senderSubject = 'Disaster Management Page Error '.date('d-m-Y H:i:s');
+        // $fromEmail = env('MAIL_USERNAME');
 
-        Mail::send('admin.email.exception', ['email_data' => $email_data], function ($message) use ($toEmail, $fromEmail, $senderSubject) {
-            $message->to($toEmail)->subject
-                ($senderSubject);
-            $message->from($fromEmail, 'Disaster Management Page Error');
-        });
+        // Mail::send('admin.email.exception', ['email_data' => $email_data], function ($message) use ($toEmail, $fromEmail, $senderSubject) {
+        //     $message->to($toEmail)->subject
+        //         ($senderSubject);
+        //     $message->from($fromEmail, 'Disaster Management Page Error');
+        // });
+
+        $subject = 'Disaster Management Page Error '.date('d-m-Y H:i:s');
+try {
+        $data_insert = array();
+        $data_insert['subject'] =  $subject ;
+        $data_insert['messege'] = $exception ;
+
+        ErrorLogs::insert($data_insert);
+    } catch (\Exception $e) {
+        return $e;
+    }
 
         // return redirect()->route('error-handling'); // Redirect to the custom error page
 
-        return parent::render($request, $exception);
+        // // return parent::render($request, $exception);
     }
 }

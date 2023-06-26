@@ -204,7 +204,16 @@
                                             @endif
                                         </div>
                                     </div>
-
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="user_profile">Profile Photo</label>&nbsp<span class="red-text">*</span><br>
+                                            <input type="file" name="user_profile" id="user_profile" accept="image/*"
+                                                value="{{ old('user_profile') }}"><br>
+                                            @if ($errors->has('user_profile'))
+                                                <span class="red-text"><?php echo $errors->first('user_profile', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="pincode">Pincode</label>&nbsp<span class="red-text">*</span>
@@ -277,38 +286,7 @@
                 }
             }
         </script>
-        <script>
-            function togglePasswordVisibility() {
-                var passwordInput = document.getElementById("u_password");
-                var toggleIcon = document.getElementById("togglePassword").querySelector("i");
-
-                if (passwordInput.type === "password") {
-                    passwordInput.type = "text";
-                    toggleIcon.classList.remove("fa-eye-slash");
-                    toggleIcon.classList.add("fa-eye");
-                } else {
-                    passwordInput.type = "password";
-                    toggleIcon.classList.remove("fa-eye");
-                    toggleIcon.classList.add("fa-eye-slash");
-                }
-            }
-        </script>
-        <script>
-            function toggleConfirmPasswordVisibility() {
-                var passwordInput = document.getElementById("password_confirmation");
-                var toggleIcon = document.getElementById("toggleConfirmPassword").querySelector("i");
-
-                if (passwordInput.type === "password") {
-                    passwordInput.type = "text";
-                    toggleIcon.classList.remove("fa-eye-slash");
-                    toggleIcon.classList.add("fa-eye");
-                } else {
-                    passwordInput.type = "password";
-                    toggleIcon.classList.remove("fa-eye");
-                    toggleIcon.classList.add("fa-eye-slash");
-                }
-            }
-        </script>
+     
         <script>
             $(document).ready(function() {
                 $('#password_confirmation').on('input', function() {

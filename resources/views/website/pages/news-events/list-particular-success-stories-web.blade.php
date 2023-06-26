@@ -45,8 +45,8 @@
                                         <div class="col-md-5">
                                             <div class="profile">
                                                 <div>
-                                                    <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item['marathi_image'] }}"
-                                                        alt="">
+                                                    <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item['english_image'] }}"
+                                                    alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा">
                                                 </div>
                                                 <div class="bio">
                                                     <h2>{{ $item['marathi_title'] }}</h2>
@@ -67,7 +67,7 @@
                                             <div class="profile">
                                                 <div class="">
                                                     <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item['english_image'] }}"
-                                                        alt="">
+                                                    alt="{{ strip_tags($item['english_title']) }} Image">
                                                 </div>
                                                 <div class="new-txt">
                                                     <h4>{{ $item['english_title'] }}</h4>
