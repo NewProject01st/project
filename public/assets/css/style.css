@@ -18338,6 +18338,7 @@ input:focus {
   /* min-height: calc(100vh - 70px); */
   height: 90vh;
   overflow-y: auto;
+  /* overflow-x: hidden; */
   background: #130c0e;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
@@ -20066,8 +20067,9 @@ code {
     display: none;
   }
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link:hover .menu-title {
-    background: linear-gradient(85deg, #392c70, #6a005b);
-    color: #ffffff;
+    /* background: linear-gradient(85deg, #392c70, #6a005b); */
+    background: #F3F1EF;
+    color: rgb(49 49 103);
   }
   .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link:hover .menu-title {
     background: linear-gradient(85deg, #392c70, #6a005b);
@@ -20076,8 +20078,9 @@ code {
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
     display: block;
     padding: .5rem 0;
-    background: linear-gradient(85deg, #392c70, #6a005b);
-    color: #ffffff;
+    /* background: linear-gradient(85deg, #392c70, #6a005b); */
+    background: #F3F1EF;
+    color: rgb(49 49 103);
     border-radius: 0 0 5px 0;
     position: absolute;
     left: 70px;
@@ -29551,3 +29554,26 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
 .note-editor {
   position: initial !important;
 }
+
+/* .sidebar-icon-only .sidebar:hover {
+  width: 225px;
+  display: block;
+}
+
+.sidebar .nav .nav-item .nav-link:hover {
+  text-align: start !important;
+} */
+
+/* .nav-link i.menu-icon:hover {
+  margin-right: 80% !important;
+  margin-left: 0; .nav .nav-item .nav-link .sidebar
+} */
+
+.sidebar-icon-only .sidebar:hover {
+  width: 255px;
+}
+.sidebar-icon-only .sidebar .nav {
+  overflow: visible;
+  width: 70px;
+}
+
