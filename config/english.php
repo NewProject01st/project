@@ -223,6 +223,12 @@ return [
 		'TWEET_HEADING2' =>'@DMS.gov',
 		'COPYRIGHT1' =>' © 2023,',
 		'COPYRIGHT2' =>'All rights reserved',
+		'WEBSITE_CONTACT'=>'No Data Found For Website Contact Details',
+		'DEPARTMENT_DATA'=>'No Data Found For DEPARTMENT',
+		'WEB_FOOTER_LINK'=>'No Data Found For Website FOOTER LINK',
+		'PRIVACY_POLICY'=>'No Data Found For Website Privacy Policy',
+		'TERM_CONDITION'=>'No Data Found For Website Term Condition'
+		
 
 	
 	],

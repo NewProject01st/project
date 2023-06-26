@@ -101,6 +101,7 @@ class RegisterServices
         $profile_data = $this->repo->updateProfile($request);
         return $profile_data;
     }
+    
     public function updateOne($id){
         return $this->repo->updateOne($id);
     }
