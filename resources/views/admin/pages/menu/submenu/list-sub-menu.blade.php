@@ -31,8 +31,8 @@
                                                 <tr>
                                                     <th>Sr. No.</th>
                                                     <th>Main Menu</th>
-                                                    <th> Sub Menu Name English</th>
-                                                    <th> Sub Menu Name Marathi</th>
+                                                    <th> Sub Menu Name </th>
+                                                    <th> उप मेनू नाव </th>
                                                     {{-- <th>URL</th> --}}
                                                     <!-- <th>Status</th> -->
                                                     <th>Action</th>
@@ -50,24 +50,24 @@
                                                         ?></td> --}}
                                                         <!--  <td><?php echo $item->order_no; ?></td> -->
                                                         <!-- <td>
-                                                                            <span class="badge badge-success">Active</span>
-                                                                        </td> -->
+                                                                                <span class="badge badge-success">Active</span>
+                                                                            </td> -->
                                                         <td>
                                                             <div class="d-flex">
-                                                            @if (in_array('per_update', $data_permission))
-                                                                <a data-id="{{ $item->id }}"
-                                                                    class="edit-btn btn btn-sm btn-outline-primary m-1" title="Edit"><i
-                                                                        class="fas fa-pencil-alt"></i></a>
-                                                            @endif
+                                                                @if (in_array('per_update', $data_permission))
+                                                                    <a data-id="{{ $item->id }}"
+                                                                        class="edit-btn btn btn-sm btn-outline-primary m-1"
+                                                                        title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                                                @endif
 
-                                                            <a data-id="{{ $item->id }}"
-                                                                class="show-btn btn btn-sm btn-outline-primary m-1" title="Show"><i
-                                                                    class="fas fa-eye"></i></a>
-                                                            @if (in_array('per_delete', $data_permission))
                                                                 <a data-id="{{ $item->id }}"
-                                                                    class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                                    title="Delete"><i class="fas fa-archive"></i></a>
-                                                            @endif
+                                                                    class="show-btn btn btn-sm btn-outline-primary m-1"
+                                                                    title="Show"><i class="fas fa-eye"></i></a>
+                                                                @if (in_array('per_delete', $data_permission))
+                                                                    <a data-id="{{ $item->id }}"
+                                                                        class="delete-btn btn btn-sm btn-outline-danger m-1"
+                                                                        title="Delete"><i class="fas fa-archive"></i></a>
+                                                                @endif
                                                             </div>
                                                         </td>
                                                     </tr>

@@ -18,14 +18,14 @@ class IncidentTypeController extends Controller
     {
         try {
             $incidenttype_data = $this->service->getAll();
-            return view('admin.pages.citizen-action.incident-type.list-incident-type', compact('incidenttype_data'));
+            return view('admin.pages.master.incident-type.list-incident-type', compact('incidenttype_data'));
         } catch (\Exception $e) {
             return $e;
         }
     }
     public function add()
     {
-        return view('admin.pages.citizen-action.incident-type.add-incident-type');
+        return view('admin.pages.master.incident-type.add-incident-type');
     }
 
     public function store(Request $request) {
@@ -73,7 +73,7 @@ class IncidentTypeController extends Controller
     {
         $edit_data_id = $request->edit_id;
         $incidenttype_data = $this->service->getById($edit_data_id);
-        return view('admin.pages.citizen-action.incident-type.edit-incident-type', compact('incidenttype_data'));
+        return view('admin.pages.master.incident-type.edit-incident-type', compact('incidenttype_data'));
     }
     public function update(Request $request)
     {
@@ -116,7 +116,7 @@ class IncidentTypeController extends Controller
     {
         try {
             $incidenttype_data = $this->service->getById($request->show_id);
-            return view('admin.pages.citizen-action.incident-type.show-incident-type', compact('incidenttype_data'));
+            return view('admin.pages.master.incident-type.show-incident-type', compact('incidenttype_data'));
         } catch (\Exception $e) {
             return $e;
         }

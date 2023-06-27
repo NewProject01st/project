@@ -20,18 +20,18 @@
                 <div class="row">
                     <div class="deprt-txt">
                         @foreach ($data_output as $item)
-                        <div class="deprt-txt">
-                            @if (session('language') == 'mar')
-                            <h3><?php echo $item['marathi_title']; ?></h3>
-                            <p><?php echo $item['marathi_description']; ?></p>
-                            @else
-                            <h3><?php echo $item['english_title']; ?></h3>
-                            <p><?php echo $item['english_description']; ?></p>
-                            @endif
-                        </div>
+                            <div class="deprt-txt">
+                                @if (session('language') == 'mar')
+                                    <h3><?php echo $item['marathi_title']; ?></h3>
+                                    <p><?php echo $item['marathi_description']; ?></p>
+                                @else
+                                    <h3><?php echo $item['english_title']; ?></h3>
+                                    <p><?php echo $item['english_description']; ?></p>
+                                @endif
+                            </div>
                         @endforeach
 
-
+                        {{-- 
                     <h3>Terms and Conditions </h3>
                     <p>
                         Please read these Terms and Conditions carefully before using our disaster management services. These Terms and Conditions govern your access to and use of our services, and by using our services, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these Terms and Conditions, you may not use our services.
@@ -82,8 +82,8 @@
                         </p>
                         
                         <b>Amendments</b>
-                        <p>We may modify or update these Terms and Conditions from time to time, and the updated version will be effective upon posting on our website.</p>                   
-                </div>
+                        <p>We may modify or update these Terms and Conditions from time to time, and the updated version will be effective upon posting on our website.</p>                    --}}
+                    </div>
                 </div>
             </div>
         </div>
