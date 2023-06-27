@@ -199,7 +199,7 @@ class RegisterController extends Controller {
         else
         {
             $register_user = $this->service->register($request);
-       
+    //    dd($register_user);
             if($register_user)
             {
               
@@ -246,7 +246,7 @@ class RegisterController extends Controller {
             return $e;
         }
     }
-
+    
     public function editUsersProfile(Request $request){
         $user_data = $this->service->getProfile($request);
         // $user_detail= session()->get('user_id');
@@ -346,7 +346,11 @@ class RegisterController extends Controller {
                     User::where('id', $request->user_id)->update($update_data);
                     $return_data['msg'] = 'Please login again to use services';
                     $return_data['msg_alert'] = 'green';
-                    return redirect()->route('log-out')->with(compact('return_data'));
+                                
+                    $request->session()->flush();
+                    $request->session()->regenerate();
+                    return view('admin.login',compact('return_data'));
+                    // return redirect('/login')->with('return_data', $return_data);
 
                 } else {
                     $register_user = array();
@@ -371,13 +375,9 @@ class RegisterController extends Controller {
                 ->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
     }
-    
-
-    public function updateProfileDataAfterOTP(Request $request) {
-
- 
-
-
-				
-    }
+    // public function getProfileImage($request)
+	// {
+    // $profileimage = getProfileImage($request);
+    // dd($profileimage);
+    // }
 }

@@ -58,20 +58,18 @@ class Handler extends ExceptionHandler
         //         ($senderSubject);
         //     $message->from($fromEmail, 'Disaster Management Page Error');
         // });
-
+        date_default_timezone_set("Asia/Kolkata");
         $subject = 'Disaster Management Page Error '.date('d-m-Y H:i:s');
-try {
-        $data_insert = array();
-        $data_insert['subject'] =  $subject ;
-        $data_insert['messege'] = $exception ;
+        try {
+            $data_insert = array();
+            $data_insert['subject'] =  $subject ;
+            $data_insert['messege'] = $exception ;
 
-        ErrorLogs::insert($data_insert);
-    } catch (\Exception $e) {
-        return $e;
-    }
-
-        // return redirect()->route('error-handling'); // Redirect to the custom error page
-
-        // // return parent::render($request, $exception);
+            ErrorLogs::insert($data_insert);
+            // return redirect()->route('error-handling');
+            return parent::render($request, $exception);
+        } catch (\Exception $e) {
+            return $e;
+        }
     }
 }

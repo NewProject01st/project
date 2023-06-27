@@ -325,21 +325,13 @@ class RegisterRepository
 		return "ok";
 	}
 
-
-
-
-
 	public function getById($id)
 	{
 		try {
-			$user = User::find($id);
-
-
-			
-			// $user = User::join('roles', 'roles.id','=', 'users.role_id')
-			// ->get();
-			// return $user;
-
+			$user = User::join('roles', 'roles.id', '=', 'users.role_id')
+				->where('users.id', $id)
+				->first();
+	
 			if ($user) {
 				return $user;
 			} else {
@@ -347,11 +339,91 @@ class RegisterRepository
 			}
 		} catch (\Exception $e) {
 			return [
-				'msg' => $e,
+				'msg' => $e->getMessage(),
 				'status' => 'error'
 			];
 		}
 	}
+	
+
+	// public function getById($id)
+	// {
+	// 	try {
+	// $user = User::leftJoin('tbl_area', 'users.state', '=', 'tbl_area.location_id')
+			// 	->whereNull('tbl_area.location_id')
+			// 	->where('users.id', $id)
+			// 	->first([
+			// 		'users.id',
+			// 		'users.f_name',
+			// 		'users.m_name',
+			// 		'users.l_name',
+			// 		'users.u_email',
+			// 		'users.number',
+			// 		'users.designation',
+			// 		'users.address',
+			// 		'users.state',
+			// 		'users.pincode',
+			// 	]);
+	
+	// echo $user;
+	// die();
+	// 		// dd($user);
+	
+	// 		if ($user) {
+	// 			return $user;
+	// 		} else {
+	// 			return null;
+	// 		}
+	// 	} catch (\Exception $e) {
+	// 		return [
+	// 			'msg' => $e,
+	// 			'status' => 'error'
+	// 		];
+	// 	}
+	// }
+	
+
+// 	public function getById($id)
+// 	{
+// 		try {
+// 			$user = User::find($id);
+
+// 			$user= User::leftJoin('tbl_area', function($join) {
+// 				$join->on('users.state', '=', 'tbl_area.location_id');
+// 			  })
+// 			  ->whereNull('tbl_area.location_id')
+// 			  ->first([
+// 				  'users.id',
+// 				  'users.f_name',
+// 				  'users.m_name',
+// 				  'users.l_name',
+// 				  'users.u_email',
+// 				  'users.number',
+// 				  'users.designation',
+// 				  'users.address',
+// 				  'users.state',
+// 				  'users.pincode',
+				
+// 			  ]);
+			
+// 			// $user = User::join('tbl_area', 'tbl_area.location_id','=', 'users.state')
+// 			// ->get();
+
+// dd($user);
+// 			// return $user;
+
+// 			if ($user) {
+// 				return $user;
+// 			} else {
+// 				return null;
+// 			}
+// 		} catch (\Exception $e) {
+// 			return [
+// 				'msg' => $e,
+// 				'status' => 'error'
+// 			];
+// 		}
+// 	}
 
 
 	public function updateOne($request){
@@ -386,7 +458,7 @@ class RegisterRepository
 	{
 		$user_detail = User::where('is_active', true)
 			->where('id', session()->get('user_id'))
-			->select('id', 'f_name', 'm_name', 'l_name', 'u_email', 'u_password', 'number', 'designation')
+			->select('id', 'f_name', 'm_name', 'l_name', 'u_email', 'u_password', 'number', 'designation','user_profile')
 			->first();
 		// echo $user_detail;
 		// die();
@@ -400,12 +472,18 @@ class RegisterRepository
 			// dd($request);
 			$return_data = array();
 			$otp = rand(6, 999999);
+
+			
 			$update_data = [
 				'f_name' => $request->f_name,
 				'm_name' => $request->m_name,
 				'l_name' => $request->l_name,
 				'designation' => $request->designation,
+
 			];
+			// $previousEnglishImage = $update_data->user_profile;
+			// $last_insert_id = $update_data->id;
+
 
 			if (($request->number != $request->old_number) && !isset($request->u_password)) {
 				$this->sendOTPEMAIL($otp, $request);
@@ -460,8 +538,11 @@ class RegisterRepository
 
 				$this->sendOTPEMAIL($otp, $request);
 			}
+			
 			User::where('id', $request->edit_user_id)->update($update_data);
 			
+			// $return_data['last_insert_id'] = $last_insert_id;
+            // $return_data['user_profile'] = $previousEnglishImage;
 			return $return_data;
 
 

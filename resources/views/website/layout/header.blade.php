@@ -75,6 +75,7 @@
 
     {{-- <script src="{{ asset('website_files/assets/js/html-magnifier.js') }}"></script> --}}
 
+  
     <!-- webpage A+ A- button script -->
     <style type="text/css">
         #zoomtext {

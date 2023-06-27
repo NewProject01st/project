@@ -69,10 +69,10 @@
                                             <label> वर्णन</label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="वर्णन प्रविष्ट करा">
-@if (old('marathi_description'))
-{{ old('marathi_description') }}@else{{ $awareness_education->marathi_description }}
-@endif
-</textarea>
+                                            @if (old('marathi_description'))
+                                            {{ old('marathi_description') }}@else{{ $awareness_education->marathi_description }}
+                                            @endif
+                                            </textarea>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
                                             @endif

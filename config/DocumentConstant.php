@@ -161,6 +161,6 @@ return [
     'WEBSITE_LOGO_VIEW'	 => env("APP_URL").'/storage/all_web_data/images/header/website-logo/logo.png',
     
     
-    'DB_BACKUP'	 => env("APP_URL").'/storage/all_web_data/DBBackup/',
+    'DB_BACKUP'	 => "/all_web_data/DBBackup//"
 
 ];

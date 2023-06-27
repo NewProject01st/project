@@ -527,6 +527,7 @@
     </section>
     <!--Departments & Information Desk End-->
     </div>
+   
 @endsection
 {{-- @extends('website.layout.navbar')
 @extends('website.layout.header') --}}
