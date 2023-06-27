@@ -199,7 +199,7 @@ class RegisterController extends Controller {
         else
         {
             $register_user = $this->service->register($request);
-    //    dd($register_user);
+          
             if($register_user)
             {
               
@@ -279,7 +279,7 @@ class RegisterController extends Controller {
                     ->withErrors($validation);
             } else {
                 $register_user = $this->service->updateProfile($request);
-                // dd($register_user);
+                dd($register_user);
                 if($register_user)
                 {
                     if((isset($register_user['password_change']) && ($register_user['password_change'] =='yes')) || (isset($register_user['mobile_change']) && $register_user['mobile_change'] =='yes')) {

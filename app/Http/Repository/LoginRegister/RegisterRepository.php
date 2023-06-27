@@ -469,7 +469,7 @@ class RegisterRepository
 	public function updateProfile($request)
 	{
 		try {
-			// dd($request);
+			
 			$return_data = array();
 			$otp = rand(6, 999999);
 
@@ -479,10 +479,20 @@ class RegisterRepository
 				'm_name' => $request->m_name,
 				'l_name' => $request->l_name,
 				'designation' => $request->designation,
-
 			];
-			// $previousEnglishImage = $update_data->user_profile;
-			// $last_insert_id = $update_data->id;
+			$previousUserProfile = $update_data->user_profile;
+
+			// if ($request->hasFile('user_profile')) {
+			// 	$profileImage = $request->file('user_profile');
+			// 	$update_data['user_profile'] = $newImagePathOrFilename;
+			// }
+			// if ($request->hasFile('user_profile')) {
+			// 	$profileImage = $request->file('user_profile');
+			// 	// Process and save the profile image here
+			// 	$newImagePathOrFilename = ""; // Update this line with the logic to save the image
+			// 	$update_data['user_profile'] = $newImagePathOrFilename;
+			// 	dd($newImagePathOrFilename);
+			// }
 
 
 			if (($request->number != $request->old_number) && !isset($request->u_password)) {
@@ -540,9 +550,18 @@ class RegisterRepository
 			}
 			
 			User::where('id', $request->edit_user_id)->update($update_data);
-			
-			// $return_data['last_insert_id'] = $last_insert_id;
-            // $return_data['user_profile'] = $previousEnglishImage;
+
+			// print_r($return_data);
+			// die();
+
+
+
+			// $update_data->save();
+            // $last_insert_id = $update_data->id;
+
+            // $return_data['last_insert_id'] = $last_insert_id;
+            // $return_data['user_profile'] = $previousUserProfile;
+			dd($return_data);
 			return $return_data;
 
 

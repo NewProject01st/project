@@ -97,9 +97,69 @@ class RegisterServices
         return $data_users;
     }
 
+
+
+    public function updateAll($request){
+        try {
+            $return_data = $this->repo->updateProfile($request);
+            
+            // $path = Config::get('DocumentConstant.USER_PROFILE_ADD');
+            // if ($request->hasFile('user_profile')) {
+            //     if ($return_data['user_profile']) {
+            //         if (file_exists(storage_path(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile']))) {
+            //             unlink(storage_path(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile']));
+            //         }
+
+            //     }
+    
+            //     $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->user_profile->extension();
+            //     uploadImage($request, 'user_profile', $path, $englishImageName);
+            //     $slide_data = User::find($return_data['last_insert_id']);
+            //     $slide_data->user_profile = $englishImageName;
+            //     $slide_data->save();
+            // }
+    
+            
+            if ($return_data) {
+                return ['status' => 'success', 'msg' => 'Slide Updated Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => 'Slide  Not Updated.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        }      
+    }
+
     public function updateProfile($request) {
-        $profile_data = $this->repo->updateProfile($request);
-        return $profile_data;
+        
+        try {
+        $return_data = $this->repo->updateProfile($request);
+            
+        $path = Config::get('DocumentConstant.USER_PROFILE_ADD');
+        if ($request->hasFile('user_profile')) {
+            if ($return_data['user_profile']) {
+                if (file_exists(storage_path(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile']))) {
+                    unlink(storage_path(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile']));
+                }
+
+            }
+
+            $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->user_profile->extension();
+            uploadImage($request, 'user_profile', $path, $englishImageName);
+            $profile = User::find($return_data['last_insert_id']);
+            $profile->user_profile = $englishImageName;
+            $profile->save();
+        }
+
+        
+        if ($return_data) {
+            return ['status' => 'success', 'msg' => 'Profile Updated Successfully.'];
+        } else {
+            return ['status' => 'error', 'msg' => 'Profile  Not Updated.'];
+        }  
+    } catch (Exception $e) {
+        return ['status' => 'error', 'msg' => $e->getMessage()];
+    }  
     }
     
     public function updateOne($id){

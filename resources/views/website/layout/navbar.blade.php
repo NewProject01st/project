@@ -61,21 +61,17 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                                         {{ Config::get('english.NAVBAR.TOLL_FREE') }}
                                     @endif --}}
                                 </a></li>
-
-                                {{-- <li class="nav-item d-lg-block d-none navigationPaddingWeb">
-                                    <span title="Magnifier">
-                                      <div onclick="handleChange11()" class="textColourMenu" style="cursor: pointer;">
-                                        <svg width="20" height="20" viewBox="0 0 22 22" stroke="currentColor" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                          <path d="M21 21L16.2779 16.2695L21 21ZM18.8947 9.94737C18.8947 12.3204 17.9521 14.5962 16.2741 16.2741C14.5962 17.9521 12.3204 18.8947 9.94737 18.8947C7.57438 18.8947 5.29858 17.9521 3.62062 16.2741C1.94267 14.5962 1 12.3204 1 9.94737C1 7.57438 1.94267 5.29858 3.62062 3.62062C5.29858 1.94267 7.57438 1 9.94737 1C12.3204 1 14.5962 1.94267 16.2741 3.62062C17.9521 5.29858 18.8947 7.57438 18.8947 9.94737V9.94737Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                        <?php //echo $showbutton; ?>
-                                      </div>
-                                    </span>
-                                  </li> --}}
                                   
+                              
                         </ul>
-                        <button class="webpage_zoom_btn" id="zoomouttextbody">A-</button>
-                        <button class="webpage_zoom_btn" id="zoomtextbody">A+</button>
+                       
+                                <button class="webpage_zoom_btn" id="zoomouttextbody">A-</button>
+                                <button class="webpage_zoom_btn" id="zoomtextbody">A+</button>
+                           <span id="magnifier" data-toggle="tooltip" data-placement="top" title="Magnifier">
+                                <i class="fa fa-search-plus" style="font-size:24px; color:#fff"></i>
+                            </span>
+                           
+
 
                     </div>
                     <div class="col-2 set_volunteer">
@@ -341,6 +337,11 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
     </div>
 </div>
 
+
+
+
+
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         window.addEventListener('scroll', function() {
@@ -358,44 +359,3 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
     });
 </script>
 
-{{-- <script>
-    var showbutton = false;
-  
-    function handleChange11() {
-        alert('hii');
-      showbutton = !showbutton;
-  
-      if (showbutton === true) {
-        var magnifier = window.HTMLMagnifier({ width: 400 });
-        magnifier.show();
-      } else {
-        var element = document.getElementById("magnifier");
-        element.remove();
-  
-        var list = document.getElementById("magnifier");
-        list.removeChild(list.lastElementChild);
-      }
-    }
-  </script> --}}
-  
-{{-- <script>
-    const handleChange11 = () => {
-        setShowButton(showbutton ? false : true);
-        // alert(showbutton)
-       if(showbutton== true){
-                const magnifier =  window.HTMLMagnifier({ width: 400 });
-                magnifier.show()
-                // alert("in show")
-    
-               } else {
-                // document.getElementByClass("magnifier").style.display='none'
-                // alert("in hide")
-    
-                const element = document.getElementById("magnifier");
-                element.remove();
-    
-                const list = document.getElementById("magnifier");
-                list.removeChild(list.lastElementChild);
-               }             
-           };
-          </script> --}}

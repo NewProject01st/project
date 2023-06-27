@@ -314,12 +314,43 @@
          $("body").attr("style", "font-size:12px !important;");
      });
  </script>
-
+   
 <script>
-    /* global HTMLMagnifier */
+    $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
     const magnifier = new HTMLMagnifier({ width: 400 });
-    magnifier.show();
-  </script>
+    magnifier.hide(); // Hide the magnifier initially
+
+    document.getElementById("magnifier").addEventListener("click", function() {
+        if (magnifier.isVisible()) {
+            magnifier.hide();
+        } else {
+            magnifier.show();
+        }
+    });
+</script>
+
+{{-- <script>
+    $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    const magnifier = new HTMLMagnifier({ width: 400 });
+    magnifier.show(); // Hide the magnifier initially
+
+    const toggleButton = document.querySelector(".magnifier");
+    toggleButton.addEventListener("click", function() {
+        if (magnifier.isVisible()) {
+            magnifier.hide();
+        } else {
+            magnifier.show();
+        }
+    });
+</script> --}}
+
+
  </body>
 
  </html>
