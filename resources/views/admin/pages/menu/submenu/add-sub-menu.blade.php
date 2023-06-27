@@ -34,7 +34,7 @@
                                                             {{ $data['menu_name_english'] }}</option>
                                                     @else
                                                         <option value="{{ $data['id'] }}">{{ $data['menu_name_marathi'] }}
-                                                            ( {{ $data['menu_name_english'] }})
+                                                            ({{ $data['menu_name_english'] }})
                                                         </option>
                                                     @endif
                                                 @endforeach
@@ -43,11 +43,11 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <div class="form-group">
-                                            <label for="menu_name_english">Sub Menu Name English</label>&nbsp<span
+                                            <label for="menu_name_english">Sub Menu Name</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="menu_name_english" id="menu_name_english"
-                                                class="form-control" id="exampleInputUsername1" placeholder=""
-                                                value="{{ old('menu_name_english') }}">
+                                                class="form-control" id="exampleInputUsername1"
+                                                placeholder="Enter sub menu name" value="{{ old('menu_name_english') }}">
                                             @if ($errors->has('menu_name_english'))
                                                 <span class="red-text"><?php echo $errors->first('menu_name_english', ':message'); ?></span>
                                             @endif
@@ -55,10 +55,11 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4">
                                         <div class="form-group">
-                                            <label for="menu_name_marathi">Sub Menu Name Marathi</label>&nbsp<span
+                                            <label for="menu_name_marathi">उप मेनू नाव</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="menu_name_marathi" id="menu_name_marathi"
-                                                class="form-control" id="exampleInputUsername1" placeholder=""
+                                                class="form-control" id="exampleInputUsername1"
+                                                placeholder="उप मेनू नाव प्रविष्ट करा"
                                                 value="{{ old('menu_name_marathi') }}">
                                             @if ($errors->has('menu_name_marathi'))
                                                 <span class="red-text"><?php echo $errors->first('menu_name_marathi', ':message'); ?></span>
