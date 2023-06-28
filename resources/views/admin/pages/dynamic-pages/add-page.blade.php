@@ -14,6 +14,7 @@
                     </ol>
                 </nav>
             </div>
+
             <div class="row">
                 <div class="col-12 grid-margin">
                     <div class="card">
@@ -67,8 +68,6 @@
                                     </div>
                                     </div>
                                     </div>
-
-
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="english_description">Page Content </label>&nbsp<span
