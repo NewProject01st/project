@@ -28,7 +28,7 @@ Route::post('/resolve-error', ['as' => '/resolve-error', 'uses' => 'App\Http\Con
 
 Route::get('/', ['as' => '/', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
 
-Route::get('/index11', ['as' => '/', 'uses' => 'App\Http\Controllers\Website\TestController@getTest']);
+// Route::get('/index11', ['as' => '/', 'uses' => 'App\Http\Controllers\Website\TestController@getTest']);
 
 Route::post('/change-language', ['as' => '/change-language', 'uses' => 'App\Http\Controllers\Website\IndexController@changeLanguage']);
 
