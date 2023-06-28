@@ -22,6 +22,8 @@
                                 id="regForm">
                                 @csrf
                                 <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+                                        <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <label for="menu_name_english">Main Menu</label>&nbsp<span class="red-text">*</span>
                                         <select class="form-select form-control" name="menu_data" id="menu_data"
@@ -38,6 +40,10 @@
                                             <span class="red-text"><?php echo $errors->first('menu_data', ':message'); ?></span>
                                         @endif
                                     </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+                                        <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
@@ -60,7 +66,8 @@
                                             @endif
                                         </div>
                                     </div>
-
+                                        </div>
+                                    </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="english_description">Page Content</label>&nbsp<span
@@ -85,7 +92,9 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+                                        <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="meta_data">Page Meta Data</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -108,7 +117,8 @@
                                             @endif
                                         </div>
                                     </div>
-
+                                        </div>
+                                    </div>
 
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <input type="hidden" name="edit_id" id="edit_id" class="form-control"

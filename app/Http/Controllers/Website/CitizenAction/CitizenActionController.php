@@ -68,8 +68,7 @@ class CitizenActionController extends Controller
             else
             {
                 $add_modal = $this->service->addIncidentModalInfo($request);
-    
-                // dd($add_contact);
+                // dd($add_modal);
                 if($add_modal)
                 {
     
@@ -211,6 +210,7 @@ class CitizenActionController extends Controller
 
     try {
         $add_modal = $this->service->addVolunteerModalInfo($request);
+     
         $msg = $add_modal['msg'];
         $status = $add_modal['status'];
         if ($add_modal && $add_modal['status'] == 'success') {

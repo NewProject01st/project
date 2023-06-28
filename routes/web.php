@@ -405,7 +405,7 @@ Route::post('/delete-tollfree-number', ['as' => 'delete-tollfree-number', 'uses'
 Route::get('/list-website-logo', ['as' => 'list-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@index']);
 Route::get('/add-website-logo', ['as' => 'add-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@add']);
 Route::post('/add-website-logo', ['as' => 'add-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@store']);
-Route::post('/edit-website-logo', ['as' => 'edit-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@edit']);
+Route::get('/edit-website-logo', ['as' => 'edit-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@edit']);
 Route::post('/update-website-logo', ['as' => 'update-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@update']);
 Route::post('/show-website-logo', ['as' => 'show-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@show']);
 Route::post('/delete-website-logo', ['as' => 'delete-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@destroy']);

@@ -47,12 +47,9 @@
                     <div class="col-md-12">
                         <div class="row graybg">
                             <div class="col-md-5 br contact-new-design-b">
-                                <?php $data_output_contact = App\Http\Controllers\Website\IndexController::getWebsiteContact();
-                                
-                                //   dd($data_output_contact);
-                                
+                                <?php $common_data_contact = App\Http\Controllers\Website\IndexController::getCommonWebData();
                                 ?>
-                                @foreach ($data_output_contact as $item)
+                                @foreach ($common_data_contact['website_contact_details'] as $item)
                                     @if (session('language') == 'mar')
                                         <div class="contact-new-design-top">
                                             <div class="add-box-2 contact-new-design">

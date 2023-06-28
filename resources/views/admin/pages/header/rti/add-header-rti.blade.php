@@ -46,16 +46,6 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="url">URL</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" name="url" id="url" class="form-control"
-                                                id="url" placeholder="" value="{{ old('url') }}">
-                                            @if ($errors->has('url'))
-                                                <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
                                             <label for="english_pdf">PDF</label><br>
                                             <input type="file" name="english_pdf" id="english_pdf" accept=".pdf">
                                             @if ($errors->has('english_pdf'))
@@ -69,6 +59,16 @@
                                             <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf">
                                             @if ($errors->has('marathi_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="url">URL</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" name="url" id="url" class="form-control"
+                                                id="url" placeholder="" value="{{ old('url') }}">
+                                            @if ($errors->has('url'))
+                                                <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
