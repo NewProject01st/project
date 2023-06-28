@@ -53,10 +53,10 @@
                                                         {{-- <td>{{ $item->url }}</td> --}}
                                                         {{-- <td>{{ $item->date }}</td> --}}
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item->english_image }}" />
+                                                                src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item->english_image }}" alt=" {{ strip_tags($item['english_title']) }} Image"/>
                                                         </td>
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item->marathi_image }}" />
+                                                                src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item->marathi_image }}" alt=" {{ strip_tags($item['marathi_title']) }} प्रतिमा"/>
                                                         </td>
                                                         <td>
                                                             <label class="switch">

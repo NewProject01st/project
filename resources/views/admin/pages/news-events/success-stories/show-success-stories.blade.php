@@ -81,7 +81,7 @@
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $success_stories->english_image }}"
-                                                style="width:150px; height:150px;" />
+                                                style="width:150px; height:150px;" alt=" {{ strip_tags($success_stories['english_title']) }} Image"/>
                                         </div>
                                     </div>
                                 </div>

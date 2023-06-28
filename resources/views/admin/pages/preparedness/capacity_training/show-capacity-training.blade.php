@@ -64,7 +64,7 @@
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <img src="{{ Config::get('DocumentConstant.CAPACITY_TRAINING_VIEW') }}{{ $capacity_training->english_image }}"
-                                                style="width:300px; height:150px;" />
+                                                style="width:300px; height:150px;" alt=" {{ strip_tags($capacity_training['english_title']) }} Image"/>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -73,7 +73,7 @@
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                             <img src="{{ Config::get('DocumentConstant.CAPACITY_TRAINING_VIEW') }}{{ $capacity_training->marathi_image }}"
-                                                style="width:300px; height:150px;" />
+                                                style="width:300px; height:150px;" alt=" {{ strip_tags($capacity_training['marathi_title']) }} प्रतिमा"/>
                                         </div>
                                     </div>
 

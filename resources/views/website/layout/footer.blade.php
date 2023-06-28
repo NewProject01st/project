@@ -314,8 +314,14 @@
          $("body").attr("style", "font-size:12px !important;");
      });
  </script>
+   <script src="{{ asset('website_files/assets/js/html-magnifier.js') }}"></script>
+{{-- <script>
+    /* global HTMLMagnifier */
+    const magnifier = new HTMLMagnifier({ width: 400 });
+    magnifier.show();
+  </script> --}}
    
-<script>
+ <script>
     $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
     });
@@ -330,7 +336,7 @@
             magnifier.show();
         }
     });
-</script>
+</script> 
 
 {{-- <script>
     $(document).ready(function() {

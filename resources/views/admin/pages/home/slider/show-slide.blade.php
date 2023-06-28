@@ -62,7 +62,7 @@
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider->english_image }}"
-                                                style="width:300px; height:150px;" />
+                                                style="width:300px; height:150px;" alt=" {{ strip_tags($slider['english_title']) }} Image"/>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -71,7 +71,7 @@
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                             <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider->marathi_image }}"
-                                                style="width:300px; height:150px;" />
+                                                style="width:300px; height:150px;" alt=" {{ strip_tags($slider['marathi_image']) }} प्रतिमा"/>
                                         </div>
                                     </div>
                                 </div>

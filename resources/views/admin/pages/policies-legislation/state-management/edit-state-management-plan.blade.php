@@ -66,11 +66,11 @@
                                             <select class="form-control" id="policies_year" name="policies_year">
                                                 <option value="">Select Year</option>
                                                 @for ($year = date('Y'); $year >= 1950; $year--)
-                                                <option value="{{ $year }}" @if (old('policies_year') == $year) selected @endif>{{ $year }}</option>
+                                                    <option value="{{ $year }}" @if (old('policies_year', $state_management->policies_year) == $year) selected @endif>{{ $year }}</option>
                                                 @endfor
                                             </select>
                                             @if ($errors->has('policies_year'))
-                                            <span class="red-text"><?php echo $errors->first('policies_year', ':message'); ?></span>
+                                                <span class="red-text">{{ $errors->first('policies_year') }}</span>
                                             @endif
                                         </div>
                                     </div>

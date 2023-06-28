@@ -480,20 +480,15 @@ class RegisterRepository
 				'l_name' => $request->l_name,
 				'designation' => $request->designation,
 			];
-			$previousUserProfile = $update_data->user_profile;
-
+			
+			if (isset($return_data['user_profile'])) {
+				$previousUserProfile = $update_data->user_profile;
+			}
 			// if ($request->hasFile('user_profile')) {
 			// 	$profileImage = $request->file('user_profile');
+			// 	$newImagePathOrFilename = $profileImage->store('profile_images');
 			// 	$update_data['user_profile'] = $newImagePathOrFilename;
 			// }
-			// if ($request->hasFile('user_profile')) {
-			// 	$profileImage = $request->file('user_profile');
-			// 	// Process and save the profile image here
-			// 	$newImagePathOrFilename = ""; // Update this line with the logic to save the image
-			// 	$update_data['user_profile'] = $newImagePathOrFilename;
-			// 	dd($newImagePathOrFilename);
-			// }
-
 
 			if (($request->number != $request->old_number) && !isset($request->u_password)) {
 				$this->sendOTPEMAIL($otp, $request);
@@ -561,7 +556,7 @@ class RegisterRepository
 
             // $return_data['last_insert_id'] = $last_insert_id;
             // $return_data['user_profile'] = $previousUserProfile;
-			dd($return_data);
+			// dd($return_data);
 			return $return_data;
 
 

@@ -51,7 +51,7 @@
                                                         <td>{{ $item->mobile_number }}</td>
                                                         <td>{{ strip_tags($item->description) }}</td>
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_VIEW') }}{{ $item->media_upload }}" />
+                                                                src="{{ Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_VIEW') }}{{ $item->media_upload }}" alt=" {{ strip_tags($item['media_upload']) }} Image"/>
                                                         </td>
 
 

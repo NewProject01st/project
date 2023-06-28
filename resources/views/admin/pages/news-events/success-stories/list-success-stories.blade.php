@@ -54,7 +54,7 @@
                                                         <td>{{ $item->english_designation }}</td>
                                                         <td>{{ $item->marathi_designation }}</td>
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item->english_image }}" />
+                                                                src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item->english_image }}" alt=" {{ strip_tags($item['english_title']) }} Image"/>
                                                         </td>
                                                        
                                                         <td>

@@ -101,23 +101,24 @@ class RegisterServices
 
     public function updateAll($request){
         try {
+            
             $return_data = $this->repo->updateProfile($request);
             
-            // $path = Config::get('DocumentConstant.USER_PROFILE_ADD');
-            // if ($request->hasFile('user_profile')) {
-            //     if ($return_data['user_profile']) {
-            //         if (file_exists(storage_path(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile']))) {
-            //             unlink(storage_path(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile']));
-            //         }
+            $path = Config::get('DocumentConstant.USER_PROFILE_ADD');
+            if ($request->hasFile('user_profile')) {
+                if ($return_data['user_profile']) {
+                    if (file_exists(storage_path(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile']))) {
+                        unlink(storage_path(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile']));
+                    }
 
-            //     }
+                }
     
-            //     $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->user_profile->extension();
-            //     uploadImage($request, 'user_profile', $path, $englishImageName);
-            //     $slide_data = User::find($return_data['last_insert_id']);
-            //     $slide_data->user_profile = $englishImageName;
-            //     $slide_data->save();
-            // }
+                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->user_profile->extension();
+                uploadImage($request, 'user_profile', $path, $englishImageName);
+                $slide_data = User::find($return_data['last_insert_id']);
+                $slide_data->user_profile = $englishImageName;
+                $slide_data->save();
+            }
     
             
             if ($return_data) {
@@ -148,6 +149,7 @@ class RegisterServices
             uploadImage($request, 'user_profile', $path, $englishImageName);
             $profile = User::find($return_data['last_insert_id']);
             $profile->user_profile = $englishImageName;
+            // dd($profile);
             $profile->save();
         }
 

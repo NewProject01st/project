@@ -95,7 +95,7 @@
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $disaster_web_portal->english_image }}"
-                                                style="width:150px; height:150px;" />
+                                                style="width:150px; height:150px;" alt=" {{ strip_tags($disaster_web_portal['english_title']) }} Image"/>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -104,7 +104,7 @@
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
                                             <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $disaster_web_portal->marathi_image }}"
-                                                style="width:150px; height:150px;" />
+                                                style="width:150px; height:150px;" alt=" {{ strip_tags($disaster_web_portal['marathi_title']) }} प्रतिमा"/>
                                         </div>
                                     </div>
 

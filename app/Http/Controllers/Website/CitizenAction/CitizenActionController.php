@@ -198,7 +198,7 @@ class CitizenActionController extends Controller
         $messages['ngo_email.email'] = 'The NGO email must be a valid email address.';
         $messages['ngo_address.required'] = 'The NGO address field is required.';
         $messages['ngo_contact_number.required'] = 'The NGO number field is required.';
-        // $messages['ngo_photo.required'] = 'The NGO photo field is required.';
+        $messages['ngo_photo.required'] = 'The NGO photo field is required.';
     }
 
     $validation = Validator::make($request->all(), $rules, $messages);
@@ -211,7 +211,8 @@ class CitizenActionController extends Controller
 
     try {
         $add_modal = $this->service->addVolunteerModalInfo($request);
-
+        $msg = $add_modal['msg'];
+        $status = $add_modal['status'];
         if ($add_modal && $add_modal['status'] == 'success') {
             Session::flash('success_message', 'Form submitted successfully!');
             return redirect('add-volunteer-citizen-support-web')->with(compact('msg', 'status'));

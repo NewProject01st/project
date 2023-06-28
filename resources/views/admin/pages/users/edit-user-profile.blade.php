@@ -152,6 +152,7 @@
                                             <label for="number">Mobile Number</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" class="form-control" name="number" id="number"
+                                            pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
                                                 placeholder=""
                                                 value="@if (old('number')) {{ old('number') }}@else{{ $user_data->number }} @endif"
                                                 {{-- onkeyup="editvalidateMobileNumber(this.value)" --}}>
