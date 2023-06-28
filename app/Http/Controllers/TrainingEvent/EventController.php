@@ -56,15 +56,14 @@ class EventController extends Controller
         $validation = Validator::make($request->all(),$rules,$messages);
         if($validation->fails() )
         {
-            return redirect('add-early-warning-system')
+            return redirect('list-event')
                 ->withInput()
                 ->withErrors($validation);
         }
         else
         {
             $add_event = $this->service->addAll($request);
-            // print_r($add_tenders);
-            // die();
+       dd($add_event);
             if($add_event)
             {
 

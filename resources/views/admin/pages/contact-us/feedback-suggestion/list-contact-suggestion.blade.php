@@ -66,7 +66,7 @@
                                                                 @if (in_array('per_add', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
                                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                                        title="Delete Disaster News"><i
+                                                                        title="Delete"><i
                                                                             class="fas fa-archive"></i></a>
                                                                 @endif
                                                             </div>

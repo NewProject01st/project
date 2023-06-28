@@ -35,6 +35,7 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
+                            
                             <form class="forms-sample" id="frm_register1" name="frm_register1" method="post" role="form"
                                 action="{{ route('update-user-profile') }}" enctype="multipart/form-data">
                                 @csrf
@@ -221,6 +222,7 @@
                 }
             }
         </script> --}}
+        
 
         <script>
             $(document).ready(function() {
