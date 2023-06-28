@@ -82,9 +82,9 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
-                                            <input type="password" class="form-control" name="u_password" id="u_password"
-                                                placeholder="" value="{{ old('u_password') }}">
-                                            <span id="togglePassword" class="password-toggle"
+                                            <input type="password" class="password form-control" name="u_password"
+                                                id="u_password" placeholder="" value="{{ old('u_password') }}">
+                                            <span id="togglePassword" class="togglePpassword password-toggle"
                                                 onclick="togglePasswordVisibility()">
                                                 <i class="fa fa-eye-slash"></i>
                                             </span>
@@ -97,9 +97,10 @@
                                         <div class="form-group">
                                             <label for="password_confirmation">Confirm Password</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="password" class="form-control" id="password_confirmation"
-                                                name="password_confirmation" value="{{ old('password_confirmation') }}">
-                                            <span id="toggleConfirmPassword" class="password-toggle"
+                                            <input type="password" class="password_confirmation form-control"
+                                                id="password_confirmation" name="password_confirmation"
+                                                value="{{ old('password_confirmation') }}">
+                                            <span id="toggleConfirmPassword" class=" toggleConfirmPpassword password-toggle"
                                                 onclick="toggleConfirmPasswordVisibility()">
                                                 <i class="fa fa-eye-slash"></i>
                                             </span>
@@ -146,8 +147,10 @@
                                             <label for="number">Mobile Number</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" class="form-control" name="number" id="number"
-                                            pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
-                                                placeholder="" value="{{ old('number') }}"
+                                                pattern="[789]{1}[0-9]{9}"
+                                                oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                                                maxlength="10" minlength="10" placeholder=""
+                                                value="{{ old('number') }}"
                                                 onkeyup="addvalidateMobileNumber(this.value)">
                                             <span id="validation-message" class="red-text"></span>
                                             @if ($errors->has('number'))
@@ -207,7 +210,8 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="user_profile">Profile Photo</label>&nbsp<span class="red-text">*</span><br>
+                                            <label for="user_profile">Profile Photo</label>&nbsp<span
+                                                class="red-text">*</span><br>
                                             <input type="file" name="user_profile" id="user_profile" accept="image/*"
                                                 value="{{ old('user_profile') }}"><br>
                                             @if ($errors->has('user_profile'))
@@ -287,8 +291,8 @@
                 }
             }
         </script>
-     
-     
+
+
         <script>
             $(document).ready(function() {
 
