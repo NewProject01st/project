@@ -53,9 +53,8 @@ class AdminMiddleware
             // } else {
             //     // return redirect()->route('error-handling');
             // }
+           
             return $next($request);
-            
-            
 
         }
        

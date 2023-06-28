@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddOtpOtpVerifiedToUsersTable extends Migration
+class AddUserProfileToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddOtpOtpVerifiedToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('otp')->default(0)->after('ip_address');
+            $table->string('user_profile')->default('null')->after('otp');
         });
     }
 
@@ -26,7 +26,7 @@ class AddOtpOtpVerifiedToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('otp');
+            $table->dropColumn('user_profile');
         });
     }
 }

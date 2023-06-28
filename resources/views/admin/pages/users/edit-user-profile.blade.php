@@ -154,7 +154,7 @@
                                             <input type="text" class="form-control" name="number" id="number"
                                             pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
                                                 placeholder=""
-                                                value="@if (old('number')) {{ old('number') }}@else{{ $user_data->number }} @endif"
+                                                value="@if(old('number')){{ old('number')}}@else{{$user_data->number}}@endif"
                                                 {{-- onkeyup="editvalidateMobileNumber(this.value)" --}}>
                                             <span id="edit-message" class="red-text"></span>
                                             @if ($errors->has('number'))
@@ -169,7 +169,7 @@
                                         <div class="form-group">
                                             <label for="user_profile"> Image</label>
                                             <input type="file" name="user_profile" class="form-control"
-                                                id="english_image" accept="image/*" placeholder="image">
+                                                id="user_profile" accept="image/*" placeholder="image">
                                             @if ($errors->has('user_profile'))
                                                 <div class="red-text"><?php echo $errors->first('user_profile', ':message'); ?>
                                                 </div>
@@ -234,13 +234,13 @@
                     rules: {
 
                         u_password: {
-                            required: true,
+                            //required: true,
                             minlength: 6,
                             mypassword: true
 
                         },
                         password_confirmation: {
-                            required: true,
+                            //required: true,
                             equalTo: "#u_password"
                         },
                     },
