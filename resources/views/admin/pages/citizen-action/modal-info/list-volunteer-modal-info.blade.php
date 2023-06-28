@@ -32,7 +32,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
-                                                    <th>Volunteer</th>
+                                                    <th>Incident Type</th>
                                                     <th>Location</th>
                                                     <th>Datetime</th>
                                                     <th>Mobile Number</th>

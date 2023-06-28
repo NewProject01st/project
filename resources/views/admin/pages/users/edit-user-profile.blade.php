@@ -170,7 +170,7 @@
                                         <div class="form-group">
                                             <label for="user_profile"> Image</label>
                                             <input type="file" name="user_profile" class="form-control"
-                                                id="english_image" accept="image/*" placeholder="image">
+                                                id="user_profile" accept="image/*" placeholder="image">
                                             @if ($errors->has('user_profile'))
                                                 <div class="red-text"><?php echo $errors->first('user_profile', ':message'); ?>
                                                 </div>
@@ -235,13 +235,13 @@
                     rules: {
 
                         u_password: {
-                            required: true,
+                            //required: true,
                             minlength: 6,
                             mypassword: true
 
                         },
                         password_confirmation: {
-                            required: true,
+                            //required: true,
                             equalTo: "#u_password"
                         },
                     },

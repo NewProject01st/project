@@ -27,10 +27,10 @@
                                 <div class="col-12">
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Volunteer :</label>
+                                            <label>Incident Type :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($volunteercitizen->incident) }}</label>
+                                            <label>{{ strip_tags($volunteercitizen->english_title) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">

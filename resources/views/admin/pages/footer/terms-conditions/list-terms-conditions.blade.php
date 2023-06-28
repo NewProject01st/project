@@ -8,9 +8,9 @@
             <div class="page-header">
                 <h3 class="page-title">
                     Terms And Conditions List
-                    @if (in_array('per_add', $data_permission))
+                    {{-- @if (in_array('per_add', $data_permission))
                         <a href="{{ route('add-terms-conditions') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
-                    @endif
+                    @endif --}}
 
                 </h3>
                 <nav aria-label="breadcrumb">
@@ -70,11 +70,11 @@
                                                                 <a data-id="{{ $item->id }}"
                                                                     class="show-btn btn btn-sm btn-outline-primary m-1"
                                                                     title="Show"><i class="fas fa-eye"></i></a>
-                                                                @if (in_array('per_delete', $data_permission))
+                                                                {{-- @if (in_array('per_delete', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
                                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
                                                                         title="Delete"><i class="fas fa-archive"></i></a>
-                                                                @endif
+                                                                @endif --}}
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -90,10 +90,10 @@
                 </div>
             </div>
         </div>
-        <form method="POST" action="{{ url('/delete-terms-conditions') }}" id="deleteform">
+        {{-- <form method="POST" action="{{ url('/delete-terms-conditions') }}" id="deleteform">
             @csrf
             <input type="hidden" name="delete_id" id="delete_id" value="">
-        </form>
+        </form> --}}
         <form method="POST" action="{{ url('/show-terms-conditions') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">

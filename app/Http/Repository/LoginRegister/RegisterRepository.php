@@ -328,9 +328,11 @@ class RegisterRepository
 	public function getById($id)
 	{
 		try {
-			$user = User::join('roles', 'roles.id', '=', 'users.role_id')
+			$user = User::leftJoin('roles', 'roles.id', '=', 'users.role_id')
+				->leftJoin('tbl_area', 'users.state', '=', 'tbl_area.location_id')
 				->where('users.id', $id)
 				->first();
+				
 	
 			if ($user) {
 				return $user;
@@ -344,26 +346,27 @@ class RegisterRepository
 			];
 		}
 	}
-	
 
+	
+	
 	// public function getById($id)
 	// {
 	// 	try {
-	// $user = User::leftJoin('tbl_area', 'users.state', '=', 'tbl_area.location_id')
-			// 	->whereNull('tbl_area.location_id')
-			// 	->where('users.id', $id)
-			// 	->first([
-			// 		'users.id',
-			// 		'users.f_name',
-			// 		'users.m_name',
-			// 		'users.l_name',
-			// 		'users.u_email',
-			// 		'users.number',
-			// 		'users.designation',
-			// 		'users.address',
-			// 		'users.state',
-			// 		'users.pincode',
-			// 	]);
+		// $user = User::leftJoin('tbl_area', 'users.city', '=', 'tbl_area.location_id')
+		// ->whereNull('tbl_area.location_id')
+		// ->where('users.id', $id)
+		// ->first([
+		// 	'users.id',
+		// 	'users.f_name',
+		// 	'users.m_name',
+		// 	'users.l_name',
+		// 	'users.u_email',
+		// 	'users.number',
+		// 	'users.designation',
+		// 	'users.address',
+		// 	'users.state',
+		// 	'users.pincode',
+		// ]);
 	
 	// echo $user;
 	// die();
@@ -382,48 +385,6 @@ class RegisterRepository
 	// 	}
 	// }
 	
-
-// 	public function getById($id)
-// 	{
-// 		try {
-// 			$user = User::find($id);
-
-// 			$user= User::leftJoin('tbl_area', function($join) {
-// 				$join->on('users.state', '=', 'tbl_area.location_id');
-// 			  })
-// 			  ->whereNull('tbl_area.location_id')
-// 			  ->first([
-// 				  'users.id',
-// 				  'users.f_name',
-// 				  'users.m_name',
-// 				  'users.l_name',
-// 				  'users.u_email',
-// 				  'users.number',
-// 				  'users.designation',
-// 				  'users.address',
-// 				  'users.state',
-// 				  'users.pincode',
-				
-// 			  ]);
-			
-// 			// $user = User::join('tbl_area', 'tbl_area.location_id','=', 'users.state')
-// 			// ->get();
-
-// dd($user);
-// 			// return $user;
-
-// 			if ($user) {
-// 				return $user;
-// 			} else {
-// 				return null;
-// 			}
-// 		} catch (\Exception $e) {
-// 			return [
-// 				'msg' => $e,
-// 				'status' => 'error'
-// 			];
-// 		}
-// 	}
 
 
 	public function updateOne($request){
@@ -460,8 +421,6 @@ class RegisterRepository
 			->where('id', session()->get('user_id'))
 			->select('id', 'f_name', 'm_name', 'l_name', 'u_email', 'u_password', 'number', 'designation','user_profile')
 			->first();
-		// echo $user_detail;
-		// die();
 		return $user_detail;
 	}
 
@@ -549,13 +508,16 @@ class RegisterRepository
 			// print_r($return_data);
 			// die();
 
-
-
 			// $update_data->save();
             // $last_insert_id = $update_data->id;
+			$user = User::find($request->edit_user_id);
 
-            // $return_data['last_insert_id'] = $last_insert_id;
-            // $return_data['user_profile'] = $previousUserProfile;
+			$user_data = User::find($request->edit_user_id);
+			$previousUserProfile = $user_data->english_image;
+			$last_insert_id = $user_data->id;
+
+            $return_data['last_insert_id'] = $last_insert_id;
+            $return_data['user_profile'] = $previousUserProfile;
 			// dd($return_data);
 			return $return_data;
 

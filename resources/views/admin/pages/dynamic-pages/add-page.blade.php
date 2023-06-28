@@ -14,6 +14,7 @@
                     </ol>
                 </nav>
             </div>
+
             <div class="row">
                 <div class="col-12 grid-margin">
                     <div class="card">
@@ -22,7 +23,8 @@
                                 enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-12 mb-2">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+                                        <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6">
 
                                             <label for="menu_name_english">Main Menu</label>&nbsp<span
@@ -41,6 +43,9 @@
                                             @endif
                                         </div>
                                     </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
@@ -61,9 +66,8 @@
                                             @endif
                                         </div>
                                     </div>
-
-
-
+                                    </div>
+                                    </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <label for="english_description">Page Content </label>&nbsp<span
@@ -87,7 +91,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="meta_data">Page Meta Data</label>&nbsp<span
                                                 class="red-text">*</span>
@@ -127,7 +131,7 @@
         <!-- Summernote Editor -->
         <script>
             $('#summernote').summernote({
-                placeholder: 'Enter English Title',
+                placeholder: 'Enter Content',
                 tabsize: 2,
                 height: 100
             });
@@ -136,7 +140,7 @@
         <!-- Summernote Editor -->
         <script>
             $('#summernote1').summernote({
-                placeholder: 'Enter Marathi Title',
+                placeholder: 'सामग्री प्रविष्ट करा',
                 tabsize: 2,
                 height: 100
             });
@@ -145,7 +149,7 @@
         <!-- Summernote Editor -->
         <script>
             $('#summernote2').summernote({
-                placeholder: 'Enter English Title',
+                placeholder: 'Enter Content',
                 tabsize: 2,
                 height: 100
             });
@@ -154,7 +158,7 @@
         <!-- Summernote Editor -->
         <script>
             $('#summernote3').summernote({
-                placeholder: 'Enter Marathi Title',
+                placeholder: 'सामग्री प्रविष्ट करा',
                 tabsize: 2,
                 height: 100
             });
@@ -164,7 +168,7 @@
 
         <script>
             $('#summernote4').summernote({
-                placeholder: 'Enter English Title',
+                placeholder: 'Enter Content',
                 tabsize: 2,
                 height: 100
             });
@@ -173,7 +177,7 @@
         <!-- Summernote Editor -->
         <script>
             $('#summernote5').summernote({
-                placeholder: 'Enter Marathi Title',
+                placeholder: 'सामग्री प्रविष्ट करा',
                 tabsize: 2,
                 height: 100
             });

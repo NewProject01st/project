@@ -135,7 +135,6 @@ class RegisterServices
         
         try {
         $return_data = $this->repo->updateProfile($request);
-            
         $path = Config::get('DocumentConstant.USER_PROFILE_ADD');
         if ($request->hasFile('user_profile')) {
             if ($return_data['user_profile']) {

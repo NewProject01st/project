@@ -66,7 +66,6 @@ class RegisterController extends Controller {
 
     public function editUsers(Request $request){
         $user_data = $this->service->editUsers($request);
-        // dd($user_data);
         return view('admin.pages.users.edit-users',compact('user_data'));
     }
 
@@ -221,7 +220,6 @@ class RegisterController extends Controller {
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $user_detail = $this->service->getById($request->show_id);
             return view('admin.pages.users.show-users', compact('user_detail'));
         } catch (\Exception $e) {
@@ -251,7 +249,6 @@ class RegisterController extends Controller {
         $user_data = $this->service->getProfile($request);
         // $user_detail= session()->get('user_id');
         // $id = $user_data->id;
-        // dd($user_data);
         // return view('admin.layout.master',compact('user_data'));
         return view('admin.pages.users.edit-user-profile',compact('user_data'));
     }
@@ -279,7 +276,6 @@ class RegisterController extends Controller {
                     ->withErrors($validation);
             } else {
                 $register_user = $this->service->updateProfile($request);
-                dd($register_user);
                 if($register_user)
                 {
                     if((isset($register_user['password_change']) && ($register_user['password_change'] =='yes')) || (isset($register_user['mobile_change']) && $register_user['mobile_change'] =='yes')) {
@@ -375,9 +371,5 @@ class RegisterController extends Controller {
                 ->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
     }
-    // public function getProfileImage($request)
-	// {
-    // $profileimage = getProfileImage($request);
-    // dd($profileimage);
-    // }
+  
 }

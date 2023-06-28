@@ -9,7 +9,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="#">Header</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Update Vacancies</li>
                     </ol>
                 </nav>
@@ -48,17 +48,6 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" name="url" id="url" class="form-control"
-                                                value="@if (old('url')) {{ old('url') }}@else{{ $vacancy->url }} @endif"
-                                                placeholder="">
-                                            @if ($errors->has('url'))
-                                                <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
                                             <label for="english_pdf">PDF</label><br>
                                             <input type="file" name="english_pdf" id="english_pdf" accept=".pdf">
                                             @if ($errors->has('english_pdf'))
@@ -79,6 +68,17 @@
                                         </div>
                                         <a
                                             href="{{ Config::get('DocumentConstant.VACANCIES_PDF_VIEW') }}{{ $vacancy->marathi_pdf }}"></a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" name="url" id="url" class="form-control"
+                                                value="@if (old('url')) {{ old('url') }}@else{{ $vacancy->url }} @endif"
+                                                placeholder="">
+                                            @if ($errors->has('url'))
+                                                <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
+                                            @endif
+                                        </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Update</button>
