@@ -83,6 +83,11 @@
                 </nav>
             </div>
             <div class="row">
+              @if (isset($status) && $return_data['status'] == 'success')
+                <div class="alert alert-success" role="alert">
+                    {{ $return_data['msg'] }}
+                </div>
+                @endif
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">

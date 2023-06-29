@@ -17,7 +17,7 @@ class WebsiteLogoSeeder extends Seeder
         WebsiteLogo::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'logo' => 'DMS.png',
+            'logo' => 'logo.png',
             'is_deleted'=>false,
             'is_active'=>true,
         

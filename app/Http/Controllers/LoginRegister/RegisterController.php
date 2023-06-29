@@ -291,10 +291,10 @@ class RegisterController extends Controller {
                     $msg = $register_user['msg'];
                     $status = $register_user['status'];
                     if($status=='success') {
-                        return redirect('dashboard')->with(compact('msg','status'));
+                        return redirect('/dashboard')->with('msg','status');
                     }
                     else {
-                        return redirect('dashboard')->withInput()->with(compact('msg','status'))->with('success', 'Data updated successfully');
+                        return redirect('/dashboard')->withInput()->with(compact('msg','status'))->with('success', 'Data updated successfully');
                     }
                 }
                 

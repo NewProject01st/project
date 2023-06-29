@@ -25,13 +25,21 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="logo">Logo</label>&nbsp<span class="red-text">*</span><br>
-                                            <input type="file" name="logo" id="logo" accept="image/*">
+                                            <label for="logo"> Logo</label>&nbsp<span class="red-text">*</span><br>
+                                            <input type="file" name="logo" class="" id="english_image"
+                                                accept="image/*" placeholder="image">
                                             @if ($errors->has('logo'))
-                                                <span class="red-text"><?php echo $errors->first('logo', ':message'); ?></span>
+                                                <div class="red-text"><?php echo $errors->first('logo', ':message'); ?>
+                                                </div>
                                             @endif
                                         </div>
+                                        <img id="english"
+                                            src="{{ Config::get('DocumentConstant.WEBSITE_LOGO_VIEW') }}{{ $website_logo->logo }}"
+                                            class="img-fluid img-thumbnail" width="150">
+                                        <img id="english_imgPreview" src="#" alt="pic"
+                                            class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
+
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Update</button>
                                         {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}

@@ -70,7 +70,7 @@ class WebsiteLogoServices
                         unlink($delete_file_path_eng);
                     }
                 }
-                $englishImageName = 'logo' . $request->logo->extension();
+                $englishImageName = 'logo.' . $request->logo->extension();
                 uploadImage($request, 'logo', $path, $englishImageName);
                 $website_logo = WebsiteLogo::find($return_data['last_insert_id']);
                 $website_logo->logo = $englishImageName;

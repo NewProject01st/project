@@ -22,10 +22,7 @@ class CreateCitizenVolunteerModalsTable extends Migration
             $table->string('media_upload')->default('null');;
             $table->text('description');
 
-            $table->text('ngo_name');
-            $table->text('ngo_email');
-            $table->text('ngo_contact_number');
-            $table->text('ngo_photo');
+           
             
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
