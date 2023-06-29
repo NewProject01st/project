@@ -4,9 +4,21 @@
     <!--Subheader Start-->
     <section class="wf100 subheader">
         <div class="container">
-            <h2>Disaster Management News </h2>
+            <h2>
+                @if (session('language') == 'mar')
+                    {{ Config::get('marathi.NEW_PARTICULAR_DATA_WEB.DISASTER_MANAGEMENT_NEWS') }}
+                @else
+                    {{ Config::get('english.NEW_PARTICULAR_DATA_WEB.DISASTER_MANAGEMENT_NEWS') }}
+                @endif
+            </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">Home</a> </li>
+                <li> <a href="{{ route('index') }}">
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.NEW_PARTICULAR_DATA_WEB.HOME') }}
+                        @else
+                            {{ Config::get('english.NEW_PARTICULAR_DATA_WEB.HOME') }}
+                        @endif
+                    </a> </li>
 
             </ul>
         </div>
@@ -35,16 +47,27 @@
                                 @endif
                             </div>
                         @empty
-                            <p>No Disaster News</p>
+                            <p>
+                                @if (session('language') == 'mar')
+                                    {{ Config::get('marathi.NEW_PARTICULAR_DATA_WEB.NO_DISASTER_NEWS') }}
+                                @else
+                                    {{ Config::get('english.NEW_PARTICULAR_DATA_WEB.NO_DISASTER_NEWS') }}
+                                @endif
+                            </p>
                         @endforelse
 
                         <!--Department Details Txt End-->
                     </div>
-                      <!--Sidebar Start-->
-                      <div class="col-md-3">
+                    <!--Sidebar Start-->
+                    <div class="col-md-3">
                         <div class="pb-3">
                             <button type="button" class="btn back-btn-color"><a href="{{ route('/') }}">
-                                    Back</a>
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.NEW_PARTICULAR_DATA_WEB.BACK') }}
+                                    @else
+                                        {{ Config::get('english.NEW_PARTICULAR_DATA_WEB.BACK') }}
+                                    @endif
+                                </a>
                             </button>
                         </div>
 

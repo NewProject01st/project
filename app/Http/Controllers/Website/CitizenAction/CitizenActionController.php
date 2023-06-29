@@ -40,10 +40,6 @@ class CitizenActionController extends Controller
             'media_upload' => 'required',
             'g-recaptcha-response' => 'required|captcha',
 
-            'ngo_name' => 'required',
-            'ngo_email' => 'required',
-            'ngo_contact_number' => 'required',
-            'ngo_photo' => 'required',
 
             ];
         $messages = [   
