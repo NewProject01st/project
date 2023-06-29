@@ -493,20 +493,12 @@ class RegisterRepository
 			
 			User::where('id', $request->edit_user_id)->update($update_data);
 
-			// print_r($return_data);
-			// die();
-
-			// $update_data->save();
-            // $last_insert_id = $update_data->id;
-			$user = User::find($request->edit_user_id);
-
 			$user_data = User::find($request->edit_user_id);
 			$previousUserProfile = $user_data->english_image;
 			$last_insert_id = $user_data->id;
 
             $return_data['last_insert_id'] = $last_insert_id;
             $return_data['user_profile'] = $previousUserProfile;
-			// dd($return_data);
 			return $return_data;
 
 

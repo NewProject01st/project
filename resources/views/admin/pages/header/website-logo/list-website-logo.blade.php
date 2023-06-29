@@ -41,7 +41,7 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td> <img class=""
-                                                                src="{{ Config::get('DocumentConstant.WEBSITE_LOGO_VIEW') }}{{ $item->logo }}"  width="120px" height="70px"/>
+                                                                src="{{ Config::get('DocumentConstant.WEBSITE_LOGO_VIEW') }}"  width="120px" height="70px"/>
                                                         </td>
                                                         <td>
                                                             <div class="d-flex">
