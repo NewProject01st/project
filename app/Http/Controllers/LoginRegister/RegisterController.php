@@ -276,7 +276,6 @@ class RegisterController extends Controller {
                     ->withErrors($validation);
             } else {
                 $register_user = $this->service->updateProfile($request);
-                dd($register_user);
                 if($register_user)
                 {
                     if((isset($register_user['password_change']) && ($register_user['password_change'] =='yes')) || (isset($register_user['mobile_change']) && $register_user['mobile_change'] =='yes')) {
@@ -292,10 +291,10 @@ class RegisterController extends Controller {
                     $msg = $register_user['msg'];
                     $status = $register_user['status'];
                     if($status=='success') {
-                        return redirect('dashboard')->with(compact('msg','status'));
+                        return redirect('/dashboard')->with('msg','status');
                     }
                     else {
-                        return redirect('dashboard')->withInput()->with(compact('msg','status'))->with('success', 'Data updated successfully');
+                        return redirect('/dashboard')->withInput()->with(compact('msg','status'))->with('success', 'Data updated successfully');
                     }
                 }
                 

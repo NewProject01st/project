@@ -152,9 +152,14 @@ class RegisterServices
             $profile->save();
         }
 
-        
-       return $return_data;
-    } catch (Exception $e) {
+        if((isset($register_user['password_change']) && ($register_user['password_change'] =='yes')) || (isset($register_user['mobile_change']) && $register_user['mobile_change'] =='yes')) {
+            return $return_data;
+        } else {
+            return ['status' => 'success', 'msg' => 'Profile data saved successfully'];
+        }
+       
+
+    } catch (\Exception $e) {
         return ['status' => 'error', 'msg' => $e->getMessage()];
     }  
     }
