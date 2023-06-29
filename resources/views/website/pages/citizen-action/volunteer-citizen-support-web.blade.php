@@ -73,7 +73,7 @@
                                             @else
                                                 {{ Config::get('english.CITIZEN_ACTION.FORM_VOLUNTEER_TYPE') }}
                                             @endif
-                                        </label>
+                                        <span class="red-text">*</span></label>
                                         <select class="form-control set_m_form" id="incident" name="incident">
                                             <option value="">Select</option>
                                             @foreach ($data_output_incident as $incidenttype)
@@ -98,9 +98,9 @@
                                             @else
                                                 {{ Config::get('english.CITIZEN_ACTION.FORM_INCIDENT_LOCATION') }}
                                             @endif
-                                        </label>
+                                        <span class="red-text">*</span></label>
                                         <input type="input" class="form-control set_m_form" name="location"
-                                            id="location">
+                                            id="location" value="{{ old('location') }}">
 
                                         @if ($errors->has('location'))
                                             <span class="red-text"><?php echo $errors->first('location', ':message'); ?></span>
@@ -113,9 +113,9 @@
                                             @else
                                                 {{ Config::get('english.CITIZEN_ACTION.FORM_DATE_AND_TIME') }}
                                             @endif
-                                        </label>
+                                       <span class="red-text">*</span> </label>
                                         <input type="datetime-local" class="form-control set_m_form" name="datetime"
-                                            id="datetime">
+                                            id="datetime" value="{{ old('datetime') }}">
                                         @if ($errors->has('datetime'))
                                             <span class="red-text"><?php echo $errors->first('datetime', ':message'); ?></span>
                                         @endif
@@ -127,8 +127,8 @@
                                             @else
                                                 {{ Config::get('english.CITIZEN_ACTION.FORM_MOBILE_NUMBER') }}
                                             @endif
-                                        </label>
-                                        <input type="input" class="form-control set_m_form" name="mobile_number"
+                                        <span class="red-text">*</span></label>
+                                        <input type="input" class="form-control set_m_form" name="mobile_number" value="{{ old('mobile_number') }}"
                                             id="mobile_number" pattern="[789]{1}[0-9]{9}"
                                             oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
                                             maxlength="10" minlength="10">
@@ -144,8 +144,8 @@
                                             @else
                                                 {{ Config::get('english.CITIZEN_ACTION.FORM_DESCRIPTION') }}
                                             @endif
-                                        </label>
-                                        <textarea class="form-control set_m_form" name="description" id="description"></textarea>
+                                        <span class="red-text">*</span></label>
+                                        <textarea class="form-control set_m_form" name="description" id="description">{{ old('description')}}</textarea>
                                         @if ($errors->has('description'))
                                             <span class="red-text"><?php echo $errors->first('description', ':message'); ?></span>
                                         @endif
@@ -157,7 +157,7 @@
                                             @else
                                                 {{ Config::get('english.CITIZEN_ACTION.FORM_MEDIA_UPLOAD') }}
                                             @endif
-                                        </label><br>
+                                        <span class="red-text">*</span> </label><br>
                                         <input type="file" name="media_upload" id="media_upload"> <br>
                                         @if ($errors->has('media_upload'))
                                             <span class="red-text"><?php echo $errors->first('media_upload', ':message'); ?></span>
@@ -173,18 +173,18 @@
 
                                                 <div class="col-md-6 mb-2">
                                                     <label for="ngo_name" class="col-form-label modal_lable">NGO
-                                                        name:</label>
+                                                        Name : <span class="red-text">*</span></label>
                                                     <input type="input" class="form-control set_m_form" name="ngo_name"
-                                                        id="ngo_name">
+                                                        id="ngo_name" value="{{ old('ngo_name') }}">
 
                                                     @if ($errors->has('ngo_name'))
                                                         <span class="red-text"><?php echo $errors->first('ngo_name', ':message'); ?></span>
                                                     @endif
                                                 </div>
                                                 <div class="col-md-6 mb-2">
-                                                    <label class="col-form-label ngo_email modal_lable">NGO Email:</label>
+                                                    <label class="col-form-label ngo_email modal_lable">NGO Email : <span class="red-text">*</span></label>
                                                     <input type="input" class="form-control set_m_form" name="ngo_email"
-                                                        id="ngo_email">
+                                                        id="ngo_email" value="{{ old('ngo_email') }}">
 
                                                     @if ($errors->has('ngo_email'))
                                                         <span class="red-text"><?php echo $errors->first('ngo_email', ':message'); ?></span>
@@ -192,9 +192,9 @@
                                                 </div>
                                                 <div class="col-md-6 mb-2">
                                                     <label for="ngo_contact_number" class="col-form-label  modal_lable">NGO
-                                                        Mobile Number:</label>
+                                                        Mobile Number:</label><span class="red-text">*</span>
                                                     <input type="input" class="form-control set_m_form"
-                                                        name="ngo_contact_number" id="ngo_contact_number">
+                                                        name="ngo_contact_number" id="ngo_contact_number" value="{{ old('ngo_contact_number') }}">
 
                                                     @if ($errors->has('ngo_contact_number'))
                                                         <span class="red-text"><?php echo $errors->first('ngo_contact_number', ':message'); ?></span>
@@ -202,7 +202,7 @@
                                                 </div>
                                                 <div class="col-md-6 mb-2">
                                                     <label for="ngo_photo"
-                                                        class="col-form-label modal_lable">Photo:</label><br>
+                                                        class="col-form-label modal_lable">Photo : <span class="red-text">*</span></label><br>
                                                     <input type="file" name="ngo_photo" id="ngo_photo"> <br>
                                                     @if ($errors->has('ngo_photo'))
                                                         <span class="red-text"><?php echo $errors->first('ngo_photo', ':message'); ?></span>
@@ -283,7 +283,7 @@
         });
 
         var is_ngo = '{{ old('is_ngo') }}';
-        alert(is_ngo);
+        // alert(is_ngo);
         if (is_ngo == 'on') {
             $('.hiddenField').show();
         }

@@ -329,10 +329,12 @@ class RegisterRepository
 	{
 		try {
 			$user = User::leftJoin('roles', 'roles.id', '=', 'users.role_id')
-				->leftJoin('tbl_area', 'users.state', '=', 'tbl_area.location_id')
+				->leftJoin('tbl_area as state_user', 'users.state', '=', 'state_user.location_id')
+				->leftJoin('tbl_area as city_user', 'users.city', '=', 'city_user.location_id')
 				->where('users.id', $id)
+				->select('users.f_name','users.m_name','users.l_name','users.u_email','users.number','users.designation','users.address','users.pincode','users.user_profile','roles.role_name','state_user.name as state','city_user.name as city')
 				->first();
-				
+				// dd($user);
 	
 			if ($user) {
 				return $user;

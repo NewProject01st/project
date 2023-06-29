@@ -80,7 +80,7 @@
                                             <label>State :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($user_detail->name) }}</label>
+                                            <label>{{ strip_tags($user_detail->state) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
