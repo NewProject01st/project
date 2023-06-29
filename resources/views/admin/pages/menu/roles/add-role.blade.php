@@ -104,7 +104,7 @@
                                                 </table>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 col-sm-12 text-center">
+                                        <div class="col-md-12 col-sm-12 text-center pt-3">
                                             <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                             {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
                                             <span><a href="{{ route('list-role') }}"

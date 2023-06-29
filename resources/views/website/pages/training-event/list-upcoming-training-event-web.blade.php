@@ -17,7 +17,7 @@
                 @endif
             </h2>
             <ul>
-                <li> <a href="{{ route('list-upcoming-training-event-web') }}">
+                <li> <a href="{{ route('index') }}">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.TRAINING_WORKSHOP.TRAINING_WORKSHOP_MAIN_LINK') }}
                         @else

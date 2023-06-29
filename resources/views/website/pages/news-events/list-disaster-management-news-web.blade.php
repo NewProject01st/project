@@ -65,9 +65,9 @@
                                                         <?php echo $item['disaster_date']; ?></li>
                                                     {{-- <li>176 Comments</li> --}}
                                                 </ul>
-                                                <h6 class="card_title_main"><a href="#"><?php echo $item['marathi_title']; ?>...</a>
+                                                <h6 class="card_title_main"><a href="#"><?php echo $item['marathi_title']; ?></a>
                                                 </h6>
-                                                <p class="card_title"> <?php echo $item['marathi_description']; ?>...</p>
+                                                <p class="card_title"> <?php echo $item['marathi_description']; ?></p>
                                             </div>
                                             <div class="news-box-f cursor-pointer">
                                                 <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
