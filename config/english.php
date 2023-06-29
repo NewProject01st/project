@@ -232,4 +232,19 @@ return [
 
 	
 	],
+	'NEW_PARTICULAR_DATA_WEB'=>[
+		'BACK' =>'Back',
+		'DISASTER_MANAGEMENT_NEWS' =>'Disaster Management News',
+		'HOME' =>'Home',
+		'NO_DISASTER_NEWS' =>'No Disaster News',
+
+	],
+
+	'PARTICULAR_DEPARTMENT_INFORMATION'=>[
+		'BACK' =>'Back',
+		'DEPARTMENT' =>'Department',
+		'HOME' =>'Home',
+		'NO_DEPARTMENT_INFORMATION' =>'No Department Information',
+
+	],
 ];

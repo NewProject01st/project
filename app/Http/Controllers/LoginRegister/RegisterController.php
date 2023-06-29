@@ -144,7 +144,7 @@ class RegisterController extends Controller {
     public function register(Request $request){
 
         $rules = [
-                    'u_email' => 'required',
+                   'u_email' => 'required|unique:users,u_email',
                     // 'u_uname' => 'required',
                     'u_password'=>'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z\d]).{8,}$/',
                     'password_confirmation' => 'required|same:u_password',
@@ -166,7 +166,7 @@ class RegisterController extends Controller {
 
         $messages = [   
                         'u_email.required' => 'Please enter email.',
-                        'u_email.email' => 'Please enter valid email.',
+                        'u_email.unique' => 'Your email is already exist.',
                         // 'u_uname.required' => 'Please enter user uname.',
                         // 'u_password.required' => 'Please enter password.',
                         'u_password.regex' => 'Password should be more than 8 numbers with atleast 1 capital letter,1 small letter, 1 number and 1 alpha numeric char.',
@@ -283,7 +283,7 @@ class RegisterController extends Controller {
                     }
                     elseif((isset($request->u_password) && $request->u_password !== '') && ($request->number == $request->old_number)) {
                         
-                        return view('log-out');
+                        return redirect('log-out');
 
                     }
                 
@@ -291,10 +291,10 @@ class RegisterController extends Controller {
                     $msg = $register_user['msg'];
                     $status = $register_user['status'];
                     if($status=='success') {
-                        return redirect('list-users')->with(compact('msg','status'));
+                        return redirect('dashboard')->with(compact('msg','status'));
                     }
                     else {
-                        return redirect('list-users')->withInput()->with(compact('msg','status'));
+                        return redirect('dashboard')->withInput()->with(compact('msg','status'))->with('success', 'Data updated successfully');
                     }
                 }
                 

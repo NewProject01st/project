@@ -63,8 +63,7 @@ class EventController extends Controller
         else
         {
             $add_event = $this->service->addAll($request);
-            // print_r($add_tenders);
-            // die();
+       dd($add_event);
             if($add_event)
             {
 

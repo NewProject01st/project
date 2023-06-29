@@ -35,6 +35,7 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
+                            
                             <form class="forms-sample" id="frm_register1" name="frm_register1" method="post" role="form"
                                 action="{{ route('update-user-profile') }}" enctype="multipart/form-data">
                                 @csrf
@@ -92,14 +93,14 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
-                                            <input type="password" class="form-control" name="u_password" id="u_password"
-                                                placeholder=""
+                                            <input type="password" class="password form-control" name="u_password"
+                                                id="u_password" placeholder=""
                                                 value="@if (old('u_password')) {{ old('u_password') }} @endif">
 
                                             @if ($errors->has('u_password'))
                                                 <span class="red-text"><?php echo $errors->first('u_password', ':message'); ?></span>
                                             @endif
-                                            <span id="togglePassword" class="password-toggle"
+                                            <span id="togglePassword" class="togglePpassword password-toggle"
                                                 onclick="togglePasswordVisibility()">
                                                 <i class="fa fa-eye-slash"></i>
                                             </span>
@@ -109,15 +110,15 @@
                                         <div class="form-group">
                                             <label for="password_confirmation">Confirm Password</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="password" class="form-control" id="password_confirmation"
-                                                name="password_confirmation"
+                                            <input type="password" class="password_confirmation form-control"
+                                                id="password_confirmation" name="password_confirmation"
                                                 value="@if (old('password_confirmation')) {{ old('password_confirmation') }} @endif">
 
                                             <span id="password-error" class="error-message red-text"></span>
                                             @if ($errors->has('password_confirmation'))
                                                 <span class="red-text"><?php echo $errors->first('password_confirmation', ':message'); ?></span>
                                             @endif
-                                            <span id="toggleConfirmPassword" class="password-toggle"
+                                            <span id="toggleConfirmPassword" class="toggleConfirmPpassword password-toggle"
                                                 onclick="toggleConfirmPasswordVisibility()">
                                                 <i class="fa fa-eye-slash"></i>
                                             </span>
@@ -152,9 +153,10 @@
                                             <label for="number">Mobile Number</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" class="form-control" name="number" id="number"
-                                            pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
-                                                placeholder=""
-                                                value="@if(old('number')){{ old('number')}}@else{{$user_data->number}}@endif"
+                                                pattern="[789]{1}[0-9]{9}"
+                                                oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                                                maxlength="10" minlength="10" placeholder=""
+                                                value="@if (old('number')) {{ old('number') }}@else{{ $user_data->number }} @endif"
                                                 {{-- onkeyup="editvalidateMobileNumber(this.value)" --}}>
                                             <span id="edit-message" class="red-text"></span>
                                             @if ($errors->has('number'))
@@ -184,7 +186,7 @@
 
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <input type="hidden" class="form-check-input" name="edit_user_id"
-                                            id="edit_user_id" value="{{ $user_data->id }}">                
+                                            id="edit_user_id" value="{{ $user_data->id }}">
 
                                         <input type="hidden" class="form-check-input" name="old_number" id="old_number"
                                             value="{{ $user_data->number }}">
@@ -221,6 +223,7 @@
                 }
             }
         </script> --}}
+        
 
         <script>
             $(document).ready(function() {
