@@ -74,6 +74,7 @@ public function getById($id)
 public function updateAll($request)
 {
     try {
+        $return_data = array();
         $department_data = DepartmentInformation::find($request->id);
 
         if (!$department_data) {

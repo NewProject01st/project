@@ -70,9 +70,8 @@ class DepartmentInformationServices
             $path = Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_ADD');
             if ($request->hasFile('english_image')) {
                 if ($return_data['english_image']) {
-                    $delete_file_path_eng  = storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['english_image']);
-                    if (file_exists($delete_file_path_eng)) {
-                        unlink($delete_file_path_eng);
+                    if (file_exists(storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['english_image']))) {
+                        unlink(storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['english_image']));
                     }
                 }
                 $englishImageName = $return_data['last_insert_id'] . '_english_icon.' . $request->english_image->extension();
@@ -84,9 +83,8 @@ class DepartmentInformationServices
 
             if ($request->hasFile('english_image_new')) {
                 if ($return_data['english_image_new']) {
-                    $delete_file_path_eng  = storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['english_image_new']);
-                    if (file_exists($delete_file_path_eng)) {
-                        unlink($delete_file_path_eng);
+                    if (file_exists(storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['english_image_new']))) {
+                        unlink(storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['english_image_new']));
                     }
                 }
                 $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image_new->extension();
@@ -98,9 +96,8 @@ class DepartmentInformationServices
 
             if ($request->hasFile('marathi_image')) {
                 if ($return_data['marathi_image']) {
-                    $delete_file_path_marathi = storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['marathi_image']);
-                    if (file_exists($delete_file_path_marathi)) {
-                        unlink($delete_file_path_marathi);
+                    if (file_exists(storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['marathi_image']))) {
+                        unlink(storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['marathi_image']));
                     }
                 }
                 $marathiImageName = $return_data['last_insert_id'] . '_marathi_icon.' . $request->marathi_image->extension();
@@ -112,9 +109,8 @@ class DepartmentInformationServices
 
             if ($request->hasFile('marathi_image_new')) {
                 if ($return_data['marathi_image_new']) {
-                    $delete_file_path_marathi = storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['marathi_image_new']);
-                    if (file_exists($delete_file_path_marathi)) {
-                        unlink($delete_file_path_marathi);
+                    if (file_exists(storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['marathi_image_new']))) {
+                        unlink(storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['marathi_image_new']));
                     }
                 }
                 $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image_new->extension();
