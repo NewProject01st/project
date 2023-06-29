@@ -12,7 +12,7 @@
                     @endif
                 </h2>
                 <ul>
-                    <li> <a href="{{ route('index') }}">
+                    <li> <a href="{{ route('site-map') }}">
                             @if (session('language') == 'mar')
                                 {{ Config::get('marathi.SITE_MAP.SITE_MAP_MAIN_LINK') }}
                             @else

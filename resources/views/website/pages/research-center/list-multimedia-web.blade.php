@@ -100,7 +100,7 @@
                 @endif
             </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">
+                <li> <a href="{{ route('list-multimedia-web') }}">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.RESOURCE_CENTER.RESOURCE_CENTER_MAIN_LINK') }}
                         @else
@@ -163,7 +163,7 @@
                                             @if (session('language') == 'mar')
                                                 <img class="card__image toZoom" id="img{{$key}}" attr="if" loading="lazy"
                                                     src="{{ $item['marathi_image'] }}" class="d-block w-100 img-fluid"
-                                                    alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा">
+                                                    >
                                                 <!-- The Modal -->
                                                 <div class="idMyModal modal" attr-modal_id="img{{$key}}">
                                                     <span class="close" attr-close="img{{$key}}">&times;</span>
@@ -172,7 +172,7 @@
                                             @else
                                                 <img class="card__image toZoom d-block w-100 img-fluid" id="img{{$key}}" attr="else" loading="lazy"
                                                     src="{{ $item['english_image'] }}" 
-                                                    alt="{{ strip_tags($item['english_title']) }} Image">
+                                                    >
                                                 <!-- The Modal -->
                                                 <div class="idMyModal modal" attr-modal_id="img{{$key}}">
                                                     <span class="close" attr-close="img{{$key}}">&times;</span>

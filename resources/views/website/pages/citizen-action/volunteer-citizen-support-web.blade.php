@@ -20,7 +20,7 @@
             </h2>
             <ul>
 
-                <li> <a href="{{ route('index') }}">
+                <li> <a href="{{ route('add-volunteer-citizen-support-web') }}">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_MAIN_LINK') }}
                         @else

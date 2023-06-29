@@ -12,7 +12,7 @@
             </h2>
             <ul>
 
-                <li> <a href="{{ route('index') }}">
+                <li> <a href="{{ route('feedback-suggestions') }}">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.CONTACT_US.CONTACT_US_MAIN_LINK') }}
                         @else
@@ -90,7 +90,9 @@
                                         @endif
                                     </label>
                                     <input class="gap-text" type="text" name="mobile_number"
-                                        value="{{ old('mobile_number') }}"onkeyup="addvalidateMobileNumber(this.value)">
+                                        value="{{ old('mobile_number') }}"onkeyup="addvalidateMobileNumber(this.value)"
+                                        pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
+                                        >
                                     <span id="number-validate" class="red-text"></span>
                                     @if ($errors->has('mobile_number'))
                                         <span class="red-text"><?php echo $errors->first('mobile_number', ':message'); ?></span>

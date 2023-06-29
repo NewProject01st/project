@@ -28,7 +28,7 @@
                                             <label for="english_title">Title</label>&nbsp<span
                                                 class="red-text">*</span>
                                                 <input type="text" class="form-control" name="english_title" id="english_title"
-                                                placeholder="Enter the Title" value="  @if (old('english_title'))
+                                                placeholder="Enter the Title" value="@if(old('english_title'))
                                                 {{ old('english_title') }}@else{{ $state_policy->english_title }}
                                                 @endif">
                                             @if ($errors->has('english_title'))
@@ -41,7 +41,7 @@
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span
                                                 class="red-text">*</span>
                                                 <input type="text" class="form-control" name="marathi_title" id="marathi_title"
-                                                placeholder="शीर्षक प्रविष्ट करा" value="@if (old('marathi_title'))
+                                                placeholder="शीर्षक प्रविष्ट करा" value="@if(old('marathi_title'))
                                                 {{ old('marathi_title') }}@else{{ $state_policy->marathi_title }}
                                                 @endif">
                                             @if ($errors->has('marathi_title'))
@@ -53,7 +53,7 @@
                                         <div class="form-group">
                                             <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="url" id="url" class="form-control"
-                                                value="@if (old('url')) {{ old('url') }}@else{{ $state_policy->url }} @endif"
+                                                value="@if(old('url')) {{ old('url') }}@else{{ $state_policy->url }} @endif"
                                                 placeholder="">
                                             @if ($errors->has('url'))
                                                 <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>

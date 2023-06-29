@@ -35,7 +35,7 @@ class EventController extends Controller
             'english_description' => 'required',
             'marathi_description' => 'required',
             'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        '   marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'start_date' => 'required',
             'end_date' => 'required',
             

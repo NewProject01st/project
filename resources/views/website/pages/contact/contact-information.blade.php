@@ -11,7 +11,7 @@
                 @endif
             </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">
+                <li> <a href="{{ route('contact-information') }}">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.CONTACT_US.CONTACT_US_MAIN_LINK') }}
                         @else

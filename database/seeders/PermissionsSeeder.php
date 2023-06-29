@@ -106,9 +106,9 @@ class PermissionsSeeder extends Seeder
                 [
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Disaster Web Portal',
+                    'route_name' => 'Welcome Section',
                     'url' => 'list-disaster-management-web-portal',
-                    'permission_name' => 'Disaster Web Portal',
+                    'permission_name' => 'Welcome Section',
                 ]);
             Permissions::create(
                 [
@@ -135,14 +135,14 @@ class PermissionsSeeder extends Seeder
                     'permission_name' => 'Department',
                 ]);
           
-            Permissions::create(
-                [
-                    'created_at' => \Carbon\Carbon::now(),
-                    'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Weather',
-                    'url' => 'list-weather',
-                    'permission_name' => 'Weather',
-                ]);
+            // Permissions::create(
+            //     [
+            //         'created_at' => \Carbon\Carbon::now(),
+            //         'updated_at' => \Carbon\Carbon::now(),
+            //         'route_name' => 'Weather',
+            //         'url' => 'list-weather',
+            //         'permission_name' => 'Weather',
+            //     ]);
             Permissions::create(
                 [
                     'created_at' => \Carbon\Carbon::now(),
@@ -282,27 +282,27 @@ class PermissionsSeeder extends Seeder
                 [
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Incident Crowdsourcing',
+                    'route_name' => 'List Report an Incident : Crowdsourcing',
                     'url' => 'list-incident-modal-info',
-                    'permission_name' => 'Incident Crowdsourcing',
+                    'permission_name' => 'List Report an Incident : Crowdsourcing',
                 ]);
 
             Permissions::create(
                 [
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Volunteer Citizen Support',
+                    'route_name' => 'List Be A Volunteer : Citizen Support',
                     'url' => 'list-volunteer-modal-info',
-                    'permission_name' => 'Volunteer Citizen Support',
+                    'permission_name' => 'List Be A Volunteer : Citizen Support',
                 ]);
 
             Permissions::create(
                 [
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Feedback and suggestions List',
+                    'route_name' => 'List Feedback and suggestions',
                     'url' => 'list-contact-suggestion',
-                    'permission_name' => 'Feedback and suggestions List',
+                    'permission_name' => 'List Feedback and suggestions',
                 ]);
             Permissions::create(
                 [

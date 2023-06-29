@@ -12,18 +12,18 @@
                 @endif
             </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">
+                <li> <a href="{{ route('list-particular-success-stories-web') }}">
                         @if (session('language') == 'mar')
-                            {{ Config::get('marathi.NEWS_EVENTS.NEWS_EVENTS_HOME') }}
+                            {{ Config::get('marathi.NEWS_EVENTS.NEWS_EVENTS_MAIN_LINK') }}
                         @else
-                            {{ Config::get('english.NEWS_EVENTS.NEWS_EVENTS_HOME') }}
+                            {{ Config::get('english.NEWS_EVENTS.NEWS_EVENTS_MAIN_LINK') }}
                         @endif
                     </a> </li>
                 <li>
                     @if (session('language') == 'mar')
-                        {{ Config::get('marathi.NEWS_EVENTS.NEWS_EVENTS_EVENT') }}
+                        {{ Config::get('marathi.NEWS_EVENTS.NEWS_EVENTS_SUB_LINK3') }}
                     @else
-                        {{ Config::get('english.NEWS_EVENTS.NEWS_EVENTS_EVENT') }}
+                        {{ Config::get('english.NEWS_EVENTS.NEWS_EVENTS_SUB_LINK3') }}
                     @endif
                 </li>
             </ul>

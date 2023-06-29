@@ -231,10 +231,21 @@ return [
 		'WEB_FOOTER_LINK'=>'वेबसाइट footer link साठी कोणताही डेटा आढळला नाही',
 		'PRIVACY_POLICY'=>'वेबसाइट गोपनीयता धोरणासाठी कोणताही डेटा आढळला नाही',
 		'TERM_CONDITION'=>'वेबसाइट टर्म कंडिशनसाठी कोणताही डेटा आढळला नाही'
-		
-		
 
+	],
 
+	'NEW_PARTICULAR_DATA_WEB'=>[
+		'BACK' =>'मागे जा',
+		'DISASTER_MANAGEMENT_NEWS' =>'आपत्ती व्यवस्थापन बातम्या',
+		'HOME' =>'मुख्यपृष्ठ',
+		'NO_DISASTER_NEWS' =>'आपत्तीच्या बातम्या नाहीत',
+	],
+	
+	'PARTICULAR_DEPARTMENT_INFORMATION'=>[
+		'BACK' =>'मागे जा',
+		'DEPARTMENT' =>'विभाग',
+		'HOME' =>'मुख्यपृष्ठ',
+		'NO_DEPARTMENT_INFORMATION' =>'विभागाची माहिती नाही',
 
 	],
 ];

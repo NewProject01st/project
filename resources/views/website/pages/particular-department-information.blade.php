@@ -4,9 +4,21 @@
     <!--Subheader Start-->
     <section class="wf100 subheader">
         <div class="container">
-            <h2>Department </h2>
+            <h2>
+                @if (session('language') == 'mar')
+                    {{ Config::get('marathi.PARTICULAR_DEPARTMENT_INFORMATION.DEPARTMENT') }}
+                @else
+                    {{ Config::get('english.PARTICULAR_DEPARTMENT_INFORMATION.DEPARTMENT') }}
+                @endif
+            </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">Home</a> </li>
+                <li> <a href="{{ route('index') }}">
+                        @if (session('language') == 'mar')
+                            {{ Config::get('marathi.PARTICULAR_DEPARTMENT_INFORMATION.HOME') }}
+                        @else
+                            {{ Config::get('english.PARTICULAR_DEPARTMENT_INFORMATION.HOME') }}
+                        @endif
+                    </a> </li>
 
             </ul>
         </div>
@@ -44,7 +56,12 @@
                     <div class="col-md-3">
                         <div class="pb-3">
                             <button type="button" class="btn back-btn-color"><a href="{{ route('/') }}">
-                                    Back</a>
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.PARTICULAR_DEPARTMENT_INFORMATION.BACK') }}
+                                    @else
+                                        {{ Config::get('english.PARTICULAR_DEPARTMENT_INFORMATION.BACK') }}
+                                    @endif
+                                </a>
                             </button>
                         </div>
 

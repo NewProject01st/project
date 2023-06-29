@@ -8,7 +8,7 @@ use Illuminate\Support\Carbon;
 use App\Models\ {
 	TrainingMaterialsWorkshops
 };
-
+use Config;
 class TrainingAndWorkshopRepository  {
 	public function getAll()
     {
@@ -116,11 +116,11 @@ public function deleteById($id)
         $training = TrainingMaterialsWorkshops::find($id);
         if ($training) {
              // Delete the images from the storage folder
-             if (file_exists(storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $training->english_image))) {
-                unlink(storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $training->english_image));
+             if (file_exists(storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $training->english_pdf))) {
+                unlink(storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $training->english_pdf));
             }
-            if (file_exists(storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $training->marathi_image))) {
-                unlink(storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $training->marathi_image));
+            if (file_exists(storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $training->marathi_pdf))) {
+                unlink(storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $training->marathi_pdf));
             }
             $training->delete();
                         

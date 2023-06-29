@@ -101,6 +101,51 @@ class RelevantLawsRegulationsServices
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
+
+    // public function updateAll($request){
+    //     try {
+    //         $return_data = $this->repo->updateAll($request);
+            
+    //         $path = Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_ADD');
+    //         if ($request->hasFile('english_pdf')) {
+    //             if ($return_data['english_pdf']) {
+    //                 $delete_file_eng= storage_path(Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_DELETE') . $return_data['english_pdf']);
+    //                 if(file_exists($delete_file_eng)){
+    //                     unlink($delete_file_eng);
+    //                 }
+    //             }
+    
+    //             $englishPDFName = $return_data['last_insert_id'] . '_english.' . $request->english_pdf->extension();
+    //             uploadImage($request, 'english_pdf', $path, $englishPDFName);
+    //             $district_plan = RelevantLawsRegulation::find($return_data['last_insert_id']);
+    //             $district_plan->english_pdf = $englishPDFName;
+    //             $district_plan->save();
+    //         }
+    
+    //         if ($request->hasFile('marathi_pdf')) {
+    //             if ($return_data['marathi_pdf']) {
+    //                 $delete_file_mar= storage_path(Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_DELETE') . $return_data['marathi_pdf']);
+    //                 if(file_exists($delete_file_mar)){
+    //                     unlink($delete_file_mar);
+    //                 }
+    //             }
+    
+    //             $marathiPDFName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_pdf->extension();
+    //             uploadImage($request, 'marathi_pdf', $path, $marathiPDFName);
+    //             $district_plan = RelevantLawsRegulation::find($return_data['last_insert_id']);
+    //             $district_plan->marathi_pdf = $marathiPDFName;
+    //             $district_plan->save();
+    //         }
+
+    //         if ($return_data) {
+    //             return ['status' => 'success', 'msg' => 'Relevant Laws Regulation Updated Successfully.'];
+    //         } else {
+    //             return ['status' => 'error', 'msg' => 'Relevant Laws Regulation Not Updated.'];
+    //         }  
+    //     } catch (Exception $e) {
+    //         return ['status' => 'error', 'msg' => $e->getMessage()];
+    //     }      
+    // }
     public function updateOne($id)
     {
         return $this->repo->updateOne($id);

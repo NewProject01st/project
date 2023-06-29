@@ -28,7 +28,7 @@
                                             <label for="english_title">Title</label>&nbsp<span
                                                 class="red-text">*</span>
                                                 <input type="text" class="form-control" name="english_title" id="english_title"
-                                                placeholder="Enter the Title" value="  @if (old('english_title'))
+                                                placeholder="Enter the Title" value="@if(old('english_title'))
                                                 {{ old('english_title') }}@else{{ $relevant_laws->english_title }}
                                                 @endif">
                                             @if ($errors->has('english_title'))
@@ -41,7 +41,7 @@
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span
                                                 class="red-text">*</span>
                                                 <input type="text" class="form-control" name="marathi_title" id="marathi_title"
-                                                placeholder="शीर्षक प्रविष्ट करा" value="@if (old('marathi_title'))
+                                                placeholder="शीर्षक प्रविष्ट करा" value="@if(old('marathi_title'))
                                                 {{ old('marathi_title') }}@else{{ $relevant_laws->marathi_title }}
                                                 @endif">
                                             @if ($errors->has('marathi_title'))
@@ -66,7 +66,7 @@
                                             <select class="form-control" id="policies_year" name="policies_year">
                                                 <option value="">Select Year</option>
                                                 @for ($year = date('Y'); $year >= 1950; $year--)
-                                                    <option value="{{ $year }}" @if (old('policies_year', $relevant_laws->policies_year) == $year) selected @endif>{{ $year }}</option>
+                                                    <option value="{{ $year }}" @if(old('policies_year', $relevant_laws->policies_year) == $year) selected @endif>{{ $year }}</option>
                                                 @endfor
                                             </select>
                                             @if ($errors->has('policies_year'))
