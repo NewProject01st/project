@@ -31,6 +31,7 @@ class CitizenActionController extends Controller
 
     public function storeIncidentModalInfo(Request $request) {
      
+      
         $rules = [
             'incident' => 'required',
             'location' => 'required',
@@ -39,11 +40,6 @@ class CitizenActionController extends Controller
             'description' => 'required',
             'media_upload' => 'required',
             'g-recaptcha-response' => 'required|captcha',
-
-            'ngo_name' => 'required',
-            'ngo_email' => 'required',
-            'ngo_contact_number' => 'required',
-            'ngo_photo' => 'required',
 
             ];
         $messages = [   
@@ -57,6 +53,7 @@ class CitizenActionController extends Controller
             'g-recaptcha-response.required' =>'Please verify that you are not a robot.',
         ];
     
+      
         try {
             $validation = Validator::make($request->all(),$rules,$messages);
             if($validation->fails() )
@@ -162,67 +159,80 @@ class CitizenActionController extends Controller
     //     }
     // }
 
-    public function storeVolunteerModalInfo(Request $request)
-{
-    $rules = [
-        'incident' => 'required',
-        'location' => 'required',
-        'datetime' => 'required',
-        'mobile_number' => 'required',
-        'description' => 'required',
-        // 'media_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'g-recaptcha-response' => 'required|captcha',
-    ];
-    
-    $messages = [
-        'incident' => 'The incident field is required.',
-        'location' => 'The location field is required.',
-        'datetime' => 'The datetime field is required.',
-        'mobile_number' => 'The mobile number field is required.',
-        'description' => 'The description field is required.',
-        // 'media_upload.required' => 'The image field is required.',
-        'g-recaptcha-response.captcha' => 'Captcha error! Please try again later or contact the site admin.',
-        'g-recaptcha-response.required' => 'Please verify that you are not a robot.',
-    ];
-    
-    if ($request->has('checkbox_field') && $request->input('checkbox_field') == 1) {
-        $rules['ngo_name'] = 'required';
-        $rules['ngo_email'] = 'required|email';
-        $rules['ngo_address'] = 'required';
-        $rules['ngo_contact_number'] = 'required';
-        // $rules['ngo_photo'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
+    public function storeVolunteerModalInfo(Request $request) {
+
+        $rules = [
+            'incident' => 'required',
+            'location' => 'required',
+            'datetime' => 'required',
+            'mobile_number' => 'required',
+            'description' => 'required',
+            // 'media_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'g-recaptcha-response' => 'required|captcha',
+        ];
         
-        $messages['ngo_name.required'] = 'The NGO name field is required.';
-        $messages['ngo_email.required'] = 'The NGO email field is required.';
-        $messages['ngo_email.email'] = 'The NGO email must be a valid email address.';
-        $messages['ngo_address.required'] = 'The NGO address field is required.';
-        $messages['ngo_contact_number.required'] = 'The NGO number field is required.';
-        $messages['ngo_photo.required'] = 'The NGO photo field is required.';
-    }
+        $messages = [
+            'incident' => 'The incident field is required.',
+            'location' => 'The location field is required.',
+            'datetime' => 'The datetime field is required.',
+            'mobile_number' => 'The mobile number field is required.',
+            'description' => 'The description field is required.',
+            // 'media_upload.required' => 'The image field is required.',
+            'g-recaptcha-response.captcha' => 'Captcha error! Please try again later or contact the site admin.',
+            'g-recaptcha-response.required' => 'Please verify that you are not a robot.',
+        ];
 
-    $validation = Validator::make($request->all(), $rules, $messages);
+        if($request->is_ngo == 'on') {
+            $rules['ngo_name'] = 'required';
+            $rules['ngo_email'] = 'required';
+            $rules['ngo_contact_number'] = 'required';
+            $rules['ngo_photo'] = 'required';
 
-    if ($validation->fails()) {
-        return redirect('add-volunteer-citizen-support-web')
-            ->withInput()
-            ->withErrors($validation);
-    }
-
-    try {
-        $add_modal = $this->service->addVolunteerModalInfo($request);
-     
-        $msg = $add_modal['msg'];
-        $status = $add_modal['status'];
-        if ($add_modal && $add_modal['status'] == 'success') {
-            Session::flash('success_message', 'Form submitted successfully!');
-            return redirect('add-volunteer-citizen-support-web')->with(compact('msg', 'status'));
-        } else {
-            return redirect('add-volunteer-citizen-support-web')->withInput()->with(compact('language', 'menu', 'msg', 'status'));
+            $messages['ngo_name'] = 'Ngo name is required';
+            $messages['ngo_email'] = 'Ngo email required';
+            $messages['ngo_contact_number'] = 'Ngo contact number required';
+            $messages['ngo_photo'] = 'Ngo photo required';
         }
-    } catch (Exception $e) {
-        return redirect('add-volunteer-citizen-support-web')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+
+        
+        if ($request->has('checkbox_field') && $request->input('checkbox_field') == 1) {
+            $rules['ngo_name'] = 'required';
+            $rules['ngo_email'] = 'required|email';
+            $rules['ngo_address'] = 'required';
+            $rules['ngo_contact_number'] = 'required';
+            // $rules['ngo_photo'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
+            
+            $messages['ngo_name.required'] = 'The NGO name field is required.';
+            $messages['ngo_email.required'] = 'The NGO email field is required.';
+            $messages['ngo_email.email'] = 'The NGO email must be a valid email address.';
+            $messages['ngo_address.required'] = 'The NGO address field is required.';
+            $messages['ngo_contact_number.required'] = 'The NGO number field is required.';
+            $messages['ngo_photo.required'] = 'The NGO photo field is required.';
+        }
+
+        $validation = Validator::make($request->all(), $rules, $messages);
+
+        if ($validation->fails()) {
+            return redirect('add-volunteer-citizen-support-web')
+                ->withInput()
+                ->withErrors($validation);
+        }
+
+        try {
+            $add_modal = $this->service->addVolunteerModalInfo($request);
+        
+            $msg = $add_modal['msg'];
+            $status = $add_modal['status'];
+            if ($add_modal && $add_modal['status'] == 'success') {
+                Session::flash('success_message', 'Form submitted successfully!');
+                return redirect('add-volunteer-citizen-support-web')->with(compact('msg', 'status'));
+            } else {
+                return redirect('add-volunteer-citizen-support-web')->withInput()->with(compact('language', 'menu', 'msg', 'status'));
+            }
+        } catch (Exception $e) {
+            return redirect('add-volunteer-citizen-support-web')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+        }
     }
-}
 
 
     public function getAllIncidentType()

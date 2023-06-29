@@ -165,8 +165,9 @@
                                     </div>
                                     <div class="col-md-12 ">
                                         <div class="form-group py-4">
-                                            <input type="checkbox" id="checkboxField">
-                                            <label for="checkboxField">Checkbox Field</label>
+                                            <input type="checkbox" id="is_ngo" name="is_ngo"
+                                                {{ old('is_ngo') ? 'checked' : '' }}>
+                                            <label for="is_ngo">Are you NGO ?</label>
 
                                             <div class="hiddenField row" style="display: none;">
 
@@ -272,7 +273,7 @@
 
     <script>
         $(document).ready(function() {
-            $('#checkboxField').change(function() {
+            $('#is_ngo').change(function() {
                 if ($(this).is(':checked')) {
                     $('.hiddenField').show();
                 } else {
@@ -280,6 +281,12 @@
                 }
             });
         });
+
+        var is_ngo = '{{ old('is_ngo') }}';
+        alert(is_ngo);
+        if (is_ngo == 'on') {
+            $('.hiddenField').show();
+        }
     </script>
 @endsection
 {{-- @extends('website.layout.navbar')
