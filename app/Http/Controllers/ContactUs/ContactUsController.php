@@ -151,7 +151,7 @@ public function show(Request $request)
         try {
             // dd($request->delete_id);
             $contact = $this->service->deleteById($request->delete_id);
-            return redirect('list-citizen-feedback-and-suggestion')->with('flash_message', 'Deleted!');  
+            return redirect('list-contact-suggestion')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {
             return $e;
         }

@@ -283,7 +283,7 @@ class RegisterController extends Controller {
                     }
                     elseif((isset($request->u_password) && $request->u_password !== '') && ($request->number == $request->old_number)) {
                         
-                        return view('log-out');
+                        return redirect('log-out');
 
                     }
                 
@@ -291,10 +291,10 @@ class RegisterController extends Controller {
                     $msg = $register_user['msg'];
                     $status = $register_user['status'];
                     if($status=='success') {
-                        return redirect('list-users')->with(compact('msg','status'));
+                        return redirect('dashboard')->with(compact('msg','status'));
                     }
                     else {
-                        return redirect('list-users')->withInput()->with(compact('msg','status'));
+                        return redirect('dashboard')->withInput()->with(compact('msg','status'))->with('success', 'Data updated successfully');
                     }
                 }
                 

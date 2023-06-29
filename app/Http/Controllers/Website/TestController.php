@@ -27,23 +27,7 @@ class TestController extends Controller
     }  
 
 
-    public function getTest()
-    {
-        try {
-
-            $menu = $this->menu;
-            $socialicon = $this->socialicon;
-            if (Session::get('language') == 'mar') {
-                $language = Session::get('language');
-            } else {
-                $language = 'en';
-            }
-            return view('website.pages.index11',compact('language','menu','socialicon'));
-
-        } catch (\Exception $e) {
-            return $e;
-        }
-    }  
+    
   
  
 

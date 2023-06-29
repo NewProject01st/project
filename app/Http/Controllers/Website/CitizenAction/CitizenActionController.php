@@ -64,7 +64,7 @@ class CitizenActionController extends Controller
             else
             {
                 $add_modal = $this->service->addIncidentModalInfo($request);
-                // dd($add_modal);
+                 dd($add_modal);
                 if($add_modal)
                 {
     

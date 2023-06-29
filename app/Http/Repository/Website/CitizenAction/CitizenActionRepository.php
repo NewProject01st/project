@@ -71,7 +71,7 @@ class CitizenActionRepository  {
                 
                 $modal_data = ReportIncidentModal::find($last_insert_id); // Assuming $request directly contains the ID
                 $modal_data->media_upload = $englishImageName; // Save the image filename to the database
-                // dd($modal_data);
+                dd($modal_data);
                 $modal_data->save();
                 
                 return $last_insert_id;
