@@ -153,11 +153,7 @@ class RegisterServices
         }
 
         
-        if ($return_data) {
-            return ['status' => 'success', 'msg' => 'Profile Updated Successfully.'];
-        } else {
-            return ['status' => 'error', 'msg' => 'Profile  Not Updated.'];
-        }  
+       return $return_data;
     } catch (Exception $e) {
         return ['status' => 'error', 'msg' => $e->getMessage()];
     }  

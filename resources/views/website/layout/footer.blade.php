@@ -99,7 +99,7 @@
                      <ul>
                         @forelse ($common_data['web_department_data']  as $item)
                              @if (session('language') == 'mar')
-                                 <li><a href="#"><i class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
+                                 <li><a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer"><i class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                              @else
                                  <li><a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer"><i
                                              class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
@@ -135,10 +135,10 @@
                      <ul>
                         @forelse ($common_data['weballfooterlink_data']  as $item)
                              @if (session('language') == 'mar')
-                                 <li><a href="" target="_blank"><i
+                                 <li><a href="{{ $item['url'] }}" target="_blank"><i
                                              class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                              @else
-                                 <li><a href="" target="_blank"><i
+                                 <li><a href="{{ $item['url'] }}" target="_blank"><i
                                              class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
                              @endif
                              @empty

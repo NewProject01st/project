@@ -476,23 +476,11 @@ class RegisterRepository
 				$return_data['msg_alert'] = "green";
 
 				$this->sendOTPEMAIL($otp, $request);
-
-
-				$user_data = User::where('id',$request['edit_id']) 
-						->update([
-							// 'u_uname' => $request['u_uname'],
-							'u_password' => $request['u_password_new'],
-						]);
-		
-				
-
-			// 	print_r($return_data);
-			// die();
 			}
 
 			if ((isset($request->u_password) && $request->u_password !== '') && ($request->number != $request->old_number)) {
 				info("only password and mobile number changed");
-				$update_data['u_password_new'] = bcrypt($request->u_password);
+				$return_data['u_password_new'] = bcrypt($request->u_password);
 				$return_data['password_change'] = 'yes';
 				$return_data['mobile_change'] = 'yes';
 				$return_data['user_id'] = $request->edit_user_id;

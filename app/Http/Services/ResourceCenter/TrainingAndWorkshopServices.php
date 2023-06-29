@@ -70,7 +70,7 @@ class TrainingAndWorkshopServices
             $path = Config::get('DocumentConstant.TRAINING_MATERIAL_ADD');
             if ($request->hasFile('english_pdf')) {
                 if ($return_data['english_pdf']) {
-                    $delete_file_eng= storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $return_data['english_image']);
+                    $delete_file_eng= storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $return_data['english_pdf']);
                     if(file_exists($delete_file_eng)){
                         unlink($delete_file_eng);
                     }
@@ -78,7 +78,7 @@ class TrainingAndWorkshopServices
     
                 $englishPdfName = $return_data['last_insert_id'] . '_english.' . $request->english_pdf->extension();
                 uploadImage($request, 'english_pdf', $path, $englishPdfName);
-                $district_plan = Documentspublications::find($return_data['last_insert_id']);
+                $district_plan = TrainingMaterialsWorkshops::find($return_data['last_insert_id']);
                 $district_plan->english_pdf = $englishPdfName;
                 $district_plan->save();
     
@@ -86,7 +86,7 @@ class TrainingAndWorkshopServices
     
             if ($request->hasFile('marathi_pdf')) {
                 if ($return_data['marathi_pdf']) {
-                    $delete_file_mar= storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $return_data['marathi_image']);
+                    $delete_file_mar= storage_path(Config::get('DocumentConstant.TRAINING_MATERIAL_DELETE') . $return_data['marathi_pdf']);
                     if(file_exists($delete_file_mar)){
                         unlink($delete_file_mar);
                     }
@@ -94,7 +94,7 @@ class TrainingAndWorkshopServices
     
                 $marathiPdfName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_pdf->extension();
                 uploadImage($request, 'marathi_pdf', $path, $marathiPdfName);
-                $district_plan = Documentspublications::find($return_data['last_insert_id']);
+                $district_plan = TrainingMaterialsWorkshops::find($return_data['last_insert_id']);
                 $district_plan->marathi_pdf = $marathiPdfName;
                 $district_plan->save();
             }
