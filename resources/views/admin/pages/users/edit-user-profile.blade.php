@@ -156,7 +156,7 @@
                                                 pattern="[789]{1}[0-9]{9}"
                                                 oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
                                                 maxlength="10" minlength="10" placeholder=""
-                                                value="@if (old('number')) {{ old('number') }}@else{{ $user_data->number }} @endif"
+                                                value="@if(old('number')){{old('number')}}@else{{$user_data->number}}@endif"
                                                 {{-- onkeyup="editvalidateMobileNumber(this.value)" --}}>
                                             <span id="edit-message" class="red-text"></span>
                                             @if ($errors->has('number'))

@@ -480,6 +480,7 @@ class RegisterRepository
 
 			if ((isset($request->u_password) && $request->u_password !== '') && ($request->number != $request->old_number)) {
 				info("only password and mobile number changed");
+				$update_data['otp'] = $otp;
 				$return_data['u_password_new'] = bcrypt($request->u_password);
 				$return_data['password_change'] = 'yes';
 				$return_data['mobile_change'] = 'yes';

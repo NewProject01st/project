@@ -283,7 +283,6 @@
         });
 
         var is_ngo = '{{ old('is_ngo') }}';
-        alert(is_ngo);
         if (is_ngo == 'on') {
             $('.hiddenField').show();
         }
