@@ -11,7 +11,7 @@
                     @endif
                 </h2>
                 <ul>
-                    <li> <a href="{{ route('index') }}">
+                    <li> <a href="{{ route('list-capacity-training') }}">
                             @if (session('language') == 'mar')
                                 {{ Config::get('marathi.PREPAREDNESS.PREPAREDNESS_MAIN_LINK') }}
                             @else

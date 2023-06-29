@@ -6,7 +6,7 @@
         <div class="container">
             <h2>Disaster Management News </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">Home</a> </li>
+                <li> <a href="{{ route('new-paricular-data-web') }}">Home</a> </li>
 
             </ul>
         </div>

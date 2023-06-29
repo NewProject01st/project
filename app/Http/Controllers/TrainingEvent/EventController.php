@@ -35,7 +35,7 @@ class EventController extends Controller
             'english_description' => 'required',
             'marathi_description' => 'required',
             'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        '   marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'start_date' => 'required',
             'end_date' => 'required',
             
@@ -56,7 +56,7 @@ class EventController extends Controller
         $validation = Validator::make($request->all(),$rules,$messages);
         if($validation->fails() )
         {
-            return redirect('add-early-warning-system')
+            return redirect('list-event')
                 ->withInput()
                 ->withErrors($validation);
         }

@@ -41,7 +41,7 @@
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span
                                                 class="red-text">*</span>
                                                 <input type="text" class="form-control" name="marathi_title" id="marathi_title"
-                                                placeholder="शीर्षक प्रविष्ट करा" value="@if (old('marathi_title'))
+                                                placeholder="शीर्षक प्रविष्ट करा" value="@if(old('marathi_title'))
                                                 {{ old('marathi_title') }}@else{{ $district_management->marathi_title }}
                                                 @endif">
                                             @if ($errors->has('marathi_title'))
@@ -53,7 +53,7 @@
                                         <div class="form-group">
                                             <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="url" id="url" class="form-control"
-                                                value="@if (old('url')) {{ old('url') }}@else{{ $district_management->url }} @endif"
+                                                value="@if(old('url')) {{ old('url') }}@else{{ $district_management->url }} @endif"
                                                 placeholder="">
                                             @if ($errors->has('url'))
                                                 <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>

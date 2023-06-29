@@ -319,8 +319,8 @@ class RegisterRepository
 	{
 		$user = User::where(['id' => $request->delete_id])
 			->update(['is_active' => false]);
-		$rolesPermissions = RolesPermissions::where(['user_id' => $request->delete_id])
-			->update(['is_active' => false]);
+		// $rolesPermissions = RolesPermissions::where(['user_id' => $request->delete_id])
+		// 	->update(['is_active' => false]);
 
 		return "ok";
 	}

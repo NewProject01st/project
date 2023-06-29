@@ -12,7 +12,7 @@
                 @endif
             </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">
+                <li> <a href="{{ route('list-vacancies') }}">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.VACANCIES.VACANCIES_MAIN_LINK') }}
                         @else

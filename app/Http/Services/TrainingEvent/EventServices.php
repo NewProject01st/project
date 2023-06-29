@@ -38,7 +38,7 @@ class EventServices
             uploadImage($request, 'marathi_image', $path, $marathiImageName);
 
             if ($last_id) {
-                return ['status' => 'success', 'msg' => 'Training Event  Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Training Event Added Successfully.'];
             } else {
                 return ['status' => 'error', 'msg' => 'Training Event Not Added.'];
             }  

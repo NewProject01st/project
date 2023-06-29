@@ -12,7 +12,7 @@
                 @endif
             </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">
+                <li> <a href="{{ route('list-rti') }}">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.RTI.RTI_MAIN_LINK') }}
                         @else

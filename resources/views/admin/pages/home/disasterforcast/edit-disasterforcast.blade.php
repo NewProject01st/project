@@ -74,7 +74,7 @@
                                         <div class="form-group">
                                             <label> वर्णन <span class="text-danger">*</span></label>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
-                                                placeholder="Enter the Description">
+                                                placeholder="वर्णन प्रविष्ट करा">
                                                 @if (old('marathi_description'))
 {{ old('marathi_description') }}@else{{ $disasterforcast->marathi_description }}
 @endif

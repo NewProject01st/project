@@ -66,42 +66,48 @@ class RelevantLawsRegulationsRepository{
             ];
         }
     }
+
     public function updateAll($request){
         try {
             $return_data = array();
-            $relevant_laws = RelevantLawsRegulation::find($request->id);
+            $state_data = RelevantLawsRegulation::find($request->id);
             
-            if (!$relevant_laws) {
+            if (!$state_data) {
                 return [
                     'msg' => 'Relevant Laws Regulations data not found.',
                     'status' => 'error'
                 ];
             }
             // Store the previous image names
-            $previousEnglishPDF = $relevant_laws->english_pdf;
-            $previousMarathiPDF = $relevant_laws->marathi_pdf;
+            $previousEnglishPDF = $state_data->english_pdf;
+            $previousMarathiPDF = $state_data->marathi_pdf;
 
-            $relevant_laws->english_title = $request['english_title'];
-            $relevant_laws->marathi_title = $request['marathi_title'];
-            $relevant_laws->url = $request['url'];
-            $relevant_data->policies_year = $request['policies_year'];
+            $state_data->english_title = $request['english_title'];
+            $state_data->marathi_title = $request['marathi_title'];
+            $state_data->url = $request['url'];
+            $state_data->policies_year = $request['policies_year'];
         
-            $relevant_laws->save();
-            $last_insert_id = $relevant_laws->id;
+            $state_data->save();
+            $last_insert_id = $state_data->id;
 
             $return_data['last_insert_id'] = $last_insert_id;
             $return_data['english_pdf'] = $previousEnglishPDF;
             $return_data['marathi_pdf'] = $previousMarathiPDF;
             return  $return_data;
-
+    
+            return [
+                'msg' => 'Relevant Laws Regulations data updated successfully.',
+                'status' => 'success'
+            ];
         } catch (\Exception $e) {
             return $e;
             return [
-                'msg' => 'Failed to update Relevant Laws Regulations data.',
+                'msg' => 'Failed to update Relevant Laws Regulationsn data.',
                 'status' => 'error'
             ];
         }
     }
+
     public function updateOne($request){
         try {
             $vacancy = RelevantLawsRegulation::find($request); // Assuming $request directly contains the ID

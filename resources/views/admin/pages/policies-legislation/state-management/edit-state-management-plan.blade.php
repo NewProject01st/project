@@ -28,7 +28,7 @@
                                             <label for="english_title">Title</label>&nbsp<span
                                                 class="red-text">*</span>
                                                 <input type="text" class="form-control" name="english_title" id="english_title"
-                                                placeholder="Enter the Title" value="  @if (old('english_title'))
+                                                placeholder="Enter the Title" value="@if (old('english_title'))
                                                 {{ old('english_title') }}@else{{ $state_management->english_title }}
                                                 @endif">
                                             @if ($errors->has('english_title'))

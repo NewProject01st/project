@@ -6,7 +6,7 @@
         <div class="container">
             <h2>Privacy Policy </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">Home</a> </li>
+                <li> <a href="{{ route('privacy-policy') }}">Home</a> </li>
 
             </ul>
         </div>

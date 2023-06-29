@@ -22,14 +22,14 @@
                                 enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
-                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
+                                     {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title English <span
                                                     class="text-danger">*</span></label>
                                             <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title"
                                                 name="english_title">{{ old('english_title') }}</textarea>
                                             @if ($errors->has('english_title'))
-                                                <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
@@ -40,13 +40,13 @@
                                             <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title"
                                                 name="marathi_title">{{ old('marathi_title') }}</textarea>
                                             @if ($errors->has('marathi_title'))
-                                                <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
-                                            <label for="english_description">Description English <span
+                                            <label for="english_description">Description<span
                                                     class="text-danger">*</span></label>
                                             <textarea class="form-control english_description" name="english_description" id="english_description"
                                                 placeholder="Enter the Description" name="english_description">{{ old('english_description') }}</textarea>
@@ -58,9 +58,9 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
-                                            <label> Description Marathi <span class="text-danger">*</span></label>
+                                            <label> वर्णन <span class="text-danger">*</span></label>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
-                                                placeholder="Enter the Description">{{ old('marathi_description') }}</textarea>
+                                                placeholder="वर्णन प्रविष्ट करा">{{ old('marathi_description') }}</textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
                                             @endif
@@ -76,8 +76,8 @@
                                                 <span class="red-text"><?php //echo $errors->first('forcast_date', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div> --}}
-                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
+                                    </div> 
+                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="expired_date">Expired Date <span
                                                     class="text-danger">*</span></label>
@@ -87,8 +87,8 @@
                                                 <span class="red-text"><?php //echo $errors->first('expired_date', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>
-
+                                    </div> --}}
+{{-- 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_image">Image English <span
@@ -110,8 +110,8 @@
                                                 <span class="red-text"><?php //echo $errors->first('marathi_image', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    </div> --}}
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_pdf">PDF English</label><br>
                                             <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"
@@ -130,10 +130,10 @@
                                                 <span class="red-text"><?php //echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div> --}}
+                                    </div>  --}}
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Submit</button>
-                                        {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
+                                         {{-- <button type="reset" class="btn btn-danger">Cancel</button>  --}}
                                         <span><a href="{{ route('list-disasterforcast') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>

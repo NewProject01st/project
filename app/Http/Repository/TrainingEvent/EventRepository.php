@@ -39,6 +39,7 @@ class EventRepository{
             $news = Event::find($last_insert_id); // Assuming $request directly contains the ID
             $news->english_image = $englishImageName; // Save the image filename to the database
             $news->marathi_image = $marathiImageName; // Save the image filename to the database
+            // dd($last_insert_id);
             $news->save();
             
             return $last_insert_id;

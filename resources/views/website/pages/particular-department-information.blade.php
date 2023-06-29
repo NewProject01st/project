@@ -6,7 +6,7 @@
         <div class="container">
             <h2>Department </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">Home</a> </li>
+                <li> <a href="{{ route('particular-department-information') }}">Home</a> </li>
 
             </ul>
         </div>
