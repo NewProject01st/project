@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Tollfree;
+use App\Models\TweeterFeed;
 
-class TollFreeNumberSeeder extends Seeder
+class TwitterSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,11 +14,10 @@ class TollFreeNumberSeeder extends Seeder
      */
     public function run()
     {
-        Tollfree::create([
+        TweeterFeed::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'english_tollfree_no' => '000 0000 000',
-            'marathi_tollfree_no' => '000 0000 000',
+            'url' => 'Twitter Link',
             'is_deleted'=>false,
             'is_active'=>true,
         

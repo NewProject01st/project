@@ -1865,6 +1865,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	border-radius: 3px;
 	margin-bottom: 30px;
 }
+.event-post-full a{
+	color: #000 !important;
+}
+.event-post-full .thumb :hover{
+	background-color: #fff;
+}
+
 .event-post-full .thumb {
 	width: 360px;
 	float: left;

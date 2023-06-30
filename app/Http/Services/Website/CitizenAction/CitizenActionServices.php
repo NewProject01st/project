@@ -29,8 +29,7 @@ class CitizenActionServices
         }
     } 
     
-    public function getAllVolunteerCitizenSupport()
-    {
+    public function getAllVolunteerCitizenSupport(){
         try {
             return $this->repo->getAllVolunteerCitizenSupport();
         } catch (\Exception $e) {
@@ -39,8 +38,7 @@ class CitizenActionServices
     } 
   
     
-    public function addIncidentModalInfo($request)
-    {
+    public function addIncidentModalInfo($request){
         try {
             $last_id = $this->repo->addIncidentModalInfo($request);
             $path = Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_MODAL_ADD');
@@ -62,8 +60,11 @@ class CitizenActionServices
         $last_id = $this->repo->addVolunteerModalInfo($request);
         // $path = Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_ADD');
         // $path1 = Config::get('DocumentConstant.VOLUNTEER_CITIZEN_NGO_ADD');
-        // $englishImageName = $last_id . '_english.' . $request->file('media_upload')->getClientOriginalExtension();
-        // $marathiImageName = $last_id . '_marathi.' . $request->file('ngo_photo')->getClientOriginalExtension();
+        // // $englishImageName = $last_id . '_english.' . $request->file('media_upload')->getClientOriginalExtension();
+        // // $marathiImageName = $last_id . '_english1.' . $request->file('ngo_photo')->getClientOriginalExtension();
+
+        // $englishImageName = $last_id . '_english.' . $request->media_upload->extension();
+        // $marathiImageName = $last_id . '_english1.' . $request->ngo_photo->extension();
 
         // uploadImage($request, 'media_upload', $path, $englishImageName);
         

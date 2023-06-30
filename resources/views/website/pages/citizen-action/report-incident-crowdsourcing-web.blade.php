@@ -73,6 +73,7 @@
                                             @else
                                                 {{ Config::get('english.CITIZEN_ACTION.FORM_INCIDENT_TYPE') }}
                                             @endif
+                                            <span class="red-text">*</span>
                                         </label>
                                         <select class="form-control set_m_form" id="incident" name="incident">
                                             <option value="">
@@ -84,15 +85,19 @@
                                             </option>
                                             @foreach ($data_output_incident as $incidenttype)
                                                 @if (session('language') == 'mar')
-                                                    <option value="{{ $incidenttype['id'] }}" selected>
-                                                        {{ $incidenttype['marathi_title'] }}</option>
+                                                    <option value="{{ $incidenttype['id'] }}"
+                                                        {{ old('incident') == $incidenttype['id'] ? 'selected' : '' }}>
+                                                        {{ $incidenttype['marathi_title'] }}
+                                                    </option>
                                                 @else
-                                                    <option value="{{ $incidenttype['id'] }}">
+                                                    <option value="{{ $incidenttype['id'] }}"
+                                                        {{ old('incident') == $incidenttype['id'] ? 'selected' : '' }}>
                                                         {{ $incidenttype['english_title'] }}
                                                     </option>
                                                 @endif
                                             @endforeach
                                         </select>
+
                                         @if ($errors->has('incident'))
                                             <span class="red-text"><?php echo $errors->first('incident', ':message'); ?></span>
                                         @endif
@@ -104,9 +109,10 @@
                                             @else
                                                 {{ Config::get('english.CITIZEN_ACTION.FORM_INCIDENT_LOCATION') }}
                                             @endif
+                                            <span class="red-text">*</span>
                                         </label>
-                                        <input type="input" class="form-control set_m_form" name="location"
-                                            id="location">
+                                        <input type="input" class="form-control set_m_form" name="location" id="location"
+                                            value="{{ old('location') }}">
 
                                         @if ($errors->has('location'))
                                             <span class="red-text"><?php echo $errors->first('location', ':message'); ?></span>
@@ -119,9 +125,10 @@
                                             @else
                                                 {{ Config::get('english.CITIZEN_ACTION.FORM_DATE_AND_TIME') }}
                                             @endif
+                                            <span class="red-text">*</span>
                                         </label>
                                         <input type="datetime-local" class="form-control set_m_form" name="datetime"
-                                            id="datetime">
+                                            id="datetime" value="{{ old('datetime') }}">
                                         @if ($errors->has('datetime'))
                                             <span class="red-text"><?php echo $errors->first('datetime', ':message'); ?></span>
                                         @endif
@@ -133,11 +140,12 @@
                                             @else
                                                 {{ Config::get('english.CITIZEN_ACTION.FORM_MOBILE_NUMBER') }}
                                             @endif
+                                            <span class="red-text">*</span>
                                         </label>
                                         <input type="input" class="form-control set_m_form" name="mobile_number"
                                             id="mobile_number" pattern="[789]{1}[0-9]{9}"
                                             oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
-                                            maxlength="10" minlength="10">
+                                            maxlength="10" minlength="10" value="{{ old('mobile_number') }}">
                                         @if ($errors->has('mobile_number'))
                                             <span class="red-text"><?php echo $errors->first('mobile_number', ':message'); ?></span>
                                         @endif
@@ -149,8 +157,9 @@
                                             @else
                                                 {{ Config::get('english.CITIZEN_ACTION.FORM_DESCRIPTION') }}
                                             @endif
+                                            <span class="red-text">*</span>
                                         </label>
-                                        <textarea class="form-control set_m_form" name="description" id="description"></textarea>
+                                        <textarea class="form-control set_m_form" name="description" id="description">{{ old('description') }}</textarea>
                                         @if ($errors->has('description'))
                                             <span class="red-text"><?php echo $errors->first('description', ':message'); ?></span>
                                         @endif
@@ -162,6 +171,7 @@
                                             @else
                                                 {{ Config::get('english.CITIZEN_ACTION.FORM_MEDIA_UPLOAD') }}
                                             @endif
+                                            <span class="red-text">*</span>
                                         </label><br>
                                         <input type="file" name="media_upload" id="media_upload"> <br>
                                         @if ($errors->has('media_upload'))

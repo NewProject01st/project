@@ -69,19 +69,28 @@
                                     <div class="col-md-6 mb-2">
                                         <label class="col-form-label modal_lable">
                                             @if (session('language') == 'mar')
-                                                {{ Config::get('marathi.CITIZEN_ACTION.FORM_VOLUNTEER_TYPE') }}
+                                                {{ Config::get('marathi.CITIZEN_ACTION.FORM_INCIDENT_TYPE') }}
                                             @else
-                                                {{ Config::get('english.CITIZEN_ACTION.FORM_VOLUNTEER_TYPE') }}
+                                                {{ Config::get('english.CITIZEN_ACTION.FORM_INCIDENT_TYPE') }}
                                             @endif
                                         <span class="red-text">*</span></label>
                                         <select class="form-control set_m_form" id="incident" name="incident">
-                                            <option value="">Select</option>
+                                            <option value="">
+                                                @if (session('language') == 'mar')
+                                                    {{ Config::get('marathi.CITIZEN_ACTION.FORM_SELECT') }}
+                                                @else
+                                                    {{ Config::get('english.CITIZEN_ACTION.FORM_SELECT') }}
+                                                @endif
+                                            </option>
                                             @foreach ($data_output_incident as $incidenttype)
                                                 @if (session('language') == 'mar')
-                                                    <option value="{{ $incidenttype['id'] }}" selected>
-                                                        {{ $incidenttype['marathi_title'] }}</option>
+                                                    <option value="{{ $incidenttype['id'] }}"
+                                                        {{ old('incident') == $incidenttype['id'] ? 'selected' : '' }}>
+                                                        {{ $incidenttype['marathi_title'] }}
+                                                    </option>
                                                 @else
-                                                    <option value="{{ $incidenttype['id'] }}">
+                                                    <option value="{{ $incidenttype['id'] }}"
+                                                        {{ old('incident') == $incidenttype['id'] ? 'selected' : '' }}>
                                                         {{ $incidenttype['english_title'] }}
                                                     </option>
                                                 @endif

@@ -56,10 +56,12 @@
                         @forelse ($data_output as $item)
                             <div class="event-post-full d-flex">
                                 @if (session('language') == 'mar')
+                                <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
                                     <div class="thumb"><img
                                             src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['marathi_image'] }}"
-                                            alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा"> </div>
+                                            alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा"> </div></a>
                                     <div class="event-post-content">
+                                        <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
                                         <div class="event-post-txt">
                                             <h5 class="card_title"><a href="#"><?php echo mb_substr($item['marathi_title'], 0, 35) ?></a></h5>
                                             <ul class="event-meta">
@@ -67,23 +69,29 @@
                                             </ul>
                                             <p class="card_title"><?php echo mb_substr($item['marathi_description'], 0, 121) ?></p>
                                         </div>
+                                        </a>
                                         {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
                                             USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div> --}}
                                     </div>
                                 @else
-                                    <div class="thumb"> <img
+                                <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
+                                    <div class="thumb">
+                                            <img
                                             src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['english_image'] }}"
-                                            alt="{{ strip_tags($item['english_title']) }} Image"> </div>
+                                            alt="{{ strip_tags($item['english_title']) }} Image" class="thumb"> </div></a>
                                     <div class="event-post-content">
+                                        <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
                                         <div class="event-post-txt">
-                                            <h5 class="card_title"><a data-id="{{ $item['id'] }}" class="show-btn"><?php echo mb_substr($item['english_title'], 0, 35) ?></a></h5>
+                                            <h5 class="card_title"><?php echo mb_substr($item['english_title'], 0, 35) ?></h5>
                                             <ul class="event-meta">
                                                 <li><i class="fas fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
                                             </ul>
                                             <p class="card_title"><?php echo mb_substr($item['english_description'], 0, 121) ?></p>
                                         </div>
+                                        </a>
                                         {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
                                             USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div> --}}
+                                        
                                     </div>
                                 @endif
                             </div>

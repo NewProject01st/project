@@ -49,14 +49,14 @@
                                     <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                                         @if (session('language') == 'mar')
                                             <div class="single-item">
-                                                <div class="row">
+                                                <div data-id="{{ $item['id'] }}"
+                                                class="show-btn row cursor-pointer">
                                                     <div class="col-md-5">
                                                         <div class="profile">
                                                             <div class="img-area">
-                                                                <a data-id="{{ $item['id'] }}"
-                                                                    class="show-btn cursor-pointer">
+                                                                
                                                                     <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item['english_image'] }}"
-                                                                    alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा"></a>
+                                                                    alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा">
                                                             </div>
                                                             <div class="bio">
                                                                 <h2>{{ $item['marathi_title'] }}</h2>
@@ -75,13 +75,13 @@
                                             </div>
                                         @else
                                             <div class="single-item">
-                                                <div class="row">
+                                                <div data-id="{{ $item['id'] }}"
+                                                class="show-btn row cursor-pointer">
                                                     <div class="col-md-5">
                                                         <div class="profile">
-                                                            <div class="img-area"><a data-id="{{ $item['id'] }}"
-                                                                    class="show-btn cursor-pointer">
+                                                            <div class="img-area">
                                                                     <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item['english_image'] }}"
-                                                                    alt="{{ strip_tags($item['english_title']) }} Image"></a>
+                                                                    alt="{{ strip_tags($item['english_title']) }} Image">
                                                             </div>
                                                             <div class="new-txt">
                                                                 <h4>{{ $item['english_title'] }}</h4>
@@ -93,7 +93,7 @@
                                                         <div class="content">
                                                             <p><span><i
                                                                         class="fa fa-quote-left"></i></span><a>{{ mb_substr(strip_tags($item['english_description']), 0, 204) }}</a>
-                                                                ...</p>
+                                                                </p>
                                                         </div>
                                                     </div>
                                                 </div>
