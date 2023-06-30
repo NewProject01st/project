@@ -101,8 +101,8 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                                 </strong>
                             </li>
                             <li class="header-weather for_pl_pr"> <i class="fas fa-cloud-sun"></i>
-                                {{ getTempratureData() }}°C
-                                / {{ getTempratureData() * 1.8 + 32 }}°F
+                                {{ getTempratureData()->temprature }}°C
+                                / {{ getTempratureData()->temprature * 1.8 + 32 }}°F
                             </li>
                         </ul>
                     </div>

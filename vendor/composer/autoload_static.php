@@ -792,6 +792,7 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'App\\Models\\Weather' => __DIR__ . '/../..' . '/app/Models/Weather.php',
         'App\\Models\\WebsiteContact' => __DIR__ . '/../..' . '/app/Models/WebsiteContact.php',
         'App\\Models\\WebsiteLogo' => __DIR__ . '/../..' . '/app/Models/WebsiteLogo.php',
+        'App\\Models\\WheatherForecast' => __DIR__ . '/../..' . '/app/Models/WheatherForecast.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
