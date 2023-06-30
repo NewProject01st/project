@@ -18,7 +18,6 @@ class MapLatLonController extends Controller
     {
         try {
             $map_gis = $this->service->getAll();
-            // dd($map_gis);
             return view('admin.pages.research-center.map-gis-data.list-map-gis-data', compact('map_gis'));
         } catch (\Exception $e) {
             return $e;
@@ -50,8 +49,7 @@ class MapLatLonController extends Controller
         // 'data_for.required' => 'Please enter data.',
        
     ];
-    // print_r($messages);
-    // die();
+    
 
     try {
         $validation = Validator::make($request->all(),$rules,$messages);
@@ -85,7 +83,6 @@ class MapLatLonController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $map_gis = $this->service->getById($request->show_id);
             return view('admin.pages.research-center.map-gis-data.show-map-gis-data', compact('map_gis'));
         } catch (\Exception $e) {
@@ -94,7 +91,6 @@ class MapLatLonController extends Controller
     }
     public function edit(Request $request) {
         $map_gis = MapLatLon::find($request->edit_id);
-        // dd($budgets);
 
         return view('admin.pages.research-center.map-gis-data.edit-map-gis-data', compact('map_gis'));
     }
@@ -159,7 +155,6 @@ class MapLatLonController extends Controller
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $map_gis = $this->service->deleteById($request->delete_id);
             return redirect('list-map-lat-lons')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

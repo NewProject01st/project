@@ -17,7 +17,6 @@ class VolunteerCitizenModalRepository{
             $modal_data = CitizenVolunteerModal::join('incident_type', 'incident_type.id','=', 'citizen_volunteer_modals.incident')
             ->get();
             return $modal_data;
-            // dd($modal_data);
 
         } catch (\Exception $e) {
             return $e;

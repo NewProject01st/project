@@ -58,7 +58,6 @@ class GalleryController extends Controller
         else
         {
             $add_gallery = $this->service->addAll($request);
-            // dd($add_gallery);
             if($add_gallery)
             {
 
@@ -127,7 +126,6 @@ class GalleryController extends Controller
 public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $gallery = $this->service->getById($request->show_id);
             return view('admin.pages.research-center.gallery.show-gallery', compact('gallery'));
         } catch (\Exception $e) {
@@ -147,7 +145,6 @@ public function show(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $gallery = $this->service->deleteById($request->delete_id);
             return redirect('list-gallery')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

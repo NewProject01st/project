@@ -118,7 +118,6 @@ public function updateOne($request)
         if ($marquee) {
             $is_active = $marquee->is_active === 1 ? 0 : 1;
             $marquee->is_active = $is_active;
-            // dd($marquee);
             $marquee->save();
 
             return [

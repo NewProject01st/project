@@ -89,7 +89,6 @@ class DisasterForcastController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $disasterforcast = $this->service->getById($request->show_id);
             return view('admin.pages.home.disasterforcast.show-disasterforcast', compact('disasterforcast'));
         } catch (\Exception $e) {
@@ -158,7 +157,6 @@ $messages = [
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $disasterforcast = $this->service->deleteById($request->delete_id);
             return redirect('list-disasterforcast')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

@@ -161,7 +161,6 @@ class PublicAwarenessEducationController extends Controller
 public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $awareness_education = $this->service->getById($request->show_id);
             return view('admin.pages.preparedness.awareness-education.show-awareness-education', compact('awareness_education'));
         } catch (\Exception $e) {
@@ -172,7 +171,6 @@ public function show(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $awareness_education = $this->service->deleteById($request->delete_id);
             return redirect('list-public-awareness-and-education')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

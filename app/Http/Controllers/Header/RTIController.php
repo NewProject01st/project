@@ -139,7 +139,6 @@ public function update(Request $request)
  public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $rti = $this->service->getById($request->show_id);
             return view('admin.pages.header.rti.show-header-rti', compact('rti'));
         } catch (\Exception $e) {
@@ -159,7 +158,6 @@ public function update(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $rti = $this->service->deleteById($request->delete_id);
             return redirect('list-header-rti')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

@@ -76,7 +76,6 @@ class EventController extends Controller
         else
         {
             $add_event = $this->service->addAll($request);
-       dd($add_event);
             if($add_event)
             {
 
@@ -172,7 +171,6 @@ class EventController extends Controller
 public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $event = $this->service->getById($request->show_id);
             return view('admin.pages.training-event.event.show-event', compact('event'));
         } catch (\Exception $e) {
@@ -183,7 +181,6 @@ public function show(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $event = $this->service->deleteById($request->delete_id);
             return redirect('list-event')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

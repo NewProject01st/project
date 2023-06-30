@@ -52,7 +52,6 @@ function getPermissionForCRUDPresentOrNot($url,$data_for_session) {
                         array_push($data,$key);
                     }
                 }
-                // dd($data);
                 return $data;
             }
         }
@@ -71,7 +70,6 @@ function getSocialIcon() {
                         )
                         ->get()
                         ->toArray();
-                        // dd($socialicon_data);
 
                         return $socialicon_data ;
                         
@@ -271,7 +269,6 @@ function getTempratureData() {
     // //                 ->get()->toArray();
     // // $last_update = $data['last_updated'];   
     // $current_date = $date->format('d-m-Y H:i:s'); 
-    // // dd($current_date);
     // $db_date = "15-06-2023 13:00:01";
     // $current_date = "15-06-2023 14:05:16";
     // if(strtotime($db_date) < strtotime($current_date)) {

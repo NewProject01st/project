@@ -118,7 +118,6 @@ class ResourceCenterRepository  {
 //         }
 //         $data_output_final = $data_output_new->get()->toArray();
 //         $categories_final = $categories_new->get()->toArray();
-//         // dd($data_output_final);
 //         return ['data_output_final' => $data_output_final, 'categories_final' => $categories_final];
 //     } catch (\Exception $e) {
 //         return $e;

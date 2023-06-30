@@ -76,7 +76,6 @@ class SubMenuController extends Controller
     public function show(Request $request)
     {
         try {
-            // dd($request->show_id);
             $menu_data = $this->service->getById($request->show_id);
             return view('admin.pages.menu.submenu.show-sub-menu', compact('menu_data'));
         } catch (\Exception $e) {
@@ -132,7 +131,6 @@ class SubMenuController extends Controller
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $constitutionhistory = $this->service->deleteById($request->delete_id);
             return redirect('list-sub-menu')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

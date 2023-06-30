@@ -117,7 +117,6 @@ class GalleryCategoryController extends Controller
 public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $success_stories = $this->service->getById($request->show_id);
             return view('admin.pages.research-center.gallery-category.show-gallery-category', compact('success_stories'));
         } catch (\Exception $e) {
@@ -137,7 +136,6 @@ public function show(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $success_stories = $this->service->deleteById($request->delete_id);
             return redirect('list-gallery-category')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

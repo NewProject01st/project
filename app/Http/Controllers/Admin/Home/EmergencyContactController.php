@@ -155,7 +155,6 @@ class EmergencyContactController extends Controller
 public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $emergency_contacts = $this->service->getById($request->show_id);
             return view('admin.pages.home.emergency_contact.show-contact', compact('emergency_contacts'));
         } catch (\Exception $e) {
@@ -177,7 +176,6 @@ public function show(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $contact = $this->service->deleteById($request->delete_id);
             return redirect('list-emergency-contact')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

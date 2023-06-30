@@ -135,7 +135,6 @@ class DistrictDisasterManagementPlanController extends Controller
 
     public function show(Request $request){
             try {
-                //  dd($request->show_id);
                 $district_management = $this->service->getById($request->show_id);
                 return view('admin.pages.policies-legislation.district-management.show-district-management-plan', compact('district_management'));
             } catch (\Exception $e) {
@@ -156,7 +155,6 @@ class DistrictDisasterManagementPlanController extends Controller
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $district_management = $this->service->deleteById($request->delete_id);
             return redirect('list-district-disaster-management-plan')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

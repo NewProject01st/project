@@ -114,7 +114,6 @@ class VideoController extends Controller
 
     public function show(Request $request) {
         try {
-            //  dd($request->show_id);
             $video = $this->service->getById($request->show_id);
             return view('admin.pages.research-center.video.show-video', compact('video'));
         } catch (\Exception $e) {
@@ -134,7 +133,6 @@ class VideoController extends Controller
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $video = $this->service->deleteById($request->delete_id);
             return redirect('list-video')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

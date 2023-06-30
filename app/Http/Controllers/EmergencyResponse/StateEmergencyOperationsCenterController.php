@@ -28,7 +28,6 @@ class StateEmergencyOperationsCenterController extends Controller
     }
 
     public function store(Request $request) {
-        // dd($request);
     $rules = [
         'english_title' => 'required',
         'marathi_title' => 'required',
@@ -67,8 +66,6 @@ class StateEmergencyOperationsCenterController extends Controller
         else
         {
             $add_stateemergencyoperationscenter = $this->service->addAll($request);
-            // dd($add_stateemergencyoperationscenter);
-            // die();
             if($add_stateemergencyoperationscenter)
             {
 
@@ -90,7 +87,6 @@ class StateEmergencyOperationsCenterController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $stateemergencyoperationscenter = $this->service->getById($request->show_id);
             return view('admin.pages.emergency-response.state-emergency-operations-center.show-state-emergency-operations-center', compact('stateemergencyoperationscenter'));
         } catch (\Exception $e) {
@@ -165,7 +161,6 @@ class StateEmergencyOperationsCenterController extends Controller
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $stateemergencyoperationscenter = $this->service->deleteById($request->delete_id);
             return redirect('list-state-emergency-operations-center')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

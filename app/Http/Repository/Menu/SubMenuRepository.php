@@ -86,7 +86,6 @@ public function updateAll($request)
             'status' => 'success'
         ];
     } catch (\Exception $e) {
-        dd($e);
         return [
             'msg' => 'Failed to update constitution history.',
             'status' => 'error'

@@ -133,7 +133,7 @@ class FeedbackCitizenModalController extends Controller
 // public function show(Request $request)
 //     {
 //         try {
-//             //  dd($request->show_id);
+
 //             $crowdsourcing = $this->service->getById($request->show_id);
 //             return view('admin.pages.citizen-action.report-crowdsourcing.show-report-crowdsourcing', compact('crowdsourcing'));
 //         } catch (\Exception $e) {
@@ -144,7 +144,7 @@ class FeedbackCitizenModalController extends Controller
 //     public function destroy(Request $request)
 //     {
 //         try {
-//             // dd($request->delete_id);
+
 //             $crowdsourcing = $this->service->deleteById($request->delete_id);
 //             return redirect('list-report-crowdsourcing')->with('flash_message', 'Deleted!');  
 //         } catch (\Exception $e) {

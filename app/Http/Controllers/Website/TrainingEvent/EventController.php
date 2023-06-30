@@ -35,7 +35,6 @@ class EventController extends Controller
             $menu = $this->menu;
             $socialicon = $this->socialicon;
             $data_output = $this->service->getAllUpcomingEvent();
-            // dd($data_output);
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -53,7 +52,6 @@ class EventController extends Controller
             $menu = $this->menu;
             $socialicon = $this->socialicon;
             $data_output = $this->service->getAllPastEvent();
-            // dd($data_output);
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -69,11 +67,9 @@ class EventController extends Controller
     {
         try {
            
-            //  dd($request->show_id);
               $menu = $this->menu;
               $socialicon = $this->socialicon;
             $event_data = $this->service->getById($request->show_id);
-            //  dd($disaster_news);
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {

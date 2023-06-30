@@ -93,7 +93,6 @@ class RegisterServices
     }
     public function getProfile($request) {
         $data_users = $this->repo->getProfile($request);
-        // dd($data_users);
         return $data_users;
     }
 
@@ -148,7 +147,6 @@ class RegisterServices
             uploadImage($request, 'user_profile', $path, $englishImageName);
             $profile = User::find($return_data['last_insert_id']);
             $profile->user_profile = $englishImageName;
-            // dd($profile);
             $profile->save();
         }
 

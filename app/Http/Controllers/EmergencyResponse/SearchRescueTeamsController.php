@@ -28,7 +28,6 @@ class SearchRescueTeamsController extends Controller
     }
 
     public function store(Request $request) {
-        // dd($request);
     $rules = [
         'english_title' => 'required',
         'marathi_title' => 'required',
@@ -88,7 +87,6 @@ class SearchRescueTeamsController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $searchrescueteams = $this->service->getById($request->show_id);
             return view('admin.pages.emergency-response.search-rescue-teams.show-search-rescue-teams', compact('searchrescueteams'));
         } catch (\Exception $e) {
@@ -164,7 +162,6 @@ class SearchRescueTeamsController extends Controller
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $searchrescueteams = $this->service->deleteById($request->delete_id);
             return redirect('list-search-rescue-teams')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

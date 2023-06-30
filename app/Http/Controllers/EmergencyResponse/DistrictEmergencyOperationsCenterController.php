@@ -28,7 +28,6 @@ class DistrictEmergencyOperationsCenterController extends Controller
         }
     
         public function store(Request $request) {
-            // dd($request);
     //         echo $disastermanagementportal_data;
     //  die();
         $rules = [
@@ -91,7 +90,6 @@ class DistrictEmergencyOperationsCenterController extends Controller
         public function show(Request $request)
         {
             try {
-                //  dd($request->show_id);
                 $districtemergencyoperationscenter = $this->service->getById($request->show_id);
                 return view('admin.pages.emergency-response.district-emergency-operations-center.show-district-emergency-operations-center', compact('districtemergencyoperationscenter'));
             } catch (\Exception $e) {
@@ -169,7 +167,6 @@ class DistrictEmergencyOperationsCenterController extends Controller
         public function destroy(Request $request)
         {
             try {
-                // dd($request->delete_id);
                 $districtemergencyoperationscenter = $this->service->deleteById($request->delete_id);
                 return redirect('list-district-emergency-operations-center')->with('flash_message', 'Deleted!');  
             } catch (\Exception $e) {

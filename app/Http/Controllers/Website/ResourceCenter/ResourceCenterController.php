@@ -91,7 +91,6 @@ class ResourceCenterController extends Controller
     //         $socialicon = $this->socialicon;
     //         $data_getallvideo = $this->service->getAllVideo();
     //         $data_output = $this->service->getAllGallery();
-    //         // dd($data_output);
     //         if (Session::get('language') == 'mar') {
     //             $language = Session::get('language');
     //         } else {
@@ -126,7 +125,6 @@ class ResourceCenterController extends Controller
 
     public function getAllAjaxMultimedia(Request $request) {
         $return_data = $this->service->getAllGallery($request);
-        // dd($return_data['gallery_data']);
         return $return_data['gallery_data'];
     }
 
@@ -138,7 +136,6 @@ class ResourceCenterController extends Controller
     //         $galleryData = $this->service->getAllGallery();
     //         $data_output_new =  $galleryData['data_output'];
     //         $categories = $galleryData['data_output_array'];
-    //         // dd($galleryData);
     //         if ($galleryData instanceof \Exception) {
     //             throw $galleryData; // Rethrow the exception
     //         }

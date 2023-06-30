@@ -29,7 +29,6 @@ class WebsiteLogoRepository{
         $website_logo->save();       
               
         $last_insert_id = $website_logo->id;
-        // dd($last_insert_id);
 
         $englishImageName = $last_insert_id . '_english.' . $request->logo->extension();
         

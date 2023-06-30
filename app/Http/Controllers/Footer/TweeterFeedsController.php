@@ -74,7 +74,6 @@ class TweeterFeedsController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $tweeter = $this->service->getById($request->show_id);
             return view('admin.pages.footer.tweeter-feed.show-tweeter-feed', compact('tweeter'));
         } catch (\Exception $e) {
@@ -83,7 +82,6 @@ class TweeterFeedsController extends Controller
     }
     public function edit(Request $request) {
         $tweeter = TweeterFeed::find($request->edit_id);
-        // dd($budgets);
 
         return view('admin.pages.footer.tweeter-feed.edit-tweeter-feed', compact('tweeter'));
     }
@@ -142,7 +140,6 @@ public function updateOne(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $links = $this->service->deleteById($request->delete_id);
             return redirect('list-tweeter-feed')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

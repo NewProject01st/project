@@ -80,7 +80,6 @@ class StateDisasterManagementPlanController extends Controller
     public function edit(Request $request){
         $edit_data_id = $request->edit_id;
         $state_management = $this->service->getById($edit_data_id);
-        // dd($state_management);
         return view('admin.pages.policies-legislation.state-management.edit-state-management-plan', compact('state_management'));
     }
 
@@ -135,7 +134,6 @@ class StateDisasterManagementPlanController extends Controller
     
     public function show(Request $request){
         try {
-            //  dd($request->show_id);
             $state_management = $this->service->getById($request->show_id);
             return view('admin.pages.policies-legislation.state-management.show-state-management-plan', compact('state_management'));
         } catch (\Exception $e) {
@@ -155,7 +153,6 @@ class StateDisasterManagementPlanController extends Controller
     public function destroy(Request $request){
         try {
             $state_management = $this->service->deleteById($request->delete_id);
-            // dd($state_management);
             return redirect('list-state-disaster-management-plan')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {
             return $e;

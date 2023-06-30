@@ -177,7 +177,6 @@ class DisasterManagementWebPortalController extends Controller
 public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $disaster_web_portal = $this->service->getById($request->show_id);
             return view('admin.pages.home.disaster_webportal.show-disaster-web-portal', compact('disaster_web_portal'));
         } catch (\Exception $e) {
@@ -188,7 +187,6 @@ public function show(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $disaster_web_portal = $this->service->deleteById($request->delete_id);
             return redirect('list-disaster-management-web-portal')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

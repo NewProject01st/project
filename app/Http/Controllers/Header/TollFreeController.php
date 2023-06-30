@@ -122,7 +122,6 @@ class TollFreeController extends Controller
 public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $tollfree_number = $this->service->getById($request->show_id);
             return view('admin.pages.header.tollfree-number.show-tollfree-number', compact('tollfree_number'));
         } catch (\Exception $e) {
@@ -133,7 +132,6 @@ public function show(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $tollfree_number = $this->service->deleteById($request->delete_id);
             return redirect('list-tollfree-number')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

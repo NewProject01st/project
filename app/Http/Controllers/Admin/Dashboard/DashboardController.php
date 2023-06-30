@@ -76,7 +76,6 @@ class DashboardController extends Controller {
     {
         $return_data = array();
         $dashboard_data = Permissions::where("is_active",'=',true)->get()->toArray();
-        // dd($dashboard_data);
         foreach ($dashboard_data as $value) {
 
             if($value['url'] == 'list-users') {

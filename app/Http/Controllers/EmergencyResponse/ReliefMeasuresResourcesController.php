@@ -28,7 +28,6 @@ class ReliefMeasuresResourcesController extends Controller
     }
 
     public function store(Request $request) {
-        // dd($request);
     
     $rules = [
         'english_title' => 'required',
@@ -91,7 +90,6 @@ class ReliefMeasuresResourcesController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $reliefmeasuresresources = $this->service->getById($request->show_id);
             return view('admin.pages.emergency-response.relief-measures-resources.show-relief-measures-resources', compact('reliefmeasuresresources'));
         } catch (\Exception $e) {
@@ -167,7 +165,6 @@ class ReliefMeasuresResourcesController extends Controller
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $reliefmeasuresresources = $this->service->deleteById($request->delete_id);
             return redirect('list-relief-measures-resources')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

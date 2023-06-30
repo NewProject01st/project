@@ -24,9 +24,6 @@ class LoginController extends Controller
 
     public function submitLogin(Request $request) {
 
-           
-
-        // dd($request);
         $rules = [
             'email' => 'required | email', 
             'password' => 'required',

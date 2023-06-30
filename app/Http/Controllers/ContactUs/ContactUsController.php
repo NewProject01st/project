@@ -138,7 +138,6 @@ class ContactUsController extends Controller
 public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $contact_suggestion = $this->service->getById($request->show_id);
             return view('admin.pages.contact-us.feedback-suggestion.show-contact-suggestion', compact('contact_suggestion'));
         } catch (\Exception $e) {
@@ -149,7 +148,6 @@ public function show(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $contact = $this->service->deleteById($request->delete_id);
             return redirect('list-contact-suggestion')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

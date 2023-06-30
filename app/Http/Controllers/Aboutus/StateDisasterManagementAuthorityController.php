@@ -30,7 +30,6 @@ class StateDisasterManagementAuthorityController extends Controller
     }
 
     public function store(Request $request) {
-        // dd($request);
     $rules = [
         'english_title' => 'required',
         'marathi_title' => 'required',
@@ -91,7 +90,6 @@ class StateDisasterManagementAuthorityController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $statedisastermanagementauthority = $this->service->getById($request->show_id);
             return view('admin.pages.aboutus.state-disaster-management-authority.show-statedisastermanagementauthority', compact('statedisastermanagementauthority'));
         } catch (\Exception $e) {
@@ -167,7 +165,6 @@ class StateDisasterManagementAuthorityController extends Controller
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $statedisastermanagementauthority = $this->service->deleteById($request->delete_id);
             return redirect('list-statedisastermanagementauthority')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

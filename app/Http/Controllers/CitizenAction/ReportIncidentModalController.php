@@ -84,7 +84,6 @@ class ReportIncidentModalController extends Controller
     {
         try {
             $crowdsourcing = $this->service->deleteById($request->delete_id);
-            // dd($crowdsourcing);
             return redirect('list-incident-modal-info')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {
             return $e;
