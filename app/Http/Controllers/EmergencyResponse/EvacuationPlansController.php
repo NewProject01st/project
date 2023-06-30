@@ -27,7 +27,6 @@ class EvacuationPlansController extends Controller
     }
 
     public function store(Request $request) {
-        // dd($request);
     $rules = [
         'english_title' => 'required',
         'marathi_title' => 'required',
@@ -78,7 +77,6 @@ class EvacuationPlansController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $evacuationplans = $this->service->getById($request->show_id);
             return view('admin.pages.emergency-response.evacuation-plans.show-evacuation-plans', compact('evacuationplans'));
         } catch (\Exception $e) {
@@ -139,7 +137,6 @@ class EvacuationPlansController extends Controller
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $evacuationplans = $this->service->deleteById($request->delete_id);
             return redirect('list-evacuation-plans')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

@@ -150,7 +150,6 @@ public function update(Request $request)
  public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $tenders = $this->service->getById($request->show_id);
             return view('admin.pages.home.home_tender.show-tender', compact('tenders'));
         } catch (\Exception $e) {
@@ -161,7 +160,6 @@ public function update(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $tender = $this->service->deleteById($request->delete_id);
             return redirect('list-home-tender')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

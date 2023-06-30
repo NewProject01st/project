@@ -94,7 +94,6 @@ public function updateOne($request)
         if ($gallery_category) {
             $is_active = $gallery_category->is_active === 1 ? 0 : 1;
             $gallery_category->is_active = $is_active;
-            // dd($Gallery Category);
             $gallery_category->save();
 
             return [

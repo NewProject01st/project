@@ -65,7 +65,6 @@ class SuccessStoriesServices
             $return_data = $this->repo->updateAll($request);
             
             $path = Config::get('DocumentConstant.SUCCESS_STORIES_ADD');
-        //   dd($path);
             if ($request->hasFile('english_image')) {
                 if ($return_data['english_image']) {
                     $delete_file_eng= storage_path(Config::get('DocumentConstant.SUCCESS_STORIES_DELETE') . $return_data['english_image']);

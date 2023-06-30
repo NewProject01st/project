@@ -93,7 +93,6 @@ public function updateOne($request)
         if ($video) {
             $is_active = $video->is_active === 1 ? 0 : 1;
             $video->is_active = $is_active;
-            // dd($Video);
             $video->save();
 
             return [

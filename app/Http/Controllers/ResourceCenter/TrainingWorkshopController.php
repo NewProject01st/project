@@ -146,7 +146,6 @@ public function update(Request $request)
  public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $training_workshop = $this->service->getById($request->show_id);
             return view('admin.pages.research-center.training-workshop.show-training-workshop', compact('training_workshop'));
         } catch (\Exception $e) {
@@ -157,7 +156,6 @@ public function update(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $documents = $this->service->deleteById($request->delete_id);
             return redirect('list-training-workshop')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

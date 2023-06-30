@@ -18,7 +18,6 @@ class VolunteerCitizenModalController extends Controller
     {
         try {
             $modal_data = $this->service->getAll();
-            // dd($modal_data);
             return view('admin.pages.citizen-action.modal-info.list-volunteer-modal-info', compact('modal_data'));
         } catch (\Exception $e) {
             return $e;
@@ -29,7 +28,6 @@ class VolunteerCitizenModalController extends Controller
     {
         try {
             $volunteercitizen = $this->service->getById($request->show_id);
-            // dd($volunteercitizen);
             return view('admin.pages.citizen-action.modal-info.show-volunteer-modal-info', compact('volunteercitizen'));
         } catch (\Exception $e) {
             return $e;
@@ -39,7 +37,6 @@ class VolunteerCitizenModalController extends Controller
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $crowdsourcing = $this->service->deleteById($request->delete_id);
             return redirect('list-volunteer-modal-info')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

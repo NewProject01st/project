@@ -65,7 +65,6 @@ class CitizenActionController extends Controller
             else
             {
                 $add_modal = $this->service->addIncidentModalInfo($request);
-                 dd($add_modal);
                 if($add_modal)
                 {
     
@@ -170,7 +169,6 @@ class CitizenActionController extends Controller
             $menu = $this->menu;
             $socialicon = $this->socialicon;
              $data_output = $this->service->getAllIncidentType();
-            // dd($data_output);
         $data_output_incident = $data_output['data_output_incident'];
         if (Session::get('language') == 'mar') {
             $language = Session::get('language');
@@ -191,7 +189,6 @@ class CitizenActionController extends Controller
             $menu = $this->menu;
             $socialicon = $this->socialicon;
              $data_output = $this->service->getAllVolunteerCitizenSupport();
-            // dd($data_output);
              $data_output_incident = $data_output['data_output_incident'];
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');

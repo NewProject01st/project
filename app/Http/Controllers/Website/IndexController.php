@@ -30,7 +30,6 @@ class IndexController extends Controller
         $this->socialicon = getSocialIcon();
         
         // $this->$menuDataSearch = getMenuForSearch();
-        // dd($menuDataSearch);
         // $this->websitecontact = getWebsiteContact();
     }
 
@@ -43,7 +42,6 @@ class IndexController extends Controller
             $upcoming_event = Event::where('is_active','=', true)
                         // ->where('start_date','<=', $date_now)
                         ->where('end_date','>', $date_now);
-            // dd($upcoming_event);
             if (Session::get('language') == 'mar') {
                 $upcoming_event =  $upcoming_event->select('marathi_title', 'marathi_description','marathi_image','start_date', 'end_date');
             } else {
@@ -193,11 +191,9 @@ class IndexController extends Controller
     {
         try {
            
-            //  dd($request->show_id);
               $menu = $this->menu;
               $socialicon = $this->socialicon;
             $disaster_news = $this->service->getById($request->show_id);
-            //  dd($disaster_news);
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -215,11 +211,9 @@ class IndexController extends Controller
     {
         try {
             
-            // dd($request->department_show_id);
                 $menu = $this->menu;
                 $socialicon = $this->socialicon;
             $department_information = $this->service->getByIdDepartmentInformation($request->department_show_id);
-            //  dd($department_information);
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {

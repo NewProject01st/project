@@ -66,11 +66,9 @@ class NewsEventsController extends Controller
     {
         try {
            
-            //  dd($request->show_id);
               $menu = $this->menu;
               $socialicon = $this->socialicon;
             $success_storage_data = $this->service->getById($request->show_id);
-            //  dd($disaster_news);
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {

@@ -135,7 +135,6 @@ class DisasterManagementPortalController extends Controller
     }
     public function destroy(Request $request) {
         try {
-            // dd($request->delete_id);
             $disastermanagementportal = $this->service->deleteById($request->delete_id);
             return redirect('list-disastermanagementportal')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

@@ -57,14 +57,9 @@ public function update($request)
     try {
         $tweeter_data = TweeterFeed::find($request->id);
         $tweeter_data->url = $request['url'];
-
        
         $tweeter_data->update();  
-        
-    //    dd($budget_data);
-        // print_r($budget_data);
-        // die();
-     
+             
         return [
             'msg' => 'Marquee updated successfully.',
             'status' => 'success'
@@ -84,7 +79,6 @@ public function updateOne($request)
         if ($tweeter) {
             $is_active = $tweeter->is_active === 1 ? 0 : 1;
             $tweeter->is_active = $is_active;
-            // dd($marquee);
             $tweeter->save();
 
             return [

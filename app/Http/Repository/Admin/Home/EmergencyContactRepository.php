@@ -108,7 +108,6 @@ public function updateOne($request)
         if ($contact) {
             $is_active = $contact->is_active === 1 ? 0 : 1;
             $contact->is_active = $is_active;
-            // dd($marquee);
             $contact->save();
 
             return [

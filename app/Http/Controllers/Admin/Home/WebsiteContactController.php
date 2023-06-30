@@ -134,7 +134,6 @@ class WebsiteContactController extends Controller
 public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $website_contact = $this->service->getById($request->show_id);
             return view('admin.pages.home.website_contact.show-contact', compact('website_contact'));
         } catch (\Exception $e) {
@@ -158,7 +157,6 @@ public function updateOne(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $contact = $this->service->deleteById($request->delete_id);
             return redirect('list-website-contact')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

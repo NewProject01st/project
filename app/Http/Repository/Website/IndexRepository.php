@@ -73,7 +73,6 @@ class IndexRepository  {
 //         } else {
 //             $output = $data_output_marquee->implode('english_title', ' ||  ');
 //         }
-//         //dd($output);
 //         return $output ;
 //     } catch (\Exception $e) {
 //         return $e;

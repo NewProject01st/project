@@ -134,7 +134,6 @@ class CapacityTrainingController extends Controller
 public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $capacity_training = $this->service->getById($request->show_id);
             return view('admin.pages.preparedness.capacity_training.show-capacity-training', compact('capacity_training'));
         } catch (\Exception $e) {
@@ -145,7 +144,6 @@ public function show(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $capacity_training = $this->service->deleteById($request->delete_id);
             return redirect('list-capacity-building-and-training')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

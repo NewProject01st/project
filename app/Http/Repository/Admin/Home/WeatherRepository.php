@@ -45,7 +45,6 @@ class WeatherRepository  {
         $weather_data->save();       
               
 		return $weather_data;
-        dd($weather_data);
 
     } catch (\Exception $e) {
         return [

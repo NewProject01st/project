@@ -122,7 +122,6 @@ class SocialIconController extends Controller
 public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $social_icon = $this->service->getById($request->show_id);
             return view('admin.pages.header.social-icon.show-social-icon', compact('social_icon'));
         } catch (\Exception $e) {
@@ -133,7 +132,6 @@ public function show(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $social_icon = $this->service->deleteById($request->delete_id);
             return redirect('list-social-icon')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

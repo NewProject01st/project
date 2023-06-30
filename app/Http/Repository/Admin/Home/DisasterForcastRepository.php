@@ -49,7 +49,6 @@ class DisasterForcastRepository  {
         $disasterforcast_data->save();       
               
 		return $disasterforcast_data;
-        // dd($disasterforcast_data);
 
     } catch (\Exception $e) {
         return [

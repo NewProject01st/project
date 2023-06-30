@@ -76,7 +76,6 @@ class FooterImportantLinksController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $links = $this->service->getById($request->show_id);
             return view('admin.pages.footer.important-links.show-important-link', compact('links'));
         } catch (\Exception $e) {
@@ -85,7 +84,6 @@ class FooterImportantLinksController extends Controller
     }
     public function edit(Request $request) {
         $links = FooterImportantLinks::find($request->edit_id);
-        // dd($budgets);
 
         return view('admin.pages.footer.important-links.edit-important-link', compact('links'));
     }
@@ -146,7 +144,6 @@ public function updateOne(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $links = $this->service->deleteById($request->delete_id);
             return redirect('list-important-link')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

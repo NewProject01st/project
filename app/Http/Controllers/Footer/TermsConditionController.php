@@ -78,7 +78,6 @@ class TermsConditionController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $terms_conditions = $this->service->getById($request->show_id);
             return view('admin.pages.footer.terms-conditions.show-terms-conditions', compact('terms_conditions'));
         } catch (\Exception $e) {
@@ -87,7 +86,6 @@ class TermsConditionController extends Controller
     }
     public function edit(Request $request) {
         $terms_conditions = TermsCondition::find($request->edit_id);
-        // dd($budgets);
 
         return view('admin.pages.footer.terms-conditions.edit-terms-conditions', compact('terms_conditions'));
     }
@@ -149,7 +147,6 @@ class TermsConditionController extends Controller
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $terms_conditions = $this->service->deleteById($request->delete_id);
             return redirect('list-terms-conditions')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

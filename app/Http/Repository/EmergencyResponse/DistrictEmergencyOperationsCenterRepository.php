@@ -26,8 +26,8 @@ class DistrictEmergencyOperationsCenterRepository {
         $districtemergencyoperationscenter_data->marathi_title = $request['marathi_title'];
         $districtemergencyoperationscenter_data->english_description = $request['english_description'];
         $districtemergencyoperationscenter_data->marathi_description = $request['marathi_description'];
-        $districtemergencyoperationscenter_data->save();       
-    // dd($districtemergencyoperationscenter_data);
+        $districtemergencyoperationscenter_data->save();   
+            
         $last_insert_id = $districtemergencyoperationscenter_data->id;
 
         $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();

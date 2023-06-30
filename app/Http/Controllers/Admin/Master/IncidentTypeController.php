@@ -49,7 +49,6 @@ class IncidentTypeController extends Controller
         else
         {
             $add_incidenttype_data = $this->service->addAll($request);
-            // dd($add_incidenttype_data);
             if($add_incidenttype_data)
             {
 

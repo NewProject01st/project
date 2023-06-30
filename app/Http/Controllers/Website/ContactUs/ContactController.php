@@ -76,7 +76,6 @@ class ContactController extends Controller
         {
             $add_contact = $this->service->addAll($request);
 
-            // dd($add_contact);
             if($add_contact)
             {
 

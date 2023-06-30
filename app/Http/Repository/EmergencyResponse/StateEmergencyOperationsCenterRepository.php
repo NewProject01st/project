@@ -28,7 +28,6 @@ class StateEmergencyOperationsCenterRepository  {
         $stateemergencyoperationscenter_data->english_description = $request['english_description'];
         $stateemergencyoperationscenter_data->marathi_description = $request['marathi_description'];
         $stateemergencyoperationscenter_data->save();       
-    // dd($stateemergencyoperationscenter_data);
     
         $last_insert_id = $stateemergencyoperationscenter_data->id;
 

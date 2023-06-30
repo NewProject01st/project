@@ -33,7 +33,6 @@ class WebsiteLogoServices
     public function addAll($request){
         try {
             $last_id = $this->repo->addAll($request);
-            // dd($last_id);
             $path = Config::get('DocumentConstant.WEBSITE_LOGO_ADD');
             $englishImageName = 'logo' . $request->logo->extension();
             uploadImage($request, 'logo', $path, $englishImageName);
@@ -61,7 +60,6 @@ class WebsiteLogoServices
     {
         try {
             $return_data = $this->repo->updateAll($request);
-            // dd($return_data);
             $path = Config::get('DocumentConstant.WEBSITE_LOGO_ADD');
             if ($request->hasFile('logo')) {
                 if ($return_data['logo']) {

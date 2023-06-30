@@ -334,7 +334,6 @@ class RegisterRepository
 				->where('users.id', $id)
 				->select('users.f_name','users.m_name','users.l_name','users.u_email','users.number','users.designation','users.address','users.pincode','users.user_profile','roles.role_name','state_user.name as state','city_user.name as city')
 				->first();
-				// dd($user);
 	
 			if ($user) {
 				return $user;
@@ -348,46 +347,6 @@ class RegisterRepository
 			];
 		}
 	}
-
-	
-	
-	// public function getById($id)
-	// {
-	// 	try {
-		// $user = User::leftJoin('tbl_area', 'users.city', '=', 'tbl_area.location_id')
-		// ->whereNull('tbl_area.location_id')
-		// ->where('users.id', $id)
-		// ->first([
-		// 	'users.id',
-		// 	'users.f_name',
-		// 	'users.m_name',
-		// 	'users.l_name',
-		// 	'users.u_email',
-		// 	'users.number',
-		// 	'users.designation',
-		// 	'users.address',
-		// 	'users.state',
-		// 	'users.pincode',
-		// ]);
-	
-	// echo $user;
-	// die();
-	// 		// dd($user);
-	
-	// 		if ($user) {
-	// 			return $user;
-	// 		} else {
-	// 			return null;
-	// 		}
-	// 	} catch (\Exception $e) {
-	// 		return [
-	// 			'msg' => $e,
-	// 			'status' => 'error'
-	// 		];
-	// 	}
-	// }
-	
-
 
 	public function updateOne($request){
         try {
