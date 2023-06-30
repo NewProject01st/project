@@ -71,6 +71,7 @@ class DisasterManagementPortalRepository  {
     public function updateAll($request) {
     
         try {
+            $return_data = array();
             $disastermanagementportal_data = DisasterManagementPortal::find($request->id);
             if (!$disastermanagementportal_data) {
                 return [
@@ -105,6 +106,8 @@ class DisasterManagementPortalRepository  {
     public function deleteById($id)
     {
         try {
+            $return_data = array();
+
             $statedisastermanagementauthority = DisasterManagementPortal::find($id);
             if ($statedisastermanagementauthority) {
 

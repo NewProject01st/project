@@ -64,7 +64,7 @@ class ObjectiveGoalsRepository  {
     }
     public function updateAll($request) {
         try {
-
+            $return_data = array();
             $objectivegoals_data = ObjectiveGoals::find($request->id);
 
             if (!$objectivegoals_data) {
