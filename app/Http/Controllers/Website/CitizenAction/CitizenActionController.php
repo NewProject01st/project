@@ -43,11 +43,11 @@ class CitizenActionController extends Controller
 
             ];
         $messages = [   
-            'incident' => 'required',
-            'location' => 'required',
-            'datetime' => 'required',
-            'mobile_number' => 'required',
-            'description' => 'required',
+            'incident.required' => 'Please select Incident Type',
+            'location.required' => 'Please enter Location',
+            'datetime.required' => 'Please select Date Time',
+            'mobile_number.required' => 'Please enter Mobile Number',
+            'description.required' => 'Please enter Description',
             'media_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'g-recaptcha-response.captcha' => 'Captcha error! try again later or contact site admin.',
             'g-recaptcha-response.required' =>'Please verify that you are not a robot.',
@@ -114,7 +114,7 @@ class CitizenActionController extends Controller
             $rules['ngo_name'] = 'required';
             $rules['ngo_email'] = 'required';
             $rules['ngo_contact_number'] = 'required';
-            $rules['ngo_photo'] = 'required';
+            $rules['ngo_photo'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
 
             $messages['ngo_name'] = 'Ngo name is required';
             $messages['ngo_email'] = 'Ngo email required';
@@ -128,7 +128,7 @@ class CitizenActionController extends Controller
             $rules['ngo_email'] = 'required|email';
             $rules['ngo_address'] = 'required';
             $rules['ngo_contact_number'] = 'required';
-            // $rules['ngo_photo'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
+            $rules['ngo_photo'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
             
             $messages['ngo_name.required'] = 'The NGO name field is required.';
             $messages['ngo_email.required'] = 'The NGO email field is required.';

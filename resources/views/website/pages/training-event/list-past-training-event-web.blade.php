@@ -51,10 +51,12 @@
                         @forelse ($data_output as $item)
                             <div class="event-post-full d-flex">
                                 @if (session('language') == 'mar')
+                                <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
                                     <div class="thumb"><img
                                             src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['marathi_image'] }}"
-                                            alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा"> </div>
+                                            alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा"> </div></a>
                                     <div class="event-post-content">
+                                        <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
                                         <div class="event-post-txt">
                                             <h5><a data-id="{{ $item['id'] }}" class="show-btn"><?php echo $item['marathi_title']; ?></a></h5>
                                             <ul class="event-meta">
@@ -62,14 +64,17 @@
                                             </ul>
                                             <p><?php echo $item['marathi_description']; ?></p>
                                         </div>
+                                        </a>
                                         {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
                                             USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div> --}}
                                     </div>
                                 @else
+                                <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
                                     <div class="thumb"><img
                                             src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['english_image'] }}"
-                                            alt="{{ strip_tags($item['english_title']) }} Image"> </div>
+                                            alt="{{ strip_tags($item['english_title']) }} Image"> </div></a>
                                     <div class="event-post-content">
+                                        <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
                                         <div class="event-post-txt">
                                             <h5><a data-id="{{ $item['id'] }}" class="show-btn"><?php echo $item['english_title']; ?></a></h5>
                                             <ul class="event-meta">
@@ -77,6 +82,7 @@
                                             </ul>
                                             <p><?php echo $item['english_description']; ?></p>
                                         </div>
+                                        </a>
                                         {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
                                             USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div> --}}
                                     </div>

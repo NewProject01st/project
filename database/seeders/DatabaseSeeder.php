@@ -54,7 +54,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PrivacyPolicySeeder::class); 
         $this->call(TermsConditionsSeeder::class); 
         $this->call(WebsiteLogoSeeder::class); 
-        // $this->call(TollFreeNumberSeeder::class); 
+        $this->call(TwitterSeeder::class); 
+        $this->call(TollFreeNumberSeeder::class); 
         
         
         

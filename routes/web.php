@@ -110,6 +110,7 @@ Route::get('/list-success-stories-web', ['as' => 'list-success-stories-web', 'us
 Route::post('/list-particular-success-stories-web', ['as' => 'list-particular-success-stories-web', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@show']);
 
 Route::get('/site-map', ['as' => 'site-map', 'uses' => 'App\Http\Controllers\Website\SiteMap\SiteMapController@index']);
+Route::get('/search', ['as' => 'search', 'uses' => 'App\Http\Controllers\Website\SearchController@search']);
 
 
 // ================================================

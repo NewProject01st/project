@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\StateDisasterManagementAuthority;
 use App\Http\Services\AboutUs\StateDisasterManagementAuthorityServices;
 use Validator;
+use Config;
 class StateDisasterManagementAuthorityController extends Controller
 {
 
@@ -34,17 +35,27 @@ class StateDisasterManagementAuthorityController extends Controller
         'marathi_title' => 'required',
         'english_description' => 'required',
         'marathi_description' => 'required',
-        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        
-        ];
+        'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MIN_SIZE").'',
+        'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MIN_SIZE").'',
+            
+         ];
     $messages = [   
         'english_title.required' => 'Please enter title.',
         'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा.',
         'english_description.required' => 'Please enter description.',
         'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
-        'english_image.required' => 'The image field is required.',
+        'english_image.required' => 'The image is required.',
+        'english_image.image' => 'The image must be a valid image file.',
+        'english_image.mimes' => 'The image must be in JPEG, PNG, JPG, GIF, or SVG format.',
+        'english_image.max' => 'The image size must not exceed '.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MAX_SIZE").'KB .',
+        'english_image.min' => 'The image size must not be less than '.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MIN_SIZE").'KB .',
+        'english_image.dimensions' => 'The image dimensions must be between 1500x500 and 2000x1000 pixels.',
         'marathi_image.required' => 'कृपया प्रतिमा आवश्यक आहे.',
+        'marathi_image.image' => 'कृपया प्रतिमा फाइल कायदेशीर असणे आवश्यक आहे.',
+        'marathi_image.mimes' => 'कृपया प्रतिमा JPEG, PNG, JPG, GIF, किंवा SVG स्वरूपात असणे आवश्यक आहे.',
+        'marathi_image.max' => 'कृपया प्रतिमेचा आकार जास्त नसावा.'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MAX_SIZE").'KB .',
+        'marathi_image.min' => 'कृपया प्रतिमेचा आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MIN_SIZE").'KB .',
+        'marathi_image.dimensions' => 'कृपया प्रतिमा 1500x500 आणि 2000x1000 पिक्सेल दरम्यान असणे आवश्यक आहे.',
     ];
 
     try {
@@ -97,18 +108,33 @@ class StateDisasterManagementAuthorityController extends Controller
         'english_title' => 'required',
         'marathi_title' => 'required',
         'english_description' => 'required',
-        'marathi_description' => 'required',
-        
-        
+        'marathi_description' => 'required', 
      ];
+     if($request->has('english_image')) {
+        $rules['english_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MIN_SIZE");
+    }
+    if($request->has('marathi_image')) {
+        $rules['marathi_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MIN_SIZE");
+    }
 
     $messages = [   
             'english_title.required' => 'Please enter title.',
             'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
             'english_description.required' => 'Please enter description.',
             'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
-        
-    ];
+            'english_image.required' => 'The image is required.',
+            'english_image.image' => 'The image must be a valid image file.',
+            'english_image.mimes' => 'The image must be in JPEG, PNG, JPG, GIF, or SVG format.',
+            'english_image.max' => 'The image size must not exceed '.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MAX_SIZE").'KB .',
+            'english_image.min' => 'The image size must not be less than '.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MIN_SIZE").'KB .',
+            'english_image.dimensions' => 'The image dimensions must be between 1500x500 and 2000x1000 pixels.',
+            'marathi_image.required' => 'कृपया प्रतिमा आवश्यक आहे.',
+            'marathi_image.image' => 'कृपया प्रतिमा फाइल कायदेशीर असणे आवश्यक आहे.',
+            'marathi_image.mimes' => 'कृपया प्रतिमा JPEG, PNG, JPG, GIF, किंवा SVG स्वरूपात असणे आवश्यक आहे.',
+            'marathi_image.max' => 'कृपया प्रतिमेचा आकार जास्त नसावा.'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MAX_SIZE").'KB .',
+            'marathi_image.min' => 'कृपया प्रतिमेचा आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_AUTHORITY_IMAGE_MIN_SIZE").'KB .',
+            'marathi_image.dimensions' => 'कृपया प्रतिमा 1500x500 आणि 2000x1000 पिक्सेल दरम्यान असणे आवश्यक आहे.',
+        ];
 
     try {
         $validation = Validator::make($request->all(),$rules, $messages);

@@ -73,7 +73,7 @@
     <link href="{{ asset('website_files/assets/css/jquery.dataTables.min.css') }}" type="text/css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
- 
+
 
 
     <!-- webpage A+ A- button script -->
@@ -82,6 +82,34 @@
             transform: scale(1);
             transition: transform 0.2s ease-in-out;
         }
+    </style>
+    <style>
+        /* .city-exp {
+           
+        } */
+        .serch-main ul li {
+            border-right: none !important;
+            padding: 1px 1px !important;
+        }
+
+        #search-results {
+            position: absolute;
+            /* translate: -10px 30px; */
+            /* background: aliceblue; */
+            /* background-color: #fff; */
+            /* border: 1px solid #ccc; */
+            /* padding: 10px; */
+            /* position: absolute; */
+            /* z-index: 999; */
+            /* width: 100%; */
+        }
+
+        /* #search-results a {
+            display: block;
+            padding: 5px;
+            color: #333;
+            text-decoration: none;
+        } */
     </style>
 
     <!-- end webpage A+ A- button script -->
@@ -117,7 +145,7 @@
     </script>
 </head>
 
-<body >
+<body>
 
     {{--
 <?php
