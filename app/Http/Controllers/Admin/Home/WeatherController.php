@@ -88,7 +88,6 @@ class WeatherController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $weather = $this->service->getById($request->show_id);
             return view('admin.pages.home.weather.show-weather', compact('weather'));
         } catch (\Exception $e) {
@@ -156,7 +155,6 @@ $messages = [
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $weather = $this->service->deleteById($request->delete_id);
             return redirect('list-weather')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

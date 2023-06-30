@@ -133,7 +133,6 @@ class EarlyWarningSystemController extends Controller
 public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $warning_system = $this->service->getById($request->show_id);
             return view('admin.pages.preparedness.warning_system.show-warning-system', compact('warning_system'));
         } catch (\Exception $e) {
@@ -144,7 +143,6 @@ public function show(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $warning_system = $this->service->deleteById($request->delete_id);
             return redirect('list-early-warning-system')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

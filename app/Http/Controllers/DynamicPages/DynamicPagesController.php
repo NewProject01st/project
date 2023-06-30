@@ -145,7 +145,6 @@ class DynamicPagesController extends Controller
                 $menu_name = '';
                 $publish_date = '';
                 $menu_selected = explode("_",$request->edit_id);
-                // dd($menu_selected);
                 $main_menu_data = getMenuItemsDynamicPageDetailsById($menu_selected[0]);
                 $new_name = str_replace(" ","-",$main_menu_data->menu_id.'-'.$main_menu_data->menu_name.'-'.$main_menu_data->menu_type);
                 $menu_name = $main_menu_data->menu_name;

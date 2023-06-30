@@ -145,7 +145,6 @@ class SuccessStoriesController extends Controller
 public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $success_stories = $this->service->getById($request->show_id);
             return view('admin.pages.news-events.success-stories.show-success-stories', compact('success_stories'));
         } catch (\Exception $e) {
@@ -165,7 +164,6 @@ public function show(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $success_stories = $this->service->deleteById($request->delete_id);
             return redirect('list-success-stories')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

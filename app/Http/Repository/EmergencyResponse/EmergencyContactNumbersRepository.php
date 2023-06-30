@@ -20,7 +20,6 @@ class EmergencyContactNumbersRepository
             $data_output_array = AddMoreEmergencyContactNumbers::all();
             // $data_output = $data_output->get()->toArray();
             // $data_output_array = $data_output_array->get()->toArray();
-            // dd($data_output_array);
             return ['data_output' => $data_output, 'data_output_array' => $data_output_array];
 
             // return EmergencyContactNumbers::all();
@@ -38,20 +37,17 @@ class EmergencyContactNumbersRepository
             $emergencyContactNumbers->english_description = $request->input('english_description');
             $emergencyContactNumbers->marathi_description = $request->input('marathi_description');
 
-            // dd($emergencyContactNumbers);
             $emergencyContactNumbers->save();
 
             $emergencyContactId = $emergencyContactNumbers->id;
 
             $data = $request->input('no_of_text_boxes');
-            //   dd($data);
             for ($i = 1; $i <= $data; $i++) {
                 // dd("hey in loop");
                 $english_emergency_contact_title = 'english_emergency_contact_title_' . $i;
                 $marathi_emergency_contact_title = 'marathi_emergency_contact_title_' . $i;
                 $english_emergency_contact_number = 'english_emergency_contact_number_' . $i;
                 $marathi_emergency_contact_number = 'marathi_emergency_contact_number_' . $i;
-                // dd($request->$marathi_emergency_contact_title);
                 $addressesData = new AddMoreEmergencyContactNumbers();
                 $addressesData->emergency_contact_id = $emergencyContactId;
 
@@ -61,7 +57,6 @@ class EmergencyContactNumbersRepository
                 $addressesData->english_emergency_contact_number = $request->$english_emergency_contact_number;
                 $addressesData->marathi_emergency_contact_number = $request->$marathi_emergency_contact_number;
 
-                // dd($addressesData);
 
                 $addressesData->save();
             }

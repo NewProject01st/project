@@ -81,7 +81,6 @@ class ObjectiveGoalsController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $objectivegoals = $this->service->getById($request->show_id);
             return view('admin.pages.aboutus.objective-goals.show-objectivegoals', compact('objectivegoals'));
         } catch (\Exception $e) {
@@ -143,7 +142,6 @@ class ObjectiveGoalsController extends Controller
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $objectivegoals = $this->service->deleteById($request->delete_id);
             return redirect('list-objectivegoals')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

@@ -73,11 +73,7 @@ class MapLatLonRepository  {
             $mapgis_data->location_address_marathi = $request['location_address_marathi'];
             // $mapgis_data->data_for = $request['data_for'];
             $mapgis_data->update();  
-            
-        //    dd($budget_data);
-            // print_r($budget_data);
-            // die();
-         
+                     
             return [
                 'msg' => 'MAP GIS Data updated successfully.',
                 'status' => 'success'

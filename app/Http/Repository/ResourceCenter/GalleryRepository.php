@@ -40,7 +40,6 @@ class GalleryRepository  {
         $gallerys->marathi_image = $marathiImageName; // Save the image filename to the database
      
         $gallerys->save();
-        // dd($last_insert_id);
         return $last_insert_id;
 
     } catch (\Exception $e) {
@@ -110,7 +109,6 @@ public function updateOne($request)
         if ($gallery) {
             $is_active = $gallery->is_active === 1 ? 0 : 1;
             $gallery->is_active = $is_active;
-            // dd($slide);
             $gallery->save();
 
             return [

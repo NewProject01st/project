@@ -65,11 +65,7 @@ public function update($request)
         $terms_data->marathi_description = $request['marathi_description'];
        
         $terms_data->update();  
-        
-    //    dd($budget_data);
-        // print_r($budget_data);
-        // die();
-     
+             
         return [
             'msg' => 'terms and conditions updated successfully.',
             'status' => 'success'

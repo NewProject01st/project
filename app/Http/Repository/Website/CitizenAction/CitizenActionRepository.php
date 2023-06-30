@@ -90,7 +90,6 @@ class CitizenActionRepository  {
 		public function addVolunteerModalInfo($request)
         {
             try {
-                // dd($request);
                 $modal_data = new CitizenVolunteerModal();
                 $modal_data->incident = $request['incident'];
                 $modal_data->location = $request['location'];

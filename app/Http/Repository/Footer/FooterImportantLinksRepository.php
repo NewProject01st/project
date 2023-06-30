@@ -64,11 +64,7 @@ public function update($request)
 
        
         $link_data->update();  
-        
-    //    dd($budget_data);
-        // print_r($budget_data);
-        // die();
-     
+             
         return [
             'msg' => 'Marquee updated successfully.',
             'status' => 'success'
@@ -88,7 +84,6 @@ public function updateOne($request)
         if ($links) {
             $is_active = $links->is_active === 1 ? 0 : 1;
             $links->is_active = $is_active;
-            // dd($marquee);
             $links->save();
 
             return [

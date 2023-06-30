@@ -33,7 +33,6 @@ class EmergencyContactNumbersServices
     {
         try {
             $last_id = $this->repo->addAll($request);
-            // dd($last_id);
             $path = Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_ADD');
             //"\all_web_data\images\home\slides\\"."\\";
             $englishImageName = $last_id . '_english.' . $request->english_image->extension();
@@ -80,7 +79,6 @@ class EmergencyContactNumbersServices
     public function updateAll($request)
     {
         try {
-            // dd($request);
             $return_data = $this->repo->updateAll($request);
 
             $path = Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_ADD');

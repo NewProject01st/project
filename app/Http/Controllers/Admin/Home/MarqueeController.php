@@ -76,7 +76,6 @@ class MarqueeController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $marquees = $this->service->getById($request->show_id);
             return view('admin.pages.home.marquee.show-marquee', compact('marquees'));
         } catch (\Exception $e) {
@@ -85,7 +84,6 @@ class MarqueeController extends Controller
     }
     public function edit(Request $request) {
         $marquees = Marquee::find($request->edit_id);
-        // dd($budgets);
 
         return view('admin.pages.home.marquee.edit-marquee', compact('marquees'));
     }
@@ -143,7 +141,6 @@ public function updateOne(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $marquees = $this->service->deleteById($request->delete_id);
             return redirect('list-marquee')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

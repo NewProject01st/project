@@ -78,7 +78,6 @@ class PolicyPrivacyController extends Controller
     public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $privacy_policy = $this->service->getById($request->show_id);
             return view('admin.pages.footer.privacy-policy.show-privacy-policy', compact('privacy_policy'));
         } catch (\Exception $e) {
@@ -87,7 +86,6 @@ class PolicyPrivacyController extends Controller
     }
     public function edit(Request $request) {
         $privacy_policy = PolicyPrivacy::find($request->edit_id);
-        // dd($budgets);
 
         return view('admin.pages.footer.privacy-policy.edit-privacy-policy', compact('privacy_policy'));
     }
@@ -149,7 +147,6 @@ class PolicyPrivacyController extends Controller
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $privacy_policy = $this->service->deleteById($request->delete_id);
             return redirect('list-privacy-policy')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

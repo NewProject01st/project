@@ -127,7 +127,6 @@ public function updateOne($request)
         if ($department) {
             $is_active = $department->is_active === 1 ? 0 : 1;
             $department->is_active = $is_active;
-            // dd($marquee);
             $department->save();
 
             return [

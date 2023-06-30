@@ -135,7 +135,6 @@ class StateDisasterManagementPlanRepository{
         try {
             $state_plan = StateDisasterManagementPlan::find($id);
             if ($state_plan) {
-                // dd($state_plan);
                 // Delete the images from the storage folder
                 if (file_exists(storage_path(Config::get('DocumentConstant.STATE_DISASTER_PLAN_DELETE') . $state_plan->english_pdf))) {
                     unlink(storage_path(Config::get('DocumentConstant.STATE_DISASTER_PLAN_DELETE') . $state_plan->english_pdf));

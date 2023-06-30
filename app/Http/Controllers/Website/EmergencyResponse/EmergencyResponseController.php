@@ -70,7 +70,6 @@ class EmergencyResponseController extends Controller
             $data_output = $this->service->getAllEmergencyContactNumbers();
             $data_output_new = $data_output['data_output'];
             $data_output_array = $data_output['data_output_array'];
-            // dd($data_output);
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {

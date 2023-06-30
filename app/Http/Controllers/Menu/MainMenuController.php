@@ -74,7 +74,6 @@ class MainMenuController extends Controller
     public function show(Request $request)
     {
         try {
-            // dd($request->show_id);
             $menu_data = $this->service->getById($request->show_id);
             return view('admin.pages.menu.mainmenu.show-main-menu', compact('menu_data'));
         } catch (\Exception $e) {
@@ -129,7 +128,6 @@ class MainMenuController extends Controller
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $constitutionhistory = $this->service->deleteById($request->delete_id);
             return redirect('list-main-menu')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {

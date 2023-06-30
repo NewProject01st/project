@@ -61,14 +61,9 @@ public function updateMarquee($request)
         $marquee_data->english_title = $request['english_title'];
         $marquee_data->marathi_title = $request['marathi_title'];
         $marquee_data->url = $request['url'];
-
        
         $marquee_data->update();  
-        
-    //    dd($budget_data);
-        // print_r($budget_data);
-        // die();
-     
+             
         return [
             'msg' => 'Marquee updated successfully.',
             'status' => 'success'
@@ -88,7 +83,6 @@ public function updateOne($request)
         if ($marquee) {
             $is_active = $marquee->is_active === 1 ? 0 : 1;
             $marquee->is_active = $is_active;
-            // dd($marquee);
             $marquee->save();
 
             return [

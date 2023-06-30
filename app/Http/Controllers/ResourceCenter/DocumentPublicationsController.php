@@ -142,7 +142,6 @@ public function update(Request $request)
  public function show(Request $request)
     {
         try {
-            //  dd($request->show_id);
             $documents_publications = $this->service->getById($request->show_id);
             return view('admin.pages.research-center.documents.show-document-publications', compact('documents_publications'));
         } catch (\Exception $e) {
@@ -153,7 +152,6 @@ public function update(Request $request)
     public function destroy(Request $request)
     {
         try {
-            // dd($request->delete_id);
             $documents = $this->service->deleteById($request->delete_id);
             return redirect('list-document-publications')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {
