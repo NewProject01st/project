@@ -67,6 +67,7 @@ class StateDisasterManagementAuthorityRepository  {
     public function updateAll($request) {
     
         try {
+            $return_data = array();
             $statedisastermanagementauthority_data = StateDisasterManagementAuthority::find($request->id);
             
             if (!$statedisastermanagementauthority_data) {

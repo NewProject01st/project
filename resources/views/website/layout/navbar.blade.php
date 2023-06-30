@@ -61,16 +61,16 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                                         {{ Config::get('english.NAVBAR.TOLL_FREE') }}
                                     @endif --}}
                                 </a></li>
-                                  
-                              
+
+
                         </ul>
-                       
-                                <button class="webpage_zoom_btn" id="zoomouttextbody">A-</button>
-                                <button class="webpage_zoom_btn" id="zoomtextbody">A+</button>
-                           {{-- <span id="magnifier" data-toggle="tooltip" data-placement="top" title="Magnifier">
+
+                        <button class="webpage_zoom_btn" id="zoomouttextbody">A-</button>
+                        <button class="webpage_zoom_btn" id="zoomtextbody">A+</button>
+                        {{-- <span id="magnifier" data-toggle="tooltip" data-placement="top" title="Magnifier">
                                 <i class="fa fa-search-plus" style="font-size:24px; color:#fff"></i>
                             </span> --}}
-                           
+
 
 
                     </div>
@@ -131,24 +131,36 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                                         <!-- <button class="btn btn-success btn-sm" type="submit">Go</button> -->
                                         <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
 
-                                    <form>
+                                        {{-- <form>
                                     <input type="search" placeholder="Search...">
                                     <button type="submit">Search</button>
-                                    </form>
+                                    </form> --}}
+                                        <span class="serch-main">
+                                            <ul class="navbar-nav mr-auto">
+                                                <li class="nav-item dropdown">
+                                                    <input type="text" id="search-box" placeholder="Search...">
+                                                    <button type="submit">Search</button>
+                                                    <div id="search-results" class="dropdown-menu show"
+                                                        aria-labelledby="navbarDropdown"></div>
+                                                </li>
+                                            </ul>
+                                        </span>
 
-                                    {{-- <form action="{{ route('/') }}" method="GET">
+
+
+                                        {{-- <form action="{{ route('/') }}" method="GET">
                                         <input type="text" name="query" placeholder="Search...">
                                         <button type="submit">Search</button>
                                     </form>
                                      --}}
 
-                                    {{-- <form method="GET" action="">
+                                        {{-- <form method="GET" action="">
                                         <input type="search" name="query" placeholder="Search...">
                                         <button type="submit">Search</button>
                                     </form> --}}
-                                    
-                                    
-                                {{-- </li>
+
+
+                                        {{-- </li>
                                         <form>
                                             <input type="search" placeholder="Search...">
                                             <button type="submit">
@@ -338,8 +350,49 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
 </div>
 
 
+<script>
+    $(document).ready(function() {
+        var searchBox = $('#search-box');
+        var searchResults = $('#search-results');
 
+        searchBox.on('input', function() {
+            var query = $(this).val();
 
+            if (query.length >= 1) {
+                // Send an AJAX request to the search route
+                $.ajax({
+                    url: '{{ route('search') }}',
+                    method: 'GET',
+                    data: {
+                        query: query
+                    },
+                    success: function(response) {
+                        // Clear previous results
+                        // console.log(response);
+                        searchResults.empty();
+
+                        // Display the search results
+                        $.each(response, function(index, subMenu) {
+                            var url = subMenu.url;
+                            var title = subMenu.menu_name_english;
+
+                            // Append the result to the search results container
+
+                            searchResults.append(
+                                '<a class="dropdown-item" href="' +
+                                url + '">' +
+                                title +
+                                '</a>');
+                        });
+                    }
+                });
+            } else {
+                // Clear search results when the query is too short
+                searchResults.empty();
+            }
+        });
+    });
+</script>
 
 
 <script>
@@ -358,4 +411,3 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
         });
     });
 </script>
-
