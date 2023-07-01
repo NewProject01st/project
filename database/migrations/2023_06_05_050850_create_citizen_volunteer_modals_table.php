@@ -21,14 +21,11 @@ class CreateCitizenVolunteerModalsTable extends Migration
             $table->string('mobile_number');
             $table->string('media_upload')->default('null');;
             $table->text('description');
-
-            $table->tinyInteger('is_ngo')->notNull()->default(0);
-            $table->string('ngo_name')->notNull()->default('null')->change();
-            $table->string('ngo_email')->notNull()->default('null');
-            $table->string('ngo_contact_number')->notNull()->default('null');
-            $table->string('ngo_photo')->notNull()->default('null');
-           
-            
+            $table->tinyInteger('is_ngo')->default(0);
+            $table->string('ngo_name')->default('null');
+            $table->string('ngo_email')->default('null');
+            $table->string('ngo_contact_number')->default('null');
+            $table->string('ngo_photo')->default('null');            
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
@@ -42,7 +39,9 @@ class CreateCitizenVolunteerModalsTable extends Migration
      */
     public function down()
     {
+        // Schema::dropIfExists('citizen_volunteer_modals');
         Schema::table('citizen_volunteer_modals', function (Blueprint $table) {
+
             $table->dropColumn('is_ngo');
             $table->dropColumn('ngo_name');
             $table->dropColumn('ngo_email');
