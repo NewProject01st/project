@@ -291,6 +291,7 @@ return array(
     'App\\Models\\Weather' => $baseDir . '/app/Models/Weather.php',
     'App\\Models\\WebsiteContact' => $baseDir . '/app/Models/WebsiteContact.php',
     'App\\Models\\WebsiteLogo' => $baseDir . '/app/Models/WebsiteLogo.php',
+    'App\\Models\\WheatherForecast' => $baseDir . '/app/Models/WheatherForecast.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
