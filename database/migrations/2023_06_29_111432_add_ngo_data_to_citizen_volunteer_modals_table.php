@@ -16,9 +16,9 @@ class AddNgoDataToCitizenVolunteerModalsTable extends Migration
         Schema::table('citizen_volunteer_modals', function (Blueprint $table) {
             $table->boolean('is_ngo')->default(false);
             $table->text('ngo_name');
-            $table->text('ngo_email')->default('null');
-            $table->text('ngo_contact_number')->default('null');
-            $table->text('ngo_photo')->default('null');
+            $table->text('ngo_email');
+            $table->text('ngo_contact_number');
+            $table->text('ngo_photo');
         });
     }
 
