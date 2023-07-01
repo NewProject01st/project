@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\SuccessStories;
 use App\Http\Services\NewsAndEvents\SuccessStoriesServices;
 use Validator;
+use Config;
 class SuccessStoriesController extends Controller
 {
 
@@ -36,7 +37,7 @@ class SuccessStoriesController extends Controller
             'marathi_description' => 'required',
             'english_designation' => 'required',
             'marathi_designation' => 'required',
-            'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGE_MIN_SIZE").'',
          
            
            
@@ -49,7 +50,12 @@ class SuccessStoriesController extends Controller
         'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
         'english_designation.required' => 'Please enter the designation.',
         'marathi_designation.required' => 'कृपया पदनाम प्रविष्ट करा. ',
-        'english_image.required' => 'The image field is required.',
+        'english_image.required' => 'The image is required.',
+        'english_image.image' => 'The image must be a valid image file.',
+        'english_image.mimes' => 'The image must be in JPEG, PNG, JPG, GIF, or SVG format.',
+        'english_image.max' => 'The image size must not exceed '.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGE_MAX_SIZE").'KB .',
+        'english_image.min' => 'The image size must not be less than '.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGE_MIN_SIZE").'KB .',
+        'english_image.dimensions' => 'The image dimensions must be between 1500x500 and 2000x1000 pixels.',
        
 
     ];
@@ -104,6 +110,9 @@ class SuccessStoriesController extends Controller
        
         
      ];
+     if($request->has('english_image')) {
+        $rules['english_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGE_MIN_SIZE");
+    }
     $messages = [   
         'english_title'=>'Please  enter english title.',
         'marathi_title'=>'Please  enter marathi title.',
@@ -111,8 +120,13 @@ class SuccessStoriesController extends Controller
         'marathi_description' => 'required',
         'english_designation' => 'required',
         'marathi_designation' => 'required',
-        // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    
+        'english_image.required' => 'The image is required.',
+        'english_image.image' => 'The image must be a valid image file.',
+        'english_image.mimes' => 'The image must be in JPEG, PNG, JPG, GIF, or SVG format.',
+        'english_image.max' => 'The image size must not exceed '.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGE_MAX_SIZE").'KB .',
+        'english_image.min' => 'The image size must not be less than '.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGE_MIN_SIZE").'KB .',
+        'english_image.dimensions' => 'The image dimensions must be between 1500x500 and 2000x1000 pixels.',
+        'marathi_image.required' => 'कृपया प्रतिमा आवश्यक आहे.',
        
     ];
 
