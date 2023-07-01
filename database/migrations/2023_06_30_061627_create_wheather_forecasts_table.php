@@ -17,7 +17,7 @@ class CreateWheatherForecastsTable extends Migration
             $table->bigIncrements('id');
             $table->string('date_time');
             $table->text('temprature');
-            $table->text('forecast')->default(false);
+            $table->text('forecast')->default('false');
             $table->string('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
