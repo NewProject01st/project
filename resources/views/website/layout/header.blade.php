@@ -13,12 +13,12 @@
     ?>
 
     <?php
-    $metadata = App\Models\Metadata::first();
+    // $metadata = App\Models\Metadata::first();
     ?>
-    <meta name="english_name" content="{{ $metadata->english_name }}">
+    {{-- <meta name="english_name" content="{{ $metadata->english_name }}"> --}}
 
-    <meta name="keywords"
-        content="@if (isset($dynamic_meta_data)) {{ $dynamic_meta_data }} @else  {{ $metadata->keywords }} @endif">
+    {{-- <meta name="keywords"
+        content="@if (isset($dynamic_meta_data)) {{ $dynamic_meta_data }} @else  {{ $metadata->keywords }} @endif"> --}}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{-- <link href="{{ asset('website_files/bootstrap.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/font-awesome.min.css') }}" type="text/css" rel="stylesheet">
