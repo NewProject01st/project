@@ -9,7 +9,8 @@ use App\Models\ {
     SocialIcon,
     WebsiteContact,
     PolicyPrivacy,
-    User
+    User,
+    WheatherForecast
 };
 
 function getIPAddress($req)
@@ -255,31 +256,50 @@ function uploadImage($request, $image_name, $path, $name) {
 }
 
 function getTempratureFromAPI() {
+    $return_data = array();
     $url = env('TEMPRATURE_API_URL');
     $result  =file_get_contents($url);
-    $data_for_wheather = json_decode($result, true);
-    $temprature = $data_for_wheather['currentConditions']['temp'];
-    return $temprature;
+    $data_for_WheatherForecast = json_decode($result, true);
+    $return_data['temprature'] = $data_for_WheatherForecast['currentConditions']['temp'];
+    $return_data['forecast'] = $data_for_WheatherForecast['days'];
+    return $return_data;
 }
 
 function getTempratureData() {
-    // $date = new DateTime('now', new DateTimeZone('Asia/Kolkata'));
 
-    // // $data = Wheather::where('id','1')
-    // //                 ->get()->toArray();
-    // // $last_update = $data['last_updated'];   
-    // $current_date = $date->format('d-m-Y H:i:s'); 
-    // $db_date = "15-06-2023 13:00:01";
-    // $current_date = "15-06-2023 14:05:16";
-    // if(strtotime($db_date) < strtotime($current_date)) {
-    //     dd("in if");
-       
-    // } else {
-    //     dd("in else ");
-    //     getTemprature();
-    // }
-    return '32';//getTempratureFromAPI();
+    $data = WheatherForecast::where('id','1')
+                    ->get()->first();
+    $date = new DateTime('now', new DateTimeZone('Asia/Kolkata'));
+    $current_date = $date->format('Y-m-d H:i:s');
+    if($data) {
+        $last_update = $data->date_time;   
+        $diff = (strtotime($current_date) - strtotime($last_update))/60;
 
+        if ($diff < 60) {
+            $return_forecast_data = WheatherForecast::where('id','1')
+                    ->get()->first();
+        } else {
+            $data = getTempratureFromAPI();
+            $db_date['date_time'] = $current_date;
+            $db_date['temprature'] = $data['temprature'];
+            $db_date['forecast'] = processForecastData($data['forecast']);
+            WheatherForecast::where('id','1')->update($db_date);
+            $return_forecast_data = WheatherForecast::where('id','1')
+                    ->get()->first();
+        }
+
+    } else {
+        $data = getTempratureFromAPI();
+        $db_date['date_time'] = $current_date;
+        $db_date['temprature'] = $data['temprature'];
+        $db_date['forecast'] = processForecastData($data['forecast']);
+        WheatherForecast::where('id','1')->insert($db_date);
+        $return_forecast_data = WheatherForecast::where('id','1')
+                    ->get()->first();
+    }
+
+    return $return_forecast_data;
+   
 }
 
 
@@ -321,6 +341,27 @@ function getProfileImage()
     return $user_detail;
 }
 
+function processForecastData($forecast) {
+
+        $data_array = array();
+        $data_array_hours = array();
+        $data_array['datetime'] = $forecast[0]['datetime'];
+        $data_array['conditions'] = $forecast[0]['conditions'];
+        $data_array['description'] = $forecast[0]['description'];
+        $data_array['sunrise'] = $forecast[0]['sunrise'];
+        $data_array['sunset'] = $forecast[0]['sunset'];
+        $data_array_hourwise = array();
+        foreach ($forecast[0]['hours'] as $key=>$dataforecast_day_wise) {
+            
+            $data_array_hours['datetime'] = $dataforecast_day_wise['datetime'];
+            $data_array_hours['temp'] = $dataforecast_day_wise['temp'];
+            $data_array_hourwise[$key] = $data_array_hours;
+
+            
+        }   
+        $data_array['hour_wise'] = $data_array_hourwise;
+        return $data_array;
+}
 
 
 
