@@ -51,10 +51,10 @@ class AdminMiddleware
                 // dd('data_for_url data_for_url');
                 return $next($request);
             } else {
-                // return redirect()->route('error-handling');
+                return redirect()->route('error-handling');
             }
            
-            return $next($request);
+            // return $next($request);
 
         }
        
