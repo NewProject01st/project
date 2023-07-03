@@ -315,11 +315,11 @@
      });
  </script>
 
-<script>
+<!-- <script>
     /* global HTMLMagnifier */
     const magnifier = new HTMLMagnifier({ width: 400 });
     magnifier.show();
   </script>
- </body>
+ </body> -->
 
  </html>
