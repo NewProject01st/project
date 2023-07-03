@@ -62,7 +62,7 @@
                                             {{ Config::get('english.CONTACT_US.FORM_FULL_NAME') }}
                                         @endif
                                     </label>
-                                    <input class="gap-text" type="text" name="full_name" value="{{ old('full_name') }}" value="{{ old('full_name') }}">
+                                    <input class="gap-text" type="text" name="full_name" value="{{ old('full_name') }}" value="{{ old('full_name') }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                     @if ($errors->has('full_name'))
                                         <span class="red-text"><?php echo $errors->first('full_name', ':message'); ?></span>
                                     @endif
@@ -126,7 +126,7 @@
                                             {{ Config::get('english.CONTACT_US.FORM_SUBJECT') }}
                                         @endif
                                     </label>
-                                    <input class="gap-text" type="text" name="subject" value="{{ old('subject') }}" value="{{ old('ngo_contact_number') }}">
+                                    <input class="gap-text" type="text" name="subject" value="{{ old('subject') }}" value="{{ old('ngo_contact_number') }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                     @if ($errors->has('subject'))
                                         <span class="red-text"><?php echo $errors->first('subject', ':message'); ?></span>
                                     @endif

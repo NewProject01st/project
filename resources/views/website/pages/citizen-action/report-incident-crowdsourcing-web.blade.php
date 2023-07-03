@@ -112,7 +112,7 @@
                                             <span class="red-text">*</span>
                                         </label>
                                         <input type="input" class="form-control set_m_form" name="location" id="location"
-                                            value="{{ old('location') }}">
+                                            value="{{ old('location') }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
 
                                         @if ($errors->has('location'))
                                             <span class="red-text"><?php echo $errors->first('location', ':message'); ?></span>

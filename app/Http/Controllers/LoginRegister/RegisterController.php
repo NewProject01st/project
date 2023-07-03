@@ -86,7 +86,7 @@ class RegisterController extends Controller {
             'address' => 'required',
             'state' => 'required',
             'city' => 'required',
-            'pincode' => 'regex:/^[0-9]+$/'
+            'pincode' => 'required|regex:/^[0-9]{6}$/'
          ];       
 
         $messages = [   
@@ -105,7 +105,7 @@ class RegisterController extends Controller {
                         'state.required' => 'Please enter state.',
                         'city.required' =>'Please enter city.',
                         'pincode.required' => 'Please enter pincode.',
-                        'pincode.regex' => 'Please enter only numbers.',
+                        'pincode.regex' => 'Please enter a 6-digit pincode.',
                     ];
 
 
@@ -158,10 +158,9 @@ class RegisterController extends Controller {
                     'number' => 'regex:/^\d{10}$/',
                     'designation' => 'required',
                     'address' => 'required',
-                    
                     'state' => 'required',
                     'city' => 'required',
-                    'pincode' => 'regex:/^[0-9]+$/'
+                    'pincode' => 'required|regex:/^[0-9]{6}$/'
                  ];       
 
         $messages = [   
@@ -182,9 +181,8 @@ class RegisterController extends Controller {
                         'address.required' => 'Please enter address.',
                         'state.required' => 'Please enter state.',
                         'city.required' =>'Please enter city.',
-                        'pincode.required' => 'Please enter pincode.',
-                        'pincode.regex' => 'Please enter pincode.',
-
+                       'pincode.required' => 'Please enter pincode.',
+                        'pincode.regex' => 'Please enter a 6-digit pincode.',
                     ];
 
 

@@ -77,7 +77,7 @@
                                         <div class="form-group">
                                             <label for="f_name">First Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="f_name" id="f_name"
-                                                placeholder="" value="{{ $user_data['data_users']['f_name'] }}">
+                                                placeholder="" value="{{ $user_data['data_users']['f_name'] }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('f_name'))
                                                 <span class="red-text"><?php echo $errors->first('f_name', ':message'); ?></span>
                                             @endif
@@ -88,7 +88,7 @@
                                         <div class="form-group">
                                             <label for="m_name">Middle Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="m_name" id="m_name"
-                                                placeholder="" value="{{ $user_data['data_users']['m_name'] }}">
+                                                placeholder="" value="{{ $user_data['data_users']['m_name'] }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('m_name'))
                                                 <span class="red-text"><?php echo $errors->first('m_name', ':message'); ?></span>
                                             @endif
@@ -99,7 +99,7 @@
                                         <div class="form-group">
                                             <label for="l_name">Last Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="l_name" id="l_name"
-                                                placeholder="" value="{{ $user_data['data_users']['l_name'] }}">
+                                                placeholder="" value="{{ $user_data['data_users']['l_name'] }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('l_name'))
                                                 <span class="red-text"><?php echo $errors->first('l_name', ':message'); ?></span>
                                             @endif
@@ -121,7 +121,7 @@
                                         <div class="form-group">
                                             <label for="designation">Designation</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="designation" id="designation"
-                                                placeholder="" value="{{ $user_data['data_users']['designation'] }}">
+                                                placeholder="" value="{{ $user_data['data_users']['designation'] }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('designation'))
                                                 <span class="red-text"><?php echo $errors->first('designation', ':message'); ?></span>
                                             @endif
