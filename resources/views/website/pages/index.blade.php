@@ -503,7 +503,7 @@
 
                                                 </button>
                                             </h2>
-                                            {{-- <div id="flush-collapse1{{ $index }}"
+                                           <div id="flush-collapse1{{ $index }}"
                                                 class="accordion-collapse collapse bg-secondary-custom"
                                                 aria-labelledby="flush-heading1{{ $index }}"
                                                 data-bs-parent="#accordionFlushExample1">
@@ -511,7 +511,7 @@
                                                     <ul>
                                                         <li> <?php echo $item['english_description']; ?></li>
                                                     </ul>
-                                                    {{-- <?php //$forecast_data = json_decode(getTempratureData()->forecast, true);
+                                                     <?php $forecast_data = unserialize(getTempratureData()->forecast);
                                                     ?>
                                                     <ul>
                                                         <li> conditions: {{$forecast_data['conditions']}}</li>
@@ -523,9 +523,9 @@
                                                     <ul>
                                                         <li> Time : {{$forecast_data_hourwise['datetime']}} Temprature : {{$forecast_data_hourwise['temp']}} </li>
                                                     </ul>
-                                                    @endforeach --}}
+                                                    @endforeach 
                                         </div>
-                            </div> --}}
+                            </div> 
                         </div>
                         @endif
                         @endforeach

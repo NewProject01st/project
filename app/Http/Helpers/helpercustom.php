@@ -270,6 +270,7 @@ function getTempratureData() {
     $data = WheatherForecast::where('id','1')
                     ->get()->first();
     $date = new DateTime('now', new DateTimeZone('Asia/Kolkata'));
+
     $current_date = $date->format('Y-m-d H:i:s');
     if($data) {
         $last_update = $data->date_time;   
@@ -282,20 +283,22 @@ function getTempratureData() {
             $data = getTempratureFromAPI();
             $db_date['date_time'] = $current_date;
             $db_date['temprature'] = $data['temprature'];
-            $db_date['forecast'] = processForecastData($data['forecast']);
+            $db_date['forecast'] = serialize(processForecastData($data['forecast']));
             WheatherForecast::where('id','1')->update($db_date);
             $return_forecast_data = WheatherForecast::where('id','1')
                     ->get()->first();
         }
 
     } else {
+       
         $data = getTempratureFromAPI();
         $db_date['date_time'] = $current_date;
         $db_date['temprature'] = $data['temprature'];
-        $db_date['forecast'] = processForecastData($data['forecast']);
-        WheatherForecast::where('id','1')->insert($db_date);
+        $db_date['forecast'] = serialize(processForecastData($data['forecast']));
+        WheatherForecast::insert($db_date);
         $return_forecast_data = WheatherForecast::where('id','1')
                     ->get()->first();
+                   
     }
 
     return $return_forecast_data;
