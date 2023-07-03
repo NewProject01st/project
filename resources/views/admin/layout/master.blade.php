@@ -52,7 +52,20 @@
 
     <!-- Summernote Editor End -->
     <script src="{{ asset('assets/js/data-table.js') }}"></script>
+    <style>
+        .error {
+            /* color: #d8000c; */
+            color: red !important;
+            font-size: 14px;
+            font-weight: 400 !important;
+        }
 
+        .close {
+            margin-top: -5px;
+
+        }
+
+    </style>
 
 </head>
 <?php $profile = getProfileImage();

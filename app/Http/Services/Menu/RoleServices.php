@@ -33,9 +33,9 @@ class RoleServices
         try {
             $add_role = $this->repo->addRole($request);
             if ($add_role) {
-                return ['status' => 'success', 'msg' => 'Marquee Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Role Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Marquee Not Added.'];
+                return ['status' => 'error', 'msg' => 'Role Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -66,9 +66,9 @@ class RoleServices
     {
         $update_role = $this->repo->updateRole($request);
         if ($update_role) {
-            return ['status' => 'success', 'msg' => 'Marquee Added Successfully.'];
+            return ['status' => 'success', 'msg' => 'Role Added Successfully.'];
         } else {
-            return ['status' => 'error', 'msg' => 'Marquee Not Added.'];
+            return ['status' => 'error', 'msg' => 'Role Not Added.'];
         }  
        
     }

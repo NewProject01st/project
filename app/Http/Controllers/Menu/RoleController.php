@@ -45,12 +45,13 @@ class RoleController extends Controller
         try {
 
             $rules = [
-                'role_name' => 'required',
+                'role_name' => 'required|regex:/^[a-zA-Z]+$/u|max:255',
             ];
             $messages = [
                 'role_name.required' => 'Please  enter english title.',
+                'role_name.regex' => 'Please  enter text only.',
+                'role_name.max' => 'Please  enter text length upto 255 character only.',
             ];
-
 
             $validation = Validator::make($request->all(), $rules, $messages);
             if ($validation->fails()) {
@@ -97,11 +98,12 @@ class RoleController extends Controller
     {
         try {
             $rules = [
-                'role_name' => 'required',
+                'role_name' => 'required|regex:/^[a-zA-Z]+$/u|max:255',
             ];
-
             $messages = [
                 'role_name.required' => 'Please  enter english title.',
+                'role_name.regex' => 'Please  enter text only.',
+                'role_name.max' => 'Please  enter text length upto 255 character only.',
             ];
 
             $validation = Validator::make($request->all(), $rules, $messages);
