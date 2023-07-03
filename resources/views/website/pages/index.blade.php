@@ -112,7 +112,7 @@
                                         @endif
                                     </strong>
                                     <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $item['marathi_image'] }}"
-                                    alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा"  class="d-block w-100">
+                                        alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा" class="d-block w-100">
                                 </div>
                             </div>
                             <div class="col-md-8 col-sm-7">
@@ -134,7 +134,7 @@
                                         @endif
                                     </strong>
                                     <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $item['english_image'] }}"
-                                      alt="{{ strip_tags($item['english_title']) }} Image"  class="d-block w-100">
+                                        alt="{{ strip_tags($item['english_title']) }} Image" class="d-block w-100">
                                 </div>
                             </div>
                             <div class="col-md-8 col-sm-7">
@@ -172,7 +172,7 @@
                                     <div class="new-thumb">
                                         {{-- <span class="cat c1">Fire</span> --}}
                                         <img src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW') }}{{ $item['marathi_image'] }}"
-                                        alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा"  class="d-block w-100">
+                                            alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा" class="d-block w-100">
                                     </div>
                                     <div class="new-txt">
                                         <ul class="news-meta">
@@ -202,7 +202,7 @@
                                     <div class="new-thumb">
                                         {{-- <span class="cat c1">Fire</span> --}}
                                         <img src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW') }}{{ $item['english_image'] }}"
-                                        alt="{{ strip_tags($item['english_title']) }} Image"  class="d-block w-100">
+                                            alt="{{ strip_tags($item['english_title']) }} Image" class="d-block w-100">
                                     </div>
                                     <div class="new-txt">
                                         <ul class="news-meta">
@@ -503,7 +503,7 @@
 
                                                 </button>
                                             </h2>
-                                            <div id="flush-collapse1{{ $index }}"
+                                            {{-- <div id="flush-collapse1{{ $index }}"
                                                 class="accordion-collapse collapse bg-secondary-custom"
                                                 aria-labelledby="flush-heading1{{ $index }}"
                                                 data-bs-parent="#accordionFlushExample1">
@@ -518,7 +518,7 @@
                                                         <li> sunrise: {{$forecast_data['sunrise']}}</li>
                                                         <li> sunset: {{$forecast_data['sunset']}}</li>
                                                     </ul>
-                                                    @foreach($forecast_data['hour_wise'] as $forecast_data_hourwise)
+                                                    @foreach ($forecast_data['hour_wise'] as $forecast_data_hourwise)
                                                     <ul>
                                                         <li> Time : {{$forecast_data_hourwise['datetime']}} Temprature : {{$forecast_data_hourwise['temp']}} </li>
                                                     </ul>
@@ -526,20 +526,21 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @endif
-                                @endforeach
-                            </div>
+                            </div> --}}
                         </div>
-
+                        @endif
+                        @endforeach
                     </div>
-
                 </div>
+
             </div>
+
+    </div>
+    </div>
     </div>
     </section>
     <!--Departments & Information Desk End-->
     </div>
-   
 @endsection
 {{-- @extends('website.layout.navbar')
 @extends('website.layout.header') --}}
