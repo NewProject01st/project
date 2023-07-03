@@ -503,7 +503,7 @@
 
                                                 </button>
                                             </h2>
-                                            {{-- <div id="flush-collapse1{{ $index }}"
+                                           <div id="flush-collapse1{{ $index }}"
                                                 class="accordion-collapse collapse bg-secondary-custom"
                                                 aria-labelledby="flush-heading1{{ $index }}"
                                                 data-bs-parent="#accordionFlushExample1">
@@ -526,7 +526,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                            </div> --}}
+                            </div> 
                         </div>
                         @endif
                         @endforeach

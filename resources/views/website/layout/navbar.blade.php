@@ -55,11 +55,11 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                                             <span><?php echo $item['english_tollfree_no']; ?></span>
                                         @endif
                                     @endforeach
-                                    {{-- @if (session('language') == 'mar')
+                                    @if (session('language') == 'mar')
                                         {{ Config::get('marathi.NAVBAR.TOLL_FREE') }}
                                     @else
                                         {{ Config::get('english.NAVBAR.TOLL_FREE') }}
-                                    @endif --}}
+                                    @endif 
                                 </a></li>
 
 
