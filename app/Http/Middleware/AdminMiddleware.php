@@ -37,24 +37,24 @@ class AdminMiddleware
             //     $route_name = str_replace('update', 'list', $route_name); 
             // } 
 
-            $data_permission =  getPermissionForCRUDPresentOrNot($route_name, session('permissions'));
+            // $data_permission =  getPermissionForCRUDPresentOrNot($route_name, session('permissions'));
 
-            if (strpos($route_name,'log-out') !== false) {
-                return $next($request);
-            } else if (strpos($route_name,'show') !== false) {
-                return $next($request);
-            } else if($route_name =='/dashboard') {
-                // dd('Dashboard permission');
-                return $next($request);
-            } else if(in_array($final_operation, $data_permission)) {
-                // dd('data_permission data_permission');
-                return $next($request);
-            } else if (in_array($route_name, $data_for_url)) {
-                // dd('data_for_url data_for_url');
-                return $next($request);
-            } else {
-                return redirect()->route('error-handling');
-            }
+            // if (strpos($route_name,'log-out') !== false) {
+            //     return $next($request);
+            // } else if (strpos($route_name,'show') !== false) {
+            //     return $next($request);
+            // } else if($route_name =='/dashboard') {
+            //     // dd('Dashboard permission');
+            //     return $next($request);
+            // } else if(in_array($final_operation, $data_permission)) {
+            //     // dd('data_permission data_permission');
+            //     return $next($request);
+            // } else if (in_array($route_name, $data_for_url)) {
+            //     // dd('data_for_url data_for_url');
+            //     return $next($request);
+            // } else {
+            //     return redirect()->route('error-handling');
+            // }
            
              return $next($request);
 
