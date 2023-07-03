@@ -7,7 +7,6 @@
              ?>
              <!--Footer Widget Start-->
              @forelse ($common_data['website_contact_details'] as $item)
-             
                  @if (session('language') == 'mar')
                      <div class="col-md-3 col-sm-6">
                          <div class="textwidget"> <img src="{{ asset('website_files/images/footer/footer_logo.png') }}"
