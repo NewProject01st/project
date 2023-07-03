@@ -46,7 +46,7 @@
                                             <label for="f_name">First Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="f_name" id="f_name"
                                                 placeholder=""
-                                                value="@if (old('f_name')) {{ old('f_name') }}@else{{ $user_data->f_name }} @endif">
+                                                value="@if (old('f_name')) {{ old('f_name') }}@else{{ $user_data->f_name }} @endif" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('f_name'))
                                                 <span class="red-text"><?php echo $errors->first('f_name', ':message'); ?></span>
                                             @endif
@@ -58,7 +58,7 @@
                                             <label for="m_name">Middle Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="m_name" id="m_name"
                                                 placeholder=""
-                                                value="@if (old('m_name')) {{ old('m_name') }}@else{{ $user_data->m_name }} @endif">
+                                                value="@if (old('m_name')) {{ old('m_name') }}@else{{ $user_data->m_name }} @endif" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('m_name'))
                                                 <span class="red-text"><?php echo $errors->first('m_name', ':message'); ?></span>
                                             @endif
@@ -70,7 +70,7 @@
                                             <label for="l_name">Last Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="l_name" id="l_name"
                                                 placeholder=""
-                                                value="@if (old('l_name')) {{ old('l_name') }}@else{{ $user_data->l_name }} @endif">
+                                                value="@if (old('l_name')) {{ old('l_name') }}@else{{ $user_data->l_name }} @endif" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('l_name'))
                                                 <span class="red-text"><?php echo $errors->first('l_name', ':message'); ?></span>
                                             @endif
@@ -95,7 +95,7 @@
                                             <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
                                             <input type="password" class="password form-control" name="u_password"
                                                 id="u_password" placeholder=""
-                                                value="@if (old('u_password')) {{ old('u_password') }} @endif">
+                                                value="@if (old('u_password')) {{ old('u_password') }} @endif" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
 
                                             @if ($errors->has('u_password'))
                                                 <span class="red-text"><?php echo $errors->first('u_password', ':message'); ?></span>
@@ -142,7 +142,7 @@
                                                 class="red-text">*</span>
                                             <input type="text" class="form-control" name="designation"
                                                 id="designation" placeholder=""
-                                                value="@if (old('designation')) {{ old('designation') }}@else{{ $user_data->designation }} @endif">
+                                                value="@if (old('designation')) {{ old('designation') }}@else{{ $user_data->designation }} @endif" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('designation'))
                                                 <span class="red-text"><?php echo $errors->first('designation', ':message'); ?></span>
                                             @endif

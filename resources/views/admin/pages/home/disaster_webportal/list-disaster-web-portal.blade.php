@@ -32,8 +32,10 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
-                                                    <th>Title </th>
-                                                    <th>शीर्षक </th>
+                                                    <th>Name </th>
+                                                    <th>नाव </th>
+                                                    <th>Title</th>
+                                                    <th>शीर्षक</th>
                                                     <th>Description </th>
                                                     <th>वर्णन </th>
                                                     <th>Designation Name</th>
