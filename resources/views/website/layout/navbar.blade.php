@@ -59,7 +59,7 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                                         {{ Config::get('marathi.NAVBAR.TOLL_FREE') }}
                                     @else
                                         {{ Config::get('english.NAVBAR.TOLL_FREE') }}
-                                    @endif --}}
+                                    @endif 
                                 </a></li>
 
 
