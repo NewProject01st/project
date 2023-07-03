@@ -18,7 +18,7 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" id="frm_register" name="frm_register" method="post" role="form"
+                            <form class="forms-sample" id="roleformid" name="roleformid" method="post" role="form"
                                 action="{{ route('add-role') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
@@ -163,5 +163,56 @@
                     error: function(data) {}
                 });
             }
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                $.extend($.validator.methods, {
+                    spcenotallow: function(b, c, d) {
+                        if (!this.depend(d, c)) return "dependency-mismatch";
+                        if ("select" === c.nodeName.toLowerCase()) {
+                            var e = a(c).val();
+                            return e && e.length > 0
+                        }
+                        return this.checkable(c) ? this.getLength(b, c) > 0 : b.trim().length > 0
+                    }
+                });
+               
+                $.validator.addMethod("alphanumericwithspace", function(value, element) {
+                    var reg = /[0-9]/;
+                    if (reg.test(value)) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }, "Number is not permitted");
+
+
+                $("#roleformid").validate({
+                    rules: {
+                        user_type_id: {
+                            required: true,
+                        },
+                        role_name: {
+                            required: true,
+                            spcenotallow: true,
+                            alphanumericwithspace: true
+                        }
+
+                    },
+                    messages: {
+                        user_type_id: {
+                            required: "Select User Type",
+                        },
+                        role_name: {
+                            required: "Enter Role Name",
+                            spcenotallow: "Enter Some Text",
+                            alphanumericwithspace: "Enter Valid Input"
+
+                        },
+
+                    }
+                });
+            });
         </script>
     @endsection

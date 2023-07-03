@@ -30,43 +30,46 @@ class IncidentTypeController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'english_title' => 'required',
-            'marathi_title' => 'required',            
+            'english_title' => 'required|regex:/^[a-zA-Z]+$/u|max:255',
+            'marathi_title' => 'required|max:255',
          ];
-    $messages = [   
-        'english_title'=>'Please  enter english title.',
-        'marathi_title'=>'कृपया शीर्षक प्रविष्ट करा.',
-    ];
+        $messages = [   
+            'english_title'       =>  'Please  enter english title.',
+            'english_title.regex' => 'Please  enter text only.',
+            'english_title.max'   => 'Please  enter text length upto 255 character only.',
+            'marathi_title'       =>'कृपया शीर्षक प्रविष्ट करा.',
+            'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',            
+        ];
 
-    try {
-        $validation = Validator::make($request->all(),$rules,$messages);
-        if($validation->fails() )
-        {
-            return redirect('add-incident-type')
-                ->withInput()
-                ->withErrors($validation);
-        }
-        else
-        {
-            $add_incidenttype_data = $this->service->addAll($request);
-            if($add_incidenttype_data)
+        try {
+            $validation = Validator::make($request->all(),$rules,$messages);
+            if($validation->fails() )
             {
-
-                $msg = $add_incidenttype_data['msg'];
-                $status = $add_incidenttype_data['status'];
-                if($status=='success') {
-                    return redirect('list-incident-type')->with(compact('msg','status'));
-                }
-                else {
-                    return redirect('add-incident-type')->withInput()->with(compact('msg','status'));
-                }
+                return redirect('add-incident-type')
+                    ->withInput()
+                    ->withErrors($validation);
             }
+            else
+            {
+                $add_incidenttype_data = $this->service->addAll($request);
+                if($add_incidenttype_data)
+                {
 
+                    $msg = $add_incidenttype_data['msg'];
+                    $status = $add_incidenttype_data['status'];
+                    if($status=='success') {
+                        return redirect('list-incident-type')->with(compact('msg','status'));
+                    }
+                    else {
+                        return redirect('add-incident-type')->withInput()->with(compact('msg','status'));
+                    }
+                }
+
+            }
+        } catch (Exception $e) {
+            return redirect('add-incident-type')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
-    } catch (Exception $e) {
-        return redirect('add-incident-type')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
-}
     
     public function edit(Request $request)
     {
@@ -77,13 +80,17 @@ class IncidentTypeController extends Controller
     public function update(Request $request)
     {
         $rules = [
-            'english_title' => 'required',
-            'marathi_title' => 'required',
-        ];
+            'english_title' => 'required|regex:/^[a-zA-Z]+$/u|max:255',
+            'marathi_title' => 'required|max:255',
+         ];
         $messages = [   
-            'english_title'=>'Please  enter english title.',
-            'marathi_title'=>'कृपया शीर्षक प्रविष्ट करा.',
+            'english_title'       =>  'Please  enter english title.',
+            'english_title.regex' => 'Please  enter text only.',
+            'english_title.max'   => 'Please  enter text length upto 255 character only.',
+            'marathi_title'       =>'कृपया शीर्षक प्रविष्ट करा.',
+            'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',            
         ];
+
 
         try {
             $validation = Validator::make($request->all(),$rules, $messages);

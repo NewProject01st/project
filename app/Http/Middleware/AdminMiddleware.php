@@ -38,8 +38,10 @@ class AdminMiddleware
             } 
 
             $data_permission =  getPermissionForCRUDPresentOrNot($route_name, session('permissions'));
-           
-            if (strpos($route_name,'show') !== false) {
+
+            if (strpos($route_name,'log-out') !== false) {
+                return $next($request);
+            } else if (strpos($route_name,'show') !== false) {
                 return $next($request);
             } else if($route_name =='/dashboard') {
                 // dd('Dashboard permission');
