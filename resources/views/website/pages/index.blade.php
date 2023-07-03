@@ -511,7 +511,8 @@
                                                     <ul>
                                                         <li> <?php echo $item['english_description']; ?></li>
                                                     </ul>
-                                                    <?php $forecast_data = json_decode(getTempratureData()->forecast, true); ?>
+                                                    {{-- <?php //$forecast_data = json_decode(getTempratureData()->forecast, true);
+                                                    ?>
                                                     <ul>
                                                         <li> conditions: {{$forecast_data['conditions']}}</li>
                                                         <li> description: {{$forecast_data['description']}}</li>
@@ -522,19 +523,19 @@
                                                     <ul>
                                                         <li> Time : {{$forecast_data_hourwise['datetime']}} Temprature : {{$forecast_data_hourwise['temp']}} </li>
                                                     </ul>
-                                                    @endforeach
-                                                </div>
-                                            </div> --}}
+                                                    @endforeach --}}
                                         </div>
-                                    @endif
-                                @endforeach
-                            </div>
+                            </div> --}}
                         </div>
-
+                        @endif
+                        @endforeach
                     </div>
-
                 </div>
+
             </div>
+
+    </div>
+    </div>
     </div>
     </section>
     <!--Departments & Information Desk End-->
