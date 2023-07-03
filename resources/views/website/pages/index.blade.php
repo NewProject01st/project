@@ -511,7 +511,7 @@
                                                     <ul>
                                                         <li> <?php echo $item['english_description']; ?></li>
                                                     </ul>
-                                                    <?php $forecast_data = json_decode(getTempratureData()->forecast, true);?>
+                                                    <?php $forecast_data = unserialize(getTempratureData()->forecast);?>
                                                     <ul>
                                                         <li> conditions: {{$forecast_data['conditions']}}</li>
                                                         <li> description: {{$forecast_data['description']}}</li>
