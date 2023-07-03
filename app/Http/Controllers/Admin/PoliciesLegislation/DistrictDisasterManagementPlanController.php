@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\DistrictDisasterManagementPlan;
 use App\Http\Services\Admin\PoliciesLegislation\DistrictDisasterManagementPlanServices;
 use Validator;
-use Config;
 class DistrictDisasterManagementPlanController extends Controller
 {
 
@@ -33,9 +32,8 @@ class DistrictDisasterManagementPlanController extends Controller
             'english_title' => 'required',
             'marathi_title' => 'required',
             'policies_year' => 'required',
-            'english_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DISTRICT_DISASTERMANAGEMENT_PLAN_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DISTRICT_DISASTERMANAGEMENT_PLAN_PDF_MIN_SIZE").'',
-            'marathi_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DISTRICT_DISASTERMANAGEMENT_PLAN_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DISTRICT_DISASTERMANAGEMENT_PLAN_PDF_MIN_SIZE").'',
-
+            'english_pdf' => 'required|file|mimes:pdf',
+            'marathi_pdf' => 'required|file|mimes:pdf',
             'url' => 'required',
          ];
         $messages = [   
@@ -45,13 +43,9 @@ class DistrictDisasterManagementPlanController extends Controller
             'english_pdf.required' => 'Please upload an PDF file.',
             'english_pdf.file' => 'The file must be of type: file.',
             'english_pdf.mimes' => 'The file must be a PDF.',
-            'english_pdf.max' => 'The PDF size must not exceed '.Config::get("AllFileValidation.DISTRICT_DISASTERMANAGEMENT_PLAN_PDF_MAX_SIZE").'MB .',
-            'english_pdf.min' => 'The PDF size must not be less than '.Config::get("AllFileValidation.DISTRICT_DISASTERMANAGEMENT_PLAN_PDF_MIN_SIZE").'KB .',
             'marathi_pdf.required' => 'कृपया PDF फाइल अपलोड करा.',
             'marathi_pdf.file' => 'फाइल प्रकार: फाइल होणे आवश्यक आहे.',
             'marathi_pdf.mimes' => 'फाइल पीडीएफ असावी.',
-            'marathi_pdf.max' => 'कृपया पीडीएफचा आकार जास्त नसावा.'.Config::get("AllFileValidation.DISTRICT_DISASTERMANAGEMENT_PLAN_PDF_MAX_SIZE").'MB .',
-            'marathi_pdf.min' => 'कृपया पीडीएफचा आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.DISTRICT_DISASTERMANAGEMENT_PLAN_PDF_MIN_SIZE").'KB .',
 
        ];
         try {

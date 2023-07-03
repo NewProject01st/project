@@ -18,8 +18,8 @@ class TwitterSeeder extends Seeder
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
             'url' => 'Twitter Link',
-            // 'is_deleted'=>false,
-            // 'is_active'=>true,
+            'is_deleted'=>false,
+            'is_active'=>true,
         
         ]);
     }
