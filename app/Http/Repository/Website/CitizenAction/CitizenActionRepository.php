@@ -103,7 +103,7 @@ class CitizenActionRepository  {
                     $modal_data->ngo_name =   $request['ngo_name'];
                     $modal_data->ngo_email =   $request['ngo_email'];
                     $modal_data->ngo_contact_number =   $request['ngo_contact_number'];
-                    $modal_data->ngo_photo =   $request['ngo_photo'];
+                    // $modal_data->ngo_photo =   $request['ngo_photo'];
                 }
 
                
@@ -120,7 +120,7 @@ class CitizenActionRepository  {
                 $modal_data = CitizenVolunteerModal::find($last_insert_id); // Assuming $request directly contains the ID
                 $modal_data->media_upload = $englishImageName; // Save the image filename to the database
                 if($request->is_ngo == 'on') {
-                    $modal_data->media_upload = $englishNGOImage; // Save the image filename to the database
+                    $modal_data->ngo_photo = $englishNGOImage; // Save the image filename to the database
                 }
                 $modal_data->save();
                 
