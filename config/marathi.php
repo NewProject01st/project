@@ -41,7 +41,7 @@ return [
 	'NAVBAR'=>[ 
 		'REPORT_IT' =>'तक्रार करा',
 		'BECOME_VOLUNTEER' =>'स्वयंसेवक व्हा',
-		'TOLL_FREE' =>'टोल फ्री क्रमांक: 000 0000 000',
+		'TOLL_FREE' =>'टोल फ्री क्रमांक:',
 		'SEARCH' =>'शोधा',
 		'SEARCH_PLACEHOLDER' =>'शोधा...',
 	],

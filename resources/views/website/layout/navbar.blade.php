@@ -44,10 +44,14 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
 
                     </div>
                     <div class="col-4 d-flex align-items-center new_head_ul2">
-
+<?php //dd($data_output_tollfreenumber); ?>
                         <ul class="quick-links">
                             <li><a href="#">
-
+                                @if (session('language') == 'mar')
+                                {{ Config::get('marathi.NAVBAR.TOLL_FREE') }}
+                            @else
+                                {{ Config::get('english.NAVBAR.TOLL_FREE') }}
+                            @endif 
                                     @foreach ($data_output_tollfreenumber as $item)
                                         @if (session('language') == 'mar')
                                             <span><?php echo $item['marathi_tollfree_no']; ?></span>
@@ -55,11 +59,7 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                                             <span><?php echo $item['english_tollfree_no']; ?></span>
                                         @endif
                                     @endforeach
-                                    @if (session('language') == 'mar')
-                                        {{ Config::get('marathi.NAVBAR.TOLL_FREE') }}
-                                    @else
-                                        {{ Config::get('english.NAVBAR.TOLL_FREE') }}
-                                    @endif 
+                                  
                                 </a></li>
 
 

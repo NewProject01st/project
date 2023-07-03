@@ -313,7 +313,7 @@
                             //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             // },
                             success: function(response) {
-                                // console.log(response);
+                                console.log(response);
                                 if (response.city.length > 0) {
                                     $.each(response.city, function(index, city) {
                                         $('#city').append('<option value="' + city

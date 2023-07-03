@@ -25,10 +25,13 @@ class VolunteerCitizenModalRepository{
 
     public function getById($id){
         try {
+
             $citizenvolunteer = CitizenVolunteerModal::find($id);
-            // $citizenvolunteer = CitizenVolunteerModal::leftJoin('incident_type', 'incident_type.id', '=', 'citizen_volunteer_modals.incident')
-			// 	->where('citizen_volunteer_modals.id', $id)
-			// 	->first();
+            
+            // dd($citizenvolunteer);
+//             $citizenvolunteer = CitizenVolunteerModal::leftJoin('incident_type', 'incident_type.id', '=', 'citizen_volunteer_modals.incident')
+// 				->where('citizen_volunteer_modals.id', $id)
+// 				->first();
 // dd($citizenvolunteer);
             if ($citizenvolunteer) {
                 return $citizenvolunteer;

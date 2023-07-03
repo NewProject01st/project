@@ -39,7 +39,7 @@ return [
 	'NAVBAR'=>[ 
 		'REPORT_IT' =>'Report It',
 		'BECOME_VOLUNTEER' =>'Become a Volunteer',
-		'TOLL_FREE' =>'Toll Free: 000 0000 000',
+		'TOLL_FREE' =>'Toll Free:',
 		'SEARCH' =>'Search',
 		'SEARCH_PLACEHOLDER' =>'Search...',
 

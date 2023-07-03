@@ -11,14 +11,24 @@ use App\Models\ {
 use Config;
 
 class DisasterManagementNewsRepository  {
-	public function getAll()
+	// public function getAll()
+    // {
+    //     try {
+    //         return DisasterManagementNews::all();
+    //     } catch (\Exception $e) {
+    //         return $e;
+    //     }
+    // }
+    public function getAll()
     {
         try {
-            return DisasterManagementNews::all();
+            return DisasterManagementNews::take(4)->get();
         } catch (\Exception $e) {
             return $e;
         }
     }
+    
+
 
 	public function addAll($request)
 {
