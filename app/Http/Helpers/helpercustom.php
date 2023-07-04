@@ -344,26 +344,27 @@ function getProfileImage()
     return $user_detail;
 }
 
-function processForecastData($forecast) {
-
-        $data_array = array();
-        $data_array_hours = array();
-        $data_array['datetime'] = $forecast[0]['datetime'];
-        $data_array['conditions'] = $forecast[0]['conditions'];
-        $data_array['description'] = $forecast[0]['description'];
-        $data_array['sunrise'] = $forecast[0]['sunrise'];
-        $data_array['sunset'] = $forecast[0]['sunset'];
-        $data_array_hourwise = array();
-        foreach ($forecast[0]['hours'] as $key=>$dataforecast_day_wise) {
-            
-            $data_array_hours['datetime'] = $dataforecast_day_wise['datetime'];
-            $data_array_hours['temp'] = $dataforecast_day_wise['temp'];
-            $data_array_hourwise[$key] = $data_array_hours;
-
-            
-        }   
-        $data_array['hour_wise'] = $data_array_hourwise;
-        return $data_array;
+function processForecastData($forecast_data) {
+        $return_array = array();
+        
+        foreach ($forecast_data as $key => $forecast) {
+            $data_array = array();
+            $data_array_hours = array();
+            $data_array['datetime'] = $forecast['datetime'];
+            $data_array['conditions'] = $forecast['conditions'];
+            $data_array['description'] = $forecast['description'];
+            $data_array['sunrise'] = $forecast['sunrise'];
+            $data_array['sunset'] = $forecast['sunset'];
+            $data_array_hourwise = array();
+            foreach ($forecast['hours'] as $key=>$dataforecast_day_wise) {
+                $data_array_hours['datetime'] = $dataforecast_day_wise['datetime'];
+                $data_array_hours['temp'] = $dataforecast_day_wise['temp'];
+                $data_array_hourwise[$key] = $data_array_hours;
+            }   
+            $data_array['hour_wise'] = $data_array_hourwise;
+            array_push($return_array,$data_array);
+        }
+        return $return_array;
 }
 
 
