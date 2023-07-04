@@ -30,25 +30,28 @@ class SuccessStoriesController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'english_title' => 'required',
-            'marathi_title' => 'required',
+            'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'marathi_title' => 'required|max:255',
             'english_description' => 'required',
             'marathi_description' => 'required',
-            'english_designation' => 'required',
-            'marathi_designation' => 'required',
+            'english_designation' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'marathi_designation' =>'required|max:255',
             'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-         
-           
-           
             
          ];
     $messages = [   
-        'english_title.required' => 'Please enter the title.',
-        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा.',
+        'english_title.required'=>'Please enter title.',
+        'english_title.regex' => 'Please  enter text only.',
+        'english_title.max'   => 'Please  enter text length upto 255 character only.',
+        'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+        'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
         'english_description.required' => 'Please enter the description.',
         'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
-        'english_designation.required' => 'Please enter the designation.',
-        'marathi_designation.required' => 'कृपया पदनाम प्रविष्ट करा. ',
+        'english_designation.required'=>'Please enter designation name.',
+        'english_designation.regex' => 'Please  enter text only.',
+        'english_designation.max'   => 'Please  enter text length upto 255 character only.',
+        'marathi_designation.required'=>'कृपया पदनाम नाव प्रविष्ट करा.',
+        'marathi_designation.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत पदनाम ची लांबी प्रविष्ट करा.',
         'english_image.required' => 'The image field is required.',
        
 
@@ -93,24 +96,30 @@ class SuccessStoriesController extends Controller
     public function update(Request $request)
 {
     $rules = [
-        'english_title' => 'required',
-        'marathi_title' => 'required',
-        'english_description' => 'required',
-        'marathi_description' => 'required',
-        'english_designation' => 'required',
-        'marathi_designation' => 'required',
+        'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'marathi_title' => 'required|max:255',
+            'english_description' => 'required',
+            'marathi_description' => 'required',
+            'english_designation' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'marathi_designation' =>'required|max:255',
         // 'english_image' => 'required',
       
        
         
      ];
     $messages = [   
-        'english_title'=>'Please  enter english title.',
-        'marathi_title'=>'Please  enter marathi title.',
-        'english_description' => 'required',
-        'marathi_description' => 'required',
-        'english_designation' => 'required',
-        'marathi_designation' => 'required',
+        'english_title.required'=>'Please enter title.',
+        'english_title.regex' => 'Please  enter text only.',
+        'english_title.max'   => 'Please  enter text length upto 255 character only.',
+        'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+        'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
+        'english_description.required' => 'Please enter the description.',
+        'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
+        'english_designation.required'=>'Please enter designation name.',
+        'english_designation.regex' => 'Please  enter text only.',
+        'english_designation.max'   => 'Please  enter text length upto 255 character only.',
+        'marathi_designation.required'=>'कृपया पदनाम नाव प्रविष्ट करा.',
+        'marathi_designation.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत पदनाम ची लांबी प्रविष्ट करा.',
         // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     
        

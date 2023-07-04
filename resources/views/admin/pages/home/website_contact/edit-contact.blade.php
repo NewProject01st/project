@@ -54,9 +54,9 @@
                                         <div class="form-group">
                                             <label for="english_number"> Number</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="english_number" id="english_number"
-                                                class="form-control" pattern="[789]{1}[0-9]{9}"
+                                                class="form-control" {{-- pattern="[789]{1}[0-9]{9}"
                                                 oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
-                                                maxlength="10" minlength="10"
+                                                maxlength="10" minlength="10" --}}
                                                 value="@if (old('english_number')) {{ old('english_number') }}@else{{ $website_contact->english_number }} @endif"
                                                 placeholder="">
                                             @if ($errors->has('english_number'))
@@ -69,9 +69,9 @@
                                             <label for="marathi_number">दूरध्वनी क्रमांक</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="marathi_number" id="marathi_number"
-                                                pattern="[789]{1}[0-9]{9}"
+                                                {{-- pattern="[789]{1}[0-9]{9}"
                                                 oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
-                                                maxlength="10" minlength="10" class="form-control"
+                                                maxlength="10" minlength="10" --}} class="form-control"
                                                 value="@if (old('marathi_number')) {{ old('marathi_number') }}@else{{ $website_contact->marathi_number }} @endif"
                                                 placeholder="">
                                             @if ($errors->has('marathi_number'))
@@ -83,7 +83,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="email">Email</label>&nbsp<span class="red-text">*</span>
-                                            <input type="email" name="email" id="email" class="form-control"
+                                            <input type="text" name="email" id="email" class="form-control"
                                                 id="email" placeholder=""
                                                 value="@if (old('email')) {{ old('email') }}@else{{ $website_contact->email }} @endif">
                                             @if ($errors->has('email'))

@@ -43,8 +43,8 @@ class EmergencyContactNumbersController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'english_title' => 'required',
-            'marathi_title' => 'required',
+            'english_title' => 'required|max:255',
+            'marathi_title' => 'required|max:255',
             'english_description' => 'required',
             'marathi_description' => 'required',
             'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.EMERGENCY_CONTACT_NUMBER_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.EMERGENCY_CONTACT_NUMBER_IMAGE_MIN_SIZE").'',
@@ -62,8 +62,11 @@ class EmergencyContactNumbersController extends Controller
         //     $rules[$marathi_emergency_contact_number] = 'required';
         // }
         $messages = [
-            'english_title.required' => 'Please enter title.',
-            'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+            'english_title.required'=>'Please enter title.',
+            // 'english_title.regex' => 'Please  enter text only.',
+            'english_title.max'   => 'Please  enter text length upto 255 character only.',
+            'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+            'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',
             'english_description.required' => 'Please enter description.',
             'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
             'english_image.required' => 'The image is required.',
@@ -126,16 +129,21 @@ class EmergencyContactNumbersController extends Controller
     public function storeaddmore(Request $request)
     {
         $rules = [
-            'english_emergency_contact_title' => 'required',
-            'marathi_emergency_contact_title' => 'required',
-            'english_emergency_contact_number' => 'required',
-            'marathi_emergency_contact_number' => 'required',
+            'english_emergency_contact_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'marathi_emergency_contact_title' =>  'required|max:255',
+            'english_emergency_contact_number' =>  'required|regex:/^[0-9]{10}$/',
+            'marathi_emergency_contact_number' => 'required|regex:/^[0-9]{10}$/',
         ];
         $messages = [
             'english_emergency_contact_title.required' => 'Please Enter Emergency Title.',
             'marathi_emergency_contact_title.required' => 'कृपया आणीबाणी शीर्षक प्रविष्ट करा.',
+            'english_emergency_contact_title.regex' => 'Please  enter text only.',
+            'english_emergency_contact_title.max'   => 'Please  enter text length upto 255 character only.',
+            'marathi_emergency_contact_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',
             'english_emergency_contact_number.required' => 'Please Enter Emergency Contact.',
             'marathi_emergency_contact_number.required' => 'कृपया आपत्कालीन संपर्क प्रविष्ट करा.',
+            'english_emergency_contact_number.regex' => 'Please enter only  number with 10-digit numbers.',
+            'marathi_emergency_contact_number.regex' => 'कृपया फक्त 10-अंकी संख्या असलेली संख्या प्रविष्ट करा. ',
         ];
 
         try
@@ -186,8 +194,8 @@ class EmergencyContactNumbersController extends Controller
     public function update(Request $request)
     {
         $rules = [
-            'english_title' => 'required',
-            'marathi_title' => 'required',
+            'english_title' => 'required|max:255',
+            'marathi_title' => 'required|max:255',
             'english_description' => 'required',
             'marathi_description' => 'required',
         ];
@@ -198,8 +206,11 @@ class EmergencyContactNumbersController extends Controller
             $rules['marathi_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.EMERGENCY_CONTACT_NUMBER_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.EMERGENCY_CONTACT_NUMBER_IMAGE_MIN_SIZE");
         }
         $messages = [
-            'english_title.required' => 'Please enter title.',
-            'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+            'english_title.required'=>'Please enter title.',
+            // 'english_title.regex' => 'Please  enter text only.',
+            'english_title.max'   => 'Please  enter text length upto 255 character only.',
+            'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+            'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',
             'english_description.required' => 'Please enter description.',
             'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
             'english_image.required' => 'The image is required.',

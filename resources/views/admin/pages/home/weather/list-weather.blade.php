@@ -27,6 +27,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+                                    @include('admin.layout.alert')
                                     <div class="table-responsive">
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
@@ -64,8 +65,8 @@
 
 
                                                         <!-- <td>
-                                                                        <span class="badge badge-success">Active</span>
-                                                                    </td> -->
+                                                                            <span class="badge badge-success">Active</span>
+                                                                        </td> -->
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))

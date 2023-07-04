@@ -26,6 +26,7 @@
                          <div class="card-body">
                              <div class="row">
                                  <div class="col-12">
+                                     @include('admin.layout.alert')
                                      <div class="table-responsive">
                                          <table id="order-listing" class="table table-bordered">
                                              <thead>
@@ -51,14 +52,16 @@
                                                          <td>{{ strip_tags($item->english_description) }}</td>
                                                          <td>{{ strip_tags($item->marathi_description) }}</td>
                                                          <td> <img class="img-size"
-                                                                 src="{{ Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_VIEW') }}{{ $item->english_image }}" alt=" {{ strip_tags($item['english_title']) }} Image"/>
+                                                                 src="{{ Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_VIEW') }}{{ $item->english_image }}"
+                                                                 alt=" {{ strip_tags($item['english_title']) }} Image" />
                                                          </td>
                                                          <td> <img class="img-size"
-                                                                 src="{{ Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_VIEW') }}{{ $item->marathi_image }}" alt=" {{ strip_tags($item['marathi_title']) }} प्रतिमा"/>
+                                                                 src="{{ Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_VIEW') }}{{ $item->marathi_image }}"
+                                                                 alt=" {{ strip_tags($item['marathi_title']) }} प्रतिमा" />
                                                          </td>
                                                          <!-- <td>
-                                                                            <span class="badge badge-success">Active</span>
-                                                                        </td> -->
+                                                                                <span class="badge badge-success">Active</span>
+                                                                            </td> -->
 
 
                                                          <td>

@@ -32,12 +32,16 @@ class MetadataController extends Controller
     public function store(Request $request) {
        
         $rules = [
-            'english_name' => 'required',
-            'keywords' => 'required',
+            'english_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'keywords' => 'required|max:255',
          ];
         $messages = [   
-            'english_name'=>'required',
-            'keywords'=>'required',
+            'english_name.required'=>'Please enter name.',
+            'english_name.regex' => 'Please  enter text only.',
+            'english_name.max'   => 'Please  enter name length upto 255 character only.',
+            'keywords'=>'Please enter keywords.',
+            'keywords.max'   => 'Please  enter keyword length upto 255 character only.',
+
         
         ];
 
@@ -90,13 +94,16 @@ class MetadataController extends Controller
     public function update(Request $request)
     {
         $rules = [
-            'english_name' => 'required',
-            'keywords' => 'required',     
-            
+            'english_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'keywords' => 'required|max:255',
         ];
         $messages = [   
-            'english_name'=>'required',
-            'keywords'=>'required',
+            'english_name.required'=>'Please enter name.',
+            'english_name.regex' => 'Please  enter text only.',
+            'english_name.max'   => 'Please  enter name length upto 255 character only.',
+            'keywords'=>'Please enter keywords.',
+            'keywords.max'   => 'Please  enter keyword length upto 255 character only.',
+
         ];
 
         try {

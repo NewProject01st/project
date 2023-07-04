@@ -63,12 +63,12 @@ public function updateAll($request)
         $main_menu_data->save();       
      
         return [
-            'msg' => 'constitution history updated successfully.',
+            'msg' => 'Main Menu updated successfully.',
             'status' => 'success'
         ];
     } catch (\Exception $e) {
         return [
-            'msg' => 'Failed to update constitution history.',
+            'msg' => 'Failed to update Main Menu.',
             'status' => 'error'
         ];
     }
@@ -87,12 +87,10 @@ public function deleteById($id)
     } catch (\Exception $e) {
         return $e;
 		return [
-            'msg' => 'Failed to delete constitution history.',
+            'msg' => 'Failed to delete Main Menu.',
             'status' => 'error'
         ];
     }
 }
 
 }
-
-

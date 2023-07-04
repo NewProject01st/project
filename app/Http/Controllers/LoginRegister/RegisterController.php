@@ -78,15 +78,15 @@ class RegisterController extends Controller {
             // 'u_uname' => 'required',
             // 'u_password' => 'required',
             'role_id' => 'required',
-            'f_name' => 'required',
-            'm_name' => 'required',
-            'l_name' => 'required',
-            'number' => 'regex:/^\d{10}$/',
-            'designation' => 'required',
-            'address' => 'required',
+            'f_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'm_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'l_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'number' =>  'required|regex:/^[0-9]{10}$/',
+            'designation' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'address' => 'required|max:255',
             'state' => 'required',
             'city' => 'required',
-            'pincode' => 'required|regex:/^[0-9]{6}$/'
+            'pincode' => 'required|regex:/^[0-9]{6}$/',
          ];       
 
         $messages = [   
@@ -94,17 +94,33 @@ class RegisterController extends Controller {
                         // 'u_email.email' => 'Please enter valid email.',
                         // 'u_uname.required' => 'Please enter user uname.',
                         // 'u_password.required' => 'Please enter password.',
-                        'role_id.required' => 'Select role',
+                        'role_id.required' => 'Please select role type.',
                         'f_name.required' => 'Please enter first name.',
+                         'f_name.regex' => 'Please  enter text only.',
+                        'f_name.max'   => 'Please  enter first name length upto 255 character only.',
+
                         'm_name.required' =>'Please enter middle name.',
+                        'm_name.regex' => 'Please  enter text only.',
+                        'm_name.max'   => 'Please  enter middle name length upto 255 character only.',
+
                         'l_name.required' => 'Please enter last name.',
+                        'l_name.regex' => 'Please  enter text only.',
+                        'l_name.max'   => 'Please  enter last name length upto 255 character only.',
+
                         'number.required' => 'Please enter number.',
-                        'number.regex' => 'Please enter 10 digit number.',
+                        'number.regex' => 'Please enter only numbers with 10-digit.',
+
                         'designation.required' =>'Please enter designation.',
+                        'designation.regex' => 'Please  enter text only.',
+                        'designation.max'   => 'Please  enter designation length upto 255 character only.',
+
                         'address.required' => 'Please enter address.',
+                        'address.max'   => 'Please  enter address length upto 255 character only.',
+
+
                         'state.required' => 'Please enter state.',
                         'city.required' =>'Please enter city.',
-                        'pincode.required' => 'Please enter pincode.',
+                       'pincode.required' => 'Please enter pincode.',
                         'pincode.regex' => 'Please enter a 6-digit pincode.',
                     ];
 
@@ -144,45 +160,66 @@ class RegisterController extends Controller {
     public function register(Request $request){
 
         $rules = [
-                   'u_email' => 'required|unique:users,u_email',
-                    // 'u_uname' => 'required',
-                    'u_password'=>'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z\d]).{8,}$/',
+                   'u_email' => 'required|unique:users,u_email|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
+                    // 'u_uname' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+                    'u_password'=>'required|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z\d]).{8,}$/',
                     'password_confirmation' => 'required|same:u_password',
                     // 'u_password'=>'required',
                     // 'u_password'=>'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[a-zA-Z0-9])(?=.*[^a-zA-Z0-9]).{8}$/',
                     // 'u_password' => 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
                     'role_id' => 'required',
-                    'f_name' => 'required',
-                    'm_name' => 'required',
-                    'l_name' => 'required',
-                    'number' => 'regex:/^\d{10}$/',
-                    'designation' => 'required',
-                    'address' => 'required',
+                    'f_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+                    'm_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+                    'l_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+                    'number' =>  'required|regex:/^[0-9]{10}$/',
+                    'designation' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+                    'address' => 'required|max:255',
                     'state' => 'required',
                     'city' => 'required',
-                    'pincode' => 'required|regex:/^[0-9]{6}$/'
+                    'pincode' => 'required|regex:/^[0-9]{6}$/',
+                    'user_profile' => 'required',
                  ];       
 
         $messages = [   
                         'u_email.required' => 'Please enter email.',
                         'u_email.unique' => 'Your email is already exist.',
-                        // 'u_uname.required' => 'Please enter user uname.',
-                        // 'u_password.required' => 'Please enter password.',
+                        'email.regex' => 'Enter valid email.',
+                        // 'u_uname.required'=>'Please enter firstname.',
+                        // 'u_uname.regex' => 'Please  enter text only.',
+                        // 'u_uname.max'   => 'Please  enter firstname length upto 255 character only.',       
+                        'u_password.required' => 'Please enter password.',
                         'u_password.regex' => 'Password should be more than 8 numbers with atleast 1 capital letter,1 small letter, 1 number and 1 alpha numeric char.',
                         'password_confirmation.same' => 'The password confirmation does not match.',
                         // 'u_password.min' => 'Please combination of number character of 8 char.',
-                        'role_id.required' => 'Select role',
+                        'role_id.required' => 'Please select role type.',
                         'f_name.required' => 'Please enter first name.',
+                         'f_name.regex' => 'Please  enter text only.',
+                        'f_name.max'   => 'Please  enter first name length upto 255 character only.',
+
                         'm_name.required' =>'Please enter middle name.',
+                        'm_name.regex' => 'Please  enter text only.',
+                        'm_name.max'   => 'Please  enter middle name length upto 255 character only.',
+
                         'l_name.required' => 'Please enter last name.',
+                        'l_name.regex' => 'Please  enter text only.',
+                        'l_name.max'   => 'Please  enter last name length upto 255 character only.',
+
                         'number.required' => 'Please enter number.',
-                        'number.regex' => 'Please enter 10 digit number.',
+                        'number.regex' => 'Please enter only numbers with 10-digit.',
+
                         'designation.required' =>'Please enter designation.',
+                        'designation.regex' => 'Please  enter text only.',
+                        'designation.max'   => 'Please  enter designation length upto 255 character only.',
+
                         'address.required' => 'Please enter address.',
+                        'address.max'   => 'Please  enter address length upto 255 character only.',
+
+
                         'state.required' => 'Please enter state.',
                         'city.required' =>'Please enter city.',
                        'pincode.required' => 'Please enter pincode.',
                         'pincode.regex' => 'Please enter a 6-digit pincode.',
+                        'user_profile.required' => 'The user profile is required.',
                     ];
 
 

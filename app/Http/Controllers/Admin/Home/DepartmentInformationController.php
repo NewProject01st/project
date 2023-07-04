@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DepartmentInformation;
 use App\Http\Services\Admin\Home\DepartmentInformationServices;
+use Illuminate\Validation\Rule;
 use Validator;
 use Config;
 class DepartmentInformationController extends Controller
@@ -29,21 +30,24 @@ class DepartmentInformationController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'english_title' => 'required',
-            'marathi_title' => 'required',
+            'english_title' => 'required|max:255',
+            'marathi_title' => 'required|max:255',
             'english_description' => 'required',
             'marathi_description' => 'required',
             'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE").'|dimensions:min_width=100,min_height=100,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE").'',
             'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE").'|dimensions:min_width=100,min_height=100,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE").'',
             'english_image_new' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE").'|dimensions:min_width=1000,min_height=300,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE").'',
             'marathi_image_new' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE").'|dimensions:min_width=1000,min_height=300,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE").'',
-            'url' => 'required',
+            'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
             // 'date' => 'required',
             
          ];
     $messages = [   
-        'english_title.required' => 'Please enter title.',
-        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+        'english_title.required'=>'Please enter title.',
+        // 'english_title.regex' => 'Please  enter text only.',
+        'english_title.max'   => 'Please  enter text length upto 255 character only.',
+        'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+        'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
         'english_description.required' => 'Please enter description.',
         'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
         'english_image.required' => 'The image is required.',
@@ -71,7 +75,8 @@ class DepartmentInformationController extends Controller
         'marathi_image_new.max' => 'कृपया प्रतिमेचा आकार जास्त नसावा.'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE").'KB .',
         'marathi_image_new.min' => 'कृपया प्रतिमेचा आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE").'KB .',
         'marathi_image_new.dimensions' => 'कृपया प्रतिमा 1000x300 आणि 2000x1000 पिक्सेल दरम्यान असणे आवश्यक आहे.',
-        'url'=>'required',
+        'url.required'=>'Please enter url.',
+        'url.regex'=>'Please valid url.',
         // 'date' => 'required',
 
     ];
@@ -113,12 +118,12 @@ class DepartmentInformationController extends Controller
     }
     public function update(Request $request){
     $rules = [
-        'english_title' => 'required',
-        'marathi_title' => 'required',
+        'english_title' => 'required|max:255',
+        'marathi_title' => 'required|max:255',
         'english_description' => 'required',
         'marathi_description' => 'required',
-        'url' => 'required',
-     ];
+        'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
+    ];
      if($request->has('english_image')) {
         $rules['english_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE").'|dimensions:min_width=100,min_height=100,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE");
     }
@@ -133,11 +138,15 @@ class DepartmentInformationController extends Controller
         $rules['marathi_image_new'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE").'|dimensions:min_width=1000,min_height=300,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE");
     }
     $messages = [   
-        'english_title.required' => 'Please enter title.',
-        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+        'english_title.required'=>'Please enter title.',
+        // 'english_title.regex' => 'Please  enter text only.',
+        'english_title.max'   => 'Please  enter text length upto 255 character only.',
+        'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+        'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
         'english_description.required' => 'Please enter description.',
         'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
-        'url'=>'required',
+        'url.required'=>'Please enter url.',
+        'url.regex'=>'Please valid url.',
         'english_image.required' => 'The image is required.',
         'english_image.image' => 'The image must be a valid image file.',
         'english_image.mimes' => 'The image must be in JPEG, PNG, JPG, GIF, or SVG format.',

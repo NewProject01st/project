@@ -19,14 +19,13 @@
                     <div class="card">
                         <div class="card-body">
                             <form class="forms-sample" action="{{ route('update-header-rti') }}" method="post"
-                                id="regForm" enctype="multipart/form-data">
+                                id="formRti" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title</label>&nbsp<span
-                                                class="red-text">*</span>
-                                          <input class="form-control" name="english_title" id="english_title"
+                                            <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
+                                            <input class="form-control" name="english_title" id="english_title"
                                                 placeholder="Enter the Title"
                                                 value="@if (old('english_title')) {{ old('english_title') }}@else{{ $rti->english_title }} @endif">
                                             @if ($errors->has('english_title'))
@@ -36,9 +35,8 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">शीर्षक</label>&nbsp<span
-                                                class="red-text">*</span>
-                                                <input class="form-control" name="marathi_title" id="marathi_title"
+                                            <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
+                                            <input class="form-control" name="marathi_title" id="marathi_title"
                                                 placeholder="शीर्षक प्रविष्ट करा"
                                                 value="@if (old('marathi_title')) {{ old('marathi_title') }}@else{{ $rti->marathi_title }} @endif">
                                             @if ($errors->has('marathi_title'))
@@ -95,4 +93,64 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                $.extend($.validator.methods, {
+                    spcenotallow: function(b, c, d) {
+                        if (!this.depend(d, c)) return "dependency-mismatch";
+                        if ("select" === c.nodeName.toLowerCase()) {
+                            var e = a(c).val();
+                            return e && e.length > 0
+                        }
+                        return this.checkable(c) ? this.getLength(b, c) > 0 : b.trim().length > 0
+                    }
+                });
+
+                $.validator.addMethod("alphanumericwithspace", function(value, element) {
+                    var reg = /[0-9]/;
+                    if (reg.test(value)) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }, "Number is not permitted");
+
+
+                $("#formRti").validate({
+
+                    rules: {
+                        english_title: {
+                            required: true,
+                            spcenotallow: true,
+                            alphanumericwithspace: true
+                        },
+                        marathi_title: {
+                            required: true,
+                            spcenotallow: true,
+                            alphanumericwithspace: true
+                        },
+
+
+                    },
+                    messages: {
+                        english_title: {
+                            required: "The english title field is required.",
+                            spcenotallow: "Enter Some Text",
+                            alphanumericwithspace: "Enter Valid Input"
+
+                        },
+
+                        marathi_title: {
+                            required: "The english title field is required.",
+                            spcenotallow: "Enter Some Text",
+                            alphanumericwithspace: "Enter Valid Input"
+
+                        },
+
+
+
+                    }
+                });
+            });
+        </script>
     @endsection

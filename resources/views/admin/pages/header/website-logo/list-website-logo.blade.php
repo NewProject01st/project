@@ -27,6 +27,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+                                    @include('admin.layout.alert')
                                     <div class="table-responsive">
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
@@ -41,7 +42,8 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td> <img class=""
-                                                                src="{{ Config::get('DocumentConstant.WEBSITE_LOGO_VIEW') }}{{ $item->logo }}"  width="120px" height="70px"/>
+                                                                src="{{ Config::get('DocumentConstant.WEBSITE_LOGO_VIEW') }}{{ $item->logo }}"
+                                                                width="120px" height="70px" />
                                                         </td>
                                                         <td>
                                                             <div class="d-flex">

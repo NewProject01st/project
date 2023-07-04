@@ -27,6 +27,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+                                    @include('admin.layout.alert')
                                     <div class="table-responsive">
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
@@ -66,8 +67,7 @@
                                                                 @if (in_array('per_add', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
                                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                                        title="Delete"><i
-                                                                            class="fas fa-archive"></i></a>
+                                                                        title="Delete"><i class="fas fa-archive"></i></a>
                                                                 @endif
                                                             </div>
                                                         </td>
@@ -98,5 +98,4 @@
         </form>
 
         <!-- content-wrapper ends -->
-
     @endsection

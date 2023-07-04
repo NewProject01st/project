@@ -30,23 +30,28 @@ class WebsiteContactController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'english_address' => 'required',
-            'marathi_address' => 'required',           
-            'email' => 'required',
-            'english_number' => 'required',
-            'marathi_number' => 'required',
+            'english_address' => 'required|max:255',
+            'marathi_address' => 'required|max:255',  
+            'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
+            'english_number' => 'required|regex:/^[0-9]{10}$/',
+            'marathi_number' => 'required|regex:/^[0-9]{10}$/',
             // 'marathi_icon' => 'required',
             
          ];
-    $messages = [   
-             'english_address' => 'Please enter address.',
-            'marathi_address' => 'कृपया पत्ता प्रविष्ट करा.',           
-            'email' => 'required',
-            'english_number' => 'Please enter number.',
-            'marathi_number' => 'कृपया क्रमांक प्रविष्ट करा ',
+    $messages = [  
+            'english_address.required' => 'Please enter address.',
+            'english_address.max'   => 'Please  enter address length upto 255 character only.',
+            'marathi_address.required' => 'कृपया पत्ता प्रविष्ट करा.',
+            'marathi_address.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',        
+            'email.required' => 'Please enter email.',
+            'email.regex' => 'Enter valid email.',
+            'english_number.required' => 'Please enter number.',
+            'marathi_number.required' => 'कृपया क्रमांक प्रविष्ट करा ',
+            'english_number.regex' => 'Please enter only  numbers with 10-digit.',
+            'marathi_number.regex' => 'कृपया फक्त 10-अंकी संख्या असलेली संख्या प्रविष्ट करा. ',
         
         
-    ];
+    ];  
 
     try {
         $validation = Validator::make($request->all(),$rules,$messages);
@@ -89,19 +94,26 @@ class WebsiteContactController extends Controller
     public function update(Request $request)
 {
     $rules = [
-        'english_address' => 'required',
-        'marathi_address' => 'required',           
-        'email' => 'required',
-        'english_number' => 'required',
-        'marathi_number' => 'required',
+        'english_address' => 'required|max:255',
+        'marathi_address' => 'required|max:255',
+        'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
+        'english_number' => 'required|regex:/^[0-9]{10}$/',
+        'marathi_number' => 'required|regex:/^[0-9]{10}$/',
         
      ];
     $messages = [   
-        'english_address' => 'Please enter address.',
-        'marathi_address' => 'कृपया पत्ता प्रविष्ट करा.',           
-        'email' => 'आवश्यक',
-        'english_number' => 'Please enter number.',
-        'marathi_number' => 'कृपया क्रमांक प्रविष्ट करा ',
+        'english_address.required' => 'Please enter address.',
+        'english_address.max'   => 'Please  enter address length upto 255 character only.',
+        'marathi_address.required' => 'कृपया पत्ता प्रविष्ट करा.',
+        'marathi_address.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',    
+        'email.required' => 'required',
+        'email.regex' => 'Enter valid email.',
+        'english_number.required' => 'Please enter number.',
+        'marathi_number.required' => 'कृपया क्रमांक प्रविष्ट करा ',
+        'english_number.regex' => 'Please enter only  numbers with 10-digit.',
+        'marathi_number.regex' => 'कृपया फक्त 10-अंकी संख्या असलेली संख्या प्रविष्ट करा. ',
+    
+    
         
     ];
 

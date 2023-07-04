@@ -27,6 +27,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+                                    @include('admin.layout.alert')
                                     <div class="table-responsive">
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
@@ -54,9 +55,10 @@
                                                         <td>{{ $item->english_designation }}</td>
                                                         <td>{{ $item->marathi_designation }}</td>
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item->english_image }}" alt=" {{ strip_tags($item['english_title']) }} Image"/>
+                                                                src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item->english_image }}"
+                                                                alt=" {{ strip_tags($item['english_title']) }} Image" />
                                                         </td>
-                                                       
+
                                                         <td>
                                                             <label class="switch">
                                                                 <input data-id="{{ $item->id }}" type="checkbox"

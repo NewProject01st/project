@@ -25,6 +25,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+                                    @include('admin.layout.alert')
                                     <div class="table-responsive">
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
@@ -48,11 +49,13 @@
                                                         <td>{{ strip_tags($item->english_description) }}</td>
                                                         <td>{{ strip_tags($item->marathi_description) }}</td>
                                                         <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item->english_pdf }}"
-                                                                target="_blank" alt=" {{ strip_tags($item['english_title']) }} pdf"><img
+                                                                target="_blank"
+                                                                alt=" {{ strip_tags($item['english_title']) }} pdf"><img
                                                                     src="{{ asset('assets/images/pdf.png/') }}"
                                                                     width="35px" height="35px"></a></td>
                                                         <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item->english_pdf }}"
-                                                                target="_blank" alt=" {{ strip_tags($item['marathi_title']) }} pdf"><img
+                                                                target="_blank"
+                                                                alt=" {{ strip_tags($item['marathi_title']) }} pdf"><img
                                                                     src="{{ asset('assets/images/pdf.png/') }}"
                                                                     width="35px" height="35px"></a></td>
                                                         <td>
