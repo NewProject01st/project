@@ -183,7 +183,7 @@ class RegisterController extends Controller {
         $messages = [   
                         'u_email.required' => 'Please enter email.',
                         'u_email.unique' => 'Your email is already exist.',
-                        'email.regex' => 'Enter valid email.',
+                        'u_email.regex' => 'Enter valid email.',
                         // 'u_uname.required'=>'Please enter firstname.',
                         // 'u_uname.regex' => 'Please  enter text only.',
                         // 'u_uname.max'   => 'Please  enter firstname length upto 255 character only.',       
