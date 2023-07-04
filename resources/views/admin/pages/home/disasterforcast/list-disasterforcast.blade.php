@@ -8,10 +8,10 @@
             <div class="page-header">
                 <h3 class="page-title">
                     Disaster Forecast List
-                    {{-- @if (in_array('per_add', $data_permission))
+                    @if (in_array('per_add', $data_permission))
                         <a href="{{ route('add-disasterforcast') }}" class="btn btn-sm btn-primary ml-3">+
                             Add</a>
-                    @endif --}}
+                    @endif
 
                 </h3>
                 <nav aria-label="breadcrumb">
@@ -33,6 +33,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
+                                                    <th>Title </th>
+                                                    <th>शीर्षक </th>
                                                     <th>Description </th>
                                                     <th>वर्णन </th>
                                                     <th>Action</th>
@@ -42,25 +44,10 @@
                                                 @foreach ($disasterforcast as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        {{-- <td>{{ strip_tags($item->english_title) }}</td>
-                                                <td>{{ strip_tags($item->marathi_title) }}</td> --}}
+                                                        <td>{{ strip_tags($item->english_title) }}</td>
+                                                        <td>{{ strip_tags($item->marathi_title) }}</td>
                                                         <td>{{ strip_tags($item->english_description) }}</td>
                                                         <td>{{ strip_tags($item->marathi_description) }}</td>
-                                                        {{-- <td>{{ $item->forcast_date }}</td>
-                                                <td>{{ $item->expired_date }}</td> --}}
-                                                        {{-- <td> <img
-                                                            src="{{ asset('storage/images/home/disaster-forcast/' . $item->english_image) }}"
-                                                />
-                                                </td>
-                                                <td> <img
-                                                        src="{{ asset('storage/images/home/disaster-forcast/' . $item->marathi_image) }}" />
-                                                </td> --}}
-
-
-
-                                                        <!-- <td>
-                                                                    <span class="badge badge-success">Active</span>
-                                                                </td> -->
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
@@ -73,9 +60,9 @@
                                                                     class="show-btn btn btn-sm btn-outline-primary m-1"
                                                                     title="Show"><i class="fas fa-eye"></i></a>
                                                                 @if (in_array('per_delete', $data_permission))
-                                                                    {{-- <a data-id="{{ $item->id }}"
+                                                                    <a data-id="{{ $item->id }}"
                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                        title="Delete"><i class="fas fa-archive"></i></a>  --}}
+                                                        title="Delete"><i class="fas fa-archive"></i></a> 
                                                                 @endif
 
                                                             </div>

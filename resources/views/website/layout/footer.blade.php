@@ -249,15 +249,16 @@
              </div>
              <div class="col-6">
                  <ul class="footer-social">
-                     <li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>
-                     <li><a href="#" class="tw"><i class="fab fa-twitter"></i></a></li>
-                     <li><a href="#" class="insta"><i class="fab fa-instagram"></i></a></li>
-                     <li><a href="#" class="linken"><i class="fab fa-linkedin-in"></i></a></li>
-                     <li><a href="#" class="yt"><i class="fab fa-youtube"></i></a></li>
+                     <li><a href="https://www.facebook.com/mynashikmc/" class="fb" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                     <li><a href="https://twitter.com/my_nmc" target="_blank" class="tw"><i class="fab fa-twitter"></i></a></li>
+                     <li><a href="https://instagram.com/my_nmc" target="_blank"  class="insta"><i class="fab fa-instagram"></i></a></li>
+                     {{-- <li><a href="#" target="_blank" class="linken"><i class="fab fa-linkedin-in"></i></a></li> --}}
+                     <li><a href="https://www.youtube.com/c/mynmc" target="_blank" class="yt"><i class="fab fa-youtube"></i></a></li>
+                     <li><a href="https://nmc.gov.in" target="_blank" class="yt"><i class='fas fa-globe' style='font-size:20px;color:#fff'></i></a></li>
                  </ul>
              </div>
          </div>
-     </div>
+        </div>
  </footer>
  <!--Footer End-->
 
@@ -290,6 +291,16 @@
          $("#departmentshowform").submit();
      })
  </script>
+
+<script>
+    $('.disaster-show-btn').click(function(e) {
+        // alert("hiii");
+        // alert($(this).attr("data-id"));
+        $("#disaster_show_id").val($(this).attr("data-id"));
+        $("#disastershowform").submit();
+    })
+</script>
+
 
  <!-- webpage A+ A- button script -->
 

@@ -22,12 +22,11 @@
                                 enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
-                                     {{-- <div class="col-lg-6 col-md-6 col-sm-6">
+                                   <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title English <span
                                                     class="text-danger">*</span></label>
-                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title"
-                                                name="english_title">{{ old('english_title') }}</textarea>
+                                                    <input class="form-control" name="english_title" id="english_title" placeholder="Enter the Title">  
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php //echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -37,18 +36,17 @@
                                         <div class="form-group">
                                             <label for="marathi_title">Title Marathi <span
                                                     class="text-danger">*</span></label>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title"
-                                                name="marathi_title">{{ old('marathi_title') }}</textarea>
+                                                    <input class=" form-control" name="marathi_title" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php //echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div> --}}
+                                    </div> 
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="english_description">Description<span
                                                     class="text-danger">*</span></label>
-                                            <textarea class="form-control english_description" name="english_description" id="english_description"
+                                            <textarea class="form-control " name="english_description" id="english_description"
                                                 placeholder="Enter the Description" name="english_description">{{ old('english_description') }}</textarea>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
@@ -59,78 +57,13 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label> वर्णन <span class="text-danger">*</span></label>
-                                            <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
+                                            <textarea class="form-control " name="marathi_description" id="marathi_description"
                                                 placeholder="वर्णन प्रविष्ट करा">{{ old('marathi_description') }}</textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="forcast_date">Disaster Forecast Date <span
-                                                    class="text-danger">*</span></label>
-                                            <input type="date" class="form-control" placeholder="YYYY-MM-DD"
-                                                name="forcast_date" id="forcast_date" value="{{ old('forcast_date') }}">
-                                            @if ($errors->has('forcast_date'))
-                                                <span class="red-text"><?php //echo $errors->first('forcast_date', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div> 
-                                     <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="expired_date">Expired Date <span
-                                                    class="text-danger">*</span></label>
-                                            <input type="date" class="form-control" placeholder="YYYY-MM-DD"
-                                                name="expired_date" id="expired_date" value="{{ old('expired_date') }}">
-                                            @if ($errors->has('expired_date'))
-                                                <span class="red-text"><?php //echo $errors->first('expired_date', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div> --}}
-{{-- 
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="english_image">Image English <span
-                                                    class="text-danger">*</span></label><br>
-                                            <input type="file" name="english_image" id="english_image" accept="image/*"
-                                                value="{{ old('english_image') }}"><br>
-                                            @if ($errors->has('english_image'))
-                                                <span class="red-text"><?php //echo $errors->first('english_image', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="marathi_image">Image Marathi <span
-                                                    class="text-danger">*</span></label><br>
-                                            <input type="file" name="marathi_image" id="marathi_image" accept="image/*"
-                                                value="{{ old('marathi_image') }}"><br>
-                                            @if ($errors->has('marathi_image'))
-                                                <span class="red-text"><?php //echo $errors->first('marathi_image', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div> --}}
-                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="english_pdf">PDF English</label><br>
-                                            <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"
-                                                value="{{ old('english_pdf') }}">
-                                            @if ($errors->has('english_pdf'))
-                                                <span class="red-text"><?php //echo $errors->first('english_pdf', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="marathi_pdf">PDF Marathi</label><br>
-                                            <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
-                                                value="{{ old('marathi_pdf') }}">
-                                            @if ($errors->has('marathi_pdf'))
-                                                <span class="red-text"><?php //echo $errors->first('marathi_pdf', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>  --}}
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-success">Save &amp; Submit</button>
                                          {{-- <button type="reset" class="btn btn-danger">Cancel</button>  --}}

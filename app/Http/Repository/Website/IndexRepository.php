@@ -137,7 +137,7 @@ class IndexRepository  {
             } else {
                 $data_output = $data_output->select('english_title','english_description','english_url','disaster_date','english_image','id');
             }
-            $data_output =  $data_output->get()
+            $data_output =  $data_output->latest()->take(3)->get()
                             ->toArray();
             return  $data_output;
         } catch (\Exception $e) {
@@ -213,6 +213,39 @@ class IndexRepository  {
             return $e;
         }
     }
+    public function getAllWebDisaterForcast(){
+        try {
+             $data_output = DisasterForcast::where('is_active','=',true);
+           
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->select('id','marathi_title','marathi_description');
+            } else {
+                $data_output = $data_output->select('id','english_title','english_description');
+            }
+            $data_output =  $data_output->get()
+                            ->toArray();
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+
+    public function getByIdDisasterForecast($id)
+    {
+        try {
+            $data_output = DisasterForcast::where('is_active','=',true);
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->select('id','marathi_title','marathi_description');
+            } else {
+                $data_output = $data_output->select('id','english_title','english_description');
+            }
+            $data_output = $data_output->where('id', $id)->get()->toArray();
+           
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
 
     public function getAllVacancies()
     {
@@ -251,11 +284,15 @@ class IndexRepository  {
 
     public function getAllDisaterForcast(){
         try {
-            $data_output = DisasterForcast::where('is_active','=',true);
+            // $data_output = DisasterForcast::where('is_active','=',true);
+            $data_output = DisasterForcast::where('is_active', true)
+            ->orderBy('id', 'desc')
+            ->limit(1);
+            // ->get();
             if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('marathi_description');
+                $data_output =  $data_output->select('id','marathi_title','marathi_description');
             } else {
-                $data_output = $data_output->select('english_description');
+                $data_output = $data_output->select('id','english_title','english_description');
             }
             $data_output =  $data_output->get()
                             ->toArray();

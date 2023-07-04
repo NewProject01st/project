@@ -36,8 +36,8 @@ class DisasterForcastRepository  {
         // $request->english_pdf->storeAs('public/pdf/disaster-forcast', $marathiPdf);
         
         $disasterforcast_data = new DisasterForcast();
-        // $disasterforcast_data->english_title = $request['english_title'];
-        // $disasterforcast_data->marathi_title = $request['marathi_title'];
+        $disasterforcast_data->english_title = $request['english_title'];
+        $disasterforcast_data->marathi_title = $request['marathi_title'];
         $disasterforcast_data->english_description = $request['english_description'];
         $disasterforcast_data->marathi_description = $request['marathi_description'];
         // $disasterforcast_data->forcast_date = $request['forcast_date'];
@@ -99,8 +99,8 @@ public function updateAll($request)
         // $request->english_image->storeAs('public/images/home/disaster-forcast', $englishImage);
         // $request->marathi_image->storeAs('public/images/home/disaster-forcast', $marathiImage);
         
-        // $disasterforcast_data->english_title = $request['english_title'];
-        // $disasterforcast_data->marathi_title = $request['marathi_title'];
+        $disasterforcast_data->english_title = $request['english_title'];
+        $disasterforcast_data->marathi_title = $request['marathi_title'];
         $disasterforcast_data->english_description = $request['english_description'];
         $disasterforcast_data->marathi_description = $request['marathi_description'];
         // $disasterforcast_data->forcast_date = $request['forcast_date'];
@@ -122,29 +122,36 @@ public function updateAll($request)
     }
 }
 
+// public function deleteById($id)
+// {
+//     try {
+//         $DisasterForcast = DisasterForcast::where(['id' => $request->delete_id])
+//         ->update(['is_deleted' => false]);       
+//     } catch (\Exception $e) {
+//         return $e;
+//     }
+// }
+
+
 public function deleteById($id)
 {
     try {
-        $disasterforcast = DisasterForcast::find($id);
-        if ($disasterforcast) {
-            // // Delete the images from the storage folder
-            // Storage::delete([
-            //     'public/images/home/disaster-forcast/'.$disasterforcast->marathi_image,
-            //     'public/images/home/disaster-forcast/'.$disasterforcast->english_image,
-            //     'public/pdf/disaster-forcast/'.$disasterforcast->marathi_pdf,
-            //     'public/pdf/disaster-forcast/'.$disasterforcast->english_pdf
-            // ]);
+    //     $disasterForecast = DisasterForcast::where(['id' => $request->$delete_id])
+    //  ->update(['is_deleted' => true]);  
 
-            // Delete the record from the database
-            $disasterforcast->delete();
-            
-            return $disasterforcast;
+        $disasterForecast = DisasterForcast::find($id);
+
+        if ($disasterForecast) {
+            $disasterForecast->delete();
         } else {
-            return null;
+            throw new \Exception('Disaster forecast not found.');
         }
+        
+        return 'Disaster forecast deleted successfully.';
     } catch (\Exception $e) {
-        return $e;
+        return $e->getMessage();
     }
 }
+
        
 }

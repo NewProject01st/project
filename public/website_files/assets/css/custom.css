@@ -6804,6 +6804,8 @@ box-shadow: 0 0 4px #000;
 .temp{
 	color: #000;
 	margin-bottom: -15px !important;
+	font-size: 11px;
+    font-weight: 600;
 }
 .weather_card{
 	background: linear-gradient(to right, #00a4ff52, #0072ff24);

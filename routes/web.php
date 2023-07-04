@@ -47,6 +47,11 @@ Route::get('/pages/{page}', ['as' => 'pages', 'uses' => 'App\Http\Controllers\We
 Route::get('/index', ['as' => 'index', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
 Route::post('/new-paricular-data-web', ['as' => 'new-paricular-data-web', 'uses' => 'App\Http\Controllers\Website\IndexController@show']);
 Route::post('/particular-department-information', ['as' => 'particular-department-information', 'uses' => 'App\Http\Controllers\Website\IndexController@showDepartmentInformation']);
+Route::post('/particular-disaster_forecast', ['as' => 'particular-disaster_forecast', 'uses' => 'App\Http\Controllers\Website\IndexController@showDisasterForecast']);
+Route::get('/list-disaster-forecast-web', ['as' => 'list-disaster-forecast-web', 'uses' => 'App\Http\Controllers\Website\IndexController@getAllWebDisaterForcast']);
+
+
+
 Route::get('/list-vacancies', ['as' => 'list-vacancies', 'uses' => 'App\Http\Controllers\Website\IndexController@showVacancies']);
 Route::get('/list-rti', ['as' => 'list-rti', 'uses' => 'App\Http\Controllers\Website\IndexController@showRTI']);
 
@@ -124,6 +129,7 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/delete-users', ['as' => 'delete-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@delete']);
     Route::post('/show-users', ['as' => 'show-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@show']);
     Route::get('/cities', ['as' => 'cities', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@getCities']);
+    Route::get('/states', ['as' => 'states', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@getState']);
 
     Route::post('/update-active-user', ['as' => 'update-active-user', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateOne']);
     // Route::get('/prof', ['as' => 'prof', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@getProf']);
