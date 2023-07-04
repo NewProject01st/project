@@ -591,22 +591,6 @@
                                                 <ul>
                                                     <li> <?php echo $item['english_description']; ?></li>
                                                 </ul>
-                                                <?php $forecast_data_api = unserialize(getTempratureData()->forecast); ?>
-                                                @foreach ($forecast_data_api as $forecast_data)
-                                                    <ul>
-                                                        <li> conditions: {{ $forecast_data['conditions'] }}</li>
-                                                        <li> description: {{ $forecast_data['description'] }}</li>
-                                                        <li> sunrise: {{ $forecast_data['sunrise'] }}</li>
-                                                        <li> sunset: {{ $forecast_data['sunset'] }}</li>
-                                                    </ul>
-                                                    @foreach ($forecast_data['hour_wise'] as $forecast_data_hourwise)
-                                                        <ul>
-                                                            <li> Time : {{ $forecast_data_hourwise['datetime'] }}
-                                                                Temprature : {{ $forecast_data_hourwise['temp'] }}
-                                                            </li>
-                                                        </ul>
-                                                    @endforeach
-                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
