@@ -95,7 +95,7 @@
                                             <label for="u_password">Password</label>&nbsp<span class="red-text">*</span>
                                             <input type="password" class="password form-control" name="u_password"
                                                 id="u_password" placeholder=""
-                                                value="@if (old('u_password')) {{ old('u_password') }} @endif" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                value="@if (old('u_password')) {{ old('u_password') }} @endif">
 
                                             @if ($errors->has('u_password'))
                                                 <span class="red-text"><?php echo $errors->first('u_password', ':message'); ?></span>

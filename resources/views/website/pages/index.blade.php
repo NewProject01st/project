@@ -164,7 +164,8 @@
                     </h3>
                 </div>
                 <div class="row d-flex flex-wrap">
-
+                <div class="col-lg-9 col-md-9 col-sm-9">
+                <div class="row d-flex flex-wrap">
                     @foreach ($data_output_disastermanagementnews as $item)
                         @if (session('language') == 'mar')
                             <div class="col-md-3 col-sm-6 mt-4">
@@ -228,6 +229,205 @@
                             </div>
                         @endif
                     @endforeach
+    </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-3">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <!-- Item -->
+                    <div class="WeatherBlock">
+                        <div class="card weather_card">
+                            <div class="card-body">
+                            <h3 class="text-center">Nashik</h3>
+                            <p class="text-center">July, 03-07-2023 | Monday</p>
+
+                            <div class="d-flex justify-content-center bd-highlight mb-2">
+                                <div class="p-2 bd-highlight"><h5> 18° C </h5> <h6 class="d-flex justify-content-center">MIN<h6></div>
+                                <div class="p-2 bd-highlight"><h5> 18° C </h5> <h6 class="d-flex justify-content-center">MAX<h6></div>
+                            </div>
+
+                            <hr>
+                                <div class="row">
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 12:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 01:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 02:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 03:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 04:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 05:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 06:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 07:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 08:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 09:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 10:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 11:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Item -->
+                </div>
+                <div class="carousel-item">
+                    <!-- Item -->
+                    <div class="WeatherBlock">
+                        <div class="card weather_card">
+                            <div class="card-body">
+                            <h3 class="text-center">Nashik</h3>
+                            <p class="text-center">July, 03-07-2023 | Monday</p>
+
+                            <div class="d-flex justify-content-center bd-highlight mb-2">
+                                <div class="p-2 bd-highlight"><h5> 18° C </h5> <h6 class="d-flex justify-content-center">MIN<h6></div>
+                                <div class="p-2 bd-highlight"><h5> 18° C </h5> <h6 class="d-flex justify-content-center">MAX<h6></div>
+                            </div>
+
+                            <hr>
+                                <div class="row">
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 12:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 01:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 02:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 03:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 04:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 05:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 06:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 07:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 08:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 09:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 10:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 11:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Item -->
+                
+                </div>
+                <div class="carousel-item">
+                    <!-- Item -->
+                    <div class="WeatherBlock">
+                        <div class="card weather_card">
+                            <div class="card-body">
+                            <h3 class="text-center">Nashik</h3>
+                            <p class="text-center">July, 03-07-2023 | Monday</p>
+
+                            <div class="d-flex justify-content-center bd-highlight mb-2">
+                                <div class="p-2 bd-highlight"><h5> 18° C </h5> <h6 class="d-flex justify-content-center">MIN<h6></div>
+                                <div class="p-2 bd-highlight"><h5> 18° C </h5> <h6 class="d-flex justify-content-center">MAX<h6></div>
+                            </div>
+
+                            <hr>
+                                <div class="row">
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 12:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 01:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 02:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 03:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 04:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 05:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 06:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 07:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 08:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 09:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 10:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <div class="p-2 bd-highlight timewise_temp"><p class="time"> 11:00 </p> <p class="d-flex justify-content-center temp">18° C<p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Item -->
+                
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
                     <!--News Box End-->
 
                 </div>
@@ -238,6 +438,7 @@
             </form>
         </section>
         <!--End News End-->
+    
 
         <!--Departments & Information Desk Start-->
         <section class="wf100 p75-50  depart-info">
@@ -541,6 +742,8 @@
     </section>
     <!--Departments & Information Desk End-->
     </div>
+
+   
 @endsection
 {{-- @extends('website.layout.navbar')
 @extends('website.layout.header') --}}
