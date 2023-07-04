@@ -251,19 +251,19 @@
                                             <div class="card weather_card">
                                                 <div class="card-body">
                                                     <h3 class="text-center">Nashik</h3>
-                                                    <p class="text-center">{{ $forecast_data['datetime'] }}</p>
+                                                    <p class="text-center">{{date("d/m/Y", strtotime($forecast_data['datetime']))}} | {{date("l", strtotime($forecast_data['datetime']))}}</p>
 
-                                                   {{-- <div class="d-flex justify-content-center bd-highlight mb-2">
+                                                    <div class="d-flex justify-content-center bd-highlight mb-2">
                                                         <div class="p-2 bd-highlight">
-                                                            <h5> 18° C </h5>
+                                                            <h5> {{ $forecast_data['min_temp'] }}° C </h5>
                                                             <h6 class="d-flex justify-content-center">MIN<h6>
                                                         </div>
                                                         <div class="p-2 bd-highlight">
-                                                            <h5> 18° C </h5>
+                                                            <h5> {{ $forecast_data['max_temp'] }}° C </h5>
                                                             <h6 class="d-flex justify-content-center">MAX<h6>
                                                         </div>
                                                     </div>
-                                                    --}}
+                                                    
 
                                                     <hr>
                                                     <div class="row">

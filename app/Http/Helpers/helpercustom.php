@@ -356,11 +356,26 @@ function processForecastData($forecast_data) {
             $data_array['sunrise'] = $forecast['sunrise'];
             $data_array['sunset'] = $forecast['sunset'];
             $data_array_hourwise = array();
+            $min_temp = '';
+            $max_temp = '';
             foreach ($forecast['hours'] as $key=>$dataforecast_day_wise) {
                 $data_array_hours['datetime'] = $dataforecast_day_wise['datetime'];
                 $data_array_hours['temp'] = $dataforecast_day_wise['temp'];
+                if($min_temp == '') {
+                    $min_temp = $dataforecast_day_wise['temp'];
+                } else if($min_temp > $dataforecast_day_wise['temp']) {
+                    $min_temp = $dataforecast_day_wise['temp'];
+                }
+
+                if($max_temp == '') {
+                    $max_temp = $dataforecast_day_wise['temp'];
+                } else if($max_temp < $dataforecast_day_wise['temp']) {
+                    $max_temp = $dataforecast_day_wise['temp'];
+                }
                 $data_array_hourwise[$key] = $data_array_hours;
-            }   
+            }
+            $data_array['min_temp'] = $min_temp;
+            $data_array['max_temp'] = $max_temp;
             $data_array['hour_wise'] = $data_array_hourwise;
             array_push($return_array,$data_array);
         }
