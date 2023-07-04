@@ -45,7 +45,7 @@ class RoleController extends Controller
         try {
 
             $rules = [
-                'role_name' => 'required|regex:/^[a-zA-Z]+$/u|max:255',
+                'role_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             ];
             $messages = [
                 'role_name.required' => 'Please  enter english title.',
@@ -98,7 +98,7 @@ class RoleController extends Controller
     {
         try {
             $rules = [
-                'role_name' => 'required|regex:/^[a-zA-Z]+$/u|max:255',
+                'role_name' =>'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             ];
             $messages = [
                 'role_name.required' => 'Please  enter english title.',

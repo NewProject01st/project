@@ -26,6 +26,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+                                    @include('admin.layout.alert')
                                     <div class="table-responsive">
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
@@ -41,7 +42,7 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ strip_tags($item->url) }}</td>
-{{-- 
+                                                        {{-- 
                                                         <td>
                                                             <label class="switch">
                                                                 <input data-id="{{ $item->id }}" type="checkbox"

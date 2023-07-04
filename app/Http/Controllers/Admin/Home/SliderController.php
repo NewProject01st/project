@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Http\Services\Admin\Home\SliderServices;
 use Validator;
+use Illuminate\Validation\Rule;
 use Config;
 class SliderController extends Controller
 {
@@ -30,18 +31,21 @@ class SliderController extends Controller
 
     public function store(Request $request){
         $rules = [
-            'english_title' => 'required',
-            'marathi_title' => 'required',
+            'english_title' => 'required|max:255',
+            'marathi_title' => 'required|max:255',
             'english_description' => 'required',
             'marathi_description' => 'required',
             'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'',
             'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'',
-            'url' => 'required',
+            'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
         ];
 
-        $messages = [   
-            'english_title.required' => 'Please enter title.',
-            'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+        $messages = [    
+            'english_title.required'=>'Please enter title.',
+            // 'english_title.regex' => 'Please  enter text only.',
+            'english_title.max'   => 'Please  enter text length upto 255 character only.',
+            'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+            'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
             'english_description.required' => 'Please enter description.',
             'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
             'english_image.required' => 'The image is required.',
@@ -56,6 +60,8 @@ class SliderController extends Controller
             'marathi_image.max' => 'कृपया प्रतिमेचा आकार जास्त नसावा.'.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'KB .',
             'marathi_image.min' => 'कृपया प्रतिमेचा आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'KB .',
             'marathi_image.dimensions' => 'कृपया प्रतिमा 1500x500 आणि 2000x1000 पिक्सेल दरम्यान असणे आवश्यक आहे.',
+            'url.required'=>'Please enter url.',
+            'url.regex'=>'Please valid url.',
         ];
 
         try {
@@ -100,11 +106,11 @@ class SliderController extends Controller
     
     public function update(Request $request){
         $rules = [
-            'english_title' => 'required',
-            'marathi_title' => 'required',
+            'english_title' => 'required|max:255',
+            'marathi_title' => 'required|max:255',
             'english_description' => 'required',
             'marathi_description' => 'required',
-            'url' => 'required',
+            'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
         ];
 
         if($request->has('english_image')) {
@@ -114,8 +120,11 @@ class SliderController extends Controller
             $rules['marathi_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE");
         }
         $messages = [   
-            'english_title.required' => 'Please enter title.',
-            'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+            'english_title.required'=>'Please enter title.',
+            // 'english_title.regex' => 'Please  enter text only.',
+            'english_title.max'   => 'Please  enter text length upto 255 character only.',
+            'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+            'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
             'english_description.required' => 'Please enter description.',
             'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
             'english_image.required' => 'The English image is required.',
@@ -130,6 +139,8 @@ class SliderController extends Controller
             'marathi_image.max' => 'कृपया प्रतिमेचा आकार जास्त नसावा.'.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'KB .',
             'marathi_image.min' => 'कृपया प्रतिमेचा आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'KB .',
             'marathi_image.dimensions' => 'कृपया प्रतिमा 1500x500 आणि 2000x1000 पिक्सेल दरम्यान असणे आवश्यक आहे.',
+            'url.required'=>'Please enter url.',
+            'url.regex'=>'Please valid url.',
         ];
 
         try {

@@ -27,6 +27,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+                                    @include('admin.layout.alert')
                                     <div class="table-responsive">
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
@@ -49,24 +50,27 @@
                                                         <td>{{ strip_tags($item->marathi_title) }}</td>
                                                         <td>{{ strip_tags($item->policies_year) }}</td>
                                                         <td> <a href="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $item->english_pdf }}"
-                                                                target="_blank" alt=" {{ strip_tags($item['english_title']) }} pdf"><img
+                                                                target="_blank"
+                                                                alt=" {{ strip_tags($item['english_title']) }} pdf"><img
                                                                     src="{{ asset('assets/images/pdf.png/') }}"
                                                                     width="35px" height="35px"></a></td>
                                                         <td> <a href="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $item->marathi_pdf }}"
-                                                                target="_blank" alt=" {{ strip_tags($item['marathi_title']) }} pdf"><img class="pdf-size"
+                                                                target="_blank"
+                                                                alt=" {{ strip_tags($item['marathi_title']) }} pdf"><img
+                                                                    class="pdf-size"
                                                                     src="{{ asset('assets/images/pdf.png/') }}"
                                                                     width="35px" height="35px"></a></td>
-                                                                    <td>
-                                                                        <label class="switch">
-                                                                            <input data-id="{{ $item->id }}" type="checkbox"
-                                                                                {{ $item->is_active ? 'checked' : '' }}
-                                                                                class="active-btn btn btn-sm btn-outline-primary m-1"
-                                                                                data-toggle="tooltip" data-placement="top"
-                                                                                title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
-                                                                            <span class="slider round "></span>
-                                                                        </label>
-            
-                                                                    </td>
+                                                        <td>
+                                                            <label class="switch">
+                                                                <input data-id="{{ $item->id }}" type="checkbox"
+                                                                    {{ $item->is_active ? 'checked' : '' }}
+                                                                    class="active-btn btn btn-sm btn-outline-primary m-1"
+                                                                    data-toggle="tooltip" data-placement="top"
+                                                                    title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
+                                                                <span class="slider round "></span>
+                                                            </label>
+
+                                                        </td>
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
@@ -115,7 +119,7 @@
             @csrf
             <input type="hidden" name="active_id" id="active_id" value="">
         </form>
-        
+
 
         <!-- content-wrapper ends -->
     @endsection

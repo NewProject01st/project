@@ -1,4 +1,5 @@
-      <!-- left sidebar -->
+ 
+ <!-- left sidebar -->
       <?php $data_for_url = session('data_for_url'); ?>
       <nav class="sidebar sidebar-offcanvas fixed-nav" id="sidebar">
           <ul class="nav">
@@ -573,3 +574,7 @@
              {{-- @endif --}}
           </ul>
       </nav><!-- partial -->
+
+      <script>
+        
+      </script>

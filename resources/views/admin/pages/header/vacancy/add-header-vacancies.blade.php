@@ -19,7 +19,7 @@
                     <div class="card">
                         <div class="card-body">
                             <form class="forms-sample" action="{{ url('add-header-vacancies') }}" method="POST"
-                                enctype="multipart/form-data" id="regForm">
+                                enctype="multipart/form-data" id="formVacancy">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -85,4 +85,80 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                $.extend($.validator.methods, {
+                    spcenotallow: function(b, c, d) {
+                        if (!this.depend(d, c)) return "dependency-mismatch";
+                        if ("select" === c.nodeName.toLowerCase()) {
+                            var e = a(c).val();
+                            return e && e.length > 0
+                        }
+                        return this.checkable(c) ? this.getLength(b, c) > 0 : b.trim().length > 0
+                    }
+                });
+
+                $.validator.addMethod("alphanumericwithspace", function(value, element) {
+                    var reg = /[0-9]/;
+                    if (reg.test(value)) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }, "Number is not permitted");
+
+                // $.validator.addMethod("urlValidation", function(value, element) {
+                //     // Regular expression for URL validation
+                //     var reg =
+                //         /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
+                //     return this.optional(element) || reg.test(value);
+                // }, "Enter a valid URL");
+
+
+                $("#formVacancy").validate({
+
+                    rules: {
+                        english_title: {
+                            required: true,
+                            spcenotallow: true,
+                            alphanumericwithspace: true
+                        },
+                        marathi_title: {
+                            required: true,
+                            spcenotallow: true,
+                            alphanumericwithspace: true
+                        },
+
+                        // url_field: {
+                        //     required: true,
+                        //     urlValidation: true
+                        // }
+
+
+                    },
+                    messages: {
+                        english_title: {
+                            required: "The english title field is required.",
+                            spcenotallow: "Enter Some Text",
+                            alphanumericwithspace: "Enter Valid Input"
+
+                        },
+
+                        marathi_title: {
+                            required: "The english title field is required.",
+                            spcenotallow: "Enter Some Text",
+                            alphanumericwithspace: "Enter Valid Input"
+
+                        },
+
+                        // url_field: {
+                        //     required: "The URL field is required.",
+                        //     urlValidation: "Enter a valid URL"
+                        // }
+
+
+                    }
+                });
+            });
+        </script>
     @endsection

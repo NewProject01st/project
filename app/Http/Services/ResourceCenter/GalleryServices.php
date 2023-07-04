@@ -61,8 +61,10 @@ class GalleryServices
     public function updateAll($request){
         try {
             $return_data = $this->repo->updateAll($request);
+
             
             $path = Config::get('DocumentConstant.Gallery_ADD');
+
             if ($request->hasFile('english_image')) {
                 if ($return_data['english_image']) {
                     $delete_file_eng= storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $return_data['english_image']);

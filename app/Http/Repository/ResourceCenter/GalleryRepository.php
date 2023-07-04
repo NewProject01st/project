@@ -15,6 +15,7 @@ class GalleryRepository  {
 	public function getAll(){
         try {
             $gallery = Gallery::join('gallery_category', 'gallery_category.id','=', 'gallery.Category_id')
+            ->select('gallery.is_active as is_active', 'gallery_category.english_name as english_name','gallery.id as id','gallery.category_id as category_id', 'gallery.english_image as english_image', 'gallery.marathi_image as marathi_image')
             ->get();
         return $gallery;
             
@@ -61,10 +62,6 @@ public function getById($id)
         }
     } catch (\Exception $e) {
         return $e;
-		return [
-            'msg' => 'Failed to get by id Gallery.',
-            'status' => 'error'
-        ];
     }
 }
 
@@ -94,10 +91,6 @@ public function updateAll($request)
        
     } catch (\Exception $e) {
         return $e;
-        return [
-            'msg' => 'Failed to update Gallery data.',
-            'status' => 'error'
-        ];
     }
 }
 public function updateOne($request)

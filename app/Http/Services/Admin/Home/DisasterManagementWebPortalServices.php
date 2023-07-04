@@ -41,9 +41,9 @@ class DisasterManagementWebPortalServices
             uploadImage($request, 'english_image', $path, $englishImageName);
             uploadImage($request, 'marathi_image', $path, $marathiImageName);
             if ($last_id) {
-                return ['status' => 'success', 'msg' => 'State Disaster Management Authority Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Disaster Management Web Portal Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'State Disaster Management Authority get Not Added.'];
+                return ['status' => 'error', 'msg' => 'Disaster Management Web Portal get Not Added.'];
             }  
             
         } catch (Exception $e) {
@@ -94,9 +94,9 @@ class DisasterManagementWebPortalServices
             }
 
             if ($return_data) {
-                return ['status' => 'success', 'msg' => 'Objective Goals Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Disaster Management Web Portal Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Objective Goals Not Added.'];
+                return ['status' => 'error', 'msg' => 'Disaster Management Web Portal Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];

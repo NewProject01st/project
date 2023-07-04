@@ -137,7 +137,7 @@ class IndexRepository  {
             } else {
                 $data_output = $data_output->select('english_title','english_description','english_url','disaster_date','english_image','id');
             }
-            $data_output =  $data_output->get()
+            $data_output =  $data_output->latest()->take(3)->get()
                             ->toArray();
             return  $data_output;
         } catch (\Exception $e) {

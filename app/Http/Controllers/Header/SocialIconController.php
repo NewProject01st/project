@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\SocialIcon;
 use App\Http\Services\Header\SocialIconServices;
 use Validator;
+use Illuminate\Validation\Rule;
 class SocialIconController extends Controller
 {
 
@@ -30,14 +31,15 @@ class SocialIconController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'url' =>'required',
+            'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
             'icon' => 'required',
             
             
             
          ];
     $messages = [   
-        'url' =>'required',
+        'url.required'=>'Please enter url.',
+        'url.regex'=>'Please valid url.',
         'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
     ];
@@ -85,10 +87,13 @@ class SocialIconController extends Controller
     $rules = [
        
         'icon' => 'required',
+        'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
+
         
      ];
     $messages = [   
-       
+        'url.required'=>'Please enter url.',
+        'url.regex'=>'Please valid url.',
         'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
       
     ];

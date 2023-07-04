@@ -30,7 +30,7 @@ class IncidentTypeController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'english_title' => 'required|regex:/^[a-zA-Z]+$/u|max:255',
+            'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             'marathi_title' => 'required|max:255',
          ];
         $messages = [   
@@ -80,7 +80,7 @@ class IncidentTypeController extends Controller
     public function update(Request $request)
     {
         $rules = [
-            'english_title' => 'required|regex:/^[a-zA-Z]+$/u|max:255',
+            'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             'marathi_title' => 'required|max:255',
          ];
         $messages = [   

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Marquee;
 use App\Http\Services\Admin\Home\MarqueeServices;
 use Validator;
+use Illuminate\Validation\Rule;
 class MarqueeController extends Controller
 {
 
@@ -30,15 +31,19 @@ class MarqueeController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'english_title' => 'required',
-            'marathi_title' => 'required',
-            'url' => 'required',
+            'english_title' => 'required|max:255',
+            'marathi_title' => 'required|max:255',
+            'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
             
          ];
     $messages = [   
-        'english_title.required' => 'Please enter title.',
-        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
-        'url' => 'required',
+        'english_title.required'=>'Please enter title.',
+        // 'english_title.regex' => 'Please  enter text only.',
+        'english_title.max'   => 'Please  enter text length upto 255 character only.',
+        'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+        'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',   
+        'url.required'=>'Please enter url.',
+        'url.regex'=>'Please valid url.',
        
     ];
     // print_r($messages);
@@ -90,14 +95,20 @@ class MarqueeController extends Controller
 
     public function update(Request $request) {
     $rules = [
-             'english_title' => 'required',
-            'marathi_title' => 'required',
+        'english_title' => 'required|max:255',
+        'marathi_title' => 'required|max:255',
+        'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
         
      ];
 
     $messages = [   
-        'english_title.required' => 'Please enter title.',
-        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+        'english_title.required'=>'Please enter title.',
+        // 'english_title.regex' => 'Please  enter text only.',
+        'english_title.max'   => 'Please  enter text length upto 255 character only.',
+        'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+        'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',   
+        'url.required'=>'Please enter url.',
+        'url.regex'=>'Please valid url.',
        
     ];
 

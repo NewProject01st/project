@@ -69,7 +69,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_description">Description </label>&nbsp<span
                                                 class="red-text">*</span>
@@ -84,14 +84,14 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label> वर्णन </label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="Enter the Description">
                                                 @if (old('marathi_description'))
 {{ old('marathi_description') }}@else{{ $disaster_web_portal->marathi_description }}
-@endif  {{ $disaster_web_portal->marathi_description }}
+@endif  
                                                 </textarea>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>

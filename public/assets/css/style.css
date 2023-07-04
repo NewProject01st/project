@@ -18916,6 +18916,7 @@ input:focus {
   font-weight: 400;
   padding-top: 0;
   padding-bottom: 0;
+  margin-right: 10px;
 }
 
 .navbar.default-layout-navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link i {
@@ -29569,7 +29570,7 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
   margin-left: 0; .nav .nav-item .nav-link .sidebar
 } */
 
-.sidebar-icon-only .sidebar:hover {
+.sidebar:hover {
   width: 255px;
 }
 .sidebar-icon-only .sidebar .nav {

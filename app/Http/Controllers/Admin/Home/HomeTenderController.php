@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\HomeTender;
 use App\Http\Services\Admin\Home\HomeTenderServices;
 use Validator;
+use Illuminate\Validation\Rule;
 class HomeTenderController extends Controller
 {
 
@@ -31,23 +32,27 @@ class HomeTenderController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'english_title' => 'required',
-            'marathi_title' => 'required',
+            'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'marathi_title' => 'required|max:255',
             'english_description' => 'required',
             'marathi_description' => 'required', 
-            'url' => 'required',
+            'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
             'tender_date' => 'required',
             'english_pdf' => 'required|file|mimes:pdf',
             'marathi_pdf' => 'required|file|mimes:pdf',
             
          ];
     $messages = [   
-        'english_title.required' => 'Please enter title.',
-        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+        'english_title.required'=>'Please enter title.',
+        'english_title.regex' => 'Please  enter text only.',
+        'english_title.max'   => 'Please  enter text length upto 255 character only.',
+        'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+        'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
         'english_description.required' => 'Please enter description.',
         'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
-        'url' => 'required',
-        'tender_date' => 'required',
+        'url.required'=>'Please enter url.',
+        'url.regex'=>'Please valid url.',
+        'tender_date' => 'Please enter date.',
         'english_pdf.required' => 'Please upload an PDF file.',
         'english_pdf.file' => 'The file must be of type: file.',
         'english_pdf.mimes' => 'The file must be a PDF.',
@@ -99,22 +104,26 @@ public function edit(Request $request)
 public function update(Request $request)
 {
     $rules = [
-        'english_title' => 'required',
-            'marathi_title' => 'required',
+            'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'marathi_title' => 'required|max:255',
             'english_description' => 'required',
             'marathi_description' => 'required', 
-            'url' => 'required',
+            'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
             'tender_date' => 'required',
             'english_pdf' => 'required',
             'marathi_pdf' => 'required',
      ];
     $messages = [   
-        'english_title.required' => 'Please enter title.',
-        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+        'english_title.required'=>'Please enter title.',
+        'english_title.regex' => 'Please  enter text only.',
+        'english_title.max'   => 'Please  enter text length upto 255 character only.',
+        'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+        'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
         'english_description.required' => 'Please enter description.',
         'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
-        'url' => 'required',
-        'tender_date' => 'required',
+        'url.required'=>'Please enter url.',
+        'url.regex'=>'Please valid url.',
+        'tender_date' => 'Please enter date.',
         'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'marathi_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         

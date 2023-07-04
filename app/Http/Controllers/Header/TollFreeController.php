@@ -28,15 +28,19 @@ class TollFreeController extends Controller
         return view('admin.pages.header.tollfree-number.add-tollfree-number');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request) { 
         $rules = [       
-            'english_tollfree_no' => 'required',
-            'marathi_tollfree_no' => 'required',          
+            'english_tollfree_no' => 'required|regex: /^[\d\s+-]+$/',
+            'marathi_tollfree_no' => 'required|regex: /^[\d\s+-]+$/',    
          ];
     $messages = [   
                
         'english_tollfree_no.required' => 'Please enter toll free number',
+        'english_tollfree_no.regex' => 'Please enter valid toll free number.',
         'marathi_tollfree_no.required' => 'कृपया टोल फ्री नंबर टाका',         
+        'marathi_tollfree_no.regex' => 'कृपया वैध टोल फ्री क्रमांक प्रविष्ट करा.',
+
+        
        
     ];
 
@@ -81,15 +85,16 @@ class TollFreeController extends Controller
     public function update(Request $request)
 {
     $rules = [
-              
-            'english_tollfree_no' => 'required',
-            'marathi_tollfree_no' => 'required',         
-            
+        'english_tollfree_no' => 'required|regex: /^[\d\s+-]+$/',
+        'marathi_tollfree_no' => 'required|regex: /^[\d\s+-]+$/',    
      ];
     $messages = [   
-     
+             
         'english_tollfree_no.required' => 'Please enter toll free number',
-        'marathi_tollfree_no.required' => 'कृपया टोल फ्री नंबर टाका',     
+        'english_tollfree_no.regex' => 'Please enter valid toll free number.',
+        'marathi_tollfree_no.required' => 'कृपया टोल फ्री नंबर टाका',         
+        'marathi_tollfree_no.regex' => 'कृपया वैध टोल फ्री क्रमांक प्रविष्ट करा.',
+  
       
     ];
 

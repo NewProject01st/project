@@ -27,6 +27,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+                                    @include('admin.layout.alert')
                                     <div class="table-responsive">
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
@@ -40,15 +41,18 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+
                                                 @foreach ($gallery as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ strip_tags($item->english_name) }}</td>
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $item->english_image }}" alt=" {{ strip_tags($item['english_title']) }} Image"/>
+                                                                src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $item->english_image }}"
+                                                                alt=" {{ strip_tags($item['english_title']) }} Image" />
                                                         </td>
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $item->marathi_image }}" alt=" {{ strip_tags($item['marathi_title']) }} प्रतिमा"/>
+                                                                src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $item->marathi_image }}"
+                                                                alt=" {{ strip_tags($item['marathi_title']) }} प्रतिमा" />
                                                         </td>
                                                         <td>
                                                             <label class="switch">
