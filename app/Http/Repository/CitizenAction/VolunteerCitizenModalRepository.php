@@ -6,7 +6,8 @@ use DB;
 use Illuminate\Support\Carbon;
 // use Session;
 use App\Models\ {
-	CitizenVolunteerModal
+	CitizenVolunteerModal,
+    IncidentType
 };
 use Config;
 
@@ -14,7 +15,8 @@ class VolunteerCitizenModalRepository{
 	public function getAll(){
         try {
             // return CitizenVolunteerModal::all();
-            $modal_data = CitizenVolunteerModal::join('incident_type', 'incident_type.id','=', 'citizen_volunteer_modals.incident')
+            $modal_data = IncidentType::join('citizen_volunteer_modals', 'citizen_volunteer_modals.incident','=', 'incident_type.id')
+            ->select('citizen_volunteer_modals.*', 'incident_type.english_title')
             ->get();
             return $modal_data;
 
@@ -28,11 +30,10 @@ class VolunteerCitizenModalRepository{
 
             $citizenvolunteer = CitizenVolunteerModal::find($id);
             
-            // dd($citizenvolunteer);
-//             $citizenvolunteer = CitizenVolunteerModal::leftJoin('incident_type', 'incident_type.id', '=', 'citizen_volunteer_modals.incident')
-// 				->where('citizen_volunteer_modals.id', $id)
-// 				->first();
-// dd($citizenvolunteer);
+            $citizenvolunteer = CitizenVolunteerModal::join('incident_type', 'incident_type.id','=', 'citizen_volunteer_modals.incident')
+            ->select('citizen_volunteer_modals.*', 'incident_type.english_title')
+            ->find($id);
+
             if ($citizenvolunteer) {
                 return $citizenvolunteer;
             } else {
@@ -50,16 +51,17 @@ class VolunteerCitizenModalRepository{
     
     public function deleteById($id){
         try {
-            $slider = CitizenVolunteerModal::find($id);
-            if ($ciizen) {
-                if (file_exists(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $ciizen->media_upload))) {
-                    unlink(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $ciizen->media_upload));
+            $citizen = CitizenVolunteerModal::find($id);
+            // dd($ciizen);
+            if ($citizen) {
+                if (file_exists(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $citizen->media_upload))) {
+                    unlink(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $citizen->media_upload));
                 }
-                if (file_exists(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $ciizen->ngo_photo))) {
-                    unlink(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $ciizen->ngo_photo));
+                if (file_exists(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $citizen->ngo_photo))) {
+                    unlink(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $citizen->ngo_photo));
                 }
-                $ciizen->delete();
-                return $ciizen;
+                $citizen->delete();
+                return $citizen;
             } else {
                 return null;
             }

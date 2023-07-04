@@ -77,7 +77,8 @@
                                         <div class="form-group">
                                             <label for="f_name">First Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="f_name" id="f_name"
-                                                placeholder="" value="{{ $user_data['data_users']['f_name'] }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                placeholder="" value="{{ $user_data['data_users']['f_name'] }}"
+                                                oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('f_name'))
                                                 <span class="red-text"><?php echo $errors->first('f_name', ':message'); ?></span>
                                             @endif
@@ -88,7 +89,8 @@
                                         <div class="form-group">
                                             <label for="m_name">Middle Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="m_name" id="m_name"
-                                                placeholder="" value="{{ $user_data['data_users']['m_name'] }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                placeholder="" value="{{ $user_data['data_users']['m_name'] }}"
+                                                oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('m_name'))
                                                 <span class="red-text"><?php echo $errors->first('m_name', ':message'); ?></span>
                                             @endif
@@ -99,7 +101,8 @@
                                         <div class="form-group">
                                             <label for="l_name">Last Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="l_name" id="l_name"
-                                                placeholder="" value="{{ $user_data['data_users']['l_name'] }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                placeholder="" value="{{ $user_data['data_users']['l_name'] }}"
+                                                oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('l_name'))
                                                 <span class="red-text"><?php echo $errors->first('l_name', ':message'); ?></span>
                                             @endif
@@ -121,7 +124,8 @@
                                         <div class="form-group">
                                             <label for="designation">Designation</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="designation" id="designation"
-                                                placeholder="" value="{{ $user_data['data_users']['designation'] }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                placeholder="" value="{{ $user_data['data_users']['designation'] }}"
+                                                oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('designation'))
                                                 <span class="red-text"><?php echo $errors->first('designation', ':message'); ?></span>
                                             @endif
@@ -140,8 +144,9 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="state">State</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="state" id="state"
-                                                placeholder="" value="{{ $user_data['data_users']['state'] }}">
+                                            <select class="form-control" name="state" id="state">
+                                                <option value="">Select State</option>
+                                            </select>
                                             @if ($errors->has('state'))
                                                 <span class="red-text"><?php echo $errors->first('state', ':message'); ?></span>
                                             @endif
@@ -150,8 +155,9 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="city">City</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="city" id="city"
-                                                placeholder="" value="{{ $user_data['data_users']['city'] }}">
+                                            <select class="form-control" name="city" id="city">
+                                                <option value="">Select City</option>
+                                            </select>
                                             @if ($errors->has('city'))
                                                 <span class="red-text"><?php echo $errors->first('city', ':message'); ?></span>
                                             @endif
@@ -206,6 +212,60 @@
             </div>
         </div>
 
+        <script>
+            function getStateCity(stateId, city_id) {
+
+                $('#city').html('<option value="">Select City</option>');
+                if (stateId !== '') {
+                    $.ajax({
+                        url: '{{ route('cities') }}',
+                        type: 'GET',
+                        data: {
+                            stateId: stateId
+                        },
+
+                        success: function(response) {
+                            if (response.city.length > 0) {
+                                $.each(response.city, function(index, city) {
+                                    $('#city').append('<option value="' + city
+                                        .location_id +
+                                        '" selected>' + city.name + '</option>');
+                                });
+                                if (city_id != null) {
+                                    $('#city').val(city_id);
+                                } else {
+                                    $('#city').val("");
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+
+            function getState(stateId) {
+                $('#state').html('<option value="">Select State</option>');
+                if (stateId !== '') {
+                    $.ajax({
+                        url: '{{ route('states') }}',
+                        type: 'GET',
+                        data: {
+                            stateId: stateId
+                        },
+                        success: function(response) {
+                            if (response.state.length > 0) {
+                                $.each(response.state, function(index, state) {
+                                    $('#state').append('<option value="' + state
+                                        .location_id +
+                                        '" selected>' + state.name + '</option>');
+                                });
+                                $('#state').val(stateId);
+                            }
+                        }
+                    });
+                }
+            }
+        </script>
+
         <script type="text/javascript">
             function submitRegister() {
                 document.getElementById("frm_register").submit();
@@ -239,6 +299,12 @@
         <script>
             $(document).ready(function() {
                 myFunction($("#role_id").val());
+                getStateCity('{{ $user_data['data_users']['state'] }}', '{{ $user_data['data_users']['city'] }}');
+                getState('{{ $user_data['data_users']['state'] }}');
+
+                $("#state").on('change', function() {
+                    getStateCity($("#state").val(),'');
+                });
             });
 
             function myFunction(role_id) {

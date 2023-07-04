@@ -64,6 +64,18 @@ class RegisterController extends Controller {
 
     }
 
+    public function getState(Request $request)
+    {
+        $stateId = $request->input('stateId');
+        $state =  TblArea::where('location_type', 1)
+                            // ->where('parent_id', $stateId)
+                            ->select('location_id','name')
+                            ->get()
+                            ->toArray();
+        return response()->json(['state' => $state]);
+
+    }
+
     public function editUsers(Request $request){
         $user_data = $this->service->editUsers($request);
         return view('admin.pages.users.edit-users',compact('user_data'));
@@ -183,7 +195,7 @@ class RegisterController extends Controller {
         $messages = [   
                         'u_email.required' => 'Please enter email.',
                         'u_email.unique' => 'Your email is already exist.',
-                        'email.regex' => 'Enter valid email.',
+                        'u_email.regex' => 'Enter valid email.',
                         // 'u_uname.required'=>'Please enter firstname.',
                         // 'u_uname.regex' => 'Please  enter text only.',
                         // 'u_uname.max'   => 'Please  enter firstname length upto 255 character only.',       
