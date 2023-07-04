@@ -30,12 +30,16 @@ class GalleryCategoryController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'english_name' => 'required',
-            'marathi_name' => 'required',           
+            'english_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'marathi_name' => 'required|max:255',   
          ];
     $messages = [   
+       
         'english_name.required'=>'Please enter Name.',
-        'marathi_name.required'=>'कृपया नाव टाका.',
+        'english_name.regex' => 'Please  enter text only.',
+        'english_name.max'   => 'Please  enter text length upto 255 character only.',
+        'marathi_name.required'=>'कृपया नाव प्रविष्ट करा.',
+        'marathi_name.max'   => 'कृपया केवळ २५५ पर्यंत मजकूराची लांबी प्रविष्ट करा.',
     ];
 
     try {
@@ -80,12 +84,15 @@ class GalleryCategoryController extends Controller
     public function update(Request $request)
 {
     $rules = [
-        'english_name' => 'required',
-        'marathi_name' => 'required',
+        'english_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+        'marathi_name' => 'required|max:255',   
      ];
     $messages = [   
-        'english_name.required'=>'Please  enter english Name.',
-        'marathi_name.required'=>'कृपया नाव टाका.',
+        'english_name.required'=>'Please enter name.',
+        'english_name.regex' => 'Please  enter text only.',
+        'english_name.max'   => 'Please  enter text length upto 255 character only.',
+        'marathi_name.required'=>'कृपया नाव प्रविष्ट करा.',
+        'marathi_name.max'   => 'कृपया केवळ २५५ पर्यंत मजकूराची लांबी प्रविष्ट करा.',
     ];
 
     try {

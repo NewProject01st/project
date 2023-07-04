@@ -26,6 +26,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+                                    @include('admin.layout.alert')
                                     <div class="table-responsive">
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
@@ -44,16 +45,16 @@
                                                         <td><?php echo $item->english_title; ?></td>
                                                         <td><?php echo $item->marathi_title; ?></td>
                                                         <!-- <td>
-                                                                    <button data-id="{{ $item->id }}" type="submit"
-                                                                        class="active-btn btn btn-sm btn-outline-primary m-1"
-                                                                        data-toggle="tooltip" data-placement="top"
-                                                                        title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
-                                                                        <span class="status-icon {{ $item->is_active ? '1' : '0' }}">
-                                                                            <i
-                                                                                class="fa {{ $item->is_active ? 'fa-thumbs-up' : 'fa-thumbs-down' }}"></i>
-                                                                        </span>
-                                                                    </button>
-                                                                </td> -->
+                                                                        <button data-id="{{ $item->id }}" type="submit"
+                                                                            class="active-btn btn btn-sm btn-outline-primary m-1"
+                                                                            data-toggle="tooltip" data-placement="top"
+                                                                            title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
+                                                                            <span class="status-icon {{ $item->is_active ? '1' : '0' }}">
+                                                                                <i
+                                                                                    class="fa {{ $item->is_active ? 'fa-thumbs-up' : 'fa-thumbs-down' }}"></i>
+                                                                            </span>
+                                                                        </button>
+                                                                    </td> -->
                                                         <td>
                                                             <label class="switch">
                                                                 <input data-id="{{ $item->id }}" type="checkbox"

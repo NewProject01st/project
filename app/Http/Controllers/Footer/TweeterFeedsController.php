@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\TweeterFeed;
 use App\Http\Services\Footer\TweeterFeedServices;
 use Validator;
+use Illuminate\Validation\Rule;
 class TweeterFeedsController extends Controller
 {
 
@@ -31,12 +32,13 @@ class TweeterFeedsController extends Controller
     public function store(Request $request) {
         $rules = [
          
-            'url' => 'required',
+            'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
             
          ];
     $messages = [   
      
-        'url' => 'required',
+        'url.required'=>'Please enter url.',
+        'url.regex'=>'Please valid url.',
        
     ];
     // print_r($messages);
@@ -88,7 +90,7 @@ class TweeterFeedsController extends Controller
 
     public function update(Request $request) {
     $rules = [
-            'url' => 'required',
+        'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
             
             
         
@@ -96,7 +98,8 @@ class TweeterFeedsController extends Controller
 
     $messages = [   
       
-        'url.required' => 'Please  enter marathi title.',
+        'url.required'=>'Please enter url.',
+        'url.regex'=>'Please valid url.',
        
     ];
 

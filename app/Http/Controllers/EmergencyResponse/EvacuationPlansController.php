@@ -29,16 +29,19 @@ class EvacuationPlansController extends Controller
 
     public function store(Request $request) {
     $rules = [
-        'english_title' => 'required',
-        'marathi_title' => 'required',
+        'english_title' => 'required|max:255',
+        'marathi_title' => 'required|max:255',
         'english_description' => 'required',
         'marathi_description' => 'required',
         'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.EVACUATION_PLAN_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.EVACUATION_PLAN_IMAGE_MIN_SIZE").'',
         'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.EVACUATION_PLAN_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.EVACUATION_PLAN_IMAGE_MIN_SIZE").'',    
      ];
     $messages = [   
-           'english_title.required' => 'Please enter title.',
-            'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+            'english_title.required'=>'Please enter title.',
+            // 'english_title.regex' => 'Please  enter text only.',
+            'english_title.max'   => 'Please  enter text length upto 255 character only.',
+            'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+            'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',
             'english_description.required' => 'Please enter description.',
             'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
             'english_image.required' => 'The image is required.',
@@ -103,8 +106,8 @@ class EvacuationPlansController extends Controller
     public function update(Request $request)
 {
     $rules = [
-        'english_title' => 'required',
-        'marathi_title' => 'required',
+        'english_title' => 'required|max:255',
+        'marathi_title' => 'required|max:255',
         'english_description' => 'required',
         'marathi_description' => 'required',
      ];
@@ -117,8 +120,11 @@ class EvacuationPlansController extends Controller
     }
 
     $messages = [   
-        'english_title.required' => 'Please enter title.',
-        'marathi_title.required' => 'कृपया शीर्षक प्रविष्ट करा',
+        'english_title.required'=>'Please enter title.',
+        // 'english_title.regex' => 'Please  enter text only.',
+        'english_title.max'   => 'Please  enter text length upto 255 character only.',
+        'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+        'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',
         'english_description.required' => 'Please enter description.',
         'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
         'english_image.required' => 'The image is required.',

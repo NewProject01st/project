@@ -28,19 +28,22 @@ class VacanciesHeaderController extends Controller
     {
         return view('admin.pages.header.vacancy.add-header-vacancies');
     }
-
     public function store(Request $request) {
         $rules = [
-            'english_title' => 'required',
-            'marathi_title' => 'required',
+            'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'marathi_title' => 'required|max:255',
             'english_pdf' => 'required|file|mimes:pdf',
             'marathi_pdf' => 'required|file|mimes:pdf',
+            // 'url' => 'required|regex:/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/',
             'url' => 'required',
-            
+
          ];
     $messages = [   
         'english_title.required'=>'Please enter title.',
+        'english_title.regex' => 'Please  enter text only.',
+        'english_title.max'   => 'Please  enter text length upto 255 character only.',
         'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+        'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',            
         'url.required'=>'Please enter url.',
         'english_pdf.required' => 'Please upload an PDF file.',
         'english_pdf.file' => 'The file must be of type: file.',
@@ -93,15 +96,18 @@ public function edit(Request $request)
 public function update(Request $request)
 {
     $rules = [
-            'english_title' => 'required',
-            'marathi_title' => 'required',
+        'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+        'marathi_title' => 'required|max:255',
             // 'english_pdf' => 'required|file|mimes:pdf',
             // 'marathi_pdf' => 'required|file|mimes:pdf',
             'url' => 'required',
      ];
     $messages = [   
         'english_title.required'=>'Please enter title.',
+        'english_title.regex' => 'Please  enter text only.',
+        'english_title.max'   => 'Please  enter text length upto 255 character only.',
         'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+        'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',        
         'url.required'=>'Please enter url.',
         // 'english_pdf.required' => 'Please upload an PDF file.',
         // 'english_pdf.file' => 'The file must be of type: file.',

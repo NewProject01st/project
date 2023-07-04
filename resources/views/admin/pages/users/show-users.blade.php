@@ -24,6 +24,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+                                    @include('admin.layout.alert')
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Name :</label>

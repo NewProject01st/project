@@ -27,6 +27,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+                                    @include('admin.layout.alert')
                                     <div class="table-responsive">
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
@@ -58,10 +59,12 @@
                                                         <td>{{ strip_tags($item->english_designation) }}</td>
                                                         <td>{{ strip_tags($item->marathi_designation) }}</td>
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $item->english_image }}" alt=" {{ strip_tags($item['english_title']) }} Image"/>
+                                                                src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $item->english_image }}"
+                                                                alt=" {{ strip_tags($item['english_title']) }} Image" />
                                                         </td>
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $item->marathi_image }}" alt=" {{ strip_tags($item['marathi_title']) }} प्रतिमा"/>
+                                                                src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $item->marathi_image }}"
+                                                                alt=" {{ strip_tags($item['marathi_title']) }} प्रतिमा" />
                                                         </td>
 
                                                         <td>
