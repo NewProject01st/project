@@ -47,6 +47,11 @@ Route::get('/pages/{page}', ['as' => 'pages', 'uses' => 'App\Http\Controllers\We
 Route::get('/index', ['as' => 'index', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
 Route::post('/new-paricular-data-web', ['as' => 'new-paricular-data-web', 'uses' => 'App\Http\Controllers\Website\IndexController@show']);
 Route::post('/particular-department-information', ['as' => 'particular-department-information', 'uses' => 'App\Http\Controllers\Website\IndexController@showDepartmentInformation']);
+Route::post('/particular-disaster_forecast', ['as' => 'particular-disaster_forecast', 'uses' => 'App\Http\Controllers\Website\IndexController@showDisasterForecast']);
+Route::get('/list-disaster-forecast-web', ['as' => 'list-disaster-forecast-web', 'uses' => 'App\Http\Controllers\Website\IndexController@getAllWebDisaterForcast']);
+
+
+
 Route::get('/list-vacancies', ['as' => 'list-vacancies', 'uses' => 'App\Http\Controllers\Website\IndexController@showVacancies']);
 Route::get('/list-rti', ['as' => 'list-rti', 'uses' => 'App\Http\Controllers\Website\IndexController@showRTI']);
 
