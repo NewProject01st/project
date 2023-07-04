@@ -371,7 +371,14 @@
                                 @endforeach
                             </div>
                         </div>
-                        {{-- <div class="emergency-info">
+
+
+
+
+
+
+
+                        <div class="emergency-info mt-2">
                             <h5>
                                 @if (session('language') == 'mar')
                                     {{ Config::get('marathi.HOME_PAGE.HELP_AND_EMERENCY_SERVICE') }}
@@ -379,80 +386,83 @@
                                     {{ Config::get('english.HOME_PAGE.HELP_AND_EMERENCY_SERVICE') }}
                                 @endif
                             </h5>
-                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                <!--Panel Start-->
-                                @foreach ($data_output_emergencycontact as $index => $item)
+                           
+                            <div class="accordion accordion-flush" id="accordionFlushExample1">
+                                @foreach ($data_output_disasterforcast as $index => $item)
                                     @if (session('language') == 'mar')
-                                        <div class="panel">
-                                            <div class="panel-heading" role="tab" id="heading{{ $index }}">
-                                                <h6> <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                        href="#collapse{{ $index }}" aria-expanded="true"
-                                                        aria-controls="collapse{{ $index }}"> <?php echo $item['marathi_title']; ?>
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                            <div id="collapse{{ $index }}" class="panel-collapse collapse"
-                                                role="tabpanel" aria-labelledby="heading{{ $index }}">
-                                                <div class="panel-body">
+                                        <div class="accordion-item custom-accordion-item">
+                                            <h2 class="accordion-header accordion-header-custom"
+                                                id="flush-heading1{{ $index }}">
+                                                <button
+                                                    class="accordion-button accordion-button-custom collapsed bg-secondary-custom"
+                                                    type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapse1{{ $index }}"
+                                                    aria-expanded="false"
+                                                    aria-controls="flush-collapse1{{ $index }}">
+                                                    {{ strip_tags($item['marathi_title']) }}
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapse1{{ $index }}"
+                                                class="accordion-collapse collapse bg-secondary-custom"
+                                                aria-labelledby="flush-heading1{{ $index }}"
+                                                data-bs-parent="#accordionFlushExample1">
+                                                <div class="accordion-body">
                                                     <ul>
-                                                        <li> <i class="fas fa-user-tie"></i> <?php echo $item['marathi_name']; ?> </li>
-                                                        <li> <i class="fas fa-building"></i> <?php echo $item['marathi_address']; ?> </li>
-                                                        <li> <i class="fas fa-phone"></i> <?php echo $item['marathi_number']; ?></li>
-                                                        <li> <i class="fas fa-fax"></i> <?php echo $item['marathi_landline_no']; ?> </li>
-                                                        <li> <i class="fas fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                        <li><?php echo $item['marathi_description']; ?></li>
+                                                       
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     @else
-                                        <div class="panel">
-                                            <div class="panel-heading" role="tab" id="heading{{ $index }}">
-                                                <h6 class="emergancy-contact"> <a role="button" data-toggle="collapse"
-                                                        data-parent="#accordion" href="#collapse{{ $index }}"
-                                                        aria-expanded="true"
-                                                        aria-controls="collapse{{ $index }}" 
-                                                        class="help_title" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ strip_tags($item['english_title']) }}">{{ mb_substr(strip_tags($item['english_title']), 0, 19) }}
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                            <div id="collapse{{ $index }}" class="panel-collapse collapse"
-                                                role="tabpanel" aria-labelledby="heading{{ $index }}">
-                                                <div class="panel-body">
+                                        <div class="accordion-item custom-accordion-item">
+                                            <h2 class="accordion-header accordion-header-custom"
+                                                id="flush-heading1{{ $index }}">
+                                                <button
+                                                    class="accordion-button accordion-button-custom collapsed bg-secondary-custom"
+                                                    type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapse1{{ $index }}"
+                                                    aria-expanded="false"
+                                                    aria-controls="flush-collapse1{{ $index }}">
+                                                    {{ strip_tags($item['english_title']) }}
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapse1{{ $index }}"
+                                                class="accordion-collapse collapse bg-secondary-custom"
+                                                aria-labelledby="flush-heading1{{ $index }}"
+                                                data-bs-parent="#accordionFlushExample1">
+                                                <div class="accordion-body">
                                                     <ul>
-                                                        <li> <i class="fas fa-user-tie"></i> <?php echo $item['english_name']; ?> </li>
-                                                        <li> <i class="fas fa-building"></i>
-                                                            {{ strip_tags($item['english_address']) }}</li>
-                                                        <li> <i class="fas fa-phone"></i> <?php echo $item['english_number']; ?></li>
-                                                        <li> <i class="fas fa-fax"></i> <?php echo $item['english_landline_no']; ?> </li>
-                                                        <li> <i class="fas fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                        <li><?php echo $item['english_description']; ?></li>
+
+                                                        
+                                                    </li><a
+                                                    href="{{ route('list-disaster-forecast-web') }}">
+                                                        @if (session('language') == 'mar')
+                                                            {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                                        @else
+                                                            {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                        @endif
+                                                    </a>
+                                                </li>
                                                     </ul>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
                                     @endif
                                 @endforeach
-                                <!--Panel End-->
+                               
+                               
                             </div>
+                        </div>
 
-                        </div> --}}
 
-                        {{-- <a href="{{ route('list-vacancies') }}" class="jobs-link">
-                            @if (session('language') == 'mar')
-                                {{ Config::get('marathi.HOME_PAGE.OPEN_VACANCIES') }}
-                            @else
-                                {{ Config::get('english.HOME_PAGE.OPEN_VACANCIES') }}
-                            @endif
-                        </a>
-                        --}}
-                        <div class="emergency-info mt-2">
-                            <h5>
-                                @if (session('language') == 'mar')
-                                    {{ Config::get('marathi.HOME_PAGE.FORCAST_LIVE_DATA') }}
-                                @else
-                                    {{ Config::get('english.HOME_PAGE.FORCAST_LIVE_DATA') }}
-                                @endif
-                            </h5>
-                            <div class="accordion accordion-flush" id="accordionFlushExample1">
+
+                        {{-- ==================================== --}}
+                     
+{{--                       
+                           <div class="accordion accordion-flush" id="accordionFlushExample1">
                                 @foreach ($data_output_disasterforcast as $index => $item)
                                     @if (session('language') == 'mar')
                                         <div class="accordion-item custom-accordion-item">
@@ -479,7 +489,7 @@
                                                 data-bs-parent="#accordionFlushExample1">
                                                 <div class="accordion-body">
                                                     <ul>
-                                                        <li><?php echo $item['marathi_description']; ?></li>
+                                                        <li><?php //echo $item['marathi_description']; ?></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -509,9 +519,9 @@
                                                 data-bs-parent="#accordionFlushExample1">
                                                 <div class="accordion-body">
                                                     <ul>
-                                                        <li> <?php echo $item['english_description']; ?></li>
+                                                        <li> <?php //echo $item['english_description']; ?></li>
                                                     </ul>
-                                                    <?php $forecast_data = unserialize(getTempratureData()->forecast);?>
+                                                    <?php //$forecast_data = unserialize(getTempratureData()->forecast);?>
                                                     <ul>
                                                         <li> conditions: {{$forecast_data['conditions']}}</li>
                                                         <li> description: {{$forecast_data['description']}}</li>
@@ -526,11 +536,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                            </div> 
+                            </div>  
                         </div>
                         @endif
                         @endforeach
-                    </div>
+                    </div> --}}
                 </div>
 
             </div>

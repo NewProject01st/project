@@ -170,6 +170,7 @@ class IndexController extends Controller
             $data_output_disastermanagementnews = $this->service->getAllDisasterManagementNews();
             $data_output_emergencycontact = $this->service->getAllEmergencyContact();
             $data_output_disasterforcast = $this->service->getAllDisaterForcast();
+           
             $data_output_departmentinformation = $this->service->getAllDepartmentInformation();
            
             // $data_output_contact = $this->service->getWebContact();
@@ -224,7 +225,46 @@ class IndexController extends Controller
             return $e;
         }
     } 
+    public function getAllWebDisaterForcast()
+    {
+        try {
 
+            $menu = $this->menu;
+            $socialicon = $this->socialicon;
+            $data_output = $this->service->getAllWebDisaterForcast();
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+
+        } catch (\Exception $e) {
+            return $e;
+        }
+        return view('website.pages.list-disaster-forecast-web',compact('language','menu','socialicon', 'data_output'));
+    }
+    
+
+    public function showDisasterForecast(Request $request)
+    {
+        try {
+            
+                $menu = $this->menu;
+                $socialicon = $this->socialicon;
+            $disaster_forecast = $this->service->getByIdDisasterForecast($request->disaster_show_id);
+
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+            return view('website.pages.particular-disaster_forecast', compact('language','menu','socialicon','disaster_forecast'));
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
+
+    
     public function showVacancies(Request $request)
     {
         try {

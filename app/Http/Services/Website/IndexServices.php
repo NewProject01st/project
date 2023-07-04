@@ -91,7 +91,16 @@ class IndexServices
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    }  
+    
+    public function getAllWebDisaterForcast ()
+    {
+        try {
+            return $this->repo->getAllWebDisaterForcast ();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
     public function getByIdDepartmentInformation($id)
     {
         try {
@@ -99,7 +108,16 @@ class IndexServices
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    } 
+    public function getByIdDisasterForecast($id)
+    {
+        try {
+            return $this->repo->getByIdDisasterForecast($id);
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }     
+    
 
     public function getallVacancies()
     {
