@@ -5127,11 +5127,13 @@ div#filters {
 }
 .contact-form input[type="text"] {
 	border: 1px solid #ccc;
-	line-height: 48px;
+	line-height: 40px;
+	height: 40px;
 	padding: 0 20px;
 	width: 100%;
 	border-radius: 3px;
 }
+
 .contact-form textarea {
 	border: 1px solid #ccc;
 	line-height: 48px;
@@ -5898,21 +5900,23 @@ a[data-toggle="collapse"] {
 
 .form_text_set{
 	border: 1px solid #ccc;
-    line-height: 48px;
+    line-height: 40px;
+	height: 40px;
     padding: 0 20px;
     width: 100%;
     border-radius: 3px;
 }
 .select_box_set{
-	height: 48px;
+	height: 40px;
+	height: 40px;
 	border: 1px solid #ccc !important;
 	margin-bottom: 2%;
 }
 
 .contact-form .form-control {
 	border: 1px solid #cccccc;
-	height: 53px;
-	line-height: 51px;
+	height: 40px;
+	line-height: 40px;
 	padding: 0 20px;
 	margin-top: 20px;
 }
@@ -6815,6 +6819,13 @@ box-shadow: 0 0 4px #000;
 	background: #00a4ff52;
     color: #222831;
     border-radius: 10px;
+}
+
+#search-box{
+	border: 1px solid #767676 !important;
+}
+.form_text_set{
+	border: 1px solid #CCCCCC!important;
 }
 
 /*  */
