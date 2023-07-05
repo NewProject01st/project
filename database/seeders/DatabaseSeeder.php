@@ -57,10 +57,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TwitterSeeder::class); 
         $this->call(TollFreeNumberSeeder::class); 
         $this->call(SocialIconSeeder::class); 
-        
-        
-        
-        
-        
+                
     }
 }
