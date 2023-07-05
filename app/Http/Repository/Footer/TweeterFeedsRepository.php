@@ -59,7 +59,7 @@ public function update($request)
         $tweeter_data->url = $request['url'];
        
         $tweeter_data->update();  
-             
+        //    dd($tweeter_data);  
         return [
             'msg' => 'Marquee updated successfully.',
             'status' => 'success'

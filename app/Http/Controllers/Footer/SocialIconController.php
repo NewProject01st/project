@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Header;
+namespace App\Http\Controllers\Footer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SocialIcon;
-use App\Http\Services\Header\SocialIconServices;
+use App\Http\Services\Footer\SocialIconServices;
 use Validator;
 use Illuminate\Validation\Rule;
 class SocialIconController extends Controller
@@ -19,14 +19,14 @@ class SocialIconController extends Controller
     {
         try {
             $social_icon = $this->service->getAll();
-            return view('admin.pages.header.social-icon.list-social-icon', compact('social_icon'));
+            return view('admin.pages.footer.social-icon.list-social-icon', compact('social_icon'));
         } catch (\Exception $e) {
             return $e;
         }
     }
     public function add()
     {
-        return view('admin.pages.header.social-icon.add-social-icon');
+        return view('admin.pages.footer.social-icon.add-social-icon');
     }
 
     public function store(Request $request) {
@@ -80,7 +80,7 @@ class SocialIconController extends Controller
     {
         $edit_data_id = $request->edit_id;
         $social_icon = $this->service->getById($edit_data_id);
-        return view('admin.pages.header.social-icon.edit-social-icon', compact('social_icon'));
+        return view('admin.pages.footer.social-icon.edit-social-icon', compact('social_icon'));
     }
     public function update(Request $request)
 {
@@ -124,16 +124,16 @@ class SocialIconController extends Controller
             ->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
  }
-public function show(Request $request)
-    {
-        try {
-            $social_icon = $this->service->getById($request->show_id);
-            return view('admin.pages.header.social-icon.show-social-icon', compact('social_icon'));
-        } catch (\Exception $e) {
-            return $e;
-        }
+ 
+ public function updateOne(Request $request){
+    try {
+        $active_id = $request->active_id;
+    $result = $this->service->updateOne($active_id);
+        return redirect('list-social-icon')->with('flash_message', 'Updated!');  
+    } catch (\Exception $e) {
+        return $e;
     }
-
+}
     public function destroy(Request $request)
     {
         try {

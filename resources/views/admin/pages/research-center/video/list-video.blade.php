@@ -33,8 +33,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
-                                                    <th>Title English</th>
-                                                    <th>Title Marathi</th>
+                                                    <th>Video Name</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>

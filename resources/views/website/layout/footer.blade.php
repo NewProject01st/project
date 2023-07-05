@@ -219,16 +219,51 @@
                              {{ Config::get('english.FOOTER.TWEET_HEADING2') }}
                          @endif
                          <strong>
-                             @if (session('language') == 'mar')
+                            <?php
+                            echo date('dS M Y');
+                            ?>
+                             {{-- @if (session('language') == 'mar')
                                  {{ Config::get('marathi.FOOTER.DATE') }}
                              @else
                                  {{ Config::get('english.FOOTER.DATE') }}
-                             @endif
+                             @endif --}}
                          </strong> <i class="fab fa-twitter"></i>
                      </div>
 
                  </div>
              </div>
+
+             {{-- @forelse ($common_data['twitter_feed']  as $item)
+             @if (session('language') == 'mar')
+             <iframe 
+              frameborder="0" 
+              allowtransparency="true" 
+              allowfullscreen="true" 
+              scrolling="yes"
+            style="position:static; visibility:visible; height:52vh; display:block; flexGrow:1;" 
+              title="Twitter Timeline"
+               src="{{ $item['url'] }}" 
+               ></iframe>
+              @else
+              <iframe 
+              frameborder="0" 
+              allowtransparency="true" 
+              allowfullscreen="true" 
+              scrolling="yes"
+            style="position:static; visibility:visible; height:52vh; display:block; flexGrow:1;" 
+              title="Twitter Timeline"
+               src="{{ $item['url'] }}" 
+               ></iframe>
+          @endif
+          @empty
+          <p>
+              @if (session('language') == 'mar')
+                  {{ Config::get('marathi.FOOTER.TERM_CONDITION') }}
+              @else
+                  {{ Config::get('english.FOOTER.TERM_CONDITION') }}
+              @endif
+          </p>
+          @endforelse --}}
              <!--Footer Widget End-->
          </div>
      </div>
@@ -239,7 +274,7 @@
      <div class="container">
          <div class="row">
              <div class="col-6">
-                 <p class="copyr"> © 2023, <a href="#">
+                 <p class="copyr"> © <script>document.write(new Date().getFullYear());</script> , <a href="#">
                     @if (session('language') == 'mar')
                     {{ Config::get('marathi.HOME_PAGE.ALL_RIGHT_RESERVED') }}
                     @else
@@ -247,16 +282,52 @@
                     @endif
                 </a></p>
              </div>
-             <div class="col-6">
+             {{-- <div class="col-6">
                  <ul class="footer-social">
                      <li><a href="https://www.facebook.com/mynashikmc/" class="fb" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                      <li><a href="https://twitter.com/my_nmc" target="_blank" class="tw"><i class="fab fa-twitter"></i></a></li>
                      <li><a href="https://instagram.com/my_nmc" target="_blank"  class="insta"><i class="fab fa-instagram"></i></a></li>
-                     {{-- <li><a href="#" target="_blank" class="linken"><i class="fab fa-linkedin-in"></i></a></li> --}}
                      <li><a href="https://www.youtube.com/c/mynmc" target="_blank" class="yt"><i class="fab fa-youtube"></i></a></li>
                      <li><a href="https://nmc.gov.in" target="_blank" class="yt"><i class='fas fa-globe' style='font-size:20px;color:#fff'></i></a></li>
                  </ul>
-             </div>
+             </div> --}}
+
+
+
+             <div class="col-6 d-flex justify-content-end">
+                <ul class="footer-social">
+             @forelse ($common_data['social_link'] as $item)
+             
+                 @if (session('language') == 'mar')
+                 <li><a href="{{ $item['url'] }}" target="_blank"
+                    class="fb" target="_blank">
+                    {{-- <i class="fab fa-facebook-f"></i> --}}
+                    <img src="{{ Config::get('DocumentConstant.SOCIAL_ICON_VIEW') }}{{ $item['icon'] }}"
+                    width="25" height="25" alt="...">
+                </a></li>
+                 @else
+                        <li><a href="{{ $item['url'] }}" target="_blank"
+                            class="fb" target="_blank">
+                            {{-- <i class="fab fa-facebook-f"></i> --}}
+                            <img src="{{ Config::get('DocumentConstant.SOCIAL_ICON_VIEW') }}{{ $item['icon'] }}"
+                            width="25" height="25" alt="...">
+                        </a></li>
+                 @endif
+               
+         @empty
+         </ul>
+        </div>
+             <h4>
+                 @if (session('language') == 'mar')
+                     {{ Config::get('marathi.CITIZEN_ACTION.NO_DATA_FOUND_CITIZEN_FEEDBACK_SUGGESTION') }}
+                 @else
+                     {{ Config::get('english.CITIZEN_ACTION.NO_DATA_FOUND_CITIZEN_FEEDBACK_SUGGESTION') }}
+                 @endif
+             </h4>
+         @endforelse
+
+             
+
          </div>
         </div>
  </footer>

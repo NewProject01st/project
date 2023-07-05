@@ -11,16 +11,6 @@
                     {{ Config::get('english.PARTICULAR_DEPARTMENT_INFORMATION.DEPARTMENT') }}
                 @endif
             </h2>
-            <ul>
-                <li> <a href="{{ route('index') }}">
-                        @if (session('language') == 'mar')
-                            {{ Config::get('marathi.PARTICULAR_DEPARTMENT_INFORMATION.HOME') }}
-                        @else
-                            {{ Config::get('english.PARTICULAR_DEPARTMENT_INFORMATION.HOME') }}
-                        @endif
-                    </a> </li>
-
-            </ul>
         </div>
     </section>
     <!--Subheader End-->

@@ -461,14 +461,14 @@ class PermissionsSeeder extends Seeder
                             'url' => 'list-terms-conditions',
                             'permission_name' => 'Terms and Conditions',
                         ]);             
-            // Permissions::create(
-            //     [
-            //         'created_at' => \Carbon\Carbon::now(),
-            //         'updated_at' => \Carbon\Carbon::now(),
-            //         'route_name' => 'Social Icon',
-            //         'url' => 'list-social-icon',
-            //         'permission_name' => 'Social Icon',
-            //     ]);
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'Social Icon',
+                    'url' => 'list-social-icon',
+                    'permission_name' => 'Social Icon',
+                ]);
                 Permissions::create(
                     [
                         'created_at' => \Carbon\Carbon::now(),

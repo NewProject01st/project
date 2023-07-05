@@ -33,9 +33,9 @@ class TweeterFeedServices
         try {
             $add_tweeter = $this->repo->add($request);
             if ($add_tweeter) {
-                return ['status' => 'success', 'msg' => 'Marquee Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Twitter Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Marquee Not Added.'];
+                return ['status' => 'error', 'msg' => 'Twitter Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -56,9 +56,9 @@ class TweeterFeedServices
     {
         $update_tweeter = $this->repo->update($request);
         if ($update_tweeter) {
-            return ['status' => 'success', 'msg' => 'Marquee Added Successfully.'];
+            return ['status' => 'success', 'msg' => 'Twitter Added Successfully.'];
         } else {
-            return ['status' => 'error', 'msg' => 'Marquee Not Added.'];
+            return ['status' => 'error', 'msg' => 'Twitter Not Added.'];
         }  
        
     }

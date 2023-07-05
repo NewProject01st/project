@@ -18,7 +18,6 @@ class TestController extends Controller
     {
         // self::$loginServe = new LoginService();
         $this->menu = getMenuItems();
-        $this->socialicon = getSocialIcon();
 
        
     }

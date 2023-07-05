@@ -1,7 +1,7 @@
 <?php
-namespace App\Http\Services\Header;
+namespace App\Http\Services\Footer;
 
-use App\Http\Repository\Header\SocialIconRepository;
+use App\Http\Repository\Footer\SocialIconRepository;
 
 use App\Models\
 { SocialIcon };
@@ -70,17 +70,16 @@ class SocialIconServices
                     if(file_exists($delete_file_eng)){
                         unlink($delete_file_eng);
                     }
-
                 }
     
                 $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->icon->extension();
                 uploadImage($request, 'icon', $path, $englishImageName);
-               
-                $feedback_data = SocialIcon::find($return_data['last_insert_id']);
-                $feedback_data->icon = $englishImageName;
-                $feedback_data->save();
             }
- 
+    
+            
+            $success_stories_data = SocialIcon::find($return_data['last_insert_id']);
+            $success_stories_data->icon = $return_data['last_insert_id'] . '_english.' . $request->icon->extension();
+            $success_stories_data->save();
             if ($return_data) {
                 return ['status' => 'success', 'msg' => 'Social Icon Updated Successfully.'];
             } else {
@@ -91,7 +90,52 @@ class SocialIconServices
         }      
     }
 
+
+
+
+
+    // public function updateAll($request)
+    // {
+    //     try {
+    //         $return_data = $this->repo->updateAll($request);
+            
+    //         $path = Config::get('DocumentConstant.SOCIAL_ICON_ADD');
+    //         if ($request->hasFile('icon')) {
+    //             if ($return_data['icon']) {
+    //                 $delete_file_eng= storage_path(Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $return_data['icon']);
+    //                 if(file_exists($delete_file_eng)){
+    //                     unlink($delete_file_eng);
+    //                 }
+
+    //             }
     
+    //             $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->icon->extension();
+    //             uploadImage($request, 'icon', $path, $englishImageName);
+               
+    //             $feedback_data = SocialIcon::find($return_data['last_insert_id']);
+    //             $feedback_data->icon = $englishImageName;
+    //             $feedback_data->save();
+    //         }
+ 
+    //         if ($return_data) {
+    //             return ['status' => 'success', 'msg' => 'Social Icon Updated Successfully.'];
+    //         } else {
+    //             return ['status' => 'error', 'msg' => 'Social Icon Not Updated.'];
+    //         }  
+    //     } catch (Exception $e) {
+    //         return ['status' => 'error', 'msg' => $e->getMessage()];
+    //     }      
+    // }
+
+
+
+
+
+
+    public function updateOne($id)
+    {
+        return $this->repo->updateOne($id);
+    }
    
     public function deleteById($id)
     {

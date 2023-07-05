@@ -6816,5 +6816,8 @@ box-shadow: 0 0 4px #000;
     color: #222831;
     border-radius: 10px;
 }
+#accordionFlushExample1 div ul li h6{
+	color: #fff !important;
+}
 
 /*  */

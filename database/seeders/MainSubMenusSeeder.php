@@ -516,6 +516,18 @@ class MainSubMenusSeeder extends Seeder
             'is_active' => true,
            
         ]);
+        MainSubMenus::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'main_menu_id' => 10,
+            'menu_name_english' => 'Disaster Forecast',
+            'menu_name_marathi' => 'आपत्तीचा अंदाज',
+            'url'=>'list-disaster-forecast-web',
+            'order_no' => 4,
+            'is_static'=>true,
+            'is_active' => true,
+           
+        ]);
 
         MainSubMenus::create([
             'created_at' => \Carbon\Carbon::now(),

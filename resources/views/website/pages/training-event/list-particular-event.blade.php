@@ -5,10 +5,6 @@
     <section class="wf100 subheader">
         <div class="container">
             <h2>Event </h2>
-            <ul>
-                <li> <a href="{{ route('particular-department-information') }}">Home</a> </li>
-
-            </ul>
         </div>
     </section>
     <!--Subheader End-->

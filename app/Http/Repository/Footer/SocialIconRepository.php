@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Repository\Header;
+namespace App\Http\Repository\Footer;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\QueryException;
 use DB;
@@ -62,28 +62,31 @@ public function getById($id)
         ];
     }
 }
-public function updateAll($request)
-{
+
+public function updateAll($request){
     try {
         $return_data = array();
-        $social_icon = SocialIcon::find($request->id);
+        $update_news_events = SocialIcon::find($request->id);
         
-        if (!$social_icon) {
+        if (!$update_news_events) {
             return [
                 'msg' => 'social icon not found.',
                 'status' => 'error'
             ];
         }
-      
-        // $social_icon->icon = $englishImageName;
-        $social_icon->url =   $request['url'];
-        $social_icon->save();        
-     
-        $last_insert_id = $social_icon->id;
+    // Store the previous image names
+    $previousEnglishImage = $update_news_events->icon;
+
+        $update_news_events->url = $request['url'];
+    
+
+        $update_news_events->save();
+        $last_insert_id = $update_news_events->id;
 
         $return_data['last_insert_id'] = $last_insert_id;
         $return_data['icon'] = $previousEnglishImage;
         return  $return_data;
+
     } catch (\Exception $e) {
         return $e;
         return [
@@ -93,17 +96,18 @@ public function updateAll($request)
     }
 }
 
-public function deleteById($id)
-{
+
+
+public function deleteById($id){
     try {
-        $social_icon = SocialIcon::find($id);
-        if ($social_icon) {
-            unlink(storage_path(Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $social_icon->icon));
-            // Delete the record from the database
+        $social = SocialIcon::find($id);
+        if ($social) {
+            if (file_exists(storage_path(Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $social->icon))) {
+                unlink(storage_path(Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $social->icon));
+            }
+            $social->delete();
             
-            $social_icon->delete();
-            
-            return $social_icon;
+            return $social;
         } else {
             return null;
         }
@@ -111,5 +115,32 @@ public function deleteById($id)
         return $e;
     }
 }
-       
+     
+public function updateOne($request){
+    try {
+        $social = SocialIcon::find($request); // Assuming $request directly contains the ID
+
+        // Assuming 'is_active' is a field in the socialr model
+        if ($social) {
+            $is_active = $social->is_active === 1 ? 0 : 1;
+            $social->is_active = $is_active;
+            $social->save();
+
+            return [
+                'msg' => 'Social updated successfully.',
+                'status' => 'success'
+            ];
+        }
+
+        return [
+            'msg' => 'Social not found.',
+            'status' => 'error'
+        ];
+    } catch (\Exception $e) {
+        return [
+            'msg' => 'Failed to update social.',
+            'status' => 'error'
+        ];
+    }
+}
 }
