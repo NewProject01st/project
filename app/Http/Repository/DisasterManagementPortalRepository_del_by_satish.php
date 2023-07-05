@@ -50,38 +50,6 @@ class DisasterManagementPortalRepository  {
 }
 
 
-
-
-
-
-
-// 	public function addAll($request)
-// {
-//     try {
-//         $englishImageName = time() . '_english.' . $request->english_image->extension();
-//         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
-        
-//         $request->english_image->storeAs('public/images/disaster-management-portal', $englishImageName);
-//         $request->marathi_image->storeAs('public/images/disaster-management-portal', $marathiImageName);
-
-//         $disastermanagementportal_data = new DisasterManagementPortal();
-//         $disastermanagementportal_data->english_title = $request['english_title'];
-//         $disastermanagementportal_data->marathi_title = $request['marathi_title'];
-//         $disastermanagementportal_data->english_description = $request['english_description'];
-//         $disastermanagementportal_data->marathi_description = $request['marathi_description'];
-//         $disastermanagementportal_data->english_image = $englishImageName; // Save the image filename to the database
-//         $disastermanagementportal_data->marathi_image = $marathiImageName; // Save the image filename to the database
-//         $disastermanagementportal_data->save();       
-     
-// 		return $disastermanagementportal_data;
-//     } catch (\Exception $e) {
-//         return [
-//             'msg' => $e,
-//             'status' => 'error'
-//         ];
-//     }
-// }
-
 public function getById($id)
 {
     try {
@@ -92,9 +60,8 @@ public function getById($id)
             return null;
         }
     } catch (\Exception $e) {
-        return $e;
 		return [
-            'msg' => 'Failed to get by id constitution history.',
+            'msg' => 'Failed to get by id constitution history. '.$e,
             'status' => 'error'
         ];
     }
@@ -102,11 +69,21 @@ public function getById($id)
 public function updateAll($request)
 {
     try {
+        dd("finally");
         $englishImageName = time() . '_english.' . $request->english_image->extension();
         $marathiImageName = time() . '_marathi.' . $request->marathi_image->extension();
         
-        $request->english_image->storeAs('public/images/disaster-management-portal', $englishImageName);
-        $request->marathi_image->storeAs('public/images/disaster-management-portal', $marathiImageName);
+        // $request->english_image->storeAs('public/images/disaster-management-portal', $englishImageName);
+        // $request->marathi_image->storeAs('public/images/disaster-management-portal', $marathiImageName);
+        
+
+        $fileName = $request->english_image->getClientOriginalName();
+        $filePath = 'uploads/' . $fileName;
+ 
+        $path = Storage::disk('s3')->put($filePath, file_get_contents($request->english_image));
+        $path = Storage::disk('s3')->url($path);
+        dd($path);
+ 
 
         $disastermanagementportal_data = DisasterManagementPortal::find($request->id);
         $disastermanagementportal_data->english_title = $request['english_title'];
@@ -122,9 +99,8 @@ public function updateAll($request)
             'status' => 'success'
         ];
     } catch (\Exception $e) {
-        return $e;
         return [
-            'msg' => 'Failed to update disaster management portal.',
+            'msg' => 'Failed to update disaster management portal. '.$e,
             'status' => 'error'
         ];
     }
@@ -141,9 +117,8 @@ public function deleteById($id)
             return null;
         }
     } catch (\Exception $e) {
-        return $e;
 		return [
-            'msg' => 'Failed to delete constitution history.',
+            'msg' => 'Failed to delete constitution history. '.$e,
             'status' => 'error'
         ];
     }
