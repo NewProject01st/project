@@ -166,14 +166,23 @@ class RelevantLawsRegulationsController extends Controller
             return $e;
         }
     }
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         try {
             $relevant_laws = $this->service->deleteById($request->delete_id);
-            return redirect('list-relevant-laws-and-regulations')->with('flash_message', 'Deleted!');  
+            if ($relevant_laws) {
+                $msg = $relevant_laws['msg'];
+                $status = $relevant_laws['status'];
+                if ($status == 'success') {
+                    return redirect('list-relevant-laws-and-regulations')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    } 
 
 }

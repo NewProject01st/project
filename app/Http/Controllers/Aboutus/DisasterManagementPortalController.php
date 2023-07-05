@@ -166,13 +166,22 @@ class DisasterManagementPortalController extends Controller
                 ->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
     }
-    public function destroy(Request $request) {
+    public function destroy(Request $request){
         try {
-            $disastermanagementportal = $this->service->deleteById($request->delete_id);
-            return redirect('list-disastermanagementportal')->with('flash_message', 'Deleted!');  
+            $delete_disastermanagementportal = $this->service->deleteById($request->delete_id);
+            if ($delete_disastermanagementportal) {
+                $msg = $delete_disastermanagementportal['msg'];
+                $status = $delete_disastermanagementportal['status'];
+                if ($status == 'success') {
+                    return redirect('list-disastermanagementportal')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }   
-
+    } 
 }

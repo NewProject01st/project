@@ -315,15 +315,32 @@ class RegisterRepository
 		return $data_users;
 	}
 
-	public function delete($request)
-	{
-		$user = User::where(['id' => $request->delete_id])
-			->update(['is_active' => false]);
-		// $rolesPermissions = RolesPermissions::where(['user_id' => $request->delete_id])
-		// 	->update(['is_active' => false]);
+	// public function delete($request)
+	// {
+	// 	$user = User::where(['id' => $request->delete_id])
+	// 		->update(['is_active' => false]);
+	// 	// $rolesPermissions = RolesPermissions::where(['user_id' => $request->delete_id])
+	// 	// 	->update(['is_active' => false]);
 
-		return "ok";
-	}
+	// 	return "ok";
+	// }
+
+	public function delete($id)
+    {
+        try {
+            $user = User::find($id);
+            if ($user) {
+              
+                $user->delete();
+               
+                return $user;
+            } else {
+                return null;
+            }
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
 
 	public function getById($id)
 	{

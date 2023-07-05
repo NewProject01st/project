@@ -56,9 +56,9 @@ class MarqueeServices
     {
         $update_marquee = $this->repo->updateMarquee($request);
         if ($update_marquee) {
-            return ['status' => 'success', 'msg' => 'Marquee Added Successfully.'];
+            return ['status' => 'success', 'msg' => 'Marquee Updated Successfully.'];
         } else {
-            return ['status' => 'error', 'msg' => 'Marquee Not Added.'];
+            return ['status' => 'error', 'msg' => 'Marquee Not Updated.'];
         }  
        
     }
@@ -66,16 +66,20 @@ class MarqueeServices
     {
         return $this->repo->updateOne($id);
     }
+
     public function deleteById($id)
     {
         try {
-            return $this->repo->deleteById($id);
-        } catch (\Exception $e) {
-            return $e;
-        }
+            $delete = $this->repo->deleteById($id);
+            if ($delete) {
+                return ['status' => 'success', 'msg' => 'Deleted Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => ' Not Deleted.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        } 
     }
-   
-
 
 
 }

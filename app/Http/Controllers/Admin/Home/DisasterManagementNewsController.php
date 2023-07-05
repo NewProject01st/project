@@ -190,12 +190,22 @@ class DisasterManagementNewsController extends Controller
     }
 
     public function destroy(Request $request){
-        try {
-            $disaster_news = $this->service->deleteById($request->delete_id);
-            return redirect('list-disaster-management-news')->with('flash_message', 'Deleted!');  
-        } catch (\Exception $e) {
-            return $e;
-        }
-    }   
+     try {
+         $disaster_news = $this->service->deleteById($request->delete_id);
+         if ($disaster_news) {
+             $msg = $disaster_news['msg'];
+             $status = $disaster_news['status'];
+             if ($status == 'success') {
+                 return redirect('list-disaster-management-news')->with(compact('msg', 'status'));
+             } else {
+                 return redirect()->back()
+                     ->withInput()
+                     ->with(compact('msg', 'status'));
+             }
+         }
+     } catch (\Exception $e) {
+         return $e;
+     }
+ } 
 
 }

@@ -42,9 +42,9 @@ class DepartmentInformationServices
             uploadImage($request, 'marathi_image', $path, $marathiImageName);
             uploadImage($request, 'marathi_image_new', $path, $marathiImageName1);
             if ($last_id) {
-                return ['status' => 'success', 'msg' => 'State Disaster Management Authority Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Department Information Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'State Disaster Management Authority get Not Added.'];
+                return ['status' => 'error', 'msg' => 'Department Information get Not Added.'];
             }  
             
            
@@ -121,9 +121,9 @@ class DepartmentInformationServices
             }
 
             if ($return_data) {
-                return ['status' => 'success', 'msg' => 'Department Data Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Department Information Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Department Data  Not Added.'];
+                return ['status' => 'error', 'msg' => 'Department Information Updated Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -133,16 +133,19 @@ class DepartmentInformationServices
     {
         return $this->repo->updateOne($id);
     }
+    
     public function deleteById($id)
     {
         try {
-            return $this->repo->deleteById($id);
-        } catch (\Exception $e) {
-            return $e;
-        }
+            $delete = $this->repo->deleteById($id);
+            if ($delete) {
+                return ['status' => 'success', 'msg' => 'Deleted Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => ' Not Deleted.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        } 
     }
-   
-
-
 
 }

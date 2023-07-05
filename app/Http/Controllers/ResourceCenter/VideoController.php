@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\SuccessStories;
 use App\Http\Services\ResourceCenter\VideoServices;
 use Validator;
+use Illuminate\Validation\Rule;
 class VideoController extends Controller
 {
 
@@ -30,10 +31,13 @@ class VideoController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'video_name' => 'required',
+
+            'video_name' => ['required','regex:/^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/'],
+
          ];
         $messages = [   
-            'video_name'=>'Please Upload Video.',
+            'video_name.required'=>'Please Upload Video.',
+            'video_name.regex'=>'Please Upload valid Video.',
         ];
 
         try {
@@ -79,10 +83,11 @@ class VideoController extends Controller
     public function update(Request $request)
     {
         $rules = [
-            'english_name' => 'required',
+            'video_name' => ['required','regex:/^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/'],
         ];
         $messages = [   
-            'english_name'=>'Please  enter english Name.',
+            'video_name.required'=>'Please Upload Video.',
+            'video_name.regex'=>'Please Upload valid Video.',
         ];
 
         try {
@@ -130,14 +135,23 @@ class VideoController extends Controller
             return $e;
         }
     }
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         try {
-            $video = $this->service->deleteById($request->delete_id);
-            return redirect('list-video')->with('flash_message', 'Deleted!');  
+            $delete = $this->service->deleteById($request->delete_id);
+            if ($delete) {
+                $msg = $delete['msg'];
+                $status = $delete['status'];
+                if ($status == 'success') {
+                    return redirect('list-video')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    } 
 
 }

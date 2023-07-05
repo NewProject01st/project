@@ -67,9 +67,9 @@ class EmergencyContactNumbersServices
         try {
             $last_id = $this->repo->addAllAddMore($request);
             if ($last_id) {
-                return ['status' => 'success', 'msg' => 'District Emergency Operations Center Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Emergency Contact Numbers Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'District Emergency Operations Center get Not Added.'];
+                return ['status' => 'error', 'msg' => 'Emergency Contact Numbers get Not Added.'];
             }
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -140,15 +140,18 @@ class EmergencyContactNumbersServices
         }
     }
 
-    public function deleteaddmore($id)
-    {
-        try {
-            return $this->repo->deleteaddmore($id);
-        } catch (\Exception $e) {
-            return $e;
-        }
-    }
 
-    
+    public function deleteaddmore($id){
+        try {
+            $delete = $this->repo->deleteaddmore($id);
+            if ($delete) {
+                return ['status' => 'success', 'msg' => 'Deleted Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => ' Not Deleted.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        } 
+    }
 
 }

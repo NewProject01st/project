@@ -28,6 +28,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+                                    @include('admin.layout.alert')
                                     <div class="table-responsive">
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
@@ -52,7 +53,8 @@
                                                         <td>{{ $item->mobile_number }}</td>
                                                         <td>{{ strip_tags($item->description) }}</td>
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.FEEDBACK_CITIZEN_MODAL_VIEW') }}{{ $item->media_upload }}" alt=" {{ strip_tags($item['media_upload']) }} Image"/>
+                                                                src="{{ Config::get('DocumentConstant.FEEDBACK_CITIZEN_MODAL_VIEW') }}{{ $item->media_upload }}"
+                                                                alt=" {{ strip_tags($item['media_upload']) }} Image" />
                                                         </td>
 
 

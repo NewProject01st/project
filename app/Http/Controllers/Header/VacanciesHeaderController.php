@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\VacanciesHeader;
 use App\Http\Services\Header\VacanciesHeaderServices;
 use Validator;
+use Illuminate\Validation\Rule;
 class VacanciesHeaderController extends Controller
 {
 
@@ -34,8 +35,7 @@ class VacanciesHeaderController extends Controller
             'marathi_title' => 'required|max:255',
             'english_pdf' => 'required|file|mimes:pdf',
             'marathi_pdf' => 'required|file|mimes:pdf',
-            // 'url' => 'required|regex:/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/',
-            'url' => 'required',
+            'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
 
          ];
     $messages = [   
@@ -45,6 +45,7 @@ class VacanciesHeaderController extends Controller
         'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
         'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',            
         'url.required'=>'Please enter url.',
+        'url.regex'=>'Please valid url.',
         'english_pdf.required' => 'Please upload an PDF file.',
         'english_pdf.file' => 'The file must be of type: file.',
         'english_pdf.mimes' => 'The file must be a PDF.',
@@ -164,16 +165,24 @@ public function update(Request $request)
             return $e;
         }
     }
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         try {
-            $vacancy = $this->service->deleteById($request->delete_id);
-            return redirect('list-header-vacancies')->with('flash_message', 'Deleted!');  
+            $delete_vacancy = $this->service->deleteById($request->delete_id);
+            if ($delete_vacancy) {
+                $msg = $delete_vacancy['msg'];
+                $status = $delete_vacancy['status'];
+                if ($status == 'success') {
+                    return redirect('list-header-vacancies')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
     } 
-
 
    
 

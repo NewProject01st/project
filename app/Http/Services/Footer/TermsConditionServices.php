@@ -56,9 +56,9 @@ class TermsConditionServices
     {
         $update_terms = $this->repo->update($request);
         if ($update_terms) {
-            return ['status' => 'success', 'msg' => 'Terms Condition Added Successfully.'];
+            return ['status' => 'success', 'msg' => 'Terms Condition Updated Successfully.'];
         } else {
-            return ['status' => 'error', 'msg' => 'Terms Condition Not Added.'];
+            return ['status' => 'error', 'msg' => 'Terms Condition Not Updated.'];
         }  
        
     }

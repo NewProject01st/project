@@ -5,10 +5,6 @@
     <section class="wf100 subheader">
         <div class="container">
             <h2>Terms and Conditions </h2>
-            <ul>
-                <li> <a href="{{ route('terms_condition') }}">Home</a> </li>
-
-            </ul>
         </div>
     </section>
     <!--Subheader End-->

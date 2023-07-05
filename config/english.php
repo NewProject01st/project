@@ -29,6 +29,7 @@ return [
 		'DOCUMENT_PUBLICATIONS' =>'Documents Publications',
 		'MAPS_GIS_DATA' =>'Maps and GIS Data',
 		'VIDEO' =>'Video',
+		'VIDEO_MESSAGE'   => 'No Data Found For Video.',
 		'GALLERY' =>'Gallery',
 		'TRAINING_MATERIALS_WORKSHOP' =>'Training Materials And Workshops',
 		'SUCCESS_STORIES' =>'Success Stories',

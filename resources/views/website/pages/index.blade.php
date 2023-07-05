@@ -250,7 +250,7 @@
                                         <div class="WeatherBlock">
                                             <div class="card weather_card">
                                                 <div class="card-body">
-                                                    <h3 class="text-center">Nashik</h3>
+                                                    <h6 class="text-center">Nashik</h6>
                                                     <p class="text-center">{{date("d/m/Y", strtotime($forecast_data['datetime']))}} | {{date("l", strtotime($forecast_data['datetime']))}}</p>
 
                                                     <div class="d-flex justify-content-center bd-highlight mb-2">
@@ -475,7 +475,12 @@
                                                     data-bs-target="#flush-collapse1{{ $index }}"
                                                     aria-expanded="false"
                                                     aria-controls="flush-collapse1{{ $index }}">
-                                                    {{ strip_tags($item['marathi_title']) }}
+                                                    {{-- {{ strip_tags($item['marathi_title']) }} --}}
+                                                    @if (session('language') == 'mar')
+                                                    {{ Config::get('marathi.HOME_PAGE.DISASTER_FORCAST') }}
+                                                @else
+                                                    {{ Config::get('english.HOME_PAGE.DISASTER_FORCAST') }}
+                                                @endif
                                                 </button>
                                             </h2>
                                             <div id="flush-collapse1{{ $index }}"
@@ -484,8 +489,7 @@
                                                 data-bs-parent="#accordionFlushExample1">
                                                 <div class="accordion-body">
                                                     <ul>
-                                                        <li><?php echo $item['marathi_description']; ?></li>
-                                                       
+                                                        <li><h6><?php echo $item['marathi_title']; ?></h6><span><?php echo $item['marathi_description']; ?></span></li>                                                        
                                                     </ul>
                                                 </div>
                                             </div>
@@ -500,7 +504,13 @@
                                                     data-bs-target="#flush-collapse1{{ $index }}"
                                                     aria-expanded="false"
                                                     aria-controls="flush-collapse1{{ $index }}">
-                                                    {{ strip_tags($item['english_title']) }}
+                                                    {{-- {{ strip_tags($item['english_title']) }} --}}
+
+                                                    @if (session('language') == 'mar')
+                                                    {{ Config::get('marathi.HOME_PAGE.DISASTER_FORCAST') }}
+                                                @else
+                                                    {{ Config::get('english.HOME_PAGE.DISASTER_FORCAST') }}
+                                                @endif
                                                 </button>
                                             </h2>
                                             <div id="flush-collapse1{{ $index }}"
@@ -509,10 +519,9 @@
                                                 data-bs-parent="#accordionFlushExample1">
                                                 <div class="accordion-body">
                                                     <ul>
-                                                        <li><?php echo $item['english_description']; ?></li>
-
-                                                        
-                                                    </li><a
+                                                        <li><h6><?php echo $item['english_title']; ?></h6><span><?php echo $item['english_description']; ?></span>
+                                                <div>
+                                                            <a
                                                     href="{{ route('list-disaster-forecast-web') }}">
                                                         @if (session('language') == 'mar')
                                                             {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
@@ -520,6 +529,7 @@
                                                             {{ Config::get('english.HOME_PAGE.READ_MORE') }}
                                                         @endif
                                                     </a>
+                                                </div>
                                                 </li>
                                                     </ul>
                                                     

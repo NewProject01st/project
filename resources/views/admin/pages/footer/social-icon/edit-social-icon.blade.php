@@ -25,17 +25,23 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="icon">Social Icon</label><br>
-                                            <input type="file" name="icon" class="form-control" placeholder="image"
-                                                value="{{ $social_icon->icon }}"
-                                                value="@if (old('icon')) {{ old('icon') }}@else{{ $social_icon->url }} @endif">
+                                            <label for="icon"> Social Icon</label>
+                                            <input type="file" name="icon" class="form-control"
+                                                id="english_image" accept="image/*" placeholder="image">
                                             @if ($errors->has('icon'))
-                                                <span class="red-text"><?php echo $errors->first('icon', ':message'); ?></span>
+                                                <div class="red-text"><?php echo $errors->first('icon', ':message'); ?>
+                                                </div>
                                             @endif
                                         </div>
-                                        <img src="{{ Config::get('DocumentConstant.SOCIAL_ICON_VIEW') }}{{ $social_icon->icon }}"
+                                        <img id="english"
+                                            src="{{ Config::get('DocumentConstant.SOCIAL_ICON_VIEW') }}{{ $social_icon->icon }}"
                                             class="img-fluid img-thumbnail" width="150">
+                                        <img id="english_imgPreview" src="#" alt="pic"
+                                            class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
+
+
+
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">

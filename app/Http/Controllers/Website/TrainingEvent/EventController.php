@@ -19,7 +19,6 @@ class EventController extends Controller
         // self::$loginServe = new LoginService();
         $this->service = new EventServices();
         $this->menu = getMenuItems();
-        $this->socialicon = getSocialIcon();
 
        
     }
@@ -33,14 +32,13 @@ class EventController extends Controller
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllUpcomingEvent();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
                 $language = 'en';
             }
-            return view('website.pages.training-event.list-upcoming-training-event-web',compact('language','menu','socialicon', 'data_output'));
+            return view('website.pages.training-event.list-upcoming-training-event-web',compact('language','menu','data_output'));
         } catch (\Exception $e) {
             return $e;
         }
@@ -50,7 +48,6 @@ class EventController extends Controller
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllPastEvent();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -60,7 +57,7 @@ class EventController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.training-event.list-past-training-event-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.training-event.list-past-training-event-web',compact('language','menu','data_output'));
     } 
 
     public function show(Request $request)
@@ -68,14 +65,13 @@ class EventController extends Controller
         try {
            
               $menu = $this->menu;
-              $socialicon = $this->socialicon;
             $event_data = $this->service->getById($request->show_id);
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
                 $language = 'en';
             }
-            return view('website.pages.training-event.list-particular-event', compact('language','menu','socialicon','event_data'));
+            return view('website.pages.training-event.list-particular-event', compact('language','menu','event_data'));
 
         } catch (\Exception $e) {
             return $e;

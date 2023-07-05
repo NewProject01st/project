@@ -170,13 +170,22 @@ class DistrictEmergencyOperationsCenterController extends Controller
                 ->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
      }
-        public function destroy(Request $request)
-        {
-            try {
-                $districtemergencyoperationscenter = $this->service->deleteById($request->delete_id);
-                return redirect('list-district-emergency-operations-center')->with('flash_message', 'Deleted!');  
-            } catch (\Exception $e) {
-                return $e;
+     public function destroy(Request $request){
+        try {
+            $delete_districtemergencyoperationscenter = $this->service->deleteById($request->delete_id);
+            if ($delete_districtemergencyoperationscenter) {
+                $msg = $delete_districtemergencyoperationscenter['msg'];
+                $status = $delete_districtemergencyoperationscenter['status'];
+                if ($status == 'success') {
+                    return redirect('list-district-emergency-operations-center')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
             }
+        } catch (\Exception $e) {
+            return $e;
         }
+    } 
 }

@@ -165,14 +165,24 @@ class MapLatLonController extends Controller
 //         return $e;
 //     }
 // }
-    public function destroy(Request $request)
-    {
-        try {
-            $map_gis = $this->service->deleteById($request->delete_id);
-            return redirect('list-map-lat-lons')->with('flash_message', 'Deleted!');  
-        } catch (\Exception $e) {
-            return $e;
+public function destroy(Request $request){
+    try {
+        $delete = $this->service->deleteById($request->delete_id);
+        if ($delete) {
+            $msg = $delete['msg'];
+            $status = $delete['status'];
+            if ($status == 'success') {
+                return redirect('list-map-lat-lons')->with(compact('msg', 'status'));
+            } else {
+                return redirect()->back()
+                    ->withInput()
+                    ->with(compact('msg', 'status'));
+            }
         }
-    }   
+    } catch (\Exception $e) {
+        return $e;
+    }
+} 
+  
 
 }

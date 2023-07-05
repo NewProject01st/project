@@ -20,12 +20,11 @@
                         @endif
                     </a> </li>
                 <li>
-                    Disaster Forecaste
-                    {{-- @if (session('language') == 'mar')
-                        {{ Config::get('marathi.NEWS_EVENTS.NEWS_EVENTS_SUB_LINK1') }}
-                    @else
-                        {{ Config::get('english.NEWS_EVENTS.NEWS_EVENTS_SUB_LINK1') }}
-                    @endif --}}
+                    @if (session('language') == 'mar')
+                    {{ Config::get('marathi.HOME_PAGE.DISASTER_FORCAST') }}
+                @else
+                    {{ Config::get('english.HOME_PAGE.DISASTER_FORCAST') }}
+                @endif
                 </li>
             </ul>
         </div>

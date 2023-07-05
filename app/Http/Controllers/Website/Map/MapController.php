@@ -20,7 +20,6 @@ class MapController extends Controller
         // self::$loginServe = new LoginService();
         $this->service = new NewsEventsServices();
         $this->menu = getMenuItems();
-        $this->socialicon = getSocialIcon();
 
        
     }
@@ -34,7 +33,6 @@ class MapController extends Controller
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             $data_output = MapLatLon::where('is_active', true)->get();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -45,7 +43,7 @@ class MapController extends Controller
             return $e;
         }
         
-        return view('website.pages.contact.map',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.contact.map',compact('language','menu', 'data_output'));
     }   
 
     

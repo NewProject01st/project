@@ -159,16 +159,24 @@ public function update(Request $request)
         }
     }
 
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         try {
-            $documents = $this->service->deleteById($request->delete_id);
-            return redirect('list-training-workshop')->with('flash_message', 'Deleted!');  
+            $delete = $this->service->deleteById($request->delete_id);
+            if ($delete) {
+                $msg = $delete['msg'];
+                $status = $delete['status'];
+                if ($status == 'success') {
+                    return redirect('list-training-workshop')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }   
-
+    } 
    
 
 }

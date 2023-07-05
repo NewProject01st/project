@@ -21,6 +21,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+                                    @include('admin.layout.alert')
                                     <div class="table-responsive">
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
@@ -37,7 +38,8 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $item->f_name }} {{ $item->m_name }} {{ $item->l_name }}
-                                                            ({{ $item->u_email }})</td>
+                                                            ({{ $item->u_email }})
+                                                        </td>
                                                         <td>{{ $item->role_name }}</td>
 
 
@@ -54,7 +56,7 @@
                                                         </td>
 
 
-                                                        {{-- <td>@if($item->is_active)
+                                                        {{-- <td>@if ($item->is_active)
                                                         <button type="button" class="btn btn-success btn-sm">Active</button>
                                                         @else 
                                                         <button type="button" class="btn btn-danger btn-sm">In Active</button>
@@ -106,6 +108,4 @@
         </form>
 
         <!-- content-wrapper ends -->
-
-
     @endsection

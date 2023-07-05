@@ -56,9 +56,9 @@ class PolicyPrivacyServices
     {
         $update_policy = $this->repo->update($request);
         if ($update_policy) {
-            return ['status' => 'success', 'msg' => 'Policy Privacy Added Successfully.'];
+            return ['status' => 'success', 'msg' => 'Policy Privacy Updated Successfully.'];
         } else {
-            return ['status' => 'error', 'msg' => 'Policy Privacy Not Added.'];
+            return ['status' => 'error', 'msg' => 'Policy Privacy Not Updated.'];
         }  
        
     }

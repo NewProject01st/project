@@ -255,15 +255,25 @@ class EmergencyContactNumbersController extends Controller
 
     
 
-    public function deleteaddmore(Request $request)
-    {
+    
+    public function deleteaddmore(Request $request){
         try {
             $emergencycontactnumbers = $this->service->deleteaddmore($request->delete_id);
-            return redirect('edit-emergency-contact-numbers')->with('flash_message', 'Deleted!');
+            if ($emergencycontactnumbers) {
+                $msg = $emergencycontactnumbers['msg'];
+                $status = $emergencycontactnumbers['status'];
+                if ($status == 'success') {
+                    return redirect('edit-emergency-contact-numbers')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }
+    } 
 
     public function destroy(Request $request)
     {

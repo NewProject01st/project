@@ -137,14 +137,23 @@ class IncidentTypeController extends Controller
         }
     }
 
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         try {
-            $incidenttype = $this->service->deleteById($request->delete_id);
-            return redirect('list-incident-type')->with('flash_message', 'Deleted!');  
+            $incidenttype_data = $this->service->deleteById($request->delete_id);
+            if ($incidenttype_data) {
+                $msg = $incidenttype_data['msg'];
+                $status = $incidenttype_data['status'];
+                if ($status == 'success') {
+                    return redirect('list-incident-type')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    } 
 
 }

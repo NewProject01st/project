@@ -62,21 +62,6 @@ function getPermissionForCRUDPresentOrNot($url,$data_for_session) {
     return $data;
 }
 
-
-function getSocialIcon() {
-    $socialicon_data = array();
-    $socialicon_data =  SocialIcon::where('is_active', '=',true)
-                        ->select( 
-                            'social_icons.url', 
-                            'social_icons.icon',
-                            'social_icons.id',
-                        )
-                        ->get()
-                        ->toArray();
-
-                        return $socialicon_data ;
-                        
-}
 function getMenuItems() {
 
     $menu_data = array();

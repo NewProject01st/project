@@ -5,12 +5,11 @@
     <section class="wf100 subheader">
         <div class="container">
             <h2>
-                Disaster Forecaste
-                {{-- @if (session('language') == 'mar')
-                    {{ Config::get('marathi.NEW_PARTICULAR_DATA_WEB.DISASTER_MANAGEMENT_NEWS') }}
-                @else
-                    {{ Config::get('english.NEW_PARTICULAR_DATA_WEB.DISASTER_MANAGEMENT_NEWS') }}
-                @endif --}}
+                @if (session('language') == 'mar')
+                {{ Config::get('marathi.HOME_PAGE.DISASTER_FORCAST') }}
+            @else
+                {{ Config::get('english.HOME_PAGE.DISASTER_FORCAST') }}
+            @endif
 
             </h2>
             <ul>

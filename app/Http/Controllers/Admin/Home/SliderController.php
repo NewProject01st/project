@@ -182,11 +182,21 @@ class SliderController extends Controller
 
     public function destroy(Request $request){
         try {
-            $slider = $this->service->deleteById($request->delete_id);
-            return redirect('list-slide')->with('flash_message', 'Deleted!');  
+            $delete_slide = $this->service->deleteById($request->delete_id);
+            if ($delete_slide) {
+                $msg = $delete_slide['msg'];
+                $status = $delete_slide['status'];
+                if ($status == 'success') {
+                    return redirect('list-slide')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    } 
 
 }
