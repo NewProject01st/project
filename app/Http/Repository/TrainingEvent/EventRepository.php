@@ -40,8 +40,8 @@ class EventRepository{
             $news->english_image = $englishImageName; // Save the image filename to the database
             $news->marathi_image = $marathiImageName; // Save the image filename to the database
             $news->save();
-            print_r($last_insert_id);
-            die();
+            // print_r($last_insert_id);
+            // die();
             return $last_insert_id;
 
         } catch (\Exception $e) {

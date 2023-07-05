@@ -33,9 +33,9 @@ class ContactUsServives
         try {
             $add_contact = $this->repo->addAll($request);
             if ($add_contact) {
-                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing  Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Contact Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Added.'];
+                return ['status' => 'error', 'msg' => 'Contact Crowdsourcing Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -56,26 +56,27 @@ class ContactUsServives
         try {
             $update_contact = $this->repo->updateAll($request);
             if ($update_contact) {
-                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing Updated Successfully.'];
+                return ['status' => 'success', 'msg' => 'Contact Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Updated.'];
+                return ['status' => 'error', 'msg' => 'Contact Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
 
-    
-   
-    public function deleteById($id)
-    {
+    public function deleteById($id){
         try {
-            return $this->repo->deleteById($id);
-        } catch (\Exception $e) {
-            return $e;
-        }
+            $delete = $this->repo->deleteById($id);
+            if ($delete) {
+                return ['status' => 'success', 'msg' => 'Deleted Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => ' Not Deleted.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        } 
     }
-   
 
 
 

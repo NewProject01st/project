@@ -144,15 +144,23 @@ public function show(Request $request)
             return $e;
         }
     }
-
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         try {
-            $contact = $this->service->deleteById($request->delete_id);
-            return redirect('list-contact-suggestion')->with('flash_message', 'Deleted!');  
+            $delete = $this->service->deleteById($request->delete_id);
+            if ($delete) {
+                $msg = $delete['msg'];
+                $status = $delete['status'];
+                if ($status == 'success') {
+                    return redirect('list-contact-suggestion')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    } 
 
 }

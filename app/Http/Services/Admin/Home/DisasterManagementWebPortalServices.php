@@ -94,27 +94,28 @@ class DisasterManagementWebPortalServices
             }
 
             if ($return_data) {
-                return ['status' => 'success', 'msg' => 'Disaster Management Web Portal Successfully.'];
+                return ['status' => 'success', 'msg' => 'Disaster Management Web Portal Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Disaster Management Web Portal Not Added.'];
+                return ['status' => 'error', 'msg' => 'Disaster Management Web Portal Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
 
-    
-   
     public function deleteById($id)
     {
         try {
-            return $this->repo->deleteById($id);
-        } catch (\Exception $e) {
-            return $e;
-        }
+            $delete = $this->repo->deleteById($id);
+            if ($delete) {
+                return ['status' => 'success', 'msg' => 'Deleted Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => ' Not Deleted.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        } 
     }
-   
-
 
 
 }

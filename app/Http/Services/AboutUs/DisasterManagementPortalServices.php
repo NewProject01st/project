@@ -42,9 +42,9 @@ class DisasterManagementPortalServices
             uploadImage($request, 'english_image', $path, $englishImageName);
             uploadImage($request, 'marathi_image', $path, $marathiImageName);
             if ($last_id) {
-                return ['status' => 'success', 'msg' => 'State Disaster Management Authority Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Disaster Management Portal Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'State Disaster Management Authority get Not Added.'];
+                return ['status' => 'error', 'msg' => 'Disaster Management Portal get Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -84,9 +84,9 @@ class DisasterManagementPortalServices
             }
 
             if ($return_data) {
-                return ['status' => 'success', 'msg' => 'State Disaster Management Authority Updated Successfully.'];
+                return ['status' => 'success', 'msg' => 'Disaster Management Portal Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'State Disaster Management Authority Not Updated.'];
+                return ['status' => 'error', 'msg' => 'Disaster Management Portal Not Updated.'];
             }  
             
         } catch (Exception $e) {
@@ -106,13 +106,15 @@ class DisasterManagementPortalServices
     public function deleteById($id)
     {
         try {
-            return $this->repo->deleteById($id);
-        } catch (\Exception $e) {
-            return $e;
-        }
+            $delete = $this->repo->deleteById($id);
+            if ($delete) {
+                return ['status' => 'success', 'msg' => 'Deleted Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => ' Not Deleted.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        } 
     }
-   
-
-
 
 }

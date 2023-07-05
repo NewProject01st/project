@@ -135,14 +135,23 @@ class MainMenuController extends Controller
             return redirect('add-main-menu')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
     }
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         try {
-            $constitutionhistory = $this->service->deleteById($request->delete_id);
-            return redirect('list-main-menu')->with('flash_message', 'Deleted!');  
+            $delete_main_menu = $this->service->deleteById($request->delete_id);
+            if ($delete_main_menu) {
+                $msg = $delete_main_menu['msg'];
+                $status = $delete_main_menu['status'];
+                if ($status == 'success') {
+                    return redirect('list-main-menu')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    } 
 
 }

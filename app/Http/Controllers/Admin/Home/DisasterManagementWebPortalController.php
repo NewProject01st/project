@@ -202,14 +202,24 @@ public function show(Request $request)
         }
     }
 
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         try {
             $disaster_web_portal = $this->service->deleteById($request->delete_id);
-            return redirect('list-disaster-management-web-portal')->with('flash_message', 'Deleted!');  
+            if ($disaster_web_portal) {
+                $msg = $disaster_web_portal['msg'];
+                $status = $disaster_web_portal['status'];
+                if ($status == 'success') {
+                    return redirect('list-disaster-management-web-portal')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    } 
+   
 
 }

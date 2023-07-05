@@ -149,14 +149,23 @@ public function updateOne(Request $request)
         return $e;
     }
 }
-    public function destroy(Request $request)
-    {
-        try {
-            $marquees = $this->service->deleteById($request->delete_id);
-            return redirect('list-marquee')->with('flash_message', 'Deleted!');  
-        } catch (\Exception $e) {
-            return $e;
+public function destroy(Request $request){
+    try {
+        $marquees = $this->service->deleteById($request->delete_id);
+        if ($marquees) {
+            $msg = $marquees['msg'];
+            $status = $marquees['status'];
+            if ($status == 'success') {
+                return redirect('list-marquee')->with(compact('msg', 'status'));
+            } else {
+                return redirect()->back()
+                    ->withInput()
+                    ->with(compact('msg', 'status'));
+            }
         }
-    }   
+    } catch (\Exception $e) {
+        return $e;
+    }
+} 
 
 }

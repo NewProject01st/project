@@ -134,11 +134,20 @@ class SubMenuController extends Controller
                 ->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
     }
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         try {
-            $constitutionhistory = $this->service->deleteById($request->delete_id);
-            return redirect('list-sub-menu')->with('flash_message', 'Deleted!');  
+            $delete_sub_menu = $this->service->deleteById($request->delete_id);
+            if ($delete_sub_menu) {
+                $msg = $delete_sub_menu['msg'];
+                $status = $delete_sub_menu['status'];
+                if ($status == 'success') {
+                    return redirect('list-sub-menu')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }

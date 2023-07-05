@@ -164,16 +164,24 @@ public function update(Request $request)
             return $e;
         }
     }
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         try {
-            $rti = $this->service->deleteById($request->delete_id);
-            return redirect('list-header-rti')->with('flash_message', 'Deleted!');  
+            $delete_rti = $this->service->deleteById($request->delete_id);
+            if ($delete_rti) {
+                $msg = $delete_rti['msg'];
+                $status = $delete_rti['status'];
+                if ($status == 'success') {
+                    return redirect('list-header-rti')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }   
-
+    } 
    
 
 }

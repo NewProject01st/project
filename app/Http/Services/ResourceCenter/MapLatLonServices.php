@@ -35,9 +35,9 @@ class MapLatLonServices
         try {
             $add_gisdata = $this->repo->addAll($request);
             if ($add_gisdata) {
-                return ['status' => 'success', 'msg' => 'Map Gis Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Map Data Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Map Gis Not Added.'];
+                return ['status' => 'error', 'msg' => 'Map Data Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -58,9 +58,9 @@ class MapLatLonServices
     {
         $update_map = $this->repo->updateAll($request);
         if ($update_map) {
-            return ['status' => 'success', 'msg' => 'Map Gis Added Successfully.'];
+            return ['status' => 'success', 'msg' => 'Map Data Updated Successfully.'];
         } else {
-            return ['status' => 'error', 'msg' => 'Map Gis Not Added.'];
+            return ['status' => 'error', 'msg' => 'Map Data Not Updated.'];
         }  
        
     }
@@ -68,13 +68,17 @@ class MapLatLonServices
     // {
     //     return $this->repo->updateOne($id);
     // }
-    public function deleteById($id)
-    {
+    public function deleteById($id){
         try {
-            return $this->repo->deleteById($id);
-        } catch (\Exception $e) {
-            return $e;
-        }
+            $delete = $this->repo->deleteById($id);
+            if ($delete) {
+                return ['status' => 'success', 'msg' => 'Deleted Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => ' Not Deleted.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        } 
     }
    
 

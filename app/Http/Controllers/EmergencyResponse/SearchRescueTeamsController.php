@@ -165,13 +165,23 @@ class SearchRescueTeamsController extends Controller
             ->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
  }
-    public function destroy(Request $request)
-    {
-        try {
-            $searchrescueteams = $this->service->deleteById($request->delete_id);
-            return redirect('list-search-rescue-teams')->with('flash_message', 'Deleted!');  
-        } catch (\Exception $e) {
-            return $e;
+ public function destroy(Request $request){
+    try {
+        $delete_searchrescueteams  = $this->service->deleteById($request->delete_id);
+        if ($delete_searchrescueteams) {
+            $msg = $delete_searchrescueteams['msg'];
+            $status = $delete_searchrescueteams['status'];
+            if ($status == 'success') {
+                return redirect('list-search-rescue-teams')->with(compact('msg', 'status'));
+            } else {
+                return redirect()->back()
+                    ->withInput()
+                    ->with(compact('msg', 'status'));
+            }
         }
-    } 
+    } catch (\Exception $e) {
+        return $e;
+    }
+} 
+
 }
