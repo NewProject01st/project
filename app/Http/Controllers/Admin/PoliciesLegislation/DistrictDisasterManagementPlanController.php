@@ -161,14 +161,23 @@ class DistrictDisasterManagementPlanController extends Controller
         }
     }
 
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         try {
             $district_management = $this->service->deleteById($request->delete_id);
-            return redirect('list-district-disaster-management-plan')->with('flash_message', 'Deleted!');  
+            if ($district_management) {
+                $msg = $district_management['msg'];
+                $status = $district_management['status'];
+                if ($status == 'success') {
+                    return redirect('list-district-disaster-management-plan')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    } 
 
 }

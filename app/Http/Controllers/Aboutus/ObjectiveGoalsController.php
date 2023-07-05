@@ -171,14 +171,23 @@ class ObjectiveGoalsController extends Controller
     }
 }
  
-    public function destroy(Request $request)
-    {
-        try {
-            $objectivegoals = $this->service->deleteById($request->delete_id);
-            return redirect('list-objectivegoals')->with('flash_message', 'Deleted!');  
-        } catch (\Exception $e) {
-            return $e;
+public function destroy(Request $request){
+    try {
+        $delete_objectivegoals = $this->service->deleteById($request->delete_id);
+        if ($delete_objectivegoals) {
+            $msg = $delete_objectivegoals['msg'];
+            $status = $delete_objectivegoals['status'];
+            if ($status == 'success') {
+                return redirect('list-objectivegoals')->with(compact('msg', 'status'));
+            } else {
+                return redirect()->back()
+                    ->withInput()
+                    ->with(compact('msg', 'status'));
+            }
         }
-    }   
+    } catch (\Exception $e) {
+        return $e;
+    }
+}  
 
 }

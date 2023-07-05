@@ -33,7 +33,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
-                                                    <th>Video Name</th>
+                                                    <th>Video Link</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>

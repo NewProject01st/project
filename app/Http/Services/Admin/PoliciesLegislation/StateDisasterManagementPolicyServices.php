@@ -91,9 +91,9 @@ class StateDisasterManagementPolicyServices
             }
 
             if ($return_data) {
-                return ['status' => 'success', 'msg' => 'Report Incident Crowdsourcing Updated Successfully.'];
+                return ['status' => 'success', 'msg' => 'State Disaster Management Policy Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Report Incident Crowdsourcing Not Updated.'];
+                return ['status' => 'error', 'msg' => 'State Disaster Management Policy Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -106,12 +106,16 @@ class StateDisasterManagementPolicyServices
     
     public function deleteById($id){
         try {
-            return $this->repo->deleteById($id);
-        } catch (\Exception $e) {
-            return $e;
-        }
+            $delete = $this->repo->deleteById($id);
+            if ($delete) {
+                return ['status' => 'success', 'msg' => 'Deleted Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => ' Not Deleted.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        } 
     }
-   
 
 
 

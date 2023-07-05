@@ -58,9 +58,9 @@ class RegisterServices
                 uploadImage($request, 'user_profile', $path, $userProfile);
              
                 if ($last_id) {
-                    return ['status' => 'success', 'msg' => 'Evacuation Plans Added Successfully.'];
+                    return ['status' => 'success', 'msg' => 'User Added Successfully.'];
                 } else {
-                    return ['status' => 'error', 'msg' => 'Evacuation Plans get Not Added.'];
+                    return ['status' => 'error', 'msg' => 'User get Not Added.'];
                 }  
             }
 
@@ -79,9 +79,18 @@ class RegisterServices
         return $data_users;
     }
     
-    public function delete($request) {
-        $delete_user = $this->repo->delete($request);
-        return $delete_user;
+
+    public function delete($id){
+        try {
+            $delete = $this->repo->delete($id);
+            if ($delete) {
+                return ['status' => 'success', 'msg' => 'Deleted Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => ' Not Deleted.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        } 
     }
    
     public function getById($id){
@@ -121,9 +130,9 @@ class RegisterServices
     
             
             if ($return_data) {
-                return ['status' => 'success', 'msg' => 'Slide Updated Successfully.'];
+                return ['status' => 'success', 'msg' => 'User Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Slide  Not Updated.'];
+                return ['status' => 'error', 'msg' => 'User  Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];

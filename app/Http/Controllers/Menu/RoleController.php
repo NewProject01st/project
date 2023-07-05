@@ -143,16 +143,24 @@ class RoleController extends Controller
             return $e;
         }
     }
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         try {
-            $roles = $this->service->deleteById($request->delete_id);
-            return redirect('list-role')->with('flash_message', 'Deleted!');
+            $delete_role_type = $this->service->deleteById($request->delete_id);
+            if ($delete_role_type) {
+                $msg = $delete_role_type['msg'];
+                $status = $delete_role_type['status'];
+                if ($status == 'success') {
+                    return redirect('list-role')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }
-
+    } 
     public function listRoleWisePermission(Request $request)
     {
         try {

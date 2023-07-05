@@ -162,10 +162,19 @@ class StateDisasterManagementPlanController extends Controller
     public function destroy(Request $request){
         try {
             $state_management = $this->service->deleteById($request->delete_id);
-            return redirect('list-state-disaster-management-plan')->with('flash_message', 'Deleted!');  
+            if ($state_management) {
+                $msg = $state_management['msg'];
+                $status = $state_management['status'];
+                if ($status == 'success') {
+                    return redirect('list-state-disaster-management-plan')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }   
-
+    } 
 }

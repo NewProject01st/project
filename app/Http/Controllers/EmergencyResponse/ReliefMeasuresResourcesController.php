@@ -168,13 +168,23 @@ class ReliefMeasuresResourcesController extends Controller
             ->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
  }
-    public function destroy(Request $request)
-    {
-        try {
-            $reliefmeasuresresources = $this->service->deleteById($request->delete_id);
-            return redirect('list-relief-measures-resources')->with('flash_message', 'Deleted!');  
-        } catch (\Exception $e) {
-            return $e;
+ public function destroy(Request $request){
+    try {
+        $delete_reliefmeasuresresources = $this->service->deleteById($request->delete_id);
+        if ($delete_reliefmeasuresresources) {
+            $msg = $delete_reliefmeasuresresources['msg'];
+            $status = $delete_reliefmeasuresresources['status'];
+            if ($status == 'success') {
+                return redirect('list-relief-measures-resources')->with(compact('msg', 'status'));
+            } else {
+                return redirect()->back()
+                    ->withInput()
+                    ->with(compact('msg', 'status'));
+            }
         }
-    } 
+    } catch (\Exception $e) {
+        return $e;
+    }
+} 
+
 }

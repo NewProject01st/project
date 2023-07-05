@@ -165,14 +165,23 @@ class StateDisasterManagementPolicyController extends Controller
             return $e;
         }
     }
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         try {
             $state_policy = $this->service->deleteById($request->delete_id);
-            return redirect('list-state-disaster-management-policy')->with('flash_message', 'Deleted!');  
+            if ($state_policy) {
+                $msg = $state_policy['msg'];
+                $status = $state_policy['status'];
+                if ($status == 'success') {
+                    return redirect('list-state-disaster-management-policy')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    } 
 
 }

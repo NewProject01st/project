@@ -274,13 +274,25 @@ class RegisterController extends Controller {
         }
     }
   
+   
     public function delete(Request $request){
-        $delete_user = $this->service->delete($request);
-        $msg = 'User deleted successfully';
-        $status = 'success';
-        return redirect('list-users')->with(compact('msg','status'));
-    }
-    // ======================================
+        try {
+            $delete = $this->service->delete($request->delete_id);
+            if ($delete) {
+                $msg = $delete['msg'];
+                $status = $delete['status'];
+                if ($status == 'success') {
+                    return redirect('list-users')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
 
     public function updateOne(Request $request){
         try {

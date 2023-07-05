@@ -107,7 +107,7 @@ class StateEmergencyOperationsCenterController extends Controller
     public function update(Request $request)
 {
     $rules = [
-        'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+        'english_title' => 'required|max:255',
         'marathi_title' => 'required|max:255',
         'english_description' => 'required',
         'marathi_description' => 'required',
@@ -166,13 +166,23 @@ class StateEmergencyOperationsCenterController extends Controller
             ->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
  }
-    public function destroy(Request $request)
-    {
-        try {
-            $stateemergencyoperationscenter = $this->service->deleteById($request->delete_id);
-            return redirect('list-state-emergency-operations-center')->with('flash_message', 'Deleted!');  
-        } catch (\Exception $e) {
-            return $e;
+ public function destroy(Request $request){
+    try {
+        $delete_stateemergencyoperationscenter = $this->service->deleteById($request->delete_id);
+        if ($delete_stateemergencyoperationscenter) {
+            $msg = $delete_stateemergencyoperationscenter['msg'];
+            $status = $delete_stateemergencyoperationscenter['status'];
+            if ($status == 'success') {
+                return redirect('list-state-emergency-operations-center')->with(compact('msg', 'status'));
+            } else {
+                return redirect()->back()
+                    ->withInput()
+                    ->with(compact('msg', 'status'));
+            }
         }
+    } catch (\Exception $e) {
+        return $e;
     }
+} 
+
 }

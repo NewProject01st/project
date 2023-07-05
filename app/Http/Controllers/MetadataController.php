@@ -132,14 +132,23 @@ class MetadataController extends Controller
                 ->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
     }
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         try {
-            $metadata = $this->service->deleteById($request->delete_id);
-            return redirect('list-metadata')->with('flash_message', 'Deleted!');  
+            $delete = $this->service->deleteById($request->delete_id);
+            if ($delete) {
+                $msg = $delete['msg'];
+                $status = $delete['status'];
+                if ($status == 'success') {
+                    return redirect('list-metadata')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    } 
 
 }

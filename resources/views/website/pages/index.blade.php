@@ -250,7 +250,7 @@
                                         <div class="WeatherBlock">
                                             <div class="card weather_card">
                                                 <div class="card-body">
-                                                    <h3 class="text-center">Nashik</h3>
+                                                    <h6 class="text-center">Nashik</h6>
                                                     <p class="text-center">{{date("d/m/Y", strtotime($forecast_data['datetime']))}} | {{date("l", strtotime($forecast_data['datetime']))}}</p>
 
                                                     <div class="d-flex justify-content-center bd-highlight mb-2">

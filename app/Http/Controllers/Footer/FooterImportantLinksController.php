@@ -34,7 +34,6 @@ class FooterImportantLinksController extends Controller
             'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             'marathi_title' => 'required|max:255',
             'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
-            // 'url' => 'required|regex:/^(ftp|http[s]?):\/\/(?:www\.)?[a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b(?:[-a-zA-Z0-9@:%_\+.~#?&//=]*)$/',
          ];
     $messages = [ 
 
@@ -148,14 +147,23 @@ public function updateOne(Request $request)
         return $e;
     }
 }
-    public function destroy(Request $request)
-    {
-        try {
-            $links = $this->service->deleteById($request->delete_id);
-            return redirect('list-important-link')->with('flash_message', 'Deleted!');  
-        } catch (\Exception $e) {
-            return $e;
+public function destroy(Request $request){
+    try {
+        $delete = $this->service->deleteById($request->delete_id);
+        if ($delete) {
+            $msg = $delete['msg'];
+            $status = $delete['status'];
+            if ($status == 'success') {
+                return redirect('list-important-link')->with(compact('msg', 'status'));
+            } else {
+                return redirect()->back()
+                    ->withInput()
+                    ->with(compact('msg', 'status'));
+            }
         }
-    }   
+    } catch (\Exception $e) {
+        return $e;
+    }
+} 
 
 }

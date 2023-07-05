@@ -145,14 +145,24 @@ $messages = [
             ->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
  }
-    public function destroy(Request $request)
-    {
-        try {
-            $disasterforcast = $this->service->deleteById($request->delete_id);
-            return redirect('list-disasterforcast')->with('flash_message', 'Deleted!');  
-        } catch (\Exception $e) {
-            return $e;
-        }
-    }   
+ public function destroy(Request $request){
+     try {
+         $delete_disasterforcast = $this->service->deleteById($request->delete_id);
+         if ($delete_disasterforcast) {
+             $msg = $delete_disasterforcast['msg'];
+             $status = $delete_disasterforcast['status'];
+             if ($status == 'success') {
+                 return redirect('list-disasterforcast')->with(compact('msg', 'status'));
+             } else {
+                 return redirect()->back()
+                     ->withInput()
+                     ->with(compact('msg', 'status'));
+             }
+         }
+     } catch (\Exception $e) {
+         return $e;
+     }
+ } 
+
 
 }

@@ -34,14 +34,23 @@ class VolunteerCitizenModalController extends Controller
         }
     }
 
-    public function destroy(Request $request)
-    {
+    public function destroy(Request $request){
         try {
-            $crowdsourcing = $this->service->deleteById($request->delete_id);
-            return redirect('list-volunteer-modal-info')->with('flash_message', 'Deleted!');  
+            $delete = $this->service->deleteById($request->delete_id);
+            if ($delete) {
+                $msg = $delete['msg'];
+                $status = $delete['status'];
+                if ($status == 'success') {
+                    return redirect('list-volunteer-modal-info')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    } 
 
 }

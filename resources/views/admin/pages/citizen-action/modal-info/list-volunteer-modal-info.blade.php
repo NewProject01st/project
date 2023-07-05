@@ -27,6 +27,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12">
+                                    @include('admin.layout.alert')
                                     <div class="table-responsive">
                                         <table id="order-listing" class="table table-bordered">
                                             <thead>
@@ -51,7 +52,8 @@
                                                         <td>{{ $item->mobile_number }}</td>
                                                         <td>{{ strip_tags($item->description) }}</td>
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_VIEW') }}{{ $item->media_upload }}" alt=" {{ strip_tags($item['media_upload']) }} Image"/>
+                                                                src="{{ Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_VIEW') }}{{ $item->media_upload }}"
+                                                                alt=" {{ strip_tags($item['media_upload']) }} Image" />
                                                         </td>
 
 
@@ -65,12 +67,11 @@
 --}}
                                                                 <a data-id="{{ $item->id }}"
                                                                     class="show-btn btn btn-sm btn-outline-primary m-1"><i
-                                                                        class="fas fa-eye"></i></a> 
+                                                                        class="fas fa-eye"></i></a>
                                                                 @if (in_array('per_delete', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
                                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
-                                                                        title="Delete"><i
-                                                                            class="fas fa-archive"></i></a>
+                                                                        title="Delete"><i class="fas fa-archive"></i></a>
                                                                 @endif
                                                             </div>
                                                         </td>

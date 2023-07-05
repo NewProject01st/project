@@ -30,9 +30,9 @@ class SubMenuServices
         try {
             $add_constitutionhistory = $this->repo->addAll($request);
             if ($add_constitutionhistory) {
-                return ['status' => 'success', 'msg' => 'Constitution History Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Sub Menu Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Constitution History Not Added.'];
+                return ['status' => 'error', 'msg' => 'Sub Menu Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -43,9 +43,9 @@ class SubMenuServices
         try {
             $update_constitutionhistory = $this->repo->updateAll($request);
             if ($update_constitutionhistory) {
-                return ['status' => 'success', 'msg' => 'Constitution History Updated Successfully.'];
+                return ['status' => 'success', 'msg' => 'Sub Menu Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Constitution History Not Updated.'];
+                return ['status' => 'error', 'msg' => 'Sub Menu Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -60,14 +60,19 @@ class SubMenuServices
             return $e;
         }
     }
-   
+    
     public function deleteById($id)
     {
         try {
-            return $this->repo->deleteById($id);
-        } catch (\Exception $e) {
-            return $e;
-        }
+            $delete = $this->repo->deleteById($id);
+            if ($delete) {
+                return ['status' => 'success', 'msg' => 'Deleted Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => ' Not Deleted.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        } 
     }
    
 

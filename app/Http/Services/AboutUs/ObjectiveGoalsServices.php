@@ -42,9 +42,9 @@ class ObjectiveGoalsServices
             uploadImage($request, 'english_image', $path, $englishImageName);
             uploadImage($request, 'marathi_image', $path, $marathiImageName);
             if ($last_id) {
-                return ['status' => 'success', 'msg' => 'State Disaster Management Authority Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Objective Goals Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'State Disaster Management Authority get Not Added.'];
+                return ['status' => 'error', 'msg' => 'Objective Goals get Not Added.'];
             }  
            
         } catch (Exception $e) {
@@ -84,9 +84,9 @@ class ObjectiveGoalsServices
 
 
         if ($return_data) {
-            return ['status' => 'success', 'msg' => 'Objective Goals Added Successfully.'];
+            return ['status' => 'success', 'msg' => 'Objective Goals Updated Successfully.'];
         } else {
-            return ['status' => 'error', 'msg' => 'Objective Goals Not Added.'];
+            return ['status' => 'error', 'msg' => 'Objective Goals Not Updated.'];
         }  
        
     }
@@ -103,13 +103,16 @@ class ObjectiveGoalsServices
     public function deleteById($id)
     {
         try {
-            return $this->repo->deleteById($id);
-        } catch (\Exception $e) {
-            return $e;
-        }
+            $delete = $this->repo->deleteById($id);
+            if ($delete) {
+                return ['status' => 'success', 'msg' => 'Deleted Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => ' Not Deleted.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        } 
     }
-   
-
 
 
 }

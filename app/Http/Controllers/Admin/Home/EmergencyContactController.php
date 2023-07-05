@@ -62,7 +62,7 @@ class EmergencyContactController extends Controller
         'email.regex' => 'Enter valid email.',
         'english_number.required' => 'Please enter number.',
          'marathi_number.required' => 'कृपया क्रमांक प्रविष्ट करा ',
-         'english_number.regex' => 'Please enter only  number with 10-digit numbers.',
+         'english_number.regex' => 'Please enter only number with 10-digit.',
         'marathi_number.regex' => 'कृपया फक्त 10-अंकी संख्या असलेली संख्या प्रविष्ट करा. ',
 
         'english_landline_no.required' =>'Please enter landline number.',
@@ -212,7 +212,17 @@ public function show(Request $request)
     {
         try {
             $contact = $this->service->deleteById($request->delete_id);
-            return redirect('list-emergency-contact')->with('flash_message', 'Deleted!');  
+            if ($contact) {
+                $msg = $contact['msg'];
+                $status = $contact['status'];
+                if ($status == 'success') {
+                    return redirect('list-emergency-contact')->with(compact('msg', 'status'));
+                } else {
+                    return redirect()->back()
+                        ->withInput()
+                        ->with(compact('msg', 'status'));
+                }
+            }
         } catch (\Exception $e) {
             return $e;
         }

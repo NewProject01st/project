@@ -66,9 +66,9 @@ class RoleServices
     {
         $update_role = $this->repo->updateRole($request);
         if ($update_role) {
-            return ['status' => 'success', 'msg' => 'Role Added Successfully.'];
+            return ['status' => 'success', 'msg' => 'Role Updated Successfully.'];
         } else {
-            return ['status' => 'error', 'msg' => 'Role Not Added.'];
+            return ['status' => 'error', 'msg' => 'Role Not Updated.'];
         }  
        
     }
@@ -79,10 +79,15 @@ class RoleServices
     public function deleteById($id)
     {
         try {
-            return $this->repo->deleteById($id);
-        } catch (\Exception $e) {
-            return $e;
-        }
+            $delete = $this->repo->deleteById($id);
+            if ($delete) {
+                return ['status' => 'success', 'msg' => 'Deleted Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => ' Not Deleted.'];
+            }  
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        } 
     }
 
     

@@ -158,14 +158,23 @@ $messages = [
             ->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
  }
-    public function destroy(Request $request)
-    {
-        try {
-            $weather = $this->service->deleteById($request->delete_id);
-            return redirect('list-weather')->with('flash_message', 'Deleted!');  
-        } catch (\Exception $e) {
-            return $e;
+ public function destroy(Request $request){
+    try {
+        $delete_weather = $this->service->deleteById($request->delete_id);
+        if ($delete_weather) {
+            $msg = $delete_weather['msg'];
+            $status = $delete_weather['status'];
+            if ($status == 'success') {
+                return redirect('list-weather')->with(compact('msg', 'status'));
+            } else {
+                return redirect()->back()
+                    ->withInput()
+                    ->with(compact('msg', 'status'));
+            }
         }
-    }   
+    } catch (\Exception $e) {
+        return $e;
+    }
+}  
 
 }

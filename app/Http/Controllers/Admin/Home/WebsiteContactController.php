@@ -33,8 +33,8 @@ class WebsiteContactController extends Controller
             'english_address' => 'required|max:255',
             'marathi_address' => 'required|max:255',  
             'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
-            'english_number' => 'required|regex:/^[0-9]{10}$/',
-            'marathi_number' => 'required|regex:/^[0-9]{10}$/',
+            'english_number' =>'required|regex:/^[+]?[0-9-() ]{7,20}$/',
+            'marathi_number' => 'required|regex:/^[+]?[0-9-() ]{7,20}$/',
             // 'marathi_icon' => 'required',
             
          ];
@@ -47,10 +47,9 @@ class WebsiteContactController extends Controller
             'email.regex' => 'Enter valid email.',
             'english_number.required' => 'Please enter number.',
             'marathi_number.required' => 'कृपया क्रमांक प्रविष्ट करा ',
-            'english_number.regex' => 'Please enter only  numbers with 10-digit.',
-            'marathi_number.regex' => 'कृपया फक्त 10-अंकी संख्या असलेली संख्या प्रविष्ट करा. ',
-        
-        
+            'english_number.regex' => 'Please enter valid number.',
+            'marathi_number.regex' => 'कृपया क्रमांक बरोबर  प्रविष्ट करा. ',
+ 
     ];  
 
     try {
@@ -97,8 +96,8 @@ class WebsiteContactController extends Controller
         'english_address' => 'required|max:255',
         'marathi_address' => 'required|max:255',
         'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
-        'english_number' => 'required|regex:/^[0-9]{10}$/',
-        'marathi_number' => 'required|regex:/^[0-9]{10}$/',
+        'english_number' =>'required|regex:/^[+]?[0-9-() ]{7,20}$/',
+        'marathi_number' => 'required|regex:/^[+]?[0-9-() ]{7,20}$/',
         
      ];
     $messages = [   
@@ -110,8 +109,8 @@ class WebsiteContactController extends Controller
         'email.regex' => 'Enter valid email.',
         'english_number.required' => 'Please enter number.',
         'marathi_number.required' => 'कृपया क्रमांक प्रविष्ट करा ',
-        'english_number.regex' => 'Please enter only  numbers with 10-digit.',
-        'marathi_number.regex' => 'कृपया फक्त 10-अंकी संख्या असलेली संख्या प्रविष्ट करा. ',
+        'english_number.regex' => 'Please enter valid number.',
+        'marathi_number.regex' => 'कृपया क्रमांक बरोबर  प्रविष्ट करा. ',
     
     
         
@@ -166,14 +165,22 @@ public function updateOne(Request $request)
 }
 
 
-    public function destroy(Request $request)
-    {
-        try {
-            $contact = $this->service->deleteById($request->delete_id);
-            return redirect('list-website-contact')->with('flash_message', 'Deleted!');  
-        } catch (\Exception $e) {
-            return $e;
+public function destroy(Request $request){
+    try {
+        $contact = $this->service->deleteById($request->delete_id);
+        if ($contact) {
+            $msg = $contact['msg'];
+            $status = $contact['status'];
+            if ($status == 'success') {
+                return redirect('list-website-contact')->with(compact('msg', 'status'));
+            } else {
+                return redirect()->back()
+                    ->withInput()
+                    ->with(compact('msg', 'status'));
+            }
         }
-    }   
-
+    } catch (\Exception $e) {
+        return $e;
+    }
+} 
 }
