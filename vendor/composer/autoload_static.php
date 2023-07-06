@@ -37,6 +37,8 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'c72349b1fe8d0deeedd3a52e8aa814d8' => __DIR__ . '/..' . '/mockery/mockery/library/helpers.php',
+        'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '0e470f9a24a6d7ae4e9bf26da51edb06' => __DIR__ . '/../..' . '/app/Http/Helpers/helpercustom.php',
     );
@@ -113,6 +115,7 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Mockery\\' => 8,
         ),
         'L' => 
         array (
@@ -365,6 +368,10 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Mockery\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mockery/mockery/library/Mockery',
+        ),
         'League\\MimeTypeDetection\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/mime-type-detection/src',
@@ -516,16 +523,6 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         ),
     );
 
-    public static $prefixesPsr0 = array (
-        'M' => 
-        array (
-            'Mockery' => 
-            array (
-                0 => __DIR__ . '/..' . '/mockery/mockery/library',
-            ),
-        ),
-    );
-
     public static $classMap = array (
         'AWS\\CRT\\Auth\\AwsCredentials' => __DIR__ . '/..' . '/aws/aws-crt-php/src/AWS/CRT/Auth/AwsCredentials.php',
         'AWS\\CRT\\Auth\\CredentialsProvider' => __DIR__ . '/..' . '/aws/aws-crt-php/src/AWS/CRT/Auth/CredentialsProvider.php',
@@ -591,10 +588,10 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'App\\Http\\Controllers\\ErrorHandlingController' => __DIR__ . '/../..' . '/app/Http/Controllers/ErrorHandlingController.php',
         'App\\Http\\Controllers\\Footer\\FooterImportantLinksController' => __DIR__ . '/../..' . '/app/Http/Controllers/Footer/FooterImportantLinksController.php',
         'App\\Http\\Controllers\\Footer\\PolicyPrivacyController' => __DIR__ . '/../..' . '/app/Http/Controllers/Footer/PolicyPrivacyController.php',
+        'App\\Http\\Controllers\\Footer\\SocialIconController' => __DIR__ . '/../..' . '/app/Http/Controllers/Footer/SocialIconController.php',
         'App\\Http\\Controllers\\Footer\\TermsConditionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Footer/TermsConditionController.php',
         'App\\Http\\Controllers\\Footer\\TweeterFeedsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Footer/TweeterFeedsController.php',
         'App\\Http\\Controllers\\Header\\RTIController' => __DIR__ . '/../..' . '/app/Http/Controllers/Header/RTIController.php',
-        'App\\Http\\Controllers\\Header\\SocialIconController' => __DIR__ . '/../..' . '/app/Http/Controllers/Header/SocialIconController.php',
         'App\\Http\\Controllers\\Header\\TollFreeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Header/TollFreeController.php',
         'App\\Http\\Controllers\\Header\\VacanciesHeaderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Header/VacanciesHeaderController.php',
         'App\\Http\\Controllers\\Header\\WebsiteLogoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Header/WebsiteLogoController.php',
@@ -670,10 +667,10 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'App\\Http\\Repository\\EmergencyResponse\\StateEmergencyOperationsCenterRepository' => __DIR__ . '/../..' . '/app/Http/Repository/EmergencyResponse/StateEmergencyOperationsCenterRepository.php',
         'App\\Http\\Repository\\Footer\\FooterImportantLinksRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Footer/FooterImportantLinksRepository.php',
         'App\\Http\\Repository\\Footer\\PolicyPrivacyRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Footer/PolicyPrivacyRepository.php',
+        'App\\Http\\Repository\\Footer\\SocialIconRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Footer/SocialIconRepository.php',
         'App\\Http\\Repository\\Footer\\TermsConditionRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Footer/TermsConditionRepository.php',
         'App\\Http\\Repository\\Footer\\TweeterFeedsRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Footer/TweeterFeedsRepository.php',
         'App\\Http\\Repository\\Header\\RTIRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Header/RTIRepository.php',
-        'App\\Http\\Repository\\Header\\SocialIconRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Header/SocialIconRepository.php',
         'App\\Http\\Repository\\Header\\TollFreeRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Header/TollFreeRepository.php',
         'App\\Http\\Repository\\Header\\VacanciesRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Header/VacanciesRepository.php',
         'App\\Http\\Repository\\Header\\WebsiteLogoRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Header/WebsiteLogoRepository.php',
@@ -736,10 +733,10 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'App\\Http\\Services\\EmergencyResponse\\StateEmergencyOperationsCenterServices' => __DIR__ . '/../..' . '/app/Http/Services/EmergencyResponse/StateEmergencyOperationsCenterServices.php',
         'App\\Http\\Services\\Footer\\FooterImportantLinksServices' => __DIR__ . '/../..' . '/app/Http/Services/Footer/FooterImportantLinksServices.php',
         'App\\Http\\Services\\Footer\\PolicyPrivacyServices' => __DIR__ . '/../..' . '/app/Http/Services/Footer/PolicyPrivacyServices.php',
+        'App\\Http\\Services\\Footer\\SocialIconServices' => __DIR__ . '/../..' . '/app/Http/Services/Footer/SocialIconServices.php',
         'App\\Http\\Services\\Footer\\TermsConditionServices' => __DIR__ . '/../..' . '/app/Http/Services/Footer/TermsConditionServices.php',
         'App\\Http\\Services\\Footer\\TweeterFeedServices' => __DIR__ . '/../..' . '/app/Http/Services/Footer/TweeterFeedServices.php',
         'App\\Http\\Services\\Header\\RTIServices' => __DIR__ . '/../..' . '/app/Http/Services/Header/RTIServices.php',
-        'App\\Http\\Services\\Header\\SocialIconServices' => __DIR__ . '/../..' . '/app/Http/Services/Header/SocialIconServices.php',
         'App\\Http\\Services\\Header\\TollFreeServices' => __DIR__ . '/../..' . '/app/Http/Services/Header/TollFreeServices.php',
         'App\\Http\\Services\\Header\\VacanciesHeaderServices' => __DIR__ . '/../..' . '/app/Http/Services/Header/VacanciesHeaderServices.php',
         'App\\Http\\Services\\Header\\WebsiteLogoServices' => __DIR__ . '/../..' . '/app/Http/Services/Header/WebsiteLogoServices.php',
@@ -1965,6 +1962,7 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'Database\\Seeders\\RolesSeeder' => __DIR__ . '/../..' . '/database/seeders/RolesSeeder.php',
         'Database\\Seeders\\SearchRescueTeamsSeeder' => __DIR__ . '/../..' . '/database/seeders/SearchRescueTeamsSeeder.php',
         'Database\\Seeders\\SliderSeeder' => __DIR__ . '/../..' . '/database/seeders/SliderSeeder.php',
+        'Database\\Seeders\\SocialIconSeeder' => __DIR__ . '/../..' . '/database/seeders/SocialIconSeeder.php',
         'Database\\Seeders\\StateDisasterManagementAuthoritySeeder' => __DIR__ . '/../..' . '/database/seeders/StateDisasterManagementAuthoritySeeder.php',
         'Database\\Seeders\\StateEmergencyOperationsCenterSeeder' => __DIR__ . '/../..' . '/database/seeders/StateEmergencyOperationsCenterSeeder.php',
         'Database\\Seeders\\TermsConditionsSeeder' => __DIR__ . '/../..' . '/database/seeders/TermsConditionsSeeder.php',
@@ -2697,6 +2695,7 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'Faker\\Provider\\nl_NL\\PhoneNumber' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/PhoneNumber.php',
         'Faker\\Provider\\nl_NL\\Text' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Text.php',
         'Faker\\Provider\\pl_PL\\Address' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/pl_PL/Address.php',
+        'Faker\\Provider\\pl_PL\\Color' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/pl_PL/Color.php',
         'Faker\\Provider\\pl_PL\\Company' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/pl_PL/Company.php',
         'Faker\\Provider\\pl_PL\\Internet' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/pl_PL/Internet.php',
         'Faker\\Provider\\pl_PL\\LicensePlate' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/pl_PL/LicensePlate.php',
@@ -4427,7 +4426,6 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'League\\MimeTypeDetection\\GeneratedExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/GeneratedExtensionToMimeTypeMap.php',
         'League\\MimeTypeDetection\\MimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/MimeTypeDetector.php',
         'League\\MimeTypeDetection\\OverridingExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/OverridingExtensionToMimeTypeMap.php',
-        'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegrationAssertPostConditions' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditions.php',
         'Mockery\\Adapter\\Phpunit\\MockeryTestCase' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCase.php',
@@ -4448,6 +4446,7 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'Mockery\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Exception/InvalidArgumentException.php',
         'Mockery\\Exception\\InvalidCountException' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Exception/InvalidCountException.php',
         'Mockery\\Exception\\InvalidOrderException' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Exception/InvalidOrderException.php',
+        'Mockery\\Exception\\MockeryExceptionInterface' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Exception/MockeryExceptionInterface.php',
         'Mockery\\Exception\\NoMatchingExpectationException' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Exception/NoMatchingExpectationException.php',
         'Mockery\\Exception\\RuntimeException' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Exception/RuntimeException.php',
         'Mockery\\Expectation' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Expectation.php',
@@ -4466,6 +4465,7 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'Mockery\\Generator\\StringManipulationGenerator' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php',
         'Mockery\\Generator\\StringManipulation\\Pass\\AvoidMethodClashPass' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/AvoidMethodClashPass.php',
         'Mockery\\Generator\\StringManipulation\\Pass\\CallTypeHintPass' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/CallTypeHintPass.php',
+        'Mockery\\Generator\\StringManipulation\\Pass\\ClassAttributesPass' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/ClassAttributesPass.php',
         'Mockery\\Generator\\StringManipulation\\Pass\\ClassNamePass' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/ClassNamePass.php',
         'Mockery\\Generator\\StringManipulation\\Pass\\ClassPass' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/ClassPass.php',
         'Mockery\\Generator\\StringManipulation\\Pass\\ConstantsPass' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/ConstantsPass.php',
@@ -4496,6 +4496,8 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'Mockery\\Matcher\\Ducktype' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Matcher/Ducktype.php',
         'Mockery\\Matcher\\HasKey' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Matcher/HasKey.php',
         'Mockery\\Matcher\\HasValue' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Matcher/HasValue.php',
+        'Mockery\\Matcher\\IsEqual' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Matcher/IsEqual.php',
+        'Mockery\\Matcher\\IsSame' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Matcher/IsSame.php',
         'Mockery\\Matcher\\MatcherAbstract' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Matcher/MatcherAbstract.php',
         'Mockery\\Matcher\\MultiArgumentClosure' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Matcher/MultiArgumentClosure.php',
         'Mockery\\Matcher\\MustBe' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Matcher/MustBe.php',
@@ -5008,8 +5010,8 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'PHPUnit\\TextUI\\XmlConfiguration\\Migrator' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/XmlConfiguration/Migration/Migrator.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\MoveAttributesFromFilterWhitelistToCoverage' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/XmlConfiguration/Migration/Migrations/MoveAttributesFromFilterWhitelistToCoverage.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\MoveAttributesFromRootToCoverage' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/XmlConfiguration/Migration/Migrations/MoveAttributesFromRootToCoverage.php',
-        'PHPUnit\\TextUI\\XmlConfiguration\\MoveWhitelistDirectoriesToCoverage' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/XmlConfiguration/Migration/Migrations/MoveWhitelistDirectoriesToCoverage.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\MoveWhitelistExcludesToCoverage' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/XmlConfiguration/Migration/Migrations/MoveWhitelistExcludesToCoverage.php',
+        'PHPUnit\\TextUI\\XmlConfiguration\\MoveWhitelistIncludesToCoverage' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/XmlConfiguration/Migration/Migrations/MoveWhitelistIncludesToCoverage.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\PHPUnit' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/XmlConfiguration/PHPUnit/PHPUnit.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\Php' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/XmlConfiguration/PHP/Php.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\PhpHandler' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/XmlConfiguration/PHP/PhpHandler.php',
@@ -5606,6 +5608,7 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         'Psy\\Sudo' => __DIR__ . '/..' . '/psy/psysh/src/Sudo.php',
         'Psy\\Sudo\\SudoVisitor' => __DIR__ . '/..' . '/psy/psysh/src/Sudo/SudoVisitor.php',
         'Psy\\SuperglobalsEnv' => __DIR__ . '/..' . '/psy/psysh/src/SuperglobalsEnv.php',
+        'Psy\\SystemEnv' => __DIR__ . '/..' . '/psy/psysh/src/SystemEnv.php',
         'Psy\\TabCompletion\\AutoCompleter' => __DIR__ . '/..' . '/psy/psysh/src/TabCompletion/AutoCompleter.php',
         'Psy\\TabCompletion\\Matcher\\AbstractContextAwareMatcher' => __DIR__ . '/..' . '/psy/psysh/src/TabCompletion/Matcher/AbstractContextAwareMatcher.php',
         'Psy\\TabCompletion\\Matcher\\AbstractDefaultParametersMatcher' => __DIR__ . '/..' . '/psy/psysh/src/TabCompletion/Matcher/AbstractDefaultParametersMatcher.php',
@@ -6813,7 +6816,6 @@ class ComposerStaticInit62892f95d458427d7a3a182738504684
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit62892f95d458427d7a3a182738504684::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit62892f95d458427d7a3a182738504684::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit62892f95d458427d7a3a182738504684::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit62892f95d458427d7a3a182738504684::$classMap;
 
         }, null, ClassLoader::class);
