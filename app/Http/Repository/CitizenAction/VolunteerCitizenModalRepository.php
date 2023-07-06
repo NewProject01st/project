@@ -54,11 +54,11 @@ class VolunteerCitizenModalRepository{
             $citizen = CitizenVolunteerModal::find($id);
             // dd($ciizen);
             if ($citizen) {
-                if (file_exists(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $citizen->media_upload))) {
-                    unlink(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $citizen->media_upload));
+                if (file_exists_s3(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $citizen->media_upload)) {
+                    removeImage(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $citizen->media_upload);
                 }
-                if (file_exists(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $citizen->ngo_photo))) {
-                    unlink(storage_path(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $citizen->ngo_photo));
+                if (file_exists_s3(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $citizen->ngo_photo)) {
+                    removeImage(Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_DELETE') . $citizen->ngo_photo);
                 }
                 $citizen->delete();
                 return $citizen;

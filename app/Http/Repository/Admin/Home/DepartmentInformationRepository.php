@@ -151,22 +151,22 @@ public function deleteById($id)
     try {
         $department = DepartmentInformation::find($id);
         if ($department) {
-            $delete_path_for_english_file = storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $department->english_image);
-            if (file_exists($delete_path_for_english_file)) {
-                unlink($delete_path_for_english_file);
+            $delete_path_for_english_file = Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $department->english_image;
+            if (file_exists_s3($delete_path_for_english_file)) {
+                removeImage($delete_path_for_english_file);
             }
-            $delete_path_for_marathi_file = storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $department->marathi_image);
-            if (file_exists($delete_path_for_marathi_file)) {
-                unlink($delete_path_for_marathi_file);
+            $delete_path_for_marathi_file = Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $department->marathi_image;
+            if (file_exists_s3($delete_path_for_marathi_file)) {
+                removeImage($delete_path_for_marathi_file);
             }
 
-            $delete_path_for_english_file_new = storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $department->english_image_new);
-            if (file_exists($delete_path_for_english_file_new)) {
-                unlink($delete_path_for_english_file_new);
+            $delete_path_for_english_file_new = Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $department->english_image_new;
+            if (file_exists_s3($delete_path_for_english_file_new)) {
+                removeImage($delete_path_for_english_file_new);
             }
-            $delete_path_for_marathi_file_new = storage_path(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $department->marathi_image_new);
-            if (file_exists($delete_path_for_marathi_file_new)) {
-                unlink($delete_path_for_marathi_file_new);
+            $delete_path_for_marathi_file_new = Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $department->marathi_image_new;
+            if (file_exists_s3($delete_path_for_marathi_file_new)) {
+                removeImage($delete_path_for_marathi_file_new);
             }
             
             $department->delete();

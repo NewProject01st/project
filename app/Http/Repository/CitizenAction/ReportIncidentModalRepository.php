@@ -26,8 +26,8 @@ class ReportIncidentModalRepository{
     //     try {
     //         $ciizen = ReportIncidentModal::find($id);
     //         if ($ciizen) {
-    //             if (file_exists(storage_path(Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_MODAL_DELETE') . $ciizen->media_upload))) {
-    //                 unlink(storage_path(Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_MODAL_DELETE') . $ciizen->media_upload));
+    //             if (file_exists_s3(Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_MODAL_DELETE') . $ciizen->media_upload)) {
+    //                 removeImage(Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_MODAL_DELETE') . $ciizen->media_upload);
     //             }
                 
     //             $ciizen->delete();
@@ -47,8 +47,8 @@ class ReportIncidentModalRepository{
         try {
             $citizen = ReportIncidentModal::find($id);
             if ($citizen) {
-                if (file_exists(storage_path(Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_MODAL_DELETE') . $citizen->media_upload))) {
-                    unlink(storage_path(Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_MODAL_DELETE') . $citizen->media_upload));
+                if (file_exists_s3(Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_MODAL_DELETE') . $citizen->media_upload)) {
+                    removeImage(Config::get('DocumentConstant.REPORT_INCIDENT_CROWDSOURCING_MODAL_DELETE') . $citizen->media_upload);
                 }
              
                 $citizen->delete();

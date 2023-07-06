@@ -111,8 +111,8 @@ public function deleteById($id){
     try {
         $searchrescueteams = SearchRescueTeams::find($id);
         if ($searchrescueteams) {
-            unlink(storage_path(Config::get('DocumentConstant.SEARCH_RESCUE_TEAM_DELETE') . $searchrescueteams->english_image));
-            unlink(storage_path(Config::get('DocumentConstant.SEARCH_RESCUE_TEAM_DELETE') . $searchrescueteams->marathi_image));
+            removeImage(Config::get('DocumentConstant.SEARCH_RESCUE_TEAM_DELETE') . $searchrescueteams->english_image);
+            removeImage(Config::get('DocumentConstant.SEARCH_RESCUE_TEAM_DELETE') . $searchrescueteams->marathi_image);
             // Delete the record from the database
             $searchrescueteams->delete();
             

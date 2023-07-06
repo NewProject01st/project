@@ -69,8 +69,11 @@ class SuccessStoriesServices
             $path = Config::get('DocumentConstant.SUCCESS_STORIES_ADD');
             if ($request->hasFile('english_image')) {
                 if ($return_data['english_image']) {
-                    if (file_exists(storage_path(Config::get('DocumentConstant.SUCCESS_STORIES_DELETE') . $return_data['english_image']))) {
-                        unlink(storage_path(Config::get('DocumentConstant.SUCCESS_STORIES_DELETE') . $return_data['english_image']));
+
+                    $delete_file_eng= Config::get('DocumentConstant.SUCCESS_STORIES_DELETE') . $return_data['english_image'];
+                    if(file_exists_s3($delete_file_eng)){
+                        removeImage($delete_file_eng);
+
                     }
 
                 }

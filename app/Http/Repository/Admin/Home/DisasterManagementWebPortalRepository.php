@@ -112,13 +112,13 @@ public function deleteById($id)
     try {
         $disaster_web_portal = DisasterManagementWebPortal::find($id);
         if ($disaster_web_portal) {
-            $delete_path_for_english_file = storage_path(Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_DELETE') . $disaster_web_portal->english_image);
-            if (file_exists($delete_path_for_english_file)) {
-                unlink($delete_path_for_english_file);
+            $delete_path_for_english_file = Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_DELETE') . $disaster_web_portal->english_image;
+            if (file_exists_s3($delete_path_for_english_file)) {
+                removeImage($delete_path_for_english_file);
             }
-            $delete_path_for_marathi_file = storage_path(Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_DELETE') . $disaster_web_portal->marathi_image);
-            if (file_exists($delete_path_for_marathi_file)) {
-                unlink($delete_path_for_marathi_file);
+            $delete_path_for_marathi_file = Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_DELETE') . $disaster_web_portal->marathi_image;
+            if (file_exists_s3($delete_path_for_marathi_file)) {
+                removeImage($delete_path_for_marathi_file);
             }
             
             $disaster_web_portal->delete();

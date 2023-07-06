@@ -102,8 +102,8 @@ public function deleteById($id){
     try {
         $social = SocialIcon::find($id);
         if ($social) {
-            if (file_exists(storage_path(Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $social->icon))) {
-                unlink(storage_path(Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $social->icon));
+            if (file_exists_s3(Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $social->icon)) {
+                removeImage(Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $social->icon);
             }
             $social->delete();
             

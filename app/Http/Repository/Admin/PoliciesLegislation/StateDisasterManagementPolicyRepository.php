@@ -135,11 +135,11 @@ class StateDisasterManagementPolicyRepository{
             $state_plan = StateDisasterManagementPolicy::find($id);
             if ($state_plan) {
                 // Delete the images from the storage folder
-                if (file_exists(storage_path(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $state_plan->english_pdf))) {
-                    unlink(storage_path(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $state_plan->english_pdf));
+                if (file_exists_s3(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $state_plan->english_pdf)) {
+                    removeImage(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $state_plan->english_pdf);
                 }
-                if (file_exists(storage_path(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $state_plan->marathi_pdf))) {
-                    unlink(storage_path(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $state_plan->marathi_pdf));
+                if (file_exists_s3(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $state_plan->marathi_pdf)) {
+                    removeImage(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $state_plan->marathi_pdf);
                 }
                 $state_plan->delete();
                 return $state_plan;

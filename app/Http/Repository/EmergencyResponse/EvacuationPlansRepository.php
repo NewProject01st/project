@@ -109,8 +109,8 @@ public function deleteById($id){
     try {
         $evacuationplans = EvacuationPlans::find($id);
         if ($evacuationplans) {
-            unlink(storage_path(Config::get('DocumentConstant.EVACUATION_PLAN_DELETE') . $evacuationplans->english_image));
-            unlink(storage_path(Config::get('DocumentConstant.EVACUATION_PLAN_DELETE') . $evacuationplans->marathi_image));
+            removeImage(Config::get('DocumentConstant.EVACUATION_PLAN_DELETE') . $evacuationplans->english_image);
+            removeImage(Config::get('DocumentConstant.EVACUATION_PLAN_DELETE') . $evacuationplans->marathi_image);
             // Delete the record from the database
             $evacuationplans->delete();
             

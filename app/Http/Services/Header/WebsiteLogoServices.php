@@ -63,9 +63,9 @@ class WebsiteLogoServices
             $path = Config::get('DocumentConstant.WEBSITE_LOGO_ADD');
             if ($request->hasFile('logo')) {
                 if ($return_data['logo']) {
-                    $delete_file_path_eng  = storage_path(Config::get('DocumentConstant.WEBSITE_LOGO_DELETE'));
-                    if (file_exists($delete_file_path_eng)) {
-                        unlink($delete_file_path_eng);
+                    $delete_file_path_eng  = Config::get('DocumentConstant.WEBSITE_LOGO_DELETE');
+                    if (file_exists_s3($delete_file_path_eng)) {
+                        removeImage($delete_file_path_eng);
                     }
                 }
                 $englishImageName = 'logo.' . $request->logo->extension();

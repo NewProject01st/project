@@ -111,8 +111,8 @@ public function deleteById($id){
     try {
         $reliefmeasuresresources = ReliefMeasuresResources::find($id);
         if ($reliefmeasuresresources) {
-            unlink(storage_path(Config::get('DocumentConstant.RELIEF_MEASURES_RESOURCES_DELETE') . $reliefmeasuresresources->english_image));
-            unlink(storage_path(Config::get('DocumentConstant.RELIEF_MEASURES_RESOURCES_DELETE') . $reliefmeasuresresources->marathi_image));
+            removeImage(Config::get('DocumentConstant.RELIEF_MEASURES_RESOURCES_DELETE') . $reliefmeasuresresources->english_image);
+            removeImage(Config::get('DocumentConstant.RELIEF_MEASURES_RESOURCES_DELETE') . $reliefmeasuresresources->marathi_image);
             // Delete the record from the database
             $reliefmeasuresresources->delete();
             

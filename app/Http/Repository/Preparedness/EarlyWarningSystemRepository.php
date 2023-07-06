@@ -107,8 +107,8 @@ public function deleteById($id){
     try {
         $warning = EarlyWarningSystem::find($id);
         if ($warning) {
-            unlink(storage_path(Config::get('DocumentConstant.EARLY_WARNING_SYSTEM_DELETE') . $warning->english_image));
-            unlink(storage_path(Config::get('DocumentConstant.EARLY_WARNING_SYSTEM_DELETE') . $warning->marathi_image));
+            removeImage(Config::get('DocumentConstant.EARLY_WARNING_SYSTEM_DELETE') . $warning->english_image);
+            removeImage(Config::get('DocumentConstant.EARLY_WARNING_SYSTEM_DELETE') . $warning->marathi_image);
              
             // Delete the record from the database
             
