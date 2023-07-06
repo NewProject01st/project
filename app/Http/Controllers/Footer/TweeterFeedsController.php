@@ -38,7 +38,7 @@ class TweeterFeedsController extends Controller
     $messages = [   
      
         'url.required'=>'Please enter url.',
-        'url.regex'=>'Please valid url.',
+        'url.regex'=>'Please enter valid url.',
        
     ];
     // print_r($messages);

@@ -95,7 +95,7 @@ class RegisterController extends Controller {
             'l_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             'number' =>  'required|regex:/^[0-9]{10}$/',
             'designation' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
-            'address' => 'required|max:255',
+            'address' => ['required','regex:/^(?![0-9\s]+$)[A-Za-z0-9\s\.,#\-\(\)\[\]\{\}]+$/','max:255'],
             'state' => 'required',
             'city' => 'required',
             'pincode' => 'required|regex:/^[0-9]{6}$/',
@@ -127,11 +127,12 @@ class RegisterController extends Controller {
                         'designation.max'   => 'Please  enter designation length upto 255 character only.',
 
                         'address.required' => 'Please enter address.',
+                        'address.regex' => 'Please enter right address.',
                         'address.max'   => 'Please  enter address length upto 255 character only.',
 
 
-                        'state.required' => 'Please enter state.',
-                        'city.required' =>'Please enter city.',
+                        'state.required' => 'Please select state.',
+                        'city.required' =>'Please select city.',
                        'pincode.required' => 'Please enter pincode.',
                         'pincode.regex' => 'Please enter a 6-digit pincode.',
                     ];
@@ -173,19 +174,15 @@ class RegisterController extends Controller {
 
         $rules = [
                    'u_email' => 'required|unique:users,u_email|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
-                    // 'u_uname' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
                     'u_password'=>'required|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z\d]).{8,}$/',
                     'password_confirmation' => 'required|same:u_password',
-                    // 'u_password'=>'required',
-                    // 'u_password'=>'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[a-zA-Z0-9])(?=.*[^a-zA-Z0-9]).{8}$/',
-                    // 'u_password' => 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
                     'role_id' => 'required',
                     'f_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
                     'm_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
                     'l_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
                     'number' =>  'required|regex:/^[0-9]{10}$/',
                     'designation' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
-                    'address' => 'required|max:255',
+                    'address' => ['required','regex:/^(?![0-9\s]+$)[A-Za-z0-9\s\.,#\-\(\)\[\]\{\}]+$/','max:255'],
                     'state' => 'required',
                     'city' => 'required',
                     'pincode' => 'required|regex:/^[0-9]{6}$/',
@@ -200,7 +197,7 @@ class RegisterController extends Controller {
                         // 'u_uname.regex' => 'Please  enter text only.',
                         // 'u_uname.max'   => 'Please  enter firstname length upto 255 character only.',       
                         'u_password.required' => 'Please enter password.',
-                        'u_password.regex' => 'Password should be more than 8 numbers with atleast 1 capital letter,1 small letter, 1 number and 1 alpha numeric char.',
+                        'u_password.regex' => 'Password should be more than 8 numbers with atleast 1 capital letter,1 small letter, 1 number and 1 special character.',
                         'password_confirmation.same' => 'The password confirmation does not match.',
                         // 'u_password.min' => 'Please combination of number character of 8 char.',
                         'role_id.required' => 'Please select role type.',
@@ -224,11 +221,12 @@ class RegisterController extends Controller {
                         'designation.max'   => 'Please  enter designation length upto 255 character only.',
 
                         'address.required' => 'Please enter address.',
+                        'address.regex' => 'Please enter right address.',
                         'address.max'   => 'Please  enter address length upto 255 character only.',
 
 
-                        'state.required' => 'Please enter state.',
-                        'city.required' =>'Please enter city.',
+                        'state.required' => 'Please select state.',
+                        'city.required' =>'Please select city.',
                        'pincode.required' => 'Please enter pincode.',
                         'pincode.regex' => 'Please enter a 6-digit pincode.',
                         'user_profile.required' => 'The user profile is required.',

@@ -32,8 +32,8 @@ class StateDisasterManagementPlanController extends Controller
             'marathi_title' => 'required|max:255',
             'english_pdf' => 'required|file|mimes:pdf',
             'marathi_pdf' => 'required|file|mimes:pdf',
-            'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
             'policies_year' => 'required',
+            'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
          ];
         $messages = [   
             'english_title.required'=>'Please enter title.',
@@ -42,14 +42,14 @@ class StateDisasterManagementPlanController extends Controller
             'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
             'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',  
             'url.required'=>'Please enter url.',
-            'url.regex'=>'Please valid url.',
+            'url.regex'=>'Please enter valid url.',
             'english_pdf.required' => 'Please upload an PDF file.',
             'english_pdf.file' => 'The file must be of type: file.',
             'english_pdf.mimes' => 'The file must be a PDF.',
             'marathi_pdf.required' => 'कृपया PDF फाइल अपलोड करा.',
             'marathi_pdf.file' => 'फाइल प्रकार: फाइल होणे आवश्यक आहे.',
             'marathi_pdf.mimes' => 'फाइल पीडीएफ असावी.',
-
+            'policies_year.required'=>'Please select year.',
        ];
 
         try {
@@ -95,7 +95,8 @@ class StateDisasterManagementPlanController extends Controller
             // 'english_pdf' => 'required|file|mimes:pdf',
             // 'marathi_pdf' => 'required|file|mimes:pdf',
             'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
-            
+            'policies_year' => 'required',
+
         ];
         $messages = [   
             'english_title.required'=>'Please enter title.',
@@ -105,7 +106,7 @@ class StateDisasterManagementPlanController extends Controller
             'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',  
             'url.required'=>'Please enter url.',
             'url.regex'=>'Please valid url.',
-            'policies_year' => 'required',
+            'policies_year.required'=>'Please select year.',
             // 'english_pdf.required' => 'Please upload an PDF file.',
             // 'english_pdf.file' => 'The file must be of type: file.',
             // 'english_pdf.mimes' => 'The file must be a PDF.',

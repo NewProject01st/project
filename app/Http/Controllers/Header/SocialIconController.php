@@ -39,7 +39,7 @@ class SocialIconController extends Controller
          ];
     $messages = [   
         'url.required'=>'Please enter url.',
-        'url.regex'=>'Please valid url.',
+        'url.regex'=>'Please enter valid url.',
         'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
     ];

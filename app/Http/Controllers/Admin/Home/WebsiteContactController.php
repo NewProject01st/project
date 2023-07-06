@@ -33,8 +33,8 @@ class WebsiteContactController extends Controller
             'english_address' => 'required|max:255',
             'marathi_address' => 'required|max:255',  
             'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
-            'english_number' =>'required|regex:/^[+]?[0-9-() ]{7,20}$/',
-            'marathi_number' => 'required|regex:/^[+]?[0-9-() ]{7,20}$/',
+            'english_number' =>'required|regex:/^[0-9\-\/\s]+$/',
+            'marathi_number' => 'required',
             // 'marathi_icon' => 'required',
             
          ];
@@ -96,8 +96,8 @@ class WebsiteContactController extends Controller
         'english_address' => 'required|max:255',
         'marathi_address' => 'required|max:255',
         'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
-        'english_number' =>'required|regex:/^[+]?[0-9-() ]{7,20}$/',
-        'marathi_number' => 'required|regex:/^[+]?[0-9-() ]{7,20}$/',
+        'english_number' => ['required','regex:/^[0-9\-\/\s]+$/'],
+        'marathi_number' => 'required',
         
      ];
     $messages = [   

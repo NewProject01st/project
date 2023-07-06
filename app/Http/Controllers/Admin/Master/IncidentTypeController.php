@@ -29,15 +29,17 @@ class IncidentTypeController extends Controller
     }
 
     public function store(Request $request) {
-        $rules = [
-            'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
-            'marathi_title' => 'required|max:255',
+        $rules = [  
+            'english_title' => 'required|unique:incident_type,english_title|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'marathi_title' => 'required|unique:incident_type,marathi_title|max:255',
          ];
         $messages = [   
-            'english_title'       =>  'Please  enter english title.',
+            'english_title.required' =>  'Please  enter english title.',
+            'english_title.unique'  =>  'Your incident type is already exist.',
             'english_title.regex' => 'Please  enter text only.',
             'english_title.max'   => 'Please  enter text length upto 255 character only.',
-            'marathi_title'       =>'कृपया शीर्षक प्रविष्ट करा.',
+            'marathi_title.required'       =>'कृपया शीर्षक प्रविष्ट करा.',
+            'marathi_title.unique'  =>  'तुमचा घटना शीर्षक आधीपासून अस्तित्वात आहे .',
             'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',            
         ];
 

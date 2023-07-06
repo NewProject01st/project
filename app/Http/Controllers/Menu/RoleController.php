@@ -45,10 +45,11 @@ class RoleController extends Controller
         try {
 
             $rules = [
-                'role_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+                'role_name' => 'required|unique:roles,role_name|regex:/^[a-zA-Z\s]+$/u|max:255',
             ];
             $messages = [
                 'role_name.required' => 'Please  enter english title.',
+                'role_name.unique' => 'Your role type is already exist.',
                 'role_name.regex' => 'Please  enter text only.',
                 'role_name.max' => 'Please  enter text length upto 255 character only.',
             ];
