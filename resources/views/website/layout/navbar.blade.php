@@ -67,7 +67,7 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
 
                         <button class="webpage_zoom_btn" id="zoomouttextbody">A-</button>
                         <button class="webpage_zoom_btn" id="zoomtextbody">A+</button>
-                        {{-- <span id="magnifier" data-toggle="tooltip" data-placement="top" title="Magnifier">
+                        {{-- <span id="magnifier" class="magnifier" data-toggle="tooltip" data-placement="top" title="Magnifier">
                                 <i class="fa fa-search-plus" style="font-size:24px; color:#fff"></i>
                             </span> --}}
 
@@ -411,3 +411,4 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
         });
     });
 </script>
+

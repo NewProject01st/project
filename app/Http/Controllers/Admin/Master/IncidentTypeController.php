@@ -30,12 +30,14 @@ class IncidentTypeController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
-            'marathi_title' => 'required|max:255',
+            'english_title' => 'required|unique:incident_type|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'marathi_title' => 'required|unique:incident_type|max:255',
          ];
         $messages = [   
-            'english_title'       =>  'Please  enter english title.',
+            'english_title'       =>  'Please enter title.',
             'english_title.regex' => 'Please  enter text only.',
+            'english_title.unique' => 'Title already exist.',
+            'marathi_title.unique' => 'शीर्षक आधीच अस्तित्वात आहे.',
             'english_title.max'   => 'Please  enter text length upto 255 character only.',
             'marathi_title'       =>'कृपया शीर्षक प्रविष्ट करा.',
             'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',            
@@ -80,12 +82,14 @@ class IncidentTypeController extends Controller
     public function update(Request $request)
     {
         $rules = [
-            'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
-            'marathi_title' => 'required|max:255',
+            'english_title' => 'required|unique:incident_type|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'marathi_title' => 'required|unique:incident_type|max:255',
          ];
         $messages = [   
             'english_title'       =>  'Please  enter english title.',
             'english_title.regex' => 'Please  enter text only.',
+            'english_title.unique' => 'Title already exist.',
+            'marathi_title.unique' => 'शीर्षक आधीच अस्तित्वात आहे.',
             'english_title.max'   => 'Please  enter text length upto 255 character only.',
             'marathi_title'       =>'कृपया शीर्षक प्रविष्ट करा.',
             'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',            

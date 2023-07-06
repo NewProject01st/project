@@ -23,7 +23,19 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
 </head>
+<style>
+     .password-toggle {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
 
+        .fa-eye-slash {
+            /* display: none; */
+        }
+    </style>
 <body>
     <!--  header -->
     <!--Container Scroller Start-->
@@ -80,16 +92,20 @@
                                                 <i class="fa fa-lock text-primary"></i>
                                             </span>
                                         </div>
-                                        <input class="form-control form-control-lg border-left-0" id="passport"
+                                        <input class="form-control form-control-lg border-left-0 password" id="passport"
                                             type="password" name='password' placeholder='Password'>
 
+                                            <span id="togglePassword" class="togglePpassword password-toggle"
+                                            onclick="togglePasswordVisibility()">
+                                            <i class="fa fa-eye-slash"></i>
+                                        </span>
 
                                     </div>
                                     @if ($errors->has('password'))
                                         <span class="red-text"><?php echo $errors->first('password', ':message'); ?></span>
                                     @endif
+                                 
                                 </div>
-
                                 <div class="form-group">
                                     {!! NoCaptcha::renderJs() !!}
                                     {!! NoCaptcha::display() !!}
@@ -212,6 +228,23 @@
             $(".btn-non-impo").removeClass("btn-register-active");
         });
     </script>
+
+<script>
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementsByClassName("password")[0];
+        var toggleIcon = document.querySelector(".togglePpassword i");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleIcon.classList.remove("fa-eye-slash");
+            toggleIcon.classList.add("fa-eye");
+        } else {
+            passwordInput.type = "password";
+            toggleIcon.classList.remove("fa-eye");
+            toggleIcon.classList.add("fa-eye-slash");
+        }
+    }
+</script>
 </body>
 
 </html>

@@ -82,6 +82,7 @@ class ReportIncidentModalController extends Controller
 public function destroy(Request $request){
     try {
         $delete = $this->service->deleteById($request->delete_id);
+        // dd($delete);
         if ($delete) {
             $msg = $delete['msg'];
             $status = $delete['status'];

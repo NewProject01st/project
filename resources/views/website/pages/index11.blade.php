@@ -97,11 +97,11 @@ The claim eventually became one of the most notable unsolved problems of mathema
     </div>
   </div>
 
-  <script src="{{ asset('website_files/assets/js/html-magnifier.js') }}"></script>
+  {{-- <script src="{{ asset('website_files/assets/js/html-magnifier.js') }}"></script>
   <script>
     /* global HTMLMagnifier */
     const magnifier = new HTMLMagnifier({ width: 400 });
     magnifier.show();
-  </script>
+  </script> --}}
 </body>
 </html>

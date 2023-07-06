@@ -489,7 +489,8 @@
                                                 data-bs-parent="#accordionFlushExample1">
                                                 <div class="accordion-body">
                                                     <ul>
-                                                        <li><h6><?php echo $item['marathi_title']; ?></h6><span><?php echo $item['marathi_description']; ?></span></li>                                                        
+                                                        <li><span><b class="content-justify"><?php echo $item['marathi_title']; ?></b></span><span class="content-justify"><?php echo $item['marathi_description']; ?></span>
+                                                       
                                                     </ul>
                                                 </div>
                                             </div>
@@ -519,8 +520,7 @@
                                                 data-bs-parent="#accordionFlushExample1">
                                                 <div class="accordion-body">
                                                     <ul>
-                                                        <li><h6><?php echo $item['english_title']; ?></h6><span><?php echo $item['english_description']; ?></span>
-                                                <div>
+                                                        <li><span><b class="content-justify"><?php echo $item['english_title']; ?></b></span><span class="content-justify"><?php echo $item['english_description']; ?></span>
                                                             <a
                                                     href="{{ route('list-disaster-forecast-web') }}">
                                                         @if (session('language') == 'mar')

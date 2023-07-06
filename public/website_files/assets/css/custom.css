@@ -296,6 +296,10 @@ body a:focus {
 .cursor-pointer{
 	cursor: pointer;
 }
+.content-justify{
+	text-align: justify;
+	display: flex;
+}
 /******** + ========== + Header Start + ========== + ********/
 
 header {
