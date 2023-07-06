@@ -111,6 +111,7 @@ class TweeterFeedsController extends Controller
                 ->withErrors($validation);
         } else {
             $update_link = $this->service->update($request);
+            // dd($update_link); 
             if ($update_link) {
                 $msg = $update_link['msg'];
                 $status = $update_link['status'];

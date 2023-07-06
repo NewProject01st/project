@@ -21,7 +21,6 @@ class CitizenActionController extends Controller
         // self::$loginServe = new LoginService();
         $this->service = new CitizenActionServices();
         $this->menu = getMenuItems();
-        $this->socialicon = getSocialIcon();
 
        
     }
@@ -167,7 +166,6 @@ class CitizenActionController extends Controller
     {
         try {
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
              $data_output = $this->service->getAllIncidentType();
         $data_output_incident = $data_output['data_output_incident'];
         if (Session::get('language') == 'mar') {
@@ -178,7 +176,7 @@ class CitizenActionController extends Controller
         } catch (\Exception $e) {
         return $e;
         }
-        return view('website.pages.citizen-action.report-incident-crowdsourcing-web',compact('language','menu','socialicon', 'data_output_incident'));
+        return view('website.pages.citizen-action.report-incident-crowdsourcing-web',compact('language','menu', 'data_output_incident'));
     }  
 
 
@@ -187,7 +185,6 @@ class CitizenActionController extends Controller
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
              $data_output = $this->service->getAllVolunteerCitizenSupport();
              $data_output_incident = $data_output['data_output_incident'];
             if (Session::get('language') == 'mar') {
@@ -198,7 +195,7 @@ class CitizenActionController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.citizen-action.volunteer-citizen-support-web',compact('language','menu','socialicon', 'data_output_incident'));
+        return view('website.pages.citizen-action.volunteer-citizen-support-web',compact('language','menu','data_output_incident'));
     }
     
     

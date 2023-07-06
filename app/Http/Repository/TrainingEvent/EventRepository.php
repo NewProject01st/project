@@ -40,8 +40,7 @@ class EventRepository{
             $news->english_image = $englishImageName; // Save the image filename to the database
             $news->marathi_image = $marathiImageName; // Save the image filename to the database
             $news->save();
-            // print_r($last_insert_id);
-            // die();
+           
             return $last_insert_id;
 
         } catch (\Exception $e) {
@@ -84,9 +83,7 @@ class EventRepository{
             //Store the previous image name
             $previousEnglishImage = $evacuationplans_data->english_image;
             $previousMarathiImage = $evacuationplans_data->marathi_image;
-      
-    
-    
+          
             $evacuationplans_data = Event::find($request->id);
             $evacuationplans_data->english_title = $request['english_title'];
             $evacuationplans_data->marathi_title = $request['marathi_title'];

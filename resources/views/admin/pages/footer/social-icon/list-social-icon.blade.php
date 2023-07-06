@@ -34,6 +34,7 @@
                                                 <tr>
                                                     <th>Sr. No.</th>
                                                     <th>Icon</th>
+                                                    <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -42,8 +43,19 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
 
-                                                        <td> <img
-                                                                src="{{ Config::get('DocumentConstant.SOCIAL_ICON_VIEW') }}{{ $item->icon }}" />
+                                                        <td> <img 
+                                                                src="{{ Config::get('DocumentConstant.SOCIAL_ICON_VIEW') }}{{ $item->icon }}" width="50" height="50" />
+                                                        </td>
+                                                        <td>
+                                                            <label class="switch">
+                                                                <input data-id="{{ $item->id }}" type="checkbox"
+                                                                    {{ $item->is_active ? 'checked' : '' }}
+                                                                    class="active-btn btn btn-sm btn-outline-primary m-1"
+                                                                    data-toggle="tooltip" data-placement="top"
+                                                                    title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
+                                                                <span class="slider round "></span>
+                                                            </label>
+
                                                         </td>
                                                         <td>
                                                             <div class="d-flex">
@@ -53,9 +65,9 @@
                                                                             class="fas fa-pencil-alt"></i></a>
                                                                 @endif
 
-                                                                <a data-id="{{ $item->id }}"
+                                                                {{-- <a data-id="{{ $item->id }}"
                                                                     class="show-btn btn btn-sm btn-outline-primary m-1"><i
-                                                                        class="fas fa-eye"></i></a>
+                                                                        class="fas fa-eye"></i></a> --}}
                                                                 @if (in_array('per_delete', $data_permission))
                                                                     <a data-id="{{ $item->id }}"
                                                                         class="delete-btn btn btn-sm btn-outline-danger m-1"
@@ -81,14 +93,19 @@
             @csrf
             <input type="hidden" name="delete_id" id="delete_id" value="">
         </form>
-        <form method="POST" action="{{ url('/show-social-icon') }}" id="showform">
+        {{-- <form method="POST" action="{{ url('/show-social-icon') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
-        </form>
+        </form> --}}
         <form method="GET" action="{{ url('/edit-social-icon') }}" id="editform">
             @csrf
             <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>
+        <form method="POST" action="{{ url('/update-one-social') }}" id="activeform">
+            @csrf
+            <input type="hidden" name="active_id" id="active_id" value="">
+        </form>
+
 
         <!-- content-wrapper ends -->
     @endsection

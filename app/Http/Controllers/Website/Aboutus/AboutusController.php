@@ -19,7 +19,6 @@ class AboutusController extends Controller
         // self::$loginServe = new LoginService();
         $this->service = new AboutusServices();
         $this->menu = getMenuItems();
-        $this->socialicon = getSocialIcon();
 
        
     }
@@ -33,7 +32,6 @@ class AboutusController extends Controller
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllDisasterManagmentPortal();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -43,14 +41,13 @@ class AboutusController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.aboutus.list-disastermanagementportal-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.aboutus.list-disastermanagementportal-web',compact('language','menu','data_output'));
     }  
     public function getAllObjectiveGoals()
     {
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllObjectiveGoals();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -61,7 +58,7 @@ class AboutusController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.aboutus.list-objectivegoals-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.aboutus.list-objectivegoals-web',compact('language','menu','data_output'));
     }
 
     public function getAllStateDisasterManagementAuthority()
@@ -69,7 +66,6 @@ class AboutusController extends Controller
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllStateDisasterManagementAuthority();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -80,7 +76,7 @@ class AboutusController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.aboutus.state-disaster-management-authority-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.aboutus.state-disaster-management-authority-web',compact('language','menu','data_output'));
     }
 
 }

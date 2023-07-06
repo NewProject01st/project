@@ -11,16 +11,6 @@
                     {{ Config::get('english.NEW_PARTICULAR_DATA_WEB.DISASTER_MANAGEMENT_NEWS') }}
                 @endif
             </h2>
-            <ul>
-                <li> <a href="{{ route('index') }}">
-                        @if (session('language') == 'mar')
-                            {{ Config::get('marathi.NEW_PARTICULAR_DATA_WEB.HOME') }}
-                        @else
-                            {{ Config::get('english.NEW_PARTICULAR_DATA_WEB.HOME') }}
-                        @endif
-                    </a> </li>
-
-            </ul>
         </div>
     </section>
     <!--Subheader End-->

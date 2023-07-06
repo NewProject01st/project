@@ -16,7 +16,6 @@ class ContactController extends Controller
     public function __construct()
     {
         $this->menu = getMenuItems();
-        $this->socialicon = getSocialIcon();
         $this->service = new ContactServices();
     }
     public function changeLanguage(Request $request) {
@@ -26,7 +25,6 @@ class ContactController extends Controller
     {
         try {
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -35,7 +33,7 @@ class ContactController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.contact.feedback-suggestions',compact('language','menu','socialicon'));
+        return view('website.pages.contact.feedback-suggestions',compact('language','menu'));
 
         
     }
@@ -101,7 +99,6 @@ class ContactController extends Controller
     {
         try {
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
@@ -110,7 +107,7 @@ class ContactController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.contact.contact-information',compact('language','menu', 'socialicon'));
+        return view('website.pages.contact.contact-information',compact('language','menu'));
     }
 
 

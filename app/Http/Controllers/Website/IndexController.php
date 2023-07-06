@@ -16,7 +16,9 @@ use App\Models\ {
     Tollfree,
     WebsiteLogo,
     PolicyPrivacy,
-    TermsCondition
+    TermsCondition,
+    SocialIcon,
+    TweeterFeed
 };
 
 class IndexController extends Controller
@@ -27,7 +29,6 @@ class IndexController extends Controller
         self::$event_repository = new EventRepository();  
         $this->service = new IndexServices();  
         $this->menu = getMenuItems();
-        $this->socialicon = getSocialIcon();
         
         // $this->$menuDataSearch = getMenuForSearch();
         // $this->websitecontact = getWebsiteContact();
@@ -115,6 +116,25 @@ class IndexController extends Controller
             ->toArray();
             $retun_data['termcondition_data']  = $data_output_termcondition;
 
+            $data_output_sociallink =  SocialIcon::where('is_active', '=',true)
+            ->select( 
+                'social_icons.url', 
+                'social_icons.icon',
+                'social_icons.id',
+            )
+            ->get()
+            ->toArray();
+            $retun_data['social_link']  = $data_output_sociallink;
+
+            $data_output_twitter =  TweeterFeed::where('is_active', '=',true)
+            ->select( 
+                'tweeter_feeds.url', 
+                'tweeter_feeds.id',
+            )
+            ->get()
+            ->toArray();
+            $retun_data['twitter_feed']  = $data_output_twitter;
+
             return $retun_data ;
         } catch (\Exception $e) {
             return $e;
@@ -161,7 +181,6 @@ class IndexController extends Controller
     {
         try {
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             // $menuDataSearch = $this->menuDataSearch;
             // $websitecontact = $this->websitecontact;
             $data_output_slider = $this->service->getAllSlider();
@@ -182,7 +201,7 @@ class IndexController extends Controller
             } else {
                 $language = 'en';
             }
-            return view('website.pages.index',compact('language','menu','socialicon','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact', 'data_output_departmentinformation','data_output_disasterforcast'));
+            return view('website.pages.index',compact('language','menu','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact', 'data_output_departmentinformation','data_output_disasterforcast'));
 
         } catch (\Exception $e) {
             return $e;
@@ -193,14 +212,13 @@ class IndexController extends Controller
         try {
            
               $menu = $this->menu;
-              $socialicon = $this->socialicon;
             $disaster_news = $this->service->getById($request->show_id);
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
                 $language = 'en';
             }
-            return view('website.pages.new-paricular-data-web', compact('language','menu','socialicon','disaster_news'));
+            return view('website.pages.new-paricular-data-web', compact('language','menu','disaster_news'));
 
         } catch (\Exception $e) {
             return $e;
@@ -213,14 +231,13 @@ class IndexController extends Controller
         try {
             
                 $menu = $this->menu;
-                $socialicon = $this->socialicon;
             $department_information = $this->service->getByIdDepartmentInformation($request->department_show_id);
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
                 $language = 'en';
             }
-            return view('website.pages.particular-department-information', compact('language','menu','socialicon','department_information'));
+            return view('website.pages.particular-department-information', compact('language','menu','department_information'));
         } catch (\Exception $e) {
             return $e;
         }
@@ -230,7 +247,6 @@ class IndexController extends Controller
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllWebDisaterForcast();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -241,7 +257,7 @@ class IndexController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.list-disaster-forecast-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.list-disaster-forecast-web',compact('language','menu','data_output'));
     }
     
 
@@ -250,7 +266,6 @@ class IndexController extends Controller
         try {
             
                 $menu = $this->menu;
-                $socialicon = $this->socialicon;
             $disaster_forecast = $this->service->getByIdDisasterForecast($request->disaster_show_id);
 
             if (Session::get('language') == 'mar') {
@@ -258,7 +273,7 @@ class IndexController extends Controller
             } else {
                 $language = 'en';
             }
-            return view('website.pages.particular-disaster_forecast', compact('language','menu','socialicon','disaster_forecast'));
+            return view('website.pages.particular-disaster_forecast', compact('language','menu','disaster_forecast'));
         } catch (\Exception $e) {
             return $e;
         }
@@ -270,7 +285,6 @@ class IndexController extends Controller
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllVacancies();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -280,7 +294,7 @@ class IndexController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.home.list-vacancies',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.home.list-vacancies',compact('language','menu','data_output'));
     } 
 
         
@@ -290,14 +304,13 @@ class IndexController extends Controller
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllRTI();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
                 $language = 'en';
             }
-            return view('website.pages.home.list-rti',compact('language','menu','socialicon', 'data_output'));
+            return view('website.pages.home.list-rti',compact('language','menu', 'data_output'));
 
         } catch (\Exception $e) {
             return $e;
@@ -311,14 +324,13 @@ class IndexController extends Controller
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             $data_output = $this->service->getPrivacyPolicy();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
                 $language = 'en';
             }
-            return view('website.pages.privacy-policy',compact('language','menu','socialicon', 'data_output'));
+            return view('website.pages.privacy-policy',compact('language','menu', 'data_output'));
 
         } catch (\Exception $e) {
             return $e;
@@ -329,14 +341,14 @@ class IndexController extends Controller
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
+            
             $data_output = $this->service->getTermCondition();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
             } else {
                 $language = 'en';
             }
-            return view('website.pages.terms_condition',compact('language','menu','socialicon', 'data_output'));
+            return view('website.pages.terms_condition',compact('language','menu', 'data_output'));
 
         } catch (\Exception $e) {
             return $e;
@@ -353,7 +365,6 @@ class IndexController extends Controller
     // {
     //     $query = $request->input('query');
     //     $menu = $this->menu;
-    //     $socialicon = $this->socialicon;
 
     //     if (Session::get('language') == 'mar') {
     //         $language = Session::get('language');
@@ -366,7 +377,7 @@ class IndexController extends Controller
     //         ->orWhere('content', 'like', "%$query%")
     //         ->get();
 
-    //     return view('website.pages.index', compact('language','menu','socialicon'));
+    //     return view('website.pages.index', compact('language','menu'));
     // }
     
 }

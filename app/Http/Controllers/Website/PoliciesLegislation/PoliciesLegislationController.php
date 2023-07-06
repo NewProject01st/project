@@ -16,7 +16,6 @@ class PoliciesLegislationController extends Controller
         // self::$loginServe = new LoginService();
         $this->service = new PoliciesLegislationServices();
         $this->menu = getMenuItems();
-        $this->socialicon = getSocialIcon();
 
        
     }
@@ -30,7 +29,6 @@ class PoliciesLegislationController extends Controller
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllStateDisasterManagementPlan();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -40,14 +38,13 @@ class PoliciesLegislationController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.policies-legislation.list-state-disaster-managementplan-web',compact('language','menu','socialicon','data_output'));
+        return view('website.pages.policies-legislation.list-state-disaster-managementplan-web',compact('language','menu','data_output'));
     }  
     public function getAllDistrictDisasterManagementPlan()
     {
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllDistrictDisasterManagementPlan();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -58,7 +55,7 @@ class PoliciesLegislationController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.policies-legislation.list-district-disaster-managementplan-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.policies-legislation.list-district-disaster-managementplan-web',compact('language','menu', 'data_output'));
     }
 
     public function getAllStateDisasterManagementPolicy()
@@ -66,7 +63,6 @@ class PoliciesLegislationController extends Controller
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllStateDisasterManagementPolicy();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -77,14 +73,13 @@ class PoliciesLegislationController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.policies-legislation.list-state-management-policy-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.policies-legislation.list-state-management-policy-web',compact('language','menu', 'data_output'));
     }
     public function getAllRelevantLawsRegulation()
     {
         try {
 
             $menu = $this->menu;
-            $socialicon = $this->socialicon;
             $data_output = $this->service->getAllRelevantLawsRegulation();
             if (Session::get('language') == 'mar') {
                 $language = Session::get('language');
@@ -95,7 +90,7 @@ class PoliciesLegislationController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.policies-legislation.list-relevant-laws-web',compact('language','menu','socialicon', 'data_output'));
+        return view('website.pages.policies-legislation.list-relevant-laws-web',compact('language','menu', 'data_output'));
     }
     
 }

@@ -391,13 +391,14 @@ Route::post('/delete-volunteer-modal-info', ['as' => 'delete-volunteer-modal-inf
 Route::post('/show-volunteer-modal-info', ['as' => 'show-volunteer-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenModalController@show']);
 
 //=======Header=======
-Route::get('/list-social-icon', ['as' => 'list-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@index']);
-Route::get('/add-social-icon', ['as' => 'add-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@add']);
-Route::post('/add-social-icon', ['as' => 'add-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@store']);
-Route::get('/edit-social-icon', ['as' => 'edit-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@edit']);
-Route::post('/update-social-icon', ['as' => 'update-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@update']);
-Route::post('/show-social-icon', ['as' => 'show-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@show']);
-Route::post('/delete-social-icon', ['as' => 'delete-social-icon', 'uses' => 'App\Http\Controllers\Header\SocialIconController@destroy']);
+Route::get('/list-social-icon', ['as' => 'list-social-icon', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@index']);
+Route::get('/add-social-icon', ['as' => 'add-social-icon', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@add']);
+Route::post('/add-social-icon', ['as' => 'add-social-icon', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@store']);
+Route::get('/edit-social-icon', ['as' => 'edit-social-icon', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@edit']);
+Route::post('/update-social-icon', ['as' => 'update-social-icon', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@update']);
+// Route::post('/show-social-icon', ['as' => 'show-social-icon', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@show']);
+Route::post('/delete-social-icon', ['as' => 'delete-social-icon', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@destroy']);
+Route::post('/update-one-social', ['as' => 'update-one-social', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@updateOne']);
 
 Route::get('/list-tollfree-number', ['as' => 'list-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@index']);
 Route::get('/add-tollfree-number', ['as' => 'add-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@add']);

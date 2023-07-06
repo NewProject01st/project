@@ -31,6 +31,7 @@ return [
 		'DOCUMENT_PUBLICATIONS' =>'दस्तऐवज प्रकाशन',
 		'MAPS_GIS_DATA' =>'नकाशे आणि GIS डेटा',
 		'VIDEO' =>'व्हिडिओ',
+		'VIDEO_MESSAGE'   => 'व्हिडिओसाठी कोणताही डेटा आढळला नाही.',
 		'GALLERY' =>'गॅलरी',
 		'TRAINING_MATERIALS_WORKSHOP' =>'प्रशिक्षण साहित्य आणि कार्यशाळा',
 		'SUCCESS_STORIES' =>'यशोगाथा',
