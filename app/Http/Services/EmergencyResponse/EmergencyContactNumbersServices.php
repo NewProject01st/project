@@ -84,8 +84,8 @@ class EmergencyContactNumbersServices
             $path = Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_ADD');
             if ($request->hasFile('english_image')) {
                 if ($return_data['english_image']) {
-                    if (file_exists(storage_path(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $return_data['english_image']))) {
-                        unlink(storage_path(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $return_data['english_image']));
+                    if (file_exists_s3(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $return_data['english_image'])) {
+                        removeImage(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $return_data['english_image']);
                     }
                 }
 
@@ -99,8 +99,8 @@ class EmergencyContactNumbersServices
 
             if ($request->hasFile('marathi_image')) {
                 if ($return_data['marathi_image']) {
-                    if (file_exists(storage_path(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $return_data['marathi_image']))) {
-                        unlink(storage_path(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $return_data['marathi_image']));
+                    if (file_exists_s3(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $return_data['marathi_image'])) {
+                        removeImage(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $return_data['marathi_image']);
                     }
 
                 }

@@ -128,11 +128,11 @@ public function deleteById($id)
         $gallery = Gallery::find($id);
         if ($gallery) {
              // Delete the images from the storage folder
-             if (file_exists(storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->english_image))) {
-                unlink(storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->english_image));
+             if (file_exists_s3(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->english_image)) {
+                removeImage(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->english_image);
             }
-            if (file_exists(storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->marathi_image))) {
-                unlink(storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->marathi_image));
+            if (file_exists_s3(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->marathi_image)) {
+                removeImage(Config::get('DocumentConstant.Gallery_DELETE') . $gallery->marathi_image);
             }
             $gallery->delete();
 

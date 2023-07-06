@@ -58,9 +58,9 @@ class DisasterManagementPortalServices
             $path = Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_ADD');
             if ($request->hasFile('english_image')) {
                 if ($return_data['english_image']) {
-                    if (file_exists(storage_path(Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_DELETE') . $return_data['english_image']))) {
-                        unlink(storage_path(Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_DELETE') . $return_data['english_image']));
-                    }
+                    //if (file_exists_s3(Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_DELETE') . $return_data['english_image'])) {
+                        removeImage(Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_DELETE') . $return_data['english_image']);
+                   // }
 
                 }
                 $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
@@ -72,8 +72,8 @@ class DisasterManagementPortalServices
     
             if ($request->hasFile('marathi_image')) {
                 if ($return_data['marathi_image']) {
-                    if (file_exists(storage_path(Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_DELETE') . $return_data['marathi_image']))) {
-                        unlink(storage_path(Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_DELETE') . $return_data['marathi_image']));
+                    if (file_exists_s3(Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_DELETE') . $return_data['marathi_image'])) {
+                        removeImage(Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_DELETE') . $return_data['marathi_image']);
                     }
                 }
                 $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();

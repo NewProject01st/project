@@ -106,8 +106,8 @@ public function deleteById($id){
     try {
         $hazard = HazardVulnerability::find($id);
         if ($hazard) {
-            unlink(storage_path(Config::get('DocumentConstant.HAZARD_VULNERABILITY_DELETE') . $hazard->english_image));
-            unlink(storage_path(Config::get('DocumentConstant.HAZARD_VULNERABILITY_DELETE') . $hazard->marathi_image));
+            removeImage(Config::get('DocumentConstant.HAZARD_VULNERABILITY_DELETE') . $hazard->english_image);
+            removeImage(Config::get('DocumentConstant.HAZARD_VULNERABILITY_DELETE') . $hazard->marathi_image);
 
             // Delete the record from the database
             

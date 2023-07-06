@@ -129,11 +129,11 @@ public function deleteById($id){
     try {
         $rti = RTI::find($id);
         if ($rti) {
-            if (file_exists(storage_path(Config::get('DocumentConstant.RTI_PDF_DELETE') . $rti->english_pdf))) {
-                unlink(storage_path(Config::get('DocumentConstant.RTI_PDF_DELETE') . $rti->english_pdf));
+            if (file_exists_s3(Config::get('DocumentConstant.RTI_PDF_DELETE') . $rti->english_pdf)) {
+                removeImage(Config::get('DocumentConstant.RTI_PDF_DELETE') . $rti->english_pdf);
             }
-            if (file_exists(storage_path(Config::get('DocumentConstant.RTI_PDF_DELETE') . $rti->marathi_pdf))) {
-                unlink(storage_path(Config::get('DocumentConstant.RTI_PDF_DELETE') . $rti->marathi_pdf));
+            if (file_exists_s3(Config::get('DocumentConstant.RTI_PDF_DELETE') . $rti->marathi_pdf)) {
+                removeImage(Config::get('DocumentConstant.RTI_PDF_DELETE') . $rti->marathi_pdf);
             }
             $rti->delete();           
             return $rti;

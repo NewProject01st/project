@@ -62,9 +62,9 @@ class StateDisasterManagementPolicyServices
             $path = Config::get('DocumentConstant.STATE_DISASTER_POLICY_ADD');
             if ($request->hasFile('english_pdf')) {
                 if ($return_data['english_pdf']) {
-                    $delete_file_eng= storage_path(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $return_data['english_pdf']);
-                    if(file_exists($delete_file_eng)){
-                        unlink($delete_file_eng);
+                    $delete_file_eng= Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $return_data['english_pdf'];
+                    if(file_exists_s3($delete_file_eng)){
+                        removeImage($delete_file_eng);
                     }
                 }
     
@@ -77,9 +77,9 @@ class StateDisasterManagementPolicyServices
     
             if ($request->hasFile('marathi_pdf')) {
                 if ($return_data['marathi_pdf']) {
-                    $delete_file_mar= storage_path(Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $return_data['marathi_pdf']);
-                    if(file_exists($delete_file_mar)){
-                        unlink($delete_file_mar);
+                    $delete_file_mar= Config::get('DocumentConstant.STATE_DISASTER_POLICY_DELETE') . $return_data['marathi_pdf'];
+                    if(file_exists_s3($delete_file_mar)){
+                        removeImage($delete_file_mar);
                     }
                 }
     

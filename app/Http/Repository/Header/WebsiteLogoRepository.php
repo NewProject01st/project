@@ -100,8 +100,8 @@ public function deleteById($id)
     try {
         $logo = WebsiteLogo::find($id);
         if ($logo) {
-            if (file_exists(storage_path(Config::get('DocumentConstant.WEBSITE_LOGO_DELETE')))) {
-                unlink(storage_path(Config::get('DocumentConstant.WEBSITE_LOGO_DELETE')));
+            if (file_exists_s3(Config::get('DocumentConstant.WEBSITE_LOGO_DELETE'))) {
+                removeImage(Config::get('DocumentConstant.WEBSITE_LOGO_DELETE'));
             }
             
             $logo->delete();

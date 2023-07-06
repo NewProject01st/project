@@ -103,13 +103,13 @@ class ObjectiveGoalsRepository  {
           
             $objectivegoals = ObjectiveGoals::find($id);
             if ($objectivegoals) {
-                $delete_path_for_english_file = storage_path(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $objectivegoals->english_image);
-                if (file_exists($delete_path_for_english_file)) {
-                    unlink($delete_path_for_english_file);
+                $delete_path_for_english_file = Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $objectivegoals->english_image;
+                if (file_exists_s3($delete_path_for_english_file)) {
+                    removeImage($delete_path_for_english_file);
                 }
-                $delete_path_for_marathi_file = storage_path(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $objectivegoals->marathi_image);
-                if (file_exists($delete_path_for_marathi_file)) {
-                    unlink($delete_path_for_marathi_file);
+                $delete_path_for_marathi_file = Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $objectivegoals->marathi_image;
+                if (file_exists_s3($delete_path_for_marathi_file)) {
+                    removeImage($delete_path_for_marathi_file);
                 }
                 
                 $objectivegoals->delete();

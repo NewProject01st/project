@@ -56,8 +56,8 @@ class DBBackupController extends Controller
                 $output .= "'" . implode("','", $table_value_array) . "');\n";
             }
         }
-        $path = storage_path().'/'.Config::get('DocumentConstant.DB_BACKUP');
-        if (!file_exists($path)) {
+        $path = '/'.Config::get('DocumentConstant.DB_BACKUP');
+        if (!file_exists_s3($path)) {
             File::makeDirectory($path,0777,true);
         }
         date_default_timezone_set("Asia/Kolkata");

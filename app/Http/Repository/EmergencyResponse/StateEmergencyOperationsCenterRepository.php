@@ -111,8 +111,8 @@ public function deleteById($id){
     try {
         $stateemergencyoperationscenter = StateEmergencyOperationsCenter::find($id);
         if ($stateemergencyoperationscenter) {
-            unlink(storage_path(Config::get('DocumentConstant.STATE_OPERATION_CENTER_DELETE') . $stateemergencyoperationscenter->english_image));
-            unlink(storage_path(Config::get('DocumentConstant.STATE_OPERATION_CENTER_DELETE') . $stateemergencyoperationscenter->marathi_image));
+            removeImage(Config::get('DocumentConstant.STATE_OPERATION_CENTER_DELETE') . $stateemergencyoperationscenter->english_image);
+            removeImage(Config::get('DocumentConstant.STATE_OPERATION_CENTER_DELETE') . $stateemergencyoperationscenter->marathi_image);
             // Delete the record from the database
             $stateemergencyoperationscenter->delete();
             

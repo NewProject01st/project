@@ -137,8 +137,8 @@ class SuccessStoriesRepository  {
             $stories = SuccessStories::find($id);
             if ($stories) {
                 
-                if (file_exists(storage_path(Config::get('DocumentConstant.SUCCESS_STORIES_DELETE') . $stories->english_image))) {
-                    unlink(storage_path(Config::get('DocumentConstant.SUCCESS_STORIES_DELETE') . $stories->english_image));
+                if (file_exists_s3(Config::get('DocumentConstant.SUCCESS_STORIES_DELETE') . $stories->english_image)){
+                    removeImage(Config::get('DocumentConstant.SUCCESS_STORIES_DELETE') . $stories->english_image);
                 }
                 $stories->delete();
                

@@ -67,9 +67,9 @@ class GalleryServices
 
             if ($request->hasFile('english_image')) {
                 if ($return_data['english_image']) {
-                    $delete_file_eng= storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $return_data['english_image']);
-                    if(file_exists($delete_file_eng)){
-                        unlink($delete_file_eng);
+                    $delete_file_eng= Config::get('DocumentConstant.Gallery_DELETE') . $return_data['english_image'];
+                    if(file_exists_s3($delete_file_eng)){
+                        removeImage($delete_file_eng);
                     }
                 }
     
@@ -83,9 +83,9 @@ class GalleryServices
     
             if ($request->hasFile('marathi_image')) {
                 if ($return_data['marathi_image']) {
-                    $delete_file_mar= storage_path(Config::get('DocumentConstant.Gallery_DELETE') . $return_data['marathi_image']);
-                    if(file_exists($delete_file_mar)){
-                        unlink($delete_file_mar);
+                    $delete_file_mar= Config::get('DocumentConstant.Gallery_DELETE') . $return_data['marathi_image'];
+                    if(file_exists_s3($delete_file_mar)){
+                        removeImage($delete_file_mar);
                     }
                 }
     

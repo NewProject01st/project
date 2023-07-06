@@ -115,8 +115,8 @@ class RegisterServices
             $path = Config::get('DocumentConstant.USER_PROFILE_ADD');
             if ($request->hasFile('user_profile')) {
                 if ($return_data['user_profile']) {
-                    if (file_exists(storage_path(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile']))) {
-                        unlink(storage_path(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile']));
+                    if (file_exists_s3(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile'])) {
+                        removeImage(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile']);
                     }
 
                 }
@@ -146,8 +146,8 @@ class RegisterServices
         $path = Config::get('DocumentConstant.USER_PROFILE_ADD');
         if ($request->hasFile('user_profile')) {
             if ($return_data['user_profile']) {
-                if (file_exists(storage_path(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile']))) {
-                    unlink(storage_path(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile']));
+                if (file_exists_s3(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile'])) {
+                    removeImage(Config::get('DocumentConstant.USER_PROFILE_DELETE') . $return_data['user_profile']);
                 }
 
             }

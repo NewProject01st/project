@@ -248,6 +248,14 @@ function uploadImage($request, $image_name, $path, $name) {
 
 }
 
+function removeImage($path) {
+    return Storage::disk('s3')->delete($path);
+}
+
+function file_exists_s3($path) {
+    return Storage::disk('s3')->exists($path);
+}
+
 function getTempratureFromAPI() {
     $return_data = array();
     $url = env('TEMPRATURE_API_URL');

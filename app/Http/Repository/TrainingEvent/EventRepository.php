@@ -114,11 +114,11 @@ class EventRepository{
         try {
             $training = Event::find($id);
             if ($training) {
-                if (file_exists(storage_path(Config::get('DocumentConstant.TRAINING_EVENT_VIEW') . $training->english_image))) {
-                    unlink(storage_path(Config::get('DocumentConstant.TRAINING_EVENT_VIEW') . $training->english_image));
+                if (file_exists_s3(Config::get('DocumentConstant.TRAINING_EVENT_VIEW') . $training->english_image)) {
+                    removeImage(Config::get('DocumentConstant.TRAINING_EVENT_VIEW') . $training->english_image);
                 }
-                if (file_exists(storage_path(Config::get('DocumentConstant.TRAINING_EVENT_VIEW') . $training->marathi_image))) {
-                    unlink(storage_path(Config::get('DocumentConstant.TRAINING_EVENT_VIEW') . $training->marathi_image));
+                if (file_exists_s3(Config::get('DocumentConstant.TRAINING_EVENT_VIEW') . $training->marathi_image)) {
+                    removeImage(Config::get('DocumentConstant.TRAINING_EVENT_VIEW') . $training->marathi_image);
                 }
                 $training->delete();
     

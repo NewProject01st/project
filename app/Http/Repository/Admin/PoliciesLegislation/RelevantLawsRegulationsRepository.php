@@ -139,11 +139,11 @@ class RelevantLawsRegulationsRepository{
             $relevant_laws = RelevantLawsRegulation::find($id);
             if ($relevant_laws) {
                 // Delete the images from the storage folder
-                if (file_exists(storage_path(Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_DELETE') . $relevant_laws->english_pdf))) {
-                    unlink(storage_path(Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_DELETE') . $relevant_laws->english_pdf));
+                if (file_exists_s3(Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_DELETE') . $relevant_laws->english_pdf)) {
+                    removeImage(Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_DELETE') . $relevant_laws->english_pdf);
                 }
-                if (file_exists(storage_path(Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_DELETE') . $relevant_laws->marathi_pdf))) {
-                    unlink(storage_path(Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_DELETE') . $relevant_laws->marathi_pdf));
+                if (file_exists_s3(Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_DELETE') . $relevant_laws->marathi_pdf)) {
+                    removeImage(Config::get('DocumentConstant.RELEVANT_LAWS_REGULATIONS_DELETE') . $relevant_laws->marathi_pdf);
                 }
                 $relevant_laws->delete();
                 return $relevant_laws;

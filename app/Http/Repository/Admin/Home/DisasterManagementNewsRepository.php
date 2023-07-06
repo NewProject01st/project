@@ -142,11 +142,11 @@ public function deleteById($id)
     try {
         $disaster = DisasterManagementNews::find($id);
         if ($disaster) {
-            if (file_exists(storage_path(Config::get('DocumentConstant.DISASTER_NEWS_DELETE') . $disaster->english_image))) {
-                unlink(storage_path(Config::get('DocumentConstant.DISASTER_NEWS_DELETE') . $disaster->english_image));
+            if (file_exists_s3(Config::get('DocumentConstant.DISASTER_NEWS_DELETE') . $disaster->english_image)) {
+                removeImage(Config::get('DocumentConstant.DISASTER_NEWS_DELETE') . $disaster->english_image);
             }
-            if (file_exists(storage_path(Config::get('DocumentConstant.DISASTER_NEWS_DELETE') . $disaster->marathi_image))) {
-                unlink(storage_path(Config::get('DocumentConstant.DISASTER_NEWS_DELETE') . $disaster->marathi_image));
+            if (file_exists_s3(Config::get('DocumentConstant.DISASTER_NEWS_DELETE') . $disaster->marathi_image)) {
+                removeImage(Config::get('DocumentConstant.DISASTER_NEWS_DELETE') . $disaster->marathi_image);
             }
             $disaster->delete();
             

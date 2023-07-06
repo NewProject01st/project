@@ -67,9 +67,9 @@ class DisasterManagementWebPortalServices
             $path = Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_ADD');
             if ($request->hasFile('english_image')) {
                 if ($return_data['english_image']) {
-                    $delete_file_path_eng  = storage_path(Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_DELETE') . $return_data['english_image']);
-                    if (file_exists($delete_file_path_eng)) {
-                        unlink($delete_file_path_eng);
+                    $delete_file_path_eng  = Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_DELETE') . $return_data['english_image'];
+                    if (file_exists_s3($delete_file_path_eng)) {
+                        removeImage($delete_file_path_eng);
                     }
                 }
                 $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
@@ -81,9 +81,9 @@ class DisasterManagementWebPortalServices
 
             if ($request->hasFile('marathi_image')) {
                 if ($return_data['marathi_image']) {
-                    $delete_file_path_marathi = storage_path(Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_DELETE') . $return_data['marathi_image']);
-                    if (file_exists($delete_file_path_marathi)) {
-                        unlink($delete_file_path_marathi);
+                    $delete_file_path_marathi = Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_DELETE') . $return_data['marathi_image'];
+                    if (file_exists_s3($delete_file_path_marathi)) {
+                        removeImage($delete_file_path_marathi);
                     }
                 }
                 $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();

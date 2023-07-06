@@ -128,11 +128,11 @@ class VacanciesRepository {
         try {
             $vacancy = VacanciesHeader::find($id);
             if ($vacancy) {
-                if (file_exists(storage_path(Config::get('DocumentConstant.VACANCIES_PDF_DELETE') . $vacancy->english_pdf))) {
-                    unlink(storage_path(Config::get('DocumentConstant.VACANCIES_PDF_DELETE') . $vacancy->english_pdf));
+                if (file_exists_s3(Config::get('DocumentConstant.VACANCIES_PDF_DELETE') . $vacancy->english_pdf)) {
+                    removeImage(Config::get('DocumentConstant.VACANCIES_PDF_DELETE') . $vacancy->english_pdf);
                 }
-                if (file_exists(storage_path(Config::get('DocumentConstant.VACANCIES_PDF_DELETE') . $vacancy->marathi_pdf))) {
-                    unlink(storage_path(Config::get('DocumentConstant.VACANCIES_PDF_DELETE') . $vacancy->marathi_pdf));
+                if (file_exists_s3(Config::get('DocumentConstant.VACANCIES_PDF_DELETE') . $vacancy->marathi_pdf)) {
+                    removeImage(Config::get('DocumentConstant.VACANCIES_PDF_DELETE') . $vacancy->marathi_pdf);
                 }
                 $vacancy->delete();
                 return $vacancy;

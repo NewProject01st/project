@@ -66,9 +66,9 @@ class SocialIconServices
             $path = Config::get('DocumentConstant.SOCIAL_ICON_ADD');
             if ($request->hasFile('icon')) {
                 if ($return_data['icon']) {
-                    $delete_file_eng= storage_path(Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $return_data['icon']);
-                    if(file_exists($delete_file_eng)){
-                        unlink($delete_file_eng);
+                    $delete_file_eng= Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $return_data['icon'];
+                    if(file_exists_s3($delete_file_eng)){
+                        removeImage($delete_file_eng);
                     }
                 }
     
@@ -102,9 +102,9 @@ class SocialIconServices
     //         $path = Config::get('DocumentConstant.SOCIAL_ICON_ADD');
     //         if ($request->hasFile('icon')) {
     //             if ($return_data['icon']) {
-    //                 $delete_file_eng= storage_path(Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $return_data['icon']);
-    //                 if(file_exists($delete_file_eng)){
-    //                     unlink($delete_file_eng);
+    //                 $delete_file_eng= Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $return_data['icon'];
+    //                 if(file_exists_s3($delete_file_eng)){
+    //                     removeImage($delete_file_eng);
     //                 }
 
     //             }

@@ -105,8 +105,8 @@ public function deleteById($id){
     try {
         $training = CapacityTraining::find($id);
         if ($training) {
-            unlink(storage_path(Config::get('DocumentConstant.CAPACITY_TRAINING_DELETE') . $training->english_image));
-            unlink(storage_path(Config::get('DocumentConstant.CAPACITY_TRAINING_DELETE') . $training->marathi_image));
+            removeImage(Config::get('DocumentConstant.CAPACITY_TRAINING_DELETE') . $training->english_image);
+            removeImage(Config::get('DocumentConstant.CAPACITY_TRAINING_DELETE') . $training->marathi_image);
             $training->delete();
             
             

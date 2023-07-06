@@ -184,8 +184,8 @@ class EmergencyContactNumbersRepository
         try {
             $emergencycontactnumbers = EmergencyContactNumbers::find($id);
             if ($emergencycontactnumbers) {
-                unlink(storage_path(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $emergencycontactnumbers->english_image));
-                unlink(storage_path(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $emergencycontactnumbers->marathi_image));
+                removeImage(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $emergencycontactnumbers->english_image);
+                removeImage(Config::get('DocumentConstant.EMERGENCY_CONTACT_NUMBERS_DELETE') . $emergencycontactnumbers->marathi_image);
                 // Delete the record from the database
                 $emergencycontactnumbers->delete();
 

@@ -105,8 +105,8 @@ public function deleteById($id){
     try {
         $awareness = PublicAwarenessEducation::find($id);
         if ($awareness) {
-            unlink(storage_path(Config::get('DocumentConstant.PUBLIC_AWARENESS_EDUCATION_DELETE') . $awareness->english_image));
-            unlink(storage_path(Config::get('DocumentConstant.PUBLIC_AWARENESS_EDUCATION_DELETE') . $awareness->marathi_image));
+            removeImage(Config::get('DocumentConstant.PUBLIC_AWARENESS_EDUCATION_DELETE') . $awareness->english_image);
+            removeImage(Config::get('DocumentConstant.PUBLIC_AWARENESS_EDUCATION_DELETE') . $awareness->marathi_image);
 
             // Delete the record from the database
             
