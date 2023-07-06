@@ -51,7 +51,7 @@ class HomeTenderController extends Controller
         'english_description.required' => 'Please enter description.',
         'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
         'url.required'=>'Please enter url.',
-        'url.regex'=>'Please valid url.',
+        'url.regex'=>'Please enter valid url.',
         'tender_date' => 'Please enter date.',
         'english_pdf.required' => 'Please upload an PDF file.',
         'english_pdf.file' => 'The file must be of type: file.',

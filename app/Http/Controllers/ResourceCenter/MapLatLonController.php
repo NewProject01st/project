@@ -30,27 +30,32 @@ class MapLatLonController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'lat' => 'required|max:255',
-            'lon' => 'required|max:255',
-            'location_name_english' => 'required|max:255',
+            'lat' => ['required','regex:/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?)$/'],
+            'lon' => ['required','regex:/^[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/',],
+            'location_name_english' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             'location_name_marathi' => 'required|max:255',
-            'location_address_english' => 'required|max:255',
+            'location_address_english' => ['required','regex:/^(?![0-9\s]+$)[A-Za-z0-9\s\.,#\-\(\)\[\]\{\}]+$/','max:255'],
             'location_address_marathi' => 'required|max:255',
             // 'data_for' => 'required',
             
          ];
     $messages = [   
         'lat.required' => 'Please enter latitude.',
+        'lat.regex' => 'latitude must be a valid coordinate in decimal degrees format.',
         'lat.max'   => 'Please  enter text length upto 255 character only.',
         'lon.required' => 'Please enter longitude.',
+        'lon.regex' => 'longitude must be a valid coordinate in decimal degrees format.',
         'lon.max'   => 'Please  enter text length upto 255 character only.',
         'location_name_english.required' => 'Please enter location name.',
+        'location_name_english.regex' => 'Please  enter text only.',
         'location_name_english.max'   => 'Please  enter text length upto 255 character only.',
         'location_name_marathi.required' => 'कृपया स्थानाचे नाव प्रविष्ट करा.',
         'location_name_marathi.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',
         'location_address_english.required' => 'Please enter address.',
+        'location_address_english.regex' => 'Please enter right address.',
         'location_address_english.max'   => 'Please  enter address length upto 255 character only.',
         'location_address_marathi.required' => 'कृपया पत्ता प्रविष्ट करा.',
+        // 'location_address_marathi.regex' => 'कृपया बरोबर पत्ता प्रविष्ट करा.',
         'location_address_marathi.max'   => 'कृपया पत्त्याची लांबी 255 पर्यंत प्रविष्ट करा.',
 
         // 'data_for.required' => 'Please enter data.',
@@ -104,27 +109,32 @@ class MapLatLonController extends Controller
 
     public function update(Request $request) {
         $rules = [
-            'lat' => 'required|max:255',
-            'lon' => 'required|max:255',
-            'location_name_english' => 'required|max:255',
+            'lat' => ['required','regex:/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?)$/'],
+            'lon' => ['required','regex:/^[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/',],
+            'location_name_english' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             'location_name_marathi' => 'required|max:255',
-            'location_address_english' => 'required|max:255',
+            'location_address_english' => ['required','regex:/^(?![0-9\s]+$)[A-Za-z0-9\s\.,#\-\(\)\[\]\{\}]+$/','max:255'],
             'location_address_marathi' => 'required|max:255',
             // 'data_for' => 'required',
             
          ];
     $messages = [   
         'lat.required' => 'Please enter latitude.',
+        'lat.regex' => 'latitude must be a valid coordinate in decimal degrees format.',
         'lat.max'   => 'Please  enter text length upto 255 character only.',
         'lon.required' => 'Please enter longitude.',
+        'lon.regex' => 'longitude must be a valid coordinate in decimal degrees format.',
         'lon.max'   => 'Please  enter text length upto 255 character only.',
         'location_name_english.required' => 'Please enter location name.',
+        'location_name_english.regex' => 'Please  enter text only.',
         'location_name_english.max'   => 'Please  enter text length upto 255 character only.',
         'location_name_marathi.required' => 'कृपया स्थानाचे नाव प्रविष्ट करा.',
         'location_name_marathi.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',
         'location_address_english.required' => 'Please enter address.',
+        'location_address_english.regex' => 'Please enter right address.',
         'location_address_english.max'   => 'Please  enter address length upto 255 character only.',
         'location_address_marathi.required' => 'कृपया पत्ता प्रविष्ट करा.',
+        // 'location_address_marathi.regex' => 'कृपया बरोबर पत्ता प्रविष्ट करा.',
         'location_address_marathi.max'   => 'कृपया पत्त्याची लांबी 255 पर्यंत प्रविष्ट करा.',
         // 'data_for.required' => 'Please enter data.',
     ];

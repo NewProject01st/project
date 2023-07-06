@@ -76,7 +76,7 @@ class DepartmentInformationController extends Controller
         'marathi_image_new.min' => 'कृपया प्रतिमेचा आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE").'KB .',
         'marathi_image_new.dimensions' => 'कृपया प्रतिमा 1000x300 आणि 2000x1000 पिक्सेल दरम्यान असणे आवश्यक आहे.',
         'url.required'=>'Please enter url.',
-        'url.regex'=>'Please valid url.',
+        'url.regex'=>'Please enter valid url.',
         // 'date' => 'required',
 
     ];

@@ -61,7 +61,7 @@ class SliderController extends Controller
             'marathi_image.min' => 'कृपया प्रतिमेचा आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'KB .',
             'marathi_image.dimensions' => 'कृपया प्रतिमा 1500x500 आणि 2000x1000 पिक्सेल दरम्यान असणे आवश्यक आहे.',
             'url.required'=>'Please enter url.',
-            'url.regex'=>'Please valid url.',
+            'url.regex'=>'Please enter valid url.',
         ];
 
         try {

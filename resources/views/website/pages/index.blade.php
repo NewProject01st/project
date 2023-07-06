@@ -244,16 +244,16 @@
                             </ol>
                             <div class="carousel-inner">
                                 @foreach ($forecast_data_api as $key => $forecast_data)
-                                    <div
-                                        class="carousel-item @if ($key == 0) {{ 'active' }} @endif">
+                                    <!-- <div
+                                        class="carousel-item @if ($key == 0) {{ 'active' }} @endif"> -->
                                         <!-- Item -->
-                                        <div class="WeatherBlock">
+                                        <div class="WeatherBlock mt-4">
                                             <div class="card weather_card">
                                                 <div class="card-body">
                                                     <h6 class="text-center">Nashik</h6>
-                                                    <p class="text-center">{{date("d/m/Y", strtotime($forecast_data['datetime']))}} | {{date("l", strtotime($forecast_data['datetime']))}}</p>
+                                                    <p class="text-center weather_day">{{date("d/m/Y", strtotime($forecast_data['datetime']))}} | {{date("l", strtotime($forecast_data['datetime']))}}</p>
 
-                                                    <div class="d-flex justify-content-center bd-highlight mb-2">
+                                                    <div class="d-flex justify-content-center bd-highlight mb-1 today_tem">
                                                         <div class="p-2 bd-highlight">
                                                             <h5> {{ $forecast_data['min_temp'] }}° C </h5>
                                                             <h6 class="d-flex justify-content-center">MIN<h6>
@@ -265,11 +265,11 @@
                                                     </div>
                                                     
 
-                                                    <hr>
+                                                    <hr class="divide_line">
                                                     <div class="row">
                                                         @foreach ($forecast_data['hour_wise'] as $key => $forecast_data_hourwise)
                                                             @if ($key % 2 == 0)
-                                                                <div class="col-md-4 mb-2">
+                                                                <div class="col-lg-4 col-md-6 col-sm-6 mb-2">
                                                                     <div class="p-2 bd-highlight timewise_temp">
                                                                         <p class="time">
                                                                             {{ substr_replace($forecast_data_hourwise['datetime'], '', -3) }}
@@ -489,7 +489,8 @@
                                                 data-bs-parent="#accordionFlushExample1">
                                                 <div class="accordion-body">
                                                     <ul>
-                                                        <li><h6><?php echo $item['marathi_title']; ?></h6><span><?php echo $item['marathi_description']; ?></span></li>                                                        
+                                                        <li><span><b class="content-justify"><?php echo $item['marathi_title']; ?></b></span><span class="content-justify"><?php echo $item['marathi_description']; ?></span>
+                                                       
                                                     </ul>
                                                 </div>
                                             </div>
@@ -519,8 +520,7 @@
                                                 data-bs-parent="#accordionFlushExample1">
                                                 <div class="accordion-body">
                                                     <ul>
-                                                        <li><h6><?php echo $item['english_title']; ?></h6><span><?php echo $item['english_description']; ?></span>
-                                                <div>
+                                                        <li><span><b class="content-justify"><?php echo $item['english_title']; ?></b></span><span class="content-justify"><?php echo $item['english_description']; ?></span>
                                                             <a
                                                     href="{{ route('list-disaster-forecast-web') }}">
                                                         @if (session('language') == 'mar')

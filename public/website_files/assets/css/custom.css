@@ -46,7 +46,7 @@ Version:		1.0
 	} */
 	.become-vol {
 		padding: 0 4px !important;
-		line-height: 35px !important;
+		/* line-height: 35px !important; */
 	}
 	
   }
@@ -295,6 +295,10 @@ body a:focus {
 }
 .cursor-pointer{
 	cursor: pointer;
+}
+.content-justify{
+	text-align: justify;
+	display: flex;
 }
 /******** + ========== + Header Start + ========== + ********/
 
@@ -6649,7 +6653,7 @@ border-bottom: 1px solid #57578E;
 		padding: 0 7px;
 		font-size: 12px;
 		/* margin-top: 65% !important; */
-		margin-top: 21% !important;
+		margin-top: 95% !important;
     	margin-bottom: 10px;
 	}
 }
@@ -6812,11 +6816,13 @@ box-shadow: 0 0 4px #000;
     font-weight: 600;
 }
 .weather_card{
-	background: linear-gradient(to right, #00a4ff52, #0072ff24);
+	/* background: linear-gradient(to right, #00a4ff52, #0072ff24); */
+	background: linear-gradient(to right, #00a4ff12, #0072ff00);
 	margin: 10px !important;
 }
 .timewise_temp{
-	background: #00a4ff52;
+	/* background: #00a4ff52; */
+	background: #00a4ff14;
     color: #222831;
     border-radius: 10px;
 }
@@ -6832,3 +6838,12 @@ box-shadow: 0 0 4px #000;
 }
 
 /*  */
+.weather_day{
+	border-bottom: 0rem !important;
+}
+.today_tem{
+	margin-top: -10px;
+}
+.divide_line{
+	margin-top: -1px;
+}

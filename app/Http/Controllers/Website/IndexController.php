@@ -356,6 +356,25 @@ class IndexController extends Controller
     } 
 
 
+    // public function getTestMagnifier(Request $request)
+    // {
+    //     try {
+
+    //         $menu = $this->menu;
+            
+    //         if (Session::get('language') == 'mar') {
+    //             $language = Session::get('language');
+    //         } else {
+    //             $language = 'en';
+    //         }
+    //         return view('website.pages.index11',compact('language','menu'));
+
+    //     } catch (\Exception $e) {
+    //         return $e;
+    //     }
+    // } 
+
+
     
     public function changeLanguage(Request $request) {
         Session::put('language', $request->language);

@@ -88,6 +88,7 @@ class SuccessStoriesRepository  {
             $update_news_events->marathi_designation = $request['marathi_designation'];
 
             $update_news_events->save();
+            // dd($update_news_events);
             $last_insert_id = $update_news_events->id;
 
             $return_data['last_insert_id'] = $last_insert_id;

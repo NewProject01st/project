@@ -59,38 +59,41 @@ class SuccessStoriesServices
         }
     }
    
-    public function updateAll($request)
-    {
+
+
+
+    public function updateAll($request){
         try {
             $return_data = $this->repo->updateAll($request);
             
             $path = Config::get('DocumentConstant.SUCCESS_STORIES_ADD');
             if ($request->hasFile('english_image')) {
                 if ($return_data['english_image']) {
+
                     $delete_file_eng= Config::get('DocumentConstant.SUCCESS_STORIES_DELETE') . $return_data['english_image'];
                     if(file_exists_s3($delete_file_eng)){
                         removeImage($delete_file_eng);
+
                     }
+
                 }
     
                 $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
+                $slide_data = SuccessStories::find($return_data['last_insert_id']);
+                $slide_data->english_image = $englishImageName;
+                $slide_data->save();
             }
-    
-            
-            $success_stories_data = SuccessStories::find($return_data['last_insert_id']);
-            $success_stories_data->english_image = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
-            $success_stories_data->save();
+                
             if ($return_data) {
                 return ['status' => 'success', 'msg' => 'Success Stories Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Success Stories Not Updated.'];
+                return ['status' => 'error', 'msg' => 'Success Stories  Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
-    }
-
+    }   
     public function updateOne($id)
     {
         return $this->repo->updateOne($id);

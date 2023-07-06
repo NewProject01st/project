@@ -30,8 +30,8 @@ class GalleryCategoryController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'english_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
-            'marathi_name' => 'required|max:255',   
+            'english_name' => 'required|unique:gallery_category|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'marathi_name' => 'required|unique:gallery_category|max:255',   
          ];
     $messages = [   
        
@@ -40,6 +40,9 @@ class GalleryCategoryController extends Controller
         'english_name.max'   => 'Please  enter text length upto 255 character only.',
         'marathi_name.required'=>'कृपया नाव प्रविष्ट करा.',
         'marathi_name.max'   => 'कृपया केवळ २५५ पर्यंत मजकूराची लांबी प्रविष्ट करा.',
+        'english_name.unique' => 'Title already exist.',
+        'marathi_name.unique' => 'शीर्षक आधीच अस्तित्वात आहे.',
+        
     ];
 
     try {
@@ -84,8 +87,8 @@ class GalleryCategoryController extends Controller
     public function update(Request $request)
 {
     $rules = [
-        'english_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
-        'marathi_name' => 'required|max:255',   
+        'english_name' => 'required|unique:gallery_category|regex:/^[a-zA-Z\s]+$/u|max:255',
+        'marathi_name' => 'required|unique:gallery_category|max:255',   
      ];
     $messages = [   
         'english_name.required'=>'Please enter name.',
@@ -93,6 +96,8 @@ class GalleryCategoryController extends Controller
         'english_name.max'   => 'Please  enter text length upto 255 character only.',
         'marathi_name.required'=>'कृपया नाव प्रविष्ट करा.',
         'marathi_name.max'   => 'कृपया केवळ २५५ पर्यंत मजकूराची लांबी प्रविष्ट करा.',
+        'english_name.unique' => 'Title already exist.',
+        'marathi_name.unique' => 'शीर्षक आधीच अस्तित्वात आहे.',
     ];
 
     try {

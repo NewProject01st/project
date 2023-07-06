@@ -43,7 +43,7 @@ class FooterImportantLinksController extends Controller
         'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
         'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
         'url.required'=>'Please enter url.',
-        'url.regex'=>'Please valid url.',
+        'url.regex'=>'Please enter valid url.',
        
     ];
     // print_r($messages);

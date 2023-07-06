@@ -52,7 +52,7 @@ class ReportIncidentModalRepository{
                 }
              
                 $citizen->delete();
-          
+        //   dd($citizen);
                 return $citizen;
             } else {
                 return null;
