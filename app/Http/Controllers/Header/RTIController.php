@@ -45,7 +45,7 @@ class RTIController extends Controller
         'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
         'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
         'url.required'=>'Please enter url.',
-        'url.regex'=>'Please valid url.',
+        'url.regex'=>'Please enter valid url.',
         // 'english_pdf.required' => 'Please upload an PDF file.',
         // 'english_pdf.file' => 'The file must be of type: file.',
         // 'english_pdf.mimes' => 'The file must be a PDF.',

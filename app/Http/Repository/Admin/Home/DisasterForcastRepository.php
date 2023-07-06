@@ -23,29 +23,13 @@ class DisasterForcastRepository  {
 {
     try {
 
-        // $englishImage = time() . '_english.' . $request->english_image->extension();
-        // $marathiImage= time() . '_marathi.' . $request->marathi_image->extension();
-        
-        // $request->english_image->storeAs('public/images/home/disaster-forcast', $englishImage);
-        // $request->marathi_image->storeAs('public/images/home/disaster-forcast', $marathiImage);
-
-        // $englishPdf = time() . '_english.' . $request->english_pdf->extension();
-        // $marathiPdf= time() . '_marathi.' . $request->marathi_pdf->extension();
-
-        // $request->english_pdf->storeAs('public/pdf/disaster-forcast', $englishPdf);
-        // $request->english_pdf->storeAs('public/pdf/disaster-forcast', $marathiPdf);
-        
+       
         $disasterforcast_data = new DisasterForcast();
         $disasterforcast_data->english_title = $request['english_title'];
         $disasterforcast_data->marathi_title = $request['marathi_title'];
         $disasterforcast_data->english_description = $request['english_description'];
         $disasterforcast_data->marathi_description = $request['marathi_description'];
-        // $disasterforcast_data->forcast_date = $request['forcast_date'];
-        // $disasterforcast_data->expired_date = $request['expired_date'];
-        // $disasterforcast_data->english_image = $englishImage;
-        // $disasterforcast_data->marathi_image = $marathiImage;
-        // $disasterforcast_data->english_pdf = $englishPdf;
-        // $disasterforcast_data->marathi_pdf = $marathiPdf;
+      
         $disasterforcast_data->save();       
               
 		return $disasterforcast_data;
@@ -68,9 +52,8 @@ public function getById($id)
             return null;
         }
     } catch (\Exception $e) {
-        return $e;
 		return [
-            'msg' => 'Failed to get by id Disaster Forecast.',
+            'msg' => 'Failed to get by id Disaster Forecast. '.$e,
             'status' => 'error'
         ];
     }
@@ -87,26 +70,13 @@ public function updateAll($request)
             ];
         }
         
-        // // Delete existing files
-        // Storage::delete([
-        //     'public/images/home/disaster-forcast/' . $disasterforcast_data->marathi_image,
-        //     'public/images/home/disaster-forcast/' . $disasterforcast_data->english_image
-        // ]);
-
-        // $englishImage = time() . '_english.' . $request->english_image->extension();
-        // $marathiImage = time() . '_marathi.' . $request->marathi_image->extension();
-        
-        // $request->english_image->storeAs('public/images/home/disaster-forcast', $englishImage);
-        // $request->marathi_image->storeAs('public/images/home/disaster-forcast', $marathiImage);
+      
         
         $disasterforcast_data->english_title = $request['english_title'];
         $disasterforcast_data->marathi_title = $request['marathi_title'];
         $disasterforcast_data->english_description = $request['english_description'];
         $disasterforcast_data->marathi_description = $request['marathi_description'];
-        // $disasterforcast_data->forcast_date = $request['forcast_date'];
-        // $disasterforcast_data->expired_date = $request['expired_date'];
-        // $disasterforcast_data->marathi_image = $englishImage;
-        // $disasterforcast_data->english_image = $marathiImage;
+      
         $disasterforcast_data->save();        
      
         return [
@@ -114,9 +84,8 @@ public function updateAll($request)
             'status' => 'success'
         ];
     } catch (\Exception $e) {
-        return $e;
         return [
-            'msg' => 'Failed to update Disaster Forecast.',
+            'msg' => 'Failed to update Disaster Forecast. '.$e,
             'status' => 'error'
         ];
     }

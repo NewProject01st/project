@@ -47,7 +47,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_pdf">PDF</label><br>
-                                            <input type="file" name="english_pdf" id="english_pdf" accept=".pdf">
+                                            <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"><br>
                                             @if ($errors->has('english_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
                                             @endif
@@ -56,7 +56,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_pdf">पीडीएफ</label><br>
-                                            <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf">
+                                            <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"><br>
                                             @if ($errors->has('marathi_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif
@@ -85,80 +85,4 @@
                 </div>
             </div>
         </div>
-        <script>
-            $(document).ready(function() {
-                $.extend($.validator.methods, {
-                    spcenotallow: function(b, c, d) {
-                        if (!this.depend(d, c)) return "dependency-mismatch";
-                        if ("select" === c.nodeName.toLowerCase()) {
-                            var e = a(c).val();
-                            return e && e.length > 0
-                        }
-                        return this.checkable(c) ? this.getLength(b, c) > 0 : b.trim().length > 0
-                    }
-                });
-
-                $.validator.addMethod("alphanumericwithspace", function(value, element) {
-                    var reg = /[0-9]/;
-                    if (reg.test(value)) {
-                        return false;
-                    } else {
-                        return true;
-                    }
-                }, "Number is not permitted");
-
-                // $.validator.addMethod("urlValidation", function(value, element) {
-                //     // Regular expression for URL validation
-                //     var reg =
-                //         /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
-                //     return this.optional(element) || reg.test(value);
-                // }, "Enter a valid URL");
-
-
-                $("#formVacancy").validate({
-
-                    rules: {
-                        english_title: {
-                            required: true,
-                            spcenotallow: true,
-                            alphanumericwithspace: true
-                        },
-                        marathi_title: {
-                            required: true,
-                            spcenotallow: true,
-                            alphanumericwithspace: true
-                        },
-
-                        // url_field: {
-                        //     required: true,
-                        //     urlValidation: true
-                        // }
-
-
-                    },
-                    messages: {
-                        english_title: {
-                            required: "The english title field is required.",
-                            spcenotallow: "Enter Some Text",
-                            alphanumericwithspace: "Enter Valid Input"
-
-                        },
-
-                        marathi_title: {
-                            required: "The english title field is required.",
-                            spcenotallow: "Enter Some Text",
-                            alphanumericwithspace: "Enter Valid Input"
-
-                        },
-
-                        // url_field: {
-                        //     required: "The URL field is required.",
-                        //     urlValidation: "Enter a valid URL"
-                        // }
-
-
-                    }
-                });
-            });
-        </script>
     @endsection
