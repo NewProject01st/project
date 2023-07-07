@@ -368,16 +368,12 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                     },
                     success: function(response) {
                         // Clear previous results
-                        // console.log(response);
                         searchResults.empty();
-
                         // Display the search results
                         $.each(response, function(index, subMenu) {
-                            var url = subMenu.url;
-                            var title = subMenu.menu_name_english;
-
+                            var url = subMenu[0].url;
+                            var title = subMenu[0].menu_name_english;
                             // Append the result to the search results container
-
                             searchResults.append(
                                 '<a class="dropdown-item" href="' +
                                 url + '">' +
