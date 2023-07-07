@@ -458,38 +458,38 @@
                       </a>
 
                       <div class="collapse" id="resource-center">
-                          <ul class="nav flex-column sub-menu">
-                              @if (in_array('list-document-publications', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-document-publications') }}">Documents And Publications</a>
-                                  </li>
-                              @endif
-                              @if (in_array('list-map-lat-lons', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-map-lat-lons') }}">Longitude Latitude</a>
-                                  </li>
-                              @endif
-                              @if (in_array('list-gallery-category', $data_for_url))
-                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                      href="{{ route('list-gallery-category') }}">Gallery Category</a>
-                              </li>
-                          @endif
-                          @if (in_array('list-gallery', $data_for_url))
-                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                      href="{{ route('list-gallery') }}">Gallery</a>
-                              </li>
-                          @endif
-                          @if (in_array('list-video', $data_for_url))
-                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                      href="{{ route('list-video') }}">Video</a>
-                              </li>
-                          @endif
-                          @if (in_array('list-training-workshop', $data_for_url))
-                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                  href="{{ route('list-training-workshop') }}">Training Materials And Workshops</a>
-                          </li>
-                      @endif
-                          </ul>
+                            <ul class="nav flex-column sub-menu">
+                                @if (in_array('list-document-publications', $data_for_url))
+                                    <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                            href="{{ route('list-document-publications') }}">Documents And Publications</a>
+                                    </li>
+                                @endif
+                                @if (in_array('list-map-lat-lons', $data_for_url))
+                                    <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                            href="{{ route('list-map-lat-lons') }}">Longitude Latitude</a>
+                                    </li>
+                                @endif
+                                @if (in_array('list-gallery-category', $data_for_url))
+                                <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                        href="{{ route('list-gallery-category') }}">Gallery Category</a>
+                                </li>
+                                @endif
+                                @if (in_array('list-gallery', $data_for_url))
+                                    <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                            href="{{ route('list-gallery') }}">Gallery</a>
+                                    </li>
+                                @endif
+                                @if (in_array('list-video', $data_for_url))
+                                    <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                            href="{{ route('list-video') }}">Video</a>
+                                    </li>
+                                @endif
+                                @if (in_array('list-training-workshop', $data_for_url))
+                                <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                        href="{{ route('list-training-workshop') }}">Training Materials And Workshops</a>
+                                </li>
+                                @endif
+                            </ul>
                       </div>
                   </li>
               @endif
