@@ -244,8 +244,8 @@
                             </ol>
                             <div class="carousel-inner">
                                 @foreach ($forecast_data_api as $key => $forecast_data)
-                                    <!-- <div
-                                        class="carousel-item @if ($key == 0) {{ 'active' }} @endif"> -->
+                                    <div
+                                        class="carousel-item @if ($key == 0) {{ 'active' }} @endif">
                                         <!-- Item -->
                                         <div class="WeatherBlock mt-4">
                                             <div class="card weather_card">
