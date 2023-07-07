@@ -190,12 +190,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 user_tbl">
                                         <div id="data_for_role">
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12 col-sm-12 text-center">
+                                    <div class="col-md-12 col-sm-12 text-center mt-3">
                                         <input type="hidden" class="form-check-input" name="edit_id" id="edit_id"
                                             value="{{ $user_data['data_users']['id'] }}">
                                         <button type="submit" class="btn btn-success">Save
@@ -204,6 +204,7 @@
                                         <span><a href="{{ route('list-users') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
+                                    
                                 </div>
                             </form>
                         </div>

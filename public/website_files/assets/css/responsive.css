@@ -919,3 +919,9 @@ header .navbar-nav {
 }
 
 }
+
+@media (min-width: 280px) and (max-width: 767px) {
+	.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter{
+		float: right !important;
+	}
+}
