@@ -228,7 +228,7 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse nav-center" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse nav-center d-flex flex-wrap" id="navbarSupportedContent">
                         @foreach ($menu as $key => $menu_data)
                             @foreach ($menu_data as $key => $menu_data_new)
                                 <ul class="navbar-nav mr-auto">
