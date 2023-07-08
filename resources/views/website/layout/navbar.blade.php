@@ -367,6 +367,7 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                         query: query
                     },
                     success: function(response) {
+                        console.log(response);
                         // Clear previous results
                         searchResults.empty();
                         // Display the search results
