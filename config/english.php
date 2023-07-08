@@ -82,7 +82,8 @@ return [
 		'NO_DATA_FOUND_DISASTER_PORTAL'   => 'No Data Found For Disaster Management Portal.',
 		// 'NO_DATA_FOUND_OBJECTIVE_GOALS'   => 'No Data Found For Disaster Management Portal.',
 		'NO_DATA_FOUND_DISASTER_AUTHORITY'   => 'No Data Found For State Disaster Management Authority.',
-
+		'OBJECTIVE' =>'Objectives',
+		'GOALS' =>'Goals',
 	],
 
 	'PREPAREDNESS'=>[ 
@@ -138,8 +139,12 @@ return [
 		'FORM_MEDIA_UPLOAD'   => 'Media Upload',
 		'FORM_SEND'   => 'Send',
 		'FORM_VOLUNTEER_TYPE'   => 'Volunteer Type',
-
-
+		'ARE_YOU_NGO'   => 'Are you NGO ?',
+		'NGO_NAME'   => 'NGO Name :',
+		'NGO_EMAIL'   => 'NGO Email :',
+		'NGO_MOBILE_NO'   => 'NGO Mobile Number :',
+		'PHOTO'   => 'Photo :',
+		'ADDRESS'   => 'Address :',
 	],
 
 	'TRAINING_WORKSHOP'=>[ 

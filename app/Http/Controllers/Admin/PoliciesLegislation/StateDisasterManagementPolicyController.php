@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\StateDisasterManagementPolicy;
 use App\Http\Services\Admin\PoliciesLegislation\StateDisasterManagementPolicyServices;
 use Validator;
+use Config;
 use Illuminate\Validation\Rule;
 class StateDisasterManagementPolicyController extends Controller
 {
@@ -33,8 +34,8 @@ class StateDisasterManagementPolicyController extends Controller
         $rules = [
             'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             'marathi_title' => 'required|max:255',
-            'english_pdf' => 'required|file|mimes:pdf',
-            'marathi_pdf' => 'required|file|mimes:pdf',
+            'english_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MIN_SIZE").'',
+            'marathi_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MIN_SIZE").'',
             'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
             'policies_year' => 'required',
          ];
@@ -53,9 +54,11 @@ class StateDisasterManagementPolicyController extends Controller
             'marathi_pdf.file' => 'फाइल प्रकार: फाइल होणे आवश्यक आहे.',
             'marathi_pdf.mimes' => 'फाइल पीडीएफ असावी.',
             'policies_year.required'=>'Please select year.',
-
-
-       ];
+            'marathi_pdf.max' => 'कृपया पीडीएफ आकार जास्त नसावा. '.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MAX_SIZE").'KB .',
+            'marathi_pdf.min' => 'कृपया पीडीएफ आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MIN_SIZE").'KB .',
+            'english_pdf.max' => 'The pdf size must not exceed '.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MAX_SIZE").'KB .',
+            'english_pdf.min' => 'The image size must not be less than '.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MIN_SIZE").'KB .',
+        ];
 
         try {
             $validation = Validator::make($request->all(),$rules,$messages);
@@ -100,8 +103,8 @@ class StateDisasterManagementPolicyController extends Controller
         $rules = [
             'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             'marathi_title' => 'required|max:255',
-            // 'english_pdf' => 'required|file|mimes:pdf',
-            // 'marathi_pdf' => 'required|file|mimes:pdf',
+            'english_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MIN_SIZE").'',
+            'marathi_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MIN_SIZE").'',
             'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
             'policies_year' => 'required',
             
@@ -114,12 +117,17 @@ class StateDisasterManagementPolicyController extends Controller
             'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',  
             'url.required'=>'Please enter url.',
             'url.regex'=>'Please valid url.',
-            // 'english_pdf.required' => 'Please upload an PDF file.',
-            // 'english_pdf.file' => 'The file must be of type: file.',
-            // 'english_pdf.mimes' => 'The file must be a PDF.',
-            // 'marathi_pdf.required' => 'कृपया PDF फाइल अपलोड करा.',
-            // 'marathi_pdf.file' => 'फाइल प्रकार: फाइल होणे आवश्यक आहे.',
-            // 'marathi_pdf.mimes' => 'फाइल पीडीएफ असावी.',
+            'english_pdf.required' => 'Please upload an PDF file.',
+            'english_pdf.file' => 'The file must be of type: file.',
+            'english_pdf.mimes' => 'The file must be a PDF.',
+            'marathi_pdf.required' => 'कृपया PDF फाइल अपलोड करा.',
+            'marathi_pdf.file' => 'फाइल प्रकार: फाइल होणे आवश्यक आहे.',
+            'marathi_pdf.mimes' => 'फाइल पीडीएफ असावी.',
+            'marathi_pdf.max' => 'कृपया पीडीएफ आकार जास्त नसावा. '.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MAX_SIZE").'KB .',
+            'marathi_pdf.min' => 'कृपया पीडीएफ आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MIN_SIZE").'KB .',
+            'english_pdf.max' => 'The pdf size must not exceed '.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MAX_SIZE").'KB .',
+            'english_pdf.min' => 'The image size must not be less than '.Config::get("AllFileValidation.STATE_DISASTER_MANAGEMENT_POLICY_PDF_MIN_SIZE").'KB .',
+        
         ];
 
         try {

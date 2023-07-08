@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\HomeTender;
 use App\Http\Services\Admin\Home\HomeTenderServices;
 use Validator;
+use Config;
 use Illuminate\Validation\Rule;
 class HomeTenderController extends Controller
 {
@@ -38,9 +39,9 @@ class HomeTenderController extends Controller
             'marathi_description' => 'required', 
             'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
             'tender_date' => 'required',
-            'english_pdf' => 'required|file|mimes:pdf',
-            'marathi_pdf' => 'required|file|mimes:pdf',
-            
+            'english_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.HOME_TENDER_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.HOME_TENDER_PDF_MIN_SIZE").'',
+            'marathi_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.HOME_TENDER_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.HOME_TENDER_PDF_MIN_SIZE").'',
+
          ];
     $messages = [   
         'english_title.required'=>'Please enter title.',
@@ -59,6 +60,11 @@ class HomeTenderController extends Controller
         'marathi_pdf.required' => 'कृपया PDF फाइल अपलोड करा.',
         'marathi_pdf.file' => 'फाइल प्रकार: फाइल होणे आवश्यक आहे.',
         'marathi_pdf.mimes' => 'फाइल पीडीएफ असावी.',
+        'marathi_pdf.max' => 'कृपया पीडीएफ आकार जास्त नसावा. '.Config::get("AllFileValidation.HOME_TENDER_PDF_MAX_SIZE").'KB .',
+        'marathi_pdf.min' => 'कृपया पीडीएफ आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.HOME_TENDER_PDF_MIN_SIZE").'KB .',
+        'english_pdf.max' => 'The pdf size must not exceed '.Config::get("AllFileValidation.HOME_TENDER_PDF_MAX_SIZE").'KB .',
+        'english_pdf.min' => 'The image size must not be less than '.Config::get("AllFileValidation.HOME_TENDER_PDF_MIN_SIZE").'KB .',
+
     ];
 
     try {
@@ -110,9 +116,10 @@ public function update(Request $request)
             'marathi_description' => 'required', 
             'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
             'tender_date' => 'required',
-            'english_pdf' => 'required',
-            'marathi_pdf' => 'required',
-     ];
+            'english_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.HOME_TENDER_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.HOME_TENDER_PDF_MIN_SIZE").'',
+            'marathi_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.HOME_TENDER_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.HOME_TENDER_PDF_MIN_SIZE").'',
+
+         ];
     $messages = [   
         'english_title.required'=>'Please enter title.',
         'english_title.regex' => 'Please  enter text only.',
@@ -124,9 +131,17 @@ public function update(Request $request)
         'url.required'=>'Please enter url.',
         'url.regex'=>'Please valid url.',
         'tender_date' => 'Please enter date.',
-        'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'marathi_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        
+        'english_pdf.required' => 'Please upload an PDF file.',
+        'english_pdf.file' => 'The file must be of type: file.',
+        'english_pdf.mimes' => 'The file must be a PDF.',
+        'marathi_pdf.required' => 'कृपया PDF फाइल अपलोड करा.',
+        'marathi_pdf.file' => 'फाइल प्रकार: फाइल होणे आवश्यक आहे.',
+        'marathi_pdf.mimes' => 'फाइल पीडीएफ असावी.',
+        'marathi_pdf.max' => 'कृपया पीडीएफ आकार जास्त नसावा. '.Config::get("AllFileValidation.HOME_TENDER_PDF_MAX_SIZE").'KB .',
+        'marathi_pdf.min' => 'कृपया पीडीएफ आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.HOME_TENDER_PDF_MIN_SIZE").'KB .',
+        'english_pdf.max' => 'The pdf size must not exceed '.Config::get("AllFileValidation.HOME_TENDER_PDF_MAX_SIZE").'KB .',
+        'english_pdf.min' => 'The image size must not be less than '.Config::get("AllFileValidation.HOME_TENDER_PDF_MIN_SIZE").'KB .',
+
     ];
 
     try {

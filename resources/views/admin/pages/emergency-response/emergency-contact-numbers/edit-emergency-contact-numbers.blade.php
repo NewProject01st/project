@@ -137,10 +137,10 @@
                                 <thead class="" style="background-color: #47194a; color:#fff">
                                     <tr>
                                         <th scope="col">Sr. No.</th>
-                                        <th scope="col">English Emergency Contact Title</th>
-                                        <th scope="col">Marathi Emergency Contact Title</th>
-                                        <th scope="col">English Emergency Contact Number</th>
-                                        <th scope="col">Marathi Emergency Contact Number</th>
+                                        <th scope="col">Emergency Contact Title</th>
+                                        <th scope="col">आपत्कालीन संपर्क शीर्षक</th>
+                                        <th scope="col">Emergency Contact Number</th>
+                                        <th scope="col">आपत्कालीन संपर्क क्रमांक</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
