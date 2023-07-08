@@ -87,7 +87,7 @@
                                         <div class="form-group">
                                             <label for="marathi_pdf">पीडीएफ</label>
                                             <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
-                                                class="form-control">
+                                                class="">
                                             @if ($errors->has('marathi_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif

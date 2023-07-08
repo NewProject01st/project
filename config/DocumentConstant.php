@@ -100,21 +100,21 @@ return [
     'Gallery_DELETE'	     => '/all_web_data/images/resource_center/gallery/',
     'Gallery_VIEW'	         => env("AWS_FILE_VIEW").'/all_web_data/images/resource_center/gallery/',
 
-    'DISTRICT_DISATSER_PLAN_ADD'	 => "/all_web_data/images/policies_legislation/district_disaster_management_plan/",
-    'DISTRICT_DISATSER_PLAN_DELETE'  => '/all_web_data/images/policies_legislation/district_disaster_management_plan/',
-    'DISTRICT_DISATSER_PLAN_VIEW'	 => env("AWS_FILE_VIEW").'/all_web_data/images/policies_legislation/district_disaster_management_plan/',
+    'DISTRICT_DISATSER_PLAN_ADD'	 => "/all_web_data/pdf/policies_legislation/district_disaster_management_plan/",
+    'DISTRICT_DISATSER_PLAN_DELETE'  => '/all_web_data/pdf/policies_legislation/district_disaster_management_plan/',
+    'DISTRICT_DISATSER_PLAN_VIEW'	 => env("AWS_FILE_VIEW").'/all_web_data/pdf/policies_legislation/district_disaster_management_plan/',
 
-    'RELEVANT_LAWS_REGULATIONS_ADD'	     => "/all_web_data/images/policies_legislation/relevant_laws_regulations/",
-    'RELEVANT_LAWS_REGULATIONS_DELETE'   => '/all_web_data/images/policies_legislation/relevant_laws_regulations/',
-    'RELEVANT_LAWS_REGULATIONS_VIEW'	 => env("AWS_FILE_VIEW").'/all_web_data/images/policies_legislation/relevant_laws_regulations/',
+    'RELEVANT_LAWS_REGULATIONS_ADD'	     => "/all_web_data/pdf/policies_legislation/relevant_laws_regulations/",
+    'RELEVANT_LAWS_REGULATIONS_DELETE'   => '/all_web_data/pdf/policies_legislation/relevant_laws_regulations/',
+    'RELEVANT_LAWS_REGULATIONS_VIEW'	 => env("AWS_FILE_VIEW").'/all_web_data/pdf/policies_legislation/relevant_laws_regulations/',
 
     'STATE_DISASTER_PLAN_ADD'	 => "/all_web_data/pdf/policies_legislation/state_disaster_management_plan/",
     'STATE_DISASTER_PLAN_DELETE' => '/all_web_data/pdf/policies_legislation/state_disaster_management_plan/',
     'STATE_DISASTER_PLAN_VIEW'	 => env("AWS_FILE_VIEW").'/all_web_data/pdf/policies_legislation/state_disaster_management_plan/',
 
-    'STATE_DISASTER_POLICY_ADD'	   => "/all_web_data/images/policies_legislation/state_disaster_management_policy/",
-    'STATE_DISASTER_POLICY_DELETE' => '/all_web_data/images/policies_legislation/state_disaster_management_policy/',
-    'STATE_DISASTER_POLICY_VIEW'   => env("AWS_FILE_VIEW").'/all_web_data/images/policies_legislation/state_disaster_management_policy/',
+    'STATE_DISASTER_POLICY_ADD'	   => "/all_web_data/pdf/policies_legislation/state_disaster_management_policy/",
+    'STATE_DISASTER_POLICY_DELETE' => '/all_web_data/pdf/policies_legislation/state_disaster_management_policy/',
+    'STATE_DISASTER_POLICY_VIEW'   => env("AWS_FILE_VIEW").'/all_web_data/pdf/policies_legislation/state_disaster_management_policy/',
 
     'TRAINING_EVENT_ADD'	 => "/all_web_data/images/training_workshops/training_event/",
     'TRAINING_EVENT_DELETE'  => '/all_web_data/images/training_workshops/training_event/',

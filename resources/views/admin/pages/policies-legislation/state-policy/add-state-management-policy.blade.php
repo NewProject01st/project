@@ -79,7 +79,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="url">Year</label>&nbsp<span class="red-text">*</span>
-                                            <select class="form-control" id="dYear" name="policies_year">
+                                            <select class="" id="dYear" name="policies_year">
                                                 <option value="{{ old('policies_year') }}">Select Year</option> 
                                                </select>
                                             @if ($errors->has('url'))

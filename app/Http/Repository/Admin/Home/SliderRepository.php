@@ -139,10 +139,10 @@ class SliderRepository  {
             try {
                 $slider = Slider::find($id);
                 if ($slider) {
-                    if (file_exists_s3(Config::get('DocumentConstant.SLIDER_DELETE') . $slider->english_image))){
+                    if (file_exists_s3(Config::get('DocumentConstant.SLIDER_DELETE') . $slider->english_image)){
                         removeImage(Config::get('DocumentConstant.SLIDER_DELETE') . $slider->english_image);
                     }
-                    if (file_exists_s3(Config::get('DocumentConstant.SLIDER_DELETE') . $slider->marathi_image))){
+                    if (file_exists_s3(Config::get('DocumentConstant.SLIDER_DELETE') . $slider->marathi_image)){
                         removeImage(Config::get('DocumentConstant.SLIDER_DELETE') . $slider->marathi_image);
                     }
                     $slider->delete();

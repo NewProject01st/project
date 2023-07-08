@@ -406,7 +406,7 @@ $(".alert").fadeTo(2000, 500).slideUp(500, function() {
 <script>
     $(function() {
         var option = function(i, j) {
-            return $("<option>").append(j + 1900);
+            return $("<option>").append(j + 1980);
         };
 
         var options = (new Array(150) + "").split(",").map(option);
@@ -477,6 +477,7 @@ $(".alert").fadeTo(2000, 500).slideUp(500, function() {
         }
     }
 </script>
+
 </body>
 
 </html> <!-- partial:partials/_footer.html -->
