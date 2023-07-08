@@ -236,7 +236,11 @@
                                                     </label><span class="red-text">*</span>
                                                     <input type="input" class="form-control set_m_form"
                                                         name="ngo_contact_number" id="ngo_contact_number"
-                                                        value="{{ old('ngo_contact_number') }}">
+                                                        value="{{ old('ngo_contact_number') }}"
+                                                        pattern="[789]{1}[0-9]{9}"
+                                                        oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                                                        maxlength="10" minlength="10"
+                                                        >
 
                                                     @if ($errors->has('ngo_contact_number'))
                                                         <span class="red-text"><?php echo $errors->first('ngo_contact_number', ':message'); ?></span>
