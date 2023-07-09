@@ -116,7 +116,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-12 col-sm-12 text-center">
+                                <div class="col-md-12 col-sm-12 text-center  mt-3">
                                     <input type="hidden" name="edit_id" id="edit_id"
                                         value="{{ $emergencycontact_data['emergencycontactnumbers']->id }}">
                                     <button type="submit" class="btn btn-success">Save &amp; Update</button>
@@ -126,14 +126,14 @@
                             </form>
                         </div>
 
-                        <div class="col-md-12 col-sm-12 text-center">
+                        <div class="col-md-12 col-sm-12 text-center emergancy_contact_add">
 
                             <div class="pt-3 d-flex justify-content-end" style="margin-bottom: 10px">
                                 <a href="{{ route('add-more-emergency-contact-data') }}"
                                     class="btn btn-sm btn-primary ml-3">Add Contact
                                     Number</a>
                             </div>
-                            <table class="table table-striped table-hover table-bordered border-dark">
+                            <table class="table table-striped table-hover table-bordered border-dark mt-3 mb-3">
                                 <thead class="" style="background-color: #47194a; color:#fff">
                                     <tr>
                                         <th scope="col">Sr. No.</th>
