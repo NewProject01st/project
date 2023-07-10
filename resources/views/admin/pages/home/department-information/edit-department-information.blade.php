@@ -76,8 +76,8 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_image"> Icon</label>
-                                            <input type="file" name="english_image" class="form-control"
+                                            <label for="english_image"> Icon</label><br>
+                                            <input type="file" name="english_image"
                                                 id="english_image" accept="image/*" placeholder="image">
                                             @if ($errors->has('english_image'))
                                                 <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
@@ -94,9 +94,8 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_image"> चिन्ह</label>
-                                            <input type="file" name="marathi_image" id="marathi_image" accept="image/*"
-                                                class="form-control">
+                                            <label for="marathi_image"> चिन्ह</label><br>
+                                            <input type="file" name="marathi_image" id="marathi_image" accept="image/*">
                                             @if ($errors->has('marathi_image'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
                                             @endif
@@ -108,7 +107,7 @@
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
 
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-group">
                                             <label for="english_image_new">Image </label>
                                             <input type="file" name="english_image_new" class="form-control"
@@ -123,7 +122,7 @@
                                         <img id="english_imgPreview1" src="#" alt="pic"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-group">
                                             <label for="marathi_image_new">प्रतिमा</label>
                                             <input type="file" name="marathi_image_new" id="marathi_image_new"
@@ -140,7 +139,7 @@
                                     </div>
 
 
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-group">
                                             <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="url" id="url" class="form-control"

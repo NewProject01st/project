@@ -139,7 +139,7 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                                             <ul class="navbar-nav mr-auto">
                                                 <li class="nav-item dropdown">
                                                     <input type="text" id="search-box" placeholder="Search...">
-                                                    <button type="submit">Search</button>
+                                                    <button type="submit" class="header_search_btn">Search</button>
                                                     <div id="search-results" class="dropdown-menu show"
                                                         aria-labelledby="navbarDropdown"></div>
                                                 </li>
@@ -295,7 +295,7 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse nav-center" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse nav-center flex-wrap" id="navbarSupportedContent">
                         @foreach ($menu as $key => $menu_data)
                             @foreach ($menu_data as $key => $menu_data_new)
                                 <ul class="navbar-nav mr-auto">

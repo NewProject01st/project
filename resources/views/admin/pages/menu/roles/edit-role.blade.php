@@ -31,7 +31,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="role_name">Role Type</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" id="role_name" name="role_name"
+                                            <input type="text" id="role_name" name="role_name" class="role_name"
                                                 value="@if (old('role_name')) {{ old('role_name') }} @else {{ $user_data['roles']['role_name'] }} @endif">
                                             @if ($errors->has('role_name'))
                                                 <span class="red-text"><?php echo $errors->first('role_name', ':message'); ?></span>

@@ -36,7 +36,7 @@
         <div class="department-details">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9 new_design_about_obj">
+                    <div class="col-md-9 new_design_about_obj mb-3">
 
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">

@@ -203,11 +203,11 @@
                             @empty
                                 No Categries found
                             @endforelse
-                            <div class="row  d-flex gallery">
-                                <div class="d-flex" id="gallary_data">
+                            <div class="row d-flex gallery" id="gallary_data">
+                                <!-- <div class="d-flex" id="gallary_data"> -->
                                     <?php $k = 1; ?>
                                     @forelse ($gallery_data as $key=>$item)
-                                        <div class="col-md-4 nature">
+                                        <div class="col-md-3 nature">
                                             <figure class="card animals">
                                                 @if (session('language') == 'mar')
                                                     <img class="card__image toZoom" id="img{{ $key }}"
@@ -236,7 +236,7 @@
                                         No Categries found
                                         <?php $k++; ?>
                                     @endforelse
-                                </div>
+                                <!-- </div> -->
                             </div>
                         </div>
                     </div>
@@ -266,7 +266,7 @@
                         $.each(data, function(i, item) {
                             // console.log(data);
                             @if (session('language') == 'mar')
-                                $("#gallary_data").append(`<div class="col-md-4 nature">
+                                $("#gallary_data").append(`<div class="col-md-3 nature">
                                         <figure class="card animals">
                                                 <img class="card__image toZoom d-block w-100 img-fluid" id="img` + i + `" loading="lazy"
                                                     src="` + item.english_image + `"
@@ -282,7 +282,7 @@
 
 
                                 // $("").attr();
-                                $("#gallary_data").append(`<div class="col-md-4 nature">
+                                $("#gallary_data").append(`<div class="col-md-3 nature">
                             <figure class="card animals" attr="else">
                             <img class="card__image toZoom d-block w-100 img-fluid" id="img` + i + `" attr="else" loading="lazy"
                                                     src="` + item.english_image + `" 
