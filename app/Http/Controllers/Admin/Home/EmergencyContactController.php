@@ -38,9 +38,9 @@ class EmergencyContactController extends Controller
             'marathi_address' => 'required|max:255',
             'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
             'english_number' => 'required|regex:/^[0-9]{10}$/',
-            'marathi_number' => 'required|regex:/^[0-9]{10}$/',
+            'marathi_number' => 'required|max:10',
             'english_landline_no' => 'required|regex:/^[+]?[0-9-() ]{7,20}$/',
-            'marathi_landline_no' => 'required|regex:/^[+]?[0-9-() ]{7,20}$/',
+            'marathi_landline_no' => 'required|max:25',
             
          ];
     $messages = [   
@@ -64,14 +64,13 @@ class EmergencyContactController extends Controller
         'english_number.required' => 'Please enter number.',
          'marathi_number.required' => 'कृपया क्रमांक प्रविष्ट करा ',
          'english_number.regex' => 'Please enter only number with 10-digit.',
-        'marathi_number.regex' => 'कृपया फक्त 10-अंकी संख्या असलेली संख्या प्रविष्ट करा. ',
+        'marathi_number.max' => 'कृपया फक्त 10-अंकी संख्या असलेली संख्या प्रविष्ट करा. ',
 
         'english_landline_no.required' =>'Please enter landline number.',
          'marathi_landline_no.required' => 'कृपया लँडलाइन नंबर प्रविष्ट करा.',
          'english_landline_no.regex' => 'Please enter valid landline number.',
-        'marathi_landline_no.regex' => 'कृपया लँडलाइन बरोबर  प्रविष्ट करा. ',
-        'english_landline_no.required' => 'Please enter landline number.',
-        'marathi_landline_no.required' => 'कृपया लँडलाइन नंबर प्रविष्ट करा.',
+        'marathi_landline_no.max' => 'कृपया लँडलाइन बरोबर  प्रविष्ट करा. ',
+       
            
     ];
 
@@ -124,9 +123,9 @@ class EmergencyContactController extends Controller
             'marathi_address' => 'required|max:255',
             'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
             'english_number' => 'required|regex:/^[0-9]{10}$/',
-            'marathi_number' => 'required|regex:/^[0-9]{10}$/',
+            'marathi_number' => 'required|max:10',
             'english_landline_no' => 'required|regex:/^[+]?[0-9-() ]{7,20}$/',
-            'marathi_landline_no' => 'required|regex:/^[+]?[0-9-() ]{7,20}$/',
+            'marathi_landline_no' => 'required|max:25',
             
         
      ];
@@ -151,15 +150,13 @@ class EmergencyContactController extends Controller
         'english_number.required' => 'Please enter number.',
          'marathi_number.required' => 'कृपया क्रमांक प्रविष्ट करा ',
          'english_number.regex' => 'Please enter only  number with 10-digit numbers.',
-        'marathi_number.regex' => 'कृपया फक्त 10-अंकी संख्या असलेली संख्या प्रविष्ट करा. ',
+        'marathi_number.max' => 'कृपया फक्त 10-अंकी संख्या असलेली संख्या प्रविष्ट करा. ',
 
         'english_landline_no.required' =>'Please enter landline number.',
          'marathi_landline_no.required' => 'कृपया लँडलाइन नंबर प्रविष्ट करा.',
          'english_landline_no.regex' => 'Please enter valid landline number.',
-        'marathi_landline_no.regex' => 'कृपया लँडलाइन बरोबर  प्रविष्ट करा. ',
-        'english_landline_no.required' => 'Please enter landline number.',
-        'marathi_landline_no.required' => 'कृपया लँडलाइन नंबर प्रविष्ट करा.',
-            
+        'marathi_landline_no.max' => 'कृपया लँडलाइन बरोबर  प्रविष्ट करा. ',
+       
         
     ];
 

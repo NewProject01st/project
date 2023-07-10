@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Documentspublications;
 use App\Http\Services\ResourceCenter\DocumentsPublicationsServices;
 use Validator;
+use Config;
 class DocumentPublicationsController extends Controller
 {
 
@@ -35,8 +36,8 @@ class DocumentPublicationsController extends Controller
             'marathi_title' => 'required|max:255',
             'english_description' => 'required',
             'marathi_description' => 'required', 
-            'english_pdf' => 'required|file|mimes:pdf',
-            'marathi_pdf' => 'required|file|mimes:pdf',
+            'english_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'',
+            'marathi_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'',
             
          ];
     $messages = [   
@@ -53,6 +54,11 @@ class DocumentPublicationsController extends Controller
         'marathi_pdf.required' => 'कृपया PDF फाइल अपलोड करा.',
         'marathi_pdf.file' => 'फाइल प्रकार: फाइल होणे आवश्यक आहे.',
         'marathi_pdf.mimes' => 'फाइल पीडीएफ असावी.',
+        'marathi_pdf.max' => 'कृपया पीडीएफ आकार जास्त नसावा. '.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'KB .',
+        'marathi_pdf.min' => 'कृपया पीडीएफ आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'KB .',
+        'english_pdf.max' => 'The pdf size must not exceed '.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'KB .',
+        'english_pdf.min' => 'The image size must not be less than '.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'KB .',
+    
     ];
 
     try {
@@ -102,8 +108,8 @@ public function update(Request $request)
         'marathi_title' => 'required|max:255',
             'english_description' => 'required',
             'marathi_description' => 'required', 
-            // 'english_pdf' => 'required',
-            // 'marathi_pdf' => 'required',
+            'english_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'',
+            'marathi_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'',
      ];
     $messages = [   
             'english_title.required'=>'Please enter title.',
@@ -113,10 +119,18 @@ public function update(Request $request)
             'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',
             'english_description.required' => 'Please enter description.',
             'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
-        // 'english_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // 'marathi_pdf' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'english_pdf.required' => 'Please upload an PDF file.',
+            'english_pdf.file' => 'The file must be of type: file.',
+            'english_pdf.mimes' => 'The file must be a PDF.',
+            'marathi_pdf.required' => 'कृपया PDF फाइल अपलोड करा.',
+            'marathi_pdf.file' => 'फाइल प्रकार: फाइल होणे आवश्यक आहे.',
+            'marathi_pdf.mimes' => 'फाइल पीडीएफ असावी.',
+            'marathi_pdf.max' => 'कृपया पीडीएफ आकार जास्त नसावा. '.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'KB .',
+            'marathi_pdf.min' => 'कृपया पीडीएफ आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'KB .',
+            'english_pdf.max' => 'The pdf size must not exceed '.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'KB .',
+            'english_pdf.min' => 'The image size must not be less than '.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'KB .',
         
-    ];
+        ];
 
     try {
         $validation = Validator::make($request->all(),$rules, $messages);
