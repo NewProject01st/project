@@ -35,7 +35,7 @@ class CitizenActionController extends Controller
             'incident' => 'required',
             'location' => 'required',
             'datetime' => 'required',
-            'mobile_number' => 'required',
+            'mobile_number' => 'required|unique:report_incident_modals,mobile_number',
             'description' => 'required',
             'media_upload' => 'required',
             'g-recaptcha-response' => 'required|captcha',
@@ -45,7 +45,8 @@ class CitizenActionController extends Controller
             'incident.required' => 'Please select Incident Type',
             'location.required' => 'Please enter Location',
             'datetime.required' => 'Please select Date Time',
-            'mobile_number.required' => 'Please enter Mobile Number',
+            'mobile_number.required' => 'Please enter Contact Number',
+            'mobile_number.unique' => 'Your Contact Number is already exist.',
             'description.required' => 'Please enter Description',
             'media_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'g-recaptcha-response.captcha' => 'Captcha error! try again later or contact site admin.',
@@ -92,17 +93,19 @@ class CitizenActionController extends Controller
             'incident' => 'required',
             'location' => 'required',
             'datetime' => 'required',
-            'mobile_number' => 'required',
+            'mobile_number' => 'required|unique:citizen_volunteer_modals,mobile_number',
             'description' => 'required',
             'media_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'g-recaptcha-response' => 'required|captcha',
+
         ];
         
         $messages = [
             'incident' => 'The incident field is required.',
             'location' => 'The location field is required.',
             'datetime' => 'The datetime field is required.',
-            'mobile_number' => 'The mobile number field is required.',
+            'mobile_number.required' => 'Please enter Contact Number',
+            'mobile_number.unique' => 'Your Contact Number is already exist.',
             'description' => 'The description field is required.',
             'media_upload.required' => 'The image field is required.',
             'g-recaptcha-response.captcha' => 'Captcha error! Please try again later or contact the site admin.',
@@ -111,29 +114,32 @@ class CitizenActionController extends Controller
 
         if($request->is_ngo == 'on') {
             $rules['ngo_name'] = 'required';
-            $rules['ngo_email'] = 'required';
-            $rules['ngo_contact_number'] = 'required';
-            $rules['ngo_photo'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
-
+            $rules['ngo_email'] = 'required|unique:citizen_volunteer_modals,ngo_email';
+            $rules['ngo_contact_number'] = 'required|unique:citizen_volunteer_modals,ngo_contact_number';
+            $rules['ngo_photo'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';           
             $messages['ngo_name'] = 'Ngo name is required';
-            $messages['ngo_email'] = 'Ngo email required';
-            $messages['ngo_contact_number'] = 'Ngo contact number required';
+            $messages['ngo_email.required'] = 'Please Enter Ngo Email Id';
+            $messages['ngo_email.unique'] = 'Your Email Id is already exist';
+            $messages['ngo_contact_number.required'] = 'Please Enter Ngo Contact Number';
+            $messages['ngo_contact_number.unique'] = 'Your Ngo Contact Number is already exist';
             $messages['ngo_photo'] = 'Ngo photo required';
         }
 
         
         if ($request->has('checkbox_field') && $request->input('checkbox_field') == 1) {
             $rules['ngo_name'] = 'required';
-            $rules['ngo_email'] = 'required|email';
+            $rules['ngo_email'] = 'required|unique:citizen_volunteer_modals,ngo_email';
+            $rules['ngo_contact_number'] = 'required|unique:citizen_volunteer_modals,ngo_contact_number';
             $rules['ngo_address'] = 'required';
-            $rules['ngo_contact_number'] = 'required';
             $rules['ngo_photo'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
             
             $messages['ngo_name.required'] = 'The NGO name field is required.';
             $messages['ngo_email.required'] = 'The NGO email field is required.';
-            $messages['ngo_email.email'] = 'The NGO email must be a valid email address.';
             $messages['ngo_address.required'] = 'The NGO address field is required.';
-            $messages['ngo_contact_number.required'] = 'The NGO number field is required.';
+            $messages['ngo_email.required'] = 'Please Enter Ngo Email Id';
+            $messages['ngo_email.unique'] = 'Your Email Id is already exist';
+            $messages['ngo_contact_number.required'] = 'Please Enter Ngo Contact Number';
+            $messages['ngo_contact_number.unique'] = 'Your Ngo Contact Number is already exist';
             $messages['ngo_photo.required'] = 'The NGO photo field is required.';
         }
 
@@ -147,7 +153,7 @@ class CitizenActionController extends Controller
 
         try {
             $add_modal = $this->service->addVolunteerModalInfo($request);
-        
+        // dd($add_modal);
             $msg = $add_modal['msg'];
             $status = $add_modal['status'];
             if ($add_modal && $add_modal['status'] == 'success') {

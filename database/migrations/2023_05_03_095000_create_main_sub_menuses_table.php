@@ -35,6 +35,7 @@ class CreateMainSubMenusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('main_sub_menuses');
+        // Schema::dropIfExists('main_sub_menuses');
+        Schema::rename('main_sub_menuses', 'main_sub_menuses_old');
     }
 }

@@ -28,7 +28,7 @@
                                             <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="english_title"
                                                 id="english_title" placeholder="Enter the Title"
-                                                value="  @if (old('english_title')) {{ old('english_title') }}@else{{ $district_management->english_title }} @endif">
+                                                value="@if (old('english_title')) {{ old('english_title') }}@else{{ $district_management->english_title }} @endif">
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -85,9 +85,9 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_pdf">पीडीएफ</label>
+                                            <label for="marathi_pdf">पीडीएफ</label><br>
                                             <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
-                                                class="form-control">
+                                                class=""><br>
                                             @if ($errors->has('marathi_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif

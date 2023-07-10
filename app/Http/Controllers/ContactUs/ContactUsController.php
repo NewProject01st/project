@@ -30,23 +30,26 @@ class ContactUsController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'full_name' => 'required',
+            'full_name' => 'required|regex:/^[a-zA-Z\s]+$/u',
             'email' => 'required',
-            'mobile_number' => 'required',
-            'mobile_number' => 'regex:/^\d{10}$/',
+            'email' => 'required|unique:contact,email',
+            'mobile_number' => 'required|unique:contact,mobile_number|regex:/^\d{10}$/',
             'contact_type' => 'required',
             'subject' => 'required',
             'suggestion' => 'required',
             
          ];
     $messages = [   
-        'full_name' => 'required',
-        'email' => 'required',
-        'mobile_number' => 'required',
-        // 'mobile_number.regex' => 'Please enter 10 digit number.',
-        'contact_type' => 'required',
-        'subject' => 'required',
-        'suggestion' => 'required',
+        'full_name.required'=>'Please Enter Full Name.',
+        'full_name.regex' => 'Please  Enter Text Only.',
+        'email.required' => 'Please Enter Email Id',
+        'email.unique' => 'Your Email Id is already exist.',
+        'mobile_number.required' => 'Please Enter Mobile Number',
+        'mobile_number.unique' => 'Your Mobile Number is already exist.',
+        'mobile_number.regex' => 'Your Enter Only 10 digit.',
+        'contact_type.required' => 'required',
+        'subject.required' => 'required',
+        'suggestion.required' => 'required',
 
     ];
 
@@ -91,21 +94,23 @@ class ContactUsController extends Controller
     public function update(Request $request)
 {
     $rules = [
-            'full_name' => 'required',
-            'email' => 'required',
-            'mobile_number' => 'required',
+            'full_name' => 'required|',
+            'email' => 'required|unique:contact,email',
+            'mobile_number' => 'required|unique:contact,mobile_number',
             'contact_type' => 'required',
             'subject' => 'required',
             'suggestion' => 'required',
         
      ];
     $messages = [   
-        'full_name' => 'required',
-        'email' => 'required',
-        'mobile_number' => 'required',
-        'contact_type' => 'required',
-        'subject' => 'required',
-        'suggestion' => 'required',
+        'full_name.required' => 'Please Enter Full Name.',
+        'email.required' => 'Please Enter Email Id',
+        'email.unique' => 'Your Email Id is already exist.',
+        'mobile_number.required' => 'Please Enter Mobile Number',
+        'mobile_number.unique' => 'Your Mobile Number is already exist.',
+        'contact_type.required' => 'Please Selecte Contact Type',
+        'subject.required' => 'Please Enter Subject',
+        'suggestion.' => 'Please Enter Suggestion',
        
     ];
 

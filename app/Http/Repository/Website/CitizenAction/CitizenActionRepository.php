@@ -123,7 +123,7 @@ class CitizenActionRepository  {
                     $modal_data->ngo_photo = $englishNGOImage; // Save the image filename to the database
                 }
                 $modal_data->save();
-                
+                // dd($modal_data);
                 return $last_insert_id;
         
             } catch (\Exception $e) {

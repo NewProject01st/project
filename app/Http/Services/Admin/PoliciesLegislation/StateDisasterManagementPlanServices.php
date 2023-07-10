@@ -63,12 +63,11 @@ class StateDisasterManagementPlanServices
             $path = Config::get('DocumentConstant.STATE_DISASTER_PLAN_ADD');
             if ($request->hasFile('english_pdf')) {
                 if ($return_data['english_pdf']) {
-                    $delete_file_eng= Config::get('DocumentConstant.STATE_DISASTER_PLAN_DELETE') . $return_data['english_pdf'];
-                    if(file_exists_s3($delete_file_eng)){
-                        removeImage($delete_file_eng);
+                    if (file_exists_s3(Config::get('DocumentConstant.STATE_DISASTER_PLAN_DELETE') . $return_data['english_pdf'])) {
+                        removeImage(Config::get('DocumentConstant.STATE_DISASTER_PLAN_DELETE') . $return_data['english_pdf']);
                     }
+
                 }
-    
                 $englishPDFName = $return_data['last_insert_id'] . '_english.' . $request->english_pdf->extension();
                 uploadImage($request, 'english_pdf', $path, $englishPDFName);
                 $district_plan = StateDisasterManagementPlan::find($return_data['last_insert_id']);
@@ -78,12 +77,11 @@ class StateDisasterManagementPlanServices
     
             if ($request->hasFile('marathi_pdf')) {
                 if ($return_data['marathi_pdf']) {
-                    $delete_file_mar= Config::get('DocumentConstant.STATE_DISASTER_PLAN_DELETE') . $return_data['marathi_pdf'];
-                    if(file_exists_s3($delete_file_mar)){
-                        removeImage($delete_file_mar);
+                    if (file_exists_s3(Config::get('DocumentConstant.STATE_DISASTER_PLAN_DELETE') . $return_data['marathi_pdf'])) {
+                        removeImage(Config::get('DocumentConstant.STATE_DISASTER_PLAN_DELETE') . $return_data['marathi_pdf']);
                     }
+
                 }
-    
                 $marathiPDFName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_pdf->extension();
                 uploadImage($request, 'marathi_pdf', $path, $marathiPDFName);
                 $district_plan = StateDisasterManagementPlan::find($return_data['last_insert_id']);

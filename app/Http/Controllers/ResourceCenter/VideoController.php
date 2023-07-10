@@ -32,12 +32,11 @@ class VideoController extends Controller
     public function store(Request $request) {
         $rules = [
 
-            'video_name' => ['required','regex:/^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/'],
+            'video_name' =>'required',
 
          ];
         $messages = [   
             'video_name.required'=>'Please Upload Video.',
-            'video_name.regex'=>'Please Upload valid Video.',
         ];
 
         try {
@@ -83,11 +82,10 @@ class VideoController extends Controller
     public function update(Request $request)
     {
         $rules = [
-            'video_name' => ['required','regex:/^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/'],
+            'video_name' => 'required',
         ];
         $messages = [   
             'video_name.required'=>'Please Upload Video.',
-            'video_name.regex'=>'Please Upload valid Video.',
         ];
 
         try {

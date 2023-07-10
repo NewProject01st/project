@@ -37,6 +37,7 @@ class CreateDynamicWebPagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dynamic_web_pages');
+        // Schema::dropIfExists('dynamic_web_pages');
+        Schema::rename('dynamic_web_pages', 'dynamic_web_pages_old');
     }
 }

@@ -76,8 +76,7 @@
                                             <label for="english_address">Address</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control" name="english_address" id="english_address"
-                                                placeholder="Enter the Address">
-                                                    @if (old('english_address'))
+                                                placeholder="Enter the Address">@if (old('english_address'))
                                                     {{ old('english_address') }}@else{{ $emergency_contact->english_address }}
                                                     @endif
                                                     </textarea>
@@ -91,8 +90,7 @@
                                             <label for="marathi_address">पत्ता</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control" name="marathi_address" id="marathi_address"
-                                                placeholder="पत्ता प्रविष्ट करा">
-                                                    @if (old('marathi_address'))
+                                                placeholder="पत्ता प्रविष्ट करा">@if (old('marathi_address'))
                                                     {{ old('marathi_address') }}@else{{ $emergency_contact->marathi_address }}
                                                     @endif
                                                     </textarea>

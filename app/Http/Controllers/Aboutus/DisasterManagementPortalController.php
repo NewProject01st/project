@@ -10,7 +10,6 @@ use Validator;
 use Config;
 class DisasterManagementPortalController extends Controller
 {
-
    public function __construct()
     {
         $this->service = new DisasterManagementPortalServices();
@@ -37,7 +36,6 @@ class DisasterManagementPortalController extends Controller
             'marathi_description' => 'required',
             'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_PORTAL_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_PORTAL_IMAGE_MIN_SIZE").'',
             'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_PORTAL_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DISASTER_MANAGEMENT_PORTAL_IMAGE_MIN_SIZE").'',
-            
             ];
         $messages = [   
             'english_title.required'=>'Please enter title.',
