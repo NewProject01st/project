@@ -71,6 +71,9 @@ return [
 		'RTI_MAIN_LINK' =>'RTI',
 		'RTI_SUB_LINK' =>'RTI',
 		'NO_DATA_FOUND_RTI'   => 'No Data Found For RTI.',
+		'RTI_SR_NO' =>'Sr. No.',
+		'RTI_TITLE' =>'Title',
+		'RTI_DOWNLOAD_FILE' =>'Download File',
 	],
 
 	'ABOUT_US'=>[ 

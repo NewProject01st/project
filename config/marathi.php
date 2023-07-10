@@ -73,6 +73,9 @@ return [
 		'RTI_MAIN_LINK' =>'अधिक माहिती',
 		'RTI_SUB_LINK' =>'अधिक माहिती',
 		'NO_DATA_FOUND_RTI'   => 'RTI साठी कोणताही डेटा सापडला नाही.',
+		'RTI_SR_NO' =>'अनुक्रमांक',
+		'RTI_TITLE' =>'शीर्षक',
+		'RTI_DOWNLOAD_FILE' =>'फाइल डाउनलोड करा',
 	],
 
 	'ABOUT_US'=>[ 
