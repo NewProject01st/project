@@ -397,75 +397,33 @@
      });
  </script>
    <script src="{{ asset('website_files/assets/js/html-magnifier.js') }}"></script>
-{{-- <script>
-    /* global HTMLMagnifier */
-    const magnifier = new HTMLMagnifier({ width: 400 });
-    magnifier.show();
-  </script> --}}
+
    
  <script>
     $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
+
+         const magnifier = new HTMLMagnifier({ width: 400 });
+        magnifier.hide(); // Hide the magnifier initially
+
+        document.getElementById("magnifier").addEventListener("click", function() {
+            if (magnifier.isVisible()) {
+                magnifier.hide();
+            } else {
+                magnifier.show();
+            }
+        });
     });
 
-    const magnifier = new HTMLMagnifier({ width: 400 });
-    magnifier.hide(); // Hide the magnifier initially
-
-    document.getElementById("magnifier").addEventListener("click", function() {
-        if (magnifier.isVisible()) {
-            magnifier.hide();
-        } else {
-            magnifier.show();
-        }
-    });
+   
 </script> 
 
-{{-- <script>
-    $(document).ready(function() {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
 
-    const magnifiers = document.getElementsByClassName("HTMLMagnifier");
-    const magnifier = magnifiers[0]; // Assuming there is only one element with the class name
 
-    const magnifierInstance = new HTMLMagnifier({ width: 400 });
-    magnifierInstance.hide(); // Hide the magnifier initially
-
-    magnifier.addEventListener("click", function() {
-        if (magnifierInstance.isVisible()) {
-            magnifierInstance.hide();
-        } else {
-            magnifierInstance.show();
-        }
-    });
-</script> --}}
-
-{{-- <script>
-    $(document).ready(function() {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-
-    const magnifier = new HTMLMagnifier({ width: 400 });
-    magnifier.show(); // Hide the magnifier initially
-
-    const toggleButton = document.querySelector(".magnifier");
-    toggleButton.addEventListener("click", function() {
-        if (magnifier.isVisible()) {
-            magnifier.hide();
-        } else {
-            magnifier.show();
-        }
-    });
-</script> --}}
 
 
  </body>
 
-<!-- <script>
-    /* global HTMLMagnifier */
-    const magnifier = new HTMLMagnifier({ width: 400 });
-    magnifier.show();
-  </script>
- </body> -->
+
 
  </html>

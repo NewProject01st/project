@@ -110,11 +110,11 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>NGO Mobile Number :</label>
+                                            <label>NGO Image :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <img src="{{ Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_VIEW') }}{{ $volunteercitizen->ngo_photo }}"
-                                            style="width:300px; height:150px;" />
+                                            <img src="{{ Config::get('DocumentConstant.VOLUNTEER_CITIZEN_NGO_VIEW') }}{{ $volunteercitizen->ngo_photo }}"
+                                                style="width:300px; height:150px;" />
                                         </div>
                                     </div>
 

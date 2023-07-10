@@ -58,7 +58,7 @@
                                             <span><?php echo $item['english_tollfree_no']; ?></span>
                                         @endif
                                     @endforeach
-                                  
+
                                 </a></li>
 
 
@@ -66,9 +66,9 @@
 
                         <button class="webpage_zoom_btn" id="zoomouttextbody">A-</button>
                         <button class="webpage_zoom_btn" id="zoomtextbody">A+</button>
-                        {{-- <span id="magnifier" class="magnifier" data-toggle="tooltip" data-placement="top" title="Magnifier">
+                        <span id="magnifier" class="magnifier" data-toggle="tooltip" data-placement="top" title="Magnifier">
                                 <i class="fa fa-search-plus" style="font-size:24px; color:#fff"></i>
-                            </span> --}}
+                            </span>
 
 
 
@@ -99,10 +99,10 @@
                                     @endif
                                 </strong>
                             </li>
-                           <li class="header-weather for_pl_pr"> <i class="fas fa-cloud-sun"></i>
+                            <li class="header-weather for_pl_pr"> <i class="fas fa-cloud-sun"></i>
                                 {{ getTempratureData()->temprature }}°C
                                 / {{ getTempratureData()->temprature * 1.8 + 32 }}°F
-                            </li> 
+                            </li>
                         </ul>
                     </div>
                     <div class="col-md-4 col-sm-4">
@@ -136,8 +136,17 @@
                                         <span class="serch-main">
                                             <ul class="navbar-nav mr-auto">
                                                 <li class="nav-item dropdown">
-                                                    <input type="text" id="search-box" placeholder="Search...">
-                                                    <button type="submit">Search</button>
+                                                    <input type="text" id="search-box"
+                                                        placeholder="@if (session('language') == 'mar') {{ Config::get('marathi.NAVBAR.SEARCH_PLACEHOLDER') }}
+                                                @else
+                                                    {{ Config::get('english.NAVBAR.SEARCH_PLACEHOLDER') }} @endif">
+                                                    <button type="submit">
+                                                        @if (session('language') == 'mar')
+                                                            {{ Config::get('marathi.NAVBAR.SEARCH') }}
+                                                        @else
+                                                            {{ Config::get('english.NAVBAR.SEARCH') }}
+                                                        @endif
+                                                    </button>
                                                     <div id="search-results" class="dropdown-menu show"
                                                         aria-labelledby="navbarDropdown"></div>
                                                 </li>
@@ -406,4 +415,3 @@
         });
     });
 </script>
-

@@ -31,14 +31,16 @@ class DisasterForcastController extends Controller
     public function store(Request $request) {
        
         $rules = [
-            'english_title' => 'required',
-            'marathi_title' => 'required',
+            'english_title' => 'required|max:255',
+            'marathi_title' => 'required|max:255',
             'english_description' => 'required',
             'marathi_description' => 'required',
          ];
     $messages = [   
         'english_title'=>'required',
         'marathi_title'=>'required',
+        'english_title.max'   => 'Please  enter text length upto 255 character only.',
+        'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
         'english_description.required' => 'Please enter description.',
         'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
     ];
@@ -92,8 +94,8 @@ class DisasterForcastController extends Controller
     public function update(Request $request)
 {
     $rules = [
-        // 'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
-        // 'marathi_title' => 'required|max:255',
+        'english_title' => 'required|max:255',
+        'marathi_title' => 'required|max:255',
         'english_description' => 'required',
         'marathi_description' => 'required',
         // 'forcast_date' => 'required',
@@ -104,11 +106,10 @@ class DisasterForcastController extends Controller
         
      ];
 $messages = [   
-    // 'english_title.required'=>'Please enter title.',
-    // 'english_title.regex' => 'Please  enter text only.',
-    // 'english_title.max'   => 'Please  enter text length upto 255 character only.',
-    // 'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
-    // 'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
+    'english_title.required'=>'Please enter title.',
+    'english_title.max'   => 'Please  enter text length upto 255 character only.',
+    'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
+    'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
     'english_description.required' => 'Please enter description.',
     'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
   
