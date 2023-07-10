@@ -8,6 +8,7 @@ use App\Models\{
     Roles,
     Permissions
 };
+use Illuminate\Validation\Rule;
 use App\Http\Services\Menu\RoleServices;
 use Validator;
 class RoleController extends Controller
@@ -99,8 +100,11 @@ class RoleController extends Controller
     public function update(Request $request)
     {
         try {
+            
+            $id = $request->input('id'); // Assuming the 'id' value is present in the request
+
             $rules = [
-                'role_name' =>'required|unique:roles|regex:/^[a-zA-Z\s]+$/u|max:255',
+                'role_name' => ['required', 'max:255','regex:/^[a-zA-Z\s]+$/u', Rule::unique('roles', 'role_name')->ignore($id, 'id')],
             ];
             $messages = [
                 'role_name.required' => 'Please  enter english title.',
