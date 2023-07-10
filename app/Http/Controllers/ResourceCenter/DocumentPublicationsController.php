@@ -40,6 +40,7 @@ class DocumentPublicationsController extends Controller
             'marathi_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'',
             
          ];
+         
     $messages = [   
         'english_title.required'=>'Please enter title.',
         // 'english_title.regex' => 'Please  enter text only.',
@@ -108,9 +109,13 @@ public function update(Request $request)
         'marathi_title' => 'required|max:255',
             'english_description' => 'required',
             'marathi_description' => 'required', 
-            'english_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'',
-            'marathi_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'',
      ];
+     if($request->has('english_pdf')) {
+        $rules['english_pdf'] = 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'';
+    }
+    if($request->has('marathi_pdf')) {
+        $rules['marathi_pdf'] = 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'';
+    }
     $messages = [   
             'english_title.required'=>'Please enter title.',
             // 'english_title.regex' => 'Please  enter text only.',

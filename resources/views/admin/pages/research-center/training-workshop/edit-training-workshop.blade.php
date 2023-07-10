@@ -44,7 +44,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_pdf">Pdf</label>&nbsp<span class="red-text">*</span><br>
-                                            <input type="file" name="english_pdf" id="english_pdf" accept=".pdf">
+                                            <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"><br>
                                             @if ($errors->has('english_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
                                             @endif
@@ -54,9 +54,9 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_pdf">पीडीएफ</label>&nbsp<span class="red-text">*</span>
+                                            <label for="marathi_pdf">पीडीएफ</label>&nbsp<span class="red-text">*</span><br>
                                             <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
-                                                class="">
+                                                class=""><br>
                                             @if ($errors->has('marathi_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif

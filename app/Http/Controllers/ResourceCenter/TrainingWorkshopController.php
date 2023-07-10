@@ -37,8 +37,8 @@ class TrainingWorkshopController extends Controller
             // 'url' => 'required',
             // 'english_description' => 'required',
             // 'marathi_description' => 'required', 
-            'english_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'',
-            'marathi_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'',
+            'english_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MIN_SIZE").'',
+            'marathi_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MIN_SIZE").'',
             
             
          ];
@@ -57,10 +57,10 @@ class TrainingWorkshopController extends Controller
         'marathi_pdf.required' => 'कृपया PDF फाइल अपलोड करा.',
         'marathi_pdf.file' => 'फाइल प्रकार: फाइल होणे आवश्यक आहे.',
         'marathi_pdf.mimes' => 'फाइल पीडीएफ असावी.',
-        'marathi_pdf.max' => 'कृपया पीडीएफ आकार जास्त नसावा. '.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'KB .',
-        'marathi_pdf.min' => 'कृपया पीडीएफ आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'KB .',
-        'english_pdf.max' => 'The pdf size must not exceed '.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'KB .',
-        'english_pdf.min' => 'The image size must not be less than '.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'KB .',
+        'marathi_pdf.max' => 'कृपया पीडीएफ आकार जास्त नसावा. '.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MAX_SIZE").'KB .',
+        'marathi_pdf.min' => 'कृपया पीडीएफ आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MIN_SIZE").'KB .',
+        'english_pdf.max' => 'The pdf size must not exceed '.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MAX_SIZE").'KB .',
+        'english_pdf.min' => 'The image size must not be less than '.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MIN_SIZE").'KB .',
     
     ];
 
@@ -112,9 +112,13 @@ public function update(Request $request)
             // 'url' => 'required',
             // 'english_description' => 'required',
             // 'marathi_description' => 'required', 
-            'english_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'',
-            'marathi_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'',
      ];
+     if($request->has('english_pdf')) {
+        $rules['english_pdf'] = 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MIN_SIZE").'';
+    }
+    if($request->has('marathi_pdf')) {
+        $rules['marathi_pdf'] = 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MIN_SIZE").'';
+    }
     $messages = [   
         'english_title.required'=>'Please enter title.',
         // 'english_title.regex' => 'Please  enter text only.',
@@ -127,10 +131,10 @@ public function update(Request $request)
         'marathi_pdf.required' => 'कृपया PDF फाइल अपलोड करा.',
         'marathi_pdf.file' => 'फाइल प्रकार: फाइल होणे आवश्यक आहे.',
         'marathi_pdf.mimes' => 'फाइल पीडीएफ असावी.',
-        'marathi_pdf.max' => 'कृपया पीडीएफ आकार जास्त नसावा. '.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'KB .',
-        'marathi_pdf.min' => 'कृपया पीडीएफ आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'KB .',
-        'english_pdf.max' => 'The pdf size must not exceed '.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'KB .',
-        'english_pdf.min' => 'The image size must not be less than '.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'KB .',
+        'marathi_pdf.max' => 'कृपया पीडीएफ आकार जास्त नसावा. '.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MAX_SIZE").'KB .',
+        'marathi_pdf.min' => 'कृपया पीडीएफ आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MIN_SIZE").'KB .',
+        'english_pdf.max' => 'The pdf size must not exceed '.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MAX_SIZE").'KB .',
+        'english_pdf.min' => 'The image size must not be less than '.Config::get("AllFileValidation.TRAINING_EVENT_PDF_MIN_SIZE").'KB .',
     
     ];
 

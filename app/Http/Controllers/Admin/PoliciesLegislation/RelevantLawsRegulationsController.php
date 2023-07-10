@@ -106,10 +106,14 @@ class RelevantLawsRegulationsController extends Controller
            
             'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
             'policies_year' => 'required',
-            'english_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.RELEVANT_LAWS_REGULATIONS_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.RELEVANT_LAWS_REGULATIONS_PDF_MIN_SIZE").'',
-            'marathi_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.RELEVANT_LAWS_REGULATIONS_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.RELEVANT_LAWS_REGULATIONS_PDF_MIN_SIZE").'',
     
         ];
+        if($request->has('english_pdf')) {
+            $rules['english_pdf'] = 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.RELEVANT_LAWS_REGULATIONS_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.RELEVANT_LAWS_REGULATIONS_PDF_MIN_SIZE").'';
+        }
+        if($request->has('marathi_pdf')) {
+            $rules['marathi_pdf'] = 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.RELEVANT_LAWS_REGULATIONS_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.RELEVANT_LAWS_REGULATIONS_PDF_MIN_SIZE").'';
+        }
         $messages = [   
             'english_title.required'=>'Please enter title.',
             'english_title.regex' => 'Please  enter text only.',

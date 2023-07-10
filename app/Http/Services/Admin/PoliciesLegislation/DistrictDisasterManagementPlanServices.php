@@ -60,16 +60,14 @@ class DistrictDisasterManagementPlanServices
     public function updateAll($request){
         try {
             $return_data = $this->repo->updateAll($request);
-            
             $path = Config::get('DocumentConstant.DISTRICT_DISATSER_PLAN_ADD');
-            if ($request->hasFile('english_pdf')) {
+            if ($request->hasFile('english_pdf')) { 
                 if ($return_data['english_pdf']) {
-                    $delete_file_eng= Config::get('DocumentConstant.DISTRICT_DISATSER_PLAN_DELETE') . $return_data['english_pdf'];
-                    if(file_exists_s3($delete_file_eng)){
-                        removeImage($delete_file_eng);
+                    if (file_exists_s3(Config::get('DocumentConstant.DISTRICT_DISATSER_PLAN_DELETE') . $return_data['english_pdf'])) {
+                        removeImage(Config::get('DocumentConstant.DISTRICT_DISATSER_PLAN_DELETE') . $return_data['english_pdf']);
                     }
+
                 }
-    
                 $englishPDFName = $return_data['last_insert_id'] . '_english.' . $request->english_pdf->extension();
                 uploadImage($request, 'english_pdf', $path, $englishPDFName);
                 $district_plan = DistrictDisasterManagementPlan::find($return_data['last_insert_id']);
@@ -79,10 +77,10 @@ class DistrictDisasterManagementPlanServices
     
             if ($request->hasFile('marathi_pdf')) {
                 if ($return_data['marathi_pdf']) {
-                    $delete_file_mar= Config::get('DocumentConstant.DISTRICT_DISATSER_PLAN_DELETE') . $return_data['marathi_pdf'];
-                    if(file_exists_s3($delete_file_mar)){
-                        removeImage($delete_file_mar);
+                    if (file_exists_s3(Config::get('DocumentConstant.DISTRICT_DISATSER_PLAN_DELETE') . $return_data['marathi_pdf'])) {
+                        removeImage(Config::get('DocumentConstant.DISTRICT_DISATSER_PLAN_DELETE') . $return_data['marathi_pdf']);
                     }
+
                 }
     
                 $marathiPDFName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_pdf->extension();
@@ -91,7 +89,6 @@ class DistrictDisasterManagementPlanServices
                 $district_plan->marathi_pdf = $marathiPDFName;
                 $district_plan->save();
             }
-
             if ($return_data) {
                 return ['status' => 'success', 'msg' => 'District Disaster Management Plan Updated Successfully.'];
             } else {
