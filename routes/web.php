@@ -32,9 +32,6 @@ Route::post('/change-language', ['as' => '/change-language', 'uses' => 'App\Http
 
 Route::get('/error-handling', ['as' => 'error-handling', 'uses' => 'App\Http\Controllers\ErrorHandlingController@errorHandling']);
 
-// Route::get('/search', 'App\Http\Controllers\Website\IndexController@SearchController@search')->name('search');
-
-
 // Route::get('/add-users', function () {
 //     return view('admin.pages.users.add-users');
 // });
@@ -50,8 +47,6 @@ Route::post('/particular-department-information', ['as' => 'particular-departmen
 Route::post('/particular-disaster_forecast', ['as' => 'particular-disaster_forecast', 'uses' => 'App\Http\Controllers\Website\IndexController@showDisasterForecast']);
 Route::get('/list-disaster-forecast-web', ['as' => 'list-disaster-forecast-web', 'uses' => 'App\Http\Controllers\Website\IndexController@getAllWebDisaterForcast']);
 
-
-
 Route::get('/list-vacancies', ['as' => 'list-vacancies', 'uses' => 'App\Http\Controllers\Website\IndexController@showVacancies']);
 Route::get('/list-rti', ['as' => 'list-rti', 'uses' => 'App\Http\Controllers\Website\IndexController@showRTI']);
 
@@ -60,8 +55,6 @@ Route::post('/information-map-ajax', ['as' => 'information-map-ajax', 'uses' => 
 
 Route::get('/privacy-policy', ['as' => 'privacy-policy', 'uses' => 'App\Http\Controllers\Website\IndexController@getPrivacyPolicy']);
 Route::get('/terms_condition', ['as' => 'terms_condition', 'uses' => 'App\Http\Controllers\Website\IndexController@getTermConditions']);
-
-
 
 Route::get('/list-disastermanagementportal-web', ['as' => 'list-disastermanagementportal-web', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllDisasterManagmentPortal']);
 Route::get('/list-objectivegoals-web', ['as' => 'list-objectivegoals-web', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllObjectiveGoals']);
@@ -82,18 +75,12 @@ Route::get('/list-search-rescue-teams-web', ['as' => 'list-search-rescue-teams-w
 Route::get('/list-relief-measures-resources-web', ['as' => 'list-relief-measures-resources-web', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllReliefMeasuresResources']);
 Route::get('/list-evacuation-plans-web', ['as' => 'list-evacuation-plans-web', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllEvacuationPlans']);
 
-// Route::get('/volunteer-citizen-support-web', ['as' => 'volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllVolunteerCitizenSupport']);
-// Route::get('/list-report-incident-crowdsourcing-web', ['as' => 'list-report-incident-crowdsourcing-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllReportIncidentCrowdsourcing']);
 Route::get('/volunteer-citizen-support-web', ['as' => 'volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllVolunteerCitizenSupport']);
-// Route::get('/citizen-feedback-suggestions-web', ['as' => 'citizen-feedback-suggestions-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllCitizenFeedbackSuggestions']);
-// Route::get('/citizen-action-modal', ['as' => 'citizen-action-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getModalPage']);
-
 
 Route::post('/report-modal', ['as' => 'report-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeIncidentModalInfo']);
 Route::post('/volunteer-modal', ['as' => 'volunteer-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeVolunteerModalInfo']);
 Route::get('/report-incident-crowdsourcing-web', ['as' => 'report-incident-crowdsourcing-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllIncidentType']);
 Route::get('/add-volunteer-citizen-support-web', ['as' => 'add-volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAddVolunteerCitizenSupport']);
-
 
 Route::get('/list-upcoming-training-event-web', ['as' => 'list-upcoming-training-event-web', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllUpcomingEvent']);
 Route::get('/list-past-training-event-web', ['as' => 'list-past-training-event-web', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllPastEvent']);
@@ -139,8 +126,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/update-user-profile', ['as' => 'update-user-profile', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateProfile']);
 
     Route::post('/otp-verification', ['as' => 'otp-verification', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateEmailOtp']);
-
-    // Route::post('/update--one-user-profile', ['as' => 'update--one-user-profile', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateOne']);
     
     Route::get('/list-main-menu', ['as' => 'list-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@index']);
     Route::get('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@add']);
@@ -210,38 +195,30 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/delete-department-information', ['as' => 'delete-department-information', 'uses' => 'App\Http\Controllers\Admin\Home\DepartmentInformationController@destroy']);
     Route::post('/update-one-department-information', ['as' => 'update-one-department-information', 'uses' => 'App\Http\Controllers\Admin\Home\DepartmentInformationController@updateOne']);
 
-    Route::get('/list-objectivegoals', ['as' => 'list-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@index']);
-    Route::get('/add-objectivegoals', ['as' => 'add-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@add']);
-    Route::post('/add-objectivegoals', ['as' => 'add-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@store']);
-    Route::post('/show-objectivegoals', ['as' => 'show-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@show']);
-    Route::post('/delete-objectivegoals', ['as' => 'delete-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@destroy']);
-    Route::get('/edit-objectivegoals', ['as' => 'edit-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@edit']);
-    Route::post('/update-objectivegoals', ['as' => 'update-objectivegoals', 'uses' => 'App\Http\Controllers\Aboutus\ObjectiveGoalsController@update']);
+    Route::get('/list-objectivegoals', ['as' => 'list-objectivegoals', 'uses' => 'App\Http\Controllers\Admin\Aboutus\ObjectiveGoalsController@index']);
+    Route::get('/add-objectivegoals', ['as' => 'add-objectivegoals', 'uses' => 'App\Http\Controllers\Admin\Aboutus\ObjectiveGoalsController@add']);
+    Route::post('/add-objectivegoals', ['as' => 'add-objectivegoals', 'uses' => 'App\Http\Controllers\Admin\Aboutus\ObjectiveGoalsController@store']);
+    Route::post('/show-objectivegoals', ['as' => 'show-objectivegoals', 'uses' => 'App\Http\Controllers\Admin\Aboutus\ObjectiveGoalsController@show']);
+    Route::post('/delete-objectivegoals', ['as' => 'delete-objectivegoals', 'uses' => 'App\Http\Controllers\Admin\Aboutus\ObjectiveGoalsController@destroy']);
+    Route::get('/edit-objectivegoals', ['as' => 'edit-objectivegoals', 'uses' => 'App\Http\Controllers\Admin\Aboutus\ObjectiveGoalsController@edit']);
+    Route::post('/update-objectivegoals', ['as' => 'update-objectivegoals', 'uses' => 'App\Http\Controllers\Admin\Aboutus\ObjectiveGoalsController@update']);
     
-    Route::get('/list-disastermanagementportal', ['as' => 'list-disastermanagementportal', 'uses' => 'App\Http\Controllers\Aboutus\DisasterManagementPortalController@index']);
-    Route::get('/add-disastermanagementportal', ['as' => 'add-disastermanagementportal', 'uses' => 'App\Http\Controllers\Aboutus\DisasterManagementPortalController@add']);
-    Route::post('/add-disastermanagementportal', ['as' => 'add-disastermanagementportal', 'uses' => 'App\Http\Controllers\Aboutus\DisasterManagementPortalController@store']);
-    Route::post('/show-disastermanagementportal', ['as' => 'show-disastermanagementportal', 'uses' => 'App\Http\Controllers\Aboutus\DisasterManagementPortalController@show']);
-    Route::post('/delete-disastermanagementportal', ['as' => 'delete-disastermanagementportal', 'uses' => 'App\Http\Controllers\Aboutus\DisasterManagementPortalController@destroy']);
-    Route::get('/edit-disastermanagementportal', ['as' => 'edit-disastermanagementportal', 'uses' => 'App\Http\Controllers\Aboutus\DisasterManagementPortalController@edit']);
-    Route::post('/update-disastermanagementportal', ['as' => 'update-disastermanagementportal', 'uses' => 'App\Http\Controllers\Aboutus\DisasterManagementPortalController@update']);
+    Route::get('/list-disastermanagementportal', ['as' => 'list-disastermanagementportal', 'uses' => 'App\Http\Controllers\Admin\Aboutus\DisasterManagementPortalController@index']);
+    Route::get('/add-disastermanagementportal', ['as' => 'add-disastermanagementportal', 'uses' => 'App\Http\Controllers\Admin\Aboutus\DisasterManagementPortalController@add']);
+    Route::post('/add-disastermanagementportal', ['as' => 'add-disastermanagementportal', 'uses' => 'App\Http\Controllers\Admin\Aboutus\DisasterManagementPortalController@store']);
+    Route::post('/show-disastermanagementportal', ['as' => 'show-disastermanagementportal', 'uses' => 'App\Http\Controllers\Admin\Aboutus\DisasterManagementPortalController@show']);
+    Route::post('/delete-disastermanagementportal', ['as' => 'delete-disastermanagementportal', 'uses' => 'App\Http\Controllers\Admin\Aboutus\DisasterManagementPortalController@destroy']);
+    Route::get('/edit-disastermanagementportal', ['as' => 'edit-disastermanagementportal', 'uses' => 'App\Http\Controllers\Admin\Aboutus\DisasterManagementPortalController@edit']);
+    Route::post('/update-disastermanagementportal', ['as' => 'update-disastermanagementportal', 'uses' => 'App\Http\Controllers\Admin\Aboutus\DisasterManagementPortalController@update']);
     
-    Route::get('/list-statedisastermanagementauthority', ['as' => 'list-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@index']);
-    Route::get('/add-statedisastermanagementauthority', ['as' => 'add-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@add']);
-    Route::post('/add-statedisastermanagementauthority', ['as' => 'add-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@store']);
-    Route::post('/show-statedisastermanagementauthority', ['as' => 'show-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@show']);
-    Route::post('/delete-statedisastermanagementauthority', ['as' => 'delete-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@destroy']);
-    Route::get('/edit-statedisastermanagementauthority', ['as' => 'edit-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@edit']);
-    Route::post('/update-statedisastermanagementauthority', ['as' => 'update-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Aboutus\StateDisasterManagementAuthorityController@update']);
+    Route::get('/list-statedisastermanagementauthority', ['as' => 'list-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@index']);
+    Route::get('/add-statedisastermanagementauthority', ['as' => 'add-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@add']);
+    Route::post('/add-statedisastermanagementauthority', ['as' => 'add-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@store']);
+    Route::post('/show-statedisastermanagementauthority', ['as' => 'show-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@show']);
+    Route::post('/delete-statedisastermanagementauthority', ['as' => 'delete-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@destroy']);
+    Route::get('/edit-statedisastermanagementauthority', ['as' => 'edit-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@edit']);
+    Route::post('/update-statedisastermanagementauthority', ['as' => 'update-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@update']);
     
-    // Route::get('/list-main-menu', ['as' => 'list-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@index']);
-    // Route::get('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@add']);
-    // Route::post('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@store']);
-    // Route::post('/show-main-menu', ['as' => 'show-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@show']);
-    // Route::post('/delete-main-menu', ['as' => 'delete-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@destroy']);
-    // Route::post('/edit-main-menu', ['as' => 'edit-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@edit']);
-    // Route::post('/update-main-menu', ['as' => 'update-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@update']);
-
     Route::get('/list-metadata', ['as' => 'list-metadata', 'uses' => 'App\Http\Controllers\MetadataController@index']);
     Route::get('/add-metadata', ['as' => 'add-metadata', 'uses' => 'App\Http\Controllers\MetadataController@add']);
     Route::post('/add-metadata', ['as' => 'add-metadata', 'uses' => 'App\Http\Controllers\MetadataController@store']);
@@ -287,91 +264,91 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-disaster-management-web-portal', ['as' => 'show-disaster-management-web-portal', 'uses' => 'App\Http\Controllers\Admin\Home\DisasterManagementWebPortalController@show']);
     Route::post('/delete-disaster-management-web-portal', ['as' => 'delete-disaster-management-web-portal', 'uses' => 'App\Http\Controllers\Admin\Home\DisasterManagementWebPortalController@destroy']);
     
-    Route::get('/list-hazard-vulnerability-assessment', ['as' => 'list-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Preparedness\HazardVulnerabilityController@index']);
-    Route::get('/add-hazard-vulnerability-assessment', ['as' => 'add-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Preparedness\HazardVulnerabilityController@add']);
-    Route::post('/add-hazard-vulnerability-assessment', ['as' => 'add-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Preparedness\HazardVulnerabilityController@store']);
-    Route::get('/edit-hazard-vulnerability-assessment', ['as' => 'edit-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Preparedness\HazardVulnerabilityController@edit']);
-    Route::post('/update-hazard-vulnerability-assessment', ['as' => 'update-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Preparedness\HazardVulnerabilityController@update']);
-    Route::post('/show-hazard-vulnerability-assessment', ['as' => 'show-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Preparedness\HazardVulnerabilityController@show']);
-    Route::post('/delete-hazard-vulnerability-assessment', ['as' => 'delete-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Preparedness\HazardVulnerabilityController@destroy']);
+    Route::get('/list-hazard-vulnerability-assessment', ['as' => 'list-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Admin\Preparedness\HazardVulnerabilityController@index']);
+    Route::get('/add-hazard-vulnerability-assessment', ['as' => 'add-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Admin\Preparedness\HazardVulnerabilityController@add']);
+    Route::post('/add-hazard-vulnerability-assessment', ['as' => 'add-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Admin\Preparedness\HazardVulnerabilityController@store']);
+    Route::get('/edit-hazard-vulnerability-assessment', ['as' => 'edit-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Admin\Preparedness\HazardVulnerabilityController@edit']);
+    Route::post('/update-hazard-vulnerability-assessment', ['as' => 'update-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Admin\Preparedness\HazardVulnerabilityController@update']);
+    Route::post('/show-hazard-vulnerability-assessment', ['as' => 'show-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Admin\Preparedness\HazardVulnerabilityController@show']);
+    Route::post('/delete-hazard-vulnerability-assessment', ['as' => 'delete-hazard-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Admin\Preparedness\HazardVulnerabilityController@destroy']);
 
-    Route::get('/list-early-warning-system', ['as' => 'list-early-warning-system', 'uses' => 'App\Http\Controllers\Preparedness\EarlyWarningSystemController@index']);
-    Route::get('/add-early-warning-system', ['as' => 'add-early-warning-system', 'uses' => 'App\Http\Controllers\Preparedness\EarlyWarningSystemController@add']);
-    Route::post('/add-early-warning-system', ['as' => 'add-early-warning-system', 'uses' => 'App\Http\Controllers\Preparedness\EarlyWarningSystemController@store']);
-    Route::get('/edit-early-warning-system', ['as' => 'edit-early-warning-system', 'uses' => 'App\Http\Controllers\Preparedness\EarlyWarningSystemController@edit']);
-    Route::post('/update-early-warning-system', ['as' => 'update-early-warning-system', 'uses' => 'App\Http\Controllers\Preparedness\EarlyWarningSystemController@update']);
-    Route::post('/show-early-warning-system', ['as' => 'show-early-warning-system', 'uses' => 'App\Http\Controllers\Preparedness\EarlyWarningSystemController@show']);
-    Route::post('/delete-early-warning-system', ['as' => 'delete-early-warning-system', 'uses' => 'App\Http\Controllers\Preparedness\EarlyWarningSystemController@destroy']);
+    Route::get('/list-early-warning-system', ['as' => 'list-early-warning-system', 'uses' => 'App\Http\Controllers\Admin\Preparedness\EarlyWarningSystemController@index']);
+    Route::get('/add-early-warning-system', ['as' => 'add-early-warning-system', 'uses' => 'App\Http\Controllers\Admin\Preparedness\EarlyWarningSystemController@add']);
+    Route::post('/add-early-warning-system', ['as' => 'add-early-warning-system', 'uses' => 'App\Http\Controllers\Admin\Preparedness\EarlyWarningSystemController@store']);
+    Route::get('/edit-early-warning-system', ['as' => 'edit-early-warning-system', 'uses' => 'App\Http\Controllers\Admin\Preparedness\EarlyWarningSystemController@edit']);
+    Route::post('/update-early-warning-system', ['as' => 'update-early-warning-system', 'uses' => 'App\Http\Controllers\Admin\Preparedness\EarlyWarningSystemController@update']);
+    Route::post('/show-early-warning-system', ['as' => 'show-early-warning-system', 'uses' => 'App\Http\Controllers\Admin\Preparedness\EarlyWarningSystemController@show']);
+    Route::post('/delete-early-warning-system', ['as' => 'delete-early-warning-system', 'uses' => 'App\Http\Controllers\Admin\Preparedness\EarlyWarningSystemController@destroy']);
 
-    Route::get('/list-capacity-building-and-training', ['as' => 'list-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Preparedness\CapacityTrainingController@index']);
-    Route::get('/add-capacity-building-and-training', ['as' => 'add-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Preparedness\CapacityTrainingController@add']);
-    Route::post('/add-capacity-building-and-training', ['as' => 'add-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Preparedness\CapacityTrainingController@store']);
-    Route::get('/edit-capacity-building-and-training', ['as' => 'edit-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Preparedness\CapacityTrainingController@edit']);
-    Route::post('/update-capacity-building-and-training', ['as' => 'update-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Preparedness\CapacityTrainingController@update']);
-    Route::post('/show-capacity-building-and-training', ['as' => 'show-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Preparedness\CapacityTrainingController@show']);
-    Route::post('/delete-capacity-building-and-training', ['as' => 'delete-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Preparedness\CapacityTrainingController@destroy']);
+    Route::get('/list-capacity-building-and-training', ['as' => 'list-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@index']);
+    Route::get('/add-capacity-building-and-training', ['as' => 'add-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@add']);
+    Route::post('/add-capacity-building-and-training', ['as' => 'add-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@store']);
+    Route::get('/edit-capacity-building-and-training', ['as' => 'edit-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@edit']);
+    Route::post('/update-capacity-building-and-training', ['as' => 'update-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@update']);
+    Route::post('/show-capacity-building-and-training', ['as' => 'show-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@show']);
+    Route::post('/delete-capacity-building-and-training', ['as' => 'delete-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@destroy']);
 
     
-    Route::get('/list-public-awareness-and-education', ['as' => 'list-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Preparedness\PublicAwarenessEducationController@index']);
-    Route::get('/add-public-awareness-and-education', ['as' => 'add-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Preparedness\PublicAwarenessEducationController@add']);
-    Route::post('/add-public-awareness-and-education', ['as' => 'add-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Preparedness\PublicAwarenessEducationController@store']);
-    Route::get('/edit-public-awareness-and-education', ['as' => 'edit-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Preparedness\PublicAwarenessEducationController@edit']);
-    Route::post('/update-public-awareness-and-education', ['as' => 'update-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Preparedness\PublicAwarenessEducationController@update']);
-    Route::post('/show-public-awareness-and-education', ['as' => 'show-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Preparedness\PublicAwarenessEducationController@show']);
-    Route::post('/delete-public-awareness-and-education', ['as' => 'delete-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Preparedness\PublicAwarenessEducationController@destroy']);
+    Route::get('/list-public-awareness-and-education', ['as' => 'list-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Admin\Preparedness\PublicAwarenessEducationController@index']);
+    Route::get('/add-public-awareness-and-education', ['as' => 'add-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Admin\Preparedness\PublicAwarenessEducationController@add']);
+    Route::post('/add-public-awareness-and-education', ['as' => 'add-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Admin\Preparedness\PublicAwarenessEducationController@store']);
+    Route::get('/edit-public-awareness-and-education', ['as' => 'edit-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Admin\Preparedness\PublicAwarenessEducationController@edit']);
+    Route::post('/update-public-awareness-and-education', ['as' => 'update-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Admin\Preparedness\PublicAwarenessEducationController@update']);
+    Route::post('/show-public-awareness-and-education', ['as' => 'show-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Admin\Preparedness\PublicAwarenessEducationController@show']);
+    Route::post('/delete-public-awareness-and-education', ['as' => 'delete-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Admin\Preparedness\PublicAwarenessEducationController@destroy']);
 
     // ==========EmergencyResponse=======
-    Route::get('/list-state-emergency-operations-center', ['as' => 'list-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\StateEmergencyOperationsCenterController@index']);
-    Route::get('/add-state-emergency-operations-center', ['as' => 'add-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\StateEmergencyOperationsCenterController@add']);
-    Route::post('/add-state-emergency-operations-center', ['as' => 'add-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\StateEmergencyOperationsCenterController@store']);
-    Route::get('/edit-state-emergency-operations-center', ['as' => 'edit-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\StateEmergencyOperationsCenterController@edit']);
-    Route::post('/update-state-emergency-operations-center', ['as' => 'update-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\StateEmergencyOperationsCenterController@update']);
-    Route::post('/show-state-emergency-operations-center', ['as' => 'show-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\StateEmergencyOperationsCenterController@show']);
-    Route::post('/delete-state-emergency-operations-center', ['as' => 'delete-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\StateEmergencyOperationsCenterController@destroy']);
+    Route::get('/list-state-emergency-operations-center', ['as' => 'list-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\StateEmergencyOperationsCenterController@index']);
+    Route::get('/add-state-emergency-operations-center', ['as' => 'add-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\StateEmergencyOperationsCenterController@add']);
+    Route::post('/add-state-emergency-operations-center', ['as' => 'add-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\StateEmergencyOperationsCenterController@store']);
+    Route::get('/edit-state-emergency-operations-center', ['as' => 'edit-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\StateEmergencyOperationsCenterController@edit']);
+    Route::post('/update-state-emergency-operations-center', ['as' => 'update-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\StateEmergencyOperationsCenterController@update']);
+    Route::post('/show-state-emergency-operations-center', ['as' => 'show-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\StateEmergencyOperationsCenterController@show']);
+    Route::post('/delete-state-emergency-operations-center', ['as' => 'delete-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\StateEmergencyOperationsCenterController@destroy']);
 
-    Route::get('/list-district-emergency-operations-center', ['as' => 'list-district-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\DistrictEmergencyOperationsCenterController@index']);
-    Route::get('/add-district-emergency-operations-center', ['as' => 'add-district-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\DistrictEmergencyOperationsCenterController@add']);
-    Route::post('/add-district-emergency-operations-center', ['as' => 'add-district-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\DistrictEmergencyOperationsCenterController@store']);
-    Route::get('/edit-district-emergency-operations-center', ['as' => 'edit-district-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\DistrictEmergencyOperationsCenterController@edit']);
-    Route::post('/update-district-emergency-operations-center', ['as' => 'update-district-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\DistrictEmergencyOperationsCenterController@update']);
-    Route::post('/show-district-emergency-operations-center', ['as' => 'show-district-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\DistrictEmergencyOperationsCenterController@show']);
-    Route::post('/delete-district-emergency-operations-center', ['as' => 'delete-district-emergency-operations-center', 'uses' => 'App\Http\Controllers\EmergencyResponse\DistrictEmergencyOperationsCenterController@destroy']);
+    Route::get('/list-district-emergency-operations-center', ['as' => 'list-district-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\DistrictEmergencyOperationsCenterController@index']);
+    Route::get('/add-district-emergency-operations-center', ['as' => 'add-district-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\DistrictEmergencyOperationsCenterController@add']);
+    Route::post('/add-district-emergency-operations-center', ['as' => 'add-district-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\DistrictEmergencyOperationsCenterController@store']);
+    Route::get('/edit-district-emergency-operations-center', ['as' => 'edit-district-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\DistrictEmergencyOperationsCenterController@edit']);
+    Route::post('/update-district-emergency-operations-center', ['as' => 'update-district-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\DistrictEmergencyOperationsCenterController@update']);
+    Route::post('/show-district-emergency-operations-center', ['as' => 'show-district-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\DistrictEmergencyOperationsCenterController@show']);
+    Route::post('/delete-district-emergency-operations-center', ['as' => 'delete-district-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\DistrictEmergencyOperationsCenterController@destroy']);
 
-    Route::get('/list-emergency-contact-numbers', ['as' => 'list-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@index']);
-    Route::get('/add-emergency-contact-numbers', ['as' => 'add-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@add']);
-    Route::post('/add-emergency-contact-numbers', ['as' => 'add-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@store']);
-    Route::get('/edit-emergency-contact-numbers', ['as' => 'edit-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@edit']);
-    Route::post('/update-emergency-contact-numbers', ['as' => 'update-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@update']);
-    Route::post('/show-emergency-contact-numbers', ['as' => 'show-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@show']);
-    Route::post('/delete-emergency-contact-numbers', ['as' => 'delete-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@destroy']);
+    Route::get('/list-emergency-contact-numbers', ['as' => 'list-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@index']);
+    Route::get('/add-emergency-contact-numbers', ['as' => 'add-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@add']);
+    Route::post('/add-emergency-contact-numbers', ['as' => 'add-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@store']);
+    Route::get('/edit-emergency-contact-numbers', ['as' => 'edit-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@edit']);
+    Route::post('/update-emergency-contact-numbers', ['as' => 'update-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@update']);
+    Route::post('/show-emergency-contact-numbers', ['as' => 'show-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@show']);
+    Route::post('/delete-emergency-contact-numbers', ['as' => 'delete-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@destroy']);
    
-    Route::get('/add-more-emergency-contact-data', ['as' => 'add-more-emergency-contact-data', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@addmore']);
-    Route::post('/add-more-emergency-contact-data', ['as' => 'add-more-emergency-contact-data', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@storeaddmore']);
-    Route::post('/add-more-emergency-contact-data-delete', ['as' => 'add-more-emergency-contact-data-delete', 'uses' => 'App\Http\Controllers\EmergencyResponse\EmergencyContactNumbersController@deleteaddmore']);
+    Route::get('/add-more-emergency-contact-data', ['as' => 'add-more-emergency-contact-data', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@addmore']);
+    Route::post('/add-more-emergency-contact-data', ['as' => 'add-more-emergency-contact-data', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@storeaddmore']);
+    Route::post('/add-more-emergency-contact-data-delete', ['as' => 'add-more-emergency-contact-data-delete', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@deleteaddmore']);
     
-    Route::get('/list-evacuation-plans', ['as' => 'list-evacuation-plans', 'uses' => 'App\Http\Controllers\EmergencyResponse\EvacuationPlansController@index']);
-    Route::get('/add-evacuation-plans', ['as' => 'add-evacuation-plans', 'uses' => 'App\Http\Controllers\EmergencyResponse\EvacuationPlansController@add']);
-    Route::post('/add-evacuation-plans', ['as' => 'add-evacuation-plans', 'uses' => 'App\Http\Controllers\EmergencyResponse\EvacuationPlansController@store']);
-    Route::get('/edit-evacuation-plans', ['as' => 'edit-evacuation-plans', 'uses' => 'App\Http\Controllers\EmergencyResponse\EvacuationPlansController@edit']);
-    Route::post('/update-evacuation-plans', ['as' => 'update-evacuation-plans', 'uses' => 'App\Http\Controllers\EmergencyResponse\EvacuationPlansController@update']);
-    Route::post('/show-evacuation-plans', ['as' => 'show-evacuation-plans', 'uses' => 'App\Http\Controllers\EmergencyResponse\EvacuationPlansController@show']);
-    Route::post('/delete-evacuation-plans', ['as' => 'delete-evacuation-plans', 'uses' => 'App\Http\Controllers\EmergencyResponse\EvacuationPlansController@destroy']);
+    Route::get('/list-evacuation-plans', ['as' => 'list-evacuation-plans', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EvacuationPlansController@index']);
+    Route::get('/add-evacuation-plans', ['as' => 'add-evacuation-plans', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EvacuationPlansController@add']);
+    Route::post('/add-evacuation-plans', ['as' => 'add-evacuation-plans', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EvacuationPlansController@store']);
+    Route::get('/edit-evacuation-plans', ['as' => 'edit-evacuation-plans', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EvacuationPlansController@edit']);
+    Route::post('/update-evacuation-plans', ['as' => 'update-evacuation-plans', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EvacuationPlansController@update']);
+    Route::post('/show-evacuation-plans', ['as' => 'show-evacuation-plans', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EvacuationPlansController@show']);
+    Route::post('/delete-evacuation-plans', ['as' => 'delete-evacuation-plans', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EvacuationPlansController@destroy']);
     
-    Route::get('/list-relief-measures-resources', ['as' => 'list-relief-measures-resources', 'uses' => 'App\Http\Controllers\EmergencyResponse\ReliefMeasuresResourcesController@index']);
-    Route::get('/add-relief-measures-resources', ['as' => 'add-relief-measures-resources', 'uses' => 'App\Http\Controllers\EmergencyResponse\ReliefMeasuresResourcesController@add']);
-    Route::post('/add-relief-measures-resources', ['as' => 'add-relief-measures-resources', 'uses' => 'App\Http\Controllers\EmergencyResponse\ReliefMeasuresResourcesController@store']);
-    Route::get('/edit-relief-measures-resources', ['as' => 'edit-relief-measures-resources', 'uses' => 'App\Http\Controllers\EmergencyResponse\ReliefMeasuresResourcesController@edit']);
-    Route::post('/update-relief-measures-resources', ['as' => 'update-relief-measures-resources', 'uses' => 'App\Http\Controllers\EmergencyResponse\ReliefMeasuresResourcesController@update']);
-    Route::post('/show-relief-measures-resources', ['as' => 'show-relief-measures-resources', 'uses' => 'App\Http\Controllers\EmergencyResponse\ReliefMeasuresResourcesController@show']);
-    Route::post('/delete-relief-measures-resources', ['as' => 'delete-relief-measures-resources', 'uses' => 'App\Http\Controllers\EmergencyResponse\ReliefMeasuresResourcesController@destroy']);
+    Route::get('/list-relief-measures-resources', ['as' => 'list-relief-measures-resources', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\ReliefMeasuresResourcesController@index']);
+    Route::get('/add-relief-measures-resources', ['as' => 'add-relief-measures-resources', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\ReliefMeasuresResourcesController@add']);
+    Route::post('/add-relief-measures-resources', ['as' => 'add-relief-measures-resources', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\ReliefMeasuresResourcesController@store']);
+    Route::get('/edit-relief-measures-resources', ['as' => 'edit-relief-measures-resources', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\ReliefMeasuresResourcesController@edit']);
+    Route::post('/update-relief-measures-resources', ['as' => 'update-relief-measures-resources', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\ReliefMeasuresResourcesController@update']);
+    Route::post('/show-relief-measures-resources', ['as' => 'show-relief-measures-resources', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\ReliefMeasuresResourcesController@show']);
+    Route::post('/delete-relief-measures-resources', ['as' => 'delete-relief-measures-resources', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\ReliefMeasuresResourcesController@destroy']);
 
-    Route::get('/list-search-rescue-teams', ['as' => 'list-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@index']);
-    Route::get('/add-search-rescue-teams', ['as' => 'add-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@add']);
-    Route::post('/add-search-rescue-teams', ['as' => 'add-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@store']);
-    Route::get('/edit-search-rescue-teams', ['as' => 'edit-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@edit']);
-    Route::post('/update-search-rescue-teams', ['as' => 'update-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@update']);
-    Route::post('/show-search-rescue-teams', ['as' => 'show-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@show']);
-    Route::post('/delete-search-rescue-teams', ['as' => 'delete-search-rescue-teams', 'uses' => 'App\Http\Controllers\EmergencyResponse\SearchRescueTeamsController@destroy']);
+    Route::get('/list-search-rescue-teams', ['as' => 'list-search-rescue-teams', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\SearchRescueTeamsController@index']);
+    Route::get('/add-search-rescue-teams', ['as' => 'add-search-rescue-teams', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\SearchRescueTeamsController@add']);
+    Route::post('/add-search-rescue-teams', ['as' => 'add-search-rescue-teams', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\SearchRescueTeamsController@store']);
+    Route::get('/edit-search-rescue-teams', ['as' => 'edit-search-rescue-teams', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\SearchRescueTeamsController@edit']);
+    Route::post('/update-search-rescue-teams', ['as' => 'update-search-rescue-teams', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\SearchRescueTeamsController@update']);
+    Route::post('/show-search-rescue-teams', ['as' => 'show-search-rescue-teams', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\SearchRescueTeamsController@show']);
+    Route::post('/delete-search-rescue-teams', ['as' => 'delete-search-rescue-teams', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\SearchRescueTeamsController@destroy']);
 
 // ===== Citizen Action=======
 Route::get('/list-incident-type', ['as' => 'list-incident-type', 'uses' => 'App\Http\Controllers\Admin\Master\IncidentTypeController@index']);
@@ -391,47 +368,47 @@ Route::post('/delete-volunteer-modal-info', ['as' => 'delete-volunteer-modal-inf
 Route::post('/show-volunteer-modal-info', ['as' => 'show-volunteer-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenModalController@show']);
 
 //=======Header=======
-Route::get('/list-social-icon', ['as' => 'list-social-icon', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@index']);
-Route::get('/add-social-icon', ['as' => 'add-social-icon', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@add']);
-Route::post('/add-social-icon', ['as' => 'add-social-icon', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@store']);
-Route::get('/edit-social-icon', ['as' => 'edit-social-icon', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@edit']);
-Route::post('/update-social-icon', ['as' => 'update-social-icon', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@update']);
-// Route::post('/show-social-icon', ['as' => 'show-social-icon', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@show']);
-Route::post('/delete-social-icon', ['as' => 'delete-social-icon', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@destroy']);
-Route::post('/update-one-social', ['as' => 'update-one-social', 'uses' => 'App\Http\Controllers\Footer\SocialIconController@updateOne']);
+Route::get('/list-social-icon', ['as' => 'list-social-icon', 'uses' => 'App\Http\Controllers\Admin\Footer\SocialIconController@index']);
+Route::get('/add-social-icon', ['as' => 'add-social-icon', 'uses' => 'App\Http\Controllers\Admin\Footer\SocialIconController@add']);
+Route::post('/add-social-icon', ['as' => 'add-social-icon', 'uses' => 'App\Http\Controllers\Admin\Footer\SocialIconController@store']);
+Route::get('/edit-social-icon', ['as' => 'edit-social-icon', 'uses' => 'App\Http\Controllers\Admin\Footer\SocialIconController@edit']);
+Route::post('/update-social-icon', ['as' => 'update-social-icon', 'uses' => 'App\Http\Controllers\Admin\Footer\SocialIconController@update']);
+// Route::post('/show-social-icon', ['as' => 'show-social-icon', 'uses' => 'App\Http\Controllers\Admin\Footer\SocialIconController@show']);
+Route::post('/delete-social-icon', ['as' => 'delete-social-icon', 'uses' => 'App\Http\Controllers\Admin\Footer\SocialIconController@destroy']);
+Route::post('/update-one-social', ['as' => 'update-one-social', 'uses' => 'App\Http\Controllers\Admin\Footer\SocialIconController@updateOne']);
 
-Route::get('/list-tollfree-number', ['as' => 'list-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@index']);
-Route::get('/add-tollfree-number', ['as' => 'add-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@add']);
-Route::post('/add-tollfree-number', ['as' => 'add-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@store']);
-Route::post('/edit-tollfree-number', ['as' => 'edit-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@edit']);
-Route::post('/update-tollfree-number', ['as' => 'update-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@update']);
-Route::post('/show-tollfree-number', ['as' => 'show-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@show']);
-Route::post('/delete-tollfree-number', ['as' => 'delete-tollfree-number', 'uses' => 'App\Http\Controllers\Header\TollFreeController@destroy']);
+Route::get('/list-tollfree-number', ['as' => 'list-tollfree-number', 'uses' => 'App\Http\Controllers\Admin\Header\TollFreeController@index']);
+Route::get('/add-tollfree-number', ['as' => 'add-tollfree-number', 'uses' => 'App\Http\Controllers\Admin\Header\TollFreeController@add']);
+Route::post('/add-tollfree-number', ['as' => 'add-tollfree-number', 'uses' => 'App\Http\Controllers\Admin\Header\TollFreeController@store']);
+Route::post('/edit-tollfree-number', ['as' => 'edit-tollfree-number', 'uses' => 'App\Http\Controllers\Admin\Header\TollFreeController@edit']);
+Route::post('/update-tollfree-number', ['as' => 'update-tollfree-number', 'uses' => 'App\Http\Controllers\Admin\Header\TollFreeController@update']);
+Route::post('/show-tollfree-number', ['as' => 'show-tollfree-number', 'uses' => 'App\Http\Controllers\Admin\Header\TollFreeController@show']);
+Route::post('/delete-tollfree-number', ['as' => 'delete-tollfree-number', 'uses' => 'App\Http\Controllers\Admin\Header\TollFreeController@destroy']);
 
-Route::get('/list-website-logo', ['as' => 'list-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@index']);
-Route::get('/add-website-logo', ['as' => 'add-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@add']);
-Route::post('/add-website-logo', ['as' => 'add-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@store']);
-Route::get('/edit-website-logo', ['as' => 'edit-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@edit']);
-Route::post('/update-website-logo', ['as' => 'update-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@update']);
-Route::post('/show-website-logo', ['as' => 'show-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@show']);
-Route::post('/delete-website-logo', ['as' => 'delete-website-logo', 'uses' => 'App\Http\Controllers\Header\WebsiteLogoController@destroy']);
+Route::get('/list-website-logo', ['as' => 'list-website-logo', 'uses' => 'App\Http\Controllers\Admin\Header\WebsiteLogoController@index']);
+Route::get('/add-website-logo', ['as' => 'add-website-logo', 'uses' => 'App\Http\Controllers\Admin\Header\WebsiteLogoController@add']);
+Route::post('/add-website-logo', ['as' => 'add-website-logo', 'uses' => 'App\Http\Controllers\Admin\Header\WebsiteLogoController@store']);
+Route::get('/edit-website-logo', ['as' => 'edit-website-logo', 'uses' => 'App\Http\Controllers\Admin\Header\WebsiteLogoController@edit']);
+Route::post('/update-website-logo', ['as' => 'update-website-logo', 'uses' => 'App\Http\Controllers\Admin\Header\WebsiteLogoController@update']);
+Route::post('/show-website-logo', ['as' => 'show-website-logo', 'uses' => 'App\Http\Controllers\Admin\Header\WebsiteLogoController@show']);
+Route::post('/delete-website-logo', ['as' => 'delete-website-logo', 'uses' => 'App\Http\Controllers\Admin\Header\WebsiteLogoController@destroy']);
 
-Route::get('/list-header-vacancies', ['as' => 'list-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@index']);
-Route::get('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@add']);
-Route::post('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@store']);
-Route::get('/edit-header-vacancies', ['as' => 'edit-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@edit']);
-Route::post('/update-header-vacancies', ['as' => 'update-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@update']);
-Route::post('/show-header-vacancies', ['as' => 'show-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@show']);
-Route::post('/delete-header-vacancies', ['as' => 'delete-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@destroy']);
-Route::post('/update-one-vacancies', ['as' => 'update-one-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@updateOne']);
+Route::get('/list-header-vacancies', ['as' => 'list-header-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@index']);
+Route::get('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@add']);
+Route::post('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@store']);
+Route::get('/edit-header-vacancies', ['as' => 'edit-header-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@edit']);
+Route::post('/update-header-vacancies', ['as' => 'update-header-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@update']);
+Route::post('/show-header-vacancies', ['as' => 'show-header-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@show']);
+Route::post('/delete-header-vacancies', ['as' => 'delete-header-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@destroy']);
+Route::post('/update-one-vacancies', ['as' => 'update-one-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@updateOne']);
 
-Route::get('/list-event', ['as' => 'list-event', 'uses' => 'App\Http\Controllers\TrainingEvent\EventController@index']);
-Route::get('/add-event', ['as' => 'add-event', 'uses' => 'App\Http\Controllers\TrainingEvent\EventController@add']);
-Route::post('/add-event', ['as' => 'add-event', 'uses' => 'App\Http\Controllers\TrainingEvent\EventController@store']);
-Route::get('/edit-event', ['as' => 'edit-event', 'uses' => 'App\Http\Controllers\TrainingEvent\EventController@edit']);
-Route::post('/update-event', ['as' => 'update-event', 'uses' => 'App\Http\Controllers\TrainingEvent\EventController@update']);
-Route::post('/show-event', ['as' => 'show-event', 'uses' => 'App\Http\Controllers\TrainingEvent\EventController@show']);
-Route::post('/delete-event', ['as' => 'delete-event', 'uses' => 'App\Http\Controllers\TrainingEvent\EventController@destroy']);
+Route::get('/list-event', ['as' => 'list-event', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\EventController@index']);
+Route::get('/add-event', ['as' => 'add-event', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\EventController@add']);
+Route::post('/add-event', ['as' => 'add-event', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\EventController@store']);
+Route::get('/edit-event', ['as' => 'edit-event', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\EventController@edit']);
+Route::post('/update-event', ['as' => 'update-event', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\EventController@update']);
+Route::post('/show-event', ['as' => 'show-event', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\EventController@show']);
+Route::post('/delete-event', ['as' => 'delete-event', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\EventController@destroy']);
 
 //=========Policies And legislation========
 Route::get('/list-state-disaster-management-plan', ['as' => 'list-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPlanController@index']);
@@ -472,65 +449,65 @@ Route::post('/update-one-relevant_law', ['as' => 'update-one-relevant_law', 'use
 
 //=======Research And Center==========
 
-Route::get('/list-document-publications', ['as' => 'list-document-publications', 'uses' => 'App\Http\Controllers\ResourceCenter\DocumentPublicationsController@index']);
-Route::get('/add-document-publications', ['as' => 'add-document-publications', 'uses' => 'App\Http\Controllers\ResourceCenter\DocumentPublicationsController@add']);
-Route::post('/add-document-publications', ['as' => 'add-document-publications', 'uses' => 'App\Http\Controllers\ResourceCenter\DocumentPublicationsController@store']);
-Route::get('/edit-document-publications', ['as' => 'edit-document-publications', 'uses' => 'App\Http\Controllers\ResourceCenter\DocumentPublicationsController@edit']);
-Route::post('/update-document-publications', ['as' => 'update-document-publications', 'uses' => 'App\Http\Controllers\ResourceCenter\DocumentPublicationsController@update']);
-Route::post('/show-document-publications', ['as' => 'show-document-publications', 'uses' => 'App\Http\Controllers\ResourceCenter\DocumentPublicationsController@show']);
-Route::post('/delete-document-publications', ['as' => 'delete-document-publications', 'uses' => 'App\Http\Controllers\ResourceCenter\DocumentPublicationsController@destroy']);
+Route::get('/list-document-publications', ['as' => 'list-document-publications', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\DocumentPublicationsController@index']);
+Route::get('/add-document-publications', ['as' => 'add-document-publications', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\DocumentPublicationsController@add']);
+Route::post('/add-document-publications', ['as' => 'add-document-publications', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\DocumentPublicationsController@store']);
+Route::get('/edit-document-publications', ['as' => 'edit-document-publications', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\DocumentPublicationsController@edit']);
+Route::post('/update-document-publications', ['as' => 'update-document-publications', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\DocumentPublicationsController@update']);
+Route::post('/show-document-publications', ['as' => 'show-document-publications', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\DocumentPublicationsController@show']);
+Route::post('/delete-document-publications', ['as' => 'delete-document-publications', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\DocumentPublicationsController@destroy']);
 
-Route::get('/list-training-workshop', ['as' => 'list-training-workshop', 'uses' => 'App\Http\Controllers\ResourceCenter\TrainingWorkshopController@index']);
-Route::get('/add-training-workshop', ['as' => 'add-training-workshop', 'uses' => 'App\Http\Controllers\ResourceCenter\TrainingWorkshopController@add']);
-Route::post('/add-training-workshop', ['as' => 'add-training-workshop', 'uses' => 'App\Http\Controllers\ResourceCenter\TrainingWorkshopController@store']);
-Route::post('/edit-training-workshop', ['as' => 'edit-training-workshop', 'uses' => 'App\Http\Controllers\ResourceCenter\TrainingWorkshopController@edit']);
-Route::post('/update-training-workshop', ['as' => 'update-training-workshop', 'uses' => 'App\Http\Controllers\ResourceCenter\TrainingWorkshopController@update']);
-Route::post('/show-training-workshop', ['as' => 'show-training-workshop', 'uses' => 'App\Http\Controllers\ResourceCenter\TrainingWorkshopController@show']);
-Route::post('/delete-training-workshop', ['as' => 'delete-training-workshop', 'uses' => 'App\Http\Controllers\ResourceCenter\TrainingWorkshopController@destroy']);
+Route::get('/list-training-workshop', ['as' => 'list-training-workshop', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\TrainingWorkshopController@index']);
+Route::get('/add-training-workshop', ['as' => 'add-training-workshop', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\TrainingWorkshopController@add']);
+Route::post('/add-training-workshop', ['as' => 'add-training-workshop', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\TrainingWorkshopController@store']);
+Route::post('/edit-training-workshop', ['as' => 'edit-training-workshop', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\TrainingWorkshopController@edit']);
+Route::post('/update-training-workshop', ['as' => 'update-training-workshop', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\TrainingWorkshopController@update']);
+Route::post('/show-training-workshop', ['as' => 'show-training-workshop', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\TrainingWorkshopController@show']);
+Route::post('/delete-training-workshop', ['as' => 'delete-training-workshop', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\TrainingWorkshopController@destroy']);
 
 //======News And Events=======
-Route::get('/list-success-stories', ['as' => 'list-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@index']);
-Route::get('/add-success-stories', ['as' => 'add-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@add']);
-Route::post('/add-success-stories', ['as' => 'add-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@store']);
-Route::get('/edit-success-stories', ['as' => 'edit-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@edit']);
-Route::post('/update-success-stories', ['as' => 'update-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@update']);
-Route::post('/show-success-stories', ['as' => 'show-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@show']);
-Route::post('/delete-success-stories', ['as' => 'delete-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@destroy']);
-Route::post('/update-one-success-stories', ['as' => 'update-one-success-stories', 'uses' => 'App\Http\Controllers\NewsAndEvents\SuccessStoriesController@updateOne']);
+Route::get('/list-success-stories', ['as' => 'list-success-stories', 'uses' => 'App\Http\Controllers\Admin\NewsAndEvents\SuccessStoriesController@index']);
+Route::get('/add-success-stories', ['as' => 'add-success-stories', 'uses' => 'App\Http\Controllers\Admin\NewsAndEvents\SuccessStoriesController@add']);
+Route::post('/add-success-stories', ['as' => 'add-success-stories', 'uses' => 'App\Http\Controllers\Admin\NewsAndEvents\SuccessStoriesController@store']);
+Route::get('/edit-success-stories', ['as' => 'edit-success-stories', 'uses' => 'App\Http\Controllers\Admin\NewsAndEvents\SuccessStoriesController@edit']);
+Route::post('/update-success-stories', ['as' => 'update-success-stories', 'uses' => 'App\Http\Controllers\Admin\NewsAndEvents\SuccessStoriesController@update']);
+Route::post('/show-success-stories', ['as' => 'show-success-stories', 'uses' => 'App\Http\Controllers\Admin\NewsAndEvents\SuccessStoriesController@show']);
+Route::post('/delete-success-stories', ['as' => 'delete-success-stories', 'uses' => 'App\Http\Controllers\Admin\NewsAndEvents\SuccessStoriesController@destroy']);
+Route::post('/update-one-success-stories', ['as' => 'update-one-success-stories', 'uses' => 'App\Http\Controllers\Admin\NewsAndEvents\SuccessStoriesController@updateOne']);
 
-Route::get('/list-gallery-category', ['as' => 'list-gallery-category', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryCategoryController@index']);
-Route::get('/add-gallery-category', ['as' => 'add-gallery-category', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryCategoryController@add']);
-Route::post('/add-gallery-category', ['as' => 'add-gallery-category', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryCategoryController@store']);
-Route::get('/edit-gallery-category', ['as' => 'edit-gallery-category', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryCategoryController@edit']);
-Route::post('/update-gallery-category', ['as' => 'update-gallery-category', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryCategoryController@update']);
-Route::post('/show-gallery-category', ['as' => 'show-gallery-category', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryCategoryController@show']);
-Route::post('/delete-gallery-category', ['as' => 'delete-gallery-category', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryCategoryController@destroy']);
-Route::post('/update-one-gallery-category', ['as' => 'update-one-gallery-category', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryCategoryController@updateOne']);
+Route::get('/list-gallery-category', ['as' => 'list-gallery-category', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryCategoryController@index']);
+Route::get('/add-gallery-category', ['as' => 'add-gallery-category', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryCategoryController@add']);
+Route::post('/add-gallery-category', ['as' => 'add-gallery-category', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryCategoryController@store']);
+Route::get('/edit-gallery-category', ['as' => 'edit-gallery-category', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryCategoryController@edit']);
+Route::post('/update-gallery-category', ['as' => 'update-gallery-category', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryCategoryController@update']);
+Route::post('/show-gallery-category', ['as' => 'show-gallery-category', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryCategoryController@show']);
+Route::post('/delete-gallery-category', ['as' => 'delete-gallery-category', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryCategoryController@destroy']);
+Route::post('/update-one-gallery-category', ['as' => 'update-one-gallery-category', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryCategoryController@updateOne']);
 
-Route::get('/list-gallery', ['as' => 'list-gallery', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryController@index']);
-Route::get('/add-gallery', ['as' => 'add-gallery', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryController@add']);
-Route::post('/add-gallery', ['as' => 'add-gallery', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryController@store']);
-Route::get('/edit-gallery', ['as' => 'edit-gallery', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryController@edit']);
-Route::post('/update-gallery', ['as' => 'update-gallery', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryController@update']);
-Route::post('/show-gallery', ['as' => 'show-gallery', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryController@show']);
-Route::post('/delete-gallery', ['as' => 'delete-gallery', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryController@destroy']);
-Route::post('/update-one-gallery', ['as' => 'update-one-gallery', 'uses' => 'App\Http\Controllers\ResourceCenter\GalleryController@updateOne']);
+Route::get('/list-gallery', ['as' => 'list-gallery', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryController@index']);
+Route::get('/add-gallery', ['as' => 'add-gallery', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryController@add']);
+Route::post('/add-gallery', ['as' => 'add-gallery', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryController@store']);
+Route::get('/edit-gallery', ['as' => 'edit-gallery', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryController@edit']);
+Route::post('/update-gallery', ['as' => 'update-gallery', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryController@update']);
+Route::post('/show-gallery', ['as' => 'show-gallery', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryController@show']);
+Route::post('/delete-gallery', ['as' => 'delete-gallery', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryController@destroy']);
+Route::post('/update-one-gallery', ['as' => 'update-one-gallery', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\GalleryController@updateOne']);
 
-Route::get('/list-video', ['as' => 'list-video', 'uses' => 'App\Http\Controllers\ResourceCenter\VideoController@index']);
-Route::get('/add-video', ['as' => 'add-video', 'uses' => 'App\Http\Controllers\ResourceCenter\VideoController@add']);
-Route::post('/add-video', ['as' => 'add-video', 'uses' => 'App\Http\Controllers\ResourceCenter\VideoController@store']);
-Route::get('/edit-video', ['as' => 'edit-video', 'uses' => 'App\Http\Controllers\ResourceCenter\VideoController@edit']);
-Route::post('/update-video', ['as' => 'update-video', 'uses' => 'App\Http\Controllers\ResourceCenter\VideoController@update']);
-Route::post('/show-video', ['as' => 'show-video', 'uses' => 'App\Http\Controllers\ResourceCenter\VideoController@show']);
-Route::post('/delete-video', ['as' => 'delete-video', 'uses' => 'App\Http\Controllers\ResourceCenter\VideoController@destroy']);
+Route::get('/list-video', ['as' => 'list-video', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\VideoController@index']);
+Route::get('/add-video', ['as' => 'add-video', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\VideoController@add']);
+Route::post('/add-video', ['as' => 'add-video', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\VideoController@store']);
+Route::get('/edit-video', ['as' => 'edit-video', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\VideoController@edit']);
+Route::post('/update-video', ['as' => 'update-video', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\VideoController@update']);
+Route::post('/show-video', ['as' => 'show-video', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\VideoController@show']);
+Route::post('/delete-video', ['as' => 'delete-video', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\VideoController@destroy']);
 
-Route::get('/list-map-lat-lons', ['as' => 'list-map-lat-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@index']);
-Route::get('/add-map-lot-lons', ['as' => 'add-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@add']);
-Route::post('/add-map-lot-lons', ['as' => 'add-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@store']);
-Route::get('/edit-map-lot-lons', ['as' => 'edit-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@edit']);
-Route::post('/update-map-lot-lons', ['as' => 'update-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@update']);
-Route::post('/show-map-lot-lons', ['as' => 'show-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@show']);
-Route::post('/delete-map-lot-lons', ['as' => 'delete-map-lot-lons', 'uses' => 'App\Http\Controllers\ResourceCenter\MapLatLonController@destroy']);
+Route::get('/list-map-lat-lons', ['as' => 'list-map-lat-lons', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\MapLatLonController@index']);
+Route::get('/add-map-lot-lons', ['as' => 'add-map-lot-lons', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\MapLatLonController@add']);
+Route::post('/add-map-lot-lons', ['as' => 'add-map-lot-lons', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\MapLatLonController@store']);
+Route::get('/edit-map-lot-lons', ['as' => 'edit-map-lot-lons', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\MapLatLonController@edit']);
+Route::post('/update-map-lot-lons', ['as' => 'update-map-lot-lons', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\MapLatLonController@update']);
+Route::post('/show-map-lot-lons', ['as' => 'show-map-lot-lons', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\MapLatLonController@show']);
+Route::post('/delete-map-lot-lons', ['as' => 'delete-map-lot-lons', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\MapLatLonController@destroy']);
 
 // =======Contact Us==========
 
@@ -554,63 +531,61 @@ Route::post('/delete-role', ['as' => 'delete-role', 'uses' => 'App\Http\Controll
 Route::post('/update-one-role', ['as' => 'update-one-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@updateOneRole']);
 Route::post('/list-role-wise-permission', ['as' => 'list-role-wise-permission', 'uses' => 'App\Http\Controllers\Menu\RoleController@listRoleWisePermission']);
 
-
-
 //=====Footer Route======
-Route::get('/list-important-link', ['as' => 'list-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@index']);
-Route::get('/add-important-link', ['as' => 'add-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@add']);
-Route::post('/add-important-link', ['as' => 'add-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@store']);
-Route::get('/edit-important-link', ['as' => 'edit-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@edit']);
-Route::post('/update-important-link', ['as' => 'update-important-link','uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@update']);
-Route::post('/show-important-link', ['as' => 'show-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@show']);
-Route::post('/delete-important-link', ['as' => 'delete-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@destroy']);
-Route::post('/update-one-important-link', ['as' => 'update-one-important-link', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@updateOne']);
+Route::get('/list-important-link', ['as' => 'list-important-link', 'uses' => 'App\Http\Controllers\Admin\Footer\FooterImportantLinksController@index']);
+Route::get('/add-important-link', ['as' => 'add-important-link', 'uses' => 'App\Http\Controllers\Admin\Footer\FooterImportantLinksController@add']);
+Route::post('/add-important-link', ['as' => 'add-important-link', 'uses' => 'App\Http\Controllers\Admin\Footer\FooterImportantLinksController@store']);
+Route::get('/edit-important-link', ['as' => 'edit-important-link', 'uses' => 'App\Http\Controllers\Admin\Footer\FooterImportantLinksController@edit']);
+Route::post('/update-important-link', ['as' => 'update-important-link','uses' => 'App\Http\Controllers\Admin\Footer\FooterImportantLinksController@update']);
+Route::post('/show-important-link', ['as' => 'show-important-link', 'uses' => 'App\Http\Controllers\Admin\Footer\FooterImportantLinksController@show']);
+Route::post('/delete-important-link', ['as' => 'delete-important-link', 'uses' => 'App\Http\Controllers\Admin\Footer\FooterImportantLinksController@destroy']);
+Route::post('/update-one-important-link', ['as' => 'update-one-important-link', 'uses' => 'App\Http\Controllers\Admin\Footer\FooterImportantLinksController@updateOne']);
 
-Route::get('/list-tweeter-feed', ['as' => 'list-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@index']);
-Route::get('/add-tweeter-feed', ['as' => 'add-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@add']);
-Route::post('/add-tweeter-feed', ['as' => 'add-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@store']);
-Route::get('/edit-tweeter-feed', ['as' => 'edit-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@edit']);
-Route::post('/update-tweeter-feed', ['as' => 'update-tweeter-feed','uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@update']);
-Route::post('/show-tweeter-feed', ['as' => 'show-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@show']);
-Route::post('/delete-tweeter-feed', ['as' => 'delete-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@destroy']);
-Route::post('/update-one-tweeter-feed', ['as' => 'update-one-tweeter-feed', 'uses' => 'App\Http\Controllers\Footer\TweeterFeedsController@updateOne']);
+Route::get('/list-tweeter-feed', ['as' => 'list-tweeter-feed', 'uses' => 'App\Http\Controllers\Admin\Footer\TweeterFeedsController@index']);
+Route::get('/add-tweeter-feed', ['as' => 'add-tweeter-feed', 'uses' => 'App\Http\Controllers\Admin\Footer\TweeterFeedsController@add']);
+Route::post('/add-tweeter-feed', ['as' => 'add-tweeter-feed', 'uses' => 'App\Http\Controllers\Admin\Footer\TweeterFeedsController@store']);
+Route::get('/edit-tweeter-feed', ['as' => 'edit-tweeter-feed', 'uses' => 'App\Http\Controllers\Admin\Footer\TweeterFeedsController@edit']);
+Route::post('/update-tweeter-feed', ['as' => 'update-tweeter-feed','uses' => 'App\Http\Controllers\Admin\Footer\TweeterFeedsController@update']);
+Route::post('/show-tweeter-feed', ['as' => 'show-tweeter-feed', 'uses' => 'App\Http\Controllers\Admin\Footer\TweeterFeedsController@show']);
+Route::post('/delete-tweeter-feed', ['as' => 'delete-tweeter-feed', 'uses' => 'App\Http\Controllers\Admin\Footer\TweeterFeedsController@destroy']);
+Route::post('/update-one-tweeter-feed', ['as' => 'update-one-tweeter-feed', 'uses' => 'App\Http\Controllers\Admin\Footer\TweeterFeedsController@updateOne']);
 
-Route::get('/list-privacy-policy', ['as' => 'list-privacy-policy', 'uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@index']);
-Route::get('/add-privacy-policy', ['as' => 'add-privacy-policy', 'uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@add']);
-Route::post('/add-privacy-policy', ['as' => 'add-privacy-policy', 'uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@store']);
-Route::get('/edit-privacy-policy', ['as' => 'edit-privacy-policy', 'uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@edit']);
-Route::post('/update-privacy-policy', ['as' => 'update-privacy-policy','uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@update']);
-Route::post('/show-privacy-policy', ['as' => 'show-privacy-policy', 'uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@show']);
-Route::post('/delete-privacy-policy', ['as' => 'delete-privacy-policy', 'uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@destroy']);
-// Route::post('/update-one-privacy-policy', ['as' => 'update-one-privacy-policy', 'uses' => 'App\Http\Controllers\Footer\PolicyPrivacyController@updateOne']);
+Route::get('/list-privacy-policy', ['as' => 'list-privacy-policy', 'uses' => 'App\Http\Controllers\Admin\Footer\PolicyPrivacyController@index']);
+Route::get('/add-privacy-policy', ['as' => 'add-privacy-policy', 'uses' => 'App\Http\Controllers\Admin\Footer\PolicyPrivacyController@add']);
+Route::post('/add-privacy-policy', ['as' => 'add-privacy-policy', 'uses' => 'App\Http\Controllers\Admin\Footer\PolicyPrivacyController@store']);
+Route::get('/edit-privacy-policy', ['as' => 'edit-privacy-policy', 'uses' => 'App\Http\Controllers\Admin\Footer\PolicyPrivacyController@edit']);
+Route::post('/update-privacy-policy', ['as' => 'update-privacy-policy','uses' => 'App\Http\Controllers\Admin\Footer\PolicyPrivacyController@update']);
+Route::post('/show-privacy-policy', ['as' => 'show-privacy-policy', 'uses' => 'App\Http\Controllers\Admin\Footer\PolicyPrivacyController@show']);
+Route::post('/delete-privacy-policy', ['as' => 'delete-privacy-policy', 'uses' => 'App\Http\Controllers\Admin\Footer\PolicyPrivacyController@destroy']);
+// Route::post('/update-one-privacy-policy', ['as' => 'update-one-privacy-policy', 'uses' => 'App\Http\Controllers\Admin\Footer\PolicyPrivacyController@updateOne']);
 
-Route::get('/list-terms-conditions', ['as' => 'list-terms-conditions', 'uses' => 'App\Http\Controllers\Footer\TermsConditionController@index']);
-Route::get('/add-terms-conditions', ['as' => 'add-terms-conditions', 'uses' => 'App\Http\Controllers\Footer\TermsConditionController@add']);
-Route::post('/add-terms-conditions', ['as' => 'add-terms-conditions', 'uses' => 'App\Http\Controllers\Footer\TermsConditionController@store']);
-Route::get('/edit-terms-conditions', ['as' => 'edit-terms-conditions', 'uses' => 'App\Http\Controllers\Footer\TermsConditionController@edit']);
-Route::post('/update-terms-conditions', ['as' => 'update-terms-conditions','uses' => 'App\Http\Controllers\Footer\TermsConditionController@update']);
-Route::post('/show-terms-conditions', ['as' => 'show-terms-conditions', 'uses' => 'App\Http\Controllers\Footer\TermsConditionController@show']);
-Route::post('/delete-terms-conditions', ['as' => 'delete-terms-conditions', 'uses' => 'App\Http\Controllers\Footer\TermsConditionController@destroy']);
-// Route::post('/update-one-terms-conditions', ['as' => 'update-one-terms-conditions', 'uses' => 'App\Http\Controllers\Footer\TermsConditionController@updateOne']);
+Route::get('/list-terms-conditions', ['as' => 'list-terms-conditions', 'uses' => 'App\Http\Controllers\Admin\Footer\TermsConditionController@index']);
+Route::get('/add-terms-conditions', ['as' => 'add-terms-conditions', 'uses' => 'App\Http\Controllers\Admin\Footer\TermsConditionController@add']);
+Route::post('/add-terms-conditions', ['as' => 'add-terms-conditions', 'uses' => 'App\Http\Controllers\Admin\Footer\TermsConditionController@store']);
+Route::get('/edit-terms-conditions', ['as' => 'edit-terms-conditions', 'uses' => 'App\Http\Controllers\Admin\Footer\TermsConditionController@edit']);
+Route::post('/update-terms-conditions', ['as' => 'update-terms-conditions','uses' => 'App\Http\Controllers\Admin\Footer\TermsConditionController@update']);
+Route::post('/show-terms-conditions', ['as' => 'show-terms-conditions', 'uses' => 'App\Http\Controllers\Admin\Footer\TermsConditionController@show']);
+Route::post('/delete-terms-conditions', ['as' => 'delete-terms-conditions', 'uses' => 'App\Http\Controllers\Admin\Footer\TermsConditionController@destroy']);
+// Route::post('/update-one-terms-conditions', ['as' => 'update-one-terms-conditions', 'uses' => 'App\Http\Controllers\Admin\Footer\TermsConditionController@updateOne']);
 
 //====Header Vacancies=====
-Route::get('/list-header-vacancies', ['as' => 'list-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@index']);
-Route::get('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@add']);
-Route::post('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@store']);
-Route::get('/edit-header-vacancies', ['as' => 'edit-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@edit']);
-Route::post('/update-header-vacancies', ['as' => 'update-header-vacancies','uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@update']);
-Route::post('/show-header-vacancies', ['as' => 'show-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@show']);
-Route::post('/delete-header-vacancies', ['as' => 'delete-header-vacancies', 'uses' => 'App\Http\Controllers\Header\VacanciesHeaderController@destroy']);
+Route::get('/list-header-vacancies', ['as' => 'list-header-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@index']);
+Route::get('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@add']);
+Route::post('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@store']);
+Route::get('/edit-header-vacancies', ['as' => 'edit-header-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@edit']);
+Route::post('/update-header-vacancies', ['as' => 'update-header-vacancies','uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@update']);
+Route::post('/show-header-vacancies', ['as' => 'show-header-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@show']);
+Route::post('/delete-header-vacancies', ['as' => 'delete-header-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@destroy']);
 Route::post('/update-one-header-vacancies', ['as' => 'update-one-header-vacancies', 'uses' => 'App\Http\Controllers\Footer\FooterImportantLinksController@updateOne']);
 
-Route::get('/list-header-rti', ['as' => 'list-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@index']);
-Route::get('/add-header-rti', ['as' => 'add-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@add']);
-Route::post('/add-header-rti', ['as' => 'add-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@store']);
-Route::get('/edit-header-rti', ['as' => 'edit-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@edit']);
-Route::post('/update-header-rti', ['as' => 'update-header-rti','uses' => 'App\Http\Controllers\Header\RTIController@update']);
-Route::post('/show-header-rti', ['as' => 'show-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@show']);
-Route::post('/delete-header-rti', ['as' => 'delete-header-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@destroy']);
-Route::post('/update-one-rti', ['as' => 'update-one-rti', 'uses' => 'App\Http\Controllers\Header\RTIController@updateOne']);
+Route::get('/list-header-rti', ['as' => 'list-header-rti', 'uses' => 'App\Http\Controllers\Admin\Header\RTIController@index']);
+Route::get('/add-header-rti', ['as' => 'add-header-rti', 'uses' => 'App\Http\Controllers\Admin\Header\RTIController@add']);
+Route::post('/add-header-rti', ['as' => 'add-header-rti', 'uses' => 'App\Http\Controllers\Admin\Header\RTIController@store']);
+Route::get('/edit-header-rti', ['as' => 'edit-header-rti', 'uses' => 'App\Http\Controllers\Admin\Header\RTIController@edit']);
+Route::post('/update-header-rti', ['as' => 'update-header-rti','uses' => 'App\Http\Controllers\Admin\Header\RTIController@update']);
+Route::post('/show-header-rti', ['as' => 'show-header-rti', 'uses' => 'App\Http\Controllers\Admin\Header\RTIController@show']);
+Route::post('/delete-header-rti', ['as' => 'delete-header-rti', 'uses' => 'App\Http\Controllers\Admin\Header\RTIController@destroy']);
+Route::post('/update-one-rti', ['as' => 'update-one-rti', 'uses' => 'App\Http\Controllers\Admin\Header\RTIController@updateOne']);
 
 Route::get('/db-backup', ['as' => 'db-backup', 'uses' => 'App\Http\Controllers\DBBackup\DBBackupController@downloadBackup']);
 

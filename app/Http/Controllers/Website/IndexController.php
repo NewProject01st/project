@@ -139,44 +139,39 @@ class IndexController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-
                    
     }
-    Static function getWebTollFreeNumber() {
+
+    static function getCommonWebNavbarData() {
         try {
-        $webtollfree_data = array();
-        $webtollfree_data =  Tollfree::where('is_active', '=',true)
-                            ->select( 
-                                'tollfrees.english_tollfree_no', 
-                                'tollfrees.marathi_tollfree_no',
-                                'tollfrees.id',
-                            )
-                            ->get()
-                            ->toArray();
-  
-            return $webtollfree_data ;
+            $retun_data = [];
+            $webtollfree_data =  Tollfree::where('is_active', '=',true)
+            ->select( 
+                'tollfrees.english_tollfree_no', 
+                'tollfrees.marathi_tollfree_no',
+                'tollfrees.id',
+            )
+            ->get()
+            ->toArray();
+
+            $retun_data['webtollfree_data']  = $webtollfree_data;     
+            
+            $website_logo =  WebsiteLogo::where('is_active', '=',true)
+            ->select( 
+                'website_logos.logo', 
+                'website_logos.id',
+            )
+            ->get()
+            ->toArray();
+
+            $retun_data['website_logo']  = $website_logo;   
+
+            return $retun_data ;
         } catch (\Exception $e) {
             return $e;
         }
-                            
-    }
-    Static function getWebsiteLogo() {
-        try {
-        $weballdepartment_data = array();
-        $weballdepartment_data =  WebsiteLogo::where('is_active', '=',true)
-                            ->select( 
-                                'website_logos.logo', 
-                                'website_logos.id',
-                            )
-                            ->get()
-                            ->toArray();
-    
-            return $weballdepartment_data ;
-        } catch (\Exception $e) {
-            return $e;
-        }
-                            
-    }
+                   
+    }    
     public function index()
     {
         try {
@@ -378,25 +373,5 @@ class IndexController extends Controller
     
     public function changeLanguage(Request $request) {
         Session::put('language', $request->language);
-    }    
-
-    // public function search(Request $request)
-    // {
-    //     $query = $request->input('query');
-    //     $menu = $this->menu;
-
-    //     if (Session::get('language') == 'mar') {
-    //         $language = Session::get('language');
-    //     } else {
-    //         $language = 'en';
-    //     }
-
-    //     // Perform the search using Laravel's query builder or Eloquent ORM
-    //     $results = MainMenus::where('title', 'like', "%$query%")
-    //         ->orWhere('content', 'like', "%$query%")
-    //         ->get();
-
-    //     return view('website.pages.index', compact('language','menu'));
-    // }
-    
+    }        
 }
