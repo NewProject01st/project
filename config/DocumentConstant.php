@@ -163,9 +163,9 @@ return [
     
     'DB_BACKUP'	 => "/all_web_data/DBBackup//",
 
-    'DYNAMIC_PAGE_DOC_ADD'	 => "/all_web_data/images/header/dynamic-page//",
-    'DYNAMIC_PAGE_DOC_DELETE' => '/all_web_data/images/header/dynamic-page/',
-    'DYNAMIC_PAGE_DOC_VIEW'	 => env("AWS_FILE_VIEW").'/all_web_data/images/header/dynamic-page/',
+    'DYNAMIC_PAGE_DOC_ADD'	 => "/all_web_data/dynamic_page/",
+    'DYNAMIC_PAGE_DOC_DELETE' => '/all_web_data/dynamic_page/',
+    'DYNAMIC_PAGE_DOC_VIEW'	 => env("AWS_FILE_VIEW"),
     
 
 ];

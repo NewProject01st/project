@@ -190,54 +190,76 @@ class DynamicPagesController extends Controller
         $marathi_title = $request->marathi_title;
         $meta_data = $request->meta_data;
 
+        $final_content_english = new \DOMDocument();
+        $list=array();
+        $final_content_english->loadHTML($request->english_description);
+        $elements = $final_content_english->getElementsByTagName('*');
 
-        if (strpos($request->english_description, '<img') !== false && strpos($request->english_description, ';base64') !== false) {
+        foreach ($elements as $tag_element) {
+            if ($tag_element->nodeName =='img') {
+                    $srcStr = $tag_element->getAttribute('src');
+                    if(str_contains($srcStr, env('AWS_FILE_VIEW')) != true) {
+                        $image_parts = explode(";base64,", $srcStr);
+                        $image_base64 = base64_decode($image_parts[1]);
+                        $image_type_aux = explode("image/", $image_parts[0]);
+                        if(count($image_type_aux)>1) {
+                            $image_type = $image_type_aux[1];
+                        } else {
+                            $image_type_aux = explode("data:application/", $image_parts[0]);
+                            $image_type = $image_type_aux[1];
+                        }
+                        // Create a new filename for the image
+                        $path =  Config::get('DocumentConstant.DYNAMIC_PAGE_DOC_ADD');
+                        
+                        $file_name = $path.$menu_selected[0].'_'.$menu_selected[1].time().'.'.$image_type;
 
-            $doc = new \DOMDocument();
-            $doc->loadHTML($request->english_description);
-        
-            $tags = $doc->getElementsByTagName('img');
-
-            foreach ($tags as $tag) {
-                // Get base64 encoded string
-                $srcStr = $tag->getAttribute('src');
-                $base64EncData = substr($srcStr, ($pos = strpos($srcStr, 'base64,')) !== false ? $pos + 7 : 0);
-                $base64EncData = substr($base64EncData, 0, -1);
-        
-                // Get an image file
-                $img = base64_decode($base64EncData);
-        
-                // Get file type
-                $dataInfo = explode(";", $srcStr)[0];
-                $fileExt = str_replace('data:image/', '', $dataInfo);
-        
-                // Create a new filename for the image
-                $path =  Config::get('DocumentConstant.DYNAMIC_PAGE_DOC_ADD');
-                $file_path = $path.str_random(30).time().$fileExt;
-                Storage::disk('s3')->put($file_path, base64_decode($img), 'public');
-                Storage::disk('s3')->url($file_path);
-
-
-                $newImageName = str_replace(".", "", uniqid("forum_img_", true));
-                $filename = $newImageName . '.' . $fileExt;
-                $file = Config::get('DocumentConstant.WEBSITE_LOGO_VIEW').$file_path;
-        
-                // Save the image to disk
-                $success = file_put_contents($file, $img);
-                $imgUrl = 'https://www.yourdomain.com/uploaded_imgs/' . $filename;
-        
-                // Update the forum thread text with an img tag for the new image
-                $newImgTag = '<img src="' . $imgUrl . '" />';
-        
-                $tag->setAttribute('src', $imgUrl);
-                $tag->setAttribute('data-original-filename', $tag->getAttribute('data-filename'));
-                $tag->removeAttribute('data-filename');
-                $submitted_text = $doc->saveHTML();
+                        Storage::disk('s3')->put($file_name, $image_base64, 'public');
+                        Storage::disk('s3')->url($file_name);
+                        $imgUrl = Config::get('DocumentConstant.DYNAMIC_PAGE_DOC_VIEW').$file_name;
+                        $tag_element->setAttribute('src', $imgUrl);
+                        $tag_element->setAttribute('data-original-filename', $tag_element->getAttribute('data-filename'));
+                        $tag_element->removeAttribute('data-filename');
+                        
+                    }
+                
             }
         }
-        
+        $final_content_english = $final_content_english->saveHTML();
 
-      
+        // Marathi content
+        $final_content_marathi = new \DOMDocument();
+        $list=array();
+        $final_content_marathi->loadHTML($request->marathi_description);
+        $elements = $final_content_marathi->getElementsByTagName('*');
+
+        foreach ($elements as $tag_element) {
+            if ($tag_element->nodeName =='img') {
+                    $srcStr = $tag_element->getAttribute('src');
+                    if(str_contains($srcStr, env('AWS_FILE_VIEW')) != true) {
+                        $image_parts = explode(";base64,", $srcStr);
+                        $image_base64 = base64_decode($image_parts[1]);
+                        $image_type_aux = explode("image/", $image_parts[0]);
+                        if(count($image_type_aux)>1) {
+                            $image_type = $image_type_aux[1];
+                        } else {
+                            $image_type_aux = explode("data:application/", $image_parts[0]);
+                            $image_type = $image_type_aux[1];
+                        }
+                        // Create a new filename for the image
+                        $path =  Config::get('DocumentConstant.DYNAMIC_PAGE_DOC_ADD');
+                        $file_name = $path.$menu_selected[0].'_'.$menu_selected[1].time().'.'.$image_type;
+                        Storage::disk('s3')->put($file_name, $image_base64, 'public');
+                        Storage::disk('s3')->url($file_name);
+                        $imgUrl = Config::get('DocumentConstant.DYNAMIC_PAGE_DOC_VIEW').$file_name;
+                        $tag_element->setAttribute('src', $imgUrl);
+                        $tag_element->setAttribute('data-original-filename', $tag_element->getAttribute('data-filename'));
+                        $tag_element->removeAttribute('data-filename');
+                        
+                    }
+                
+            }
+        }
+        $final_content_marathi = $final_content_marathi->saveHTML();
        
         $save = file_put_contents("./resources/views/admin/pages/dynamic-pages-created/{$actual_page_name_english}",$final_content_english);
         $save = file_put_contents("./resources/views/admin/pages/dynamic-pages-created/{$actual_page_name_marathi}",$final_content_marathi);
