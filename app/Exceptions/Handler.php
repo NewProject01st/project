@@ -66,8 +66,8 @@ class Handler extends ExceptionHandler
             $data_insert['messege'] = $exception ;
 
             ErrorLogs::insert($data_insert);
-            return redirect()->route('error-handling');
-            // return parent::render($request, $exception);
+            // return redirect()->route('error-handling');
+            return parent::render($request, $exception);
         } catch (\Exception $e) {
             return $e;
         }

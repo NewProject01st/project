@@ -68,9 +68,9 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
 
                         <button class="webpage_zoom_btn" id="zoomouttextbody">A-</button>
                         <button class="webpage_zoom_btn" id="zoomtextbody">A+</button>
-                        {{-- <span id="magnifier" class="magnifier" data-toggle="tooltip" data-placement="top" title="Magnifier">
+                        <span id="magnifier" class="magnifier" data-toggle="tooltip" data-placement="top" title="Magnifier">
                                 <i class="fa fa-search-plus" style="font-size:24px; color:#fff"></i>
-                            </span> --}}
+                            </span>
 
 
 
@@ -305,7 +305,7 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse nav-center" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse nav-center flex-wrap" id="navbarSupportedContent">
                         @foreach ($menu as $key => $menu_data)
                             @foreach ($menu_data as $key => $menu_data_new)
                                 <ul class="navbar-nav mr-auto">
