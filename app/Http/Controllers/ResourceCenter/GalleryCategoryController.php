@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\SuccessStories;
 use App\Http\Services\ResourceCenter\GalleryCategoryServices;
 use Validator;
+use Illuminate\Validation\Rule;
 class GalleryCategoryController extends Controller
 {
 
@@ -86,10 +87,13 @@ class GalleryCategoryController extends Controller
     }
     public function update(Request $request)
 {
+    $id = $request->input('id'); // Assuming the 'id' value is present in the request
+
     $rules = [
-        'english_name' => 'required|unique:gallery_category|regex:/^[a-zA-Z\s]+$/u|max:255',
-        'marathi_name' => 'required|unique:gallery_category|max:255',   
-     ];
+        'english_name' => ['required', 'max:255','regex:/^[a-zA-Z\s]+$/u', Rule::unique('gallery_category', 'english_name')->ignore($id, 'id')],
+        'marathi_name' => ['required', 'max:255', Rule::unique('gallery_category', 'marathi_name')->ignore($id, 'id')],
+    ];
+
     $messages = [   
         'english_name.required'=>'Please enter name.',
         'english_name.regex' => 'Please  enter text only.',

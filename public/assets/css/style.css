@@ -29588,3 +29588,8 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
 /* input, .form-control:focus, .asColorPicker-input:focus, .dataTables_wrapper select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text]:focus, .jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number]:focus, .select2-container--default .select2-selection--single:focus, .select2-container--default .select2-selection--single .select2-search__field:focus, .typeahead:focus, .tt-query:focus, .tt-hint:focus, input:focus, select:focus, textarea:focus, button:focus{
   border: 1px solid #cccccc;
 } */
+
+.emergancy_contact_add{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

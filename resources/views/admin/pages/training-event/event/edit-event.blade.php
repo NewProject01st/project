@@ -148,7 +148,7 @@
                                             class="img-fluid img-thumbnail" width="150">
                                     </div>
 
-                                    <div class="col-md-12 col-sm-12 text-center">
+                                    <div class="col-md-12 col-sm-12 text-center mt-4">
                                         <button type="submit" class="btn btn-success">Save &amp; Update</button>
                                         {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-event') }}"
