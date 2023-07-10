@@ -64,7 +64,7 @@
                                                 <ul class="event-meta">
                                                     <li><i class="fas fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
                                                 </ul>
-                                                <p><?php echo $item['marathi_description']; ?></p>
+                                                <p class="card_title"><?php echo mb_substr($item['marathi_description'], 0, 121) ?></p>
                                             </div>
                                         </a>
                                         {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
@@ -83,7 +83,7 @@
                                                 <ul class="event-meta">
                                                     <li><i class="far fa-calendar-alt"></i> <?php echo $item['start_date']; ?></li>
                                                 </ul>
-                                                <p><?php echo $item['english_description']; ?></p>
+                                                <p class="card_title"><?php echo mb_substr($item['english_description'], 0, 121) ?></p>
                                             </div>
                                         </a>
                                         {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
