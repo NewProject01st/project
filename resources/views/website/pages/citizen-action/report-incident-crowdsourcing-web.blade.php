@@ -164,7 +164,7 @@
                                             <span class="red-text"><?php echo $errors->first('description', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-8 mb-4">
                                         <label class="col-form-label modal_lable">
                                             @if (session('language') == 'mar')
                                                 {{ Config::get('marathi.CITIZEN_ACTION.FORM_MEDIA_UPLOAD') }}

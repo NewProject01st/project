@@ -87,7 +87,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-group">
                                             <label for="english_url">URL</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="english_url" id="english_url" class="form-control"
@@ -98,7 +98,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-group">
                                             <label for="disaster_date">Disaster Date</label>&nbsp<span
                                                 class="red-text">*</span>

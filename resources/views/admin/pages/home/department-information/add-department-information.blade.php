@@ -82,7 +82,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-group">
                                             <label for="english_image_new">Image </label>&nbsp<span
                                                 class="red-text">*</span><br>
@@ -93,9 +93,9 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-group">
-                                            <label for="marathi_image_new">Image </label>&nbsp<span
+                                            <label for="marathi_image_new">प्रतिमा</label>&nbsp<span
                                                 class="red-text">*</span><br>
                                             <input type="file" name="marathi_image_new" id="marathi_image_new"
                                                 accept="image/*" value="{{ old('marathi_image_new') }}"><br>
@@ -104,7 +104,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-group">
                                             <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="url" id="url" class="form-control"

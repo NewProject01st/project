@@ -136,17 +136,8 @@
                                         <span class="serch-main">
                                             <ul class="navbar-nav mr-auto">
                                                 <li class="nav-item dropdown">
-                                                    <input type="text" id="search-box"
-                                                        placeholder="@if (session('language') == 'mar') {{ Config::get('marathi.NAVBAR.SEARCH_PLACEHOLDER') }}
-                                                @else
-                                                    {{ Config::get('english.NAVBAR.SEARCH_PLACEHOLDER') }} @endif">
-                                                    <button type="submit">
-                                                        @if (session('language') == 'mar')
-                                                            {{ Config::get('marathi.NAVBAR.SEARCH') }}
-                                                        @else
-                                                            {{ Config::get('english.NAVBAR.SEARCH') }}
-                                                        @endif
-                                                    </button>
+                                                    <input type="text" id="search-box" placeholder="Search...">
+                                                    <button type="submit" class="header_search_btn">Search</button>
                                                     <div id="search-results" class="dropdown-menu show"
                                                         aria-labelledby="navbarDropdown"></div>
                                                 </li>
