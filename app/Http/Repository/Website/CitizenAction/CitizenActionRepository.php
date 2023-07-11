@@ -106,11 +106,9 @@ class CitizenActionRepository  {
                     // $modal_data->ngo_photo =   $request['ngo_photo'];
                 }
 
-               
-             
                 // $modal_data->media_upload = $englishImageName;
                 $modal_data->save();       
-                    dd($modal_data);
+                    // dd($modal_data);
                 $last_insert_id = $modal_data->id;
 
                 $englishImageName = $last_insert_id . '_english.' . $request->media_upload->extension();
