@@ -4,7 +4,7 @@
     <?php $data_permission = getPermissionForCRUDPresentOrNot('list-state-disaster-management-plan', session('permissions'));
     ?>
     <div class="main-panel">
-        <div class="content-wrapper">
+        <div class="content-wrapper mt-7">
             <div class="page-header">
                 <h3 class="page-title">
                     State Disaster Management Plan

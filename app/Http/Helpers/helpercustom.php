@@ -136,7 +136,7 @@ function getMenuItemsForDynamicPageAdd() {
                 
 }
 
-function savePageNameInMenu($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date,$english_title,$marathi_title,$meta_data) {
+function savePageNameInMenu($main_sub, $id, $url, $menu_name, $publish_date,$english_title,$marathi_title,$meta_data, $final_content_english, $final_content_marathi) {
 
 
     if($main_sub =='main') {
@@ -147,7 +147,7 @@ function savePageNameInMenu($main_sub, $id, $url, $actual_page_name_marathi, $ac
                                     ]);
 
         
-        addOrUpdateDynamicWebPages($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date,$english_title,$marathi_title,$meta_data);
+        addOrUpdateDynamicWebPages($main_sub, $id, $url, $menu_name, $publish_date,$english_title,$marathi_title,$meta_data, $final_content_english, $final_content_marathi);
             
     } else {
         $subMenus  = MainSubMenus::where('id', '=', $id)
@@ -156,13 +156,13 @@ function savePageNameInMenu($main_sub, $id, $url, $actual_page_name_marathi, $ac
                                         'is_static'=> false
                                     ]);
 
-        addOrUpdateDynamicWebPages($main_sub, $id, $url, $actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date,$english_title,$marathi_title,$meta_data);
+        addOrUpdateDynamicWebPages($main_sub, $id, $url, $menu_name, $publish_date,$english_title,$marathi_title,$meta_data, $final_content_english, $final_content_marathi);
                                    
     }
     return 'ok';
 }
 
-function addOrUpdateDynamicWebPages($main_sub,$id,$url,$actual_page_name_marathi, $actual_page_name_english, $menu_name, $publish_date,$english_title,$marathi_title,$meta_data) {
+function addOrUpdateDynamicWebPages($main_sub,$id,$url,$menu_name, $publish_date,$english_title,$marathi_title,$meta_data, $final_content_english, $final_content_marathi) {
 
         $dynamic_web_page_name = DynamicWebPages::where('is_active',true)
                                                 ->where('menu_id',$id)
@@ -175,8 +175,8 @@ function addOrUpdateDynamicWebPages($main_sub,$id,$url,$actual_page_name_marathi
 
                                                     ->update([
                                                                 'slug'=> $url,
-                                                                'actual_page_name_marathi'=> $actual_page_name_marathi,
-                                                                'actual_page_name_english'=> $actual_page_name_english,
+                                                                'page_content_english'=> $final_content_english,
+                                                                'page_content_marathi'=> $final_content_marathi,
                                                                 'menu_name' =>$menu_name,
                                                                 'publish_date' =>$publish_date,
                                                                 'english_title' =>$english_title,
@@ -186,8 +186,8 @@ function addOrUpdateDynamicWebPages($main_sub,$id,$url,$actual_page_name_marathi
         } else {
             $data_for_insert = [
                 'slug'=> $url,
-                'actual_page_name_marathi'=> $actual_page_name_marathi,
-                'actual_page_name_english'=> $actual_page_name_english,
+                'page_content_english'=> $final_content_english,
+                'page_content_marathi'=> $final_content_marathi,
                 'menu_name' => $menu_name,
                 'menu_id' => $id,
                 'publish_date' => $publish_date,
@@ -217,8 +217,6 @@ function getMenuItemsDynamicPageDetailsById($id) {
                                     'menu_id',
                                     'menu_name',
                                     'slug',
-                                    'actual_page_name_marathi',
-                                    'actual_page_name_english',
                                     'publish_date',
                                 )
                                 ->first();

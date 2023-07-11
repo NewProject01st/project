@@ -23,12 +23,21 @@
             margin-bottom: 0px !important;
         }
 
+        span{
+            font-size: 14px !important;
+            line-height: 24px !important;
+            margin:0 0 15px !important;
+        }
+
         .gap-top {
-            margin-top: 50px;
+            margin-top: 10px;
         }
 
         .gap-bottom {
-            margin-bottom: 50px;
+            margin-bottom: 2%;
+        }
+        .deprt-txt h3 {
+        line-height: 10px !important;
         }
     </style>
 
@@ -52,7 +61,12 @@
     <div class="container gap-top">
         <div class="row">
             <div class="col-md-12">
-                @include($dynamic_page)
+                <div class="deprt-txt">
+                    <h3><?php echo $page_title; ?></h3>
+                    <?php echo $dynamic_page; ?>
+                </div>
+                
+                
             </div>
         </div>
     </div>

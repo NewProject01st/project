@@ -2,7 +2,7 @@
 @section('title', 'Applicant\'s Form')
 @section('content')
     <div class="main-panel">
-        <div class="content-wrapper">
+        <div class="content-wrapper mt-6">
             <div class="page-header">
                 <h3 class="page-title">
                     Training Materials And Workshops

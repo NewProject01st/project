@@ -5,7 +5,7 @@
     ?>
 
     <div class="main-panel">
-        <div class="content-wrapper">
+        <div class="content-wrapper mt-6">
             <div class="page-header">
                 <h3 class="page-title">
                     Users Master
