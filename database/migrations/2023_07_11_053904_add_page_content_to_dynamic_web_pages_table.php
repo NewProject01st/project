@@ -14,10 +14,10 @@ class AddPageContentToDynamicWebPagesTable extends Migration
     public function up()
     {
         Schema::table('dynamic_web_pages', function (Blueprint $table) {
-            $table->text('page_content_english')->default('null')->after('slug');
-            $table->text('page_content_marathi')->default('null')->after('slug');
-            $table->dropColumn('actual_page_name_marathi');
-            $table->dropColumn('actual_page_name_english');
+            $table->text('page_content_english')->nullable()->after('slug');
+            $table->text('page_content_marathi')->nullable()->after('slug');
+            // $table->dropColumn('actual_page_name_marathi');
+            // $table->dropColumn('actual_page_name_english');
         });
     }
 
@@ -31,8 +31,8 @@ class AddPageContentToDynamicWebPagesTable extends Migration
         Schema::table('dynamic_web_pages', function (Blueprint $table) {
             $table->dropColumn('page_content_english');
             $table->dropColumn('page_content_marathi');
-            $table->string('actual_page_name_marathi')->unique();
-            $table->string('actual_page_name_english')->unique();
+            // $table->string('actual_page_name_marathi')->unique();
+            // $table->string('actual_page_name_english')->unique();
         });
     }
 }

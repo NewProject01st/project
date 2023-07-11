@@ -4,7 +4,7 @@
     <?php $data_permission = getPermissionForCRUDPresentOrNot('list-event', session('permissions'));
     ?>
     <div class="main-panel">
-        <div class="content-wrapper">
+        <div class="content-wrapper mt-7">
             <div class="page-header">
                 <h3 class="page-title">
                     Event

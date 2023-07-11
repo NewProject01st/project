@@ -3,7 +3,7 @@
 @section('content')
     <?php $data_permission = getPermissionForCRUDPresentOrNot('list-users', session('permissions')); ?>
     <div class="main-panel">
-        <div class="content-wrapper">
+        <div class="content-wrapper mt-7">
             <div class="page-header">
                 <h3 class="page-title">
                     Users Master List <a href="{{ route('add-users') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
