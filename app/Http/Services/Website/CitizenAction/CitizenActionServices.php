@@ -79,8 +79,9 @@ class CitizenActionServices
         
         if ($request->has('checkbox_field') && $request->input('checkbox_field') == 1) {
             uploadImage($request, 'ngo_photo', $path, $marathiImageName);
+            
         }
-
+dd($last_id);
         if ($last_id) {
             return ['status' => 'success', 'msg' => 'Volunteer Citizen Added Successfully.'];
         } else {

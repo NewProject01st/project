@@ -2,7 +2,7 @@
  <footer class="home3 main-footer wf100">
      <div class="container">
          <div class="row">
-             <?php 
+             <?php
              $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData();
              ?>
              <!--Footer Widget Start-->
@@ -76,14 +76,14 @@
                          </div>
                      </div>
                  @endif
-                 @empty
-                                <h4>
-                                    @if (session('language') == 'mar')
-                                        {{ Config::get('marathi.FOOTER.WEBSITE_CONTACT') }}
-                                    @else
-                                        {{ Config::get('english.FOOTER.WEBSITE_CONTACT') }}
-                                    @endif
-                                </h4>
+             @empty
+                 <h4>
+                     @if (session('language') == 'mar')
+                         {{ Config::get('marathi.FOOTER.WEBSITE_CONTACT') }}
+                     @else
+                         {{ Config::get('english.FOOTER.WEBSITE_CONTACT') }}
+                     @endif
+                 </h4>
              @endforelse
              <!--Footer Widget End-->
              <!--Footer Widget Start-->
@@ -97,22 +97,23 @@
                          @endif
                      </h6>
                      <ul>
-                        @forelse ($common_data['web_department_data']  as $item)
+                         @forelse ($common_data['web_department_data']  as $item)
                              @if (session('language') == 'mar')
-                                 <li><a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer"><i class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
+                                 <li><a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer"><i
+                                             class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                              @else
                                  <li><a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer"><i
                                              class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
                              @endif
-                              @empty
-                                <h4>
-                                    @if (session('language') == 'mar')
-                                        {{ Config::get('marathi.FOOTER.DEPARTMENT_DATA') }}
-                                    @else
-                                        {{ Config::get('english.FOOTER.DEPARTMENT_DATA') }}
-                                    @endif
-                                </h4>
-                             @endforelse
+                         @empty
+                             <h4>
+                                 @if (session('language') == 'mar')
+                                     {{ Config::get('marathi.FOOTER.DEPARTMENT_DATA') }}
+                                 @else
+                                     {{ Config::get('english.FOOTER.DEPARTMENT_DATA') }}
+                                 @endif
+                             </h4>
+                         @endforelse
                      </ul>
                      <form method="POST" action="{{ url('/particular-department-information') }}"
                          id="departmentshowform">
@@ -133,7 +134,7 @@
                          @endif
                      </h6>
                      <ul>
-                        @forelse ($common_data['weballfooterlink_data']  as $item)
+                         @forelse ($common_data['weballfooterlink_data']  as $item)
                              @if (session('language') == 'mar')
                                  <li><a href="{{ $item['url'] }}" target="_blank"><i
                                              class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
@@ -141,7 +142,7 @@
                                  <li><a href="{{ $item['url'] }}" target="_blank"><i
                                              class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
                              @endif
-                             @empty
+                         @empty
                              <h4>
                                  @if (session('language') == 'mar')
                                      {{ Config::get('marathi.FOOTER.WEB_FOOTER_LINK') }}
@@ -149,40 +150,42 @@
                                      {{ Config::get('english.FOOTER.WEB_FOOTER_LINK') }}
                                  @endif
                              </h4>
-                             @endforelse
-                             @forelse ($common_data['privacypolicy_data'] as $item)
+                         @endforelse
+                         @forelse ($common_data['privacypolicy_data'] as $item)
                              @if (session('language') == 'mar')
-                                <li><a href="{{ route('privacy-policy') }}"><i
-                                     class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
-                                @else
-                                    <li><a href="{{ route('privacy-policy') }}"><i class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
-                                @endif
-                                @empty
-                                <p>
-                                    @if (session('language') == 'mar')
-                                        {{ Config::get('marathi.FOOTER.PRIVACY_POLICY') }}
-                                    @else
-                                        {{ Config::get('english.FOOTER.PRIVACY_POLICY') }}
-                                    @endif
-                                </p>
-                                @endforelse
+                                 <li><a href="{{ route('privacy-policy') }}"><i
+                                             class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
+                             @else
+                                 <li><a href="{{ route('privacy-policy') }}"><i
+                                             class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
+                             @endif
+                         @empty
+                             <p>
+                                 @if (session('language') == 'mar')
+                                     {{ Config::get('marathi.FOOTER.PRIVACY_POLICY') }}
+                                 @else
+                                     {{ Config::get('english.FOOTER.PRIVACY_POLICY') }}
+                                 @endif
+                             </p>
+                         @endforelse
 
-                                @forelse ($common_data['termcondition_data'] as $item)
-                         @if (session('language') == 'mar')
-                                <li><a href="{{ route('privacy-policy') }}"><i
-                                     class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
-                                @else
-                                    <li><a href="{{ route('terms_condition') }}"><i class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
-                                @endif
-                                @empty
-                                <p>
-                                    @if (session('language') == 'mar')
-                                        {{ Config::get('marathi.FOOTER.TERM_CONDITION') }}
-                                    @else
-                                        {{ Config::get('english.FOOTER.TERM_CONDITION') }}
-                                    @endif
-                                </p>
-                                @endforelse
+                         @forelse ($common_data['termcondition_data'] as $item)
+                             @if (session('language') == 'mar')
+                                 <li><a href="{{ route('privacy-policy') }}"><i
+                                             class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
+                             @else
+                                 <li><a href="{{ route('terms_condition') }}"><i
+                                             class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
+                             @endif
+                         @empty
+                             <p>
+                                 @if (session('language') == 'mar')
+                                     {{ Config::get('marathi.FOOTER.TERM_CONDITION') }}
+                                 @else
+                                     {{ Config::get('english.FOOTER.TERM_CONDITION') }}
+                                 @endif
+                             </p>
+                         @endforelse
                          {{-- <li><a href="{{ route('privacy-policy') }}"  target="_blank"><i
                             class="fas fa-star"></i>Privacy Policy</a></li>
                             <li><a href="{{ route('terms_condition') }}" target="_blank"><i
@@ -194,77 +197,69 @@
              <!--Footer Widget End-->
              <!--Footer Widget Start-->
              <div class="col-md-3 col-sm-6">
-                 <div class="twitter-widget">
-                     <div class="tw-txt">
-                         <h6>
-                             @if (session('language') == 'mar')
-                                 {{ Config::get('marathi.FOOTER.TWEET_HEADING1') }}
-                             @else
-                                 {{ Config::get('english.FOOTER.TWEET_HEADING1') }}
-                             @endif
-                         </h6>
-                         <a href="#" class="reply-tw"><i class="fas fa-reply"></i></a>
+                 <?php //print_r($common_data['twitter_feed']['url']);
+                 //die();
+                 ?>
+                <?php
+                //if (isset($common_data['twitter_feed'])) {
+                    //print_r($common_data['twitter_feed']);
+                //} else {
+                    //echo 'URL is not defined.';
+                //}
+                //die();
+                ?>
+                 @if (isset($common_data['twitter_feed']['url']) && $common_data['twitter_feed']['url'] == null)
+                     @forelse ($common_data['twitter_feed'] as $item)
+                         <iframe frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="yes"
+                             style="position: static; visibility: visible; height: 52vh; display: block; flex-grow: 1;"
+                             title="Twitter Timeline" src="{{ $item['url'] }}"></iframe>
+                     @empty
                          <p>
                              @if (session('language') == 'mar')
-                                 {{ Config::get('marathi.FOOTER.TWEET_FEED_INFO') }}
+                                 {{ Config::get('marathi.FOOTER.TERM_CONDITION') }}
                              @else
-                                 {{ Config::get('english.FOOTER.TWEET_FEED_INFO') }}
+                                 {{ Config::get('english.FOOTER.TERM_CONDITION') }}
                              @endif
                          </p>
-                     </div>
-                     <div class="tw-footer">
-                         @if (session('language') == 'mar')
-                             {{ Config::get('marathi.FOOTER.TWEET_HEADING2') }}
-                         @else
-                             {{ Config::get('english.FOOTER.TWEET_HEADING2') }}
-                         @endif
-                         <strong>
-                            <?php
-                            echo date('dS M Y');
-                            ?>
-                             {{-- @if (session('language') == 'mar')
-                                 {{ Config::get('marathi.FOOTER.DATE') }}
+                     @endforelse
+                 @else
+                     <div class="twitter-widget">
+                         <div class="tw-txt">
+                             <h6>
+                                 @if (session('language') == 'mar')
+                                     {{ Config::get('marathi.FOOTER.TWEET_HEADING1') }}
+                                 @else
+                                     {{ Config::get('english.FOOTER.TWEET_HEADING1') }}
+                                 @endif
+                             </h6>
+                             <a href="#" class="reply-tw"><i class="fas fa-reply"></i></a>
+                             <p>
+                                 @if (session('language') == 'mar')
+                                     {{ Config::get('marathi.FOOTER.TWEET_FEED_INFO') }}
+                                 @else
+                                     {{ Config::get('english.FOOTER.TWEET_FEED_INFO') }}
+                                 @endif
+                             </p>
+                         </div>
+                         <div class="tw-footer">
+                             @if (session('language') == 'mar')
+                                 {{ Config::get('marathi.FOOTER.TWEET_HEADING2') }}
                              @else
-                                 {{ Config::get('english.FOOTER.DATE') }}
-                             @endif --}}
-                         </strong> <i class="fab fa-twitter"></i>
+                                 {{ Config::get('english.FOOTER.TWEET_HEADING2') }}
+                             @endif
+                             <strong>
+                                 <?php echo date('dS M Y'); ?>
+                                 {{-- @if (session('language') == 'mar')
+                {{ Config::get('marathi.FOOTER.DATE') }}
+            @else
+                {{ Config::get('english.FOOTER.DATE') }}
+            @endif --}}
+                             </strong>
+                             <i class="fab fa-twitter"></i>
+                         </div>
                      </div>
-
-                 </div>
+                 @endif
              </div>
-
-             {{-- @forelse ($common_data['twitter_feed']  as $item)
-             @if (session('language') == 'mar')
-             <iframe 
-              frameborder="0" 
-              allowtransparency="true" 
-              allowfullscreen="true" 
-              scrolling="yes"
-            style="position:static; visibility:visible; height:52vh; display:block; flexGrow:1;" 
-              title="Twitter Timeline"
-               src="{{ $item['url'] }}" 
-               ></iframe>
-              @else
-              <iframe 
-              frameborder="0" 
-              allowtransparency="true" 
-              allowfullscreen="true" 
-              scrolling="yes"
-            style="position:static; visibility:visible; height:52vh; display:block; flexGrow:1;" 
-              title="Twitter Timeline"
-               src="{{ $item['url'] }}" 
-               ></iframe>
-          @endif
-          @empty
-          <p>
-              @if (session('language') == 'mar')
-                  {{ Config::get('marathi.FOOTER.TERM_CONDITION') }}
-              @else
-                  {{ Config::get('english.FOOTER.TERM_CONDITION') }}
-              @endif
-          </p>
-          @endforelse --}}
-             <!--Footer Widget End-->
          </div>
      </div>
  </footer>
@@ -274,13 +269,17 @@
      <div class="container">
          <div class="row">
              <div class="col-6">
-                 <p class="copyr"> © <script>document.write(new Date().getFullYear());</script> , <a href="#">
-                    @if (session('language') == 'mar')
-                    {{ Config::get('marathi.HOME_PAGE.ALL_RIGHT_RESERVED') }}
-                    @else
-                    {{ Config::get('english.HOME_PAGE.ALL_RIGHT_RESERVED') }}
-                    @endif
-                </a></p>
+                 <p class="copyr"> ©
+                     <script>
+                         document.write(new Date().getFullYear());
+                     </script> , <a href="#">
+                         @if (session('language') == 'mar')
+                             {{ Config::get('marathi.HOME_PAGE.ALL_RIGHT_RESERVED') }}
+                         @else
+                             {{ Config::get('english.HOME_PAGE.ALL_RIGHT_RESERVED') }}
+                         @endif
+                     </a>
+                 </p>
              </div>
              {{-- <div class="col-6">
                  <ul class="footer-social">
@@ -295,28 +294,25 @@
 
 
              <div class="col-6 d-flex justify-content-end">
-                <ul class="footer-social">
-             @forelse ($common_data['social_link'] as $item)
-             
-                 @if (session('language') == 'mar')
-                 <li><a href="{{ $item['url'] }}" target="_blank"
-                    class="fb" target="_blank">
-                    {{-- <i class="fab fa-facebook-f"></i> --}}
-                    <img src="{{ Config::get('DocumentConstant.SOCIAL_ICON_VIEW') }}{{ $item['icon'] }}"
-                    width="25" height="25" alt="...">
-                </a></li>
-                 @else
-                        <li><a href="{{ $item['url'] }}" target="_blank"
-                            class="fb" target="_blank">
-                            {{-- <i class="fab fa-facebook-f"></i> --}}
-                            <img src="{{ Config::get('DocumentConstant.SOCIAL_ICON_VIEW') }}{{ $item['icon'] }}"
-                            width="25" height="25" alt="...">
-                        </a></li>
-                 @endif
-               
-         @empty
-         </ul>
-        </div>
+                 <ul class="footer-social">
+                     @forelse ($common_data['social_link'] as $item)
+                         @if (session('language') == 'mar')
+                             <li><a href="{{ $item['url'] }}" target="_blank" class="fb" target="_blank">
+                                     {{-- <i class="fab fa-facebook-f"></i> --}}
+                                     <img src="{{ Config::get('DocumentConstant.SOCIAL_ICON_VIEW') }}{{ $item['icon'] }}"
+                                         width="25" height="25" alt="...">
+                                 </a></li>
+                         @else
+                             <li><a href="{{ $item['url'] }}" target="_blank" class="fb" target="_blank">
+                                     {{-- <i class="fab fa-facebook-f"></i> --}}
+                                     <img src="{{ Config::get('DocumentConstant.SOCIAL_ICON_VIEW') }}{{ $item['icon'] }}"
+                                         width="25" height="25" alt="...">
+                                 </a></li>
+                         @endif
+
+                     @empty
+                 </ul>
+             </div>
              <h4>
                  @if (session('language') == 'mar')
                      {{ Config::get('marathi.CITIZEN_ACTION.NO_DATA_FOUND_CITIZEN_FEEDBACK_SUGGESTION') }}
@@ -324,12 +320,12 @@
                      {{ Config::get('english.CITIZEN_ACTION.NO_DATA_FOUND_CITIZEN_FEEDBACK_SUGGESTION') }}
                  @endif
              </h4>
-         @endforelse
+             @endforelse
 
-             
+
 
          </div>
-        </div>
+     </div>
  </footer>
  <!--Footer End-->
 
@@ -363,14 +359,14 @@
      })
  </script>
 
-<script>
-    $('.disaster-show-btn').click(function(e) {
-        // alert("hiii");
-        // alert($(this).attr("data-id"));
-        $("#disaster_show_id").val($(this).attr("data-id"));
-        $("#disastershowform").submit();
-    })
-</script>
+ <script>
+     $('.disaster-show-btn').click(function(e) {
+         // alert("hiii");
+         // alert($(this).attr("data-id"));
+         $("#disaster_show_id").val($(this).attr("data-id"));
+         $("#disastershowform").submit();
+     })
+ </script>
 
 
  <!-- webpage A+ A- button script -->
@@ -396,27 +392,27 @@
          $("body").attr("style", "font-size:12px !important;");
      });
  </script>
-   <script src="{{ asset('website_files/assets/js/html-magnifier.js') }}"></script>
+ <script src="{{ asset('website_files/assets/js/html-magnifier.js') }}"></script>
 
-   
+
  <script>
-    $(document).ready(function() {
-        $('[data-toggle="tooltip"]').tooltip();
+     $(document).ready(function() {
+         $('[data-toggle="tooltip"]').tooltip();
 
-         const magnifier = new HTMLMagnifier({ width: 400 });
-        magnifier.hide(); // Hide the magnifier initially
+         const magnifier = new HTMLMagnifier({
+             width: 400
+         });
+         magnifier.hide(); // Hide the magnifier initially
 
-        document.getElementById("magnifier").addEventListener("click", function() {
-            if (magnifier.isVisible()) {
-                magnifier.hide();
-            } else {
-                magnifier.show();
-            }
-        });
-    });
-
-   
-</script> 
+         document.getElementById("magnifier").addEventListener("click", function() {
+             if (magnifier.isVisible()) {
+                 magnifier.hide();
+             } else {
+                 magnifier.show();
+             }
+         });
+     });
+ </script>
 
 
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\ConstitutionHistory;
 use App\Http\Services\Menu\MainMenuServices;
 use Validator;
+use Illuminate\Validation\Rule;
 class MainMenuController extends Controller
 {
 
@@ -30,22 +31,24 @@ class MainMenuController extends Controller
     }
 
     public function store(Request $request) {
-    $rules = [
-        'menu_name_english' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
-        'menu_name_marathi' => 'required|max:255',
-        // 'order_no' => 'required',
-        
-        ];
-    $messages = [   
-        // 'menu_name_marathi.required' => 'Please  enter menu name title.',
-        // 'menu_name_english.required' => 'Please  enter menu name title.',
 
-        'menu_name_english.required'=>'Please enter menu name title.',
-        'menu_name_english.regex' => 'Please  enter text only.',
-        'menu_name_english.max'   => 'Please  enter menu name length upto 255 character only.',
-        'menu_name_marathi.required'=>'कृपया मेनू नावाचे शीर्षक प्रविष्ट करा.',
-        'menu_name_marathi.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',  
-        // 'order_no.required' => 'Please enter marathi title.',
+        $id = $request->input('id'); // Assuming the 'id' value is present in the request
+
+        $rules = [
+            'menu_name_english' => 'required|unique:main_menuses|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'menu_name_marathi' => 'required|unique:main_menuses|max:255',           
+        ];
+
+    $messages = [   
+        'menu_name_english.required'       =>  'Please Enter Menu.',
+        'menu_name_english.regex' => 'Please Enter Text Only.',
+        'menu_name_english.unique' => 'Menu Already Exist.',
+        'menu_name_marathi.unique' => 'मेनू आधीपासून अस्तित्वात आहे.',
+        'menu_name_english.max'   => 'Please Enter text length upto 255 character only.',
+        'menu_name_marathi.required'       =>  'कृपया मेनू प्रविष्ट करा.',
+        'menu_name_marathi.required'       =>'कृपया शीर्षक प्रविष्ट करा.',
+        'menu_name_marathi.unique'  =>  'तुमचा घटना शीर्षक आधीपासून अस्तित्वात आहे .',
+        'menu_name_marathi.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
     ];
 
     try {
@@ -100,20 +103,20 @@ class MainMenuController extends Controller
 
     }
     public function update(Request $request) {
+        $id = $request->input('id'); // Assuming the 'id' value is present in the request
+
         $rules = [
-            'menu_name_english' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
-            'menu_name_marathi' => 'required|max:255',
-            // 'order_no' => 'required',
-            
-            ];
+            'menu_name_english' => ['required', 'max:255','regex:/^[a-zA-Z\s]+$/u', Rule::unique('main_menuses', 'menu_name_english')->ignore($id, 'id')],
+            'menu_name_marathi' => ['required', 'max:255', Rule::unique('main_menuses', 'menu_name_marathi')->ignore($id, 'id')],
+        ];
         $messages = [   
-            
-        'menu_name_english.required'=>'Please enter menu name title.',
-        'menu_name_english.regex' => 'Please  enter text only.',
-        'menu_name_english.max'   => 'Please  enter menu name length upto 255 character only.',
-        'menu_name_marathi.required'=>'कृपया मेनू नावाचे शीर्षक प्रविष्ट करा.',
+        'menu_name_english.required'       =>  'Please Enter Menu.',
+        'menu_name_english.regex' => 'Please Enter Text Only.',
+        'menu_name_english.unique' => 'Menu Already Exist.',
+        'menu_name_english.max'   => 'Please Enter text length upto 255 character only.',
+        'menu_name_marathi.required'       =>  'कृपया मेनू प्रविष्ट करा.',
+        'menu_name_marathi.unique' => 'मेनू आधीपासून अस्तित्वात आहे.',
         'menu_name_marathi.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',  
-            // 'order_no.required' => 'Please enter marathi title.',
         ];
     
         try {
