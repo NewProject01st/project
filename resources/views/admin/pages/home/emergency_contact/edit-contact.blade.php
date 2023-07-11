@@ -25,12 +25,10 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title</label>&nbsp<span
-                                                class="red-text">*</span>
-                                                <input type="text" class="form-control" name="english_title" id="english_title"
-                                                placeholder="Enter the Title" value="  @if (old('english_title'))
-                                                {{ old('english_title') }}@else{{ $emergency_contact->english_title }}
-                                                @endif">
+                                            <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" class="form-control" name="english_title"
+                                                id="english_title" placeholder="Enter the Title"
+                                                value="@if (old('english_title')) {{ old('english_title') }}@else{{ $emergency_contact->english_title }} @endif">
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -38,12 +36,10 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">शीर्षक</label>&nbsp<span
-                                                class="red-text">*</span>
-                                                <input type="text" class="form-control" name="marathi_title" id="marathi_title"
-                                                placeholder="शीर्षक प्रविष्ट करा" value="@if (old('marathi_title'))
-                                                {{ old('marathi_title') }}@else{{ $emergency_contact->marathi_title }}
-                                                @endif">
+                                            <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" class="form-control" name="marathi_title"
+                                                id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"
+                                                value="@if (old('marathi_title')) {{ old('marathi_title') }}@else{{ $emergency_contact->marathi_title }} @endif">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -51,8 +47,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_name">Name</label>&nbsp<span
-                                                class="red-text">*</span><br>
+                                            <label for="english_name">Name</label>&nbsp<span class="red-text">*</span><br>
                                             <input type="text" name="english_name" id="english_name" class="form-control"
                                                 value="@if (old('english_name')) {{ old('english_name') }}@else{{ $emergency_contact->english_name }} @endif">
                                             @if ($errors->has('english_name'))
@@ -62,9 +57,9 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_name">नाव</label>&nbsp<span
-                                                class="red-text">*</span><br>
-                                            <input type="text" name="marathi_name" id="marathi_name" class="form-control" placeholder="नाव प्रविष्ट करा"
+                                            <label for="marathi_name">नाव</label>&nbsp<span class="red-text">*</span><br>
+                                            <input type="text" name="marathi_name" id="marathi_name" class="form-control"
+                                                placeholder="नाव प्रविष्ट करा"
                                                 value="@if (old('marathi_name')) {{ old('marathi_name') }}@else{{ $emergency_contact->marathi_name }} @endif">
                                             @if ($errors->has('marathi_name'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_name', ':message'); ?></span>
@@ -73,13 +68,12 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
-                                            <label for="english_address">Address</label>&nbsp<span
-                                                class="red-text">*</span>
-                                            <textarea class="form-control" name="english_address" id="english_address"
-                                                placeholder="Enter the Address">@if (old('english_address'))
-                                                    {{ old('english_address') }}@else{{ $emergency_contact->english_address }}
-                                                    @endif
-                                                    </textarea>
+                                            <label for="english_address">Address</label>&nbsp<span class="red-text">*</span>
+                                            <textarea class="form-control" name="english_address" id="english_address" placeholder="Enter the Address">
+@if (old('english_address'))
+{{ old('english_address') }}@else{{ $emergency_contact->english_address }}
+@endif
+</textarea>
                                             @if ($errors->has('english_address'))
                                                 <span class="red-text"><?php echo $errors->first('english_address', ':message'); ?></span>
                                             @endif
@@ -87,13 +81,12 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
-                                            <label for="marathi_address">पत्ता</label>&nbsp<span
-                                                class="red-text">*</span>
-                                            <textarea class="form-control" name="marathi_address" id="marathi_address"
-                                                placeholder="पत्ता प्रविष्ट करा">@if (old('marathi_address'))
-                                                    {{ old('marathi_address') }}@else{{ $emergency_contact->marathi_address }}
-                                                    @endif
-                                                    </textarea>
+                                            <label for="marathi_address">पत्ता</label>&nbsp<span class="red-text">*</span>
+                                            <textarea class="form-control" name="marathi_address" id="marathi_address" placeholder="पत्ता प्रविष्ट करा">
+@if (old('marathi_address'))
+{{ old('marathi_address') }}@else{{ $emergency_contact->marathi_address }}
+@endif
+</textarea>
                                             @if ($errors->has('marathi_address'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_address', ':message'); ?></span>
                                             @endif

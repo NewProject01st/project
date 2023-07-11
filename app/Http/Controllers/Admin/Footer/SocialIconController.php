@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\SocialIcon;
 use App\Http\Services\Admin\Footer\SocialIconServices;
 use Validator;
+use Config;
 use Illuminate\Validation\Rule;
 class SocialIconController extends Controller
 {
@@ -32,16 +33,17 @@ class SocialIconController extends Controller
     public function store(Request $request) {
         $rules = [
             'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
-            'icon' => 'required',
-            
-            
-            
-         ];
+            'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.SOCIAL_ICON_IMAGE_MAX_SIZE").'|dimensions:min_width=100,min_height=100,max_width=600,max_height=600|min:'.Config::get("AllFileValidation.SOCIAL_ICON_IMAGE_MIN_SIZE").'',
+             ];
     $messages = [   
         'url.required'=>'Please enter url.',
         'url.regex'=>'Please enter valid url.',
-        'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
+        'icon.required' => 'The icon is required.',
+        'icon.image' => 'The icon must be a valid icon file.',
+        'icon.mimes' => 'The icon must be in JPEG, PNG, JPG, GIF, or SVG format.',
+        'icon.max' => 'The icon size must not exceed '.Config::get("AllFileValidation.SOCIAL_ICON_IMAGE_MAX_SIZE").'KB .',
+        'icon.min' => 'The icon size must not be less than '.Config::get("AllFileValidation.SOCIAL_ICON_IMAGE_MIN_SIZE").'KB .',
+        'icon.dimensions' => 'The icon dimensions must be between 100x100 and 600x600 pixels.',
     ];
 
     try {
@@ -86,7 +88,7 @@ class SocialIconController extends Controller
 {
     $rules = [
        
-        'icon' => 'required',
+        'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.SOCIAL_ICON_IMAGE_MAX_SIZE").'|dimensions:min_width=100,min_height=100,max_width=600,max_height=600|min:'.Config::get("AllFileValidation.SOCIAL_ICON_IMAGE_MIN_SIZE").'',
         'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
 
         
@@ -94,10 +96,14 @@ class SocialIconController extends Controller
     $messages = [   
         'url.required'=>'Please enter url.',
         'url.regex'=>'Please valid url.',
-        'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-      
+        'icon.required' => 'The icon is required.',
+        'icon.image' => 'The icon must be a valid icon file.',
+        'icon.mimes' => 'The icon must be in JPEG, PNG, JPG, GIF, or SVG format.',
+        'icon.max' => 'The icon size must not exceed '.Config::get("AllFileValidation.SOCIAL_ICON_IMAGE_MAX_SIZE").'KB .',
+        'icon.min' => 'The icon size must not be less than '.Config::get("AllFileValidation.SOCIAL_ICON_IMAGE_MIN_SIZE").'KB .',
+        'icon.dimensions' => 'The icon dimensions must be between 100x100 and 600x600 pixels.',
     ];
-
+      
     try {
         $validation = Validator::make($request->all(),$rules, $messages);
         if ($validation->fails()) {

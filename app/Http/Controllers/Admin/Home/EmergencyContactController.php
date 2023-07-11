@@ -30,8 +30,11 @@ class EmergencyContactController extends Controller
 
     public function store(Request $request) {
         $rules = [
-            'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
-            'marathi_title' => 'required|max:255',
+            'english_title' => [
+                'required',
+                'regex:/^[a-zA-Z][a-zA-Z\s\-0-9]*$/',
+                'max:255'
+               ],            'marathi_title' => 'required|max:255',
             'english_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             'marathi_name' => 'required|max:255',
             'english_address' => ['required','regex:/^(?![0-9\s]+$)[A-Za-z0-9\s\.,#\-\(\)\[\]\{\}]+$/','max:255'],
@@ -39,7 +42,10 @@ class EmergencyContactController extends Controller
             'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
             'english_number' => 'required|regex:/^[0-9]{10}$/',
             'marathi_number' => 'required|max:10',
-            'english_landline_no' => 'required|regex:/^[+]?[0-9-() ]{7,20}$/',
+            'english_landline_no' => [
+                'required',
+                'regex:/^[+]?[0-9-()\/\s]{7,25}$/',
+            ],
             'marathi_landline_no' => 'required|max:25',
             
          ];
@@ -115,7 +121,12 @@ class EmergencyContactController extends Controller
     public function update(Request $request)
 {
     $rules = [
-           'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+
+        'english_title' => [
+            'required',
+            'regex:/^[a-zA-Z][a-zA-Z\s\-0-9]*$/',
+            'max:255'
+           ],
             'marathi_title' => 'required|max:255',
             'english_name' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             'marathi_name' => 'required|max:255',
@@ -124,10 +135,13 @@ class EmergencyContactController extends Controller
             'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
             'english_number' => 'required|regex:/^[0-9]{10}$/',
             'marathi_number' => 'required|max:10',
-            'english_landline_no' => 'required|regex:/^[+]?[0-9-() ]{7,20}$/',
+            'english_landline_no' => [
+                'required',
+                'regex:/^[+]?[0-9-()\/\s]{7,25}$/',
+            ],
             'marathi_landline_no' => 'required|max:25',
             
-        
+           
      ];
     $messages = [   
         'english_title.required'=>'Please enter title.',

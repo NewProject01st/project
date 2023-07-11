@@ -138,10 +138,10 @@ class IncidentTypeController extends Controller
     ];
 
     $messages = [
-        'english_title.required' => 'Please enter an English title.',
+        'english_title.required' => 'Please enter title.',
         'english_title.regex' => 'Please  enter text only.',
-        'english_title.max' => 'Please enter an English title with a maximum of 255 characters.',
-        'english_title.unique' => 'The English title already exists.',
+        'english_title.max' => 'Please enter title with a maximum of 255 characters.',
+        'english_title.unique' => 'The title already exists.',
         'marathi_title.required' => 'कृपया मराठी शीर्षक प्रविष्ट करा.',
         'marathi_title.max' => 'कृपया २५५ अक्षरांपर्यंत मराठी शीर्षक प्रविष्ट करा.',
         'marathi_title.unique' => 'मराठी शीर्षक आधीच अस्तित्वात आहे.',

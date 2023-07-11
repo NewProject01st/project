@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('content')
- <?php
+    <?php
     $restricted_options = ['add_5', 'delete_5', 'add_6', 'delete_6', 'add_11', 'delete_11', 'add_17', 'delete_17', 'add_18', 'delete_18', 'add_19', 'delete_19', 'add_20', 'delete_20', 'add_21', 'delete_21', 'add_22', 'delete_22', 'add_23', 'delete_23', 'add_24', 'delete_24', 'add_25', 'delete_25', 'add_26', 'delete_26', 'add_27', 'delete_27', 'add_29', 'delete_29', 'add_30', 'delete_30', 'add_31', 'delete_31', 'add_32', 'update_32', 'add_33', 'update_33', 'add_34', 'update_34', 'add_46', 'update_46', 'add_51', 'delete_51', 'add_52', 'delete_52', 'add_53', 'delete_53', 'add_54', 'delete_54'];
     ?>
 
@@ -30,9 +30,9 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="role_name">Role Type</label>&nbsp<span class="red-text">*</span>
+                                            <label for="role_name">Role Type</label>&nbsp<span class="red-text">*</span><br>
                                             <input type="text" id="role_name" name="role_name" class="role_name"
-                                                value="@if (old('role_name')) {{ old('role_name') }} @else {{ $user_data['roles']['role_name'] }} @endif">
+                                                value="@if (old('role_name')) {{ old('role_name') }} @else {{ $user_data['roles']['role_name'] }} @endif"><br>
                                             @if ($errors->has('role_name'))
                                                 <span class="red-text"><?php echo $errors->first('role_name', ':message'); ?></span>
                                             @endif
@@ -194,56 +194,5 @@
                     validationMessage.textContent = "Only numbers are allowed.";
                 }
             }
-        </script>
-
-        <script>
-            $(document).ready(function() {
-                $.extend($.validator.methods, {
-                    spcenotallow: function(b, c, d) {
-                        if (!this.depend(d, c)) return "dependency-mismatch";
-                        if ("select" === c.nodeName.toLowerCase()) {
-                            var e = a(c).val();
-                            return e && e.length > 0
-                        }
-                        return this.checkable(c) ? this.getLength(b, c) > 0 : b.trim().length > 0
-                    }
-                });
-
-                $.validator.addMethod("alphanumericwithspace", function(value, element) {
-                    var reg = /[0-9]/;
-                    if (reg.test(value)) {
-                        return false;
-                    } else {
-                        return true;
-                    }
-                }, "Number is not permitted");
-
-
-                $("#roleformid").validate({
-                    rules: {
-                        user_type_id: {
-                            required: true,
-                        },
-                        role_name: {
-                            required: true,
-                            spcenotallow: true,
-                            alphanumericwithspace: true
-                        }
-
-                    },
-                    messages: {
-                        user_type_id: {
-                            required: "Select User Type",
-                        },
-                        role_name: {
-                            required: "Enter Role Name",
-                            spcenotallow: "Enter Some Text",
-                            alphanumericwithspace: "Enter Valid Input"
-
-                        },
-
-                    }
-                });
-            });
         </script>
     @endsection

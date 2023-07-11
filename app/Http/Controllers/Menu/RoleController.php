@@ -49,8 +49,8 @@ class RoleController extends Controller
                 'role_name' => 'required|unique:roles|regex:/^[a-zA-Z\s]+$/u|max:255',
             ];
             $messages = [
-                'role_name.required' => 'Please  enter english title.',
-                'role_name.unique' => 'Your role type is already exist.',
+                'role_name.required' => 'Please  enter title.',
+                // 'role_name.unique' => 'Your role type is already exist.',
                 'role_name.regex' => 'Please  enter text only.',
                 'role_name.max' => 'Please  enter text length upto 255 character only.',
                 'role_name.unique' => 'Title already exist.',
@@ -107,7 +107,7 @@ class RoleController extends Controller
                 'role_name' => ['required', 'max:255','regex:/^[a-zA-Z\s]+$/u', Rule::unique('roles', 'role_name')->ignore($id, 'id')],
             ];
             $messages = [
-                'role_name.required' => 'Please  enter english title.',
+                'role_name.required' => 'Please  enter  title.',
                 'role_name.regex' => 'Please  enter text only.',
                 'role_name.max' => 'Please  enter text length upto 255 character only.',
                 'role_name.unique' => 'Title already exist.',
