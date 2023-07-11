@@ -925,3 +925,15 @@ header .navbar-nav {
 		float: right !important;
 	}
 }
+
+@media (min-width: 280px) and (max-width: 767px) {
+	.fa-search-plus{
+		display: none !important;
+	}
+}
+
+/* @media (min-width: 280px) and (max-width: 767px) {
+	.new_head_ul{
+		padding-left: 2px;
+	}
+} */

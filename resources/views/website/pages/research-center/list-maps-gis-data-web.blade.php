@@ -34,7 +34,7 @@
             <!--Department Details Page Start-->
             <div class="department-details">
                 <div class="container">
-                    <div class="row">
+                    <div class="row ">
                         <h3 class="stitle text-center d-flex justify-content-start">
                             @if (session('language') == 'mar')
                                 {{ Config::get('marathi.HOME_PAGE.MAPS_GIS_DATA') }}

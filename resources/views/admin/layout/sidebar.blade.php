@@ -574,7 +574,8 @@
                   </li>
              {{-- @endif --}}
           </ul>
-      </nav><!-- partial -->
+      </nav>
+<!-- partial -->
 
       <script>
         

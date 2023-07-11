@@ -1,5 +1,5 @@
-<?php $data_output_websitelogo = App\Http\Controllers\Website\IndexController::getWebsiteLogo();
-$data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getWebTollFreeNumber();
+<?php $common_navbar_data = App\Http\Controllers\Website\IndexController::getCommonWebNavbarData();
+
 // print_r($data_output_tollfreenumber);
 // die();
 ?>
@@ -44,7 +44,6 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
 
                     </div>
                     <div class="col-4 d-flex align-items-center new_head_ul2">
-<?php //dd($data_output_tollfreenumber); ?>
                         <ul class="quick-links">
                             <li><a href="#">
                                 @if (session('language') == 'mar')
@@ -52,14 +51,14 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                             @else
                                 {{ Config::get('english.NAVBAR.TOLL_FREE') }}
                             @endif 
-                                    @foreach ($data_output_tollfreenumber as $item)
+                            @forelse ($common_navbar_data['webtollfree_data'] as $item)
                                         @if (session('language') == 'mar')
                                             <span><?php echo $item['marathi_tollfree_no']; ?></span>
                                         @else
                                             <span><?php echo $item['english_tollfree_no']; ?></span>
                                         @endif
                                     @endforeach
-                                  
+
                                 </a></li>
 
 
@@ -100,15 +99,14 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                                     @endif
                                 </strong>
                             </li>
-                           <li class="header-weather for_pl_pr"> <i class="fas fa-cloud-sun"></i>
+                            <li class="header-weather for_pl_pr"> <i class="fas fa-cloud-sun"></i>
                                 {{ getTempratureData()->temprature }}°C
                                 / {{ getTempratureData()->temprature * 1.8 + 32 }}°F
-                            </li> 
+                            </li>
                         </ul>
                     </div>
                     <div class="col-md-4 col-sm-4">
-
-                        @foreach ($data_output_websitelogo as $item)
+                        @forelse ($common_navbar_data['website_logo'] as $item)
                             @if (session('language') == 'mar')
                                 <div class="h3-logo"> <a href="/">
                                         <img src="{{ Config::get('DocumentConstant.WEBSITE_LOGO_VIEW') }}{{ $item['logo'] }}"
@@ -139,7 +137,7 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
                                             <ul class="navbar-nav mr-auto">
                                                 <li class="nav-item dropdown">
                                                     <input type="text" id="search-box" placeholder="Search...">
-                                                    <button type="submit">Search</button>
+                                                    <button type="submit" class="header_search_btn">Search</button>
                                                     <div id="search-results" class="dropdown-menu show"
                                                         aria-labelledby="navbarDropdown"></div>
                                                 </li>
@@ -408,4 +406,3 @@ $data_output_tollfreenumber = App\Http\Controllers\Website\IndexController::getW
         });
     });
 </script>
-

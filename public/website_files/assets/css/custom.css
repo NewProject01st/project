@@ -6839,6 +6839,10 @@ box-shadow: 0 0 4px #000;
 	border: 1px solid #CCCCCC!important;
 }
 
+.header_search_btn{
+	border: 1px solid #000 !important;
+}
+
 /*  */
 .weather_day{
 	border-bottom: 0rem !important;
@@ -6848,4 +6852,21 @@ box-shadow: 0 0 4px #000;
 }
 .divide_line{
 	margin-top: -1px;
+}
+
+.stitle{
+	margin-top: 2rem !important;
+}
+
+.close {
+    top: 8% !important;
+}
+
+.wheather_prev_icon{
+	background-color: rgb(0 0 0 / 10%);
+    background-size: 100%, 100%;
+}
+.wheather_next_icon{
+	background-color: rgb(0 0 0 / 10%);
+    background-size: 100%, 100%;
 }

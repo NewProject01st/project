@@ -425,6 +425,7 @@ ul.status_ul li a {
 }
 .sidebar .nav.sub-menu .nav-item .nav-link:hover {
     color: #fe616d  !important;
+    /* width: 245px; */
 }
 .datepicker table tr td span.active, .datepicker table tr td span.active:hover, .datepicker table tr td span.active.disabled, .datepicker table tr td span.active.disabled:hover {
     background-color: #006dcc;

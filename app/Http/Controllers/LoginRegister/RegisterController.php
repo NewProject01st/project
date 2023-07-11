@@ -13,6 +13,7 @@ use App\Models\ {
 };
 use Validator;
 use session;
+use Config;
 
 class RegisterController extends Controller {
     /**
@@ -186,7 +187,8 @@ class RegisterController extends Controller {
                     'state' => 'required',
                     'city' => 'required',
                     'pincode' => 'required|regex:/^[0-9]{6}$/',
-                    'user_profile' => 'required',
+                    'user_profile' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.USER_PROFILE_MAX_SIZE").'|dimensions:min_width=150,min_height=150,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.USER_PROFILE_MIN_SIZE").'',
+
                  ];       
 
         $messages = [   
@@ -230,7 +232,13 @@ class RegisterController extends Controller {
                        'pincode.required' => 'Please enter pincode.',
                         'pincode.regex' => 'Please enter a 6-digit pincode.',
                         'user_profile.required' => 'The user profile is required.',
-                    ];
+                        'user_profile.image' => 'The user profile must be a valid image file.',
+                        'user_profile.mimes' => 'The user profile must be in JPEG, PNG, JPG, GIF, or SVG format.',
+                        'user_profile.max' => 'The user profile size must not exceed '.Config::get("AllFileValidation.USER_PROFILE_MAX_SIZE").'KB .',
+                        'user_profile.min' => 'The user profile size must not be less than '.Config::get("AllFileValidation.USER_PROFILE_MIN_SIZE").'KB .',
+                        'user_profile.dimensions' => 'The user profile dimensions must be between 150x150 and 400x400 pixels.',    
+
+                      ];
 
 
         $validation = Validator::make($request->all(),$rules,$messages);
