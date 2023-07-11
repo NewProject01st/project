@@ -28,8 +28,9 @@ public function getById($id)
 {
     try {
         $dynamic_page_data = DynamicWebPages::where('id','=',$id)
-                            ->select('actual_page_name_marathi',
-                                     'actual_page_name_english',
+                            ->select(
+                                    'page_content_marathi',
+                                    'page_content_english',
                                      'menu_type','publish_date',
                                      'english_title',
                                      'marathi_title',

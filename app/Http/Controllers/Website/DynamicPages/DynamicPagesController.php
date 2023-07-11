@@ -26,7 +26,6 @@ class DynamicPagesController extends Controller
             $date_now = date("Y-m-d");
             $path = str_replace('pages/','',\Request::getPathInfo());
             $path_final = str_replace('/','',$path);
-            $path_new = 'admin.pages.dynamic-pages-created.';
 
             $menu = $this->menu;
             $language = $this->language;
@@ -38,12 +37,12 @@ class DynamicPagesController extends Controller
 
             } else {
                 if (Session::get('language') == 'mar') {
-                    $dynamic_page = $path_new.$dynamic_web_page_name->actual_page_name_marathi;
+                    $dynamic_page = $dynamic_web_page_name->page_content_marathi;
                     $page_title = $dynamic_web_page_name->marathi_title;
                     $dynamic_meta_data = $dynamic_web_page_name->meta_data;
                     $language = 'mar';
                 } else {
-                    $dynamic_page = $path_new.$dynamic_web_page_name->actual_page_name_english;
+                    $dynamic_page = $dynamic_web_page_name->page_content_english;
                     $page_title = $dynamic_web_page_name->english_title;
                     $dynamic_meta_data =$dynamic_web_page_name->meta_data;
                     $language = 'en';
