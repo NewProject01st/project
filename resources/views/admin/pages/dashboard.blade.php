@@ -70,7 +70,7 @@
     </style>
 <?php $data_for_url = session('data_for_url'); ?>
     <div class="main-panel">
-        <div class="content-wrapper">
+        <div class="content-wrapper mt-6">
             <div class="page-header">
                 <h3 class="page-title">
                     Dashboard

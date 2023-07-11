@@ -16505,6 +16505,14 @@ button.bg-dark:focus,
   margin-top: 3rem !important;
 }
 
+.mt-6, .my-6 {
+  margin-top: 4rem !important;
+}
+
+.mt-7, .my-7 {
+  margin-top: 4.5rem !important;
+}
+
 .mr-5,
 .mx-5 {
   margin-right: 3rem !important;
@@ -18324,7 +18332,7 @@ input:focus {
 
 /* Sidebar */
 ::-webkit-scrollbar {
-  width: 1px;
+  width: 0px;
 }
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 
@@ -29573,11 +29581,12 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
 
 .sidebar-icon-only .sidebar:hover {
   width: 255px;
-  /* background: transparent !important; */
+  background: transparent !important;
   color: rgba(255,255,255,0.5);
   overflow-y: scroll;
   /* background: rgb(0 0 0 / 11%) !important; */
-  background: linear-gradient(85deg, #ECE9E6, #FFFFFF) !important;
+  /* background: linear-gradient(85deg, #ECE9E6, #FFFFFF) !important; */
+  box-shadow: none;
 }
 .sidebar-icon-only .sidebar .nav {
   overflow: visible;
@@ -29605,3 +29614,16 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
 }
 
 /*  */
+
+.edit-btn:hover{
+  background: #705fba4f !important;
+}
+.show-btn:hover{
+  background: #04b76b42 !important;
+}
+.show-btn{
+  border-color: #04b76bcf !important;
+}
+.delete-btn:hover{
+  background: #ff5e6d5c !important;
+}
