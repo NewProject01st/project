@@ -8,7 +8,7 @@
      //  die();
      ?>
      <div class="main-panel">
-         <div class="content-wrapper">
+         <div class="content-wrapper mt-7">
              <div class="page-header">
                  <h3 class="page-title">
                      Disaster Management Portal List

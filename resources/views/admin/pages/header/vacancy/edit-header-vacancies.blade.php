@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="main-panel">
-        <div class="content-wrapper">
+        <div class="content-wrapper mt-6">
             <div class="page-header">
                 <h3 class="page-title">
                     Vacancies
@@ -57,7 +57,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_pdf">पीडीएफ</label>
+                                            <label for="marathi_pdf">पीडीएफ</label><br>
                                             <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
                                                 class="">
                                             @if ($errors->has('marathi_pdf'))
