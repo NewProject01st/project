@@ -33,7 +33,10 @@ class WebsiteContactController extends Controller
             'english_address' => 'required|max:255',
             'marathi_address' => 'required|max:255',  
             'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
-            'english_number' =>'required|regex:/^[0-9\-\/\s]+$/',
+            'english_number' => [
+                'required',
+                'regex:/^[+]?[0-9-()\/\s]{7,25}$/',
+            ],
             'marathi_number' => 'required|max:25',
             // 'marathi_icon' => 'required',
             
@@ -96,7 +99,10 @@ class WebsiteContactController extends Controller
         'english_address' => 'required|max:255',
         'marathi_address' => 'required|max:255',
         'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
-        'english_number' => ['required','regex:/^[0-9\-\/\s]+$/'],
+        'english_number' => [
+            'required',
+            'regex:/^[+]?[0-9-()\/\s]{7,25}$/',
+        ],
         'marathi_number' => 'required|max:25',
         
      ];

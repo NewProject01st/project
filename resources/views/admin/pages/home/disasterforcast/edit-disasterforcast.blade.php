@@ -51,12 +51,12 @@
                                         <div class="form-group">
                                             <label for="english_description">Description <span
                                                     class="text-danger">*</span></label>
-                                            <textarea class="form-control " name="english_description" id="english_description"
-                                                placeholder="Enter the Description" name="english_description">
-                                                @if (old('english_description'))
+                                            <textarea class="form-control " name="english_description" id="english_description" placeholder="Enter the Description"
+                                                name="english_description">
+@if (old('english_description'))
 {{ old('english_description') }}@else{{ $disasterforcast->english_description }}
 @endif
-                                                </textarea>
+</textarea>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message');
                                                 ?></span>
@@ -67,12 +67,11 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label> वर्णन <span class="text-danger">*</span></label>
-                                            <textarea class="form-control " name="marathi_description" id="marathi_description"
-                                                placeholder="वर्णन प्रविष्ट करा">
-                                                @if (old('marathi_description'))
+                                            <textarea class="form-control " name="marathi_description" id="marathi_description" placeholder="वर्णन प्रविष्ट करा">
+@if (old('marathi_description'))
 {{ old('marathi_description') }}@else{{ $disasterforcast->marathi_description }}
 @endif
-                                                </textarea>
+</textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"marathi_description><?php echo $errors->first('english_description', ':message'); ?></span>
                                             @endif
