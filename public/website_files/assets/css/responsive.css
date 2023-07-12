@@ -549,25 +549,34 @@ li.city-exp {
 	padding: 0 7px;
 	font-size: 12px;
 	/* margin-top: 30%; */
-	margin-top: 93% !important;
+	margin-top: 1% !important;
 }
 }
 
 @media (min-width: 374px) and (max-width: 375px) {
 	.become-vol {
 		line-height: 25px !important;
+		/* margin-bottom: 0px !important; */
 	}
 }
 
 @media (min-width: 392px) and (max-width: 393px) {
 	.become-vol {
-		margin-top: 93% !important;
+		margin-top: 1% !important;
+		margin-bottom: 0px !important;
 	}
 }
 
 @media (min-width: 389px) and (max-width: 390px) {
 	.become-vol {
-		margin-top: 93% !important;
+		margin-top: 1% !important;
+		margin-bottom: 0px !important;
+	}
+}
+
+@media (min-width: 280px) and (max-width: 767px) {
+	.new_head_ul2 ul.quick-links {
+		display: none !important;
 	}
 }
 
@@ -672,7 +681,7 @@ li.city-exp {
 	padding: 0 7px;
 	font-size: 12px;
 	/* margin-top: 30%; */
-	margin-top: 64%;
+	margin-top: 1%;
 }
 .cross-btn {
 	font-size: 12px;
