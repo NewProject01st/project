@@ -50,7 +50,7 @@
                                             <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="english_title"
                                                 id="english_title" placeholder="Enter the Tilte"
-                                                value="{{ $dynamic_page->english_title }}" />
+                                                value="@if (old('english_title')){{ old('english_title') }}@else{{ $dynamic_page->english_title }}@endif" />
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -61,7 +61,7 @@
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="marathi_title"
                                                 id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"
-                                                value="{{ $dynamic_page->marathi_title }}" />
+                                                value="@if (old('marathi_title')){{ old('marathi_title') }}@else{{ $dynamic_page->marathi_title }}@endif" />
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -74,7 +74,8 @@
                                             <label for="english_description">Page Content</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control" name="english_description" id="summernote2" placeholder="Enter the Description">
-                                            {{ $html_english }}
+                                            {{-- {{ $html_english }} --}}
+                                            @if (old('english_description')){{ old('english_description') }}@else{{ $html_marathi}}@endif
                                         </textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
@@ -86,7 +87,8 @@
                                             <label for="marathi_description">Page Content</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control" name="marathi_description" id="summernote3" placeholder="Enter the Description">
-                                            {{ $html_marathi }}
+                                            {{-- {{ $html_marathi }} --}}
+                                            @if (old('marathi_description')){{ old('marathi_description') }}@else{{ $html_marathi}}@endif
                                         </textarea>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
@@ -101,7 +103,7 @@
                                                 class="red-text">*</span>
                                             <input type="text" class="form-control" name="meta_data"
                                                 placeholder="Enter Page Meta Data"
-                                                value="{{ $dynamic_page->meta_data }}" />
+                                                value="@if (old('meta_data')){{ old('meta_data') }}@else{{ $dynamic_page->meta_data }}@endif" />
                                             @if ($errors->has('meta_data'))
                                                 <span class="red-text"><?php echo $errors->first('meta_data', ':message'); ?></span>
                                             @endif
@@ -112,7 +114,7 @@
                                             <label for="publish_date">Publish Date</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="date" class="form-control" placeholder="YYYY-MM-DD"
-                                                value="{{ $get_publish_date }}" name="publish_date" id="publish_date">
+                                                value="@if (old('publish_date')){{ old('publish_date') }}@else{{ $get_publish_date }}@endif" name="publish_date" id="publish_date">
                                             @if ($errors->has('publish_date'))
                                                 <span class="red-text"><?php echo $errors->first('publish_date', ':message'); ?></span>
                                             @endif

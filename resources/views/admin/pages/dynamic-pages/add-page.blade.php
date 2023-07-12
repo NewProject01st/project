@@ -33,9 +33,10 @@
                                                 aria-label="Default select example" value="{{ old('menu_data') }}">
                                                 <option selected>Select Name</option>
                                                 @foreach ($main_menu_data as $key => $data)
-                                                    <option value="{{ $data['menu_id'] }}_{{ $data['main_sub'] }}">
-                                                        {{ $data['menu_name_english'] }}({{ $data['menu_name_marathi'] }})
-                                                    </option>
+                                                    <option value="{{ $data['menu_id'] }}"
+                                                    {{ old('menu_data') == $data['menu_id'] ? 'selected' : '' }}>
+                                                    {{ $data['menu_name_english'] }}({{ $data['menu_name_marathi'] }})
+                                                </option>
                                                 @endforeach
                                             </select>
                                             @if ($errors->has('menu_data'))
@@ -50,7 +51,7 @@
                                         <div class="form-group">
                                             <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="english_title"
-                                                id="english_title" placeholder="Enter the Tilte" />
+                                                id="english_title" placeholder="Enter the Tilte" value="{{ old('english_title') }}" />
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -60,7 +61,7 @@
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="marathi_title"
-                                                id="marathi_title" placeholder="शीर्षक प्रविष्ट करा " />
+                                                id="marathi_title" placeholder="शीर्षक प्रविष्ट करा " value="{{ old('marathi_title') }}" />
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -96,7 +97,7 @@
                                             <label for="meta_data">Page Meta Data</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" class="form-control" name="meta_data"
-                                                placeholder="Enter Page Meta Data" />
+                                                placeholder="Enter Page Meta Data" value="{{ old('meta_data') }}"/>
                                             @if ($errors->has('meta_data'))
                                                 <span class="red-text"><?php echo $errors->first('meta_data', ':message'); ?></span>
                                             @endif

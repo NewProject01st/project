@@ -110,7 +110,7 @@ class RoleController extends Controller
                 'role_name.required' => 'Please  enter  title.',
                 'role_name.regex' => 'Please  enter text only.',
                 'role_name.max' => 'Please  enter text length upto 255 character only.',
-                'role_name.unique' => 'Title already exist.',
+                'role_name.unique' => 'Role Name Already Exist.',
             ];
 
             $validation = Validator::make($request->all(), $rules, $messages);
