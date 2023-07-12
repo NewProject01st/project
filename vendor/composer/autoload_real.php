@@ -24,18 +24,6 @@ class ComposerAutoloaderInit1f5cdc29ece729f07514bbcc9ff28a04
 
         require __DIR__ . '/platform_check.php';
 
-<<<<<<< HEAD
-        spl_autoload_register(array('ComposerAutoloaderInit2afb0d3aa5dba201e81494d99408135d', 'loadClassLoader'), true, true);
-        self::$loader = $loader = new \Composer\Autoload\ClassLoader(\dirname(__DIR__));
-        spl_autoload_unregister(array('ComposerAutoloaderInit2afb0d3aa5dba201e81494d99408135d', 'loadClassLoader'));
-
-        require __DIR__ . '/autoload_static.php';
-        call_user_func(\Composer\Autoload\ComposerStaticInit2afb0d3aa5dba201e81494d99408135d::getInitializer($loader));
-
-        $loader->register(true);
-
-        $filesToLoad = \Composer\Autoload\ComposerStaticInit2afb0d3aa5dba201e81494d99408135d::$files;
-=======
         spl_autoload_register(array('ComposerAutoloaderInit1f5cdc29ece729f07514bbcc9ff28a04', 'loadClassLoader'), true, true);
         self::$loader = $loader = new \Composer\Autoload\ClassLoader(\dirname(__DIR__));
         spl_autoload_unregister(array('ComposerAutoloaderInit1f5cdc29ece729f07514bbcc9ff28a04', 'loadClassLoader'));
@@ -46,7 +34,6 @@ class ComposerAutoloaderInit1f5cdc29ece729f07514bbcc9ff28a04
         $loader->register(true);
 
         $filesToLoad = \Composer\Autoload\ComposerStaticInit1f5cdc29ece729f07514bbcc9ff28a04::$files;
->>>>>>> vivek
         $requireFile = \Closure::bind(static function ($fileIdentifier, $file) {
             if (empty($GLOBALS['__composer_autoload_files'][$fileIdentifier])) {
                 $GLOBALS['__composer_autoload_files'][$fileIdentifier] = true;
