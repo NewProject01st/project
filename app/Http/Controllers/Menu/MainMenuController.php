@@ -103,7 +103,7 @@ class MainMenuController extends Controller
 
     }
     public function update(Request $request) {
-        $id = $request->input('id'); // Assuming the 'id' value is present in the request
+        $id = $request->edit_id; // Assuming the 'id' value is present in the request
 
         $rules = [
             'menu_name_english' => ['required', 'max:255','regex:/^[a-zA-Z\s]+$/u', Rule::unique('main_menuses', 'menu_name_english')->ignore($id, 'id')],

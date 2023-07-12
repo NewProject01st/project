@@ -101,8 +101,7 @@ class RoleController extends Controller
     {
         try {
             
-            $id = $request->input('id'); // Assuming the 'id' value is present in the request
-
+            $id = $request->edit_id; // Assuming the 'id' value is present in the request
             $rules = [
                 'role_name' => ['required', 'max:255','regex:/^[a-zA-Z\s]+$/u', Rule::unique('roles', 'role_name')->ignore($id, 'id')],
             ];
