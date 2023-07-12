@@ -12,12 +12,10 @@
 });*/
 
 
-$(".alert").fadeTo(2000, 500).slideUp(500, function() {
-     $("#success-alert").slideUp(500);
-     $("#danger-alert").slideUp(500);
-});
-
-       
+    $(".alert").fadeTo(2000, 500).slideUp(500, function() {
+        $("#success-alert").slideUp(500);
+        $("#danger-alert").slideUp(500);
+    });
 </script>
 
 
@@ -385,6 +383,41 @@ $(".alert").fadeTo(2000, 500).slideUp(500, function() {
                 let reader = new FileReader();
                 reader.onload = function(event) {
                     $("#marathi_imgPreview")
+                        .attr("src", event.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(() => {
+        $("#english_image_new").change(function() {
+            $('#english1').css('display', 'none');
+            $("#english_imgPreview1").show();
+
+            const file = this.files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function(event) {
+                    $("#english_imgPreview1")
+                        .attr("src", event.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(() => {
+        $("#marathi_image_new").change(function() {
+            $('#marathi1').css('display', 'none');
+            $("#marathi_imgPreview1").show();
+            const file = this.files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function(event) {
+                    $("#marathi_imgPreview1")
                         .attr("src", event.target.result);
                 };
                 reader.readAsDataURL(file);
