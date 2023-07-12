@@ -136,9 +136,9 @@ return [
     'VOLUNTEER_CITIZEN_MODAL_DELETE'  => '/all_web_data/images/citizen-action/modal/volunteer-citizen-modal/',
     'VOLUNTEER_CITIZEN_MODAL_VIEW'    => env("AWS_FILE_VIEW").'/all_web_data/images/citizen-action/modal/volunteer-citizen-modal/',
     
-    // 'VOLUNTEER_CITIZEN_NGO_ADD'	    => "/all_web_data/images/citizen-action/modal/volunteer-citizen-modal//",
-    // 'VOLUNTEER_CITIZEN_NGO_DELETE'  => '/all_web_data/images/citizen-action/modal/volunteer-citizen-modal/',
-    // 'VOLUNTEER_CITIZEN_NGO_VIEW'    => env("AWS_FILE_VIEW").'/all_web_data/images/citizen-action/modal/volunteer-citizen-modal/',
+    // 'VOLUNTEER_CITIZEN_NGO_ADD'	    => "/all_web_data/images/citizen-action/modal/volunteer-citizen-modal_ngo//",
+    // 'VOLUNTEER_CITIZEN_NGO_DELETE'  => '/all_web_data/images/citizen-action/modal/volunteer-citizen-modal_ngo/',
+    // 'VOLUNTEER_CITIZEN_NGO_VIEW'    => env("AWS_FILE_VIEW").'/all_web_data/images/citizen-action/modal/volunteer-citizen-modal_ngo/',
 
     'FEEDBACK_CITIZEN_MODAL_ADD'	    => "/all_web_data/images/citizen-action/modal/feedback-citizen-modal//",
     'FEEDBACK_CITIZEN_MODAL_DELETE'  => '/all_web_data/images/citizen-action/modal/feedback-citizen-modal/',

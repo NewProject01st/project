@@ -312,8 +312,6 @@ class IndexController extends Controller
         }
     } 
         
-    
-
     public function getPrivacyPolicy(Request $request)
     {
         try {

@@ -200,15 +200,72 @@
                  <?php //print_r($common_data['twitter_feed']['url']);
                  //die();
                  ?>
-                <?php
-                //if (isset($common_data['twitter_feed'])) {
-                    //print_r($common_data['twitter_feed']);
-                //} else {
-                    //echo 'URL is not defined.';
-                //}
-                //die();
-                ?>
-                 @if (isset($common_data['twitter_feed']['url']) && $common_data['twitter_feed']['url'] == null)
+
+<?php
+if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed'])) {
+    foreach ($common_data['twitter_feed'] as $feed) {
+        if (isset($feed['url']) && $feed['url'] !=='') {
+            // echo $feed['url'] . '<br>';
+            ?>
+            <iframe frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="yes"
+            style="position: static; visibility: visible; height: 52vh; display: block; flex-grow: 1;"
+            title="Twitter Timeline" src="{{ $feed['url'] }}"></iframe>
+            <?php 
+        }
+        else {
+            ?>
+<div class="twitter-widget">
+    <div class="tw-txt">
+        <h6>
+            @if (session('language') == 'mar')
+                {{ Config::get('marathi.FOOTER.TWEET_HEADING1') }}
+            @else
+                {{ Config::get('english.FOOTER.TWEET_HEADING1') }}
+            @endif
+        </h6>
+        <a href="#" class="reply-tw"><i class="fas fa-reply"></i></a>
+        <p>
+            @if (session('language') == 'mar')
+                {{ Config::get('marathi.FOOTER.TWEET_FEED_INFO') }}
+            @else
+                {{ Config::get('english.FOOTER.TWEET_FEED_INFO') }}
+            @endif
+        </p>
+    </div>
+    <div class="tw-footer">
+        @if (session('language') == 'mar')
+            {{ Config::get('marathi.FOOTER.TWEET_HEADING2') }}
+        @else
+            {{ Config::get('english.FOOTER.TWEET_HEADING2') }}
+        @endif
+        <strong>
+            <?php echo date('dS M Y'); ?>
+            {{-- @if (session('language') == 'mar')
+{{ Config::get('marathi.FOOTER.DATE') }}
+@else
+{{ Config::get('english.FOOTER.DATE') }}
+@endif --}}
+        </strong>
+        <i class="fab fa-twitter"></i>
+    </div>
+</div>
+            <?php 
+                //   echo 'URL is not defined.';
+              } 
+    }
+}
+?>
+              <?php
+              //if (isset($common_data['twitter_feed']) && isset($common_data['twitter_feed']['url'])) {
+                 // echo $common_data['twitter_feed']['url'];
+              //} else {
+                  //echo 'URL is not defined.';
+              //}
+              //die();
+              ?>
+              
+               
+                 {{-- @if (isset($common_data['twitter_feed']['url']) && $common_data['twitter_feed']['url'] == null)
                      @forelse ($common_data['twitter_feed'] as $item)
                          <iframe frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="yes"
                              style="position: static; visibility: visible; height: 52vh; display: block; flex-grow: 1;"
@@ -247,18 +304,18 @@
                              @else
                                  {{ Config::get('english.FOOTER.TWEET_HEADING2') }}
                              @endif
-                             <strong>
-                                 <?php echo date('dS M Y'); ?>
+                             <strong> --}}
+                                 <?php //echo date('dS M Y'); ?>
                                  {{-- @if (session('language') == 'mar')
                 {{ Config::get('marathi.FOOTER.DATE') }}
             @else
                 {{ Config::get('english.FOOTER.DATE') }}
             @endif --}}
-                             </strong>
+                             {{-- </strong>
                              <i class="fab fa-twitter"></i>
                          </div>
                      </div>
-                 @endif
+                 @endif --}}
              </div>
          </div>
      </div>

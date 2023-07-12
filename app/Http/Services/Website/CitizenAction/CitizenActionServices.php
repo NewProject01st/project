@@ -61,27 +61,14 @@ class CitizenActionServices
         $last_id = $this->repo->addVolunteerModalInfo($request);
         $path = Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_ADD');
         $englishImageName = $last_id . '_english.' . $request->media_upload->extension();
-        $marathiImageName = $last_id . '_english1.' . $request->ngo_photo->extension();
+       
         uploadImage($request, 'media_upload', $path, $englishImageName);
-        // uploadImage($request, 'ngo_photo', $path, $marathiImageName);
-
-
-        // $last_id = $this->repo->addVolunteerModalInfo($request);
-        // $path = Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_ADD');
-        // $path1 = Config::get('DocumentConstant.VOLUNTEER_CITIZEN_NGO_ADD');
-        // // $englishImageName = $last_id . '_english.' . $request->file('media_upload')->getClientOriginalExtension();
-        // // $marathiImageName = $last_id . '_english1.' . $request->file('ngo_photo')->getClientOriginalExtension();
-
-        // $englishImageName = $last_id . '_english.' . $request->media_upload->extension();
-        // $marathiImageName = $last_id . '_english1.' . $request->ngo_photo->extension();
-
-        // uploadImage($request, 'media_upload', $path, $englishImageName);
-        
-        if ($request->has('checkbox_field') && $request->input('checkbox_field') == 1) {
+            if($request->is_ngo == 'on') {
+            $path = Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_ADD');
+            $marathiImageName = $last_id . '_english1.' . $request->ngo_photo->extension();
             uploadImage($request, 'ngo_photo', $path, $marathiImageName);
-            
         }
-dd($last_id);
+        
         if ($last_id) {
             return ['status' => 'success', 'msg' => 'Volunteer Citizen Added Successfully.'];
         } else {
