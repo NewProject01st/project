@@ -6836,9 +6836,9 @@ class ComposerStaticInit14519d7d7b28ef0ff0634ad3eb0c6f1f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit14519d7d7b28ef0ff0634ad3eb0c6f1f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit14519d7d7b28ef0ff0634ad3eb0c6f1f::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit14519d7d7b28ef0ff0634ad3eb0c6f1f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1f5cdc29ece729f07514bbcc9ff28a04::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1f5cdc29ece729f07514bbcc9ff28a04::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit1f5cdc29ece729f07514bbcc9ff28a04::$classMap;
 
         }, null, ClassLoader::class);
     }
