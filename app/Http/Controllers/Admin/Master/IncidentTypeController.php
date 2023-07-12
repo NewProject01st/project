@@ -131,7 +131,6 @@ class IncidentTypeController extends Controller
     public function update(Request $request)
 {
     $id = $request->input('id'); // Assuming the 'id' value is present in the request
-
     $rules = [
         'english_title' => ['required', 'max:255','regex:/^[a-zA-Z\s]+$/u', Rule::unique('incident_type', 'english_title')->ignore($id, 'id')],
         'marathi_title' => ['required', 'max:255', Rule::unique('incident_type', 'marathi_title')->ignore($id, 'id')],
