@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="main-panel">
-    <div class="content-wrapper">
+    <div class="content-wrapper mt-6">
 
         <div class="row justify-content-center">
             <div class="col-7 grid-margin ">
