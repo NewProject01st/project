@@ -29588,6 +29588,8 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
   /* background: rgb(0 0 0 / 11%) !important; */
   /* background: linear-gradient(85deg, #ECE9E6, #FFFFFF) !important; */
   box-shadow: none;
+  transition: none !important;
+  -webkit-transition: none !important;
 }
 .sidebar-icon-only .sidebar .nav {
   overflow: visible;
@@ -29612,6 +29614,10 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
 .emergancy_contact_add{
   padding-left: 1rem;
   padding-right: 1rem;
+}
+.user_tbl{
+  padding-left: 0rem;
+  padding-right: 0rem;
 }
 
 /*  */
