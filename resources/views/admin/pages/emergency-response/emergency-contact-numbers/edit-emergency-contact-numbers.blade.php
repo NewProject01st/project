@@ -120,8 +120,8 @@
                                     <input type="hidden" name="edit_id" id="edit_id"
                                         value="{{ $emergencycontact_data['emergencycontactnumbers']->id }}">
                                     <button type="submit" class="btn btn-success">Save &amp; Update</button>
-                                    <span><a href="{{ route('list-emergency-contact-numbers') }}"
-                                            class="btn btn-sm btn-primary ">Back</a></span>
+                                    {{-- <span><a href="{{ route('list-emergency-contact-numbers') }}"
+                                            class="btn btn-sm btn-primary ">Back</a></span> --}}
                                 </div>
                             </form>
                         </div>

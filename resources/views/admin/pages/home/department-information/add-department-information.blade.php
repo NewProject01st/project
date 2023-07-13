@@ -25,7 +25,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">{{ old('english_title') }}</textarea>
+                                            <input class="form-control" name="english_title" id="english_title" placeholder="Enter the Title" value="{{ old('english_title') }}">
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -34,7 +34,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा">{{ old('marathi_title') }}</textarea>
+                                            <input class="form-control" name="marathi_title" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा" value="{{ old('marathi_title') }}">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -106,7 +106,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-group">
-                                            <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
+                                            <label for="url"> URL</label>
                                             <input type="text" name="url" id="url" class="form-control"
                                                 id="url" placeholder="" value="{{ old('url') }}">
                                             @if ($errors->has('url'))

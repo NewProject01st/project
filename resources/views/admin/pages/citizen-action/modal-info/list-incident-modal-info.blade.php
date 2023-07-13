@@ -17,7 +17,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Citizen Action</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Report an Incident: Modal Information</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Report an Incident</li>
                     </ol>
                 </nav>
             </div>

@@ -141,7 +141,7 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-group">
-                                            <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
+                                            <label for="url"> URL</label>
                                             <input type="text" name="url" id="url" class="form-control"
                                                 value="{{ $department_info->url }}" placeholder="">
                                             @if ($errors->has('url'))

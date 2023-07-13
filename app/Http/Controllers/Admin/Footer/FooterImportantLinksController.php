@@ -33,7 +33,7 @@ class FooterImportantLinksController extends Controller
         $rules = [
             'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             'marathi_title' => 'required|max:255',
-            'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
+            'url' => 'required',
          ];
     $messages = [ 
 
@@ -43,7 +43,6 @@ class FooterImportantLinksController extends Controller
         'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
         'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
         'url.required'=>'Please enter url.',
-        'url.regex'=>'Please enter valid url.',
        
     ];
     // print_r($messages);
@@ -97,7 +96,7 @@ class FooterImportantLinksController extends Controller
     $rules = [
         'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
         'marathi_title' => 'required|max:255',
-        'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
+        'url' => 'required',
     ];
 
     $messages = [   
@@ -107,7 +106,7 @@ class FooterImportantLinksController extends Controller
         'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
         'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
         'url.required'=>'Please enter url.',
-        'url.regex'=>'Please valid url.',
+       
     ];
 
     try {

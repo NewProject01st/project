@@ -36,8 +36,8 @@ Route::get('/error-handling', ['as' => 'error-handling', 'uses' => 'App\Http\Con
 //     return view('admin.pages.users.add-users');
 // });
 
-Route::get('/login', ['as' => 'login', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@index']);
-Route::post('/submitLogin', ['as' => 'submitLogin', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@submitLogin']);
+Route::get('/login', ['as' => 'login', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\LoginController@index']);
+Route::post('/submitLogin', ['as' => 'submitLogin', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\LoginController@submitLogin']);
 
 Route::get('/pages/{page}', ['as' => 'pages', 'uses' => 'App\Http\Controllers\Website\DynamicPages\DynamicPagesController@index']);
 // Website
@@ -108,49 +108,49 @@ Route::get('/search', ['as' => 'search', 'uses' => 'App\Http\Controllers\Website
 // ================================================
 Route::group(['middleware' => ['admin']], function () {
     Route::get('/dashboard', ['as' => '/dashboard', 'uses' => 'App\Http\Controllers\Admin\Dashboard\DashboardController@index']);
-    Route::get('/list-users', ['as' => 'list-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@index']);
-    Route::get('/add-users', ['as' => 'add-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@addUsers']);
-    Route::post('/add-users', ['as' => 'add-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@register']);
-    Route::get('/edit-users', ['as' => 'edit-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@editUsers']);
-    Route::post('/update-users', ['as' => 'update-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@update']);
-    Route::post('/delete-users', ['as' => 'delete-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@delete']);
-    Route::post('/show-users', ['as' => 'show-users', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@show']);
-    Route::get('/cities', ['as' => 'cities', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@getCities']);
-    Route::get('/states', ['as' => 'states', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@getState']);
+    Route::get('/list-users', ['as' => 'list-users', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@index']);
+    Route::get('/add-users', ['as' => 'add-users', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@addUsers']);
+    Route::post('/add-users', ['as' => 'add-users', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@register']);
+    Route::get('/edit-users', ['as' => 'edit-users', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@editUsers']);
+    Route::post('/update-users', ['as' => 'update-users', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@update']);
+    Route::post('/delete-users', ['as' => 'delete-users', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@delete']);
+    Route::post('/show-users', ['as' => 'show-users', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@show']);
+    Route::get('/cities', ['as' => 'cities', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@getCities']);
+    Route::get('/states', ['as' => 'states', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@getState']);
 
-    Route::post('/update-active-user', ['as' => 'update-active-user', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateOne']);
-    // Route::get('/prof', ['as' => 'prof', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@getProf']);
+    Route::post('/update-active-user', ['as' => 'update-active-user', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@updateOne']);
+    // Route::get('/prof', ['as' => 'prof', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@getProf']);
 
-    Route::get('/edit-user-profile', ['as' => 'edit-user-profile', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@editUsersProfile']);
+    Route::get('/edit-user-profile', ['as' => 'edit-user-profile', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@editUsersProfile']);
 
-    Route::post('/update-user-profile', ['as' => 'update-user-profile', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateProfile']);
+    Route::post('/update-user-profile', ['as' => 'update-user-profile', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@updateProfile']);
 
-    Route::post('/otp-verification', ['as' => 'otp-verification', 'uses' => 'App\Http\Controllers\LoginRegister\RegisterController@updateEmailOtp']);
+    Route::post('/otp-verification', ['as' => 'otp-verification', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@updateEmailOtp']);
     
-    Route::get('/list-main-menu', ['as' => 'list-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@index']);
-    Route::get('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@add']);
-    Route::post('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@store']);
-    Route::post('/show-main-menu', ['as' => 'show-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@show']);
-    Route::post('/delete-main-menu', ['as' => 'delete-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@destroy']);
-    Route::get('/edit-main-menu', ['as' => 'edit-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@edit']);
-    Route::post('/update-main-menu', ['as' => 'update-main-menu', 'uses' => 'App\Http\Controllers\Menu\MainMenuController@update']);
+    Route::get('/list-main-menu', ['as' => 'list-main-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\MainMenuController@index']);
+    Route::get('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\MainMenuController@add']);
+    Route::post('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\MainMenuController@store']);
+    Route::post('/show-main-menu', ['as' => 'show-main-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\MainMenuController@show']);
+    Route::post('/delete-main-menu', ['as' => 'delete-main-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\MainMenuController@destroy']);
+    Route::get('/edit-main-menu', ['as' => 'edit-main-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\MainMenuController@edit']);
+    Route::post('/update-main-menu', ['as' => 'update-main-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\MainMenuController@update']);
 
-    Route::get('/list-sub-menu', ['as' => 'list-sub-menu', 'uses' => 'App\Http\Controllers\Menu\SubMenuController@index']);
-    Route::get('/add-sub-menu', ['as' => 'add-sub-menu', 'uses' => 'App\Http\Controllers\Menu\SubMenuController@add']);
-    Route::post('/add-sub-menu', ['as' => 'add-sub-menu', 'uses' => 'App\Http\Controllers\Menu\SubMenuController@store']);
-    Route::post('/show-sub-menu', ['as' => 'show-sub-menu', 'uses' => 'App\Http\Controllers\Menu\SubMenuController@show']);
-    Route::post('/delete-sub-menu', ['as' => 'delete-sub-menu', 'uses' => 'App\Http\Controllers\Menu\SubMenuController@destroy']);
-    Route::get('/edit-sub-menu', ['as' => 'edit-sub-menu', 'uses' => 'App\Http\Controllers\Menu\SubMenuController@edit']);
-    Route::post('/update-sub-menu', ['as' => 'update-sub-menu', 'uses' => 'App\Http\Controllers\Menu\SubMenuController@update']);
+    Route::get('/list-sub-menu', ['as' => 'list-sub-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\SubMenuController@index']);
+    Route::get('/add-sub-menu', ['as' => 'add-sub-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\SubMenuController@add']);
+    Route::post('/add-sub-menu', ['as' => 'add-sub-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\SubMenuController@store']);
+    Route::post('/show-sub-menu', ['as' => 'show-sub-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\SubMenuController@show']);
+    Route::post('/delete-sub-menu', ['as' => 'delete-sub-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\SubMenuController@destroy']);
+    Route::get('/edit-sub-menu', ['as' => 'edit-sub-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\SubMenuController@edit']);
+    Route::post('/update-sub-menu', ['as' => 'update-sub-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\SubMenuController@update']);
 
 
-    Route::get('/list-dynamic-page', ['as' => 'list-dynamic-page', 'uses' => 'App\Http\Controllers\DynamicPages\DynamicPagesController@index']);
-    Route::get('/add-dynamic-page', ['as' => 'add-dynamic-page', 'uses' => 'App\Http\Controllers\DynamicPages\DynamicPagesController@add']);
-    Route::post('/add-dynamic-page', ['as' => 'add-dynamic-page', 'uses' => 'App\Http\Controllers\DynamicPages\DynamicPagesController@store']);
-    Route::post('/show-dynamic-page', ['as' => 'show-dynamic-page', 'uses' => 'App\Http\Controllers\DynamicPages\DynamicPagesController@show']);
-    Route::post('/delete-dynamic-page', ['as' => 'delete-dynamic-page', 'uses' => 'App\Http\Controllers\DynamicPages\DynamicPagesController@destroy']);
-    Route::get('/edit-dynamic-page', ['as' => 'edit-dynamic-page', 'uses' => 'App\Http\Controllers\DynamicPages\DynamicPagesController@edit']);
-    Route::post('/update-dynamic-page', ['as' => 'update-dynamic-page', 'uses' => 'App\Http\Controllers\DynamicPages\DynamicPagesController@update']);
+    Route::get('/list-dynamic-page', ['as' => 'list-dynamic-page', 'uses' => 'App\Http\Controllers\Admin\DynamicPages\DynamicPagesController@index']);
+    Route::get('/add-dynamic-page', ['as' => 'add-dynamic-page', 'uses' => 'App\Http\Controllers\Admin\DynamicPages\DynamicPagesController@add']);
+    Route::post('/add-dynamic-page', ['as' => 'add-dynamic-page', 'uses' => 'App\Http\Controllers\Admin\DynamicPages\DynamicPagesController@store']);
+    Route::post('/show-dynamic-page', ['as' => 'show-dynamic-page', 'uses' => 'App\Http\Controllers\Admin\DynamicPages\DynamicPagesController@show']);
+    Route::post('/delete-dynamic-page', ['as' => 'delete-dynamic-page', 'uses' => 'App\Http\Controllers\Admin\DynamicPages\DynamicPagesController@destroy']);
+    Route::get('/edit-dynamic-page', ['as' => 'edit-dynamic-page', 'uses' => 'App\Http\Controllers\Admin\DynamicPages\DynamicPagesController@edit']);
+    Route::post('/update-dynamic-page', ['as' => 'update-dynamic-page', 'uses' => 'App\Http\Controllers\Admin\DynamicPages\DynamicPagesController@update']);
 
     Route::get('/list-marquee', ['as' => 'list-marquee', 'uses' => 'App\Http\Controllers\Admin\Home\MarqueeController@index']);
     Route::get('/add-marquee', ['as' => 'add-marquee', 'uses' => 'App\Http\Controllers\Admin\Home\MarqueeController@add']);
@@ -319,7 +319,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/add-emergency-contact-numbers', ['as' => 'add-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@store']);
     Route::get('/edit-emergency-contact-numbers', ['as' => 'edit-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@edit']);
     Route::post('/update-emergency-contact-numbers', ['as' => 'update-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@update']);
-    Route::post('/show-emergency-contact-numbers', ['as' => 'show-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@show']);
     Route::post('/delete-emergency-contact-numbers', ['as' => 'delete-emergency-contact-numbers', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@destroy']);
    
     Route::get('/add-more-emergency-contact-data', ['as' => 'add-more-emergency-contact-data', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\EmergencyContactNumbersController@addmore']);
@@ -360,12 +359,12 @@ Route::post('/show-incident-type', ['as' => 'show-incident-type', 'uses' => 'App
 Route::post('/delete-incident-type', ['as' => 'delete-incident-type', 'uses' => 'App\Http\Controllers\Admin\Master\IncidentTypeController@destroy']);
 Route::post('/update-one-incident_type', ['as' => 'update-one-incident_type', 'uses' => 'App\Http\Controllers\Admin\Master\IncidentTypeController@updateOne']);
 
-Route::get('/list-incident-modal-info', ['as' => 'list-incident-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentModalController@index']);
-Route::get('/list-volunteer-modal-info', ['as' => 'list-volunteer-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenModalController@index']);
-Route::get('/list-feedback-modal-info', ['as' => 'list-feedback-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\FeedbackCitizenModalController@index']);
-Route::post('/delete-incident-modal-info', ['as' => 'delete-incident-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\ReportIncidentModalController@destroy']);
-Route::post('/delete-volunteer-modal-info', ['as' => 'delete-volunteer-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenModalController@destroy']);
-Route::post('/show-volunteer-modal-info', ['as' => 'show-volunteer-modal-info', 'uses' => 'App\Http\Controllers\CitizenAction\VolunteerCitizenModalController@show']);
+Route::get('/list-incident-modal-info', ['as' => 'list-incident-modal-info', 'uses' => 'App\Http\Controllers\Admin\CitizenAction\ReportIncidentModalController@index']);
+Route::get('/list-volunteer-modal-info', ['as' => 'list-volunteer-modal-info', 'uses' => 'App\Http\Controllers\Admin\CitizenAction\VolunteerCitizenModalController@index']);
+Route::get('/list-feedback-modal-info', ['as' => 'list-feedback-modal-info', 'uses' => 'App\Http\Controllers\Admin\CitizenAction\FeedbackCitizenModalController@index']);
+Route::post('/delete-incident-modal-info', ['as' => 'delete-incident-modal-info', 'uses' => 'App\Http\Controllers\Admin\CitizenAction\ReportIncidentModalController@destroy']);
+Route::post('/delete-volunteer-modal-info', ['as' => 'delete-volunteer-modal-info', 'uses' => 'App\Http\Controllers\Admin\CitizenAction\VolunteerCitizenModalController@destroy']);
+Route::post('/show-volunteer-modal-info', ['as' => 'show-volunteer-modal-info', 'uses' => 'App\Http\Controllers\Admin\CitizenAction\VolunteerCitizenModalController@show']);
 
 //=======Header=======
 Route::get('/list-social-icon', ['as' => 'list-social-icon', 'uses' => 'App\Http\Controllers\Admin\Footer\SocialIconController@index']);
@@ -521,15 +520,15 @@ Route::post('/delete-contact-suggestion', ['as' => 'delete-contact-suggestion', 
 // Route::post('/update-one-contact-suggestion', ['as' => 'update-one-gallery', 'uses' => 'App\Http\Controllers\NewsAndEvents\GalleryController@updateOne']);
 
 //=====Roles Route======
-Route::get('/list-role', ['as' => 'list-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@index']);
-Route::get('/add-role', ['as' => 'add-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@add']);
-Route::post('/add-role', ['as' => 'add-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@store']);
-Route::get('/edit-role', ['as' => 'edit-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@edit']);
-Route::post('/update-role', ['as' => 'update-role','uses' => 'App\Http\Controllers\Menu\RoleController@update']);
-Route::post('/show-role', ['as' => 'show-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@show']);
-Route::post('/delete-role', ['as' => 'delete-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@destroy']);
-Route::post('/update-one-role', ['as' => 'update-one-role', 'uses' => 'App\Http\Controllers\Menu\RoleController@updateOneRole']);
-Route::post('/list-role-wise-permission', ['as' => 'list-role-wise-permission', 'uses' => 'App\Http\Controllers\Menu\RoleController@listRoleWisePermission']);
+Route::get('/list-role', ['as' => 'list-role', 'uses' => 'App\Http\Controllers\Admin\Menu\RoleController@index']);
+Route::get('/add-role', ['as' => 'add-role', 'uses' => 'App\Http\Controllers\Admin\Menu\RoleController@add']);
+Route::post('/add-role', ['as' => 'add-role', 'uses' => 'App\Http\Controllers\Admin\Menu\RoleController@store']);
+Route::get('/edit-role', ['as' => 'edit-role', 'uses' => 'App\Http\Controllers\Admin\Menu\RoleController@edit']);
+Route::post('/update-role', ['as' => 'update-role','uses' => 'App\Http\Controllers\Admin\Menu\RoleController@update']);
+Route::post('/show-role', ['as' => 'show-role', 'uses' => 'App\Http\Controllers\Admin\Menu\RoleController@show']);
+Route::post('/delete-role', ['as' => 'delete-role', 'uses' => 'App\Http\Controllers\Admin\Menu\RoleController@destroy']);
+Route::post('/update-one-role', ['as' => 'update-one-role', 'uses' => 'App\Http\Controllers\Admin\Menu\RoleController@updateOneRole']);
+Route::post('/list-role-wise-permission', ['as' => 'list-role-wise-permission', 'uses' => 'App\Http\Controllers\Admin\Menu\RoleController@listRoleWisePermission']);
 
 //=====Footer Route======
 Route::get('/list-important-link', ['as' => 'list-important-link', 'uses' => 'App\Http\Controllers\Admin\Footer\FooterImportantLinksController@index']);
@@ -590,6 +589,6 @@ Route::post('/update-one-rti', ['as' => 'update-one-rti', 'uses' => 'App\Http\Co
 Route::get('/db-backup', ['as' => 'db-backup', 'uses' => 'App\Http\Controllers\DBBackup\DBBackupController@downloadBackup']);
 
 
-Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\LoginRegister\LoginController@logout']);
+Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\LoginController@logout']);
 
 });

@@ -28,7 +28,12 @@ class DepartmentInformationRepository  {
         $department_data->marathi_title = $request['marathi_title'];
         $department_data->english_description = $request['english_description'];
         $department_data->marathi_description = $request['marathi_description'];
-        $department_data->url = $request['url'];
+        $url = $request['url'];
+        // Check if "http://" or "https://" is already present in the URL
+        if (!str_starts_with($url, 'http://') && !str_starts_with($url, 'https://')) {
+            $url = 'http://' . $url; // Add "http://" to the beginning of the URL
+        }
+        $department_data->url = $url;
         $department_data->save();  
         
         $last_insert_id = $department_data->id;
@@ -96,7 +101,12 @@ public function updateAll($request)
         $department_data->marathi_title = $request['marathi_title'];
         $department_data->english_description = $request['english_description'];
         $department_data->marathi_description = $request['marathi_description'];
-        $department_data->url = $request['url'];
+        $url = $request['url'];
+        // Check if "http://" or "https://" is already present in the URL
+        if (!str_starts_with($url, 'http://') && !str_starts_with($url, 'https://')) {
+            $url = 'http://' . $url; // Add "http://" to the beginning of the URL
+        }
+        $department_data->url = $url;
         
         $department_data->save();
 

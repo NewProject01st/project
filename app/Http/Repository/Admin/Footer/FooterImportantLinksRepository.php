@@ -19,16 +19,21 @@ class FooterImportantLinksRepository  {
         }
     }
 
-	public function add($request)
+public function add($request)
 {
     try {
         $link_data = new FooterImportantLinks();
         $link_data->english_title = $request['english_title'];
         $link_data->marathi_title = $request['marathi_title'];
-        $link_data->url = $request['url'];
+        $url = $request['url'];
+        // Check if "http://" or "https://" is already present in the URL
+        if (!str_starts_with($url, 'http://') && !str_starts_with($url, 'https://')) {
+            $url = 'http://' . $url; // Add "http://" to the beginning of the URL
+        }
+        $link_data->url = $url;
         $link_data->save();       
      
-		return $link_data;
+        return $link_data;
     } catch (\Exception $e) {
         return [
             'msg' => $e,
@@ -36,6 +41,7 @@ class FooterImportantLinksRepository  {
         ];
     }
 }
+
 
 public function getById($id)
 {
@@ -60,19 +66,23 @@ public function update($request)
         $link_data = FooterImportantLinks::find($request->id);
         $link_data->english_title = $request['english_title'];
         $link_data->marathi_title = $request['marathi_title'];
-        $link_data->url = $request['url'];
+        $url = $request['url'];
+        // Check if "http://" or "https://" is already present in the URL
+        if (!str_starts_with($url, 'http://') && !str_starts_with($url, 'https://')) {
+            $url = 'http://' . $url; // Add "http://" to the beginning of the URL
+        }
+        $link_data->url = $url;
 
-       
         $link_data->update();  
              
         return [
-            'msg' => 'Marquee updated successfully.',
+            'msg' => 'Footer Link updated successfully.',
             'status' => 'success'
         ];
     } catch (\Exception $e) {
         return $e;
         return [
-            'msg' => 'Failed to update marquee.',
+            'msg' => 'Failed to update Footer Link.',
             'status' => 'error'
         ];
     }
@@ -87,13 +97,13 @@ public function updateOne($request)
             $links->save();
 
             return [
-                'msg' => 'Marquee updated successfully.',
+                'msg' => 'Footer Link updated successfully.',
                 'status' => 'success'
             ];
         }
 
         return [
-            'msg' => 'Marquee not found.',
+            'msg' => 'Footer Link not found.',
             'status' => 'error'
         ];
     } catch (\Exception $e) {
@@ -117,7 +127,7 @@ public function deleteById($id)
     } catch (\Exception $e) {
         return $e;
 		return [
-            'msg' => 'Failed to delete marquee.',
+            'msg' => 'Failed to delete Footer Link.',
             'status' => 'error'
         ];
     }
