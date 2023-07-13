@@ -72,7 +72,7 @@ class EventController extends Controller
         $validation = Validator::make($request->all(),$rules,$messages);
         if($validation->fails() )
         {
-            return redirect('list-event')
+            return redirect('add-event')
                 ->withInput()
                 ->withErrors($validation);
         }
