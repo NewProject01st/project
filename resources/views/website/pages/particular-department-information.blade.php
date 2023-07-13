@@ -52,7 +52,7 @@
                     </div>
                     <!--Sidebar Start-->
                     <div class="col-md-3">
-                        <div class="pb-3">
+                        {{-- <div class="pb-3">
                             <button type="button" class="btn back-btn-color"><a href="{{ route('/') }}">
                                     @if (session('language') == 'mar')
                                         {{ Config::get('marathi.PARTICULAR_DEPARTMENT_INFORMATION.BACK') }}
@@ -61,7 +61,7 @@
                                     @endif
                                 </a>
                             </button>
-                        </div>
+                        </div> --}}
 
                         @include('website.pages.training-event.upcoming-events')
                     </div>

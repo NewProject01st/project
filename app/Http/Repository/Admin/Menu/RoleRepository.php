@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Repository\Menu;
+namespace App\Http\Repository\Admin\Menu;
 
 use Illuminate\Database\QueryException;
 use DB;

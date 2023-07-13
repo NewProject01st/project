@@ -335,19 +335,6 @@ class MainSubMenusSeeder extends Seeder
         MainSubMenus::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'main_menu_id' => 6,
-            'menu_name_english' => 'Feedback And Suggestions',
-            'menu_name_marathi' => 'अभिप्राय आणि सूचना',
-            'order_no' => 3,
-            'url'=>'feedback-suggestions',
-            'is_static'=>true,
-            'is_active' => true,
-           
-        ]);
-
-        MainSubMenus::create([
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
             'main_menu_id' => 7,
             'menu_name_english' => 'Upcoming Events And Trainings',
             'menu_name_marathi' => 'आगामी कार्यक्रम आणि प्रशिक्षण',
