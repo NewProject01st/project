@@ -360,9 +360,8 @@
                   </li>
               @endif
               @if (in_array('list-incident-modal-info', $data_for_url) ||
-                      in_array('list-volunteer-modal-info', $data_for_url) ||
-                      in_array('list-contact-suggestion', $data_for_url))
-                  <li class="{{request()->is('list-contact-suggestion*') 
+                      in_array('list-volunteer-modal-info', $data_for_url))
+                  <li class="{{request()->is('list-volunteer-modal-info*') 
                     ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#citizen-action" aria-expanded="false"
                           aria-controls="citizen-action">
@@ -383,11 +382,7 @@
                                           href="{{ route('list-volunteer-modal-info') }}">List Report Volunteer</a>
                                   </li>
                               @endif
-                              @if (in_array('list-contact-suggestion', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-contact-suggestion') }}">List Report Feedback</a>
-                                  </li>
-                              @endif
+                             
 
                           </ul>
                       </div>

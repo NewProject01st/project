@@ -268,7 +268,7 @@
                                                             {{ Config::get('english.CITIZEN_ACTION.ADDRESS') }}
                                                         @endif
                                                     </label>
-                                                    <textarea class="form-control set_m_form" name="ngo_address" id="ngo_address"></textarea>
+                                                    <textarea class="form-control set_m_form" name="ngo_address" id="ngo_address">{{ old('ngo_address') }}</textarea>
                                                     @if ($errors->has('ngo_address'))
                                                         <span class="red-text"><?php echo $errors->first('ngo_address', ':message'); ?></span>
                                                     @endif

@@ -295,15 +295,6 @@ class PermissionsSeeder extends Seeder
                     'url' => 'list-volunteer-modal-info',
                     'permission_name' => 'List Be A Volunteer : Citizen Support',
                 ]);
-
-            Permissions::create(
-                [
-                    'created_at' => \Carbon\Carbon::now(),
-                    'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'List Feedback and suggestions',
-                    'url' => 'list-contact-suggestion',
-                    'permission_name' => 'List Feedback and suggestions',
-                ]);
             Permissions::create(
                 [
                     'created_at' => \Carbon\Carbon::now(),
