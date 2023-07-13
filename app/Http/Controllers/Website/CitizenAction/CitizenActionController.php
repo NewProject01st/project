@@ -37,7 +37,7 @@ class CitizenActionController extends Controller
             'datetime' => 'required',
             'mobile_number' => 'required|unique:report_incident_modals,mobile_number',
             'description' => 'required',
-            'media_upload' => 'required',
+            'media_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'g-recaptcha-response' => 'required|captcha',
 
             ];
@@ -48,7 +48,7 @@ class CitizenActionController extends Controller
             'mobile_number.required' => 'Please enter Contact Number',
             'mobile_number.unique' => 'Your Contact Number is already exist.',
             'description.required' => 'Please enter Description',
-            'media_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'media_upload.required' => 'The image is required.',
             'g-recaptcha-response.captcha' => 'Captcha error! try again later or contact site admin.',
             'g-recaptcha-response.required' =>'Please verify that you are not a robot.',
         ];

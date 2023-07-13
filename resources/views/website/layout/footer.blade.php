@@ -141,10 +141,7 @@
                                  <li><a href="{{ $item['url'] }}" target="_blank"><i
                                              class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                              @else
-                                 <li><a
-                                     href="{{ $item['url'] }}"
-                                     {{-- href="{{echo strpos("https://",$item['url'])}}" --}}
-                                    target="_blank"><i
+                                 <li><a href="{{ $item['url'] }}" {{-- href="{{echo strpos("https://",$item['url'])}}" --}} target="_blank"><i
                                              class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
                              @endif
                          @empty
@@ -206,70 +203,70 @@
                  //die();
                  ?>
 
-<?php
+                 <?php
 if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed'])) {
     foreach ($common_data['twitter_feed'] as $feed) {
         if (isset($feed['url']) && $feed['url'] !=='') {
             // echo $feed['url'] . '<br>';
             ?>
-            <iframe frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="yes"
-            style="position: static; visibility: visible; height: 52vh; display: block; flex-grow: 1;"
-            title="Twitter Timeline" src="{{ $feed['url'] }}"></iframe>
-            <?php 
+                 <iframe frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="yes"
+                     style="position: static; visibility: visible; height: 52vh; display: block; flex-grow: 1;"
+                     title="Twitter Timeline" src="{{ $feed['url'] }}"></iframe>
+                 <?php 
         }
         else {
             ?>
-<div class="twitter-widget">
-    <div class="tw-txt">
-        <h6>
-            @if (session('language') == 'mar')
-                {{ Config::get('marathi.FOOTER.TWEET_HEADING1') }}
-            @else
-                {{ Config::get('english.FOOTER.TWEET_HEADING1') }}
-            @endif
-        </h6>
-        <a href="#" class="reply-tw"><i class="fas fa-reply"></i></a>
-        <p>
-            @if (session('language') == 'mar')
-                {{ Config::get('marathi.FOOTER.TWEET_FEED_INFO') }}
-            @else
-                {{ Config::get('english.FOOTER.TWEET_FEED_INFO') }}
-            @endif
-        </p>
-    </div>
-    <div class="tw-footer">
-        @if (session('language') == 'mar')
-            {{ Config::get('marathi.FOOTER.TWEET_HEADING2') }}
-        @else
-            {{ Config::get('english.FOOTER.TWEET_HEADING2') }}
-        @endif
-        <strong>
-            <?php echo date('dS M Y'); ?>
-            {{-- @if (session('language') == 'mar')
+                 <div class="twitter-widget">
+                     <div class="tw-txt">
+                         <h6>
+                             @if (session('language') == 'mar')
+                                 {{ Config::get('marathi.FOOTER.TWEET_HEADING1') }}
+                             @else
+                                 {{ Config::get('english.FOOTER.TWEET_HEADING1') }}
+                             @endif
+                         </h6>
+                         <a href="#" class="reply-tw"><i class="fas fa-reply"></i></a>
+                         <p>
+                             @if (session('language') == 'mar')
+                                 {{ Config::get('marathi.FOOTER.TWEET_FEED_INFO') }}
+                             @else
+                                 {{ Config::get('english.FOOTER.TWEET_FEED_INFO') }}
+                             @endif
+                         </p>
+                     </div>
+                     <div class="tw-footer">
+                         @if (session('language') == 'mar')
+                             {{ Config::get('marathi.FOOTER.TWEET_HEADING2') }}
+                         @else
+                             {{ Config::get('english.FOOTER.TWEET_HEADING2') }}
+                         @endif
+                         <strong>
+                             <?php echo date('dS M Y'); ?>
+                             {{-- @if (session('language') == 'mar')
 {{ Config::get('marathi.FOOTER.DATE') }}
 @else
 {{ Config::get('english.FOOTER.DATE') }}
 @endif --}}
-        </strong>
-        <i class="fab fa-twitter"></i>
-    </div>
-</div>
-            <?php 
+                         </strong>
+                         <i class="fab fa-twitter"></i>
+                     </div>
+                 </div>
+                 <?php 
                 //   echo 'URL is not defined.';
               } 
     }
 }
 ?>
-              <?php
-              //if (isset($common_data['twitter_feed']) && isset($common_data['twitter_feed']['url'])) {
+                 <?php
+                 //if (isset($common_data['twitter_feed']) && isset($common_data['twitter_feed']['url'])) {
                  // echo $common_data['twitter_feed']['url'];
-              //} else {
-                  //echo 'URL is not defined.';
-              //}
-              //die();
-              ?>
-              
-               
+                 //} else {
+                 //echo 'URL is not defined.';
+                 //}
+                 //die();
+                 ?>
+
+
                  {{-- @if (isset($common_data['twitter_feed']['url']) && $common_data['twitter_feed']['url'] == null)
                      @forelse ($common_data['twitter_feed'] as $item)
                          <iframe frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="yes"
@@ -310,13 +307,14 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
                                  {{ Config::get('english.FOOTER.TWEET_HEADING2') }}
                              @endif
                              <strong> --}}
-                                 <?php //echo date('dS M Y'); ?>
-                                 {{-- @if (session('language') == 'mar')
+                 <?php //echo date('dS M Y');
+                 ?>
+                 {{-- @if (session('language') == 'mar')
                 {{ Config::get('marathi.FOOTER.DATE') }}
             @else
                 {{ Config::get('english.FOOTER.DATE') }}
             @endif --}}
-                             {{-- </strong>
+                 {{-- </strong>
                              <i class="fab fa-twitter"></i>
                          </div>
                      </div>
@@ -476,7 +474,23 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
      });
  </script>
 
+ <script>
+     $(document).ready(() => {
+         $("#media_upload").change(function() {
+             $("#media_imgPreview").show();
 
+             const file = this.files[0];
+             if (file) {
+                 let reader = new FileReader();
+                 reader.onload = function(event) {
+                     $("#media_imgPreview")
+                         .attr("src", event.target.result);
+                 };
+                 reader.readAsDataURL(file);
+             }
+         });
+     });
+ </script>
 
 
 

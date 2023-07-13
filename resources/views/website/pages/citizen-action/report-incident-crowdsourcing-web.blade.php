@@ -112,7 +112,8 @@
                                             <span class="red-text">*</span>
                                         </label>
                                         <input type="input" class="form-control set_m_form" name="location" id="location"
-                                            value="{{ old('location') }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                            value="{{ old('location') }}"
+                                            oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
 
                                         @if ($errors->has('location'))
                                             <span class="red-text"><?php echo $errors->first('location', ':message'); ?></span>
@@ -177,6 +178,8 @@
                                         @if ($errors->has('media_upload'))
                                             <span class="red-text"><?php echo $errors->first('media_upload', ':message'); ?></span>
                                         @endif
+                                        <img id="media_imgPreview" src="#" alt="Image"
+                                            class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
 
                                     <div class="col-md-4 captcha_set" style="text-align: -webkit-right;">
