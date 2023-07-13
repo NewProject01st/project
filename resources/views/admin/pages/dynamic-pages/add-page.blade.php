@@ -33,7 +33,7 @@
                                                     aria-label="Default select example" value="{{ old('menu_data') }}">
                                                     <option selected>Select Name</option>
                                                     @foreach ($main_menu_data as $key => $data)
-                                                        <option value="{{ $data['menu_id'] }}"
+                                                        <option value="{{ $data['menu_id'] }}_{{ $data['main_sub'] }}"
                                                             {{ old('menu_data') == $data['menu_id'] ? 'selected' : '' }}>
                                                             {{ $data['menu_name_english'] }}({{ $data['menu_name_marathi'] }})
                                                         </option>
@@ -131,8 +131,13 @@
                     </div>
                 </div>
             </div>
-        </div>
-
+        </div>        
+        <!-- include summernote css/js -->
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+        {{-- <link rel="stylesheet" href="{{ asset('assets/vendors/summernote/dist/summernote.min.css') }}" />
+        <script src="{{ asset('assets/vendors/summernote/dist/summernote.min.js') }}"></script> --}}
+            
         <!-- Summernote Editor -->
         <script>
             $('#summernote').summernote({

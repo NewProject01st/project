@@ -1,6 +1,15 @@
  
  <!-- left sidebar -->
       <?php $data_for_url = session('data_for_url'); ?>
+      <style>
+        .sidebar li .submenu{ 
+	list-style: none; 
+	margin: 0; 
+	padding: 0; 
+	padding-left: 1rem; 
+	padding-right: 1rem;
+}
+        </style>
       <nav class="sidebar sidebar-offcanvas fixed-nav" id="sidebar">
           <ul class="nav">
               <li class="nav-item nav-profile">
