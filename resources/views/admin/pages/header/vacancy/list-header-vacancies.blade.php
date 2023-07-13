@@ -6,38 +6,38 @@
     <div class="main-panel">
         <div class="content-wrapper">
             <!-- <div class="page-header">
-                <h3 class="page-title">
-                    Vacancies List
-                    @if (in_array('per_add', $data_permission))
-                        <a href="{{ url('add-header-vacancies') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
-                    @endif
+                    <h3 class="page-title">
+                        Vacancies List
+                        @if (in_array('per_add', $data_permission))
+    <a href="{{ url('add-header-vacancies') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
+    @endif
 
-                </h3>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Header</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Vacancies List</li>
-                    </ol>
-                </nav>
-            </div> -->
+                    </h3>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Header</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"> Vacancies List</li>
+                        </ol>
+                    </nav>
+                </div> -->
             <div class="row mt-5">
-           
-                <div class="col-12 grid-margin mt-4">
-                <div class="page-header">
-                <h3 class="page-title">
-                    Vacancies List
-                    @if (in_array('per_add', $data_permission))
-                        <a href="{{ url('add-header-vacancies') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
-                    @endif
 
-                </h3>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Header</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Vacancies List</li>
-                    </ol>
-                </nav>
-            </div>
+                <div class="col-12 grid-margin mt-4">
+                    <div class="page-header">
+                        <h3 class="page-title">
+                            Vacancies List
+                            @if (in_array('per_add', $data_permission))
+                                <a href="{{ url('add-header-vacancies') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
+                            @endif
+
+                        </h3>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Header</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"> Vacancies List</li>
+                            </ol>
+                        </nav>
+                    </div>
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -48,7 +48,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Sr. No.</th>
-                                                    <th>Titleh</th>
+                                                    <th>Title</th>
                                                     <th>शीर्षक</th>
                                                     <th>PDF</th>
                                                     <th>पीडीएफ</th>

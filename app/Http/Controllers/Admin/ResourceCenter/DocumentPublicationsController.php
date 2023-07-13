@@ -66,7 +66,7 @@ class DocumentPublicationsController extends Controller
         $validation = Validator::make($request->all(),$rules,$messages);
         if($validation->fails() )
         {
-            return redirect('add-home-tender')
+            return redirect('add-document-publications')
                 ->withInput()
                 ->withErrors($validation);
         }

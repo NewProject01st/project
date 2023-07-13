@@ -238,7 +238,7 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-group form-check form-check-flat form-check-primary">
                                             <label class="form-check-label">
                                                 <input type="checkbox" class="form-check-input" name="is_active"

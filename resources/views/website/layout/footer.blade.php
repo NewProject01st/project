@@ -330,7 +330,7 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
  <footer class="home3 footer wf100">
      <div class="container">
          <div class="row">
-             <div class="col-6">
+             <div class="col-lg-6 col-md-6 col-sm-12">
                  <p class="copyr"> ©
                      <script>
                          document.write(new Date().getFullYear());
@@ -343,7 +343,7 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
                      </a>
                  </p>
              </div>
-             {{-- <div class="col-6">
+             {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                  <ul class="footer-social">
                      <li><a href="https://www.facebook.com/mynashikmc/" class="fb" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                      <li><a href="https://twitter.com/my_nmc" target="_blank" class="tw"><i class="fab fa-twitter"></i></a></li>
@@ -355,7 +355,7 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
 
 
 
-             <div class="col-6 d-flex justify-content-end">
+             <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-end">
                  <ul class="footer-social">
                      @forelse ($common_data['social_link'] as $item)
                          @if (session('language') == 'mar')
