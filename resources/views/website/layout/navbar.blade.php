@@ -89,7 +89,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-sm-4">
-                        <ul class="header-contact new_city_head_change">
+                        <ul class="header-contact new_city_head_change mt-5">
                             <li class="city-exp for_pl_pr"> <i class="fas fa-street-view"></i>
                                 <strong>
                                     @if (session('language') == 'mar')
@@ -122,8 +122,8 @@
                     <div class="col-4 lang-position">
                         <div class="row d-flex justify-content-end">
                             <div class="col-md-9 col-sm-9">
-                                <ul class="header-contact new_city_head_change">
-                                    <li class="city-exp for_pl_pr mt-3">
+                                <ul class="header-contact new_city_head_change mt-5">
+                                    <li class="city-exp for_pl_pr">
 
                                         <!-- <input type="text" placeholder="Search.." name="search" > -->
                                         <!-- <button class="btn btn-success btn-sm" type="submit">Go</button> -->
@@ -178,9 +178,9 @@
 
                                 <ul class="header-contact">
 
-                                    <li class="set_lang">
+                                    <li class="set_lang mt-2">
                                         <form method="post" action="">
-                                            <span>
+                                            <span class="lang_title">
                                                 @if (session('language') == 'mar')
                                                     {{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
                                                 @else
