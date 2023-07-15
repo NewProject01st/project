@@ -210,7 +210,7 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
             // echo $feed['url'] . '<br>';
             ?>
                  <iframe frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="yes"
-                     style="position: static; visibility: visible; height: 52vh; display: block; flex-grow: 1;"
+                     style="position: static; visibility: visible; height: 52vh; width: 100%; display: block; flex-grow: 1;"
                      title="Twitter Timeline" src="{{ $feed['url'] }}"></iframe>
                  <?php 
         }

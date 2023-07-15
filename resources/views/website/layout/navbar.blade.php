@@ -9,7 +9,7 @@
         <div id="closetopbar" class="topbar wf100">
             <div class="container-fluid">
                 <div class="row head_row">
-                    <div class="col-6 d-flex align-items-center new_head_ul">
+                    <div class="col-6 d-flex align-items-center new_head_ul mt-1">
 
                         <ul class="quick-links">
                             <li><a href="{{ route('site-map') }}">
@@ -43,7 +43,7 @@
                         </ul>
 
                     </div>
-                    <div class="col-4 d-flex align-items-center new_head_ul2">
+                    <div class="col-4 d-flex align-items-center new_head_ul2 mt-1">
                         <ul class="quick-links">
                             <li><a href="#">
                                 @if (session('language') == 'mar')
@@ -89,7 +89,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-sm-4">
-                        <ul class="header-contact new_city_head_change mt-5">
+                        <ul class="header-contact new_city_head_change">
                             <li class="city-exp for_pl_pr"> <i class="fas fa-street-view"></i>
                                 <strong>
                                     @if (session('language') == 'mar')
@@ -122,7 +122,7 @@
                     <div class="col-4 lang-position">
                         <div class="row d-flex justify-content-end">
                             <div class="col-md-9 col-sm-9">
-                                <ul class="header-contact new_city_head_change mt-5">
+                                <ul class="header-contact new_city_head_change">
                                     <li class="city-exp for_pl_pr">
 
                                         <!-- <input type="text" placeholder="Search.." name="search" > -->
@@ -178,7 +178,7 @@
 
                                 <ul class="header-contact">
 
-                                    <li class="set_lang mt-2">
+                                    <li class="set_lang">
                                         <form method="post" action="">
                                             <span class="lang_title">
                                                 @if (session('language') == 'mar')
@@ -306,8 +306,8 @@
                                                       {{ url('/pages/' . $menu_data_new['url']) }} @endif"
                                                 id="" role="button"
                                                 @if (sizeof($menu_data[1]) > 0) data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false" @endif>
+                                                aria-haspopup="true"
+                                                aria-expanded="false" @endif>
                                                 @if (session('language') == 'mar')
                                                     {{ $menu_data_new['menu_name_marathi'] }}
                                                 @else
@@ -339,6 +339,30 @@
                                 </ul>
                             @endforeach
                         @endforeach
+                        
+                            <form class="mt-2 mb-2 mobi_langs" method="post" action="">
+                                <span class="lang_title">
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
+                                    @else
+                                        {{ Config::get('english.HOME_PAGE.SELECT_LANGUAGE') }}
+                                    @endif
+                                </span>
+                                <strong>
+                                    <select name="language" id="language">
+                                        <option value="">Select Language</option>
+                                        <option value="en" <?php if ($language == 'en') {
+                                            echo 'selected';
+                                        }
+                                        ?>>English</option>
+                                        <option value="mar" <?php if ($language == 'mar') {
+                                            echo 'selected';
+                                        }
+                                        ?>>Marathi</option>
+                                    </select>
+                                </strong>
+                            </form>
+                                    
                     </div>
                 </nav>
 
