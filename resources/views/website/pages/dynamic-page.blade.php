@@ -7,6 +7,7 @@
             margin-right: 3% !important;
             float: left;
             border-radius: 5px;
+            width: 100% !important;
         }
 
         address {
