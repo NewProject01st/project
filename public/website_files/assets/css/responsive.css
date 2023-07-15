@@ -946,3 +946,9 @@ header .navbar-nav {
 		padding-left: 2px;
 	}
 } */
+
+@media (min-width: 998px) {
+	.dropdown-toggle::after {
+		right: 0px;
+	}
+}
