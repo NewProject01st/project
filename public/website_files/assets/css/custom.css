@@ -2437,7 +2437,7 @@ justify-content: end;
 }
 
 .header-contact {
-	margin: 20px 0 0;
+	margin: 10px 0 0;
 	padding: 0px;
 	list-style: none;
 	float: right;
@@ -2456,6 +2456,7 @@ justify-content: end;
 }
 .set_lang{
 	/* margin-left: 24%; */
+	margin-top: -7px;
 }
 .header-contact li span {
 	display: block;
@@ -6898,7 +6899,7 @@ box-shadow: 0 0 4px #000;
 	margin-left: 1px !important;
 }
 .lang_title{
-	margin: 0 0 5px !important;
+	margin: 0 0 3px !important;
 	font-size: 13px !important;
 }
 .navbar-toggler-icon{
@@ -6907,3 +6908,15 @@ box-shadow: 0 0 4px #000;
 .navbar-nav .nav-link{
 	padding-left: 3px !important;
 }
+
+@media (min-width: 0px) and (max-width: 768px) {
+	.mobi_langs{
+		display: block;
+		margin-left: 4px;
+	}
+	}
+	@media (min-width: 768px) {
+		.mobi_langs{
+			display: none;
+		}
+	}
