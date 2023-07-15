@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite36ea1fc080a321a09a7471daa9d72a1
+class ComposerStaticInit52ffa2d8ed9e72ecb15ad465b4515457
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -588,9 +588,6 @@ class ComposerStaticInite36ea1fc080a321a09a7471daa9d72a1
         'App\\Http\\Controllers\\Admin\\LoginRegister\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LoginRegister/LoginController.php',
         'App\\Http\\Controllers\\Admin\\LoginRegister\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/LoginRegister/RegisterController.php',
         'App\\Http\\Controllers\\Admin\\Master\\IncidentTypeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Master/IncidentTypeController.php',
-        'App\\Http\\Controllers\\Admin\\Menu\\MainMenuController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Menu/MainMenuController.php',
-        'App\\Http\\Controllers\\Admin\\Menu\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Menu/RoleController.php',
-        'App\\Http\\Controllers\\Admin\\Menu\\SubMenuController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Menu/SubMenuController.php',
         'App\\Http\\Controllers\\Admin\\NewsAndEvents\\SuccessStoriesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/NewsAndEvents/SuccessStoriesController.php',
         'App\\Http\\Controllers\\Admin\\PoliciesLegislation\\DistrictDisasterManagementPlanController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PoliciesLegislation/DistrictDisasterManagementPlanController.php',
         'App\\Http\\Controllers\\Admin\\PoliciesLegislation\\RelevantLawsRegulationsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PoliciesLegislation/RelevantLawsRegulationsController.php',
@@ -672,6 +669,7 @@ class ComposerStaticInite36ea1fc080a321a09a7471daa9d72a1
         'App\\Http\\Repository\\Admin\\LoginRegister\\RegisterRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Admin/LoginRegister/RegisterRepository.php',
         'App\\Http\\Repository\\Admin\\Master\\IncidentTypeRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Admin/Master/IncidentTypeRepository.php',
         'App\\Http\\Repository\\Admin\\Menu\\MainMenuRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Admin/Menu/MainMenuRepository.php',
+        'App\\Http\\Repository\\Admin\\Menu\\RoleRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Admin/Menu/RoleRepository.php',
         'App\\Http\\Repository\\Admin\\Menu\\SubMenuRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Admin/Menu/SubMenuRepository.php',
         'App\\Http\\Repository\\Admin\\NewsAndEvents\\SuccessStoriesRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Admin/NewsAndEvents/SuccessStoriesRepository.php',
         'App\\Http\\Repository\\Admin\\PoliciesLegislation\\DistrictDisasterManagementPlanRepository' => __DIR__ . '/../..' . '/app/Http/Repository/Admin/PoliciesLegislation/DistrictDisasterManagementPlanRepository.php',
@@ -6835,9 +6833,9 @@ class ComposerStaticInite36ea1fc080a321a09a7471daa9d72a1
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite36ea1fc080a321a09a7471daa9d72a1::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite36ea1fc080a321a09a7471daa9d72a1::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInite36ea1fc080a321a09a7471daa9d72a1::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit52ffa2d8ed9e72ecb15ad465b4515457::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit52ffa2d8ed9e72ecb15ad465b4515457::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit52ffa2d8ed9e72ecb15ad465b4515457::$classMap;
 
         }, null, ClassLoader::class);
     }

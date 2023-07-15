@@ -122,7 +122,8 @@
                                                     <label for="publish_date">Publish Date</label>&nbsp<span
                                                         class="red-text">*</span>
                                                     <input type="date" class="form-control" placeholder="YYYY-MM-DD"
-                                                        value="@if (old('publish_date')) {{ old('publish_date') }}@else{{ $get_publish_date }} @endif"
+                                                      value="{{$get_publish_date}}"
+                                                        {{-- value="@if (old('publish_date')) {{ old('publish_date') }}@else{{ $get_publish_date }} @endif" --}}
                                                         name="publish_date" id="publish_date">
                                                     @if ($errors->has('publish_date'))
                                                         <span class="red-text"><?php echo $errors->first('publish_date', ':message'); ?></span>
