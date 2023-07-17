@@ -205,9 +205,9 @@ class IndexRepository  {
             } else {
                 $data_output = $data_output->select('english_title','english_description','english_image','english_image_new','url');
             }
-            // $data_output =  $data_output->get()
-            //                 ->toArray();
-                            $data_output = $data_output->where('id', $id)->get()->toArray();
+            $data_output =  $data_output->latest()->take(6)->get()
+            ->toArray();
+            //  $data_output = $data_output->where('id', $id)->get()->toArray();
             return  $data_output;
         } catch (\Exception $e) {
             return $e;

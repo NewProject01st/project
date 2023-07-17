@@ -53,7 +53,9 @@
                                                         class="red-text">*</span>
                                                     <input type="text" class="form-control" name="english_title"
                                                         id="english_title" placeholder="Enter the Tilte"
-                                                        value="@if (old('english_title')) {{ old('english_title') }}@else{{ $dynamic_page->english_title }} @endif" />
+                                                        value="{{ $dynamic_page->english_title }}"
+                                                        {{-- value="@if (old('english_title')) {{ old('english_title') }}@else{{ $dynamic_page->english_title }} @endif" --}}
+                                                         />
                                                     @if ($errors->has('english_title'))
                                                         <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                                     @endif
@@ -65,7 +67,9 @@
                                                         class="red-text">*</span>
                                                     <input type="text" class="form-control" name="marathi_title"
                                                         id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"
-                                                        value="@if (old('marathi_title')) {{ old('marathi_title') }}@else{{ $dynamic_page->marathi_title }} @endif" />
+                                                        value="{{ $dynamic_page->marathi_title }}"
+                                                        {{-- value="@if (old('marathi_title')) {{ old('marathi_title') }}@else{{ $dynamic_page->marathi_title }} @endif" --}}
+                                                         />
                                                     @if ($errors->has('marathi_title'))
                                                         <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                                     @endif
@@ -78,10 +82,10 @@
                                             <label for="english_description">Page Content</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control" name="english_description" id="summernote2" placeholder="Enter the Description">
-                                            {{-- {{ $html_english }} --}}
-                                            @if (old('english_description'))
-{{ old('english_description') }}@else{{ $html_marathi }}
-@endif
+                                            {{ $html_english }}
+                                            {{-- @if (old('english_description'))
+{{ old('english_description') }}@else{{ $html_marathi }} --}}
+{{-- @endif --}}
                                         </textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
@@ -93,10 +97,10 @@
                                             <label for="marathi_description">Page Content</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control" name="marathi_description" id="summernote3" placeholder="Enter the Description">
-                                            {{-- {{ $html_marathi }} --}}
-                                            @if (old('marathi_description'))
-{{ old('marathi_description') }}@else{{ $html_marathi }}
-@endif
+                                            {{ $html_marathi }}
+                                            {{-- @if (old('marathi_description'))
+{{ old('marathi_description') }}@else{{ $html_marathi }} --}}
+{{-- @endif --}}
                                         </textarea>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>

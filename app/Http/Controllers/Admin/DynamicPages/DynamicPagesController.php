@@ -110,7 +110,6 @@ class DynamicPagesController extends Controller
         $edit_data_id = $edit_data_id.'_'.$dynamic_page->menu_type;
 
         $get_publish_date = $dynamic_page->publish_date;
-// dd($get_publish_date);
         $html_marathi = $dynamic_page->page_content_marathi;
         $html_english = $dynamic_page->page_content_english;
         return view('admin.pages.dynamic-pages.edit-page', compact('html_marathi', 'html_english', 'edit_data_id', 'get_publish_date','dynamic_page','main_menu_data','menu_selected'));
