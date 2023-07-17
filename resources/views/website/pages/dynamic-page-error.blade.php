@@ -43,7 +43,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12  gap-top">
-                <img src="{{ asset('website_files/assets/pages/404.png') }}">
+                <img class="mb-2" src="{{ asset('website_files/assets/pages/404.png') }}">
             </div>
         </div>
     </div>
