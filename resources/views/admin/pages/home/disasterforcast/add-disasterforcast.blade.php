@@ -28,7 +28,7 @@
                                                     class="text-danger">*</span></label>
                                                     <input class="form-control" name="english_title" id="english_title" placeholder="Enter the Title">  
                                             @if ($errors->has('english_title'))
-                                                <span class="red-text"><?php //echo $errors->first('english_title', ':message'); ?></span>
+                                                <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
@@ -38,7 +38,7 @@
                                                     class="text-danger">*</span></label>
                                                     <input class=" form-control" name="marathi_title" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा">
                                             @if ($errors->has('marathi_title'))
-                                                <span class="red-text"><?php //echo $errors->first('marathi_title', ':message'); ?></span>
+                                                <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div> 
@@ -48,8 +48,8 @@
                                                     class="text-danger">*</span></label>
                                             <textarea class="form-control " name="english_description" id="english_description"
                                                 placeholder="Enter the Description" name="english_description">{{ old('english_description') }}</textarea>
-                                            @if ($errors->has('english_title'))
-                                                <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
+                                            @if ($errors->has('english_description'))
+                                                <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>

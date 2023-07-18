@@ -37,8 +37,8 @@ class DisasterForcastController extends Controller
             'marathi_description' => 'required',
          ];
     $messages = [   
-        'english_title'=>'required',
-        'marathi_title'=>'required',
+        'english_title.required'=>'Please Enter Title',
+        'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा',
         'english_title.max'   => 'Please  enter text length upto 255 character only.',
         'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',     
         'english_description.required' => 'Please enter description.',
@@ -56,8 +56,6 @@ class DisasterForcastController extends Controller
         else
         {
             $add_disasterforcast = $this->service->addAll($request);
-            // print_r($add_disasterforcast);
-            // die();
             if($add_disasterforcast)
             {
 

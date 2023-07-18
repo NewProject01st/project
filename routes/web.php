@@ -27,7 +27,7 @@ Route::post('/resolve-error', ['as' => '/resolve-error', 'uses' => 'App\Http\Con
 
 
 Route::get('/', ['as' => '/', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
-// Route::get('/index11', ['as' => '/index11', 'uses' => 'App\Http\Controllers\Website\IndexController@getTestMagnifier']);
+Route::get('/index11', ['as' => '/index11', 'uses' => 'App\Http\Controllers\Website\IndexController@getTestMagnifier']);
 Route::post('/change-language', ['as' => '/change-language', 'uses' => 'App\Http\Controllers\Website\IndexController@changeLanguage']);
 
 Route::get('/error-handling', ['as' => 'error-handling', 'uses' => 'App\Http\Controllers\ErrorHandlingController@errorHandling']);
@@ -46,6 +46,7 @@ Route::post('/new-paricular-data-web', ['as' => 'new-paricular-data-web', 'uses'
 Route::post('/particular-department-information', ['as' => 'particular-department-information', 'uses' => 'App\Http\Controllers\Website\IndexController@showDepartmentInformation']);
 Route::post('/particular-disaster_forecast', ['as' => 'particular-disaster_forecast', 'uses' => 'App\Http\Controllers\Website\IndexController@showDisasterForecast']);
 Route::get('/list-disaster-forecast-web', ['as' => 'list-disaster-forecast-web', 'uses' => 'App\Http\Controllers\Website\IndexController@getAllWebDisaterForcast']);
+Route::get('/list-all-department', ['as' => 'list-all-department', 'uses' => 'App\Http\Controllers\Website\IndexController@getAllDepartmentInformation']);
 
 Route::get('/list-vacancies', ['as' => 'list-vacancies', 'uses' => 'App\Http\Controllers\Website\IndexController@showVacancies']);
 Route::get('/list-rti', ['as' => 'list-rti', 'uses' => 'App\Http\Controllers\Website\IndexController@showRTI']);

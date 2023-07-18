@@ -3,6 +3,14 @@
 // print_r($data_output_tollfreenumber);
 // die();
 ?>
+<style>
+    /* .search-data input{
+        border: none !important;
+    }
+    #search-box{
+        border: none !important;
+    } */
+    </style>
 <div class="wrapper">
     <!--Header Start-->
     <header class="wf100 header-two">
@@ -135,9 +143,9 @@
                                     </form> --}}
                                         <span class="serch-main">
                                             <ul class="navbar-nav mr-auto">
-                                                <li class="nav-item dropdown">
-                                                    <input type="text" id="search-box" placeholder="Search...">
-                                                    <button type="submit" class="header_search_btn">Search</button>
+                                                <li class="nav-item dropdown search-data">
+                                                    <input type="text" id="search-box" placeholder="Search..." style="border: none">
+                                                    {{-- <button type="submit" class="header_search_btn">Search</button> --}}
                                                     <div id="search-results" class="dropdown-menu show"
                                                         aria-labelledby="navbarDropdown"></div>
                                                 </li>
@@ -378,8 +386,9 @@
         var searchResults = $('#search-results');
 
         searchBox.on('input', function() {
+       
             var query = $(this).val();
-
+           
             if (query.length >= 1) {
                 // Send an AJAX request to the search route
                 $.ajax({
@@ -389,6 +398,7 @@
                         query: query
                     },
                     success: function(response) {
+                        // alert('hii');
                         console.log(response);
                         // Clear previous results
                         searchResults.empty();

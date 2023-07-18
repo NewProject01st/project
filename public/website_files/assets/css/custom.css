@@ -6840,7 +6840,7 @@ box-shadow: 0 0 4px #000;
 }
 
 #search-box{
-	border: 1px solid #767676 !important;
+	border-bottom: 1px solid #767676 !important;
 }
 .form_text_set{
 	border: 1px solid #CCCCCC!important;

@@ -76,6 +76,14 @@ class IndexServices
             return $e;
         }
     } 
+    public function getLimitDepartmentInformation()
+    {
+        try {
+            return $this->repo->getLimitDepartmentInformation();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
     public function getAllDepartmentInformation()
     {
         try {
@@ -84,6 +92,8 @@ class IndexServices
             return $e;
         }
     } 
+
+
     public function getById($id)
     {
         try {

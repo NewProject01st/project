@@ -185,7 +185,7 @@ class IndexController extends Controller
             $data_output_emergencycontact = $this->service->getAllEmergencyContact();
             $data_output_disasterforcast = $this->service->getAllDisaterForcast();
            
-            $data_output_departmentinformation = $this->service->getAllDepartmentInformation();
+            $data_output_departmentinformation = $this->service->getLimitDepartmentInformation();
            
             // $data_output_contact = $this->service->getWebContact();
             // dd(  $data_output_contact);
@@ -253,6 +253,24 @@ class IndexController extends Controller
             return $e;
         }
         return view('website.pages.list-disaster-forecast-web',compact('language','menu','data_output'));
+    }
+
+    public function getAllDepartmentInformation()
+    {
+        try {
+
+            $menu = $this->menu;
+            $data_output = $this->service->getAllDepartmentInformation();
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+
+        } catch (\Exception $e) {
+            return $e;
+        }
+        return view('website.pages.list-all-department',compact('language','menu','data_output'));
     }
     
 
@@ -349,23 +367,23 @@ class IndexController extends Controller
     } 
 
 
-    // public function getTestMagnifier(Request $request)
-    // {
-    //     try {
+    public function getTestMagnifier(Request $request)
+    {
+        try {
 
-    //         $menu = $this->menu;
+            $menu = $this->menu;
             
-    //         if (Session::get('language') == 'mar') {
-    //             $language = Session::get('language');
-    //         } else {
-    //             $language = 'en';
-    //         }
-    //         return view('website.pages.index11',compact('language','menu'));
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+            return view('website.pages.index11',compact('language','menu'));
 
-    //     } catch (\Exception $e) {
-    //         return $e;
-    //     }
-    // } 
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
 
 
     

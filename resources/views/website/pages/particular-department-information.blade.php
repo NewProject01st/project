@@ -22,6 +22,7 @@
                 <div class="row">
                     <div class="col-md-9">
                         <!--Department Details Txt Start-->
+                       <?php //dd($department_information) ?>
                         @forelse ($department_information as $item)
                             <div class="deprt-txt">
                                 @if (session('language') == 'mar')

@@ -64,22 +64,21 @@ class SocialIconServices
             $return_data = $this->repo->updateAll($request);
             
             $path = Config::get('DocumentConstant.SOCIAL_ICON_ADD');
+
             if ($request->hasFile('icon')) {
                 if ($return_data['icon']) {
-                    $delete_file_eng= Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $return_data['icon'];
-                    if(file_exists_s3($delete_file_eng)){
-                        removeImage($delete_file_eng);
+                    if (file_exists_s3(Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $return_data['icon'])) {
+                        removeImage(Config::get('DocumentConstant.SOCIAL_ICON_DELETE') . $return_data['icon']);
                     }
                 }
     
-                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->icon->extension();
-                uploadImage($request, 'icon', $path, $englishImageName);
+                $iconImage = $return_data['last_insert_id'] . '_english.' . $request->icon->extension();
+                uploadImage($request, 'icon', $path, $iconImage);
+               
+                $social_icon = SocialIcon::find($return_data['last_insert_id']);
+                $social_icon->icon = $iconImage;
+                $social_icon->save();
             }
-    
-            
-            $success_stories_data = SocialIcon::find($return_data['last_insert_id']);
-            $success_stories_data->icon = $return_data['last_insert_id'] . '_english.' . $request->icon->extension();
-            $success_stories_data->save();
             if ($return_data) {
                 return ['status' => 'success', 'msg' => 'Social Icon Updated Successfully.'];
             } else {

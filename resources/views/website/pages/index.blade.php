@@ -374,7 +374,118 @@
                             <input type="hidden" name="department_show_id" id="department_show_id" value="">
                         </form>
                     </div>
+                    <span><a href="{{route('list-all-department')}}" >Read More</a></span>
                 </div>
+
+                {{-- ============================== --}}
+                {{-- <div class="row">
+                    @php
+                        $totalCards = count($data_output_departmentinformation);
+                        $columnWidth = 24 / $totalCards;
+                    @endphp
+                
+                    @foreach ($data_output_departmentinformation as $item)
+                        @if (session('language') == 'mar')
+                            <!--Icon Box Start-->
+                            <div class="col-md-{{ $columnWidth }} col-sm-{{ $columnWidth }}">
+                                <div class="deprt-icon-box">
+                                    <img src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item['marathi_image'] }}" alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा">
+                                    <h6><a><?php echo $item['marathi_title']; ?></a></h6>
+                                    <a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                        @else
+                                            {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                        @endif
+                                    </a>
+                                </div>
+                            </div>
+                            <!--Icon Box End-->
+                        @else
+                            <div class="col-md-{{ $columnWidth }} col-sm-{{ $columnWidth }}">
+                                <div class="deprt-icon-box">
+                                    <img src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item['english_image'] }}" alt="{{ strip_tags($item['english_title']) }} Image">
+                                    <h6><a><?php echo $item['english_title']; ?></a></h6>
+                                    <a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer">
+                                        @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                        @else
+                                            {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                        @endif
+                                    </a>
+                                </div>
+                            </div>
+                            <!--Icon Box End-->
+                        @endif
+                    @endforeach
+                
+                    <form method="POST" action="{{ url('/particular-department-information') }}" id="departmentshowform">
+                        @csrf
+                        <input type="hidden" name="department_show_id" id="department_show_id" value="">
+                    </form>
+                </div> --}}
+                {{-- -------------------------- --}}
+                {{-- <div class="container">
+                    <div class="row">
+                        @php
+                            $totalCards = count($data_output_departmentinformation);
+                            $columnWidth = 9 / $totalCards;
+                            $rowCount = ceil($totalCards / 3);
+                            $counter = 0;
+                        @endphp
+                        
+                        @foreach ($data_output_departmentinformation as $item)
+                            @if (session('language') == 'mar')
+                                <!--Icon Box Start-->
+                                <div class="col-md-{{ $columnWidth }} col-sm-{{ $columnWidth }} col-6">
+                                    <div class="deprt-icon-box">
+                                        <img src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item['marathi_image'] }}" alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा">
+                                        <h6><a><?php echo $item['marathi_title']; ?></a></h6>
+                                        <a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer">
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                            @else
+                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                            @endif
+                                        </a>
+                                    </div>
+                                </div>
+                                <!--Icon Box End-->
+                            @else
+                                <div class="col-md-{{ $columnWidth }} col-sm-{{ $columnWidth }} col-6">
+                                    <div class="deprt-icon-box">
+                                        <img src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item['english_image'] }}" alt="{{ strip_tags($item['english_title']) }} Image">
+                                        <h6><a><?php echo $item['english_title']; ?></a></h6>
+                                        <a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer">
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                            @else
+                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                            @endif
+                                        </a>
+                                    </div>
+                                </div>
+                                <!--Icon Box End-->
+                            @endif
+                            
+                            @php
+                                $counter++;
+                                if ($counter == $rowCount) {
+                                    $counter = 0;
+                                    echo '</div><div class="row">';
+                                }
+                            @endphp
+                        @endforeach
+                    </div>
+                
+                    <form method="POST" action="{{ url('/particular-department-information') }}" id="departmentshowform">
+                        @csrf
+                        <input type="hidden" name="department_show_id" id="department_show_id" value="">
+                    </form>
+                </div>
+                 --}}
+                
+                {{-- ===================================== --}}
 
                 <div class="col-md-3">
                     <div class="emergency-info mt-2">

@@ -88,11 +88,14 @@ class SocialIconController extends Controller
 {
     $rules = [
        
-        'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.SOCIAL_ICON_IMAGE_MAX_SIZE").'|dimensions:min_width=100,min_height=100,max_width=600,max_height=600|min:'.Config::get("AllFileValidation.SOCIAL_ICON_IMAGE_MIN_SIZE").'',
         'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
 
         
      ];
+     if($request->has('icon')) {
+        $rules['icon'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.SOCIAL_ICON_IMAGE_MAX_SIZE").'|dimensions:min_width=100,min_height=100,max_width=600,max_height=600|min:'.Config::get("AllFileValidation.SOCIAL_ICON_IMAGE_MIN_SIZE").'';
+    }
+    
     $messages = [   
         'url.required'=>'Please enter url.',
         'url.regex'=>'Please valid url.',

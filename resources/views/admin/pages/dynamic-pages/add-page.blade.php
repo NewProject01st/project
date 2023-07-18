@@ -77,20 +77,20 @@
                                         <div class="form-group">
                                             <label for="english_description">Page Content </label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control" name="english_description" id="summernote2" placeholder="Enter Page Content ">{{ old('english_description') }}</textarea>
+                                            <textarea class="form-control" name="english_description" id="summernote1" placeholder="Enter Page Content ">{{ old('english_description') }}</textarea>
                                             @if ($errors->has('english_description'))
-                                                <span class="red-text"><?php //echo $errors->first('english_description', ':message');
+                                                <span class="red-text"><?php echo $errors->first('english_description', ':message');
                                                 ?></span>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <label for="english_description">पृष्ठ सामग्री</label>&nbsp<span
+                                            <label for="marathi_description">पृष्ठ सामग्री</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control" name="marathi_description" id="summernote3" placeholder="पृष्ठ सामग्री प्रविष्ट करा ">{{ old('marathi_description') }}</textarea>
-                                            @if ($errors->has('english_description'))
-                                                <span class="red-text"><?php //echo $errors->first('english_description', ':message');
+                                            <textarea class="form-control" name="marathi_description" id="summernote2" placeholder="पृष्ठ सामग्री प्रविष्ट करा ">{{ old('marathi_description') }}</textarea>
+                                            @if ($errors->has('marathi_description'))
+                                                <span class="red-text"><?php echo $errors->first('marathi_description', ':message');
                                                 ?></span>
                                             @endif
                                         </div>
@@ -133,6 +133,7 @@
             </div>
         </div>        
         <!-- include summernote css/js -->
+        
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
         {{-- <link rel="stylesheet" href="{{ asset('assets/vendors/summernote/dist/summernote.min.css') }}" />
@@ -140,17 +141,8 @@
             
         <!-- Summernote Editor -->
         <script>
-            $('#summernote').summernote({
-                placeholder: 'Enter Content',
-                tabsize: 2,
-                height: 100
-            });
-        </script>
-        <!-- Summernote Editor End -->
-        <!-- Summernote Editor -->
-        <script>
             $('#summernote1').summernote({
-                placeholder: 'सामग्री प्रविष्ट करा',
+                placeholder: 'Enter Content',
                 tabsize: 2,
                 height: 100
             });
@@ -159,34 +151,6 @@
         <!-- Summernote Editor -->
         <script>
             $('#summernote2').summernote({
-                placeholder: 'Enter Content',
-                tabsize: 2,
-                height: 100
-            });
-        </script>
-        <!-- Summernote Editor End -->
-        <!-- Summernote Editor -->
-        <script>
-            $('#summernote3').summernote({
-                placeholder: 'सामग्री प्रविष्ट करा',
-                tabsize: 2,
-                height: 100
-            });
-        </script>
-        <!-- Summernote Editor End -->
-        <!-- Summernote Editor -->
-
-        <script>
-            $('#summernote4').summernote({
-                placeholder: 'Enter Content',
-                tabsize: 2,
-                height: 100
-            });
-        </script>
-        <!-- Summernote Editor End -->
-        <!-- Summernote Editor -->
-        <script>
-            $('#summernote5').summernote({
                 placeholder: 'सामग्री प्रविष्ट करा',
                 tabsize: 2,
                 height: 100
