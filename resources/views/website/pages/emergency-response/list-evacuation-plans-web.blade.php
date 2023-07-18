@@ -65,7 +65,7 @@
                             <!--Department Details Txt End-->
                         </div>
                         <!--Sidebar Start-->
-                        <div class="col-md-3">
+                        <div class="col-md-3 mt-3">
                             @include('website.pages.training-event.upcoming-events')
                         </div>
                         <!--Sidebar End-->

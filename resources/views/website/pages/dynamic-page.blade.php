@@ -2,7 +2,7 @@
 @section('content')
     <style>
         img {
-            height: 45% !important;
+            /* height: 45% !important; */
             margin-top: 1% !important;
             margin-right: 3% !important;
             float: left;
@@ -62,7 +62,7 @@
     <div class="container gap-top">
         <div class="row">
             <div class="col-md-12">
-                <div class="deprt-txt">
+                <div class="deprt-txt mt-3">
                     <h3><?php echo $page_title; ?></h3>
                     <?php echo $dynamic_page; ?>
                 </div>

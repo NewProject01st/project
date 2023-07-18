@@ -5849,7 +5849,7 @@ a[data-toggle="collapse"] {
 	display: block;
 	position: absolute;
 	top: 50%;
-	right: 4px;
+	right: 8px;
 	transform: translateY(-50%);
 }
 .font {
@@ -6498,7 +6498,8 @@ label{
 	justify-content: center;
   }
   .center_sit_map{
-	width: 50vw;
+	/* width: 50vw; */
+	width: 96%;
   }
 
   .sit_map_link{
@@ -6906,13 +6907,13 @@ box-shadow: 0 0 4px #000;
 	margin: 0 0 1px !important;
 }
 .navbar-nav .nav-link{
-	padding-left: 3px !important;
+	padding-left: 8px !important;
 }
 
 @media (min-width: 0px) and (max-width: 768px) {
 	.mobi_langs{
 		display: block;
-		margin-left: 4px;
+		margin-left: 10px;
 	}
 }
 
@@ -6930,5 +6931,51 @@ box-shadow: 0 0 4px #000;
 @media (min-width: 767px) and (max-width: 768px) {
 	.become-vol {
 		line-height: 26px !important;
+	}
+}
+
+.form-control {
+	appearance: auto !important;
+}
+@media (min-width: 0px) and (max-width: 912px) {
+	.center_sit_map {
+		width: 100% !important;
+	}
+}
+
+.fixed-top .navbar-toggler{
+	margin-left: 5px !important;
+}
+
+.read_more_btn{
+	background: #d94148;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 40px;
+    display: block;
+    border-radius: 15px;
+    padding: 0 20px;
+    text-align: center;
+	width: 25%;
+}
+
+.read_more_btn:hover{
+	background: #40407e;
+	color: #fff;
+}
+
+.read_more_btn_span{
+	display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 0px) and (max-width: 912px) {
+	.read_more_btn{
+		width: 35% !important;
+	}
+	.read_more_btn_span{
+		margin-bottom: 1rem!important;
 	}
 }

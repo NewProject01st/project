@@ -374,7 +374,7 @@
                             <input type="hidden" name="department_show_id" id="department_show_id" value="">
                         </form>
                     </div>
-                    <span><a href="{{route('list-all-department')}}" >Read More</a></span>
+                    <span class="read_more_btn_span"><a class="read_more_btn" href="{{route('list-all-department')}}" >Read More</a></span>
                 </div>
 
                 {{-- ============================== --}}
