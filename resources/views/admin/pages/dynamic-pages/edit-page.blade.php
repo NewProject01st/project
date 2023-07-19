@@ -97,7 +97,7 @@
                                             <label for="marathi_description">पृष्ठ सामग्री</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control" name="marathi_description" id="summernote3" placeholder="पृष्ठ सामग्री प्रविष्ट करा">
-                                            {{ $html_english }}
+                                            {{ $html_marathi }}
                                             {{-- @if (old('marathi_description'))
 {{ old('marathi_description') }}@else{{ $html_marathi }} --}}
 {{-- @endif --}}
