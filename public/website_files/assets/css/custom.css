@@ -6915,6 +6915,10 @@ box-shadow: 0 0 4px #000;
 		display: block;
 		margin-left: 10px;
 	}
+	
+}
+.training-card-display{
+	display: flex;
 }
 
 @media (min-width: 768px) {
@@ -6940,6 +6944,9 @@ box-shadow: 0 0 4px #000;
 @media (min-width: 0px) and (max-width: 912px) {
 	.center_sit_map {
 		width: 100% !important;
+	}
+	.training-card-display{
+		display: grid;
 	}
 }
 
@@ -6978,4 +6985,9 @@ box-shadow: 0 0 4px #000;
 	.read_more_btn_span{
 		margin-bottom: 1rem!important;
 	}
+}
+
+
+.satish {
+	top: 0px;left: 0px;margin-left: 0px;margin-top: 0px;overflow: visible;position: absolute;display: block;transform-origin: left top;-moz-transform-origin: left top;-ms-transform-origin: left top;-webkit-transform-origin: left top;-o-transform-origin: left top;user-select: none;-moz-user-select: none;-webkit-user-select: none;padding-top: 0px
 }

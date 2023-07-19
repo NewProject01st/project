@@ -444,14 +444,65 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
      });
  </script>
 
- <script>
+ {{-- <script>
      $('#zoomtextbody').click(function() {
          $("body").attr("style", "font-size:16px !important;");
      });
      $('#zoomouttextbody').click(function() {
          $("body").attr("style", "font-size:12px !important;");
      });
- </script>
+ </script> --}}
+ <script>
+    // Save the default font sizes in a variable
+    var defaultFontSizes = {
+      "body": "16px",
+      "h1": "50px",
+      "h2": "26px",
+      "h3": "32px",
+      "p": "17px",
+      "span": "14px",
+      "a":"17px",
+      "li":"19px"
+      
+    };
+  
+    $('#zoomtextbody').click(function() {
+      // Increase font size by a certain factor (you can adjust this value as needed)
+      $("body").css("font-size", parseInt($("body").css("font-size")) + 1 + "px");
+      $("h1").css("font-size", parseInt($("h1").css("font-size")) + 5 + "px");
+      $("h2").css("font-size", parseInt($("h2").css("font-size")) + 3 + "px");
+      $("h3").css("font-size", parseInt($("h3").css("font-size")) + 3 + "px");
+      $("p").css("font-size", parseInt($("p").css("font-size")) + 1 + "px");
+      $("span").css("font-size", parseInt($("span").css("font-size")) + 1 + "px");
+      $("a").css("font-size", parseInt($("a").css("font-size")) + 1 + "px");
+      $("li").css("font-size", parseInt($("li").css("font-size")) + 1 + "px");
+    });
+  
+    $('#zoomouttextbody').click(function() {
+      // Decrease font size by a certain factor (you can adjust this value as needed)
+      $("body").css("font-size", parseInt($("body").css("font-size")) - 1 + "px");
+      $("h1").css("font-size", parseInt($("h1").css("font-size")) - 5 + "px");
+      $("h2").css("font-size", parseInt($("h2").css("font-size")) - 3 + "px");
+      $("h3").css("font-size", parseInt($("h3").css("font-size")) - 3 + "px");
+      $("p").css("font-size", parseInt($("p").css("font-size")) - 1 + "px");
+      $("span").css("font-size", parseInt($("span").css("font-size")) - 1 + "px");
+      $("a").css("font-size", parseInt($("a").css("font-size")) - 1 + "px");
+      $("li").css("font-size", parseInt($("li").css("font-size")) - 1 + "px");
+    });
+  
+    // Reset font sizes to default when "A" button is clicked
+    $('#resetfontsize').click(function() {
+      $("body").css("font-size", defaultFontSizes["body"]);
+      $("h1").css("font-size", defaultFontSizes["h1"]);
+      $("h2").css("font-size", defaultFontSizes["h2"]);
+      $("h3").css("font-size", defaultFontSizes["h3"]);
+      $("p").css("font-size", defaultFontSizes["p"]);
+      $("span").css("font-size", defaultFontSizes["span"]);
+      $("a").css("font-size", defaultFontSizes["a"]);
+    });
+</script>
+
+  
  <script src="{{ asset('website_files/assets/js/html-magnifier.js') }}"></script>
 
 
@@ -491,6 +542,43 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
          });
      });
  </script>
+
+
+<script>
+    $(document).ready(function() {
+      //var divTop = 100; // Initial top position
+
+      // Function to move the div and update its top position
+      function moveDiv(divTop) {
+        divTop = -divTop;
+        $('.magnifier-content').css('top', divTop + 'px');
+      }
+
+      // Example: move the div up by 20 pixels
+    //   $('#magnifier').on('click', function() {
+    //     divTop += 20; // Decrease the top position by 20 pixels
+    //     moveDiv(divTop);
+    //   });
+      
+
+
+      function handleScrollEvent() {
+      // Get the scroll positions
+      const scrollX = window.scrollX || window.pageXOffset; // For horizontal scroll
+      const scrollY = window.scrollY || window.pageYOffset; // For vertical scroll
+
+      console.log("Scroll X:", scrollX);
+      console.log("Scroll Y:", scrollY);
+      moveDiv(scrollY);
+      // You can use these scrollX and scrollY values as needed for your event handling.
+    }
+
+    // Attach the handleScrollEvent function to the 'scroll' event of the window
+    window.addEventListener('scroll', handleScrollEvent);
+
+
+    });
+  </script>
 
 
 

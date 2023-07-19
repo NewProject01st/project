@@ -125,29 +125,34 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_image"> Image</label>&nbsp<span class="red-text">*</span>
+                                            <label for="english_image">Image</label>
                                             <input type="file" name="english_image" class="form-control"
-                                                placeholder="image">
+                                                id="english_image" accept="image/*" placeholder="image">
                                             @if ($errors->has('english_image'))
                                                 <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <img src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $event->english_image }}"
+                                        <img id="english"
+                                            src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $event->english_image }}"
                                             class="img-fluid img-thumbnail" width="150">
+                                        <img id="english_imgPreview" src="#" alt=" {{ strip_tags($event['marathi_title']) }} प्रतिमा"
+                                            class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_image">प्रतिमा </label>&nbsp<span class="red-text">*</span>
+                                            <label for="marathi_image"> प्रतिमा</label>
                                             <input type="file" name="marathi_image" id="marathi_image" accept="image/*"
                                                 class="form-control">
                                             @if ($errors->has('marathi_image'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
                                             @endif
                                         </div>
-                                        <img src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $event->marathi_image }}"
+                                        <img id="marathi"
+                                            src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $event->marathi_image }}"
                                             class="img-fluid img-thumbnail" width="150">
+                                        <img id="marathi_imgPreview" src="#" alt=" {{ strip_tags($event['english_title']) }} Image"
+                                            class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
-
                                     <div class="col-md-12 col-sm-12 text-center mt-4">
                                         <button type="submit" class="btn btn-success">Save &amp; Update</button>
                                         {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}

@@ -94,10 +94,10 @@
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <label for="marathi_description">Page Content</label>&nbsp<span
+                                            <label for="marathi_description">पृष्ठ सामग्री</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control" name="marathi_description" id="summernote3" placeholder="Enter the Description">
-                                            {{ $html_marathi }}
+                                            <textarea class="form-control" name="marathi_description" id="summernote3" placeholder="पृष्ठ सामग्री प्रविष्ट करा">
+                                            {{ $html_english }}
                                             {{-- @if (old('marathi_description'))
 {{ old('marathi_description') }}@else{{ $html_marathi }} --}}
 {{-- @endif --}}

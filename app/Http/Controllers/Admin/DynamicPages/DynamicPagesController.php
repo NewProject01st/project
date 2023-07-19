@@ -217,9 +217,8 @@ class DynamicPagesController extends Controller
         // Marathi content
         $final_content_marathi = new \DOMDocument();
         $list=array();
-        $final_content_marathi->loadHTML($request->marathi_description);
+        $final_content_marathi->loadHTML('<?xml encoding="utf-8" ?>' . $request->marathi_description);
         $elements = $final_content_marathi->getElementsByTagName('*');
-
         foreach ($elements as $tag_element) {
             if ($tag_element->nodeName =='img') {
                 $srcStr = $tag_element->getAttribute('src');

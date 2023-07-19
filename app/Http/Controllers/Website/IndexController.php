@@ -270,7 +270,7 @@ class IndexController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.list-all-department',compact('language','menu','data_output'));
+        return view('website.pages.list-all-department.blade',compact('language','menu','data_output'));
     }
     
 
@@ -367,23 +367,23 @@ class IndexController extends Controller
     } 
 
 
-    public function getTestMagnifier(Request $request)
-    {
-        try {
+    // public function getTestMagnifier(Request $request)
+    // {
+    //     try {
 
-            $menu = $this->menu;
+    //         $menu = $this->menu;
             
-            if (Session::get('language') == 'mar') {
-                $language = Session::get('language');
-            } else {
-                $language = 'en';
-            }
-            return view('website.pages.index11',compact('language','menu'));
+    //         if (Session::get('language') == 'mar') {
+    //             $language = Session::get('language');
+    //         } else {
+    //             $language = 'en';
+    //         }
+    //         return view('website.pages.index11',compact('language','menu'));
 
-        } catch (\Exception $e) {
-            return $e;
-        }
-    } 
+    //     } catch (\Exception $e) {
+    //         return $e;
+    //     }
+    // } 
 
 
     

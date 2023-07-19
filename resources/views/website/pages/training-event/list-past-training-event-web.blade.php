@@ -51,6 +51,7 @@
                         @forelse ($data_output as $item)
                             <div class="event-post-full d-flex">
                                 @if (session('language') == 'mar')
+                                <div class="col-lg-12 col-md-12 col-sm-12 training-card-display">
                                     <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
                                         <div class="thumb"><img
                                                 src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['marathi_image'] }}"
@@ -70,12 +71,17 @@
                                         {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
                                             USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div> --}}
                                     </div>
+                                </div>
                                 @else
-                                    <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
+                                   <div class="col-lg-12 col-md-12 col-sm-12 training-card-display">
+                                   <div class="col-lg-6 col-md-6 col-sm-6">
+                                    {{-- <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer"> --}}
                                         <div class="thumb"><img
                                                 src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['english_image'] }}"
                                                 alt="{{ strip_tags($item['english_title']) }} Image"> </div>
-                                    </a>
+                                    {{-- </a> --}}
+                                   </div>
+                                   <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="event-post-content">
                                         <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
                                             <div class="event-post-txt">
@@ -89,6 +95,8 @@
                                         {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
                                             USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div> --}}
                                     </div>
+                                   </div>
+                                   </div>
                                 @endif
                             </div>
                         @empty
