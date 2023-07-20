@@ -202,7 +202,7 @@ class DynamicPagesController extends Controller
                     
                     $file_name = $path.$menu_selected[0].'_'.$menu_selected[1].'_'.time().'.'.$image_type;
 
-                    Storage::disk('s3')->put($file_name, $image_base64, 'public');
+                    Storage::disk('s3')->put($file_name, $image_base64);
                     Storage::disk('s3')->url($file_name);
                     $imgUrl = Config::get('DocumentConstant.DYNAMIC_PAGE_DOC_VIEW').$file_name;
                     $tag_element->setAttribute('src', $imgUrl);
@@ -235,7 +235,7 @@ class DynamicPagesController extends Controller
                     // Create a new filename for the image
                     $path =  Config::get('DocumentConstant.DYNAMIC_PAGE_DOC_ADD');
                     $file_name = $path.$menu_selected[0].'_'.$menu_selected[1].'_'.time().'.'.$image_type;
-                    Storage::disk('s3')->put($file_name, $image_base64, 'public');
+                    Storage::disk('s3')->put($file_name, $image_base64);
                     Storage::disk('s3')->url($file_name);
                     $imgUrl = Config::get('DocumentConstant.DYNAMIC_PAGE_DOC_VIEW').$file_name;
                     $tag_element->setAttribute('src', $imgUrl);
