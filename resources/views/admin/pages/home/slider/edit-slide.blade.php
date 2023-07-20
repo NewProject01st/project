@@ -64,7 +64,7 @@
                                             <label for="marathi_description"> वर्णन </label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
-                                                placeholder="Enter the Description">
+                                                placeholder="वर्णन प्रविष्ट करा">
                                             @if (old('marathi_description'))
 {{ old('marathi_description') }}@else{{ $slider->marathi_description }}
 @endif

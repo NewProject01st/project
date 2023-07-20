@@ -186,7 +186,7 @@ class IndexController extends Controller
             $data_output_disasterforcast = $this->service->getAllDisaterForcast();
            
             $data_output_departmentinformation = $this->service->getLimitDepartmentInformation();
-           
+            $total_records = DepartmentInformation::where('is_active', '=', true)->count();
             // $data_output_contact = $this->service->getWebContact();
             // dd(  $data_output_contact);
 
@@ -196,7 +196,7 @@ class IndexController extends Controller
             } else {
                 $language = 'en';
             }
-            return view('website.pages.index',compact('language','menu','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact', 'data_output_departmentinformation','data_output_disasterforcast'));
+            return view('website.pages.index',compact('language','menu','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact', 'data_output_departmentinformation','data_output_disasterforcast', 'total_records'));
 
         } catch (\Exception $e) {
             return $e;
@@ -270,7 +270,7 @@ class IndexController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.list-all-department.blade',compact('language','menu','data_output'));
+        return view('website.pages.list-all-department',compact('language','menu','data_output'));
     }
     
 

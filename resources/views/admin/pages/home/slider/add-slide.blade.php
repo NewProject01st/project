@@ -58,7 +58,7 @@
                                             <label for="marathi_description"> वर्णन </label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
-                                                placeholder="Enter the Description">{{ old('marathi_description') }}</textarea>
+                                                placeholder="वर्णन प्रविष्ट करा">{{ old('marathi_description') }}</textarea>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
                                             @endif
