@@ -113,11 +113,13 @@ class CitizenActionController extends Controller
         ];
 
         if($request->is_ngo == 'on') {
-            $rules['ngo_name'] = 'required';
+            $rules['ngo_name'] = 'required|regex:/^[a-zA-Z\s]+$/u';
             $rules['ngo_email'] = 'required|unique:citizen_volunteer_modals,ngo_email';
             $rules['ngo_contact_number'] = 'required|unique:citizen_volunteer_modals,ngo_contact_number';
-            $rules['ngo_photo'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';           
+            $rules['ngo_photo'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'; 
+
             $messages['ngo_name'] = 'Ngo name is required';
+            $messages['ngo_name.regex'] = 'Please  enter text only..';
             $messages['ngo_email.required'] = 'Please Enter Ngo Email Id';
             $messages['ngo_email.unique'] = 'Your Email Id is already exist';
             $messages['ngo_contact_number.required'] = 'Please Enter Ngo Contact Number';
@@ -127,13 +129,14 @@ class CitizenActionController extends Controller
 
         
         if ($request->has('checkbox_field') && $request->input('checkbox_field') == 1) {
-            $rules['ngo_name'] = 'required';
+            $rules['ngo_name'] = 'required|regex:/^[a-zA-Z\s]+$/u';
             $rules['ngo_email'] = 'required|unique:citizen_volunteer_modals,ngo_email';
             $rules['ngo_contact_number'] = 'required|unique:citizen_volunteer_modals,ngo_contact_number';
             $rules['ngo_address'] = 'required';
             $rules['ngo_photo'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
             
             $messages['ngo_name.required'] = 'The NGO name field is required.';
+            $messages['ngo_name.regex'] = 'Please  enter text only..';
             $messages['ngo_email.required'] = 'The NGO email field is required.';
             $messages['ngo_address.required'] = 'The NGO address field is required.';
             $messages['ngo_email.required'] = 'Please Enter Ngo Email Id';

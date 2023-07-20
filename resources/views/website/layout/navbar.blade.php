@@ -72,14 +72,14 @@
 
                         </ul>
 
-                        {{-- <button class="webpage_zoom_btn" id="zoomouttextbody">A-</button>
+                        <button class="webpage_zoom_btn" id="zoomouttextbody">A-</button>
                         
-                        <button class="webpage_zoom_btn" id="resetfontsize">A</button>
-                        <button class="webpage_zoom_btn" id="zoomtextbody">A+</button> --}}
+                       
+                        <button class="webpage_zoom_btn" id="zoomtextbody">A+</button>
                         <!-- Add the "title" attribute to each button -->
-<button class="webpage_zoom_btn" id="zoomouttextbody" data-toggle="tooltip" data-placement="top"  title="Decrease Font Size">A-</button>
+{{-- <button class="webpage_zoom_btn" id="zoomouttextbody" data-toggle="tooltip" data-placement="top"  title="Decrease Font Size">A-</button>
 <button class="webpage_zoom_btn" id="resetfontsize" data-toggle="tooltip" data-placement="top"  title="Normal Font Size">A</button>
-<button class="webpage_zoom_btn" id="zoomtextbody"  data-toggle="tooltip" data-placement="top"  title="Increase Font Size">A+</button>
+<button class="webpage_zoom_btn" id="zoomtextbody"  data-toggle="tooltip" data-placement="top"  title="Increase Font Size">A+</button> --}}
 
                         <span id="magnifier" class="magnifier" data-toggle="tooltip" data-placement="top" title="Magnifier">
                                 <i class="fa fa-search-plus" style="font-size:24px; color:#fff"></i>

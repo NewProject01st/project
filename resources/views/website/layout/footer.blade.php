@@ -444,15 +444,15 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
      });
  </script>
 
- {{-- <script>
+ <script>
      $('#zoomtextbody').click(function() {
          $("body").attr("style", "font-size:16px !important;");
      });
      $('#zoomouttextbody').click(function() {
          $("body").attr("style", "font-size:12px !important;");
      });
- </script> --}}
- <script>
+ </script>
+ {{-- <script>
     // Save the default font sizes in a variable
     var defaultFontSizes = {
       "body": "16px",
@@ -500,7 +500,7 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
       $("span").css("font-size", defaultFontSizes["span"]);
       $("a").css("font-size", defaultFontSizes["a"]);
     });
-</script>
+</script> --}}
 
   
  <script src="{{ asset('website_files/assets/js/html-magnifier.js') }}"></script>
