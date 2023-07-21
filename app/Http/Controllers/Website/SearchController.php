@@ -407,17 +407,6 @@ class SearchController extends Controller
             $subMenus = MainSubMenus::where('id',40)->get()->toArray();
             array_push($return_data, $subMenus);
         }
-        $contact = Contact::where('is_active',true);
-        $contact =  $contact->where(function($query1) use ($query)  {
-                                return $query1->Where('english_description', 'LIKE', '%' . $query . '%')
-                                            ->orWhere('marathi_description', 'LIKE', '%' . $query . '%');
-                                })->get()->toArray();
-
-        if(count($contact)>0) {
-            $subMenus = MainSubMenus::where('id',39)->get()->toArray();
-            array_push($return_data, $subMenus);
-        }
-
 
         $vacanciesHeader = VacanciesHeader::where('is_active',true);
         $vacanciesHeader =  $vacanciesHeader->where(function($query1) use ($query)  {
@@ -630,7 +619,7 @@ class SearchController extends Controller
 // 
 // CitizenFeedbackSuggestion
 // CitizenVolunteerModal
-// 
+// Contact
 // 
 // 
 // 
@@ -650,7 +639,7 @@ class SearchController extends Controller
 // GalleryCategory
 // GeneralContact
 
-
+// HomeTender
 // IncidentType
 // MainMenus
 // MAPGISData

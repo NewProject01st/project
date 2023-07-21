@@ -470,7 +470,7 @@
                                 @endif
                                 @if (in_array('list-map-lat-lons', $data_for_url))
                                     <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                            href="{{ route('list-map-lat-lons') }}">Longitude Latitude</a>
+                                            href="{{ route('list-map-lat-lons') }}">MAP GIS Data</a>
                                     </li>
                                 @endif
                                 @if (in_array('list-gallery-category', $data_for_url))

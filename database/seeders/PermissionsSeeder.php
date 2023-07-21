@@ -342,9 +342,9 @@ class PermissionsSeeder extends Seeder
                 [
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Longitude Latitude',
+                    'route_name' => 'MAP GIS Data',
                     'url' => 'list-map-lat-lons',
-                    'permission_name' => 'Longitude Latitude',
+                    'permission_name' => 'MAP GIS Data',
                 ]);
             Permissions::create(
                 [
