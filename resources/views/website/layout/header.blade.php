@@ -124,7 +124,7 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                     url: "http://52.66.216.5/change-language",
+                     url: "https://nmcdm.org.in/change-language",
                     //  url: "https://newpro.sumagotest.in/change-language",
                     // url: "http://localhost/new_pro/change-language",
                     // url: "http://localhost/new_pro/project/change-language",
