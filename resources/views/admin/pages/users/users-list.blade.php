@@ -10,7 +10,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Master Management</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('list-users') }}">Master Management</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Users </li>
                     </ol>
                 </nav>

@@ -5,12 +5,12 @@
         <div class="content-wrapper mt-6">
             <div class="page-header">
                 <h3 class="page-title">
-                    MAP Lat Data
+                    MAP GIS Data
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Resource Center</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Update MAP Lat Data</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Update MAP GIS Data</li>
                     </ol>
                 </nav>
             </div>

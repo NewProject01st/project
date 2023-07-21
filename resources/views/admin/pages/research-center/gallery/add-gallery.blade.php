@@ -34,9 +34,10 @@
                                                 @endforeach
                                             </select>
                                             @if ($errors->has('category_id'))
-                                                <span class="red-text"><?php echo $errors->first('category_id', ':message'); ?></span>
-                                            @endif
+                                            <div class="red-text"><?php echo $errors->first('category_id', ':message'); ?></div>
+                                        @endif
                                         </div>
+                                      
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">

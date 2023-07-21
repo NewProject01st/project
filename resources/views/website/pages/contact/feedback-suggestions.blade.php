@@ -112,6 +112,8 @@
                                             Feedback</option>
                                         <option value="Suggestion"
                                             {{ old('contact_type') == 'Suggestion' ? 'selected' : '' }}>Suggestion</option>
+                                            <option value="Complaint" {{ old('contact_type') == 'Complaint' ? 'selected' : '' }}>
+                                                Complaint</option>
                                     </select>
                                     @if ($errors->has('contact_type'))
                                         <span class="red-text"><?php echo $errors->first('contact_type', ':message'); ?></span>

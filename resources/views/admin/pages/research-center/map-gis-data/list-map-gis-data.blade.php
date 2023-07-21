@@ -7,7 +7,7 @@
         <div class="content-wrapper mt-7">
             <div class="page-header">
                 <h3 class="page-title">
-                    MAP Lat Data List
+                    MAP GIS Data
                     @if (in_array('per_add', $data_permission))
                         <a href="{{ url('add-map-lot-lons') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
                     @endif
@@ -15,7 +15,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Resource Center</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> MAP Lat Data List</li>
+                        <li class="breadcrumb-item active" aria-current="page"> MAP GIS Data List</li>
                     </ol>
                 </nav>
             </div>

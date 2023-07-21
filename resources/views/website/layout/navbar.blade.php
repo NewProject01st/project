@@ -150,7 +150,7 @@
                                     </form> --}}
                                         <span class="serch-main">
                                             <ul class="navbar-nav mr-auto">
-                                                <li class="nav-item search-data">
+                                                <li class="nav-item dropdown search-data">
                                                     <input type="text" id="search-box" placeholder="Search..." style="border: none">
                                                     {{-- <button type="submit" class="header_search_btn">Search</button> --}}
                                                     <div id="search-results" class="dropdown-menu show"

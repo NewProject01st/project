@@ -407,6 +407,17 @@ class SearchController extends Controller
             $subMenus = MainSubMenus::where('id',40)->get()->toArray();
             array_push($return_data, $subMenus);
         }
+        $contact = Contact::where('is_active',true);
+        $contact =  $contact->where(function($query1) use ($query)  {
+                                return $query1->Where('english_description', 'LIKE', '%' . $query . '%')
+                                            ->orWhere('marathi_description', 'LIKE', '%' . $query . '%');
+                                })->get()->toArray();
+
+        if(count($contact)>0) {
+            $subMenus = MainSubMenus::where('id',39)->get()->toArray();
+            array_push($return_data, $subMenus);
+        }
+
 
         $vacanciesHeader = VacanciesHeader::where('is_active',true);
         $vacanciesHeader =  $vacanciesHeader->where(function($query1) use ($query)  {
@@ -614,110 +625,12 @@ class SearchController extends Controller
             }
          
         }
-    // -----------------------
     
-
-//     $dynamicWebPages = DynamicWebPages::where('is_active', true)
-//     ->where(function($query) use ($searchTerm) {
-//         $query->where('english_title', 'LIKE', '%' . $searchTerm . '%')
-//             ->orWhere('marathi_title', 'LIKE', '%' . $searchTerm . '%')
-//             ->orWhere('id', 'LIKE', '%' . $searchTerm . '%')
-//             ->orWhere('publish_date', 'LIKE', '%' . $searchTerm . '%');
-//     })
-//     ->get()
-//     ->toArray();
-
-// if (count($dynamicWebPages) > 0) {
-//     $submenuIds = array_column($dynamicWebPages, 'submenu_id');
-   
-//     $subMenus = MainSubMenus::whereIn('id', $submenuIds)->get()->toArray();
-//     array_push($return_data, $subMenus);
-// }
-
-
-
-        // ==================
-        // $dynamicWebPages = DynamicWebPages::where('is_active',true);
-        
-        // $dynamicWebPages =  $dynamicWebPages->where(function($query1) use ($query)  {
-        //                         return $query1->where('english_title', 'LIKE', '%' . $query . '%')
-        //                                     ->orWhere('marathi_title', 'LIKE', '%' . $query . '%')
-        //                                     ->orWhere('id', 'LIKE', '%' . $query . '%')
-        //                                     ->orWhere('publish_date', 'LIKE', '%' . $query . '%');
-        //                                 })->get()->toArray();
-
-
-                                
-        // if(count($dynamicWebPages)>0) {
-        // // $subMenus1 = MainSubMenus::whereIn('id', array_column($dynamicWebPages, 'submenu_id'))->get()->toArray();
-        // // $subMenus = MainSubMenus::find('id', $subMenus1)->toArray();
-        //     $subMenus = MainSubMenus::where('id',5)->get()->toArray();
-        //     array_push($return_data, $subMenus);
-        // }
-// dd($dynamicWebPages);
-    
-
-
-
-
-        // =========================
-
-//         $dynamicWebPages = DynamicWebPages::where('is_active', true)
-//     ->where(function($query) use ($searchTerm) {
-//         $query->where('english_title', 'LIKE', '%' . $searchTerm . '%')
-//             ->orWhere('page_content_marathi', 'LIKE', '%' . $searchTerm . '%')
-//             ->orWhere('page_content_english', 'LIKE', '%' . $searchTerm . '%')
-//             ->orWhere('id', 'LIKE', '%' . $searchTerm . '%')
-//             ->orWhere('marathi_description', 'LIKE', '%' . $searchTerm . '%');
-//     })
-//     ->get()
-//     ->toArray();
-
-// if (count($dynamicWebPages) > 0) {
-//     $subMenus1 = MainSubMenus::whereIn('id', array_column($dynamicWebPages, 'submenu_id'))->get()->toArray();
-//     $subMenus = MainSubMenus::find('id', $subMenus1)->toArray();
-//     array_push($return_data, $subMenus);
-    
-// }
-
-
-// $stateDisasterManagementPolicy = StateDisasterManagementPolicy::where('is_active',true);
-// $stateDisasterManagementPolicy =  $stateDisasterManagementPolicy->where(function($query1) use ($query)  {
-//                         return $query1->where('english_title', 'LIKE', '%' . $query . '%')
-//                                     ->orWhere('marathi_title', 'LIKE', '%' . $query . '%')
-//                                     ->orWhere('policies_year', 'LIKE', '%' . $query . '%');
-//                         })->get()->toArray();
-
-// if(count($stateDisasterManagementPolicy)>0) {
-//     $subMenus = MainSubMenus::where('id',30)->get()->toArray();
-//     array_push($return_data, $subMenus);
-// }
-       
-        // $dynamicWebPages = DynamicWebPages::where('is_active',true);
-        // $dynamicWebPages =  $dynamicWebPages->where(function($query1) use ($query)  {
-        //                         return $query1->where('english_title', 'LIKE', '%' . $query . '%')
-        //                                     ->orWhere('marathi_title', 'LIKE', '%' . $query . '%')
-        //                                     ->orWhere('english_description', 'LIKE', '%' . $query . '%')
-        //                                     ->orWhere('id', 'LIKE', '%' . $query . '%')
-        //                                     ->orWhere('marathi_description', 'LIKE', '%' . $query . '%');
-        //                         })->get()->toArray();
-
-
-
-        // if(count($dynamicWebPages)>0) {
-        //     $subMenus1 = MainSubMenus::where('id')->get()->toArray();
-        //         $subMenus = MainSubMenus::where('id',5)->get()->toArray();
-        //         array_push($return_data, $subMenus);
-        //     }
-       
-
-        
-
 // AllWebPages
 // 
 // CitizenFeedbackSuggestion
 // CitizenVolunteerModal
-// Contact
+// 
 // 
 // 
 // 
@@ -737,7 +650,7 @@ class SearchController extends Controller
 // GalleryCategory
 // GeneralContact
 
-// HomeTender
+
 // IncidentType
 // MainMenus
 // MAPGISData
