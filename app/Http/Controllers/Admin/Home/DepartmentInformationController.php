@@ -34,10 +34,10 @@ class DepartmentInformationController extends Controller
             'marathi_title' => 'required|max:255',
             'english_description' => 'required',
             'marathi_description' => 'required',
-            'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE").'|dimensions:min_width=100,min_height=100,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE").'',
-            'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE").'|dimensions:min_width=100,min_height=100,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE").'',
-            'english_image_new' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE").'|dimensions:min_width=1000,min_height=300,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE").'',
-            'marathi_image_new' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE").'|dimensions:min_width=1000,min_height=300,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE").'',
+            'english_image' => 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE").'|dimensions:min_width=100,min_height=100,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE").'',
+            'marathi_image' => 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE").'|dimensions:min_width=100,min_height=100,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE").'',
+            'english_image_new' => 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE").'|dimensions:min_width=1000,min_height=300,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE").'',
+            'marathi_image_new' => 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE").'|dimensions:min_width=1000,min_height=300,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE").'',
             // 'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
            
             
@@ -125,17 +125,17 @@ class DepartmentInformationController extends Controller
         // 'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
     ];
      if($request->has('english_image')) {
-        $rules['english_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE").'|dimensions:min_width=100,min_height=100,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE");
+        $rules['english_image'] = 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE").'|dimensions:min_width=100,min_height=100,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE");
     }
     if($request->has('marathi_image')) {
-        $rules['marathi_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE").'|dimensions:min_width=100,min_height=100,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE");
+        $rules['marathi_image'] = 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE").'|dimensions:min_width=100,min_height=100,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE");
     }
 
     if($request->has('english_image_new')) {
-        $rules['english_image_new'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE").'|dimensions:min_width=1000,min_height=300,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE");
+        $rules['english_image_new'] = 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE").'|dimensions:min_width=1000,min_height=300,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE");
     }
     if($request->has('marathi_image_new')) {
-        $rules['marathi_image_new'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE").'|dimensions:min_width=1000,min_height=300,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE");
+        $rules['marathi_image_new'] = 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE").'|dimensions:min_width=1000,min_height=300,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE");
     }
     $messages = [   
         'english_title.required'=>'Please enter title.',

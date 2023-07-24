@@ -37,8 +37,8 @@ class WeatherController extends Controller
             'marathi_description' => 'required',
             'weather_date' => 'required',
             'expired_date' => 'required',
-            'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'english_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'marathi_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
          
             
          ];
@@ -127,8 +127,8 @@ $messages = [
     'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
     'weather_date' => 'required',
     'expired_date' => 'required',
-    'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    'english_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+    'marathi_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
     
 ];
 

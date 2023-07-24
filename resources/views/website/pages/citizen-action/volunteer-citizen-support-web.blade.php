@@ -45,7 +45,7 @@
         <div class="map-form p80">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 contact-form m80">
+                    <div class="col-md-12 contact-form m80 deprt-txt">
                         <h3 class="stitle text-center">
                             @if (session('language') == 'mar')
                                 {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_SUB_LINK2') }}

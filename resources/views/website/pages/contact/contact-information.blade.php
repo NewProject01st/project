@@ -36,7 +36,7 @@
         <!-- Google Map with Contact Form -->
         <div class="map-form p80">
             <div class="container">
-                <div class="row">
+                <div class="row deprt-txt">
                     <h3 class="stitle text-center d-flex justify-content-start">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.HOME_PAGE.CONTACT_INFORMATION_FOR_SDMA') }}

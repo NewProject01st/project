@@ -9,7 +9,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Master</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-incident-type') }}">Master</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Incident Type</li>
                     </ol>
                 </nav>

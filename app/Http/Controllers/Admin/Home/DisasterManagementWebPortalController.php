@@ -39,8 +39,8 @@ class DisasterManagementWebPortalController extends Controller
             'marathi_description' => 'required',
             'english_designation' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             'marathi_designation' =>'required|max:255',
-            'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MAX_SIZE").'|dimensions:min_width=150,min_height=150,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MIN_SIZE").'',
-            'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MAX_SIZE").'|dimensions:min_width=150,min_height=150,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MIN_SIZE").'',
+            'english_image' => 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MAX_SIZE").'|dimensions:min_width=150,min_height=150,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MIN_SIZE").'',
+            'marathi_image' => 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MAX_SIZE").'|dimensions:min_width=150,min_height=150,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MIN_SIZE").'',
             
          ];
     $messages = [   
@@ -128,10 +128,10 @@ class DisasterManagementWebPortalController extends Controller
             'marathi_designation' => 'required|max:255',
         ];
         if($request->has('english_image')) {
-            $rules['english_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MAX_SIZE").'|dimensions:min_width=150,min_height=150,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MIN_SIZE").'';
+            $rules['english_image'] = 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MAX_SIZE").'|dimensions:min_width=150,min_height=150,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MIN_SIZE").'';
         }
         if($request->has('marathi_image')) {
-            $rules['marathi_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MAX_SIZE").'|dimensions:min_width=150,min_height=150,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MIN_SIZE").'';
+            $rules['marathi_image'] = 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MAX_SIZE").'|dimensions:min_width=150,min_height=150,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MIN_SIZE").'';
         }
     $messages = [   
         'english_name.required'=>'Please enter name.',

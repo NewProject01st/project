@@ -1,107 +1,120 @@
-<html>
+@extends('website.layout.master')
 
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-</head>
-
-<body>
-
-  <div class="container-fluid">
-    <h1>Content magnifier demo</h1>
-
-    <div class="row">
-      <div class="col-md-8">
-        <div id="scrollable1" style="height:200px;overflow:auto;border:1px solid red;">
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
+@section('content')
+    <!--Subheader Start-->
+    <style>
+        .magnifying-glass-container {
+            position: relative;
+        }
+    
+        .magnifying-glass {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+    
+        .magnifying-glass-zoomed-text {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1.5;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+        }
+    
+        .original-text {
+            margin-top: 200px; /* Adjust this value based on your needs */
+        }
+    </style>
+    <section class="wf100 subheader">
+        <div class="container">
+            <h2>Event </h2>
         </div>
+        <div class="container">
+                <h1>Magnifying Glass for Text</h1>
+                <div class="magnifying-glass-container">
+                    <div class="magnifying-glass">
+                        <div class="magnifying-glass-zoomed-text"></div>
+                    </div>
+                    <div class="original-text">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan aliquet luctus.</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!--Subheader End-->
+    <!--Main Content Start-->
+    <div class="main-content p60">
+        <!--Department Details Page Start-->
+        <div class="department-details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <!--Department Details Txt Start-->
+                        @forelse ($event_data as $item)
+                            <div class="deprt-txt">
+                                @if (session('language') == 'mar')
+                                    <h3><?php echo $item['marathi_title']; ?> </h3>
+                                    <img src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['marathi_image'] }}"
+                                        class="d-block w-100" alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा">
+                                    <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
+                                @else
+                                    <h3><?php echo $item['english_title']; ?> </h3>
+                                    <img src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['english_image'] }}"
+                                        class="d-block w-100" alt="{{ strip_tags($item['english_title']) }} Image">
+                                    <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
+                                @endif
+                            </div>
+                        @empty
+                            <p>No Disaster News</p>
+                        @endforelse
 
+                        <!--Department Details Txt End-->
+                    </div>
+                      <!--Sidebar Start-->
+                      <div class="col-md-3">
+                        {{-- <div class="pb-3">
+                            <button type="button" class="btn back-btn-color"><a href="{{ route('list-upcoming-training-event-web') }}">
+                                    Back</a>
+                            </button>
+                        </div> --}}
 
-        <div id="scrollable2" style="height:200px;overflow:auto;border:1px solid red;">
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
+                        @include('website.pages.training-event.upcoming-events')
+                    </div>
+                    <!--Sidebar End-->
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <img src="https://jagermesh.com/image.jpg" class="img-fluid"/>
-      </div>
+        
+        <!--Department Details Page End-->
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div style="border:1px solid red;">
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-
-        <p>The Pythagorean equation, x2 + y2 = z2, has an infinite number of positive integer solutions for x, y, and z; these solutions are known as Pythagorean triples. Around 1637, Fermat wrote in the margin of a book that the more general equation an + bn = cn had no solutions in positive integers, if n is an integer greater than 2. Although he claimed to have a general proof of his conjecture, Fermat left no details of his proof, and no proof by him has ever been found. His claim was discovered some 30 years later, after his death. This claim, which came to be known as Fermat's Last Theorem, stood unsolved in mathematics for the following three and a half centuries.
-
-The claim eventually became one of the most notable unsolved problems of mathematics. Attempts to prove it prompted substantial development in number theory, and over time Fermat's Last Theorem gained prominence as an unsolved problem in mathematics.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="{{ asset('website_files/assets/js/html-magnifier.js') }}"></script>
-  <script>
-    /* global HTMLMagnifier */
-    const magnifier = new HTMLMagnifier({ width: 400 });
-    magnifier.show();
-  </script>
-</body>
-</html>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const magnifyingGlass = document.querySelector(".magnifying-glass");
+            const zoomedText = document.querySelector(".magnifying-glass-zoomed-text");
+            const originalText = document.querySelector(".original-text p");
+    
+            originalText.addEventListener("mousemove", function (event) {
+                const rect = originalText.getBoundingClientRect();
+                const offsetX = event.clientX - rect.left;
+                const offsetY = event.clientY - rect.top;
+    
+                const zoomRatio = 1.5; // Adjust the zoom level as needed
+                const zoomedX = offsetX * zoomRatio;
+                const zoomedY = offsetY * zoomRatio;
+    
+                magnifyingGlass.style.backgroundPosition = `-${zoomedX}px -${zoomedY}px`;
+                zoomedText.textContent = originalText.textContent;
+            });
+    
+            originalText.addEventListener("mouseout", function () {
+                magnifyingGlass.style.backgroundPosition = "0 0";
+                zoomedText.textContent = "";
+            });
+        });
+    </script>
+    <!--Main Content End-->
+@endsection

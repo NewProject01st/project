@@ -32,13 +32,13 @@
     <!--Subheader End-->
 
     <!--Main Content Start-->
-    <div class="main-content">
+    <div class="main-content p60">
         <!--Events Start-->
-        <div class="events-wrapper events-listing">
+        <div class="events-listing">
             <div class="container">
                 <div class="row">
                     <div class="col-md-9 col-sm-8">
-                        <div class="title-style-3">
+                        <div class="title-style-3 deprt-txt">
                             <h3>
                                 @if (session('language') == 'mar')
                                     {{ Config::get('marathi.HOME_PAGE.PAST_EVENTS_TRAINING') }}

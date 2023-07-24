@@ -35,9 +35,9 @@
             <!--Department Details Page Start-->
             <div class="department-details">
                 <!--Start News Start-->
-                <section class="wf100 city-news p75">
+                <section class="wf100 city-news p60">
                     <div class="container ">
-                        <div class="title-style-3">
+                        <div class="title-style-3 deprt-txt">
                             <h3>
                                 @if (session('language') == 'mar')
                                     {{ Config::get('marathi.NEWS_EVENTS.DISASTER_MANAGEMENT_NEWS') }}

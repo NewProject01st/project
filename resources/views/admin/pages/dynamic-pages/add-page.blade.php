@@ -29,16 +29,16 @@
 
                                                 <label for="menu_name_english">Main Menu</label>&nbsp<span
                                                     class="red-text">*</span>
-                                                <select class="form-select form-control" name="menu_data" id="menu_data"
-                                                    aria-label="Default select example" value="{{ old('menu_data') }}">
-                                                    <option selected>Select Name</option>
+                                                <select class="form-select form-control" name="menu_data" id="menu_data" aria-label="Default select example">
+                                                    <option value="">Select Name</option>
                                                     @foreach ($main_menu_data as $key => $data)
                                                         <option value="{{ $data['menu_id'] }}_{{ $data['main_sub'] }}"
-                                                            {{ old('menu_data') == $data['menu_id'] ? 'selected' : '' }}>
+                                                            {{ old('menu_data') == $data['menu_id'] . '_' . $data['main_sub'] ? 'selected' : '' }}>
                                                             {{ $data['menu_name_english'] }}({{ $data['menu_name_marathi'] }})
                                                         </option>
                                                     @endforeach
                                                 </select>
+                                                
                                                 @if ($errors->has('menu_data'))
                                                     <span class="red-text"><?php echo $errors->first('menu_data', ':message'); ?></span>
                                                 @endif

@@ -15,7 +15,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Footer</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('list-privacy-policy') }}">Footer</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Privacy Policy List</li>
                     </ol>
                 </nav>

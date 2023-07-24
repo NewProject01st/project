@@ -35,7 +35,7 @@
             <!--Department Details Page Start-->
             <div class="department-details">
                 <div class="container">
-                    <div class="row">
+                    <div class="row deprt-txt">
                         <h3 class="stitle text-center d-flex justify-content-start">
                             @if (session('language') == 'mar')
                                 {{ Config::get('marathi.POLICIES_LEGISLATION.POLICIES_LEGISLATION_SUB_LINK2') }}

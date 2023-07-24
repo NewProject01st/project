@@ -15,7 +15,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dynamic Pages</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('list-dynamic-page') }}">Dynamic Pages</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Dynamic List</li>
                     </ol>
                 </nav>

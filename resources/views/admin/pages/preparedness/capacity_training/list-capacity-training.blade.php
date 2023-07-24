@@ -16,7 +16,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Preparedness</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-capacity-building-and-training') }}">Preparedness</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Capacity Building And Training</li>
                     </ol>
                 </nav>

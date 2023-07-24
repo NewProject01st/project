@@ -152,7 +152,7 @@
         </section>
         {{-- End Disaster Management --}}
         <!--Start News Start-->
-        <section class="wf100 city-news p75">
+        <section class="wf100 city-news p60">
             <div class="container ">
                 <div class="title-style-3">
                     <h3>
@@ -567,6 +567,12 @@
     <!--Departments & Information Desk End-->
     </div>
 @endsection
+ {{-- <script src="{{ asset('website_files/assets/js/html-magnifier.js') }}"></script>
+<script>
+    /* global HTMLMagnifier */
+    const magnifier = new HTMLMagnifier({ width: 400 });
+    magnifier.show();
+  </script> --}}
 {{-- @extends('website.layout.navbar')
 @extends('website.layout.header') --}}
 

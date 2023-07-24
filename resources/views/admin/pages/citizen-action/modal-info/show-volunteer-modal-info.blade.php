@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
                             <h3 class="page-title">
-                                Be Volunteer
+                                Be A Volunteer
                             </h3>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
@@ -74,15 +74,7 @@
                                                 style="width:300px; height:150px;" />
                                         </div>
                                     </div>
-
-                                    <div class="row ">
-                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>Mobile Number :</label>
-                                        </div>
-                                        <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($volunteercitizen->mobile_number) }}</label>
-                                        </div>
-                                    </div>
+                                    @if ($volunteercitizen['is_ngo'] == 1)
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
                                             <label>NGO Name :</label>
@@ -117,7 +109,8 @@
                                                 style="width:300px; height:150px;" />
                                         </div>
                                     </div>
-
+                                    @else
+                                  @endif
 
                                 </div>
                             </div>

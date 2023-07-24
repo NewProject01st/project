@@ -9,7 +9,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('list-dynamic-page') }}">Pages</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Dynamic Page</li>
                     </ol>
                 </nav>
@@ -31,7 +31,7 @@
                                                 <select class="form-select form-control" name="menu_data" id="menu_data"
                                                     aria-label="Default select example" value="{{ old('menu_data') }}"
                                                     readonly>
-                                                    <option selected>Select Name</option>
+                                                    <option value="">Select Name</option>
                                                     @foreach ($main_menu_data as $key => $data)
                                                         <option value="{{ $data['menu_id'] }}_{{ $data['main_sub'] }}"
                                                             @if ($menu_selected == $data['menu_id'] . '_' . $data['main_sub']) <?php echo 'selected'; ?> @endif>
@@ -53,9 +53,9 @@
                                                         class="red-text">*</span>
                                                     <input type="text" class="form-control" name="english_title"
                                                         id="english_title" placeholder="Enter the Tilte"
-                                                        value="{{ $dynamic_page->english_title }}"
-                                                        {{-- value="@if (old('english_title')) {{ old('english_title') }}@else{{ $dynamic_page->english_title }} @endif" --}}
-                                                         />
+                                                        value="@if (old('english_title'))
+                                                        {{ old('english_title') }}@else{{ $dynamic_page->english_title }}
+                                                        @endif"/>
                                                     @if ($errors->has('english_title'))
                                                         <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                                     @endif
@@ -67,9 +67,9 @@
                                                         class="red-text">*</span>
                                                     <input type="text" class="form-control" name="marathi_title"
                                                         id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"
-                                                        value="{{ $dynamic_page->marathi_title }}"
-                                                        {{-- value="@if (old('marathi_title')) {{ old('marathi_title') }}@else{{ $dynamic_page->marathi_title }} @endif" --}}
-                                                         />
+                                                        value="@if (old('marathi_title'))
+                                                        {{ old('marathi_title') }}@else{{ $dynamic_page->marathi_title }}
+                                                        @endif"/>
                                                     @if ($errors->has('marathi_title'))
                                                         <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                                     @endif
@@ -82,10 +82,7 @@
                                             <label for="english_description">Page Content</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control" name="english_description" id="summernote2" placeholder="Enter the Description">
-                                            {{ $html_english }}
-                                            {{-- @if (old('english_description'))
-{{ old('english_description') }}@else{{ $html_marathi }} --}}
-{{-- @endif --}}
+                                             @if (old('english_description')){{ old('english_description') }}@else{{ $html_english }}@endif 
                                         </textarea>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
@@ -97,10 +94,7 @@
                                             <label for="marathi_description">पृष्ठ सामग्री</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <textarea class="form-control" name="marathi_description" id="summernote3" placeholder="पृष्ठ सामग्री प्रविष्ट करा">
-                                            {{ $html_marathi }}
-                                            {{-- @if (old('marathi_description'))
-{{ old('marathi_description') }}@else{{ $html_marathi }} --}}
-{{-- @endif --}}
+                                                @if (old('marathi_description')){{ old('marathi_description') }}@else{{ $html_marathi }}@endif 
                                         </textarea>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
@@ -127,7 +121,7 @@
                                                         class="red-text">*</span>
                                                     <input type="date" class="form-control" placeholder="YYYY-MM-DD"
                                                       value="{{$get_publish_date}}"
-                                                        {{-- value="@if (old('publish_date')) {{ old('publish_date') }}@else{{ $get_publish_date }} @endif" --}}
+                                                        value="@if (old('publish_date')) {{ old('publish_date') }}@else{{ $get_publish_date }} @endif" 
                                                         name="publish_date" id="publish_date">
                                                     @if ($errors->has('publish_date'))
                                                         <span class="red-text"><?php echo $errors->first('publish_date', ':message'); ?></span>

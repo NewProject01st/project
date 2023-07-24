@@ -9,7 +9,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Preparedness</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-public-awareness-and-education') }}">Preparedness</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Update Public Awareness And Education
                         </li>
                     </ol>

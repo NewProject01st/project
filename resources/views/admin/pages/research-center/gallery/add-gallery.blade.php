@@ -9,7 +9,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Resource Center</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-gallery') }}">Resource Center</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Gallery</li>
                     </ol>
                 </nav>
@@ -28,7 +28,7 @@
                                             <label for="category_id">Gallery Category</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <select class="form-control" id="category_id" name="category_id">
-                                                <option>Select</option>
+                                                <option value="">Select</option>
                                                 @foreach ($category_gallery as $item)
                                                     <option value="{{ $item['id'] }}">{{ $item['english_name'] }}</option>
                                                 @endforeach

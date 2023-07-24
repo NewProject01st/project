@@ -16,7 +16,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Sub Header Info </a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-sub-header-info') }}">Sub Header Info </a></li>
                         <li class="breadcrumb-item active" aria-current="page">Sub Header Info </li>
                     </ol>
                 </nav>

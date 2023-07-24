@@ -9,7 +9,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Policies and Legislation</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-district-disaster-management-plan') }}">Policies and Legislation</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> District Disaster Management Plan</li>
                     </ol>
                 </nav>

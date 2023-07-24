@@ -120,11 +120,12 @@
     <!--Subheader End-->
     <!--Main Content Start-->
     <div class="main-content">
+        <section class="depart-info">
         <!--Video Start-->
         <div class="container">
             <div class="row d-flex justify-content-center">
-
                 <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="deprt-txt">
                     <h3 class="stitle text-center d-flex justify-content-start pt-4 pl-4">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.HOME_PAGE.VIDEO') }}
@@ -132,6 +133,7 @@
                             {{ Config::get('english.HOME_PAGE.VIDEO') }}
                         @endif
                     </h3>
+                    </div>
                     <!-- Carousel Container -->
                     <div class="SlickCarousel">
                         @forelse ($data_getallvideo as $item)
@@ -169,10 +171,16 @@
                 </div>
             </div>
             <!--Video End-->
+        </div>
+        </section>
+    </div>
+    <div class="main-content city-news">
+        <!--Video Start-->
+        <div class="container">
             <section class="">
                 <div class="container photo_g">
 
-                    <div class="row">
+                    <div class="row deprt-txt">
                         <h3 class="stitle text-center d-flex justify-content-start pt-4">
                             @if (session('language') == 'mar')
                                 {{ Config::get('marathi.HOME_PAGE.GALLERY') }}
@@ -191,13 +199,13 @@
                                     <a href="javascript:void(0)" onclick="myFunction('{{ $categories_data['id'] }}')">
                                         <input type="radio" name="filter"
                                             id="category_{{ $categories_data['id'] }}"><label
-                                            for="animals">{{ $categories_data['marathi_name'] }}</label>
+                                            for="animals" class="menugallery">{{ $categories_data['marathi_name'] }}</label>
                                     </a>
                                 @else
                                     <a href="javascript:void(0)" onclick="myFunction('{{ $categories_data['id'] }}')">
                                         <input type="radio" name="filter"
                                             id="category_{{ $categories_data['id'] }}"><label
-                                            for="animals">{{ $categories_data['english_name'] }}</label>
+                                            for="animals" class="menugallery">{{ $categories_data['english_name'] }}</label>
                                     </a>
                                 @endif
                             @empty
@@ -207,8 +215,8 @@
                                 <!-- <div class="d-flex" id="gallary_data"> -->
                                     <?php $k = 1; ?>
                                     @forelse ($gallery_data as $key=>$item)
-                                        <div class="col-md-3 nature">
-                                            <figure class="card animals">
+                                        <div class="col-md-4 nature">
+                                            <figure class="">
                                                 @if (session('language') == 'mar')
                                                     <img class="card__image toZoom" id="img{{ $key }}"
                                                         attr="if" loading="lazy" src="{{ $item['marathi_image'] }}"
@@ -261,13 +269,13 @@
                     },
                     success: function(data) {
                         $("#gallary_data").empty();
-                        // $("#gallary_data").append('< class="col-md-4 nature">< class="card animals">');
+                        // $("#gallary_data").append('< class="col-md-4 nature">< class="">');
                         var kid = 1;
                         $.each(data, function(i, item) {
                             // console.log(data);
                             @if (session('language') == 'mar')
-                                $("#gallary_data").append(`<div class="col-md-3 nature">
-                                        <figure class="card animals">
+                                $("#gallary_data").append(`<div class="col-md-4 nature">
+                                        <figure class="">
                                                 <img class="card__image toZoom d-block w-100 img-fluid" id="img` + i + `" loading="lazy"
                                                     src="` + item.english_image + `"
                                                     alt="...">
@@ -282,8 +290,8 @@
 
 
                                 // $("").attr();
-                                $("#gallary_data").append(`<div class="col-md-3 nature">
-                            <figure class="card animals" attr="else">
+                                $("#gallary_data").append(`<div class="col-md-4 nature">
+                            <figure class="" attr="else">
                             <img class="card__image toZoom d-block w-100 img-fluid" id="img` + i + `" attr="else" loading="lazy"
                                                     src="` + item.english_image + `" 
                                                     alt="...">

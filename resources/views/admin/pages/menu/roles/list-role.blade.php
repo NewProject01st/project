@@ -15,7 +15,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Master</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('list-role') }}">Master</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Role List</li>
                     </ol>
                 </nav>

@@ -113,8 +113,8 @@ $messages = [
   
     // 'forcast_date' => 'required',
     // 'expired_date' => 'required',
-    // 'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    // 'marathi_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    // 'english_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+    // 'marathi_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
     
 ];
 

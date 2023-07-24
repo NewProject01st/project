@@ -37,7 +37,7 @@ class CitizenActionController extends Controller
             'datetime' => 'required',
             'mobile_number' => 'required|unique:report_incident_modals,mobile_number',
             'description' => 'required',
-            'media_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'media_upload' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'g-recaptcha-response' => 'required|captcha',
 
             ];
@@ -95,7 +95,7 @@ class CitizenActionController extends Controller
             'datetime' => 'required',
             'mobile_number' => 'required|unique:citizen_volunteer_modals,mobile_number',
             'description' => 'required',
-            'media_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'media_upload' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'g-recaptcha-response' => 'required|captcha',
 
         ];
@@ -116,7 +116,7 @@ class CitizenActionController extends Controller
             $rules['ngo_name'] = 'required|regex:/^[a-zA-Z\s]+$/u';
             $rules['ngo_email'] = 'required|unique:citizen_volunteer_modals,ngo_email';
             $rules['ngo_contact_number'] = 'required|unique:citizen_volunteer_modals,ngo_contact_number';
-            $rules['ngo_photo'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'; 
+            $rules['ngo_photo'] = 'required|image|mimes:jpeg,png,jpg|max:2048'; 
 
             $messages['ngo_name'] = 'Ngo name is required';
             $messages['ngo_name.regex'] = 'Please  enter text only..';
@@ -133,7 +133,7 @@ class CitizenActionController extends Controller
             $rules['ngo_email'] = 'required|unique:citizen_volunteer_modals,ngo_email';
             $rules['ngo_contact_number'] = 'required|unique:citizen_volunteer_modals,ngo_contact_number';
             $rules['ngo_address'] = 'required';
-            $rules['ngo_photo'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048';
+            $rules['ngo_photo'] = 'required|image|mimes:jpeg,png,jpg|max:2048';
             
             $messages['ngo_name.required'] = 'The NGO name field is required.';
             $messages['ngo_name.regex'] = 'Please  enter text only..';

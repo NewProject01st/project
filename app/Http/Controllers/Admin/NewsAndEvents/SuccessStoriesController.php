@@ -37,7 +37,7 @@ class SuccessStoriesController extends Controller
             'marathi_description' => 'required',
             'english_designation' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             'marathi_designation' =>'required|max:255',
-            'english_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGES_MAX_SIZE").'|dimensions:min_width=150,min_height=150,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGES_MIN_SIZE").'',
+            'english_image' => 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGES_MAX_SIZE").'|dimensions:min_width=150,min_height=150,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGES_MIN_SIZE").'',
 
          ];
     $messages = [   
@@ -110,7 +110,7 @@ class SuccessStoriesController extends Controller
      ];
 
      if($request->has('english_image')) {
-        $rules['english_image'] = 'required|image|mimes:jpeg,png,jpg,gif,svg|max:'.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGES_MAX_SIZE").'|dimensions:min_width=150,min_height=150,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGES_MIN_SIZE");
+        $rules['english_image'] = 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGES_MAX_SIZE").'|dimensions:min_width=150,min_height=150,max_width=400,max_height=400|min:'.Config::get("AllFileValidation.SUCCESS_STORIES_IMAGES_MIN_SIZE");
     }
     $messages = [   
         'english_title.required'=>'Please enter title.',

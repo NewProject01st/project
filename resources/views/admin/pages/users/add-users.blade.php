@@ -25,7 +25,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('list-users') }}">Dashboard</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Users Master</li>
                     </ol>
                 </nav>
@@ -65,7 +65,7 @@
                                             <label for="role_id">Role Type</label>&nbsp<span class="red-text">*</span>
                                             <select class="form-control" id="role_id" name="role_id"
                                                 onchange="myFunction(this.value)">
-                                                <option>Select</option>
+                                                <option value="">Select</option>
                                                 @foreach ($roles as $role)
                                                     @if (old('role_id') == $role['id'])
                                                         <option value="{{ $role['id'] }}" selected>

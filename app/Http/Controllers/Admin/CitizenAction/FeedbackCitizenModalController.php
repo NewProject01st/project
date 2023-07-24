@@ -44,7 +44,7 @@ class FeedbackCitizenModalController extends Controller
 //         'datetime' => 'required',
 //         'mobile_number' => 'required',
 //         'description' => 'required',
-//         'media_upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//         'media_upload' => 'required|image|mimes:jpeg,png,jpg|max:2048',
 
 //     ];
 

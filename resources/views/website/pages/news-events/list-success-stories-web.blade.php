@@ -33,8 +33,8 @@
         <!--Main Content Start-->
         <div class="main-content">
             <!--Success Start-->
-            <section class="wf100 p75">
-                <div class="container">
+            <section class="wf100 p60">
+                <div class="container deprt-txt">
                     <h3 class="stitle text-center d-flex justify-content-start">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.HOME_PAGE.SUCCESS_STORIES') }}

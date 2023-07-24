@@ -14,7 +14,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Training Materials And Workshops</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-training-workshop') }}">Training Materials And Workshops</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Training Materials And Workshops List</li>
                     </ol>
                 </nav>

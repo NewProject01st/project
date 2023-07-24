@@ -9,7 +9,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Training Workshops</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-event') }}">Training Workshops</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Update Training Workshops
                         </li>
                     </ol>

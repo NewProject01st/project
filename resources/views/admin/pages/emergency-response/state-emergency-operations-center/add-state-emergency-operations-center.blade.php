@@ -9,7 +9,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Emergency Response</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('list-state-emergency-operations-center') }}">Emergency Response</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> State Emergency Operations Center</li>
                     </ol>
                 </nav>

@@ -8,7 +8,7 @@
                     Gallery</h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Resource Center</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-gallery') }}">Resource Center</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Update Gallery
                         </li>
                     </ol>
@@ -39,16 +39,6 @@
                                         <img id="english_imgPreview" src="" alt="pic"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
-
-
-
-
-
-
-
-
-
-
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_image">Marathi Image</label>
