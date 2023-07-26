@@ -238,7 +238,7 @@ class EmergencyContactNumbersController extends Controller
                     $msg = $update_emergencycontactnumbers['msg'];
                     $status = $update_emergencycontactnumbers['status'];
                     if ($status == 'success') {
-                        return redirect('list-emergency-contact-numbers')->with(compact('msg', 'status'));
+                        return redirect('edit-emergency-contact-numbers')->with(compact('msg', 'status'));
                     } else {
                         return redirect()->back()
                             ->withInput()
