@@ -7,7 +7,7 @@
     }
     .modal-header .close {
     padding: 0rem !important;
-    margin: -1rem -13rem -1rem auto !important;
+    margin: -1rem -13rem -1rem 0px !important;
     }
 </style>
     <div class="main-panel">

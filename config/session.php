@@ -59,7 +59,7 @@ return [
     |
     */
 
-    'encrypt' => false,
+    'encrypt' => true,  //SMG Added from true  to  false
 
     /*
     |--------------------------------------------------------------------------

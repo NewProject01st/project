@@ -234,72 +234,63 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-3">
-                        <?php $forecast_data_api = unserialize(getTempratureData()->forecast); ?>
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                @foreach ($forecast_data_api as $key => $forecast_data)
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="{{ $key }}"
-                                        class="@if ($key == 0) {{ 'active' }} @endif"></li>
-                                @endforeach
-                            </ol>
-                            <div class="carousel-inner">
-                                @foreach ($forecast_data_api as $key => $forecast_data)
-                                    <div
-                                        class="carousel-item @if ($key == 0) {{ 'active' }} @endif">
-                                        <!-- Item -->
-                                        <div class="WeatherBlock mt-4">
-                                            <div class="card weather_card">
-                                                <div class="card-body">
-                                                    <h6 class="text-center">Nashik</h6>
-                                                    <p class="text-center weather_day">{{date("d/m/Y", strtotime($forecast_data['datetime']))}} | {{date("l", strtotime($forecast_data['datetime']))}}</p>
+                    <?php $forecast_data_api = unserialize(getTempratureData()->forecast); ?>
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                        @foreach ($forecast_data_api as $key => $forecast_data)
+                            <div class="carousel-item @if ($key == 0) {{ 'active' }} @endif">
+                                <!-- Item -->
+                                <div class="WeatherBlock mt-4">
+                                    <div class="card weather_card">
+                                        <div class="card-body">
+                                            <h6 class="text-center">Nashik</h6>
+                                            <p class="text-center weather_day">{{date("d/m/Y", strtotime($forecast_data['datetime']))}} | {{date("l", strtotime($forecast_data['datetime']))}}</p>
 
-                                                    <div class="d-flex justify-content-center bd-highlight mb-1 today_tem">
-                                                        <div class="p-2 bd-highlight">
-                                                            <h5> {{ $forecast_data['min_temp'] }}° C </h5>
-                                                            <h6 class="d-flex justify-content-center">MIN<h6>
-                                                        </div>
-                                                        <div class="p-2 bd-highlight">
-                                                            <h5> {{ $forecast_data['max_temp'] }}° C </h5>
-                                                            <h6 class="d-flex justify-content-center">MAX<h6>
-                                                        </div>
-                                                    </div>
-                                                    
-
-                                                    <hr class="divide_line">
-                                                    <div class="row">
-                                                        @foreach ($forecast_data['hour_wise'] as $key => $forecast_data_hourwise)
-                                                            @if ($key % 2 == 0)
-                                                                <div class="col-lg-4 col-md-6 col-sm-6 mb-2">
-                                                                    <div class="p-2 bd-highlight timewise_temp">
-                                                                        <p class="time">
-                                                                            {{ substr_replace($forecast_data_hourwise['datetime'], '', -3) }}
-                                                                        </p>
-                                                                        <p class="d-flex justify-content-center temp">
-                                                                            {{ $forecast_data_hourwise['temp'] }}° C
-                                                                        <p>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-                                                        @endforeach
-                                                    </div>
+                                            <div class="d-flex justify-content-center bd-highlight mb-1 today_tem">
+                                                <div class="p-2 bd-highlight">
+                                                    <h5> {{ $forecast_data['min_temp'] }}° C </h5>
+                                                    <h6 class="d-flex justify-content-center">MIN<h6>
+                                                </div>
+                                                <div class="p-2 bd-highlight">
+                                                    <h5> {{ $forecast_data['max_temp'] }}° C </h5>
+                                                    <h6 class="d-flex justify-content-center">MAX<h6>
                                                 </div>
                                             </div>
+                                            
+
+                                            <hr class="divide_line">
+                                            <div class="row">
+                                                @foreach ($forecast_data['hour_wise'] as $key => $forecast_data_hourwise)
+                                                    @if ($key % 2 == 0)
+                                                        <div class="col-lg-4 col-md-6 col-sm-6 mb-2">
+                                                            <div class="p-2 bd-highlight timewise_temp">
+                                                                <p class="time">
+                                                                    {{ substr_replace($forecast_data_hourwise['datetime'], '', -3) }}
+                                                                </p>
+                                                                <p class="d-flex justify-content-center temp">
+                                                                    {{ $forecast_data_hourwise['temp'] }}° C
+                                                                <p>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                @endforeach
+                                            </div>
                                         </div>
-                                        <!-- Item -->
                                     </div>
-                                @endforeach
+                                </div>
+                                <!-- Item -->
                             </div>
-                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon wheather_prev_icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon wheather_next_icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
+                            @endforeach
                         </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
 
                     </div>
                     
@@ -307,6 +298,7 @@
             </div>
 
             <!--News Box End-->
+
 
     </div>
     </div>
