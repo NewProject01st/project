@@ -33,6 +33,23 @@ class CitizenActionRepository  {
             return $e;
         }
     }
+    public function checkMobileNumberExists(Request $request) {
+        $mobileNumber = $request->input('mobile_number');
+      
+        $user = ReportIncidentModal::where('mobile_number', $mobileNumber)->first();
+      
+        if ($user) {
+          return response()->json([
+            'success' => false,
+            'message' => 'This mobile number already exists.',
+          ]);
+        } else {
+          return response()->json([
+            'success' => true,
+            'message' => 'This mobile number does not exist.',
+          ]);
+        }
+      }
     public function getAllVolunteerCitizenSupport()
     {
         try {

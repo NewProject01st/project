@@ -37,7 +37,7 @@
         <!-- Google Map with Contact Form -->
         <div class="map-form p80">
             <div class="container">
-                <div class="row">
+                <div class="row deprt-txt">
 
 
                     <h3 class="stitle text-center d-flex justify-content-start">
@@ -48,8 +48,15 @@
                         @endif
                     </h3>
                     <div class="col-md-12 col-lg-12 col-md-12">
-                        <div id="mapa" style="height: 600px; width: 100%"></div>
-                        <h4 class="stitle text-center d-flex justify-content-start"> Map Details</h4>
+                        <div id="mapa" style="height: 600px; width: 100%" class="deprt-txt"></div>
+                        <h3 class="stitle text-center d-flex justify-content-start">
+                            @if (session('language') == 'mar')
+                            Map Details
+                            @else
+                            Map Details
+                            @endif
+                        </h3>
+                     
                         <table id="order-listing" class="table table-striped table-hover table-bordered border-dark">
                             <thead class="" style="background-color: #47194a; color:#fff">
                                 <tr>
