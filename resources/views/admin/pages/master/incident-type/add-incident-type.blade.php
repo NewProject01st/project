@@ -19,7 +19,7 @@
                     <div class="card">
                         <div class="card-body">
                             <form class="forms-sample" action="{{ url('add-incident-type') }}" method="POST"
-                                enctype="multipart/form-data" id="formid">
+                                enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -45,8 +45,10 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success">Save &amp; Submit</button>
-                                        {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                            Save &amp; Submit
+                                        </button>
+                                        {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-incident-type') }}"
                                                 class="btn btn-sm btn-primary">Back</a></span>
                                     </div>
@@ -57,4 +59,43 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                // Function to check if all input fields are filled with valid data
+                function checkFormValidity() {
+                    const english_title = $('#english_title').val();
+                    const marathi_title = $('#marathi_title').val();
+
+                    // Enable the submit button if all fields are valid
+                    if (english_title && marathi_title) {
+                        $('#submitButton').prop('disabled', false);
+                    } else {
+                        $('#submitButton').prop('disabled', true);
+                    }
+                }
+
+                // Call the checkFormValidity function on input change
+                $('input').on('input change', checkFormValidity);
+
+                // Initialize the form validation
+                $("#regForm").validate({
+                    rules: {
+                        english_title: {
+                            required: true,
+                        },
+                        marathi_title: {
+                            required: true,
+                        },
+                    },
+                    messages: {
+                        english_title: {
+                            required: "Please Enter the Title",
+                        },
+                        marathi_title: {
+                            required: "कृपया शीर्षक प्रविष्ट करा",
+                        },
+                    },
+                });
+            });
+        </script>
     @endsection
