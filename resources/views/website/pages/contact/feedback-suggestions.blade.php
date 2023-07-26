@@ -50,7 +50,7 @@
                                 {{ Session::get('success_message') }}
                             </div>
                         @endif
-                        <form class="forms-sample" action="{{ url('feedback-suggestions') }}" method="POST"
+                        <form class="forms-sample" action="{{ url('feedback-suggestions') }}" id="regForm" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="row">
@@ -62,7 +62,7 @@
                                             {{ Config::get('english.CONTACT_US.FORM_FULL_NAME') }}
                                         @endif
                                     </label>
-                                    <input class="gap-text" type="text" name="full_name" value="{{ old('full_name') }}" value="{{ old('full_name') }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                    <input class="gap-text" type="text" name="full_name" id="full_name" value="{{ old('full_name') }}" value="{{ old('full_name') }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                     @if ($errors->has('full_name'))
                                         <span class="red-text"><?php echo $errors->first('full_name', ':message'); ?></span>
                                     @endif
@@ -75,7 +75,7 @@
                                             {{ Config::get('english.CONTACT_US.FORM_EMAIL') }}
                                         @endif
                                     </label>
-                                    <input class="gap-text form_text_set" type="email" name="email"
+                                    <input class="gap-text form_text_set" type="email" id="email" name="email"
                                         value="{{ old('email') }}">
                                     @if ($errors->has('email'))
                                         <span class="red-text"><?php echo $errors->first('email', ':message'); ?></span>
@@ -89,7 +89,7 @@
                                             {{ Config::get('english.CONTACT_US.FORM_MOBILE_NUMBER') }}
                                         @endif
                                     </label>
-                                    <input class="gap-text" type="text" name="mobile_number"
+                                    <input class="gap-text" type="text" name="mobile_number" id="mobile_number"
                                         value="{{ old('mobile_number') }}"onkeyup="addvalidateMobileNumber(this.value)"
                                         pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
                                         >
@@ -128,7 +128,7 @@
                                             {{ Config::get('english.CONTACT_US.FORM_SUBJECT') }}
                                         @endif
                                     </label>
-                                    <input class="gap-text" type="text" name="subject" value="{{ old('subject') }}" value="{{ old('ngo_contact_number') }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                    <input class="gap-text" type="text" name="subject" id="subject" value="{{ old('subject') }}" value="{{ old('ngo_contact_number') }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                     @if ($errors->has('subject'))
                                         <span class="red-text"><?php echo $errors->first('subject', ':message'); ?></span>
                                     @endif
@@ -142,7 +142,7 @@
                                             {{ Config::get('english.CONTACT_US.FORM_WRITE_FEEDBACK_SUGGESTION') }}
                                         @endif
                                     </label>
-                                    <textarea class="gap-text" name="suggestion">{{ old('suggestion') }}</textarea>
+                                    <textarea class="gap-text" name="suggestion" id="suggestion">{{ old('suggestion') }}</textarea>
                                     @if ($errors->has('suggestion'))
                                         <span class="red-text"><?php echo $errors->first('suggestion', ':message'); ?></span>
                                     @endif
@@ -168,14 +168,16 @@
                                 </div>
 
                                 <div class=" col-md-4 mt-4">
-                                    <button type="submit" class="btn btn-primary new_modal_page_btn"
-                                        style="float: right;width:300px">
+                                    <button type="submit" class="btn btn-primary new_modal_page_btn" id="submitButton"
+                                        style="float: right;width:300px" disabled>
                                         @if (session('language') == 'mar')
                                             {{ Config::get('marathi.CONTACT_US.FORM_SEND') }}
                                         @else
                                             {{ Config::get('english.CONTACT_US.FORM_SEND') }}
                                         @endif
                                     </button>
+
+                                   
                                 </div>
                             </div>
                         </form>
@@ -204,6 +206,93 @@
                 validationMessage.textContent = "Only numbers are allowed.";
             }
         }
+    </script>
+     <script>
+        $(document).ready(function() {
+            // Function to check if all input fields are filled with valid data
+            function checkFormValidity() {
+                const full_name = $('#full_name').val();
+                const email = $('#email').val();
+                const mobile_number = $('#mobile_number').val();
+                const contact_type = $('#contact_type').val(); // Get the value of the file input
+                const subject = $('#subject').val();
+                const suggestion = $('#suggestion').val();
+                
+                //const g_recaptcha_response = $('#g-recaptcha-response').val(); // Get the CAPTCHA response
+
+                // Enable the submit button if all fields are valid
+                if (full_name && email && mobile_number && mobile_number && contact_type && subject) {
+                    $('#submitButton').prop('disabled', false);
+                } else {
+                    $('#submitButton').prop('disabled', true);
+                }
+            }
+
+            // Call the checkFormValidity function on input change
+            $('input, textarea, select').on('input change', checkFormValidity);
+
+            // Initialize the form validation
+            $("#regForm").validate({
+                rules: {
+                    full_name: {
+                        required: true,
+                    },
+                    email: {
+                        required: true,
+                    },
+                    mobile_number: {
+                        required: true,
+                        pattern: /[789][0-9]{9}/,
+                        remote: {
+                            url: '/web/check-mobile-number-exists',
+                            type: 'post',
+                            data: {
+                                mobile_number: function() {
+                                    return $('#mobile_number').val();
+                                }
+                            }
+                        }
+                    },
+                    contact_type: {
+                        required: true,
+                    },
+                    subject: {
+                        required: true,
+                    },
+                    suggestion: {
+                        required: true,
+                    },
+                    // 'g-recaptcha-response': {
+                    //     required: true,
+                    // },
+                },
+                messages: {
+                    full_name: {
+                        required: "Please Enter Full Name",
+                    },
+                    email: {
+                        required: "Enter Email Id",
+                    },
+                    mobile_number: {
+                        required: "Enter Mobile Number",
+                        pattern: "Invalid Mobile Number",
+                        remote: "This mobile number already exists."
+                    },
+                    contact_type: {
+                        required: "Select Contact Type",
+                    },
+                    subject: {
+                        required: "Enter Subject",
+                    },
+                    suggestion: {
+                        required: "Enter Suggestion",
+                    },
+                    // 'g-recaptcha-response': {
+                    //     required: "Please complete the reCAPTCHA.",
+                    // },
+                },
+            });
+        });
     </script>
 @endsection
 {{-- @extends('website.layout.navbar')

@@ -27,7 +27,6 @@ Route::post('/resolve-error', ['as' => '/resolve-error', 'uses' => 'App\Http\Con
 
 
 Route::get('/', ['as' => '/', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
-Route::get('/index11', ['as' => '/index11', 'uses' => 'App\Http\Controllers\Website\IndexController@getTestMagnifier']);
 Route::post('/change-language', ['as' => '/change-language', 'uses' => 'App\Http\Controllers\Website\IndexController@changeLanguage']);
 
 Route::get('/error-handling', ['as' => 'error-handling', 'uses' => 'App\Http\Controllers\ErrorHandlingController@errorHandling']);
@@ -81,6 +80,9 @@ Route::get('/volunteer-citizen-support-web', ['as' => 'volunteer-citizen-support
 Route::post('/report-modal', ['as' => 'report-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeIncidentModalInfo']);
 Route::post('/volunteer-modal', ['as' => 'volunteer-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeVolunteerModalInfo']);
 Route::get('/report-incident-crowdsourcing-web', ['as' => 'report-incident-crowdsourcing-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllIncidentType']);
+Route::get('/check-mobile-number-exists', ['as' => 'check-mobile-number-exists', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@checkMobileNumberExists']);
+
+
 Route::get('/add-volunteer-citizen-support-web', ['as' => 'add-volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAddVolunteerCitizenSupport']);
 
 Route::get('/list-upcoming-training-event-web', ['as' => 'list-upcoming-training-event-web', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllUpcomingEvent']);
@@ -217,9 +219,20 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/add-statedisastermanagementauthority', ['as' => 'add-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@store']);
     Route::post('/show-statedisastermanagementauthority', ['as' => 'show-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@show']);
     Route::post('/delete-statedisastermanagementauthority', ['as' => 'delete-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@destroy']);
-    Route::get('/edit-statedisastermanagementauthority', ['as' => 'edit-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@edit']);
+    Route::get('/edit-statedisastermanagementauthority/{itemId}', ['as' => 'edit-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@edit']);
     Route::post('/update-statedisastermanagementauthority', ['as' => 'update-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@update']);
     
+    // Route::get('/edit-statedisastermanagementauthority/', ['as' => 'edit-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@edit']);
+    // Route::post('/update-statedisastermanagementauthority', ['as' => 'update-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@update']);
+
+    // Edit form route
+    // Route::get('/edit-statedisastermanagementauthority/{id}', ['as' => 'edit-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@edit']);
+    // // Update form route
+    // Route::put('/update-statedisastermanagementauthority/{id}', ['as' => 'update-statedisastermanagementauthority', 'uses' => 'App\Http\Controllers\Admin\Aboutus\StateDisasterManagementAuthorityController@update']);
+
+
+
+
     Route::get('/list-metadata', ['as' => 'list-metadata', 'uses' => 'App\Http\Controllers\MetadataController@index']);
     Route::get('/add-metadata', ['as' => 'add-metadata', 'uses' => 'App\Http\Controllers\MetadataController@add']);
     Route::post('/add-metadata', ['as' => 'add-metadata', 'uses' => 'App\Http\Controllers\MetadataController@store']);
@@ -589,6 +602,10 @@ Route::post('/update-one-rti', ['as' => 'update-one-rti', 'uses' => 'App\Http\Co
 
 Route::get('/db-backup', ['as' => 'db-backup', 'uses' => 'App\Http\Controllers\DBBackup\DBBackupController@downloadBackup']);
 
+// Route::get('/asd', [TaskController::class, 'index']);
+// Route::post('/tasks', [TaskController::class, 'store']);
+// Route::put('/tasks/{task}', [TaskController::class, 'update']);
+// Route::delete('/tasks/{task}', [TaskController::class, 'destroy']);
 
 Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\LoginController@logout']);
 

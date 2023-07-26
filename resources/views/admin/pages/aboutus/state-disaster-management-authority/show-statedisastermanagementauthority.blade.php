@@ -62,7 +62,7 @@
                                             <label>Image :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <img src="{{ asset('storage/images/aboutus/state-disaster-management-authority/' . $statedisastermanagementauthority->english_image) }}"
+                                            <img src="{{ Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_VIEW') }}{{ $statedisastermanagementauthority->english_image }}"
                                                 style="width:300px; height:150px;" alt=" {{ strip_tags($statedisastermanagementauthority['english_title']) }} Image"/>
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@
                                             <label>प्रतिमा :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
-                                            <img src="{{ asset('storage/images/aboutus/state-disaster-management-authority/' . $statedisastermanagementauthority->marathi_image) }}"
+                                            <img src="{{ Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_VIEW') }}{{ $statedisastermanagementauthority->marathi_image }}"
                                                 style="width:300px; height:150px;" alt=" {{ strip_tags($statedisastermanagementauthority['marathi_title']) }} प्रतिमा"/>
                                         </div>
                                     </div>
