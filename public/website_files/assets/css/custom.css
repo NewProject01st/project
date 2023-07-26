@@ -5138,8 +5138,8 @@ div#filters {
 }
 .contact-form input[type="text"] {
 	border: 1px solid #ccc;
-	line-height: 40px;
-	height: 40px;
+	line-height: 35px;
+	height: 35px;
 	padding: 0 20px;
 	width: 100%;
 	border-radius: 3px;
@@ -5147,11 +5147,11 @@ div#filters {
 
 .contact-form textarea {
 	border: 1px solid #ccc;
-	line-height: 48px;
+	line-height: 30px;
 	padding: 0 20px;
 	width: 100%;
 	border-radius: 3px;
-	min-height: 180px;
+	min-height: 101px;
 }
 .contact-form input[type="submit"] {
 	background: #40407e;
@@ -5911,8 +5911,8 @@ a[data-toggle="collapse"] {
 
 .form_text_set{
 	border: 1px solid #ccc;
-    line-height: 40px;
-	height: 40px;
+    line-height: 35px;
+	height: 35px;
     padding: 0 20px;
     width: 100%;
     border-radius: 3px;
@@ -5926,8 +5926,8 @@ a[data-toggle="collapse"] {
 
 .contact-form .form-control {
 	border: 1px solid #cccccc;
-	height: 40px;
-	line-height: 40px;
+	height: 35px;
+	line-height: 35px;
 	padding: 0 20px;
 	margin-top: 20px;
 }
@@ -5938,7 +5938,7 @@ a[data-toggle="collapse"] {
 }
 
 .modal_lable{
-	font-size: 16px;
+	font-size: 15px;
     color: #000;
     /* font-weight: 600; */
 }
@@ -6557,7 +6557,7 @@ font-size: 20px !important;
 
 .accordion-button-custom::after {
     content: "\f107";
-    font-family: "Font Awesome 5 Free";
+    font-family: 'FontAwesome';
     font-weight: 900;
     color: #fff;
     font-size: 18px;
@@ -6570,7 +6570,8 @@ font-size: 20px !important;
 }
 .accordion-button-custom:not(.collapsed)::after {
     content: "\f107";
-    font-family: "Font Awesome 5 Free";
+    /* font-family: "Font Awesome 5 Free"; */
+	font-family: 'FontAwesome';
     font-weight: 900;
     color: #fff;
     font-size: 18px;
@@ -7061,4 +7062,9 @@ box-shadow: 0 0 4px #000;
 	color: white;
 	background-color: black;
 	box-shadow: none;
+  }
+
+  .table.dataTable thead tr th{
+	background-color: #47194a;
+    color: #fff;
   }

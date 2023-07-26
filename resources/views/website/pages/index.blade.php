@@ -194,7 +194,7 @@
                                                         {{ Config::get('english.HOME_PAGE.READ_MORE') }}
                                                     @endif
                                                 </span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
-                                                        class="fas fa-arrow-right"></i></a>
+                                                        class="fa fa-arrow-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -225,7 +225,7 @@
                                                         {{ Config::get('english.HOME_PAGE.READ_MORE') }}
                                                     @endif
                                                 </span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
-                                                        class="fas fa-arrow-right"></i></a>
+                                                        class="fa fa-arrow-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -427,11 +427,11 @@
                                             data-bs-parent="#accordionFlushExample">
                                             <div class="accordion-body">
                                                 <ul>
-                                                    <li><i class="fas fa-user-tie"></i> <?php echo $item['marathi_name']; ?></li>
-                                                    <li><i class="fas fa-building"></i> <?php echo $item['marathi_address']; ?></li>
-                                                    <li><i class="fas fa-phone"></i> <?php echo $item['marathi_number']; ?></li>
-                                                    <li><i class="fas fa-fax"></i> <?php echo $item['marathi_landline_no']; ?></li>
-                                                    <li><i class="fas fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                    <li><i class="fa fa-user-tie"></i> <?php echo $item['marathi_name']; ?></li>
+                                                    <li><i class="fa fa-building"></i> <?php echo $item['marathi_address']; ?></li>
+                                                    <li><i class="fa fa-phone"></i> <?php echo $item['marathi_number']; ?></li>
+                                                    <li><i class="fa fa-fax"></i> <?php echo $item['marathi_landline_no']; ?></li>
+                                                    <li><i class="fa fa-envelope"></i> <?php echo $item['email']; ?></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -454,12 +454,12 @@
                                             data-bs-parent="#accordionFlushExample">
                                             <div class="accordion-body">
                                                 <ul>
-                                                    <li><i class="fas fa-user-tie"></i> <?php echo $item['english_name']; ?></li>
-                                                    <li><i class="fas fa-building"></i>
+                                                    <li><i class="fa fa-user-tie"></i> <?php echo $item['english_name']; ?></li>
+                                                    <li><i class="fa fa-building"></i>
                                                         {{ strip_tags($item['english_address']) }}</li>
-                                                    <li><i class="fas fa-phone"></i> <?php echo $item['english_number']; ?></li>
-                                                    <li><i class="fas fa-fax"></i> <?php echo $item['english_landline_no']; ?></li>
-                                                    <li><i class="fas fa-envelope"></i> <?php echo $item['email']; ?></li>
+                                                    <li><i class="fa fa-phone"></i> <?php echo $item['english_number']; ?></li>
+                                                    <li><i class="fa fa-fax"></i> <?php echo $item['english_landline_no']; ?></li>
+                                                    <li><i class="fa fa-envelope"></i> <?php echo $item['email']; ?></li>
                                                 </ul>
                                             </div>
                                         </div>

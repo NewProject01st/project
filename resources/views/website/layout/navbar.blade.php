@@ -107,7 +107,7 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-4">
                         <ul class="header-contact new_city_head_change">
-                            <li class="city-exp for_pl_pr"> <i class="fas fa-street-view"></i>
+                            <li class="city-exp for_pl_pr"> <i class="fa fa-street-view"></i>
                                 <strong>
                                     @if (session('language') == 'mar')
                                         {{ Config::get('marathi.HOME_PAGE.CITY') }}
