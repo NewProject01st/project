@@ -59,7 +59,7 @@ return [
     |
     */
 
-    'encrypt' => false,
+    'encrypt' => true,  //SMG Added from true  to  false
 
     /*
     |--------------------------------------------------------------------------
@@ -209,7 +209,7 @@ return [
     |
     */
 
-    'same_site' => 'lax',  //SMG Added from  'lax' to  strict
+    'same_site' => 'strict',  //SMG Added from  'lax' to  strict
 
 
 
