@@ -128,7 +128,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-        Str::slug("DM_".env('APP_NAME', 'laravel'), '_').'_session'
+        Str::slug("DM_".env('APP_NAME', 'laravel'), '_').'_session' //SMG Added DM prefix
     ),
 
     /*
@@ -168,7 +168,7 @@ return [
     |
     */
 
-    'secure' => env('SESSION_SECURE_COOKIE',true),
+    'secure' => env('SESSION_SECURE_COOKIE',true), //SMG Added DM true
 
     /*
     |--------------------------------------------------------------------------
