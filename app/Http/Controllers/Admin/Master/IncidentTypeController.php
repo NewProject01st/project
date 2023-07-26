@@ -77,7 +77,7 @@ class IncidentTypeController extends Controller
     
     public function edit(Request $request)
     {
-        $edit_data_id = $request->edit_id;
+        $edit_data_id = base64_decode($request->edit_id);
         $incidenttype_data = $this->service->getById($edit_data_id);
         return view('admin.pages.master.incident-type.edit-incident-type', compact('incidenttype_data'));
     }

@@ -289,10 +289,10 @@
 
 
 <script>
-    $('.edit-btn').click(function(e) {
-        $("#edit_id").val($(this).attr("data-id"));
-        $("#editform").submit();
-    })
+   // $('.edit-btn').click(function(e) {
+   //     $("#edit_id").val($(this).attr("data-id"));
+    //    $("#editform").submit();
+    //})
 </script>
 
 <script>
