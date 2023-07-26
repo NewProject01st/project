@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Session;
 class AdminMiddleware
 {
     /**
@@ -15,7 +14,6 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        session_regenerate_id(true);
         if (!$request->session()->exists('user_id')) {
             return redirect(route("login"));
         } else {

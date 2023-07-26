@@ -62,7 +62,7 @@ use App\Models\ {
 
 };
 use Validator;
-use Session;
+
 class DashboardController extends Controller {
     /**
      * Topic constructor.
@@ -74,7 +74,6 @@ class DashboardController extends Controller {
 
     public function index()
     {
-        session()->regenerate();
         $return_data = array();
         $dashboard_data = Permissions::where("is_active",'=',true)->get()->toArray();
         foreach ($dashboard_data as $value) {
