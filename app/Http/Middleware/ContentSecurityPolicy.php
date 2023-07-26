@@ -8,7 +8,7 @@ class ContentSecurityPolicy
     public function handle(Request $request, Closure $next)
     {
         $response = $next($request);
-        $response->headers->set('Content-Security-Policy', "");
+        $response->headers->set('Content-Security-Policy', "*");
         
         return $response;
     }
