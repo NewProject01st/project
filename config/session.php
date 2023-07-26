@@ -209,7 +209,7 @@ return [
     |
     */
 
-    'same_site' => 'strict',  //SMG Added from  'lax' to  strict
+    'same_site' => 'lax',  //SMG Added from  'lax' to  strict
 
 
 
