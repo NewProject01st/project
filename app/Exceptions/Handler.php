@@ -67,7 +67,7 @@ class Handler extends ExceptionHandler
 
             ErrorLogs::insert($data_insert);
             return redirect()->route('error-handling');
-            // return parent::render($request, $exception);
+            //  return parent::render($request, $exception);
         } catch (\Exception $e) {
             return $e;
         }
