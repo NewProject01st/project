@@ -472,7 +472,7 @@ Route::post('/delete-document-publications', ['as' => 'delete-document-publicati
 Route::get('/list-training-workshop', ['as' => 'list-training-workshop', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\TrainingWorkshopController@index']);
 Route::get('/add-training-workshop', ['as' => 'add-training-workshop', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\TrainingWorkshopController@add']);
 Route::post('/add-training-workshop', ['as' => 'add-training-workshop', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\TrainingWorkshopController@store']);
-Route::post('/edit-training-workshop/{edit_id}', ['as' => 'edit-training-workshop', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\TrainingWorkshopController@edit']);
+Route::get('/edit-training-workshop/{edit_id}', ['as' => 'edit-training-workshop', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\TrainingWorkshopController@edit']);
 Route::post('/update-training-workshop', ['as' => 'update-training-workshop', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\TrainingWorkshopController@update']);
 Route::post('/show-training-workshop', ['as' => 'show-training-workshop', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\TrainingWorkshopController@show']);
 Route::post('/delete-training-workshop', ['as' => 'delete-training-workshop', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\TrainingWorkshopController@destroy']);
