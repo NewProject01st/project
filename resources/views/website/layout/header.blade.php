@@ -28,7 +28,7 @@
     <link href="{{ asset('website_files/assets/bootstrap5.3.0/css/bootstrap.min.css') }}" type="text/css"
     rel="stylesheet">
     <script src="{{ asset('website_files/assets/bootstrap5.3.0/js/bootstrap.bundle.js') }}"></script>  
-     <link href="{{ asset('website_files/assets/css/all.css') }}" type="text/css" rel="stylesheet"> 
+     <!-- <link href="{{ asset('website_files/assets/css/all.css') }}" type="text/css" rel="stylesheet">  -->
     <link href="{{ asset('website_files/assets/css/custom.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/assets/css/responsive.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/assets/css/color.css') }}" type="text/css" rel="stylesheet">
