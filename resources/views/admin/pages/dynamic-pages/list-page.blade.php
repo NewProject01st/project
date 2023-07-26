@@ -43,9 +43,12 @@
                                                         <td>{{ $item['menu_name'] }}</td>
                                                         <td class="d-flex">
                                                             @if (in_array('per_update', $data_permission))
-                                                                <a data-id="{{ $item['id'] }}"
-                                                                    class="edit-btn btn btn-sm btn-outline-primary m-1"><i
-                                                                        class="fas fa-pencil-alt"></i></a>
+                                                            <a 
+                                                                {{-- data-id="{{ $item['id'] }}" --}}
+                                                                href="{{ route('edit-dynamic-page', base64_encode($item['id'])) }}"
+                                                                class="edit-btn btn btn-sm btn-outline-primary m-1">
+                                                                <i class="fas fa-pencil-alt"></i>
+                                                            </a>
                                                             @endif
 
                                                             {{-- <a data-id="{{ $item['id'] }}"
@@ -72,10 +75,6 @@
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="GET" action="{{ url('/edit-dynamic-page') }}" id="editform">
-            @csrf
-            <input type="hidden" name="edit_id" id="edit_id" value="">
-        </form>
-
+        
         <!-- content-wrapper ends -->
     @endsection

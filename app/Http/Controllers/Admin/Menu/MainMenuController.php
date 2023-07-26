@@ -92,8 +92,8 @@ class MainMenuController extends Controller
     public function edit(Request $request)
     {
         try {
-                $edit_data_id = $request->edit_id;
-                $main_menu_data =  $this->service->getById($request->edit_id);
+                $edit_data_id = base64_decode($request->edit_id);
+                $main_menu_data =  $this->service->getById($edit_data_id);
                 return view('admin.pages.menu.mainmenu.edit-main-menu', compact('main_menu_data', 'edit_data_id'));
         } catch (Exception $e) {
             return redirect()->back()

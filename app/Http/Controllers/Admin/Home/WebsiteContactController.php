@@ -89,7 +89,7 @@ class WebsiteContactController extends Controller
     
     public function edit(Request $request)
     {
-        $edit_data_id = $request->edit_id;
+        $edit_data_id = base64_decode($request->edit_id);
         $website_contact = $this->service->getById($edit_data_id);
         return view('admin.pages.home.website_contact.edit-contact', compact('website_contact'));
     }

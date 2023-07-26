@@ -101,7 +101,7 @@ class DistrictEmergencyOperationsCenterController extends Controller
         }
         public function edit(Request $request)
         {
-            $edit_data_id = $request->edit_id;
+            $edit_data_id = base64_decode($request->edit_id);
             $districtemergencyoperationscenter = $this->service->getById($edit_data_id);
             return view('admin.pages.emergency-response.district-emergency-operations-center.edit-district-emergency-operations-center', compact('districtemergencyoperationscenter'));
         }

@@ -88,8 +88,8 @@ class TermsConditionController extends Controller
         }
     }
     public function edit(Request $request) {
-        $terms_conditions = TermsCondition::find($request->edit_id);
-
+        $edit_data_id = base64_decode($request->edit_id);
+        $terms_conditions = $this->service->getById($edit_data_id);
         return view('admin.pages.footer.terms-conditions.edit-terms-conditions', compact('terms_conditions'));
     }
 

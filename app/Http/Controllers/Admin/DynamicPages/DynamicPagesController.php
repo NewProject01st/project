@@ -103,7 +103,7 @@ class DynamicPagesController extends Controller
     public function edit(Request $request)
     {
         $main_menu_data = getMenuItemsForDynamicPageAdd();
-        $edit_data_id = $request->edit_id;
+        $edit_data_id = base64_decode($request->edit_id);
         $dynamic_page = $this->service->getById($edit_data_id);
         $menu_selected = $dynamic_page->menu_id.'_'.$dynamic_page->menu_type;
 
