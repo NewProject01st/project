@@ -8,6 +8,8 @@ use App\Http\Services\Admin\LoginRegister\LoginService;
 use Session;
 use Validator;
 use PDO;
+use Illuminate\Support\Facades\Cookie;
+
 
 class LoginController extends Controller
 {
@@ -62,6 +64,12 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
+
+        $cookies = Cookie::getQueuedCookies();
+    
+        foreach ($cookies as $name => $value) {
+            Cookie::queue(Cookie::forget($name));
+        }
  
         $request->session()->flush();
 
