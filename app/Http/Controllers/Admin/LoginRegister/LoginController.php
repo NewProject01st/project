@@ -49,6 +49,7 @@ class LoginController extends Controller
             } else {
                 $resp  = self::$loginServe->checkLogin($request);
                 if($resp['status']=='success') {
+                    session()->regenerate();
                     return redirect('/dashboard');
                 } else {
                     return redirect('/login')->with('error', $resp['msg']);
