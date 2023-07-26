@@ -94,7 +94,7 @@ class SuccessStoriesController extends Controller
     
     public function edit(Request $request)
     {
-        $edit_data_id = $request->edit_id;
+        $edit_data_id = base64_decode($request->edit_id);
         $success_stories = $this->service->getById($edit_data_id);
         return view('admin.pages.news-events.success-stories.edit-success-stories', compact('success_stories'));
     }

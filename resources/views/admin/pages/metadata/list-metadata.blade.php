@@ -43,8 +43,8 @@
                                                     <td><?php echo $metadata->keywords; ?></td>
                                                     <td class="d-flex">
                                                         @if (in_array('per_update', $data_permission))
-                                                            <a data-id="{{ $metadata->id }}"
-                                                                class="edit-btn btn btn-sm btn-outline-primary m-1"><i
+                                                            <a  href="{{ route('edit-metadata', base64_encode($item->id)) }}"
+                                                                class="btn btn-sm btn-outline-primary m-1"><i
                                                                     class="fas fa-pencil-alt"></i></a>
                                                         @endif
                                                         <a data-id="{{ $metadata->id }}"
@@ -79,10 +79,5 @@
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="POST" action="{{ url('/edit-metadata') }}" id="editform">
-            @csrf
-            <input type="hidden" name="edit_id" id="edit_id" value="">
-        </form>
-
         <!-- content-wrapper ends -->
     @endsection

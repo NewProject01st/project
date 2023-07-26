@@ -56,8 +56,8 @@
                                         <input class="form-control" name="mobile_change" id="mobile_change" placeholder=""
                                             type="hidden" value="{{ $register_user['mobile_change'] }}">
 
-                                        <button type="submit" class="btn btn-success">Save &amp; Submit</button>
-                                        {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
+                                        <button type="submit" class="btn btn-sm btn-success">Save &amp; Submit</button>
+                                        {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('/dashboard') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>

@@ -73,8 +73,8 @@
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
-                                                                    <a data-id="{{ $item->id }}"
-                                                                        class="edit-btn btn btn-sm btn-outline-primary m-1"
+                                                                    <a href="{{ route('edit-success-stories', base64_encode($item->id)) }}"
+                                                                        class="btn btn-sm btn-outline-primary m-1"
                                                                         title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                                                 @endif
 
@@ -109,10 +109,6 @@
         <form method="POST" action="{{ url('/show-success-stories') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
-        </form>
-        <form method="GET" action="{{ url('/edit-success-stories') }}" id="editform">
-            @csrf
-            <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>
         <form method="POST" action="{{ url('/update-one-success-stories') }}" id="activeform">
             @csrf

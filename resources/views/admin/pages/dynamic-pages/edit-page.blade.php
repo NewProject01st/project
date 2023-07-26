@@ -1,6 +1,15 @@
 @extends('admin.layout.master')
-
 @section('content')
+<style>
+    .modal-title {
+    margin-bottom: -20px !important;
+    margin-top: -24px !important;
+    }
+    .modal-header .close {
+    padding: 0rem !important;
+    margin: -1rem -13rem -1rem auto !important;
+    }
+</style>
     <div class="main-panel">
         <div class="content-wrapper mt-6">
             <div class="page-header">
@@ -134,8 +143,8 @@
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <input type="hidden" name="edit_id" id="edit_id" class="form-control"
                                             value="{{ $edit_data_id }}">
-                                        <button type="submit" class="btn btn-success">Save &amp; Submit</button>
-                                        {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
+                                        <button type="submit" class="btn btn-sm btn-success">Save &amp; Submit</button>
+                                        {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-dynamic-page') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>

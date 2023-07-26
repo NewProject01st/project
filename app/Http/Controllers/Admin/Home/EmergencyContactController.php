@@ -114,7 +114,7 @@ class EmergencyContactController extends Controller
     
     public function edit(Request $request)
     {
-        $edit_data_id = $request->edit_id;
+        $edit_data_id = base64_decode($request->edit_id);
         $emergency_contact = $this->service->getById($edit_data_id);
         return view('admin.pages.home.emergency_contact.edit-contact', compact('emergency_contact'));
     }

@@ -112,7 +112,7 @@ class DepartmentInformationController extends Controller
 }
     
     public function edit(Request $request){
-        $edit_data_id = $request->edit_id;
+        $edit_data_id = base64_decode($request->edit_id);
         $department_info = $this->service->getById($edit_data_id);
         return view('admin.pages.home.department-information.edit-department-information', compact('department_info'));
     }

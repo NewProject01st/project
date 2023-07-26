@@ -99,7 +99,7 @@ class WeatherController extends Controller
     }
     public function edit(Request $request)
     {
-        $edit_data_id = $request->edit_id;
+        $edit_data_id = base64_decode($request->edit_id);
         $weather =  $this->service->getById($request->edit_id);
         return view('admin.pages.home.weather.edit-weather', compact('weather'));
     }

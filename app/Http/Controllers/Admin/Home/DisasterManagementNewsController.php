@@ -96,7 +96,7 @@ class DisasterManagementNewsController extends Controller
     }
     
     public function edit(Request $request){
-        $edit_data_id = $request->edit_id;
+        $edit_data_id = base64_decode($request->edit_id);
         $disaster_news = $this->service->getById($edit_data_id);
         return view('admin.pages.home.disaster_news.edit-disaster-news', compact('disaster_news'));
     }

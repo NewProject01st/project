@@ -8,10 +8,10 @@
                     Emergency Contact Numbers
                 </h3>
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
+                    {{-- <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('list-more-emergency-contact-data') }}">Emergency Response</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Update Emergency Contact Numbers</li>
-                    </ol>
+                    </ol> --}}
                 </nav>
             </div>
             @include('admin.layout.alert')
@@ -119,7 +119,7 @@
                                 <div class="col-md-12 col-sm-12 text-center  mt-3">
                                     <input type="hidden" name="edit_id" id="edit_id"
                                         value="{{ $emergencycontact_data['emergencycontactnumbers']->id }}">
-                                    <button type="submit" class="btn btn-success">Save &amp; Update</button>
+                                    <button type="submit" class="btn btn-sm btn-success">Save &amp; Update</button>
                                     {{-- <span><a href="{{ route('list-emergency-contact-numbers') }}"
                                             class="btn btn-sm btn-primary ">Back</a></span> --}}
                                 </div>

@@ -100,7 +100,8 @@ class SliderController extends Controller
     }
     
     public function edit(Request $request){
-        $slider = Slider::find($request->edit_id);
+        $edit_data_id = base64_decode($request->edit_id);
+        $slider = $this->service->getById($edit_data_id);
         return view('admin.pages.home.slider.edit-slide', compact('slider'));
     }
     

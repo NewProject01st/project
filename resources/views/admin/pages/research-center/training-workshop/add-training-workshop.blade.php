@@ -60,8 +60,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-success">Save &amp; Submit</button>
-                                        {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
+                                        <button type="submit" class="btn btn-sm btn-success">Save &amp; Submit</button>
+                                        {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-training-workshop') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
