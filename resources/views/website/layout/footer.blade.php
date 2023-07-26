@@ -13,14 +13,14 @@
                                  alt="" width="80%"><br><br>
                              <address>
                                  <ul>
-                                     <li> <i class="fas fa-university"></i> <strong>
+                                     <li> <i class="fa fa-university"></i> <strong>
                                              @if (session('language') == 'mar')
                                                  {{ Config::get('marathi.HOME_PAGE.COUNCIL_ADDRESS') }}
                                              @else
                                                  {{ Config::get('english.HOME_PAGE.COUNCIL_ADDRESS') }}
                                              @endif
                                          </strong><?php echo $item['marathi_address']; ?></li>
-                                     <li> <i class="fas fa-envelope"></i> <strong>
+                                     <li> <i class="fa fa-envelope"></i> <strong>
                                              @if (session('language') == 'mar')
                                                  {{ Config::get('marathi.HOME_PAGE.EMAIL') }}
                                              @else
@@ -28,7 +28,7 @@
                                              @endif
                                          </strong><?php echo $item['email']; ?>
                                      </li>
-                                     <li> <i class="fas fa-phone"></i> <strong>
+                                     <li> <i class="fa fa-phone"></i> <strong>
                                              @if (session('language') == 'mar')
                                                  {{ Config::get('marathi.HOME_PAGE.CALL_US') }}
                                              @else
@@ -46,7 +46,7 @@
                                  alt="" width="80%"><br><br>
                              <address>
                                  <ul>
-                                     <li> <i class="fas fa-university"></i> <strong>
+                                     <li> <i class="fa fa-university"></i> <strong>
                                              @if (session('language') == 'mar')
                                                  {{ Config::get('marathi.HOME_PAGE.COUNCIL_ADDRESS') }}
                                              @else
@@ -54,7 +54,7 @@
                                              @endif
                                          </strong>
                                          <?php echo $item['english_address']; ?></li>
-                                     <li> <i class="fas fa-envelope"></i> <strong>
+                                     <li> <i class="fa fa-envelope"></i> <strong>
                                              @if (session('language') == 'mar')
                                                  {{ Config::get('marathi.HOME_PAGE.EMAIL') }}
                                              @else
@@ -63,7 +63,7 @@
                                          </strong>
                                          <?php echo $item['email']; ?>
                                      </li>
-                                     <li> <i class="fas fa-phone"></i> <strong>
+                                     <li> <i class="fa fa-phone"></i> <strong>
                                              @if (session('language') == 'mar')
                                                  {{ Config::get('marathi.HOME_PAGE.CALL_US') }}
                                              @else
@@ -100,10 +100,10 @@
                          @forelse ($common_data['web_department_data']  as $item)
                              @if (session('language') == 'mar')
                                  <li><a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer"><i
-                                             class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
+                                             class="fa fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                              @else
                                  <li><a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer"><i
-                                             class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
+                                             class="fa fa-star"></i><?php echo $item['english_title']; ?></a></li>
                              @endif
                          @empty
                              <h4>
@@ -139,10 +139,10 @@
                          @forelse ($common_data['weballfooterlink_data']  as $item)
                              @if (session('language') == 'mar')
                                  <li><a href="{{ $item['url'] }}" target="_blank"><i
-                                             class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
+                                             class="fa fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                              @else
                                  <li><a href="{{ $item['url'] }}" {{-- href="{{echo strpos("https://",$item['url'])}}" --}} target="_blank"><i
-                                             class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
+                                             class="fa fa-star"></i><?php echo $item['english_title']; ?></a></li>
                              @endif
                          @empty
                              <h4>
@@ -156,10 +156,10 @@
                          @forelse ($common_data['privacypolicy_data'] as $item)
                              @if (session('language') == 'mar')
                                  <li><a href="{{ route('privacy-policy') }}"><i
-                                             class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
+                                             class="fa fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                              @else
                                  <li><a href="{{ route('privacy-policy') }}"><i
-                                             class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
+                                             class="fa fa-star"></i><?php echo $item['english_title']; ?></a></li>
                              @endif
                          @empty
                              <p>
@@ -174,10 +174,10 @@
                          @forelse ($common_data['termcondition_data'] as $item)
                              @if (session('language') == 'mar')
                                  <li><a href="{{ route('privacy-policy') }}"><i
-                                             class="fas fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
+                                             class="fa fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                              @else
                                  <li><a href="{{ route('terms_condition') }}"><i
-                                             class="fas fa-star"></i><?php echo $item['english_title']; ?></a></li>
+                                             class="fa fa-star"></i><?php echo $item['english_title']; ?></a></li>
                              @endif
                          @empty
                              <p>
@@ -189,9 +189,9 @@
                              </p>
                          @endforelse
                          {{-- <li><a href="{{ route('privacy-policy') }}"  target="_blank"><i
-                            class="fas fa-star"></i>Privacy Policy</a></li>
+                            class="fa fa-star"></i>Privacy Policy</a></li>
                             <li><a href="{{ route('terms_condition') }}" target="_blank"><i
-                                class="fas fa-star"></i>Terms and Conditions</a></li> --}}
+                                class="fa fa-star"></i>Terms and Conditions</a></li> --}}
 
                      </ul>
                  </div>
@@ -225,7 +225,7 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
                                  {{ Config::get('english.FOOTER.TWEET_HEADING1') }}
                              @endif
                          </h6>
-                         <a href="#" class="reply-tw"><i class="fas fa-reply"></i></a>
+                         <a href="#" class="reply-tw"><i class="fa fa-reply"></i></a>
                          <p>
                              @if (session('language') == 'mar')
                                  {{ Config::get('marathi.FOOTER.TWEET_FEED_INFO') }}
@@ -291,7 +291,7 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
                                      {{ Config::get('english.FOOTER.TWEET_HEADING1') }}
                                  @endif
                              </h6>
-                             <a href="#" class="reply-tw"><i class="fas fa-reply"></i></a>
+                             <a href="#" class="reply-tw"><i class="fa fa-reply"></i></a>
                              <p>
                                  @if (session('language') == 'mar')
                                      {{ Config::get('marathi.FOOTER.TWEET_FEED_INFO') }}
@@ -347,7 +347,7 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
                      <li><a href="https://twitter.com/my_nmc" target="_blank" class="tw"><i class="fab fa-twitter"></i></a></li>
                      <li><a href="https://instagram.com/my_nmc" target="_blank"  class="insta"><i class="fab fa-instagram"></i></a></li>
                      <li><a href="https://www.youtube.com/c/mynmc" target="_blank" class="yt"><i class="fab fa-youtube"></i></a></li>
-                     <li><a href="https://nmc.gov.in" target="_blank" class="yt"><i class='fas fa-globe' style='font-size:20px;color:#fff'></i></a></li>
+                     <li><a href="https://nmc.gov.in" target="_blank" class="yt"><i class='fa fa-globe' style='font-size:20px;color:#fff'></i></a></li>
                  </ul>
              </div> --}}
 

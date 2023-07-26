@@ -53,7 +53,7 @@
                                     @if (session('language') == 'mar')
                                         <div class="contact-new-design-top">
                                             <div class="add-box-2 contact-new-design">
-                                                <i class="fas fa-map-marker-alt"></i>
+                                                <i class="fa fa-map-marker"></i>
                                                 <h5>
                                                     @if (session('language') == 'mar')
                                                         {{ Config::get('marathi.CONTACT_US.OUR_LOCATION') }}
@@ -68,7 +68,7 @@
                                             </div>
 
                                             <div class="add-box-2 contact-new-design">
-                                                <i class="fas fa-phone"></i>
+                                                <i class="fa fa-phone"></i>
                                                 <h5>
                                                     @if (session('language') == 'mar')
                                                         {{ Config::get('marathi.CONTACT_US.CALL_US') }}
@@ -87,7 +87,7 @@
                                             </div>
 
                                             <div class="add-box-2 contact-new-design">
-                                                <i class="fas fa-envelope"></i>
+                                                <i class="fa fa-envelope"></i>
                                                 <h5>
                                                     @if (session('language') == 'mar')
                                                         {{ Config::get('marathi.CONTACT_US.MAIL_US') }}
@@ -103,7 +103,7 @@
                                     @else
                                         <div class="contact-new-design-top">
                                             <div class="add-box-2 contact-new-design">
-                                                <i class="fas fa-map-marker-alt"></i>
+                                                <i class="fa fa-map-marker"></i>
                                                 <h5>
                                                     @if (session('language') == 'mar')
                                                         {{ Config::get('marathi.CONTACT_US.OUR_LOCATION') }}
@@ -118,7 +118,7 @@
                                             </div>
 
                                             <div class="add-box-2 contact-new-design">
-                                                <i class="fas fa-phone"></i>
+                                                <i class="fa fa-phone"></i>
                                                 <h5>
                                                     @if (session('language') == 'mar')
                                                         {{ Config::get('marathi.CONTACT_US.CALL_US') }}
@@ -137,7 +137,7 @@
                                             </div>
 
                                             <div class="add-box-2 contact-new-design">
-                                                <i class="fas fa-envelope"></i>
+                                                <i class="fa fa-envelope"></i>
                                                 <h5>
                                                     @if (session('language') == 'mar')
                                                         {{ Config::get('marathi.CONTACT_US.MAIL_US') }}
