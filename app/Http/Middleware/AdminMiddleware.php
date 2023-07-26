@@ -14,7 +14,7 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        session()->regenerate();
+        session_regenerate_id(true);
         if (!$request->session()->exists('user_id')) {
             return redirect(route("login"));
         } else {
