@@ -671,7 +671,23 @@ magnifyingGlass.addEventListener("dblclick", removeMagnifiyingGlass);
          });
      });
  </script>
+ <script>
+    $(document).ready(() => {
+        $("#ngo_photo").change(function() {
+            $("#ngo_photoPreview").show();
 
+            const file = this.files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function(event) {
+                    $("#ngo_photoPreview")
+                        .attr("src", event.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+</script>
 
 {{-- <script>
     $(document).ready(function() {

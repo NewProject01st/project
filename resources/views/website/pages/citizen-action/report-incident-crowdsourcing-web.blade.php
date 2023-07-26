@@ -183,7 +183,7 @@
                                             <span class="red-text"><?php echo $errors->first('media_upload', ':message'); ?></span>
                                         @endif
                                         <img id="media_imgPreview" src="#" alt="Image"
-                                            class="img-fluid img-thumbnail" width="150" style="display:none">
+                                            class="img-fluid img-thumbnail mt-3" width="150" style="display:none">
                                     </div>
                                     {{-- <div class="col-md-4 captcha_set" id="g_recaptcha_response" style="text-align: -webkit-right;">
                                                         {!! NoCaptcha::renderJs() !!}

@@ -179,6 +179,8 @@
                                         @if ($errors->has('media_upload'))
                                             <span class="red-text"><?php echo $errors->first('media_upload', ':message'); ?></span>
                                         @endif
+                                        <img id="media_imgPreview" src="#" alt="Image"
+                                        class="img-fluid img-thumbnail mt-3" width="150" style="display:none">
                                     </div>
                                     <div class="col-md-12 ">
                                         <div class="form-group py-4">
@@ -259,6 +261,7 @@
                                                     @if ($errors->has('ngo_photo'))
                                                         <span class="red-text"><?php echo $errors->first('ngo_photo', ':message'); ?></span>
                                                     @endif
+                                                    <img id="ngo_photoPreview" src="#" alt="Image" class="img-fluid img-thumbnail mt-3" width="150" style="display:none">
                                                 </div>
                                                 <div class="col-md-12 mb-4">
                                                     <label class="col-form-label modal_lable">
