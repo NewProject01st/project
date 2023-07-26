@@ -10910,9 +10910,9 @@ fieldset:disabled a {
 }
 
 .btn-primary, .navbar.default-layout-navbar.navbar-primary .navbar-menu-wrapper .navbar-nav .nav-item .nav-link .btn-primary, .wizard > .actions a {
-  color: #fff;
-  background-color: #392C70;
-  border-color: #392C70;
+  color: #fff !important;
+  background-color: #392C70 !important;
+  border-color: #392C70 !important;
 }
 
 .btn-primary:hover, .navbar.default-layout-navbar.navbar-primary .navbar-menu-wrapper .navbar-nav .nav-item .nav-link .btn-primary:hover, .wizard > .actions a:hover {
@@ -19783,7 +19783,7 @@ html {
   display: flex;
   -webkit-flex-direction: row;
   flex-direction: row;
-  padding-left: 0;
+  padding-left: 0 !important;
   padding-right: 0;
 }
 
@@ -29633,4 +29633,8 @@ table.table-bordered.dataTable tbody th, table.table-bordered.dataTable tbody td
 }
 .delete-btn:hover{
   background: #ff5e6d5c !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
 }

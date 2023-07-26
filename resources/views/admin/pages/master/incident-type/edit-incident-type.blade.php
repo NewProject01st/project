@@ -46,7 +46,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-success" id="submitButton" disabled>Save &amp;
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>Save &amp;
                                             Update</button>
                                         {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-incident-type') }}"

@@ -158,7 +158,7 @@
                                     </div>
                                 </div> --}}
                                 <div class="col-md-12 col-sm-12 text-center mt-3">
-                                    <button type="submit" class="btn btn-success">Save &amp; Submit</button>
+                                    <button type="submit" class="btn btn-sm btn-success">Save &amp; Submit</button>
                                     <span><a href="{{ route('list-disastermanagementportal') }}"
                                             class="btn btn-sm btn-primary ">Back</a></span>
                                     {{-- <input class="form-control" type="text" name="no_of_text_boxes"

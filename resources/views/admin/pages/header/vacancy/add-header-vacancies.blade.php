@@ -73,7 +73,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-success" id="submitButton" disabled>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
                                             Save &amp; Submit
                                         </button>
                                         {{-- <button type="reset" class="btn btn-danger">Cancel</button> --}}

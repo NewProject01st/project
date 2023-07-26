@@ -119,7 +119,7 @@
                                 <div class="col-md-12 col-sm-12 text-center  mt-3">
                                     <input type="hidden" name="edit_id" id="edit_id"
                                         value="{{ $emergencycontact_data['emergencycontactnumbers']->id }}">
-                                    <button type="submit" class="btn btn-success">Save &amp; Update</button>
+                                    <button type="submit" class="btn btn-sm btn-success">Save &amp; Update</button>
                                     {{-- <span><a href="{{ route('list-emergency-contact-numbers') }}"
                                             class="btn btn-sm btn-primary ">Back</a></span> --}}
                                 </div>
