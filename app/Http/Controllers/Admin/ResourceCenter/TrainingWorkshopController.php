@@ -99,7 +99,7 @@ class TrainingWorkshopController extends Controller
  
 public function edit(Request $request)
 {
-    $edit_data_id = $request->edit_id;
+    $edit_data_id = base64_decode($request->edit_id);
     $training_workshop = $this->service->getById($edit_data_id);
     return view('admin.pages.research-center.training-workshop.edit-training-workshop', compact('training_workshop'));
 }

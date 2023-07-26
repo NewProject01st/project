@@ -87,9 +87,9 @@ class PolicyPrivacyController extends Controller
             return $e;
         }
     }
-    public function edit(Request $request) {
-        $privacy_policy = PolicyPrivacy::find($request->edit_id);
-
+    public function edit(Request $request) {      
+        $edit_data_id = base64_decode($request->edit_id);
+        $privacy_policy = $this->service->getById($edit_data_id);
         return view('admin.pages.footer.privacy-policy.edit-privacy-policy', compact('privacy_policy'));
     }
 

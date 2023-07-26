@@ -66,8 +66,8 @@
 
                                                         <td class="d-flex">
                                                             @if (in_array('per_update', $data_permission))
-                                                                <a data-id="{{ $item->id }}"
-                                                                    class="edit-btn btn btn-sm btn-outline-primary m-1"
+                                                                <a href="{{ route('edit-website-contact', base64_encode($item->id)) }}"
+                                                                    class="btn btn-sm btn-outline-primary m-1"
                                                                     title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                                             @endif
 
@@ -102,10 +102,6 @@
         <form method="POST" action="{{ url('/show-website-contact') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
-        </form>
-        <form method="GET" action="{{ url('/edit-website-contact') }}" id="editform">
-            @csrf
-            <input type="hidden" name="edit_id" id="edit_id" value="">
         </form>
         <form method="POST" action="{{ url('/update-one-website-contact') }}" id="activeform">
             @csrf

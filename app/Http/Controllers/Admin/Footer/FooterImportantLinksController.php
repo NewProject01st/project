@@ -87,8 +87,8 @@ class FooterImportantLinksController extends Controller
         }
     }
     public function edit(Request $request) {
-        $links = FooterImportantLinks::find($request->edit_id);
-
+        $edit_data_id = base64_decode($request->edit_id);
+        $links = $this->service->getById($edit_data_id);
         return view('admin.pages.footer.important-links.edit-important-link', compact('links'));
     }
 

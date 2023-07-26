@@ -100,7 +100,7 @@ class StateEmergencyOperationsCenterController extends Controller
     }
     public function edit(Request $request)
     {
-        $edit_data_id = $request->edit_id;
+        $edit_data_id = base64_decode($request->edit_id);
         $stateemergencyoperationscenter = $this->service->getById($edit_data_id);
         return view('admin.pages.emergency-response.state-emergency-operations-center.edit-state-emergency-operations-center', compact('stateemergencyoperationscenter'));
     }

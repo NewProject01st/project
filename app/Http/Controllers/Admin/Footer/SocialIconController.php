@@ -80,7 +80,7 @@ class SocialIconController extends Controller
     
     public function edit(Request $request)
     {
-        $edit_data_id = $request->edit_id;
+        $edit_data_id = base64_decode($request->edit_id);
         $social_icon = $this->service->getById($edit_data_id);
         return view('admin.pages.footer.social-icon.edit-social-icon', compact('social_icon'));
     }

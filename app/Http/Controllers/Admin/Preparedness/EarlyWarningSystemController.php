@@ -95,7 +95,7 @@ class EarlyWarningSystemController extends Controller
     
     public function edit(Request $request)
     {
-        $edit_data_id = $request->edit_id;
+        $edit_data_id = base64_decode($request->edit_id);
         $warning_system = $this->service->getById($edit_data_id);
         return view('admin.pages.preparedness.warning_system.edit-warning-system', compact('warning_system'));
     }

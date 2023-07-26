@@ -83,8 +83,8 @@ class TweeterFeedsController extends Controller
         }
     }
     public function edit(Request $request) {
-        $tweeter = TweeterFeed::find($request->edit_id);
-
+        $edit_data_id = base64_decode($request->edit_id);
+        $tweeter  = $this->service->getById($edit_data_id);
         return view('admin.pages.footer.tweeter-feed.edit-tweeter-feed', compact('tweeter'));
     }
 

@@ -90,7 +90,8 @@ class RoleController extends Controller
     public function edit(Request $request)
     {
         try {
-            $user_data = $this->service->edit($request->edit_id);
+            $edit_data_id = base64_decode($request->edit_id);
+            $user_data = $this->service->edit($edit_data_id);
             return view('admin.pages.menu.roles.edit-role', compact('user_data'));
         } catch (\Exception $e) {
             return $e;

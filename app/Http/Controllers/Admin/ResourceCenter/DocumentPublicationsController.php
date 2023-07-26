@@ -97,7 +97,7 @@ class DocumentPublicationsController extends Controller
  
 public function edit(Request $request)
 {
-    $edit_data_id = $request->edit_id;
+    $edit_data_id = base64_decode($request->edit_id);
     $documents_publications = $this->service->getById($edit_data_id);
     return view('admin.pages.research-center.documents.edit-document-publications', compact('documents_publications'));
 }

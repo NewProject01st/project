@@ -99,17 +99,11 @@ class StateDisasterManagementAuthorityController extends Controller
             return $e;
         }
     }
-    // public function edit(Request $request, $id)
-    // {
-    //     $edit_data_id = $request->edit_id;
-    //     $statedisastermanagementauthority = $this->service->getById($edit_data_id);
-    //     return view('admin.pages.aboutus.state-disaster-management-authority.edit-statedisastermanagementauthority', compact('statedisastermanagementauthority'));
-    // }
-
-    public function edit(Request $request, $itemId) {
-        dd($request);
-        $statedisastermanagementauthority = StateDisasterManagementAuthority::find($itemId);
-        return response()->json($statedisastermanagementauthority); // Return the data as JSON response
+    public function edit(Request $request, $id)
+    {
+        $edit_data_id = base64_decode($request->edit_id);
+        $statedisastermanagementauthority = $this->service->getById($edit_data_id);
+        return view('admin.pages.aboutus.state-disaster-management-authority.edit-statedisastermanagementauthority', compact('statedisastermanagementauthority'));
     }
     public function update(Request $request)
 {
