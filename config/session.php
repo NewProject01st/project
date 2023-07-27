@@ -7,12 +7,12 @@ return [
 
     //SMG New Code 
 
-    'entropy_file' => '/dev/urandom', // Path to the random input source
-    'entropy_length' => 32, // Adjust the length as per your requirement
-    'hash_function' => 'sha256', // Use a strong hash function
+    // 'entropy_file' => '/dev/urandom', // Path to the random input source
+    // 'entropy_length' => 32, // Adjust the length as per your requirement
+    // 'hash_function' => 'sha256', // Use a strong hash function
 
 
-    'use_only_cookies' => true, // Store the session ID only in cookies
+    // 'use_only_cookies' => true, // Store the session ID only in cookies
 
     
     //SMG New Code end

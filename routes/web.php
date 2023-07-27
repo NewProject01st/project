@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
+Route::group(['middleware' => ['permissions_policy']], function () {
 Route::get('/login', function () {
     return view('admin.login');
 });
@@ -607,5 +607,7 @@ Route::get('/db-backup', ['as' => 'db-backup', 'uses' => 'App\Http\Controllers\D
 // Route::delete('/tasks/{task}', [TaskController::class, 'destroy']);
 
 Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\LoginController@logout']);
+
+});
 
 });

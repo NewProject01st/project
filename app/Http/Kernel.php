@@ -51,7 +51,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\EncryptCookies::class,
             \App\Http\Middleware\AdminMiddleware::class,
          ],
-         'permissions.policy' => \App\Http\Middleware\PermissionsPolicyMiddleware::class,
+         'permissions_policy' => \App\Http\Middleware\PermissionsPolicyMiddleware::class,
 
     ];
 
