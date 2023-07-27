@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::middleware(['permissions.policy'])->group(function () {
+    Route::middleware('referrer-policy')->group(function () {
+
 Route::get('/login', function () {
     return view('admin.login');
 });
@@ -610,4 +612,5 @@ Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\Admin
 
 });
 
+});
 });
