@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::group(['middleware' => ['permissions_policy']], function () {
+Route::middleware(['permissions.policy'])->group(function () {
 Route::get('/login', function () {
     return view('admin.login');
 });

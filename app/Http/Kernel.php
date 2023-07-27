@@ -51,8 +51,6 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\EncryptCookies::class,
             \App\Http\Middleware\AdminMiddleware::class,
          ],
-         'permissions_policy' => \App\Http\Middleware\PermissionsPolicyMiddleware::class,
-
     ];
 
     /**
@@ -72,5 +70,6 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'permissions.policy' => \App\Http\Middleware\PermissionsPolicyMiddleware::class,
     ];
 }
