@@ -23,6 +23,11 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         // \App\Http\Middleware\ContentSecurityPolicy::class,
 
+        'admin' => [
+            \App\Http\Middleware\EncryptCookies::class,
+            \App\Http\Middleware\AdminMiddleware::class,
+         ],
+
     ];
 
     /**
@@ -47,10 +52,10 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
-        'admin' => [
-            \App\Http\Middleware\EncryptCookies::class,
-            \App\Http\Middleware\AdminMiddleware::class,
-         ],
+        // 'admin' => [
+        //     \App\Http\Middleware\EncryptCookies::class,
+        //     \App\Http\Middleware\AdminMiddleware::class,
+        //  ],
     ];
 
     /**
