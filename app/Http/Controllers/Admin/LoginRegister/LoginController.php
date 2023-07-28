@@ -52,7 +52,8 @@ class LoginController extends Controller
                 $update_values = User::where([
                     'u_email' => $request['email']
                     ])->first();
-                    dd($update_values->ip_address);
+                    dd(($update_values->ip_address != $request->ip() && $update_values->user_agent != $request->userAgent())
+                    && ($update_values->ip_address != 'null' && $update_values->user_agent != 'null') );
                 if(($update_values->ip_address != $request->ip() && $update_values->user_agent != $request->userAgent())
                 && ($update_values->ip_address != 'null' && $update_values->user_agent != 'null') ) {
                     return redirect('/login')->with('error','Please logout from another browser');
