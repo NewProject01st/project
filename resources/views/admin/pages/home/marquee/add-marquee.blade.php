@@ -25,8 +25,8 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title </label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title"
-                                                name="english_title">{{ old('english_title') }}</textarea>
+                                            <input class="form-control" name="english_title" id="english_title" placeholder="Enter the Title"
+                                                name="english_title" value="{{ old('english_title') }}">
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -36,8 +36,8 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"
-                                                name="marathi_title">{{ old('marathi_title') }}</textarea>
+                                            <input class="form-control" name="marathi_title" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"
+                                                name="marathi_title" value="{{ old('marathi_title') }}">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -74,11 +74,11 @@
                 function checkFormValidity() {
                     const english_title = $('#english_title').val();
                     const marathi_title = $('#marathi_title').val();
-                    // const url = $('#url').val();
+                    const url = $('#url').val();
 
 
                     // Enable the submit button if all fields are valid
-                    if (english_title && marathi_title) {
+                    if (english_title && marathi_title && url) {
                         $('#submitButton').prop('disabled', false);
                     } else {
                         $('#submitButton').prop('disabled', true);
@@ -86,7 +86,7 @@
                 }
 
                 // Call the checkFormValidity function on input change
-                $('input, textarea').on('input change',
+                $('input').on('input change',
                     checkFormValidity);
 
                 // Initialize the form validation

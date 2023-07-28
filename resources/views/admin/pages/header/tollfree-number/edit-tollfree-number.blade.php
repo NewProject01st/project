@@ -55,7 +55,9 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success">Save &amp; Update</button>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                            Save &amp; Update
+                                        </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-tollfree-number') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
@@ -69,4 +71,39 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+     // Function to check if all input fields are filled with valid data
+     function checkFormValidity() {
+         const marathi_tollfree_no = $('#marathi_tollfree_no').val();
+ 
+         // Enable the submit button if all fields are valid
+         if (marathi_tollfree_no) {
+             $('#submitButton').prop('disabled', false);
+         } else {
+             $('#submitButton').prop('disabled', true);
+         }
+     }
+ 
+     // Call the checkFormValidity function on input change
+     $('input').on('input change',
+         checkFormValidity);
+ 
+     // Initialize the form validation
+     $("#regForm").validate({
+         rules: {
+             marathi_tollfree_no: {
+                 required: true,
+             },
+         },
+         messages: {
+             english_image: {
+                 required: "Please Enter Toll Free Number Number",
+             },
+           
+         },
+         
+     });
+ });
+         </script>
     @endsection
