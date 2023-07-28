@@ -51,7 +51,7 @@ class LoginController extends Controller
 
                 $update_values = User::where([
                     'u_email' => $request['email']
-                    ])->first();
+                    ])->get()->toArray();
                     dd($update_values);
                 if(($update_values->ip_address != $request->ip() && $update_values->user_agent != $request->userAgent())
                 && ($update_values->ip_address != 'null' && $update_values->user_agent != 'null') ) {
