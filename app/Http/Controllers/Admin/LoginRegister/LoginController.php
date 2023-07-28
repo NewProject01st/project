@@ -54,7 +54,7 @@ class LoginController extends Controller
                     ])->first();
                     //dd($update_values->ip_address);
                 if(($update_values->ip_address != $request->ip() && $update_values->user_agent != $request->userAgent()) ||
-                $update_values->ip_address != 'null' && $update_values->user_agent != 'null') {
+                ($update_values->ip_address != null && $update_values->user_agent != null)) {
                     return redirect('/login')->with('error','Please logout from another browser');
 
                 }
