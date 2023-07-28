@@ -107,7 +107,9 @@
                                         </div>
                                     </div> --}}
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success">Save &amp; Submit</button>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                            Save &amp; Submit
+                                        </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-map-lat-lons') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
@@ -119,4 +121,75 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                // Function to check if all input fields are filled with valid data
+                function checkFormValidity() {
+                    const lat = $('#lat').val();
+                    const lon = $('#lon').val();
+                    const location_name_english = $('#location_name_english').val();
+                    const location_name_marathi = $('#location_name_marathi').val();
+                    const location_address_english = $('#location_address_english').val();
+                    const location_address_marathi = $('#location_address_marathi').val();
+                   
+                    // Enable the submit button if all fields are valid
+                    if (lat && lon && location_name_english && location_name_marathi && location_address_english && location_address_marathi) {
+                        $('#submitButton').prop('disabled', false);
+                    } else {
+                        $('#submitButton').prop('disabled', true);
+                    }
+                }
+
+                // Call the checkFormValidity function on input change
+                $('input').on('input change',
+                    checkFormValidity);
+
+                // Initialize the form validation
+                $("#regForm").validate({
+                    rules: {
+                        lat: {
+                            required: true,
+                        },
+                        lon: {
+                            required: true,
+                        },
+                        location_name_english: {
+                            required: true,
+                        },
+                        location_name_marathi: {
+                            required: true,
+                        },
+                        location_address_english: {
+                            required: true,
+                        },
+                        location_address_marathi: {
+                            required: true,
+                        },
+                       
+                    },
+                    messages: {
+                        lat: {
+                            required: "Please Enter the Longitude.",
+                        },
+                        lon: {
+                            required: "Please Enter the Latitude.",
+                        },
+                        location_name_english: {
+                            required: "Please Enter the Location Name",
+                        },
+                        location_name_marathi: {
+                            required: "कृपया स्थानाचे नाव प्रविष्ट करा",
+                        },
+                        location_address_english: {
+                            required: "Please Enter the Location Address",
+                        },
+                     
+                        location_address_marathi: {
+                            required: "कृपया स्थानाचा पत्ता प्रविष्ट करा",
+                        },
+                       
+                    },
+                });
+            });
+        </script>
     @endsection

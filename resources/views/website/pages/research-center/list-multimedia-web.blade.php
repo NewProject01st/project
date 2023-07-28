@@ -88,6 +88,46 @@
                 width: 100%;
             }
         }
+
+        /* ===================== */
+        @media (max-width: 767px) {
+            .carousel-inner .carousel-item>div {
+                display: none;
+            }
+
+            .carousel-inner .carousel-item>div:first-child {
+                display: block;
+            }
+        }
+
+        .carousel-inner .carousel-item.active,
+        .carousel-inner .carousel-item-next,
+        .carousel-inner .carousel-item-prev {
+            display: flex;
+        }
+
+        /* medium and up screens */
+        @media (min-width: 768px) {
+
+            .carousel-inner .carousel-item-end.active,
+            .carousel-inner .carousel-item-next {
+                transform: translateX(25%);
+            }
+
+            .carousel-inner .carousel-item-start.active,
+            .carousel-inner .carousel-item-prev {
+                transform: translateX(-25%);
+            }
+        }
+
+        .carousel-inner .carousel-item-end,
+        .carousel-inner .carousel-item-start {
+            transform: translateX(0);
+        }
+
+        .card-img {
+            height: auto !important;
+        }
     </style>
     <!--Subheader Start-->
     <section class="wf100 subheader">
@@ -121,57 +161,70 @@
     <!--Main Content Start-->
     <div class="main-content">
         <section class="depart-info">
-        <!--Video Start-->
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="deprt-txt">
-                    <h3 class="stitle text-center d-flex justify-content-start pt-4 pl-4">
-                        @if (session('language') == 'mar')
-                            {{ Config::get('marathi.HOME_PAGE.VIDEO') }}
-                        @else
-                            {{ Config::get('english.HOME_PAGE.VIDEO') }}
-                        @endif
-                    </h3>
-                    </div>
-                    <!-- Carousel Container -->
-                    <div class="SlickCarousel">
-                        @forelse ($data_getallvideo as $item)
-                            @if (session('language') == 'mar')
-                                <div class="ProductBlock">
-                                    <div class="Content">
-                                        <div class="img-fill">
-                                            <iframe class="embed-responsive-item"
-                                                src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
-                                                allowfullscreen></iframe>
-                                        </div>
+            <!--Video Start-->
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="deprt-txt">
+                            <h3 class="stitle text-center d-flex justify-content-start pt-4 pl-4">
+                                @if (session('language') == 'mar')
+                                    {{ Config::get('marathi.HOME_PAGE.VIDEO') }}
+                                @else
+                                    {{ Config::get('english.HOME_PAGE.VIDEO') }}
+                                @endif
+                            </h3>
+                        </div>
+                        <!-- Carousel Container -->
+                        <div class="container text-center my-3">
+                            <div class="row mx-auto my-auto justify-content-center">
+                                <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner" role="listbox">
+                                        @forelse ($data_getallvideo as $key => $item)
+                                            <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
+                                                <div class="col-md-3">
+                                                    <div class="card">
+                                                        <div class="card-img">
+                                                            <div class="img-fill">
+                                                                <iframe class="embed-responsive-item"
+                                                                    src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
+                                                                    allowfullscreen></iframe>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @empty
+                                            <div class="carousel-item active">
+                                                <div class="col-md-3">
+                                                    <div class="card">
+                                                        <div class="card-img">
+                                                            <div class="img-fill">
+                                                                <iframe class="embed-responsive-item"
+                                                                    src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
+                                                                    allowfullscreen></iframe>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforelse
                                     </div>
+                                    <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel"
+                                        role="button" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    </a>
+                                    <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel"
+                                        role="button" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    </a>
                                 </div>
-                            @else
-                                <div class="ProductBlock">
-                                    <div class="Content">
-                                        <div class="img-fill">
-                                            <iframe class="embed-responsive-item"
-                                                src="https://www.youtube.com/embed/{{ $item['video_name'] }}"
-                                                allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                            @empty
-                            @if (session('language') == 'mar')
-                            {{ Config::get('marathi.HOME_PAGE.VIDEO_MESSAGE') }}
-                        @else
-                            {{ Config::get('english.HOME_PAGE.VIDEO_MESSAGE') }}
-                        @endif
-                                        
-                            @endforelse
+                            </div>
+                        </div>
+                        <!-- End Carousel Container -->
                     </div>
-                    <!-- End Carousel Container -->
                 </div>
+                <!--Video End-->
             </div>
-            <!--Video End-->
-        </div>
         </section>
     </div>
 
@@ -199,14 +252,14 @@
                                 @if (session('language') == 'mar')
                                     <a href="javascript:void(0)" onclick="myFunction('{{ $categories_data['id'] }}')">
                                         <input type="radio" name="filter"
-                                            id="category_{{ $categories_data['id'] }}"><label
-                                            for="animals" class="menugallery">{{ $categories_data['marathi_name'] }}</label>
+                                            id="category_{{ $categories_data['id'] }}"><label for="animals"
+                                            class="menugallery">{{ $categories_data['marathi_name'] }}</label>
                                     </a>
                                 @else
                                     <a href="javascript:void(0)" onclick="myFunction('{{ $categories_data['id'] }}')">
                                         <input type="radio" name="filter"
-                                            id="category_{{ $categories_data['id'] }}"><label
-                                            for="animals" class="menugallery">{{ $categories_data['english_name'] }}</label>
+                                            id="category_{{ $categories_data['id'] }}"><label for="animals"
+                                            class="menugallery">{{ $categories_data['english_name'] }}</label>
                                     </a>
                                 @endif
                             @empty
@@ -214,37 +267,35 @@
                             @endforelse
                             <div class="row d-flex gallery" id="gallary_data">
                                 <!-- <div class="d-flex" id="gallary_data"> -->
-                                    <?php $k = 1; ?>
-                                    @forelse ($gallery_data as $key=>$item)
-                                        <div class="col-md-4 nature">
-                                            <figure class="">
-                                                @if (session('language') == 'mar')
-                                                    <img class="card__image toZoom" id="img{{ $key }}"
-                                                        attr="if" loading="lazy" src="{{ $item['marathi_image'] }}"
-                                                        class="d-block w-100 img-fluid">
-                                                    <!-- The Modal -->
-                                                    <div class="idMyModal modal" attr-modal_id="img{{ $key }}">
-                                                        <span class="close"
-                                                            attr-close="img{{ $key }}">&times;</span>
-                                                        <img class="modal-content" attr-img_id="img{{ $key }}">
-                                                    </div>
-                                                @else
-                                                    <img class="card__image toZoom d-block w-100 img-fluid"
-                                                        id="img{{ $key }}" attr="else" loading="lazy"
-                                                        src="{{ $item['english_image'] }}">
-                                                    <!-- The Modal -->
-                                                    <div class="idMyModal modal" attr-modal_id="img{{ $key }}">
-                                                        <span class="close"
-                                                            attr-close="img{{ $key }}">&times;</span>
-                                                        <img class="modal-content" attr-img_id="img{{ $key }}">
-                                                    </div>
-                                                @endif
-                                            </figure>
-                                        </div>
-                                    @empty
-                                        No Categries found
-                                        <?php $k++; ?>
-                                    @endforelse
+                                <?php $k = 1; ?>
+                                @forelse ($gallery_data as $key=>$item)
+                                    <div class="col-md-4 nature">
+                                        <figure class="">
+                                            @if (session('language') == 'mar')
+                                                <img class="card__image toZoom" id="img{{ $key }}" attr="if"
+                                                    loading="lazy" src="{{ $item['marathi_image'] }}"
+                                                    class="d-block w-100 img-fluid">
+                                                <!-- The Modal -->
+                                                <div class="idMyModal modal" attr-modal_id="img{{ $key }}">
+                                                    <span class="close" attr-close="img{{ $key }}">&times;</span>
+                                                    <img class="modal-content" attr-img_id="img{{ $key }}">
+                                                </div>
+                                            @else
+                                                <img class="card__image toZoom d-block w-100 img-fluid"
+                                                    id="img{{ $key }}" attr="else" loading="lazy"
+                                                    src="{{ $item['english_image'] }}">
+                                                <!-- The Modal -->
+                                                <div class="idMyModal modal" attr-modal_id="img{{ $key }}">
+                                                    <span class="close" attr-close="img{{ $key }}">&times;</span>
+                                                    <img class="modal-content" attr-img_id="img{{ $key }}">
+                                                </div>
+                                            @endif
+                                        </figure>
+                                    </div>
+                                @empty
+                                    No Categries found
+                                    <?php $k++; ?>
+                                @endforelse
                                 <!-- </div> -->
                             </div>
                         </div>
@@ -326,44 +377,21 @@
                 $("[attr-modal_id=" + close_id + "]").css('display', 'none');
             });
         </script>
-
-
-        <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js' type='text/javascript'></script>
-        <script src='https://cdn.jsdelivr.net/gh/freeps2/a7rarpress@main/slick.js' type='text/javascript'></script>
         <script>
-            $(document).ready(function() {
-                $(".SlickCarousel").slick({
-                    rtl: false, // If RTL Make it true & .slick-slide{float:right;}
-                    autoplay: true,
-                    autoplaySpeed: 5000, //  Slide Delay
-                    speed: 800, // Transition Speed
-                    slidesToShow: 4, // Number Of Carousel
-                    slidesToScroll: 1, // Slide To Move 
-                    pauseOnHover: false,
-                    appendArrows: $(".Container .Head .Arrows"), // Class For Arrows Buttons
-                    prevArrow: '<span class="Slick-Prev"></span>',
-                    nextArrow: '<span class="Slick-Next"></span>',
-                    easing: "linear",
-                    responsive: [{
-                            breakpoint: 801,
-                            settings: {
-                                slidesToShow: 3,
-                            }
-                        },
-                        {
-                            breakpoint: 641,
-                            settings: {
-                                slidesToShow: 3,
-                            }
-                        },
-                        {
-                            breakpoint: 481,
-                            settings: {
-                                slidesToShow: 1,
-                            }
-                        },
-                    ],
-                })
+            let items = document.querySelectorAll('.carousel .carousel-item')
+
+            items.forEach((el) => {
+                const minPerSlide = 4
+                let next = el.nextElementSibling
+                for (var i = 1; i < minPerSlide; i++) {
+                    if (!next) {
+                        // wrap carousel by using first child
+                        next = items[0]
+                    }
+                    let cloneChild = next.cloneNode(true)
+                    el.appendChild(cloneChild.children[0])
+                    next = next.nextElementSibling
+                }
             })
         </script>
 

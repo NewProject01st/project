@@ -152,8 +152,9 @@
                                     </div>
 
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success">Save
-                                            &amp; Submit</button>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                            Save &amp; Update
+                                        </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-role') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
@@ -194,5 +195,37 @@
                     validationMessage.textContent = "Only numbers are allowed.";
                 }
             }
+        </script>
+         <script>
+            $(document).ready(function() {
+                // Function to check if all input fields are filled with valid data
+                function checkFormValidity() {
+                    const role_name = $('#role_name').val();
+                    
+                    // Enable the submit button if all fields are valid
+                    if (role_name) {
+                        $('#submitButton').prop('disabled', false);
+                    } else {
+                        $('#submitButton').prop('disabled', true);
+                    }
+                }
+
+                // Call the checkFormValidity function on input change
+                $('input').on('input change', checkFormValidity);
+
+                // Initialize the form validation
+                $("#regForm").validate({
+                    rules: {
+                        role_name: {
+                            required: true,
+                        },
+                    },
+                    messages: {
+                        role_name: {
+                            required: "Please Enter the Role Name",
+                        },
+                    },
+                });
+            });
         </script>
     @endsection

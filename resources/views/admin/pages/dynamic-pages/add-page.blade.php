@@ -100,7 +100,7 @@
                                         <div class="form-group">
                                             <label for="meta_data">Page Meta Data</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" class="form-control" name="meta_data"
+                                            <input type="text" class="form-control" name="meta_data" id="meta_data"
                                                 placeholder="Enter Page Meta Data" value="{{ old('meta_data') }}" />
                                             @if ($errors->has('meta_data'))
                                                 <span class="red-text"><?php echo $errors->first('meta_data', ':message'); ?></span>
@@ -120,7 +120,9 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success">Save &amp; Submit</button>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                            Save &amp; Submit
+                                        </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-dynamic-page') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
@@ -163,4 +165,75 @@
                 document.getElementById("frm_register").submit();
             }
         </script>
+           <script>
+            $(document).ready(function() {
+     // Function to check if all input fields are filled with valid data
+     function checkFormValidity() {
+        
+        const menu_data = $('#menu_data').val();
+         const english_title = $('#english_title').val();
+         const marathi_title = $('#marathi_title').val();
+         const summernote1 = $('#summernote1').val();
+         const summernote2 = $('#summernote2').val();
+         const meta_data = $('#meta_data').val();
+         const publish_date = $('#publish_date').val();
+         // Enable the submit button if all fields are valid
+         if (english_title && marathi_title && summernote1 && summernote2 && meta_data && publish_date) {
+             $('#submitButton').prop('disabled', false);
+         } else {
+             $('#submitButton').prop('disabled', true);
+         }
+     }
+ 
+     // Call the checkFormValidity function on input change
+     $('input,textarea, select').on('input change',
+         checkFormValidity);
+ 
+     // Initialize the form validation
+     $("#regForm").validate({
+         rules: {
+             english_title: {
+                 required: true,
+             },
+             marathi_title: {
+                 required: true,
+             },
+             summernote1: {
+                 required: true,
+             },
+             summernote2: {
+                 required: true,
+             },
+             meta_data: {
+                 required: true,
+             },
+             publish_date: {
+                 required: true,
+             },
+             
+         },
+         messages: {
+             english_title: {
+                 required: "Please Enter the Title",
+             },
+             marathi_title: {
+                 required: "कृपया शीर्षक प्रविष्ट करा",
+             },
+             summernote1: {
+                 required: "Please Enter the Description",
+             },
+             summernote2: {
+                 required: "कृपया वर्णन प्रविष्ट करा",
+             },
+             meta_data: {
+                 required: "Please Enter the URL",
+             },
+             publish_date: {
+                required: "Please Select Date",
+             },
+         },
+         
+     });
+ });
+         </script>
     @endsection

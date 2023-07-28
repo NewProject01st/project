@@ -1,7 +1,5 @@
 @extends('admin.layout.master')
 @section('content')
-
-
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <style>
@@ -116,7 +114,8 @@
                                         <div class="form-group">
                                             <label for="f_name">First Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="f_name" id="f_name"
-                                                placeholder="" value="{{ old('f_name') }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                placeholder="" value="{{ old('f_name') }}"
+                                                oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('f_name'))
                                                 <span class="red-text"><?php echo $errors->first('f_name', ':message'); ?></span>
                                             @endif
@@ -127,7 +126,8 @@
                                         <div class="form-group">
                                             <label for="m_name">Middle Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="m_name" id="m_name"
-                                                placeholder="" value="{{ old('m_name') }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                placeholder="" value="{{ old('m_name') }}"
+                                                oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('m_name'))
                                                 <span class="red-text"><?php echo $errors->first('m_name', ':message'); ?></span>
                                             @endif
@@ -138,7 +138,8 @@
                                         <div class="form-group">
                                             <label for="l_name">Last Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="l_name" id="l_name"
-                                                placeholder="" value="{{ old('l_name') }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                placeholder="" value="{{ old('l_name') }}"
+                                                oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('l_name'))
                                                 <span class="red-text"><?php echo $errors->first('l_name', ':message'); ?></span>
                                             @endif
@@ -165,7 +166,8 @@
                                             <label for="designation">Designation</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" class="form-control" name="designation"
-                                                id="designation" placeholder="" value="{{ old('designation') }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                id="designation" placeholder="" value="{{ old('designation') }}"
+                                                oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('number'))
                                                 <span class="red-text"><?php echo $errors->first('designation', ':message'); ?></span>
                                             @endif
@@ -250,8 +252,9 @@
                                     </div>
 
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success">Save
-                                            &amp; Submit</button>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                            Save &amp; Submit
+                                        </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-users') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
@@ -349,5 +352,135 @@
                     error: function(data) {}
                 });
             }
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                // Function to check if all input fields are filled with valid data
+                function checkFormValidity() {
+                    const u_email = $('#u_email').val();
+                    const role_id = $('#role_id').val();
+                    const u_password = $('#u_password').val();
+                    const password_confirmation = $('#password_confirmation').val();
+                    const f_name = $('#f_name').val();
+                    const m_name = $('#m_name').val();
+                    const l_name = $('#l_name').val();
+                    const number = $('#number').val();
+                    const designation = $('#designation').val();
+                    const address = $('#address').val();
+                    const state = $('#state').val();
+                    const city = $('#city').val();
+                    const user_profile = $('#user_profile').val();
+                    const pincode = $('#pincode').val();
+
+                    // Enable the submit button if all fields are valid
+                    if (u_email && role_id && u_password && password_confirmation && f_name && m_name && l_name &&
+                        number && designation && address && state && city && user_profile && pincode) {
+                        $('#submitButton').prop('disabled', false);
+                    } else {
+                        $('#submitButton').prop('disabled', true);
+                    }
+                }
+
+                // Call the checkFormValidity function on input change
+                $('input,textarea, select, #user_profile').on('input change',
+                    checkFormValidity);
+
+                // Initialize the form validation
+                $("#regForm").validate({
+                    rules: {
+                        u_email: {
+                            required: true,
+                        },
+                        role_id: {
+                            required: true,
+                        },
+                        u_password: {
+                            required: true,
+                        },
+                        password_confirmation: {
+                            required: true,
+                        },
+                        f_name: {
+                            required: true,
+                        },
+                        m_name: {
+                            required: true,
+                        },
+                        l_name: {
+                            required: true,
+                        },
+                        number: {
+                            required: true,
+                        },
+                        designation: {
+                            required: true,
+                        },
+                        address: {
+                            required: true,
+                        },
+                        state: {
+                            required: true,
+                        },
+                        city: {
+                            required: true,
+                        },
+                        user_profile: {
+                            required: true,
+                        },
+                        pincode: {
+                            required: true,
+                        },
+
+                    },
+                    messages: {
+                        u_email: {
+                            required: "Please Enter the Eamil",
+                        },
+                        role_id: {
+                            required: "Please Select Role Name",
+                        },
+                        u_password: {
+                            required: "Please Enter the Password",
+                        },
+                        password_confirmation: {
+                            required: "Please Enter the Confirmation Password",
+                        },
+                        f_name: {
+                            required: "Please Enter the First Name",
+                        },
+                        m_name: {
+                            required: "Please Enter the Middle Name",
+                        },
+                        l_name: {
+                            required: "Please Enter the Last Name",
+                        },
+                        number: {
+                            required: "Please Enter the Number",
+                        },
+                        designation: {
+                            required: "Please Enter the Designation",
+                        },
+                        address: {
+                            required: "Please Enter the Address",
+                        },
+
+                        state: {
+                            required: "Please Select State",
+                        },
+                        city: {
+                            required: "Please Select State",
+                        },
+                        user_profile: {
+                            required: "Upload Media File",
+                            accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
+                        },
+                        pincode: {
+                            required: "Please Enter the Pincode",
+                        },
+                    },
+
+                });
+            });
         </script>
     @endsection

@@ -150,7 +150,10 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success">Save &amp; Update</button>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                            Save &amp; Update
+                                        </button>
+                                      
                                         {{-- <button type="submit" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-department-information') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
@@ -164,4 +167,112 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                // Function to check if all input fields are filled with valid data
+                function checkFormValidity() {
+                    const english_title = $('#english_title').val();
+                    const marathi_title = $('#marathi_title').val();
+                    const english_description = $('#english_title').val();
+                    const marathi_description = $('#marathi_description').val();
+                    const english_image = $('#english_image').val();
+                    const marathi_image = $('#marathi_image').val();
+                    const english_image_new = $('#english_image_new').val();
+                    const marathi_image_new = $('#marathi_image_new').val();
+
+
+                    // Enable the submit button if all fields are valid
+                    if (english_title && marathi_title && english_image && marathi_image && english_image_new &&
+                        marathi_image_new) {
+                        $('#submitButton').prop('disabled', false);
+                    } else {
+                        $('#submitButton').prop('disabled', true);
+                    }
+                }
+
+                // Call the checkFormValidity function on input change
+                $('input, #english_image, #marathi_image, #english_image_new, #english_image_new').on('input change',
+                    checkFormValidity);
+
+                // Initialize the form validation
+                $("#regForm").validate({
+                    rules: {
+                        english_title: {
+                            required: true,
+                        },
+                        marathi_title: {
+                            required: true,
+                        },
+                        english_description: {
+                            required: true,
+                        },
+                        marathi_description: {
+                            required: true,
+                        },
+                        english_image: {
+                            required: true,
+                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                            // filesize: {
+                            //     min: <?= config('all_file_validation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE') ?>,
+                            //     max: <?= config('all_file_validation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE') ?>,
+                            // },
+                        },
+                        marathi_image: {
+                            required: true,
+                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                            // filesize: {
+                            //     min: <?= config('all_file_validation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE') ?>,
+                            //     max: <?= config('all_file_validation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE') ?>,
+                            // },
+                        },
+                        english_image_new: {
+                            required: true,
+                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                            // filesize: {
+                            //     min: <?= config('all_file_validation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE') ?>,
+                            //     max: <?= config('all_file_validation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE') ?>,
+                            // },
+                        },
+                        marathi_image_new: {
+                            required: true,
+                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                            // filesize: {
+                            //     min: <?= config('all_file_validation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE') ?>,
+                            //     max: <?= config('all_file_validation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE') ?>,
+                            // },
+                        },
+                    },
+                    messages: {
+                        english_title: {
+                            required: "Please Enter the Title",
+                        },
+                        marathi_title: {
+                            required: "कृपया शीर्षक प्रविष्ट करा",
+                        },
+                        english_description: {
+                            required: "Please Enter the Description",
+                        },
+                        marathi_description: {
+                            required: "कृपया वर्णन प्रविष्ट करा",
+                        },
+                        english_image: {
+                            required: "Upload Media File",
+                            accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
+                        },
+                        marathi_image: {
+                            required: "मीडिया फाइल अपलोड करा",
+                            accept: "फक्त png, jpeg आणि jpg इमेज फाइल्सना परवानगी आहे.", // Update the error message for the accept rule
+                        },
+                        english_image_new: {
+                            required: "Upload Media File",
+                            accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
+                        },
+                        marathi_image_new: {
+                            required: "मीडिया फाइल अपलोड करा",
+                            accept: "फक्त png, jpeg आणि jpg इमेज फाइल्सना परवानगी आहे.", // Update the error message for the accept rule
+                        },
+                    },
+                });
+            });
+        </script>
     @endsection

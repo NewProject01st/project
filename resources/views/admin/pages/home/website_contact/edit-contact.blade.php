@@ -92,7 +92,9 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success">Save &amp; Update</button>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                            Save &amp; Update
+                                        </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-website-contact') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
@@ -106,4 +108,66 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+     // Function to check if all input fields are filled with valid data
+     function checkFormValidity() {
+         const english_address = $('#english_address').val();
+         const marathi_address = $('#marathi_address').val();
+         const english_number = $('#english_number').val();
+         const marathi_number = $('#marathi_number').val();
+         const email = $('#email').val();
+ 
+         // Enable the submit button if all fields are valid
+         if (english_address && marathi_address && email ) {
+             $('#submitButton').prop('disabled', false);
+         } else {
+             $('#submitButton').prop('disabled', true);
+         }
+     }
+ 
+     // Call the checkFormValidity function on input change
+     $('input,textarea').on('input change',
+         checkFormValidity);
+ 
+     // Initialize the form validation
+     $("#regForm").validate({
+         rules: {
+             english_address: {
+                 required: true,
+             },
+             marathi_address: {
+                 required: true,
+             },
+             english_number: {
+                 required: true,
+             },
+             marathi_number: {
+                 required: true,
+             },
+             email: {
+                 required: true,
+             },
+         },
+         messages: {
+             english_address: {
+                 required: "Please Enter the Title",
+             },
+             marathi_address: {
+                 required: "कृपया शीर्षक प्रविष्ट करा",
+             },
+             english_number: {
+                 required: "Please Enter the Description",
+             },
+             marathi_number: {
+                 required: "कृपया वर्णन प्रविष्ट करा",
+             },
+             email: {
+                 required: "Please Enter the Email",
+             },
+         },
+         
+     });
+ });
+         </script>
     @endsection

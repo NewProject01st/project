@@ -43,7 +43,9 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success">Save &amp; Submit</button>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                            Save &amp; Submit
+                                        </button>
                                         <span><a href="{{ route('list-gallery-category') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
@@ -54,4 +56,43 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                // Function to check if all input fields are filled with valid data
+                function checkFormValidity() {
+                    const english_name = $('#english_name').val();
+                    const marathi_name = $('#marathi_name').val();
+
+                    // Enable the submit button if all fields are valid
+                    if (english_name && marathi_name) {
+                        $('#submitButton').prop('disabled', false);
+                    } else {
+                        $('#submitButton').prop('disabled', true);
+                    }
+                }
+
+                // Call the checkFormValidity function on input change
+                $('input').on('input change', checkFormValidity);
+
+                // Initialize the form validation
+                $("#regForm").validate({
+                    rules: {
+                        english_name: {
+                            required: true,
+                        },
+                        marathi_name: {
+                            required: true,
+                        },
+                    },
+                    messages: {
+                        english_name: {
+                            required: "Please Enter the Name",
+                        },
+                        marathi_name: {
+                            required: "कृपया नाव प्रविष्ट करा",
+                        },
+                    },
+                });
+            });
+        </script>
     @endsection
