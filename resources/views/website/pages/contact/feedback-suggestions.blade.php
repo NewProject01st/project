@@ -221,7 +221,7 @@
                 //const g_recaptcha_response = $('#g-recaptcha-response').val(); // Get the CAPTCHA response
 
                 // Enable the submit button if all fields are valid
-                if (full_name && email && mobile_number && mobile_number && contact_type && subject) {
+                if (full_name && email && mobile_number && mobile_number && contact_type && subject && suggestion) {
                     $('#submitButton').prop('disabled', false);
                 } else {
                     $('#submitButton').prop('disabled', true);

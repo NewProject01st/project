@@ -55,7 +55,9 @@
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center mt-3">
-                                        <button type="submit" class="btn btn-sm btn-success">Save &amp; Update</button>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                            Save &amp; Update
+                                        </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-gallery') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
@@ -69,4 +71,56 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                // Function to check if all input fields are filled with valid data
+                function checkFormValidity() {
+                    // const category_id = $('#category_id').val();
+                    const english_image = $('#english_image').val();
+                    const marathi_image = $('#marathi_image').val();
+                
+                    // Enable the submit button if all fields are valid
+                    if (english_image && marathi_image) {
+                        $('#submitButton').prop('disabled', false);
+                    } else {
+                        $('#submitButton').prop('disabled', true);
+                    }
+                }
+
+                // Call the checkFormValidity function on input change
+                $('#english_image, #marathi_image').on('input change',
+                    checkFormValidity);
+
+                // Initialize the form validation
+                $("#regForm").validate({
+                    rules: {
+                        // category_id: {
+                        //     required: true,
+                        // },
+                        english_image: {
+                            required: true,
+                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                        },
+                        marathi_image: {
+                            required: true,
+                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                        },
+                       
+                    },
+                    messages: {
+                        // category_id: {
+                        //     required: "Please Enter the Title",
+                        // },
+                        english_image: {
+                            required: "Upload Media File",
+                            accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
+                        },
+                        marathi_image: {
+                            required: "मीडिया फाइल अपलोड करा",
+                            accept: "फक्त png, jpeg आणि jpg इमेज फाइल्सना परवानगी आहे.", // Update the error message for the accept rule
+                        },
+                    },
+                });
+            });
+        </script>
     @endsection

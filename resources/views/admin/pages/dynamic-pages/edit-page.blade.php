@@ -90,7 +90,7 @@
                                         <div class="form-group">
                                             <label for="english_description">Page Content</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control" name="english_description" id="summernote2" placeholder="Enter the Description">
+                                            <textarea class="form-control" name="english_description" id="summernote1" placeholder="Enter the Description">
                                              @if (old('english_description')){{ old('english_description') }}@else{{ $html_english }}@endif 
                                         </textarea>
                                             @if ($errors->has('english_description'))
@@ -102,7 +102,7 @@
                                         <div class="form-group">
                                             <label for="marathi_description">पृष्ठ सामग्री</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control" name="marathi_description" id="summernote3" placeholder="पृष्ठ सामग्री प्रविष्ट करा">
+                                            <textarea class="form-control" name="marathi_description" id="summernote2" placeholder="पृष्ठ सामग्री प्रविष्ट करा">
                                                 @if (old('marathi_description')){{ old('marathi_description') }}@else{{ $html_marathi }}@endif 
                                         </textarea>
                                             @if ($errors->has('marathi_description'))
@@ -116,7 +116,7 @@
                                                 <div class="form-group">
                                                     <label for="meta_data">Page Meta Data</label>&nbsp<span
                                                         class="red-text">*</span>
-                                                    <input type="text" class="form-control" name="meta_data"
+                                                    <input type="text" class="form-control" name="meta_data" id="meta_data"
                                                         placeholder="Enter Page Meta Data"
                                                         value="@if (old('meta_data')) {{ old('meta_data') }}@else{{ $dynamic_page->meta_data }} @endif" />
                                                     @if ($errors->has('meta_data'))
@@ -143,7 +143,9 @@
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <input type="hidden" name="edit_id" id="edit_id" class="form-control"
                                             value="{{ $edit_data_id }}">
-                                        <button type="submit" class="btn btn-sm btn-success">Save &amp; Submit</button>
+                                            <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                                Save &amp; Update
+                                            </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-dynamic-page') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
@@ -157,15 +159,6 @@
         </div>
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-        <!-- Summernote Editor -->
-        <script>
-            $('#summernote').summernote({
-                placeholder: 'Enter English Title',
-                tabsize: 2,
-                height: 100
-            });
-        </script>
-        <!-- Summernote Editor End -->
         <!-- Summernote Editor -->
         <script>
             $('#summernote1').summernote({
@@ -184,36 +177,7 @@
             });
         </script>
         <!-- Summernote Editor End -->
-        <!-- Summernote Editor -->
-        <script>
-            $('#summernote3').summernote({
-                placeholder: 'Enter Marathi Title',
-                tabsize: 2,
-                height: 100
-            });
-        </script>
-        <!-- Summernote Editor End -->
-        <!-- Summernote Editor -->
-
-        <script>
-            $('#summernote4').summernote({
-                placeholder: 'Enter English Title',
-                tabsize: 2,
-                height: 100
-            });
-        </script>
-        <!-- Summernote Editor End -->
-        <!-- Summernote Editor -->
-        <script>
-            $('#summernote5').summernote({
-                placeholder: 'Enter Marathi Title',
-                tabsize: 2,
-                height: 100
-            });
-        </script>
-        <!-- Summernote Editor End -->
-
-        <script type="text/javascript">
+            <script type="text/javascript">
             function submitRegister() {
                 document.getElementById("frm_register").submit();
             }
@@ -224,4 +188,75 @@
                 document.getElementById("frm_register").submit();
             }
         </script>
+             <script>
+                $(document).ready(function() {
+         // Function to check if all input fields are filled with valid data
+         function checkFormValidity() {
+            
+            const menu_data = $('#menu_data').val();
+             const english_title = $('#english_title').val();
+             const marathi_title = $('#marathi_title').val();
+             const summernote1 = $('#summernote1').val();
+             const summernote2 = $('#summernote2').val();
+             const meta_data = $('#meta_data').val();
+             const publish_date = $('#publish_date').val();
+             // Enable the submit button if all fields are valid
+             if (english_title && marathi_title && summernote1 && summernote2 && meta_data && publish_date) {
+                 $('#submitButton').prop('disabled', false);
+             } else {
+                 $('#submitButton').prop('disabled', true);
+             }
+         }
+     
+         // Call the checkFormValidity function on input change
+         $('input,textarea, select').on('input change',
+             checkFormValidity);
+     
+         // Initialize the form validation
+         $("#regForm").validate({
+             rules: {
+                 english_title: {
+                     required: true,
+                 },
+                 marathi_title: {
+                     required: true,
+                 },
+                 summernote1: {
+                     required: true,
+                 },
+                 summernote2: {
+                     required: true,
+                 },
+                 meta_data: {
+                     required: true,
+                 },
+                 publish_date: {
+                     required: true,
+                 },
+                 
+             },
+             messages: {
+                 english_title: {
+                     required: "Please Enter the Title",
+                 },
+                 marathi_title: {
+                     required: "कृपया शीर्षक प्रविष्ट करा",
+                 },
+                 summernote1: {
+                     required: "Please Enter the Description",
+                 },
+                 summernote2: {
+                     required: "कृपया वर्णन प्रविष्ट करा",
+                 },
+                 meta_data: {
+                     required: "Please Enter the URL",
+                 },
+                 publish_date: {
+                    required: "Please Select Date",
+                 },
+             },
+             
+         });
+     });
+             </script>
     @endsection

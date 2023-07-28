@@ -28,6 +28,7 @@
                                             <input type="text" class="form-control" name="english_title"
                                                 id="english_title" value="{{ old('english_title') }}"
                                                 placeholder="Enter the Title">
+                                                <label class="error py-2" for="english_title" id="english_title_error"></label>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -39,6 +40,7 @@
                                             <input type="text" class="form-control" name="marathi_title"
                                                 id="marathi_title" value="{{ old('marathi_title') }}"
                                                 placeholder="शीर्षक प्रविष्ट करा">
+                                                <label class="error py-2" for="marathi_title" id="marathi_title_error"></label>
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -48,6 +50,7 @@
                                         <div class="form-group">
                                             <label for="english_pdf">PDF</label><br>
                                             <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"><br>
+                                            <label class="error py-2" for="english_pdf" id="english_pdf_error"></label>
                                             @if ($errors->has('english_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
                                             @endif
@@ -57,6 +60,7 @@
                                         <div class="form-group">
                                             <label for="marathi_pdf">पीडीएफ</label><br>
                                             <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"><br>
+                                            <label class="error py-2" for="marathi_pdf" id="marathi_pdf_error"></label>
                                             @if ($errors->has('marathi_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif
@@ -67,13 +71,16 @@
                                             <label for="url">URL</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="url" id="url" class="form-control"
                                                 id="url" placeholder="" value="{{ old('url') }}">
+                                                <label class="error py-2" for="url" id="url_error"></label>
                                             @if ($errors->has('url'))
                                                 <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success">Save &amp; Submit</button>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                            Save &amp; Submit
+                                        </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-header-rti') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
@@ -85,4 +92,73 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                // Function to check if all input fields are filled with valid data
+                function checkFormValidity() {
+                    const english_title = $('#english_title').val();
+                    const marathi_title = $('#marathi_title').val();
+                    const english_pdf = $('#english_pdf').val();
+                    const marathi_pdf = $('#marathi_pdf').val();
+                    const url = $('#url').val();
+
+                    // Enable the submit button if all fields are valid
+                    if (english_title && marathi_title && english_pdf && marathi_pdf && url) {
+                        $('#submitButton').prop('disabled', false);
+                    } else {
+                        $('#submitButton').prop('disabled', true);
+                    }
+                }
+                 // Custom validation method to check file size
+                 $.validator.addMethod("fileSize", function(value, element, param) {
+                    // Convert bytes to KB
+                    const fileSizeKB = element.files[0].size / 1024;
+                    return fileSizeKB >= param[0] && fileSizeKB <= param[1];
+                }, "File size must be between {0} KB and {1} KB.");
+        
+
+                // Call the checkFormValidity function on input change
+                $('input, #english_pdf, #marathi_pdf').on('input change', checkFormValidity);
+
+                // Initialize the form validation
+                $("#regForm").validate({
+                    rules: {
+                        english_title: {
+                            required: true,
+                        },
+                        marathi_title: {
+                            required: true,
+                        },
+                        english_pdf: {
+                            required: true,
+                            fileSize: [10, 7168], // Min 10KB and Max 7MB (7 * 1024 KB)
+                        },
+                        marathi_pdf: {
+                            required: true,
+                            fileSize: [10, 7168], // Min 10KB and Max 7MB (7 * 1024 KB)
+                        },
+                        url: {
+                            required: true,
+                        },
+                    },
+                    messages: {
+                        english_title: {
+                            required: "Please Enter the Title",
+                        },
+                        marathi_title: {
+                            required: "कृपया शीर्षक प्रविष्ट करा",
+                        },
+                        english_pdf: {
+                            required: "Please Upload PDF",
+                        },
+                        marathi_pdf: {
+                            required: "कृपया पीडीएफ अपलोड करा",
+                        },
+                        url: {
+                            required: "Please Enter the URL",
+                        },
+                    },
+                });
+            });
+        </script>
     @endsection

@@ -79,7 +79,9 @@
                                     </div>
 
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success">Save &amp; Update</button>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                            Save &amp; Update
+                                        </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger"><a
                                             href="{{ route('list-disasterforcast') }}"
                                             class="text-light">Cancel</a></button> --}}
@@ -95,4 +97,59 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                // Function to check if all input fields are filled with valid data
+                function checkFormValidity() {
+                    const english_title = $('#english_title').val();
+                    const marathi_title = $('#marathi_title').val();
+                    const english_description = $('#english_description').val();
+                    const marathi_description = $('#marathi_description').val();
+                
+
+                    // Enable the submit button if all fields are valid
+                    if (english_title && marathi_title && english_description && marathi_description) {
+                        $('#submitButton').prop('disabled', false);
+                    } else {
+                        $('#submitButton').prop('disabled', true);
+                    }
+                }
+
+                // Call the checkFormValidity function on input change
+                $('input, textarea').on('input change',
+                    checkFormValidity);
+
+                // Initialize the form validation
+                $("#regForm").validate({
+                    rules: {
+                        english_title: {
+                            required: true,
+                        },
+                        marathi_title: {
+                            required: true,
+                        },
+                        english_description: {
+                            required: true,
+                        },
+                        marathi_description: {
+                            required: true,
+                        },
+                    },
+                    messages: {
+                        english_title: {
+                            required: "Please Enter the Title",
+                        },
+                        marathi_title: {
+                            required: "कृपया शीर्षक प्रविष्ट करा",
+                        },
+                        english_description: {
+                            required: "Please Enter the Description",
+                        },
+                        marathi_description: {
+                            required: "कृपया वर्णन प्रविष्ट करा",
+                        },
+                    },
+                });
+            });
+        </script>
     @endsection

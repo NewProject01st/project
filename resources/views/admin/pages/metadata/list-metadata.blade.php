@@ -43,7 +43,8 @@
                                                     <td><?php echo $metadata->keywords; ?></td>
                                                     <td class="d-flex">
                                                         @if (in_array('per_update', $data_permission))
-                                                            <a  href="{{ route('edit-metadata', base64_encode($item->id)) }}"
+                                                            <a 
+                                                             {{-- href="{{ route('edit-metadata', base64_encode($item->id)) }}" --}}
                                                                 class="btn btn-sm btn-outline-primary m-1"><i
                                                                     class="fas fa-pencil-alt"></i></a>
                                                         @endif
