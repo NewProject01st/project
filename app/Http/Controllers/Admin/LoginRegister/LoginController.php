@@ -71,9 +71,14 @@ class LoginController extends Controller
             Cookie::queue(Cookie::forget($name));
         }
  
+        $request->session()->forget('user_id');
+        $request->session()->forget('role_id');
+        $request->session()->forget('u_email');
+        $request->session()->forget('permissions');
+
         $request->session()->flush();
 
-        $request->session()->regenerate();
+        //$request->session()->regenerate();
 
         return redirect('/login');
     }

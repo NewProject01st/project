@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::middleware(['permissions.policy'])->group(function () {
+    Route::middleware('referrer-policy')->group(function () {
 
 Route::get('/login', function () {
     return view('admin.login');
@@ -608,4 +610,7 @@ Route::get('/db-backup', ['as' => 'db-backup', 'uses' => 'App\Http\Controllers\D
 
 Route::get('/log-out', ['as' => 'log-out', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\LoginController@logout']);
 
+});
+
+});
 });
