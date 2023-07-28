@@ -53,8 +53,8 @@ class LoginController extends Controller
                     'u_email' => $request['email']
                     ])->get()->toArray();
                     dd($update_values);
-                if(($update_values->ip_address != $request->ip() && $update_values->user_agent != $request->userAgent())
-                && ($update_values->ip_address != 'null' && $update_values->user_agent != 'null') ) {
+                if(!($update_values['ip_address'] == $request->ip() && $update_values['user_agent'] == $request->userAgent()) &&
+                !($update_values['ip_address'] == 'null' && $update_values['user_agent'] == 'null')) {
                     return redirect('/login')->with('error','Please logout from another browser');
 
                 }
