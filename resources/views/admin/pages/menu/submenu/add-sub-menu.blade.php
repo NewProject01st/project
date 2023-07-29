@@ -46,7 +46,7 @@
                                             <label for="menu_name_english">Sub Menu Name</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="menu_name_english" id="menu_name_english"
-                                                class="form-control" id="exampleInputUsername1"
+                                                class="form-control mb-2" id="exampleInputUsername1"
                                                 placeholder="Enter sub menu name" value="{{ old('menu_name_english') }}">
                                             @if ($errors->has('menu_name_english'))
                                                 <span class="red-text"><?php echo $errors->first('menu_name_english', ':message'); ?></span>
@@ -58,7 +58,7 @@
                                             <label for="menu_name_marathi">उप मेनू नाव</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="menu_name_marathi" id="menu_name_marathi"
-                                                class="form-control" id="exampleInputUsername1"
+                                                class="form-control mb-2" id="exampleInputUsername1"
                                                 placeholder="उप मेनू नाव प्रविष्ट करा"
                                                 value="{{ old('menu_name_marathi') }}">
                                             @if ($errors->has('menu_name_marathi'))
@@ -126,10 +126,10 @@
                             required: "Please Select Menu",
                         },
                         menu_name_english: {
-                            required: "Please Enter the Menu Name",
+                            required: "Please Enter the Sub Menu Name",
                         },
                         menu_name_marathi: {
-                            required: "कृपया मेनूचे नाव प्रविष्ट करा",
+                            required: "कृपया उप मेनू नाव प्रविष्ट करा",
                         },
                     },
                 });

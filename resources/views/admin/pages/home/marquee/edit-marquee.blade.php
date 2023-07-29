@@ -25,7 +25,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title </label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control" name="english_title" id="english_title" placeholder="Enter the Title" value="@if (old('english_title'))
+                                            <input class="form-control mb-2" name="english_title" id="english_title" placeholder="Enter the Title" value="@if (old('english_title'))
                                             {{ old('english_title') }}@else{{ $marquees->english_title }}
                                             @endif">
                                             @if ($errors->has('english_title'))
@@ -37,7 +37,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control" name="marathi_title" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा" value="@if (old('marathi_title'))
+                                            <input class="form-control mb-2" name="marathi_title" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा" value="@if (old('marathi_title'))
                                             {{ old('marathi_title') }}@else{{ $marquees->marathi_title }}
                                             @endif">
                                             @if ($errors->has('marathi_title'))
@@ -48,7 +48,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control url" name="url" id="url"
+                                            <input class="form-control url mb-2" name="url" id="url"
                                                 placeholder="Enter the Title" name="url"
                                                 value="@if (old('url')) {{ old('url') }}@else{{ $marquees->url }} @endif">
                                             @if ($errors->has('url'))
@@ -57,7 +57,9 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success">Save &amp; Update</button>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton">
+                                            Save &amp; Update
+                                        </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-marquee') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
@@ -71,4 +73,51 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                function checkFormValidity() {
+                    const english_title = $('#english_title').val();
+                    const marathi_title = $('#marathi_title').val();
+                    const url = $('#url').val();
+                }
+                // Call the checkFormValidity function on file input change
+                $('input').on('change', function() {
+                    checkFormValidity();
+                    validator.element(this); // Revalidate the file input
+                });
+                // Initialize the form validation
+                var form = $("#regForm");
+                var validator = form.validate({
+                    rules: {
+                        english_title: {
+                            required: true,
+                        },
+                        marathi_title: {
+                            required: true,
+                        },
+                        url: {
+                            required: true,
+                        },
+                    },
+                    messages: {
+                        english_title: {
+                            required: "Please Enter the Title",
+                        },
+                        marathi_title: {
+                            required: "कृपया शीर्षक प्रविष्ट करा",
+                        },
+                        url: {
+                            required: "Please Enter the URL",
+                        },
+                    },
+                });
+                // Submit the form when the "Update" button is clicked
+                $("#submitButton").click(function() {
+                    // Validate the form
+                    if (form.valid()) {
+                        form.submit();
+                    }
+                });
+            });
+        </script> 
     @endsection

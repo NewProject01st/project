@@ -41,7 +41,7 @@
                                     </div>
 
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton">
                                             Save &amp; Update
                                         </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
@@ -59,39 +59,82 @@
         </div>
         <script>
             $(document).ready(function() {
-     // Function to check if all input fields are filled with valid data
-     function checkFormValidity() {
-         const english_image = $('#english_image').val();
- 
-         // Enable the submit button if all fields are valid
-         if (english_image) {
-             $('#submitButton').prop('disabled', false);
-         } else {
-             $('#submitButton').prop('disabled', true);
-         }
-     }
- 
-     // Call the checkFormValidity function on input change
-     $('input, #english_image').on('input change',
-         checkFormValidity);
- 
-     // Initialize the form validation
-     $("#regForm").validate({
-         rules: {
-             english_image: {
-                 required: true,
-                 accept: "image/png, image/jpeg, image/jpg",
-             },
-         },
-         messages: {
-             english_image: {
-                 required: "Upload Media File",
-                 accept: "Only png, jpeg, and jpg image files are allowed.",
-             },
-           
-         },
-         
-     });
- });
-         </script>
+                var currentEnglishImage = $("#currentEnglishImage").val();
+        
+                // Function to check if all input fields are filled with valid data
+                function checkFormValidity() {
+                    const english_image = $('#english_image').val();
+        
+                    // Update the old PDF values if there are any selected files
+                    if (english_image !== currentEnglishImage) {
+                        $("#currentEnglishImage").val(english_image);
+                    }
+                }
+        
+                // Call the checkFormValidity function on file input change
+                $('#english_image').on('change', function() {
+                    checkFormValidity();
+                    validator.element(this); // Revalidate the file input
+                });
+        
+                $.validator.addMethod("validImage", function(value, element) {
+                    // Check if a file is selected
+                    if (element.files && element.files.length > 0) {
+                        var extension = element.files[0].name.split('.').pop().toLowerCase();
+                        // Check the file extension
+                        return (extension === "jpg" || extension === "jpeg" || extension === "png");
+                    }
+                    return true; // No file selected, so consider it valid
+                }, "Only JPG, JPEG, PNG images are allowed.");
+        
+                $.validator.addMethod("filesize", function(value, element, param) {
+                    if (element.files && element.files.length > 0) {
+                        var fileSize = element.files[0].size; // Size in bytes
+                        return fileSize <= param * 1024 * 1024; // param is in MB, so converting it to bytes
+                    }
+                    return true; // No file selected, so consider it valid
+                }, "The file size is too large. The maximum file size allowed is {0} MB.");
+        
+                // Initialize the form validation
+                var form = $("#regForm");
+                var validator = form.validate({
+                    rules: {
+                        english_image: {
+                            validImage: true,
+                            filesize: 7, // 7 MB (you can adjust this value as needed)
+                        },
+                    },
+                    messages: {
+                        english_image: {
+                            validImage: "Only png, jpeg, and jpg image files are allowed.",
+                            filesize: "The file size is too large. The maximum file size allowed is 7 MB.",
+                        },
+                    },
+                    submitHandler: function(form) {
+                        form.submit();
+                    }
+                });
+        
+                // Submit the form when the "Update" button is clicked
+                $("#submitButton").click(function() {
+                    // Validate the form
+                    if (form.valid()) {
+                        form.submit();
+                    }
+                });
+        
+                // You can remove the following two blocks if you don't need to display selected images on the page
+                $("#english_image").change(function() {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Display the selected image for English
+                        // You can remove this if you don't need to display the image on the page
+                        $("#currentEnglishImageDisplay").attr('src', e.target.result);
+                        validator.element("#english_image"); // Revalidate the file input
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                });
+            });
+        </script>
+        
     @endsection

@@ -18,15 +18,14 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" id="frm_register" name="frm_register" method="post" role="form"
+                            <form class="forms-sample" id="regForm" name="frm_register" method="post" role="form"
                                 action="{{ route('add-important-link') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" name="english_title" id="english_title"
-                                                class="form-control" id="english_title" placeholder="Please enter Title"
+                                            <input type="text" name="english_title"  class="form-control mb-2" id="english_title" placeholder="Please enter Title"
                                                 value="{{ old('english_title') }}">
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
@@ -36,8 +35,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" name="marathi_title" id="marathi_title"
-                                                class="form-control" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"
+                                            <input type="text" name="marathi_title"  class="form-control mb-2" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"
                                                 value="{{ old('marathi_title') }}">
 
                                             {{-- <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title"
@@ -50,7 +48,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control url" name="url" id="url"
+                                            <input class="form-control url mb-2" name="url" id="url"
                                                 placeholder="Enter the URL" name="url" value="{{ old('url') }}">
                                             @if ($errors->has('url'))
                                                 <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
@@ -76,7 +74,6 @@
             $(document).ready(function() {
                 // Function to check if all input fields are filled with valid data
                 function checkFormValidity() {
-                    
                     const english_title = $('#english_title').val();
                     const marathi_title = $('#marathi_title').val();
                     const url = $('#url').val();
@@ -107,12 +104,12 @@
                     },
                     messages: {
                         english_title: {
-                            required: "Please Enter the Menu Name",
+                            required: "Please Enter the Title",
                         },
                         marathi_title: {
-                            required: "कृपया मेनूचे नाव प्रविष्ट करा",
+                            required: "कृपया शीर्षक प्रविष्ट करा",
                         },
-                        english_title: {
+                        url: {
                             required: "Please Enter the URL",
                         },
                     },

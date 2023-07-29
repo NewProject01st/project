@@ -21,7 +21,7 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" id="roleformid" name="roleformid" method="post" role="form"
+                            <form class="forms-sample" id="regForm" name="roleformid" method="post" role="form"
                                 action="{{ route('update-role') }}" enctype="multipart/form-data">
 
                                 @csrf
@@ -31,7 +31,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="role_name">Role Type</label>&nbsp<span class="red-text">*</span><br>
-                                            <input type="text" id="role_name" name="role_name" class="role_name"
+                                            <input type="text" id="role_name" name="role_name" class="role_name form-control mb-1"
                                                 value="@if (old('role_name')) {{ old('role_name') }} @else {{ $user_data['roles']['role_name'] }} @endif"><br>
                                             @if ($errors->has('role_name'))
                                                 <span class="red-text"><?php echo $errors->first('role_name', ':message'); ?></span>
@@ -152,7 +152,7 @@
                                     </div>
 
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton">
                                             Save &amp; Update
                                         </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
@@ -196,25 +196,19 @@
                 }
             }
         </script>
-         <script>
+        <script>
             $(document).ready(function() {
-                // Function to check if all input fields are filled with valid data
                 function checkFormValidity() {
                     const role_name = $('#role_name').val();
-                    
-                    // Enable the submit button if all fields are valid
-                    if (role_name) {
-                        $('#submitButton').prop('disabled', false);
-                    } else {
-                        $('#submitButton').prop('disabled', true);
-                    }
                 }
-
-                // Call the checkFormValidity function on input change
-                $('input').on('input change', checkFormValidity);
-
+                // Call the checkFormValidity function on file input change
+                $('input').on('change', function() {
+                    checkFormValidity();
+                    validator.element(this); // Revalidate the file input
+                });
                 // Initialize the form validation
-                $("#regForm").validate({
+                var form = $("#regForm");
+                var validator = form.validate({
                     rules: {
                         role_name: {
                             required: true,
@@ -225,7 +219,17 @@
                             required: "Please Enter the Role Name",
                         },
                     },
+                    submitHandler: function(form) {
+                        form.submit();
+                    }
                 });
+                // Submit the form when the "Update" button is clicked
+                $("#submitButton").click(function() {
+                    // Validate the form
+                    if (form.valid()) {
+                        form.submit();
+                    }
+                });                
             });
         </script>
     @endsection

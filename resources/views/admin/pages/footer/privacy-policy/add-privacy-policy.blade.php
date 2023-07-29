@@ -26,7 +26,7 @@
                                         <div class="form-group">
                                             <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="english_title" id="english_title"
-                                                class="form-control" id="english_title" placeholder="Please enter Title"
+                                                class="form-control mb-2" id="english_title" placeholder="Please enter Title"
                                                 value="{{ old('english_title') }}">
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
@@ -37,7 +37,7 @@
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" name="marathi_title" id="marathi_title"
-                                                class="form-control" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"
+                                                class="form-control mb-2" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"
                                                 value="{{ old('marathi_title') }}">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>

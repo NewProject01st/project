@@ -60,7 +60,7 @@
                                                 <div class="form-group">
                                                     <label for="english_title">Title</label>&nbsp<span
                                                         class="red-text">*</span>
-                                                    <input type="text" class="form-control" name="english_title"
+                                                    <input type="text" class="form-control mb-2" name="english_title"
                                                         id="english_title" placeholder="Enter the Tilte"
                                                         value="@if (old('english_title'))
                                                         {{ old('english_title') }}@else{{ $dynamic_page->english_title }}
@@ -74,7 +74,7 @@
                                                 <div class="form-group">
                                                     <label for="marathi_title">शीर्षक</label>&nbsp<span
                                                         class="red-text">*</span>
-                                                    <input type="text" class="form-control" name="marathi_title"
+                                                    <input type="text" class="form-control mb-2" name="marathi_title"
                                                         id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"
                                                         value="@if (old('marathi_title'))
                                                         {{ old('marathi_title') }}@else{{ $dynamic_page->marathi_title }}
@@ -116,7 +116,7 @@
                                                 <div class="form-group">
                                                     <label for="meta_data">Page Meta Data</label>&nbsp<span
                                                         class="red-text">*</span>
-                                                    <input type="text" class="form-control" name="meta_data" id="meta_data"
+                                                    <input type="text" class="form-control mb-2" name="meta_data" id="meta_data"
                                                         placeholder="Enter Page Meta Data"
                                                         value="@if (old('meta_data')) {{ old('meta_data') }}@else{{ $dynamic_page->meta_data }} @endif" />
                                                     @if ($errors->has('meta_data'))
@@ -128,7 +128,7 @@
                                                 <div class="form-group">
                                                     <label for="publish_date">Publish Date</label>&nbsp<span
                                                         class="red-text">*</span>
-                                                    <input type="date" class="form-control" placeholder="YYYY-MM-DD"
+                                                    <input type="date" class="form-control mb-2" placeholder="YYYY-MM-DD"
                                                       value="{{$get_publish_date}}"
                                                         value="@if (old('publish_date')) {{ old('publish_date') }}@else{{ $get_publish_date }} @endif" 
                                                         name="publish_date" id="publish_date">
@@ -143,7 +143,7 @@
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <input type="hidden" name="edit_id" id="edit_id" class="form-control"
                                             value="{{ $edit_data_id }}">
-                                            <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                            <button type="submit" class="btn btn-sm btn-success" id="submitButton">
                                                 Save &amp; Update
                                             </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
@@ -188,11 +188,12 @@
                 document.getElementById("frm_register").submit();
             }
         </script>
-             <script>
-                $(document).ready(function() {
-         // Function to check if all input fields are filled with valid data
-         function checkFormValidity() {
-            
+
+
+
+<script>
+    $(document).ready(function() {
+        function checkFormValidity() {
             const menu_data = $('#menu_data').val();
              const english_title = $('#english_title').val();
              const marathi_title = $('#marathi_title').val();
@@ -200,21 +201,16 @@
              const summernote2 = $('#summernote2').val();
              const meta_data = $('#meta_data').val();
              const publish_date = $('#publish_date').val();
-             // Enable the submit button if all fields are valid
-             if (english_title && marathi_title && summernote1 && summernote2 && meta_data && publish_date) {
-                 $('#submitButton').prop('disabled', false);
-             } else {
-                 $('#submitButton').prop('disabled', true);
-             }
-         }
-     
-         // Call the checkFormValidity function on input change
-         $('input,textarea, select').on('input change',
-             checkFormValidity);
-     
-         // Initialize the form validation
-         $("#regForm").validate({
-             rules: {
+        }
+        // Call the checkFormValidity function on file input change
+        $('input').on('change', function() {
+            checkFormValidity();
+            validator.element(this); // Revalidate the file input
+        });
+        // Initialize the form validation
+        var form = $("#regForm");
+        var validator = form.validate({
+            rules: {
                  english_title: {
                      required: true,
                  },
@@ -255,8 +251,17 @@
                     required: "Please Select Date",
                  },
              },
-             
-         });
-     });
-             </script>
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+        // Submit the form when the "Update" button is clicked
+        $("#submitButton").click(function() {
+            // Validate the form
+            if (form.valid()) {
+                form.submit();
+            }
+        });
+    });
+</script>
     @endsection

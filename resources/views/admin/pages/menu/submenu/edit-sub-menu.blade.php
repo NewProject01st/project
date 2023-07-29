@@ -27,7 +27,7 @@
                                             <label for="menu_name_english">Menu Name English</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="menu_name_english" id="menu_name_english"
-                                                class="form-control" id="menu_name_english" placeholder=""
+                                                class="form-control mb-2" id="menu_name_english" placeholder=""
                                                 value="@if (old('menu_name_english')) {{ old('menu_name_english') }}@else{{ $main_menu_data->menu_name_english }} @endif">
                                             @if ($errors->has('menu_name_english'))
                                                 <span class="red-text"><?php echo $errors->first('menu_name_english', ':message'); ?></span>
@@ -39,7 +39,7 @@
                                             <label for="menu_name_marathi">Menu Name Marathi</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="menu_name_marathi" id="menu_name_marathi"
-                                                class="form-control" id="menu_name_marathi" placeholder=""
+                                                class="form-control mb-2" id="menu_name_marathi" placeholder=""
                                                 value="@if (old('menu_name_marathi')) {{ old('menu_name_marathi') }}@else{{ $main_menu_data->menu_name_marathi }} @endif">
                                             @if ($errors->has('menu_name_marathi'))
                                                 <span class="red-text"><?php echo $errors->first('menu_name_marathi', ':message'); ?></span>
@@ -69,44 +69,48 @@
                 document.getElementById("frm_register").submit();
             }
         </script>
-        <script>
-            $(document).ready(function() {
-                // Function to check if all input fields are filled with valid data
-                function checkFormValidity() {
-                    
-                    const menu_name_english = $('#menu_name_english').val();
-                    const menu_name_marathi = $('#menu_name_marathi').val();
-
-                    // Enable the submit button if all fields are valid
-                    if (menu_name_english && menu_name_marathi) {
-                        $('#submitButton').prop('disabled', false);
-                    } else {
-                        $('#submitButton').prop('disabled', true);
-                    }
-                }
-
-                // Call the checkFormValidity function on input change
-                $('input, select').on('input change', checkFormValidity);
-
-                // Initialize the form validation
-                $("#regForm").validate({
-                    rules: {
-                        menu_name_english: {
-                            required: true,
+<script>
+    $(document).ready(function() {
+        function checkFormValidity() {
+            const menu_name_english = $('#menu_name_english').val();
+            const menu_name_marathi = $('#menu_name_marathi').val();
+        }
+        // Call the checkFormValidity function on file input change
+        $('input').on('change', function() {
+            checkFormValidity();
+            validator.element(this); // Revalidate the file input
+        });
+        // Initialize the form validation
+        var form = $("#regForm");
+        var validator = form.validate({
+            rules: {
+                menu_name_english: {
+                    required: true,
+                },
+                menu_name_marathi: {
+                    required: true,
+                },
+            },
+            messages: {
+                menu_name_english: {
+                            required: "Please Enter the Sub Menu Name",
                         },
                         menu_name_marathi: {
-                            required: true,
+                            required: "कृपया उप मेनू नाव प्रविष्ट करा",
                         },
-                    },
-                    messages: {
-                        menu_name_english: {
-                            required: "Please Enter the Menu Name",
-                        },
-                        menu_name_marathi: {
-                            required: "कृपया मेनूचे नाव प्रविष्ट करा",
-                        },
-                    },
-                });
-            });
-        </script>
+            },
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+        // Submit the form when the "Update" button is clicked
+        $("#submitButton").click(function() {
+            // Validate the form
+            if (form.valid()) {
+                form.submit();
+            }
+        });
+    });
+</script>
+    
     @endsection

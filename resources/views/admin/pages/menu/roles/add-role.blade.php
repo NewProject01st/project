@@ -22,7 +22,7 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" id="roleformid" name="roleformid" method="post" role="form"
+                            <form class="forms-sample" id="regForm" name="roleformid" method="post" role="form"
                                 action="{{ route('add-role') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
@@ -30,7 +30,7 @@
                                         <div class="col-lg-6 col-md-6 col-sm-6">
                                             <div class="form-group">
                                                 <label for="role_name">Role Name</label>&nbsp<span class="red-text">*</span>
-                                                <input type="text" class="form-control role_name" name="role_name"
+                                                <input type="text" class="form-control role_name mb-2" name="role_name"
                                                     id="role_name" value="{{ old('role_name') }}"
                                                     placeholder="Enter the Role Name">
                                                 @if ($errors->has('role_name'))

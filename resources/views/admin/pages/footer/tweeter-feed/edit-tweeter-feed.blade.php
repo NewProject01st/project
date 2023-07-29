@@ -26,7 +26,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control url" name="url" id="url"
+                                            <input class="form-control mb-2 url" name="url" id="url"
                                                 placeholder="Enter the Title" name="url" value="{{ $tweeter->url }}">
                                             @if ($errors->has('url'))
                                                 <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
@@ -34,7 +34,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton">
                                             Save &amp; Update
                                         </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
@@ -52,36 +52,38 @@
         </div>
         <script>
             $(document).ready(function() {
-     // Function to check if all input fields are filled with valid data
-     function checkFormValidity() {
-         const url = $('#url').val();
-         // Enable the submit button if all fields are valid
-         if (url) {
-             $('#submitButton').prop('disabled', false);
-         } else {
-             $('#submitButton').prop('disabled', true);
-         }
-     }
- 
-     // Call the checkFormValidity function on input change
-     $('input, #english_image').on('input change',
-         checkFormValidity);
- 
-     // Initialize the form validation
-     $("#regForm").validate({
-         rules: {
-             url: {
-                 required: true,
-             },
-         },
-         messages: {
-             url: {
-                required: "Please Enter the URL",
-            },
-           
-         },
-         
-     });
- });
-         </script>
+                function checkFormValidity() {
+                    const url = $('#url').val();
+                }
+                // Call the checkFormValidity function on file input change
+                $('input').on('change', function() {
+                    checkFormValidity();
+                    validator.element(this); // Revalidate the file input
+                });
+                // Initialize the form validation
+                var form = $("#regForm");
+                var validator = form.validate({
+                    rules: {
+                        url: {
+                            required: true,
+                        },
+                    },
+                    messages: {
+                        url: {
+                            required: "Please Enter the URL",
+                        },
+                    },
+                    submitHandler: function(form) {
+                        form.submit();
+                    }
+                });
+                // Submit the form when the "Update" button is clicked
+                $("#submitButton").click(function() {
+                    // Validate the form
+                    if (form.valid()) {
+                        form.submit();
+                    }
+                });                
+            });
+        </script>       
     @endsection

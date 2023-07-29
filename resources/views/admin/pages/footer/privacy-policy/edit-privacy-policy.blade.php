@@ -26,7 +26,7 @@
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input class="form-control " name="english_title" id="english_title"
+                                            <input class="form-control mb-2" name="english_title" id="english_title"
                                                 placeholder="Enter the Title" name="english_title"
                                                 value="{{ $privacy_policy->english_title }}">
                                             @if ($errors->has('english_title'))
@@ -37,7 +37,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control " name="marathi_title" id="marathi_title"
+                                            <input class="form-control mb-2" name="marathi_title" id="marathi_title"
                                                 placeholder="शीर्षक प्रविष्ट करा" name="marathi_title"
                                                 value="{{ $privacy_policy->marathi_title }}">
                                             @if ($errors->has('marathi_title'))
@@ -76,7 +76,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>Save &amp;
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton">Save &amp;
                                             Update</button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-privacy-policy') }}"
@@ -93,27 +93,20 @@
         </div>
         <script>
             $(document).ready(function() {
-                // Function to check if all input fields are filled with valid data
                 function checkFormValidity() {
-                    
                     const english_title = $('#english_title').val();
                     const marathi_title = $('#marathi_title').val();
                     const english_description = $('#english_description').val();
                     const marathi_description = $('#marathi_description').val();
-                    
-                    // Enable the submit button if all fields are valid
-                    if (english_title && marathi_title && english_description && marathi_description) {
-                        $('#submitButton').prop('disabled', false);
-                    } else {
-                        $('#submitButton').prop('disabled', true);
-                    }
                 }
-
-                // Call the checkFormValidity function on input change
-                $('input').on('input change', checkFormValidity);
-
+                // Call the checkFormValidity function on file input change
+                $('input').on('change', function() {
+                    checkFormValidity();
+                    validator.element(this); // Revalidate the file input
+                });
                 // Initialize the form validation
-                $("#regForm").validate({
+                var form = $("#regForm");
+                var validator = form.validate({
                     rules: {
                         english_title: {
                             required: true,
@@ -142,6 +135,16 @@
                             required: "कृपया वर्णन प्रविष्ट करा",
                         },
                     },
+                    submitHandler: function(form) {
+                        form.submit();
+                    }
+                });
+                // Submit the form when the "Update" button is clicked
+                $("#submitButton").click(function() {
+                    // Validate the form
+                    if (form.valid()) {
+                        form.submit();
+                    }
                 });
             });
         </script>

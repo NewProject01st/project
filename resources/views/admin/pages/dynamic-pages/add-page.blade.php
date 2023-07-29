@@ -51,7 +51,7 @@
                                                 <div class="form-group">
                                                     <label for="english_title">Title</label>&nbsp<span
                                                         class="red-text">*</span>
-                                                    <input type="text" class="form-control" name="english_title"
+                                                    <input type="text" class="form-control mb-2" name="english_title"
                                                         id="english_title" placeholder="Enter the Tilte"
                                                         value="{{ old('english_title') }}" />
                                                     @if ($errors->has('english_title'))
@@ -63,7 +63,7 @@
                                                 <div class="form-group">
                                                     <label for="marathi_title">शीर्षक</label>&nbsp<span
                                                         class="red-text">*</span>
-                                                    <input type="text" class="form-control" name="marathi_title"
+                                                    <input type="text" class="form-control mb-2" name="marathi_title"
                                                         id="marathi_title" placeholder="शीर्षक प्रविष्ट करा "
                                                         value="{{ old('marathi_title') }}" />
                                                     @if ($errors->has('marathi_title'))
@@ -100,7 +100,7 @@
                                         <div class="form-group">
                                             <label for="meta_data">Page Meta Data</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" class="form-control" name="meta_data" id="meta_data"
+                                            <input type="text" class="form-control  mb-2" name="meta_data" id="meta_data"
                                                 placeholder="Enter Page Meta Data" value="{{ old('meta_data') }}" />
                                             @if ($errors->has('meta_data'))
                                                 <span class="red-text"><?php echo $errors->first('meta_data', ':message'); ?></span>
@@ -112,7 +112,7 @@
                                         <div class="form-group">
                                             <label for="publish_date">Publish Date</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="date" class="form-control" placeholder="YYYY-MM-DD"
+                                            <input type="date" class="form-control mb-2" placeholder="YYYY-MM-DD"
                                                 name="publish_date" id="publish_date" value="{{ old('publish_date') }}">
                                             @if ($errors->has('publish_date'))
                                                 <span class="red-text"><?php echo $errors->first('publish_date', ':message'); ?></span>
