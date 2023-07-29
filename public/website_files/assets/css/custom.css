@@ -300,6 +300,10 @@ body a:focus {
 	text-align: justify;
 	display: flex;
 }
+.error {
+	color: #ff0000 !important;
+	/* Change this color to your desired color code */
+}
 /******** + ========== + Header Start + ========== + ********/
 
 header {

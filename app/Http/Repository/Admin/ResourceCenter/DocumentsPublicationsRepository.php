@@ -26,9 +26,7 @@ class DocumentsPublicationsRepository  {
             $documents_data = new Documentspublications();
             $documents_data->english_title = $request['english_title'];
             $documents_data->marathi_title = $request['marathi_title'];
-            $documents_data->english_description = $request['english_description'];
-            $documents_data->marathi_description = $request['marathi_description'];
-
+          
             $documents_data->save();       
             $last_insert_id = $documents_data->id;
 
@@ -86,8 +84,6 @@ class DocumentsPublicationsRepository  {
 
             $update_document->english_title = $request['english_title'];
             $update_document->marathi_title = $request['marathi_title'];
-            $update_document->english_description = $request['english_description'];
-            $update_document->marathi_description = $request['marathi_description'];
 
             $update_document->save();
                 $last_insert_id = $update_document->id;

@@ -25,7 +25,6 @@ class RTIRepository{
         $rti_data = new RTI();
         $rti_data->english_title = $request['english_title'];
         $rti_data->marathi_title = $request['marathi_title'];
-        $rti_data->url = $request['url'];
         $rti_data->save();       
               
         $last_insert_id = $rti_data->id;
@@ -79,7 +78,6 @@ public function updateAll($request){
         }
         $rti_data->english_title = $request['english_title'];
         $rti_data->marathi_title = $request['marathi_title'];
-        $rti_data->url = $request['url'];
 
         $previousEnglishPdf = $rti_data->english_pdf;
         $previousMarathiPdf = $rti_data->marathi_pdf;

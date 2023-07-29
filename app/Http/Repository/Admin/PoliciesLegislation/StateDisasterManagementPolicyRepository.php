@@ -25,7 +25,6 @@ class StateDisasterManagementPolicyRepository{
             $state_data = new StateDisasterManagementPolicy();
             $state_data->english_title = $request['english_title'];
             $state_data->marathi_title = $request['marathi_title'];
-            $state_data->url = $request['url'];
             $state_data->policies_year = $request['policies_year'];
 
             $state_data->save();       
@@ -83,7 +82,6 @@ class StateDisasterManagementPolicyRepository{
 
        $state_data->english_title = $request['english_title'];
        $state_data->marathi_title = $request['marathi_title'];
-       $state_data->url = $request['url'];
        $state_data->policies_year = $request['policies_year'];
    
        $state_data->save();

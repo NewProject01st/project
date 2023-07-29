@@ -175,35 +175,35 @@
                         },
                         english_image: {
                             required: true,
-                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
-                            // filesize: {
-                            //     min: <?= config('all_file_validation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE') ?>,
-                            //     max: <?= config('all_file_validation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE') ?>,
-                            // },
+                            accept: "image/png, image/jpeg, image/jpg",
+                            filesize: {
+                                min: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE') }},
+                                max: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE') }},
+                            },
                         },
                         marathi_image: {
                             required: true,
-                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
-                            // filesize: {
-                            //     min: <?= config('all_file_validation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE') ?>,
-                            //     max: <?= config('all_file_validation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE') ?>,
-                            // },
+                            accept: "image/png, image/jpeg, image/jpg",
+                            filesize: {
+                                min: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE') }},
+                                max: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE') }},
+                            },
                         },
                         english_image_new: {
                             required: true,
                             accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
-                            // filesize: {
-                            //     min: <?= config('all_file_validation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE') ?>,
-                            //     max: <?= config('all_file_validation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE') ?>,
-                            // },
+                            filesize: {
+                                min: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE') }},
+                                max: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE') }},
+                            },
                         },
                         marathi_image_new: {
                             required: true,
                             accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
-                            // filesize: {
-                            //     min: <?= config('all_file_validation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE') ?>,
-                            //     max: <?= config('all_file_validation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE') ?>,
-                            // },
+                            filesize: {
+                                min: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MIN_SIZE') }},
+                                max: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_NEW_IMAGE_MAX_SIZE') }},
+                            },
                         },
                     },
                     messages: {

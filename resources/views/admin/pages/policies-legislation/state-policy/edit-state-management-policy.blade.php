@@ -27,7 +27,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="english_title"
+                                            <input type="text" class="form-control mb-2" name="english_title"
                                                 id="english_title" placeholder="Enter the Title"
                                                 value="@if (old('english_title')) {{ old('english_title') }}@else{{ $state_policy->english_title }} @endif">
                                             @if ($errors->has('english_title'))
@@ -38,22 +38,11 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="marathi_title"
+                                            <input type="text" class="form-control mb-2" name="marathi_title"
                                                 id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"
                                                 value="@if (old('marathi_title')) {{ old('marathi_title') }}@else{{ $state_policy->marathi_title }} @endif">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" name="url" id="url" class="form-control"
-                                                value="@if (old('url')) {{ old('url') }}@else{{ $state_policy->url }} @endif"
-                                                placeholder="">
-                                            @if ($errors->has('url'))
-                                                <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
@@ -75,8 +64,9 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_pdf">PDF</label><br>
-                                            <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"><br>
+                                            <label for="english_pdf">PDF</label>&nbsp<span class="red-text">*</span><br>
+                                            <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"
+                                                class="form-control mb-2">
                                             @if ($errors->has('english_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
                                             @endif
@@ -86,9 +76,9 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_pdf">पीडीएफ</label><br>
+                                            <label for="marathi_pdf">पीडीएफ</label>&nbsp<span class="red-text">*</span><br>
                                             <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
-                                                class=""><br>
+                                                class="form-control mb-2">
                                             @if ($errors->has('marathi_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif
@@ -98,7 +88,7 @@
                                     </div>
 
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton">
                                             Save &amp; Update
                                         </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
@@ -116,34 +106,54 @@
         </div>
         <script>
             $(document).ready(function() {
+                var currentEnglishPdf = $("#currentEnglishPdf").val();
+                var currentMarathiPdf = $("#currentMarathiPdf").val();
+
                 // Function to check if all input fields are filled with valid data
                 function checkFormValidity() {
                     const english_title = $('#english_title').val();
                     const marathi_title = $('#marathi_title').val();
                     const english_pdf = $('#english_pdf').val();
                     const marathi_pdf = $('#marathi_pdf').val();
-                    const url = $('#url').val();
                     const dYear = $('#dYear').val();
-
-                    // Enable the submit button if all fields are valid
-                    if (english_title && marathi_title && english_pdf && marathi_pdf && url && dYear) {
-                        $('#submitButton').prop('disabled', false);
-                    } else {
-                        $('#submitButton').prop('disabled', true);
+                    // Update the old PDF values if there are any selected files
+                    if (english_pdf !== currentEnglishPdf) {
+                        $("#currentEnglishPdf").val(english_pdf);
+                    }
+                    if (marathi_pdf !== currentMarathiPdf) {
+                        $("#currentMarathiPdf").val(marathi_pdf);
                     }
                 }
-                // Custom validation method to check file size
+
+                // Call the checkFormValidity function on file input change
+                $('#english_pdf, #marathi_pdf').on('change', function() {
+                    checkFormValidity();
+                    validator.element(this); // Revalidate the file input
+                });
+
+                $.validator.addMethod("validPdf", function(value, element) {
+                    // Check if a file is selected
+                    if (element.files && element.files.length > 0) {
+                        var extension = element.files[0].name.split('.').pop().toLowerCase();
+                        // Check the file extension
+                        return (extension === "pdf");
+                    }
+                    return true; // No file selected, so consider it valid
+                }, "Only PDF files are allowed.");
+
                 $.validator.addMethod("fileSize", function(value, element, param) {
-                    // Convert bytes to KB
-                    const fileSizeKB = element.files[0].size / 1024;
-                    return fileSizeKB >= param[0] && fileSizeKB <= param[1];
+                    // Check if a file is selected
+                    if (element.files && element.files.length > 0) {
+                        // Convert bytes to KB
+                        const fileSizeKB = element.files[0].size / 1024;
+                        return fileSizeKB >= param[0] && fileSizeKB <= param[1];
+                    }
+                    return true; // No file selected, so consider it valid
                 }, "File size must be between {0} KB and {1} KB.");
 
-                // Call the checkFormValidity function on input change
-                $('input, select, #english_pdf, #marathi_pdf').on('input change', checkFormValidity);
-
                 // Initialize the form validation
-                $("#regForm").validate({
+                var form = $("#regForm");
+                var validator = form.validate({
                     rules: {
                         english_title: {
                             required: true,
@@ -152,15 +162,26 @@
                             required: true,
                         },
                         english_pdf: {
-                            required: true,
+                            // required: function() {
+                            //     let currentEnglishImage = $("#currentEnglishImage").val();
+                            //     if (currentEnglishImage != "") {
+
+                            //         return true;
+                            //     }
+                            // },
+                            validPdf: true,
                             fileSize: [10, 7168], // Min 10KB and Max 7MB (7 * 1024 KB)
                         },
                         marathi_pdf: {
-                            required: true,
+                            // required: function() {
+                            //     let currentMarathiImage = $("#currentMarathiImage").val();
+                            //     if (currentMarathiImage != "") {
+
+                            //         return true;
+                            //     }
+                            // },
+                            validPdf: true,
                             fileSize: [10, 7168], // Min 10KB and Max 7MB (7 * 1024 KB)
-                        },
-                        url: {
-                            required: true,
                         },
                         dYear: {
                             required: true,
@@ -174,18 +195,51 @@
                             required: "कृपया शीर्षक प्रविष्ट करा",
                         },
                         english_pdf: {
-                            required: "Please Upload PDF",
+                            validPdf: "Only PDF files are allowed.",
+                            fileSize: "The file size is too large. The maximum file size allowed is 7 MB.",
                         },
                         marathi_pdf: {
-                            required: "कृपया पीडीएफ अपलोड करा",
-                        },
-                        url: {
-                            required: "Please Enter the URL",
+                            validPdf: "Only PDF files are allowed.",
+                            fileSize: "The file size is too large. The maximum file size allowed is 7 MB.",
                         },
                         dYear: {
                             required: "Please Select Year",
                         },
                     },
+                    submitHandler: function(form) {
+                        form.submit();
+                    }
+                });
+
+                // Submit the form when the "Update" button is clicked
+                $("#submitButton").click(function() {
+                    // Validate the form
+                    if (form.valid()) {
+                        form.submit();
+                    }
+                });
+
+                // You can remove the following two blocks if you don't need to display selected PDFs on the page
+                $("#english_pdf").change(function() {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Display the selected PDF for English
+                        // You can remove this if you don't need to display the PDF on the page
+                        $("#currentEnglishPdfDisplay").attr('src', e.target.result);
+                        validator.element("#english_pdf"); // Revalidate the file input
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                });
+
+                $("#marathi_pdf").change(function() {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Display the selected PDF for Marathi
+                        // You can remove this if you don't need to display the PDF on the page
+                        $("#currentMarathiPdfDisplay").attr('src', e.target.result);
+                        validator.element("#marathi_pdf"); // Revalidate the file input
+                    };
+                    reader.readAsDataURL(this.files[0]);
                 });
             });
         </script>

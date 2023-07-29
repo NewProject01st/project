@@ -137,11 +137,12 @@
                     const marathi_image = $('#marathi_image').val();
 
                     // Enable the submit button if all fields are valid
-                    if (english_title && marathi_title && english_description && marathi_description && english_image && marathi_image) {
-                        $('#submitButton').prop('disabled', false);
-                    } else {
-                        $('#submitButton').prop('disabled', true);
-                    }
+                    // if (english_title && marathi_title && english_description && marathi_description && english_image &&
+                    //     marathi_image) {
+                    //     $('#submitButton').prop('disabled', false);
+                    // } else {
+                    //     $('#submitButton').prop('disabled', true);
+                    // }
                 }
 
                 // Call the checkFormValidity function on input change
@@ -165,13 +166,21 @@
                         },
                         english_image: {
                             required: true,
-                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                            accept: "image/png, image/jpeg, image/jpg",
+                            filesize: {
+                                min: {{ config('AllFileValidation.OBJECTIVE_GOALS_IMAGE_MIN_SIZE') }},
+                                max: {{ config('AllFileValidation.OBJECTIVE_GOALS_IMAGE_MAX_SIZE') }},
+                            },
                         },
                         marathi_image: {
                             required: true,
-                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                            accept: "image/png, image/jpeg, image/jpg",
+                            filesize: {
+                                min: {{ config('AllFileValidation.OBJECTIVE_GOALS_IMAGE_MIN_SIZE') }},
+                                max: {{ config('AllFileValidation.OBJECTIVE_GOALS_IMAGE_MAX_SIZE') }},
+                            },
                         },
-                        
+
                     },
                     messages: {
                         english_title: {
@@ -189,12 +198,18 @@
                         english_image: {
                             required: "Upload Media File",
                             accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
+                            filesize: {
+                                tooLarge: "The file size is too large. The maximum file size allowed is {max} MB.",
+                            },
                         },
                         marathi_image: {
                             required: "मीडिया फाइल अपलोड करा",
                             accept: "फक्त png, jpeg आणि jpg इमेज फाइल्सना परवानगी आहे.", // Update the error message for the accept rule
+                            filesize: {
+                                tooLarge: "The file size is too large. The maximum file size allowed is {max} MB.",
+                            },
                         },
-                       
+
                     },
                 });
             });

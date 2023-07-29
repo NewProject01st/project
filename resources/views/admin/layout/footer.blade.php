@@ -1,3 +1,6 @@
+{{-- <script src="{{ asset('assets/js/jquery-3.7.0.min.js') }}"></script> --}}
+<script src="{{ asset('assets/js/jquery-3.7.0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>
 <script type="text/javascript">
     /*window.addEventListener('load', e => {
   if ('serviceWorker' in navigator) {

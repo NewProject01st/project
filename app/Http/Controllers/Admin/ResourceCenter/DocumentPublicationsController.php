@@ -34,8 +34,8 @@ class DocumentPublicationsController extends Controller
         $rules = [
             'english_title' => 'required|max:255',
             'marathi_title' => 'required|max:255',
-            'english_description' => 'required',
-            'marathi_description' => 'required', 
+            // 'english_description' => 'required',
+            // 'marathi_description' => 'required', 
             'english_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'',
             'marathi_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'',
             
@@ -47,8 +47,8 @@ class DocumentPublicationsController extends Controller
         'english_title.max'   => 'Please  enter text length upto 255 character only.',
         'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
         'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',
-        'english_description.required' => 'Please enter description.',
-        'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
+        // 'english_description.required' => 'Please enter description.',
+        // 'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
         'english_pdf.required' => 'Please upload an PDF file.',
         'english_pdf.file' => 'The file must be of type: file.',
         'english_pdf.mimes' => 'The file must be a PDF.',
@@ -107,8 +107,8 @@ public function update(Request $request)
     $rules = [
         'english_title' => 'required|max:255',
         'marathi_title' => 'required|max:255',
-            'english_description' => 'required',
-            'marathi_description' => 'required', 
+            // 'english_description' => 'required',
+            // 'marathi_description' => 'required', 
      ];
      if($request->has('english_pdf')) {
         $rules['english_pdf'] = 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.DOCUMENT_PUBLICATION_PDF_MIN_SIZE").'';
@@ -122,8 +122,8 @@ public function update(Request $request)
             'english_title.max'   => 'Please  enter text length upto 255 character only.',
             'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
             'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',
-            'english_description.required' => 'Please enter description.',
-            'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
+            // 'english_description.required' => 'Please enter description.',
+            // 'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
             'english_pdf.required' => 'Please upload an PDF file.',
             'english_pdf.file' => 'The file must be of type: file.',
             'english_pdf.mimes' => 'The file must be a PDF.',

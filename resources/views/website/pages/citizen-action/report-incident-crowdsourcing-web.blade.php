@@ -6,11 +6,6 @@
             line-height: 25px;
             padding: 10px 30px 10px;
         }
-
-        .error {
-            color: #ff0000;
-            /* Change this color to your desired color code */
-        }
     </style>
 
     <!--Sub Header Start-->
@@ -116,6 +111,7 @@
                                         <input type="text" class="form-control set_m_form" name="location" id="location"
                                             value="{{ old('location') }}"
                                             oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+
                                         @if ($errors->has('location'))
                                             <span class="red-text">{{ $errors->first('location') }}</span>
                                         @endif
@@ -185,17 +181,6 @@
                                         <img id="media_imgPreview" src="#" alt="Image"
                                             class="img-fluid img-thumbnail mt-3" width="150" style="display:none">
                                     </div>
-                                    {{-- <div class="col-md-4 captcha_set" id="g_recaptcha_response" style="text-align: -webkit-right;">
-                                                        {!! NoCaptcha::renderJs() !!}
-                                                        {!! NoCaptcha::display() !!}
-                
-                                                        @if ($errors->has('g-recaptcha-response'))
-                                                            <span class="help-block">
-                                                                <span class="red-text">{{ $errors->first('g-recaptcha-response') }}</span>
-                                                            </span>
-                                                        @endif
-                                                    </div> --}}
-
                                     <div class="col-md-4 captcha_set" id="g_recaptcha_response"
                                         style="text-align: -webkit-right;">
                                         {!! NoCaptcha::renderJs() !!}
@@ -248,6 +233,15 @@
                 }
             }
 
+            $.validator.addMethod("validImage", function(value, element) {
+                // Check if a file is selected
+                if (element.files && element.files.length > 0) {
+                    var extension = element.files[0].name.split('.').pop().toLowerCase();
+                    // Check the file extension
+                    return (extension == "jpg" || extension == "jpeg" || extension == "png");
+                }
+                return true; // No file selected, so consider it valid
+            }, "Only JPG, JPEG, PNG images are allowed.");
             // Call the checkFormValidity function on input change
             $('input, textarea, select, #media_upload').on('input change', checkFormValidity);
 
@@ -281,7 +275,8 @@
                     },
                     media_upload: {
                         required: true,
-                        accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                        validImage: true,
+                        accept: "png|jpeg|jpg",
                     },
                     // 'g-recaptcha-response': {
                     //     required: true,

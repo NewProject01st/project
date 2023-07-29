@@ -25,9 +25,10 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title </label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control" name="english_title" id="english_title" placeholder="Enter the Title" value=" @if (old('english_title'))
-                                            {{ old('english_title') }}@else{{ $slider->english_title }}
-                                            @endif">                                            
+                                            <input class="form-control" name="english_title" id="english_title"
+                                                placeholder="Enter the Title"
+                                                value=" @if (old('english_title')) {{ old('english_title') }}@else{{ $slider->english_title }} @endif">
+                                            <label class="error py-2" for="english_title" id="english_title_error"></label>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -36,9 +37,10 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control" name="marathi_title" id="marathi_title" placeholder="Enter the Title" value="@if (old('marathi_title'))
-                                            {{ old('marathi_title') }}@else{{ $slider->marathi_title }}
-                                            @endif">
+                                            <input class="form-control" name="marathi_title" id="marathi_title"
+                                                placeholder="Enter the Title"
+                                                value="@if (old('marathi_title')) {{ old('marathi_title') }}@else{{ $slider->marathi_title }} @endif">
+                                            <label class="error py-2" for="marathi_title" id="marathi_title_error"></label>
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -50,6 +52,7 @@
                                                 class="red-text">*</span>
                                             <textarea class="form-control english_description" name="english_description" id="english_description"
                                                 placeholder="Enter the Description">
+                                                <label class="error py-2" for="english_description" id="english_description_error"></label>
                                             @if (old('english_description'))
 {{ old('english_description') }}@else{{ $slider->english_description }}
 @endif
@@ -69,6 +72,11 @@
 {{ old('marathi_description') }}@else{{ $slider->marathi_description }}
 @endif
                                             </textarea>
+                                            <label class="error py-2" for="english_description"
+                                                id="english_description_error"></label>
+
+                                            <label class="error py-2" for="marathi_description"
+                                                id="marathi_description_error"></label>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
                                             @endif
@@ -120,7 +128,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton">
                                             Save &amp; Update
                                         </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
@@ -131,14 +139,23 @@
                                 <input type="hidden" name="id" id="id" class="form-control"
                                     value="{{ $slider->id }}" placeholder="">
 
+                                {{-- <input type="text" name="currentMarathiImage" id="currentMarathiImage"
+                                    class="form-control" value="" placeholder=""> --}}
+
+
+
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Make sure you have jQuery and jquery.validate.js included before this script -->
         <script>
             $(document).ready(function() {
+                // Variable to store the previous values of image inputs
+
                 // Function to check if all input fields are filled with valid data
                 function checkFormValidity() {
                     const english_title = $('#english_title').val();
@@ -149,18 +166,32 @@
                     const marathi_image = $('#marathi_image').val();
                     const url = $('#url').val();
 
-
-                    // Enable the submit button if all fields are valid
-                    if (english_title && marathi_title && english_image && marathi_image && url) {
-                        $('#submitButton').prop('disabled', false);
-                    } else {
-                        $('#submitButton').prop('disabled', true);
-                    }
+                    // Update the old image values if there are any selected files                    
                 }
 
-                // Call the checkFormValidity function on input change
-                $('input,textarea, #english_image, #marathi_image').on('input change',
-                    checkFormValidity);
+                // Call the checkFormValidity function on file input change
+                $('#english_image, #marathi_image').on('change', checkFormValidity);
+
+
+                $.validator.addMethod("validImage", function(value, element) {
+                    // Check if a file is selected
+                    if (element.files && element.files.length > 0) {
+                        var extension = element.files[0].name.split('.').pop().toLowerCase();
+                        // Check the file extension
+                        return (extension == "jpg" || extension == "jpeg" || extension == "png" || extension ==
+                            "gif");
+                    }
+                    return true; // No file selected, so consider it valid
+                }, "Only JPG, JPEG, PNG, and GIF images are allowed.");
+
+
+                $.validator.addMethod("filesize", function(value, element, param) {
+                    if (element.files && element.files.length > 0) {
+                        var fileSize = element.files[0].size; // Size in bytes
+                        return fileSize <= param * 1024 * 1024; // param is in MB, so converting it to bytes
+                    }
+                    return true; // No file selected, so consider it valid
+                }, "The file size is too large. The maximum file size allowed is {0} MB.");
 
                 // Initialize the form validation
                 $("#regForm").validate({
@@ -171,23 +202,40 @@
                         marathi_title: {
                             required: true,
                         },
-                        english_description: {
-                            required: true,
-                        },
-                        marathi_description: {
-                            required: true,
-                        },
-                        english_image: {
-                            required: true,
-                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
-                        },
+                        // english_description: {
+                        //     required: true,
+                        // },
+                        // marathi_description: {
+                        //     required: true,
+                        // },
+                        //   english_image: {
+                        //     // required: true,
+                        //     accept: "image/png, image/jpeg, image/jpg",
+                        //     filesize: {
+                        //       min: {{ config('AllFileValidation.SLIDER_IMAGE_MIN_SIZE') }},
+                        //       max: {{ config('AllFileValidation.SLIDER_IMAGE_MAX_SIZE') }},
+                        //     },
+                        //   },
+
                         marathi_image: {
-                            required: true,
-                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                            // required: function() {
+                            //     let currentMarathiImage = $("#currentMarathiImage").val();
+                            //     if (currentMarathiImage != "") {
+
+                            //         return true;
+                            //     }
+                            // },
+                            // accept: "png|jpeg|jpg",
+                            validImage: true,
+                            filesize: {
+                                max: 1024, // 10 MB (you can adjust this value as needed)
+                                tooLarge: "The file size is too large. The maximum file size allowed is 1 MB.",
+                            },
+                            
                         },
-                        url: {
-                            required: true,
-                        },
+                        // url: {
+                        //     required: true,
+                        // },
                     },
                     messages: {
                         english_title: {
@@ -196,24 +244,47 @@
                         marathi_title: {
                             required: "कृपया शीर्षक प्रविष्ट करा",
                         },
-                        english_description: {
-                            required: "Please Enter the Description",
-                        },
-                        marathi_description: {
-                            required: "कृपया वर्णन प्रविष्ट करा",
-                        },
-                        english_image: {
-                            required: "Upload Media File",
-                            accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
-                        },
+                        // english_description: {
+                        //     required: "Please Enter the Description",
+                        // },
+                        // marathi_description: {
+                        //     required: "कृपया वर्णन प्रविष्ट करा",
+                        // },
+                        // //   english_image: {
+                        // //     required: "Upload Media File",
+                        // //     accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
+                        // //     filesize: {
+                        // //       tooLarge: "The file size is too large. The maximum file size allowed is {max} MB.",
+                        // //     },
+                        // //   },
                         marathi_image: {
-                            required: "मीडिया फाइल अपलोड करा",
-                            accept: "फक्त png, jpeg आणि jpg इमेज फाइल्सना परवानगी आहे.", // Update the error message for the accept rule
+                            // required: "मीडिया फाइल अपलोड करा",
+                            validImage: "फक्त png, jpeg आणि jpg इमेज फाइल्सना परवानगी आहे.", // Update the error message for the accept rule
+                            filesize: "The file size is too large. The maximum file size allowed is 1 MB.",
                         },
-                        url: {
-                            required: "Please Enter the URL",
-                        },
+                        // url: {
+                        //     required: "Please Enter the URL",
+                        // },
                     },
+                    submitHandler: function(form) {
+                        form.submit();
+                    }
+                });
+
+
+
+                $("#marathi_image").change(function() {
+                    alert("ok");
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $("#currentMarathiImage").val(e.target.result);
+                        // Add required rule when an image is selected
+                        // validator.settings.rules.marathi_image.required = true;
+                        // validator.settings.messages.marathi_image.required = "Please select an image for upload.";
+                        // Revalidate the form to apply the new rules
+                        validator.form();
+                    };
+                    reader.readAsDataURL(this.files[0]);
                 });
             });
         </script>

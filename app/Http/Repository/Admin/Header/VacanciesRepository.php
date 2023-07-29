@@ -24,7 +24,6 @@ class VacanciesRepository {
             $vacancy_data = new VacanciesHeader();
             $vacancy_data->english_title = $request['english_title'];
             $vacancy_data->marathi_title = $request['marathi_title'];
-            $vacancy_data->url = $request['url'];
             $vacancy_data->save();       
                 
             $last_insert_id = $vacancy_data->id;
@@ -77,7 +76,6 @@ class VacanciesRepository {
             }
             $vacancy_data->english_title = $request['english_title'];
             $vacancy_data->marathi_title = $request['marathi_title'];
-            $vacancy_data->url = $request['url'];
 
             $previousEnglishPdf = $vacancy_data->english_pdf;
             $previousMarathiPdf = $vacancy_data->marathi_pdf;

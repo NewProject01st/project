@@ -168,11 +168,19 @@
                         },
                         english_image: {
                             required: true,
-                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                            accept: "image/png, image/jpeg, image/jpg",
+                            filesize: {
+                                min: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE') }},
+                                max: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE') }},
+                            },
                         },
                         marathi_image: {
                             required: true,
-                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                            accept: "image/png, image/jpeg, image/jpg",
+                            filesize: {
+                                min: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE') }},
+                                max: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE') }},
+                            },
                         },
                         english_url: {
                             required: true,

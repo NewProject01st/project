@@ -25,10 +25,9 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="english_title"
+                                            <input type="text" class="form-control mb-2" name="english_title"
                                                 id="english_title" value="{{ old('english_title') }}"
                                                 placeholder="Enter the Title">
-                                                <label class="error py-2" for="english_title" id="english_title_error"></label>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -37,23 +36,22 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="marathi_title"
+                                            <input type="text" class="form-control mb-2" name="marathi_title"
                                                 id="marathi_title" value="{{ old('marathi_title') }}"
                                                 placeholder="शीर्षक प्रविष्ट करा">
-                                                <label class="error py-2" for="marathi_title" id="marathi_title_error"></label>
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="english_description">Description</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input class="form-control " name="english_description" id="english_description"
                                                 placeholder="Enter the Description" value="{{ old('english_description') }}" name="english_description">
                                             @if ($errors->has('english_description'))
-                                                <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('english_description', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
@@ -64,15 +62,15 @@
                                             <input class="form-control " value="{{ old('marathi_description') }}" name="marathi_description" id="marathi_description"
                                                 placeholder="वर्णन प्रविष्ट करा">
                                             @if ($errors->has('english_description'))
-                                                <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('english_description', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_pdf">Pdf</label><br>
                                             <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"
-                                                value="{{ old('english_pdf') }}"><br>
+                                               class="form-control mb-2">
                                             @if ($errors->has('english_pdf'))
                                                 <div class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></div>
                                             @endif
@@ -82,7 +80,7 @@
                                         <div class="form-group">
                                             <label for="marathi_pdf">पीडीएफ</label><br>
                                             <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"
-                                                value="{{ old('marathi_pdf') }}"><br>
+                                              class="form-control mb-2">
                                             @if ($errors->has('marathi_pdf'))
                                                 <div class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></div>
                                             @endif
@@ -111,12 +109,10 @@
                     const marathi_title = $('#marathi_title').val();
                     const english_pdf = $('#english_pdf').val();
                     const marathi_pdf = $('#marathi_pdf').val();
-                    const english_description = $('#english_description').val();
-                    const marathi_description = $('#marathi_description').val();
+                   
 
                     // Enable the submit button if all fields are valid
-                    if (english_title && marathi_title && english_pdf && marathi_pdf && english_description &&
-                        marathi_description) {
+                    if (english_title && marathi_title && english_pdf && marathi_pdf) {
                         $('#submitButton').prop('disabled', false);
                     } else {
                         $('#submitButton').prop('disabled', true);
@@ -149,12 +145,6 @@
                             required: true,
                              fileSize: [10, 7168], // Min 10KB and Max 7MB (7 * 1024 KB)
                         },
-                        english_description: {
-                            required: true,
-                        },
-                        marathi_description: {
-                            required: true,
-                        },
                     },
                     messages: {
                         english_title: {
@@ -168,12 +158,6 @@
                         },
                         marathi_pdf: {
                             required: "कृपया पीडीएफ अपलोड करा",
-                        },
-                        english_description: {
-                            required: "Please Enter the Description",
-                        },
-                        marathi_description: {
-                            required: "कृपया वर्णन प्रविष्ट करा",
                         },
                     },
                 });

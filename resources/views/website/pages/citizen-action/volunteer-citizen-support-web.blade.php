@@ -373,6 +373,13 @@
                 $('#submitButton').prop('disabled', true);
             }
         }
+        $.validator.addMethod("validImage", function(value, element) {
+                // Check if a file is selected
+                if (element.files && element.files.length > 0) {
+                    var extension = element.files[0].name.split('.').pop().toLowerCase();
+                    // Check the file extension
+                    return (extension == "jpg" || extension == "jpeg" || extension == "png");
+                }
 
         // Call the checkFormValidity function on input change
         $('input, textarea, select, #media_upload').on('input change', checkFormValidity);
@@ -407,7 +414,8 @@
                 },
                 media_upload: {
                     required: true,
-                    accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                    validImage: true,
+                        accept: "png|jpeg|jpg",
                 },
                 // 'g-recaptcha-response': {
                 //     required: true,
@@ -425,7 +433,8 @@
                 },
                 ngo_photo: {
                     required: true,
-                    accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                    validImage: true,
+                        accept: "png|jpeg|jpg",
                 },
                 ngo_address: {
                     required: true,
@@ -451,7 +460,8 @@
                 },
                 media_upload: {
                     required: "Upload Media File",
-                    accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
+                    validImage: true,
+                        accept: "png|jpeg|jpg",
                 },
                 // 'g-recaptcha-response': {
                 //     required: "Please complete the reCAPTCHA.",

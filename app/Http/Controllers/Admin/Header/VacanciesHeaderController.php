@@ -36,7 +36,6 @@ class VacanciesHeaderController extends Controller
             'marathi_title' => 'required|max:255',
             'english_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.VACANCY_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.VACANCY_PDF_MIN_SIZE").'',
             'marathi_pdf' => 'required|file|mimes:pdf|max:'.Config::get("AllFileValidation.VACANCY_PDF_MAX_SIZE").'|min:'.Config::get("AllFileValidation.VACANCY_PDF_MIN_SIZE").'',
-            'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
 
          ];
     $messages = [   
@@ -45,8 +44,6 @@ class VacanciesHeaderController extends Controller
         'english_title.max'   => 'Please  enter text length upto 255 character only.',
         'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
         'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',            
-        'url.required'=>'Please enter url.',
-        'url.regex'=>'Please enter valid url.',
         'english_pdf.required' => 'Please upload an PDF file.',
         'english_pdf.file' => 'The file must be of type: file.',
         'english_pdf.mimes' => 'The file must be a PDF.',
@@ -104,7 +101,6 @@ public function update(Request $request)
     $rules = [
         'english_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
         'marathi_title' => 'required|max:255',
-        'url' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i'],
      ];
 
      if($request->has('english_pdf')) {
@@ -121,8 +117,6 @@ public function update(Request $request)
         'english_title.max'   => 'Please  enter text length upto 255 character only.',
         'marathi_title.required'=>'कृपया शीर्षक प्रविष्ट करा.',
         'marathi_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',        
-        'url.required'=>'Please enter url.',
-        'url.regex'=>'Please valid url.',
         'english_pdf.required' => 'Please upload an PDF file.',
         'english_pdf.file' => 'The file must be of type: file.',
         'english_pdf.mimes' => 'The file must be a PDF.',

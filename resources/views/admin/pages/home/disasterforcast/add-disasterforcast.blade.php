@@ -77,4 +77,95 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                // Function to check if all input fields are filled with valid data
+                function checkFormValidity() {
+                    const english_title = $('#english_title').val();
+                    const marathi_title = $('#marathi_title').val();
+                    const english_description = $('#english_title').val();
+                    const marathi_description = $('#marathi_description').val();
+
+                    // Enable the submit button if all fields are valid
+                    if (english_title && marathi_title && english_image && marathi_image && english_url &&
+                        disaster_date) {
+                        $('#submitButton').prop('disabled', false);
+                    } else {
+                        $('#submitButton').prop('disabled', true);
+                    }
+                }
+
+                // Call the checkFormValidity function on input change
+                $('input, #english_image, #marathi_image').on('input change',
+                    checkFormValidity);
+
+                // Initialize the form validation
+                $("#regForm").validate({
+                    rules: {
+                        english_title: {
+                            required: true,
+                        },
+                        marathi_title: {
+                            required: true,
+                        },
+                        english_description: {
+                            required: true,
+                        },
+                        marathi_description: {
+                            required: true,
+                        },
+                        english_image: {
+                            required: true,
+                            accept: "image/png, image/jpeg, image/jpg",
+                            filesize: {
+                                min: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE') }},
+                                max: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE') }},
+                            },
+                        },
+                        marathi_image: {
+                            required: true,
+                            accept: "image/png, image/jpeg, image/jpg",
+                            filesize: {
+                                min: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MIN_SIZE') }},
+                                max: {{ config('AllFileValidation.DEPARTMENT_INFORMATION_IMAGE_MAX_SIZE') }},
+                            },
+                        },
+                        english_url: {
+                            required: true,
+                        },
+                        disaster_date: {
+                            required: true,
+                        },
+                    },
+                    messages: {
+                        english_title: {
+                            required: "Please Enter the Title",
+                        },
+                        marathi_title: {
+                            required: "कृपया शीर्षक प्रविष्ट करा",
+                        },
+                        english_description: {
+                            required: "Please Enter the Description",
+                        },
+                        marathi_description: {
+                            required: "कृपया वर्णन प्रविष्ट करा",
+                        },
+                        english_image: {
+                            required: "Upload Media File",
+                            accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
+                        },
+                        marathi_image: {
+                            required: "मीडिया फाइल अपलोड करा",
+                            accept: "फक्त png, jpeg आणि jpg इमेज फाइल्सना परवानगी आहे.", // Update the error message for the accept rule
+                        },
+                        english_url: {
+                            required: "Please Enter the URL",
+                        },
+                        disaster_date: {
+                            required: "Please Select Disater Date",
+                        },
+                    },
+                });
+            });
+        </script>
     @endsection

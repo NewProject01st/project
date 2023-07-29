@@ -49,7 +49,7 @@ class CitizenActionRepository  {
             'message' => 'This mobile number does not exist.',
           ]);
         }
-      }
+    }
     public function getAllVolunteerCitizenSupport()
     {
         try {

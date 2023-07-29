@@ -25,10 +25,9 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="english_title"
+                                            <input type="text" class="form-control mb-2" name="english_title"
                                                 id="english_title" value="{{ old('english_title') }}"
                                                 placeholder="Enter the Title">
-                                                <label class="error py-2" for="english_title" id="english_title_error"></label>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -37,10 +36,9 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="marathi_title"
+                                            <input type="text" class="form-control mb-2" name="marathi_title"
                                                 id="marathi_title" value="{{ old('marathi_title') }}"
                                                 placeholder="शीर्षक प्रविष्ट करा">
-                                                <label class="error py-2" for="marathi_title" id="marathi_title_error"></label>
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -50,7 +48,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_pdf">Pdf</label><br>
-                                            <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"><br>
+                                            <input type="file" name="english_pdf" id="english_pdf" accept=".pdf" class="form-control mb-2">
                                             @if ($errors->has('english_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('english_pdf', ':message'); ?></span>
                                             @endif
@@ -59,7 +57,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_pdf">पीडीएफ</label><br>
-                                            <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf"><br>
+                                            <input type="file" name="marathi_pdf" id="marathi_pdf" accept=".pdf" class="form-control mb-2">
                                             @if ($errors->has('marathi_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
                                             @endif
