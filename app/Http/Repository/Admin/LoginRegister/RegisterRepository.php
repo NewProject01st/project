@@ -78,7 +78,7 @@ class RegisterRepository
 
 	public function register($request)
 	{
-		$ipAddress = getIPAddress($request);
+		// $ipAddress = getIPAddress($request);
 		$user_data = new User();
 		$user_data->u_email = $request['u_email'];
 		// $user_data->u_uname = $request['u_uname'];
@@ -93,7 +93,7 @@ class RegisterRepository
 		$user_data->state = $request['state'];
 		$user_data->city = $request['city'];
 		$user_data->pincode = $request['pincode'];
-		$user_data->ip_address = $ipAddress;
+		$user_data->ip_address = 'null';
 		$user_data->is_active = isset($request['is_active']) ? true : false;
 		$user_data->save();
 

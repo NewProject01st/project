@@ -8,6 +8,7 @@ use App\Http\Services\Admin\LoginRegister\LoginService;
 use Session;
 use Validator;
 use PDO;
+use App\Models\User;
 use Illuminate\Support\Facades\Cookie;
 
 
@@ -47,12 +48,23 @@ class LoginController extends Controller
                     ->withInput()
                     ->withErrors($validation);
             } else {
-                $resp  = self::$loginServe->checkLogin($request);
-                if($resp['status']=='success') {
-                    return redirect('/dashboard');
-                } else {
-                    return redirect('/login')->with('error', $resp['msg']);
+
+                $update_values = User::where([
+                    'u_email' => $request['email']
+                    ])->get()->toArray();
+
+                if(!($update_values[0]['ip_address'] == $request->ip() && $update_values[0]['user_agent'] == $request->userAgent()) &&
+                !($update_values[0]['ip_address'] == 'null' && $update_values[0]['user_agent'] == 'null')) {
+                    return redirect('/login')->with('error','Please logout from another browser');
+
                 }
+                    
+                    $resp  = self::$loginServe->checkLogin($request);
+                    if($resp['status']=='success') {
+                        return redirect('/dashboard');
+                    } else {
+                        return redirect('/login')->with('error', $resp['msg']);
+                    }
 
             }
 
@@ -64,6 +76,16 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
+
+        $update = User::where([
+            'u_email' => session()->get('u_email'),
+            'is_active' =>true
+            ])
+            ->update([
+                'ip_address'=>'null',
+                'user_agent'=>'null'
+            ]);
+
 
         $cookies = Cookie::getQueuedCookies();
     
@@ -78,6 +100,7 @@ class LoginController extends Controller
 
         $request->session()->flush();
 
+       
         //$request->session()->regenerate();
 
         return redirect('/login');
