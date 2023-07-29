@@ -26,7 +26,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title </label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">{{ $districtemergencyoperationscenter->english_title }}</textarea>
+                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">{{ strip_tags($districtemergencyoperationscenter->english_title) }}</textarea>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif

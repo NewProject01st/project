@@ -29,7 +29,7 @@
                                             <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title"
                                                 name="english_title">
                                                     @if (old('english_title'))
-{{ old('english_title') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->english_title }}
+{{ old('english_title') }}@else{{ strip_tags($emergencycontact_data['emergencycontactnumbers']->english_title) }}
 @endif
                                                     </textarea>
                                             @if ($errors->has('english_title'))
@@ -43,7 +43,7 @@
                                             <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title"
                                                 name="marathi_title">
                                                 @if (old('marathi_title'))
-{{ old('marathi_title') }}@else{{ $emergencycontact_data['emergencycontactnumbers']->marathi_title }}
+{{ old('marathi_title') }}@else{{ strip_tags($emergencycontact_data['emergencycontactnumbers']->marathi_title) }}
 @endif
                                                 </textarea>
                                             @if ($errors->has('marathi_title'))

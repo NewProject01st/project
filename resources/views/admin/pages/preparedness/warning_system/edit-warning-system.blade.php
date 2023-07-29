@@ -28,7 +28,7 @@
                                             <label for="english_title">Title </label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">
 @if (old('english_title'))
-{{ old('english_title') }}@else{{ $warning_system->english_title }}
+{{ old('english_title') }}@else{{ strip_tags($warning_system->english_title) }}
 @endif
 </textarea>
                                             @if ($errors->has('english_title'))
@@ -41,7 +41,7 @@
                                             <label for="marathi_title">शीर्षक </label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">
 @if (old('marathi_title'))
-{{ old('marathi_title') }}@else{{ $warning_system->marathi_title }}
+{{ old('marathi_title') }}@else{{ strip_tags($warning_system->marathi_title) }}
 @endif
 </textarea>
                                             @if ($errors->has('marathi_title'))
@@ -56,7 +56,7 @@
                                             <textarea class="form-control english_description" name="english_description" id="english_description"
                                                 placeholder="Enter the Description">
 @if (old('english_description'))
-{{ old('english_description') }}@else{{ strip_tags($warning_system->english_description) }}
+{{ old('english_description') }}@else{{ $warning_system->english_description }}
 @endif
 </textarea>
                                             @if ($errors->has('english_description'))
@@ -70,7 +70,7 @@
                                             <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
                                                 placeholder="Enter the Description">
 @if (old('marathi_description'))
-{{ old('marathi_description') }}@else{{ strip_tags($warning_system->marathi_description) }}
+{{ old('marathi_description') }}@else{{ $warning_system->marathi_description }}
 @endif
 </textarea>
                                             @if ($errors->has('marathi_description'))
