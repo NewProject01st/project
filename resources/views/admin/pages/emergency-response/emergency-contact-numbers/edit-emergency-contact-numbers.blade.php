@@ -85,7 +85,7 @@
                                         <div class="form-group">
                                             <label for="english_image">Image </label>&nbsp<span
                                                 class="red-text">*</span><br>
-                                            <input type="file" name="english_image" class="form-control"
+                                            <input type="file" name="english_image" class="form-control mb-2"
                                                 id="english_image" accept="image/*" placeholder="image">
                                             @if ($errors->has('english_image'))
                                                 <span class="red-text"><?php echo $errors->first('english_image', ':message'); ?></span>
@@ -103,7 +103,7 @@
                                             <label for="marathi_image">प्रतिमा </label>&nbsp<span
                                                 class="red-text">*</span><br>
                                             <input type="file" name="marathi_image" id="marathi_image" accept="image/*"
-                                                class="form-control">
+                                                class="form-control mb-2">
                                             @if ($errors->has('marathi_image'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></span>
                                             @endif
@@ -119,7 +119,7 @@
                                 <div class="col-md-12 col-sm-12 text-center  mt-3">
                                     <input type="hidden" name="edit_id" id="edit_id"
                                         value="{{ $emergencycontact_data['emergencycontactnumbers']->id }}">
-                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton">
                                             Save &amp; Update
                                         </button>
                                     {{-- <span><a href="{{ route('list-emergency-contact-numbers') }}"
@@ -191,29 +191,56 @@
 
     <script>
         $(document).ready(function() {
+            var currentEnglishImage = $("#currentEnglishImage").val();
+            var currentMarathiImage = $("#currentMarathiImage").val();
+    
             // Function to check if all input fields are filled with valid data
             function checkFormValidity() {
                 const english_title = $('#english_title').val();
                 const marathi_title = $('#marathi_title').val();
-                const english_description = $('#english_title').val();
+                const english_description = $('#english_description').val();
                 const marathi_description = $('#marathi_description').val();
                 const english_image = $('#english_image').val();
                 const marathi_image = $('#marathi_image').val();
-
-                // Enable the submit button if all fields are valid
-                if (english_title && marathi_title && english_description && marathi_description && english_image && marathi_image) {
-                    $('#submitButton').prop('disabled', false);
-                } else {
-                    $('#submitButton').prop('disabled', true);
+    
+                // Update the old PDF values if there are any selected files
+                if (english_image !== currentEnglishImage) {
+                    $("#currentEnglishImage").val(english_image);
+                }
+                if (marathi_image !== currentMarathiImage) {
+                    $("#currentMarathiImage").val(marathi_image);
                 }
             }
-
-            // Call the checkFormValidity function on input change
-            $('input, #english_image, #marathi_image').on('input change',
-                checkFormValidity);
-
+    
+            // Call the checkFormValidity function on file input change
+            $('input, #english_image, #marathi_image').on('change', function() {
+                checkFormValidity();
+                validator.element(this); // Revalidate the file input
+            });
+    
+            $.validator.addMethod("validImage", function(value, element) {
+                // Check if a file is selected
+                if (element.files && element.files.length > 0) {
+                    var extension = element.files[0].name.split('.').pop().toLowerCase();
+                    // Check the file extension
+                    return (extension == "jpg" || extension == "jpeg" || extension == "png");
+                }
+                return true; // No file selected, so consider it valid
+            }, "Only JPG, JPEG, PNG images are allowed.");
+    
+            $.validator.addMethod("fileSize", function(value, element, param) {
+                // Check if a file is selected
+                if (element.files && element.files.length > 0) {
+                    // Convert bytes to KB
+                    const fileSizeKB = element.files[0].size / 1024;
+                    return fileSizeKB >= param[0] && fileSizeKB <= param[1];
+                }
+                return true; // No file selected, so consider it valid
+            }, "File size must be between {0} KB and {1} KB.");
+    
             // Initialize the form validation
-            $("#regForm").validate({
+            var form = $("#regForm");
+            var validator = form.validate({
                 rules: {
                     english_title: {
                         required: true,
@@ -228,14 +255,13 @@
                         required: true,
                     },
                     english_image: {
-                        required: true,
-                        accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                        validImage: true,
+                        fileSize: [180, 2048], // Min 180KB and Max 2MB (2 * 1024 KB)
                     },
                     marathi_image: {
-                        required: true,
-                        accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                        validImage: true,
+                        fileSize: [180, 2048], // Min 180KB and Max 2MB (2 * 1024 KB)
                     },
-                    
                 },
                 messages: {
                     english_title: {
@@ -251,15 +277,48 @@
                         required: "कृपया वर्णन प्रविष्ट करा",
                     },
                     english_image: {
-                        required: "Upload Media File",
-                        accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
-                    },
-                    marathi_image: {
-                        required: "मीडिया फाइल अपलोड करा",
-                        accept: "फक्त png, jpeg आणि jpg इमेज फाइल्सना परवानगी आहे.", // Update the error message for the accept rule
-                    },
-                   
+                validImage: "Only JPG, JPEG, PNG images are allowed.",
+                fileSize: "The file size must be between 180 KB and 2048 KB.",
+            },
+            marathi_image: {
+                validImage: "फक्त JPG, JPEG, PNG प्रतिमांना परवानगी आहे.",
+                fileSize: "फाईलचा आकार 180 KB and 2048 KB दरम्यान असणे आवश्यक आहे.",
+            },
                 },
+                submitHandler: function(form) {
+                    form.submit();
+                }
+            });
+    
+            // Submit the form when the "Update" button is clicked
+            $("#submitButton").click(function() {
+                // Validate the form
+                if (form.valid()) {
+                    form.submit();
+                }
+            });
+    
+            // You can remove the following two blocks if you don't need to display selected images on the page
+            $("#english_image").change(function() {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    // Display the selected image for English
+                    // You can remove this if you don't need to display the image on the page
+                    $("#currentEnglishImageDisplay").attr('src', e.target.result);
+                    validator.element("#english_image"); // Revalidate the file input
+                };
+                reader.readAsDataURL(this.files[0]);
+            });
+    
+            $("#marathi_image").change(function() {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    // Display the selected image for Marathi
+                    // You can remove this if you don't need to display the image on the page
+                    $("#currentMarathiImageDisplay").attr('src', e.target.result);
+                    validator.element("#marathi_image"); // Revalidate the file input
+                };
+                reader.readAsDataURL(this.files[0]);
             });
         });
     </script>
