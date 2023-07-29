@@ -33,8 +33,8 @@
                                                     <th>Sr. No.</th>
                                                     <th>Title </th>
                                                     <th>शीर्षक </th>
-                                                    <th>Description </th>
-                                                    <th>वर्णन </th>
+                                                    {{-- <th>Description </th>
+                                                    <th>वर्णन </th> --}}
                                                     <th> Pdf</th>
                                                     <th> पीडीएफ</th>
                                                     <th>Action</th>
@@ -46,8 +46,8 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ strip_tags($item->english_title) }}</td>
                                                         <td>{{ strip_tags($item->marathi_title) }}</td>
-                                                        <td>{{ strip_tags($item->english_description) }}</td>
-                                                        <td>{{ strip_tags($item->marathi_description) }}</td>
+                                                        {{-- <td>{{ strip_tags($item->english_description) }}</td>
+                                                        <td>{{ strip_tags($item->marathi_description) }}</td> --}}
                                                         <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item->english_pdf }}"
                                                                 target="_blank"
                                                                 alt=" {{ strip_tags($item['english_title']) }} pdf"><img
