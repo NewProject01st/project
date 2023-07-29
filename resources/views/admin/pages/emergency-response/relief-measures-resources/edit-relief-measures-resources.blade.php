@@ -27,7 +27,7 @@
                                             <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">
 @if (old('english_title'))
-{{ old('english_title') }}@else{{ $reliefmeasuresresources->english_title }}
+{{ old('english_title') }}@else{{ strip_tags($reliefmeasuresresources->english_title) }}
 @endif
 </textarea>
                                             @if ($errors->has('english_title'))
@@ -40,7 +40,7 @@
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
                                             <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">
 @if (old('marathi_title'))
-{{ old('marathi_title') }}@else{{ $reliefmeasuresresources->marathi_title }}
+{{ old('marathi_title') }}@else{{ strip_tags($reliefmeasuresresources->marathi_title) }}
 @endif
 </textarea>
                                             @if ($errors->has('marathi_title'))
