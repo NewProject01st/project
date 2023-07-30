@@ -18,7 +18,7 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" id="frm_register" name="frm_register" method="post" role="form"
+                            <form class="forms-sample" id="regForm" name="frm_register" method="post" role="form"
                                 action="{{ route('update-users') }}" enctype="multipart/form-data">
                                 <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
                                 <div class="row">
@@ -76,7 +76,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="f_name">First Name</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="f_name" id="f_name"
+                                            <input type="text" class="form-control mb-2" name="f_name" id="f_name"
                                                 placeholder="" value="{{ $user_data['data_users']['f_name'] }}"
                                                 oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('f_name'))
@@ -88,7 +88,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="m_name">Middle Name</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="m_name" id="m_name"
+                                            <input type="text" class="form-control mb-2" name="m_name" id="m_name"
                                                 placeholder="" value="{{ $user_data['data_users']['m_name'] }}"
                                                 oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('m_name'))
@@ -100,7 +100,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="l_name">Last Name</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="l_name" id="l_name"
+                                            <input type="text" class="form-control mb-2" name="l_name" id="l_name"
                                                 placeholder="" value="{{ $user_data['data_users']['l_name'] }}"
                                                 oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('l_name'))
@@ -111,9 +111,11 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="number">Number</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="number" id="number"
+                                            <input type="text" class="form-control mb-2" name="number" id="number"
                                                 placeholder="" value="{{ $user_data['data_users']['number'] }}"
-                                                onkeyup="editvalidateMobileNumber(this.value)">
+                                                onkeyup="editvalidateMobileNumber(this.value)"
+                                                pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10"
+                                                >
                                             <span id="edit-message" class="red-text"></span>
                                             @if ($errors->has('number'))
                                                 <span class="red-text"><?php echo $errors->first('number', ':message'); ?></span>
@@ -123,7 +125,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="designation">Designation</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="designation" id="designation"
+                                            <input type="text" class="form-control mb-2" name="designation" id="designation"
                                                 placeholder="" value="{{ $user_data['data_users']['designation'] }}"
                                                 oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('designation'))
@@ -134,7 +136,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="address">Address</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="address" id="address"
+                                            <input type="text" class="form-control mb-2" name="address" id="address"
                                                 placeholder="" value="{{ $user_data['data_users']['address'] }}">
                                             @if ($errors->has('address'))
                                                 <span class="red-text"><?php echo $errors->first('address', ':message'); ?></span>
@@ -144,7 +146,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="state">State</label>&nbsp<span class="red-text">*</span>
-                                            <select class="form-control" name="state" id="state">
+                                            <select class="form-control mb-2" name="state" id="state">
                                                 <option value="">Select State</option>
                                             </select>
                                             @if ($errors->has('state'))
@@ -155,7 +157,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="city">City</label>&nbsp<span class="red-text">*</span>
-                                            <select class="form-control" name="city" id="city">
+                                            <select class="form-control mb-2" name="city" id="city">
                                                 <option value="">Select City</option>
                                             </select>
                                             @if ($errors->has('city'))
@@ -166,7 +168,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="pincode">Pincode</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="pincode" id="pincode"
+                                            <input type="text" class="form-control mb-2" name="pincode" id="pincode"
                                                 placeholder="" value="{{ $user_data['data_users']['pincode'] }}"
                                                 onkeyup="editvalidatePincode(this.value)">
                                             <span id="edit-message-pincode" class="red-text"></span>
@@ -198,7 +200,7 @@
                                     <div class="col-md-12 col-sm-12 text-center mt-3">
                                         <input type="hidden" class="form-check-input" name="edit_id" id="edit_id"
                                             value="{{ $user_data['data_users']['id'] }}">
-                                            <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                            <button type="submit" class="btn btn-sm btn-success" id="submitButton">
                                                 Save &amp; Update
                                             </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
@@ -379,9 +381,140 @@
                 });
             });
         </script>
+  <script>
+    $(document).ready(function() {
+        // Function to check if all input fields are filled with valid data
+        function checkFormValidity() {
+            const role_id = $('#role_id').val();
+            const f_name = $('#f_name').val();
+            const m_name = $('#m_name').val();
+            const l_name = $('#l_name').val();
+            const number = $('#number').val();
+            const designation = $('#designation').val();
+            const address = $('#address').val();
+            const state = $('#state').val();
+            const city = $('#city').val();
+            // const user_profile = $('#user_profile').val();
+            const pincode = $('#pincode').val();
+            
+        }
+
+        // Call the checkFormValidity function on file input change
+        $('input, #english_image, #marathi_image').on('change', function() {
+            checkFormValidity();
+            validator.element(this); // Revalidate the file input
+        });
+        // Initialize the form validation
+        var form = $("#regForm");
+        var validator = form.validate({
+            rules: {
+                // u_email: {
+                //     required: true,
+                // },
+                role_id: {
+                    required: true,
+                },
+                // u_password: {
+                //     required: true,
+                // },
+                // password_confirmation: {
+                //     required: true,
+                // },
+                f_name: {
+                    required: true,
+                },
+                m_name: {
+                    required: true,
+                },
+                l_name: {
+                    required: true,
+                },
+                number: {
+                    required: true,
+                },
+                designation: {
+                    required: true,
+                },
+                address: {
+                    required: true,
+                },
+                state: {
+                    required: true,
+                },
+                city: {
+                    required: true,
+                },
+                // user_profile: {
+                //     required: true,
+                // },
+                pincode: {
+                    required: true,
+                },
+            },
+            messages: {
+                // u_email: {
+                //     required: "Please Enter the Eamil",
+                // },
+                role_id: {
+                    required: "Please Select Role Name",
+                },
+                // u_password: {
+                //     required: "Please Enter the Password",
+                // },
+                // password_confirmation: {
+                //     required: "Please Enter the Confirmation Password",
+                // },
+                f_name: {
+                    required: "Please Enter the First Name",
+                },
+                m_name: {
+                    required: "Please Enter the Middle Name",
+                },
+                l_name: {
+                    required: "Please Enter the Last Name",
+                },
+                number: {
+                    required: "Please Enter the Number",
+                },
+                designation: {
+                    required: "Please Enter the Designation",
+                },
+                address: {
+                    required: "Please Enter the Address",
+                },
+
+                state: {
+                    required: "Please Select State",
+                },
+                city: {
+                    required: "Please Select State",
+                },
+                // user_profile: {
+                //     required: "Upload Media File",
+                //     accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
+                // },
+                pincode: {
+                    required: "Please Enter the Pincode",
+                },
+            },
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+
+        // Submit the form when the "Update" button is clicked
+        $("#submitButton").click(function() {
+            // Validate the form
+            if (form.valid()) {
+                form.submit();
+            }
+        });
+    });
+</script>    
 
 
-<script>
+
+{{-- <script>
     $(document).ready(function() {
         // Function to check if all input fields are filled with valid data
         function checkFormValidity() {
@@ -508,5 +641,5 @@
 
         });
     });
-</script>
+</script> --}}
     @endsection

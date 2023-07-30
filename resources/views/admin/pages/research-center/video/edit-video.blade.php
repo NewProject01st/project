@@ -25,7 +25,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="video_name">Video Name</label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control video_name" name="video_name" id="video_name"
+                                            <input class="form-control mb-2 video_name" name="video_name" id="video_name"
                                                 value="@if (old('video_name')) {{ old('video_name') }}@else{{ $video->video_name }} @endif"
                                                 value="{{ $video->video_name }}" placeholder="Enter Video Name">
                                             @if ($errors->has('video_name'))
@@ -34,7 +34,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton">
                                             Save &amp; Update
                                         </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
@@ -52,35 +52,40 @@
         </div>
         <script>
             $(document).ready(function() {
-                // Function to check if all input fields are filled with valid data
                 function checkFormValidity() {
                     const video_name = $('#video_name').val();
-            
-                    // Enable the submit button if all fields are valid
-                    if (video_name) {
-                        $('#submitButton').prop('disabled', false);
-                    } else {
-                        $('#submitButton').prop('disabled', true);
-                    }
                 }
-
-                // Call the checkFormValidity function on input change
-                $('input').on('input change',
-                    checkFormValidity);
-
+                // Call the checkFormValidity function on file input change
+                $('input').on('change', function() {
+                    checkFormValidity();
+                    validator.element(this); // Revalidate the file input
+                });
                 // Initialize the form validation
-                $("#regForm").validate({
+                var form = $("#regForm");
+                var validator = form.validate({
                     rules: {
                         video_name: {
                             required: true,
-                        },                       
+                        },
                     },
                     messages: {
                         video_name: {
-                            required: "Please Enter the Video Link",
+                            required: "Please Enter the Title",
                         },
                     },
+                    submitHandler: function(form) {
+                        form.submit();
+                    }
+                });
+                // Submit the form when the "Update" button is clicked
+                $("#submitButton").click(function() {
+                    // Validate the form
+                    if (form.valid()) {
+                        form.submit();
+                    }
                 });
             });
         </script>
+
+      
     @endsection

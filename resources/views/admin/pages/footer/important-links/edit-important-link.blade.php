@@ -26,7 +26,7 @@
                                         <div class="form-group">
                                             <label for="english_title">Title English</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input class="form-control" name="english_title" id="english_title"
+                                            <input class="form-control mb-2" name="english_title" id="english_title"
                                                 placeholder="Enter the Title"  value="{{ $links->english_title }}">
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
@@ -36,7 +36,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control" name="marathi_title" id="marathi_title"
+                                            <input class="form-control mb-2" name="marathi_title" id="marathi_title"
                                                 placeholder="शीर्षक प्रविष्ट करा" value="{{ $links->marathi_title }}">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
@@ -46,7 +46,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control url" name="url" id="url"
+                                            <input class="form-control mb-2 url" name="url" id="url"
                                                 placeholder="Enter the URL" value="{{ $links->url }}">
                                             @if ($errors->has('url'))
                                                 <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>

@@ -35,8 +35,8 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            
-                            <form class="forms-sample" id="frm_register1" name="frm_register1" method="post" role="form"
+
+                            <form class="forms-sample" id="regForm" name="frm_register1" method="post" role="form"
                                 action="{{ route('update-user-profile') }}" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
@@ -46,7 +46,8 @@
                                             <label for="f_name">First Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="f_name" id="f_name"
                                                 placeholder=""
-                                                value="@if (old('f_name')) {{ old('f_name') }}@else{{ $user_data->f_name }} @endif" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                value="@if (old('f_name')) {{ old('f_name') }}@else{{ $user_data->f_name }} @endif"
+                                                oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('f_name'))
                                                 <span class="red-text"><?php echo $errors->first('f_name', ':message'); ?></span>
                                             @endif
@@ -58,7 +59,8 @@
                                             <label for="m_name">Middle Name</label>&nbsp<span class="red-text">*</span>
                                             <input type="text" class="form-control" name="m_name" id="m_name"
                                                 placeholder=""
-                                                value="@if (old('m_name')) {{ old('m_name') }}@else{{ $user_data->m_name }} @endif" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                value="@if (old('m_name')) {{ old('m_name') }}@else{{ $user_data->m_name }} @endif"
+                                                oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('m_name'))
                                                 <span class="red-text"><?php echo $errors->first('m_name', ':message'); ?></span>
                                             @endif
@@ -68,9 +70,10 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="l_name">Last Name</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="l_name" id="l_name"
+                                            <input type="text" class="form-control mb-2" name="l_name" id="l_name"
                                                 placeholder=""
-                                                value="@if (old('l_name')) {{ old('l_name') }}@else{{ $user_data->l_name }} @endif" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                value="@if (old('l_name')) {{ old('l_name') }}@else{{ $user_data->l_name }} @endif"
+                                                oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('l_name'))
                                                 <span class="red-text"><?php echo $errors->first('l_name', ':message'); ?></span>
                                             @endif
@@ -79,7 +82,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="u_email">Email ID</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" class="form-control" name="u_email" id="u_email"
+                                            <input type="text" class="form-control mb-2" name="u_email" id="u_email"
                                                 placeholder="" readonly
                                                 value="@if (old('u_email')) {{ old('u_email') }}@else{{ $user_data->u_email }} @endif">
                                             @if ($errors->has('u_email'))
@@ -93,7 +96,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="u_password">Password</label>
-                                            <input type="password" class="password form-control" name="u_password"
+                                            <input type="password" class="password form-control mb-2" name="u_password"
                                                 id="u_password" placeholder=""
                                                 value="@if (old('u_password')) {{ old('u_password') }} @endif">
 
@@ -109,7 +112,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="password_confirmation">Confirm Password</label>
-                                            <input type="password" class="password_confirmation form-control"
+                                            <input type="password" class="password_confirmation form-control mb-2"
                                                 id="password_confirmation" name="password_confirmation"
                                                 value="@if (old('password_confirmation')) {{ old('password_confirmation') }} @endif">
 
@@ -117,7 +120,8 @@
                                             @if ($errors->has('password_confirmation'))
                                                 <span class="red-text"><?php echo $errors->first('password_confirmation', ':message'); ?></span>
                                             @endif
-                                            <span id="toggleConfirmPassword" class="toggleConfirmPpassword password-toggle"
+                                            <span id="toggleConfirmPassword"
+                                                class="toggleConfirmPpassword password-toggle"
                                                 onclick="toggleConfirmPasswordVisibility()">
                                                 <i class="fa fa-eye-slash"></i>
                                             </span>
@@ -139,9 +143,10 @@
                                         <div class="form-group">
                                             <label for="designation">Designation</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" class="form-control" name="designation"
+                                            <input type="text" class="form-control mb-2" name="designation"
                                                 id="designation" placeholder=""
-                                                value="@if (old('designation')) {{ old('designation') }}@else{{ $user_data->designation }} @endif" oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                value="@if (old('designation')) {{ old('designation') }}@else{{ $user_data->designation }} @endif"
+                                                oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
                                             @if ($errors->has('designation'))
                                                 <span class="red-text"><?php echo $errors->first('designation', ':message'); ?></span>
                                             @endif
@@ -151,11 +156,11 @@
                                         <div class="form-group">
                                             <label for="number">Mobile Number</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" class="form-control" name="number" id="number"
+                                            <input type="text" class="form-control mb-2" name="number" id="number"
                                                 pattern="[789]{1}[0-9]{9}"
                                                 oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
                                                 maxlength="10" minlength="10" placeholder=""
-                                                value="@if(old('number')){{old('number')}}@else{{$user_data->number}}@endif"
+                                                value="@if (old('number')) {{ old('number') }}@else{{ $user_data->number }} @endif"
                                                 {{-- onkeyup="editvalidateMobileNumber(this.value)" --}}>
                                             <span id="edit-message" class="red-text"></span>
                                             @if ($errors->has('number'))
@@ -169,8 +174,8 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="user_profile"> Image</label>
-                                            <input type="file" name="user_profile" class="form-control"
-                                                 id="english_image" accept="image/*" placeholder="image">
+                                            <input type="file" name="user_profile" class="form-control mb-2"
+                                                id="english_image" accept="image/*" placeholder="image">
                                             @if ($errors->has('user_profile'))
                                                 <div class="red-text"><?php echo $errors->first('user_profile', ':message'); ?>
                                                 </div>
@@ -190,9 +195,9 @@
                                         <input type="hidden" class="form-check-input" name="old_number" id="old_number"
                                             value="{{ $user_data->number }}">
 
-                                            <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
-                                                Save &amp; Update
-                                            </button>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton">
+                                            Save &amp; Update
+                                        </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-users') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
@@ -223,135 +228,122 @@
                 }
             }
         </script> --}}
-        
 
-       
-<script>
-    $(document).ready(function() {
-        // Function to check if all input fields are filled with valid data
-        function checkFormValidity() {
-            // const u_email = $('#u_email').val();
-            // const role_id = $('#role_id').val();
-            // const u_password = $('#u_password').val();
-            // const password_confirmation = $('#password_confirmation').val();
-            const f_name = $('#f_name').val();
-            const m_name = $('#m_name').val();
-            const l_name = $('#l_name').val();
-            const number = $('#number').val();
-            const designation = $('#designation').val();
-            // const address = $('#address').val();
-            // const state = $('#state').val();
-            // const city = $('#city').val();
-            const english_image = $('#english_image').val();
-            // const pincode = $('#pincode').val();
+        <script>
+            $(document).ready(function() {
+                var currentEnglishImage = $("#currentEnglishImage").val();
 
-            // Enable the submit button if all fields are valid
-            if (f_name && m_name && l_name && number && designation && english_image) {
-                $('#submitButton').prop('disabled', false);
-            } else {
-                $('#submitButton').prop('disabled', true);
-            }
-        }
+                // Function to check if all input fields are filled with valid data
+                function checkFormValidity() {
+                    const f_name = $('#f_name').val();
+                    const m_name = $('#m_name').val();
+                    const l_name = $('#l_name').val();
+                    const number = $('#number').val();
+                    const designation = $('#designation').val();
+                    const english_image = $('#english_image').val();
 
-        // Call the checkFormValidity function on input change
-        $('input, #english_image').on('input change',
-            checkFormValidity);
+                    // Update the old PDF values if there are any selected files
+                    if (english_image !== currentEnglishImage) {
+                        $("#currentEnglishImage").val(english_image);
+                    }
+                }
 
-        // Initialize the form validation
-        $("#regForm").validate({
-            rules: {
-                // u_email: {
-                //     required: true,
-                // },
-                // role_id: {
-                //     required: true,
-                // },
-                // u_password: {
-                //     required: true,
-                // },
-                // password_confirmation: {
-                //     required: true,
-                // },
-                f_name: {
-                    required: true,
-                },
-                m_name: {
-                    required: true,
-                },
-                l_name: {
-                    required: true,
-                },
-                number: {
-                    required: true,
-                },
-                designation: {
-                    required: true,
-                },
-                // address: {
-                //     required: true,
-                // },
-                // state: {
-                //     required: true,
-                // },
-                // city: {
-                //     required: true,
-                // },
-                english_image: {
-                    required: true,
-                },
-                // pincode: {
-                //     required: true,
-                // },
+                // Call the checkFormValidity function on file input change
+                $('input, #english_image').on('change', function() {
+                    checkFormValidity();
+                    validator.element(this); // Revalidate the file input
+                });
 
-            },
-            messages: {
-                // u_email: {
-                //     required: "Please Enter the Eamil",
-                // },
-                // role_id: {
-                //     required: "Please Select Role Name",
-                // },
-                // u_password: {
-                //     required: "Please Enter the Password",
-                // },
-                // password_confirmation: {
-                //     required: "Please Enter the Confirmation Password",
-                // },
-                f_name: {
-                    required: "Please Enter the First Name",
-                },
-                m_name: {
-                    required: "Please Enter the Middle Name",
-                },
-                l_name: {
-                    required: "Please Enter the Last Name",
-                },
-                number: {
-                    required: "Please Enter the Number",
-                },
-                designation: {
-                    required: "Please Enter the Designation",
-                },
-                // address: {
-                //     required: "Please Enter the Address",
-                // },
+                $.validator.addMethod("validImage", function(value, element) {
+                    // Check if a file is selected
+                    if (element.files && element.files.length > 0) {
+                        var extension = element.files[0].name.split('.').pop().toLowerCase();
+                        // Check the file extension
+                        return (extension == "jpg" || extension == "jpeg" || extension == "png");
+                    }
+                    return true; // No file selected, so consider it valid
+                }, "Only JPG, JPEG, PNG images are allowed.");
 
-                // state: {
-                //     required: "Please Select State",
-                // },
-                // city: {
-                //     required: "Please Select State",
-                // },
-                user_profile: {
-                    required: "Upload Media File",
-                    accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
-                },
-                // pincode: {
-                //     required: "Please Enter the Pincode",
-                // },
-            },
+                $.validator.addMethod("fileSize", function(value, element, param) {
+                    // Check if a file is selected
+                    if (element.files && element.files.length > 0) {
+                        // Convert bytes to KB
+                        const fileSizeKB = element.files[0].size / 1024;
+                        return fileSizeKB >= param[0] && fileSizeKB <= param[1];
+                    }
+                    return true; // No file selected, so consider it valid
+                }, "File size must be between {0} KB and {1} KB.");
 
-        });
-    });
-</script>
+                // Initialize the form validation
+                var form = $("#regForm");
+                var validator = form.validate({
+                    rules: {
+                        f_name: {
+                            required: true,
+                        },
+                        m_name: {
+                            required: true,
+                        },
+                        l_name: {
+                            required: true,
+                        },
+                        number: {
+                            required: true,
+                        },
+                        designation: {
+                            required: true,
+                        },
+                        english_image: {
+                            validImage: true,
+                            fileSize: [4, 200], // Min 180KB and Max 2MB (2 * 1024 KB)
+                        },
+                        
+                    },
+                    messages: {
+                        f_name: {
+                            required: "Please Enter the First Name",
+                        },
+                        m_name: {
+                            required: "Please Enter the Middle Name",
+                        },
+                        l_name: {
+                            required: "Please Enter the Last Name",
+                        },
+                        number: {
+                            required: "Please Enter the Number",
+                        },
+                        designation: {
+                            required: "Please Enter the Designation",
+                        },
+                        english_image: {
+                            validImage: "Only JPG, JPEG, PNG images are allowed.",
+                            fileSize: "The file size must be between 4 KB and 200 KB.",
+                        },
+                    },
+                    submitHandler: function(form) {
+                        form.submit();
+                    }
+                });
+
+                // Submit the form when the "Update" button is clicked
+                $("#submitButton").click(function() {
+                    // Validate the form
+                    if (form.valid()) {
+                        form.submit();
+                    }
+                });
+
+                // You can remove the following two blocks if you don't need to display selected images on the page
+                $("#english_image").change(function() {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Display the selected image for English
+                        // You can remove this if you don't need to display the image on the page
+                        $("#currentEnglishImageDisplay").attr('src', e.target.result);
+                        validator.element("#english_image"); // Revalidate the file input
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                });
+            });
+        </script>     
     @endsection
