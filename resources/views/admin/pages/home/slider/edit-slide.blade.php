@@ -152,7 +152,6 @@
         </div>
 
         <!-- Make sure you have jQuery and jquery.validate.js included before this script -->
-            
         <script>
             $(document).ready(function() {
                 var currentEnglishImage = $("#currentEnglishImage").val();
@@ -285,7 +284,5 @@
                     reader.readAsDataURL(this.files[0]);
                 });
             });
-        </script>
-        
-        
+        </script>        
     @endsection

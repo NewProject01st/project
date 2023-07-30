@@ -25,7 +25,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_name"> Name</label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control english_name" name="english_name" id="english_name"
+                                            <input class="form-control mb-2 english_name" name="english_name" id="english_name"
                                                 placeholder="Enter the Name" {{ old('english_name') }}>
                                             @if ($errors->has('english_name'))
                                                 <span class="red-text"><?php echo $errors->first('english_name', ':message'); ?></span>
@@ -35,7 +35,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_name"> नाव</label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control marathi_name" name="marathi_name" id="marathi_name"
+                                            <input class="form-control mb-2 marathi_name" name="marathi_name" id="marathi_name"
                                                 placeholder="नाव प्रविष्ट करा" {{ old('marathi_name') }}>
                                             @if ($errors->has('marathi_name'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_name', ':message'); ?></span>

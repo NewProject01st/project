@@ -27,7 +27,7 @@
                                         <div class="form-group">
                                             <label for="category_id">Gallery Category</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <select class="form-control" id="category_id" name="category_id">
+                                            <select class="form-control mb-2" id="category_id" name="category_id">
                                                 <option value="">Select</option>
                                                 @foreach ($category_gallery as $item)
                                                     <option value="{{ $item['id'] }}">{{ $item['english_name'] }}</option>
@@ -43,7 +43,7 @@
                                         <div class="form-group">
                                             <label for="english_image">Image</label>&nbsp<span class="red-text">*</span><br>
                                             <input type="file" name="english_image" id="english_image" accept="image/*"
-                                                value="{{ old('english_title') }}">
+                                            class="form-control mb-2">
                                             @if ($errors->has('english_image'))
                                                 <div class="red-text"><?php echo $errors->first('english_image', ':message'); ?></div>
                                             @endif
@@ -53,7 +53,7 @@
                                         <div class="form-group">
                                             <label for="marathi_image">प्रतिमा</label>&nbsp<span
                                                 class="red-text">*</span><br>
-                                            <input type="file" name="marathi_image" id="marathi_image" accept="image/*">
+                                            <input type="file" name="marathi_image" id="marathi_image" accept="image/*" class="form-control mb-2">
                                             @if ($errors->has('marathi_image'))
                                                 <div class="red-text"><?php echo $errors->first('marathi_image', ':message'); ?></div>
                                             @endif
@@ -81,9 +81,7 @@
                     const category_id = $('#category_id').val();
                     const english_image = $('#english_image').val();
                     const marathi_image = $('#marathi_image').val();
-                
-
-
+            
                     // Enable the submit button if all fields are valid
                     if (category_id && english_image && marathi_image) {
                         $('#submitButton').prop('disabled', false);
@@ -91,11 +89,28 @@
                         $('#submitButton').prop('disabled', true);
                     }
                 }
-
+            
+                // Custom validation method to check file extension
+                $.validator.addMethod("fileExtension", function(value, element, param) {
+                    // Get the file extension
+                    const extension = value.split('.').pop().toLowerCase();
+                    return $.inArray(extension, param) !== -1;
+                }, "Invalid file extension.");
+            
+                // Custom validation method to check file size
+                $.validator.addMethod("fileSize", function(value, element, param) {
+                    // Convert bytes to KB
+                    const fileSizeKB = element.files[0].size / 1024;
+                    return fileSizeKB >= param[0] && fileSizeKB <= param[1];
+                }, "File size must be between {0} KB and {1} KB.");
+            
+                // Update the accept attribute to validate based on file extension
+                $('#english_image').attr('accept', 'image/jpeg, image/png');
+                $('#marathi_image').attr('accept', 'image/jpeg, image/png');
+            
                 // Call the checkFormValidity function on input change
-                $('select, #english_image, #marathi_image').on('input change',
-                    checkFormValidity);
-
+                $('input,#english_image, #marathi_image').on('input change', checkFormValidity);
+            
                 // Initialize the form validation
                 $("#regForm").validate({
                     rules: {
@@ -104,28 +119,31 @@
                         },
                         english_image: {
                             required: true,
-                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                            fileExtension: ["jpg", "jpeg", "png"],
+                            fileSize: [180, 2048], // Min 10KB and Max 2MB (2 * 1024 KB)
                         },
                         marathi_image: {
                             required: true,
-                            accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
+                            fileExtension: ["jpg", "jpeg", "png"],
+                            fileSize: [180, 2048], // Min 10KB and Max 2MB (2 * 1024 KB)
                         },
-                       
                     },
                     messages: {
                         category_id: {
-                            required: "Please Enter the Title",
+                            required: "Please Select the Category.",
                         },
                         english_image: {
-                            required: "Upload Media File",
-                            accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
+                            required: "Please upload an Image (JPG, JPEG, PNG).",
+                            fileExtension: "Only JPG, JPEG, and PNG images are allowed.",
+                            fileSize: "File size must be between 180 KB and 2 MB.",
                         },
                         marathi_image: {
-                            required: "मीडिया फाइल अपलोड करा",
-                            accept: "फक्त png, jpeg आणि jpg इमेज फाइल्सना परवानगी आहे.", // Update the error message for the accept rule
+                            required: "कृपया प्रतिमा अपलोड करा (JPG, JPEG, PNG).",
+                            fileExtension: "फक्त JPG, JPEG, आणि PNG प्रतिमांना परवानगी आहे.",
+                            fileSize: "फाइल साईज 180 KB आणि 2 MB दरम्यान असणे आवश्यक आहे.",
                         },
                     },
                 });
             });
-        </script>
+            </script>          
     @endsection
