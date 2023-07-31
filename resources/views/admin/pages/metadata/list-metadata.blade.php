@@ -44,7 +44,7 @@
                                                     <td class="d-flex">
                                                         @if (in_array('per_update', $data_permission))
                                                             <a 
-                                                             {{-- href="{{ route('edit-metadata', base64_encode($item->id)) }}" --}}
+                                                             href="{{ route('edit-metadata', base64_encode($metadata->id)) }}"
                                                                 class="btn btn-sm btn-outline-primary m-1"><i
                                                                     class="fas fa-pencil-alt"></i></a>
                                                         @endif
