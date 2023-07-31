@@ -20,8 +20,7 @@ class AdminMiddleware
                 $update_values = User::where([
                         'u_email' => session()->get('u_email')
                         ])->first();
-                // if($update_values->ip_address == session()->get('ip_of_user') && $update_values->user_agent == session()->get('user_agent')) {
-                    if($update_values->ip_address == $request->ip() && $update_values->user_agent == $request->userAgent()) {
+                // if($update_values->ip_address == $request->ip() && $update_values->user_agent == $request->userAgent()) {
 
                     // $data_for_url = session('data_for_url');
                     // $route_name  =\Request::route()->getName();
@@ -66,9 +65,9 @@ class AdminMiddleware
                     //     return redirect()->route('error-handling');
                     // }
                     return $next($request);
-                } else {
-                    return redirect('/login')->with('error','Please logout from another browser');
-                }
+                // } else {
+                //     return redirect('/login')->with('error','Please logout from another browser');
+                // }
 
         }
        
