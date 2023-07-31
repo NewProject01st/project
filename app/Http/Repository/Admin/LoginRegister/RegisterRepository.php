@@ -506,4 +506,21 @@ class RegisterRepository
 		}
 	}
 	
+	// public function checkEmailExists(Request $request) {
+    //     $userEmail = $request->input('u_email');
+      
+    //     $user = User::where('u_email', $userEmail)->first();
+      
+    //     if ($user) {
+    //       return response()->json([
+    //         'success' => false,
+    //         'message' => 'This Email already exists.',
+    //       ]);
+    //     } else {
+    //       return response()->json([
+    //         'success' => true,
+    //         'message' => 'This Email does not exist.',
+    //       ]);
+    //     }
+    // }
 }

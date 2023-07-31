@@ -386,11 +386,31 @@
                 $('input,textarea, select, #user_profile').on('input change',
                     checkFormValidity);
 
+                    $.validator.addMethod("number", function(value, element) {
+                    return this.optional(element) || /^[0-9]{10}$/.test(value);
+                }, "Please enter a valid 10-digit number.");
+
+                $.validator.addMethod("u_email", function(value, element) {
+                    // Regular expression for email validation
+                    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                    return this.optional(element) || emailRegex.test(value);
+                }, "Please enter a valid email address.");
+
                 // Initialize the form validation
                 $("#regForm").validate({
                     rules: {
                         u_email: {
                             required: true,
+                        //     remote: {
+                        //     url: '/web/check-email-exists',
+                        //     type: 'post',
+                        //     data: {
+                        //         u_email: function() {
+                        //             return $('#u_email').val();
+                        //         }
+                        //     }
+                        // },
+                            u_email:true,
                         },
                         role_id: {
                             required: true,
@@ -412,6 +432,7 @@
                         },
                         number: {
                             required: true,
+                            number:true,
                         },
                         designation: {
                             required: true,
@@ -436,6 +457,7 @@
                     messages: {
                         u_email: {
                             required: "Please Enter the Eamil",
+                            // remote: "This Email already exists."
                         },
                         role_id: {
                             required: "Please Select Role Name",

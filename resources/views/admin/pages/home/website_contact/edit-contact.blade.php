@@ -27,7 +27,7 @@
                                         <div class="form-group">
                                             <label for="english_address"> Address</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control" name="english_address" id="english_address" placeholder="Enter the Name">
+                                            <textarea class="form-control mb-2" name="english_address" id="english_address" placeholder="Enter the Name">
 @if (old('english_address'))
 {{ old('english_address') }}@else{{ $website_contact->english_address }}
 @endif
@@ -40,7 +40,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_address">पत्ता</label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control" name="marathi_address" id="marathi_address" placeholder="Enter the Name">
+                                            <textarea class="form-control mb-2" name="marathi_address" id="marathi_address" placeholder="Enter the Name">
 @if (old('marathi_address'))
 {{ old('marathi_address') }}@else{{ $website_contact->marathi_address }}
 @endif
@@ -52,9 +52,10 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_number"> Number</label>&nbsp<span class="red-text">*</span>
+                                            <label for="english_number">Landline Number</label>&nbsp<span
+                                                class="red-text">*</span>
                                             <input type="text" name="english_number" id="english_number"
-                                                class="form-control" {{-- pattern="[789]{1}[0-9]{9}"
+                                                class="form-control mb-2" {{-- pattern="[789]{1}[0-9]{9}"
                                                 oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
                                                 maxlength="10" minlength="10" --}}
                                                 value="@if (old('english_number')) {{ old('english_number') }}@else{{ $website_contact->english_number }} @endif"
@@ -71,7 +72,7 @@
                                             <input type="text" name="marathi_number" id="marathi_number"
                                                 {{-- pattern="[789]{1}[0-9]{9}"
                                                 oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
-                                                maxlength="10" minlength="10" --}} class="form-control"
+                                                maxlength="10" minlength="10" --}} class="form-control mb-2"
                                                 value="@if (old('marathi_number')) {{ old('marathi_number') }}@else{{ $website_contact->marathi_number }} @endif"
                                                 placeholder="">
                                             @if ($errors->has('marathi_number'))
@@ -83,7 +84,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="email">Email</label>&nbsp<span class="red-text">*</span>
-                                            <input type="text" name="email" id="email" class="form-control"
+                                            <input type="text" name="email" id="email" class="form-control mb-2"
                                                 id="email" placeholder=""
                                                 value="@if (old('email')) {{ old('email') }}@else{{ $website_contact->email }} @endif">
                                             @if ($errors->has('email'))
@@ -92,7 +93,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton">
                                             Save &amp; Update
                                         </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
@@ -110,64 +111,75 @@
         </div>
         <script>
             $(document).ready(function() {
-     // Function to check if all input fields are filled with valid data
-     function checkFormValidity() {
-         const english_address = $('#english_address').val();
-         const marathi_address = $('#marathi_address').val();
-         const english_number = $('#english_number').val();
-         const marathi_number = $('#marathi_number').val();
-         const email = $('#email').val();
- 
-         // Enable the submit button if all fields are valid
-         if (english_address && marathi_address && email ) {
-             $('#submitButton').prop('disabled', false);
-         } else {
-             $('#submitButton').prop('disabled', true);
-         }
-     }
- 
-     // Call the checkFormValidity function on input change
-     $('input,textarea').on('input change',
-         checkFormValidity);
- 
-     // Initialize the form validation
-     $("#regForm").validate({
-         rules: {
-             english_address: {
-                 required: true,
-             },
-             marathi_address: {
-                 required: true,
-             },
-             english_number: {
-                 required: true,
-             },
-             marathi_number: {
-                 required: true,
-             },
-             email: {
-                 required: true,
-             },
-         },
-         messages: {
-             english_address: {
-                 required: "Please Enter the Title",
-             },
-             marathi_address: {
-                 required: "कृपया शीर्षक प्रविष्ट करा",
-             },
-             english_number: {
-                 required: "Please Enter the Description",
-             },
-             marathi_number: {
-                 required: "कृपया वर्णन प्रविष्ट करा",
-             },
-             email: {
-                 required: "Please Enter the Email",
-             },
-         },
-         
-     });
- });
-         </script>
+                function checkFormValidity() {
+                    const english_address = $('#english_address').val();
+                    const marathi_address = $('#marathi_address').val();
+                    const english_number = $('#english_number').val();
+                    const marathi_number = $('#marathi_number').val();
+                    const email = $('#email').val();
+                }
+                // Call the checkFormValidity function on file input change
+                $('input').on('change', function() {
+                    checkFormValidity();
+                    validator.element(this); // Revalidate the file input
+                });
+                // $.validator.addMethod("english_number", function(value, element) {
+                //     return this.optional(element) || !isNaN(parseFloat(value)) && isFinite(value);
+                // }, "Please enter a valid numeric value.");
+
+                // $.validator.addMethod("email", function(value, element) {
+                //     // Regular expression for email validation
+                //     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                //     return this.optional(element) || emailRegex.test(value);
+                // }, "Please enter a valid email address.");
+
+                // Initialize the form validation
+                var form = $("#regForm");
+                var validator = form.validate({
+                    rules: {
+                        english_address: {
+                            required: true,
+                        },
+                        marathi_address: {
+                            required: true,
+                        },
+                        english_number: {
+                            required: true,
+                            // english_number:true,
+                        },
+                        marathi_number: {
+                            required: true,
+                        },
+                        email: {
+                            required: true,
+                            // email: true, // Use the custom email validation rule
+                        },
+                    },
+                    messages: {
+                        english_address: {
+                            required: "Please Enter the Address.",
+                        },
+                        marathi_address: {
+                            required: "कृपया पत्ता प्रविष्ट करा.",
+                        },
+                        english_number: {
+                            required: "Please Enter the Landline Number.",
+                        },
+                        marathi_number: {
+                            required: "कृपया लँडलाइन क्रमांक प्रविष्ट करा",
+                        },
+                        email: {
+                            required: "Please Enter the Email",
+                        },
+                    },
+                });
+                // Submit the form when the "Update" button is clicked
+                $("#submitButton").click(function() {
+                    // Validate the form
+                    if (form.valid()) {
+                        form.submit();
+                    }
+                });
+            });
+        </script>
     @endsection

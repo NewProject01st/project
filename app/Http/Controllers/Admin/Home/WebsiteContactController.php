@@ -35,7 +35,7 @@ class WebsiteContactController extends Controller
             'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
             'english_number' => [
                 'required',
-                'regex:/^[+]?[0-9-()\/\s]{7,25}$/',
+                // 'regex:/^[+]?[0-9-()\/\s]{7,25}$/',
             ],
             'marathi_number' => 'required|max:25',
             // 'marathi_icon' => 'required',
@@ -50,7 +50,7 @@ class WebsiteContactController extends Controller
             'email.regex' => 'Enter valid email.',
             'english_number.required' => 'Please enter number.',
             'marathi_number.required' => 'कृपया क्रमांक प्रविष्ट करा ',
-            'english_number.regex' => 'Please enter valid number.',
+            // 'english_number.regex' => 'Please enter valid number.',
             'marathi_number.max' => 'कृपया क्रमांक बरोबर  प्रविष्ट करा. ',
  
     ];  
@@ -101,7 +101,8 @@ class WebsiteContactController extends Controller
         'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
         'english_number' => [
             'required',
-            'regex:/^[+]?[0-9-()\/\s]{7,25}$/',
+            // 'numeric',
+            // 'regex:/^[+]?[0-9-()\/\s]{7,25}$/',
         ],
         'marathi_number' => 'required|max:25',
         
@@ -115,10 +116,8 @@ class WebsiteContactController extends Controller
         'email.regex' => 'Enter valid email.',
         'english_number.required' => 'Please enter number.',
         'marathi_number.required' => 'कृपया क्रमांक प्रविष्ट करा ',
-        'english_number.regex' => 'Please enter valid number.',
+        // 'english_number.regex' => 'Please enter valid number.',
         'marathi_number.max' => 'कृपया क्रमांक बरोबर  प्रविष्ट करा. ',
-    
-    
         
     ];
 

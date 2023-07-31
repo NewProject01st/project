@@ -46,7 +46,7 @@
                     </h3>
                     <div class="col-md-12">
                         <div class="row graybg">
-                            <div class="col-md-5 br contact-new-design-b">
+                            <div class="col-md-12 br contact-new-design-b">
                                 <?php $common_data_contact = App\Http\Controllers\Website\IndexController::getCommonWebData();
                                 ?>
                                 @foreach ($common_data_contact['website_contact_details'] as $item)
@@ -153,11 +153,11 @@
                                     @endif
                                 @endforeach
                             </div>
-                            <div class="col-md-7">
+                            {{-- <div class="col-md-7">
                                 <div class="map">
                                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d59989.55128656551!2d73.76101004048985!3d19.99394785048312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1690435895770!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
