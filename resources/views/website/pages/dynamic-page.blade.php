@@ -38,7 +38,7 @@
             margin-bottom: 2%;
         }
         .deprt-txt h3 {
-        line-height: 10px !important;
+        /* line-height: 10px !important; */
         }
     </style>
 

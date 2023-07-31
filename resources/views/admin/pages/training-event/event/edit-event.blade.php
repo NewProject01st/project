@@ -25,12 +25,11 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title</label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control mb-2 english_title" name="english_title" id="english_title" placeholder="Enter the Title">
-                                                @if (old('english_title'))
-{{ old('english_title') }}@else{{ $event->english_title }}
-@endif
-                                                </textarea>
+                                            <label for="english_title">Title </label>&nbsp<span class="red-text">*</span>
+                                            <input class="form-control" name="english_title" id="english_title"
+                                                placeholder="Enter the Title"
+                                                value=" @if (old('english_title')) {{ old('english_title') }}@else{{ $event->english_title }} @endif">
+                                            <label class="error py-2" for="english_title" id="english_title_error"></label>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -39,11 +38,10 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control mb-2 marathi_title" name="marathi_title" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा ">
-                                                @if (old('marathi_title'))
-{{ old('marathi_title') }}@else{{ $event->marathi_title }}
-@endif
-                                                </textarea>
+                                            <input class="form-control" name="marathi_title" id="marathi_title"
+                                                placeholder="Enter the Title"
+                                                value="@if (old('marathi_title')) {{ old('marathi_title') }}@else{{ $event->marathi_title }} @endif">
+                                            <label class="error py-2" for="marathi_title" id="marathi_title_error"></label>
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -85,12 +83,12 @@
                                                 value="@if (old('start_date')) {{ old('start_date') }}@else{{ $event->start_date }} @endif"
                                                 placeholder="Selecte Start Date">
                                             @if ($errors->has('start_date'))
-                                                <span class="red-text"><?php echo $errors->first('start_date', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('start_date', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div> --}}
 
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="start_date">Start Date</label>&nbsp<span class="red-text">*</span>
                                             <input type="date" class="form-control mb-2" name="start_date" id="start_date"
@@ -100,26 +98,30 @@
                                                 <span class="red-text">{{ $errors->first('start_date') }}</span>
                                             @endif
                                         </div>
-                                    </div>
-                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
+                                    </div> --}}
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-group">
-                                            <label for="end_date">End Date</label>&nbsp<span class="red-text">*</span>
-                                            <input type="date" class="form-control" name="end_date" id="end_date"
-                                                value="@if (old('end_date')) {{ old('end_date') }}@else{{ $event->end_date }} @endif"
-                                                placeholder="Selecte End Date">
-                                            @if ($errors->has('end_date'))
-                                                <span class="red-text"><?php echo $errors->first('end_date', ':message'); ?></span>
+                                            <label for="exampleInputUsername1">Start Date</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input type="date" class="form-control mb-2" placeholder="YYYY-MM-DD"
+                                                name="start_date" id="start_date"
+                                                value="{{ old('start_date') ?: $event->start_date }}">
+                                            @if ($errors->has('start_date'))
+                                                <span class="red-text"><?php echo $errors->first('start_date', ':message'); ?></span>
                                             @endif
                                         </div>
-                                    </div> --}}
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-group">
-                                            <label for="end_date">End Date</label>&nbsp<span class="red-text">*</span>
-                                            <input type="date" class="form-control mb-2" name="end_date" id="end_date"
-                                                value="{{ old('end_date') ?: $event->end_date }}"
-                                                placeholder="Select End Date">
+                                            <label for="exampleInputUsername1">End Date</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input type="date" class="form-control mb-2" placeholder="YYYY-MM-DD"
+                                                name="end_date" id="end_date"
+                                                value="{{ old('end_date') ?: $event->end_date }}">
                                             @if ($errors->has('end_date'))
-                                                <span class="red-text">{{ $errors->first('end_date') }}</span>
+                                                <span class="red-text"><?php echo $errors->first('end_date', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
