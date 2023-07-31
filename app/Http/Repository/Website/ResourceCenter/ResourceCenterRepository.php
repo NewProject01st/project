@@ -23,9 +23,9 @@ class ResourceCenterRepository  {
         try {
             $data_output = Documentspublications::where('is_active','=',true);
             if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('marathi_title', 'marathi_description','marathi_pdf');
+                $data_output =  $data_output->select('marathi_title','marathi_pdf');
             } else {
-                $data_output = $data_output->select('english_title', 'english_description','english_pdf');
+                $data_output = $data_output->select('english_title','english_pdf');
             }
             $data_output =  $data_output->get()
                             ->toArray();
