@@ -29,7 +29,7 @@
                                         <div class="form-group">
                                             <label for="english_tollfree_no">Toll Free Number</label>&nbsp;<span
                                                 class="red-text">*</span>
-                                            <input type="text" name="english_tollfree_no" id="english_tollfree_no"
+                                            <input type="number" name="english_tollfree_no" id="english_tollfree_no"
                                                 value="{{ $tollfree_no->english_tollfree_no }}" {{-- pattern="[789]{1}[0-9]{9}"
                                                 oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
                                                 maxlength="10" minlength="10"  --}}
@@ -44,7 +44,7 @@
                                         <div class="form-group">
                                             <label for="marathi_tollfree_no">टोल फ्री क्रमांक</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" name="marathi_tollfree_no" id="marathi_tollfree_no"
+                                            <input type="number" name="marathi_tollfree_no" id="marathi_tollfree_no"
                                                 value="{{ $tollfree_no->marathi_tollfree_no }}" {{-- pattern="[789]{1}[0-9]{9}"
                                                 oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
                                                 maxlength="10" minlength="10"  --}}
