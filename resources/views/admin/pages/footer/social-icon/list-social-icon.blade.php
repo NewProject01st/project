@@ -16,7 +16,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('list-social-icon') }}">Header</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-social-icon') }}">Footer</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Social Icon</li>
                     </ol>
                 </nav>

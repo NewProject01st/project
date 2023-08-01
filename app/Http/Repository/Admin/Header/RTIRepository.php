@@ -82,12 +82,13 @@ public function updateAll($request){
         $previousEnglishPdf = $rti_data->english_pdf;
         $previousMarathiPdf = $rti_data->marathi_pdf;
         $rti_data->save();        
-     
+
         $last_insert_id = $rti_data->id;
 
         $return_data['last_insert_id'] = $last_insert_id;
         $return_data['english_pdf'] = $previousEnglishPdf;
         $return_data['marathi_pdf'] = $previousMarathiPdf;
+        // dd($return_data);
         return  $return_data;
     } catch (\Exception $e) {
         return $e;
