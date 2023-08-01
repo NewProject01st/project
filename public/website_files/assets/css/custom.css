@@ -1887,7 +1887,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	overflow: hidden;
 }
 .event-post-full .event-post-content {
-	width: 390px;
+	/* width: 390px; */
 	float: left;
 }
 .event-post-full .event-post-txt {
@@ -6688,10 +6688,43 @@ border-bottom: 1px solid #57578E;
 }
 
 /* set can't click navbar coz navbar work on hover */
-
-.navbar-nav .dropdown-menu {
+#search-box{
+	border-bottom: 1px solid #767676 !important;
+}
+.search-data .dropdown-menu {
     position: static;
     display: none;
+}
+@media (max-width: 768px) {
+	.fixed-top {
+		display: none;
+	}
+
+	.navbar-nav .dropdown-menu {
+		position: static;
+		/* display: block; */
+	}
+	.dropdown-toggle::after{
+		display: block;
+position: absolute;
+top: 50%;
+/* right: 8px; */
+transform: translateY(-50%);
+	}
+
+	.search-data .dropdown-menu .show{
+		display: block !important;
+	}
+	/* .a:hover {
+		color: #f54337 !important;
+		background: green !important;
+	  }
+
+	  .dropdown-item:active {
+		color: var(--bs-dropdown-link-active-color);
+		text-decoration: none;
+		background-color: var(--bs-dropdown-link-active-bg);
+	  } */
 }
 
 /* website datatable search and table set  */
@@ -6851,9 +6884,7 @@ box-shadow: 0 0 4px #000;
 	color: #fff !important;
 }
 
-#search-box{
-	border-bottom: 1px solid #767676 !important;
-}
+
 .form_text_set{
 	border: 1px solid #CCCCCC!important;
 }
@@ -6929,7 +6960,7 @@ box-shadow: 0 0 4px #000;
 	
 }
 .training-card-display{
-	display: flex;
+	/* display: flex; */
 }
 
 @media (min-width: 768px) {
@@ -7002,6 +7033,7 @@ box-shadow: 0 0 4px #000;
 .satish {
 	top: 0px;left: 0px;margin-left: 0px;margin-top: 0px;overflow: visible;position: absolute;display: block;transform-origin: left top;-moz-transform-origin: left top;-ms-transform-origin: left top;-webkit-transform-origin: left top;-o-transform-origin: left top;user-select: none;-moz-user-select: none;-webkit-user-select: none;padding-top: 0px
 }
+
 :root {
 	--scale: 1;
 	--size: 200px;
@@ -7020,11 +7052,12 @@ box-shadow: 0 0 4px #000;
   
   .handle {
 	position: absolute;
-	height: calc(var(--size) * 1.9);
-	width: calc(var(--size) * 1.9);
+	/* height: calc(var(--size) * 1.9);
+	width: calc(var(--size) * 1.9); */
 	background: var(--handle-background);
 	background-size: contain;
 	filter: drop-shadow(-2px -2px 10px rgba(0, 0, 0, 0.5));
+	overflow-y: visible;
   }
   
   .magnifying-glass {

@@ -28,6 +28,7 @@ return [
 		'PAST_EVENTS_TRAINING' =>'Past Events And Trainings',
 		'DOCUMENT_PUBLICATIONS' =>'Documents Publications',
 		'MAPS_GIS_DATA' =>'Maps and GIS Data',
+		'MAPS_GIS_DATA_DETAILS' =>'Map Details',
 		'VIDEO' =>'Video',
 		'VIDEO_MESSAGE'   => 'No Data Found For Video.',
 		'GALLERY' =>'Gallery',
@@ -155,6 +156,9 @@ return [
 		'TRAINING_WORKSHOP_MAIN_LINK' =>'Training Workshops',
 		'TRAINING_WORKSHOP_SUB_LINK1' =>'Upcoming Events And Trainings',
 		'TRAINING_WORKSHOP_SUB_LINK2' =>'Past Events And Trainings',
+		'TRAINING_DATA_NOT_FOUND_UPCOMMING'=>'No Data Found For Upcoming Events And Trainings',
+		'TRAINING_DATA_NOT_FOUND_PAST'=>'No Data Found For Past Events And Trainings',
+		'No_UPCOMING_EVENT'=>'No Upcoming Event'
 	],
 
 	

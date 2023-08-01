@@ -42,7 +42,13 @@
                           {{-- <span class="loc">Maharashtra, India</span> --}}
                       </li>
                   @empty
-                      <p>No Upcoming Event</p>
+                      <p>
+                        @if (session('language') == 'mar')
+                        {{ Config::get('marathi.TRAINING_WORKSHOP.No_UPCOMING_EVENT') }}
+                    @else
+                        {{ Config::get('english.TRAINING_WORKSHOP.No_UPCOMING_EVENT') }}
+                    @endif
+                        </p>
                   @endforelse
               </ul>
           </div>

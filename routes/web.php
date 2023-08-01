@@ -424,6 +424,7 @@ Route::get('/edit-event/{edit_id}', ['as' => 'edit-event', 'uses' => 'App\Http\C
 Route::post('/update-event', ['as' => 'update-event', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\EventController@update']);
 Route::post('/show-event', ['as' => 'show-event', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\EventController@show']);
 Route::post('/delete-event', ['as' => 'delete-event', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\EventController@destroy']);
+Route::post('/update-one-event', ['as' => 'update-one-event', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\EventController@updateOne']);
 
 //=========Policies And legislation========
 Route::get('/list-state-disaster-management-plan', ['as' => 'list-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPlanController@index']);

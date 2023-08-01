@@ -30,6 +30,7 @@ return [
 		'PAST_EVENTS_TRAINING' =>'मागील कार्यक्रम आणि प्रशिक्षण	',
 		'DOCUMENT_PUBLICATIONS' =>'दस्तऐवज प्रकाशन',
 		'MAPS_GIS_DATA' =>'नकाशे आणि GIS डेटा',
+		'MAPS_GIS_DATA_DETAILS' =>'नकाशा तपशील',
 		'VIDEO' =>'व्हिडिओ',
 		'VIDEO_MESSAGE'   => 'व्हिडिओसाठी कोणताही डेटा आढळला नाही.',
 		'GALLERY' =>'गॅलरी',
@@ -157,7 +158,9 @@ return [
 		'TRAINING_WORKSHOP_MAIN_LINK' =>'प्रशिक्षण कार्यशाळा',
 		'TRAINING_WORKSHOP_SUB_LINK1' =>'आगामी कार्यक्रम आणि प्रशिक्षण',
 		'TRAINING_WORKSHOP_SUB_LINK2' =>'मागील कार्यक्रम आणि प्रशिक्षण',
-
+		'TRAINING_DATA_NOT_FOUND_UPCOMMING'=>'आगामी कार्यक्रम आणि प्रशिक्षणांसाठी कोणताही डेटा आढळला नाही',
+		'TRAINING_DATA_NOT_FOUND_PAST'=>'मागील कार्यक्रम आणि प्रशिक्षणांसाठी कोणताही डेटा आढळला नाही',
+		'No_UPCOMING_EVENT'=>'कोणताही आगामी कार्यक्रम नाही'
 	],
 
 	

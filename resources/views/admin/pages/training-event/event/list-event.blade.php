@@ -39,6 +39,7 @@
                                                     <th>वर्णन </th>
                                                     <th>Start Date</th>
                                                     <th>End Date</th>
+                                                    <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -52,6 +53,17 @@
                                                         <td>{{ strip_tags($item->marathi_description) }}</td>
                                                         <td><?php echo $item->start_date; ?></td>
                                                         <td><?php echo $item->end_date; ?></td>
+                                                        <td>
+                                                            <label class="switch">
+                                                                <input data-id="{{ $item->id }}" type="checkbox"
+                                                                    {{ $item->is_active ? 'checked' : '' }}
+                                                                    class="active-btn btn btn-sm btn-outline-primary m-1"
+                                                                    data-toggle="tooltip" data-placement="top"
+                                                                    title="{{ $item->is_active ? 'Active' : 'Inactive' }}">
+                                                                <span class="slider round"></span>
+                                                            </label>
+
+                                                        </td>
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
@@ -91,6 +103,10 @@
         <form method="POST" action="{{ url('/show-event') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
+        </form>
+        <form method="POST" action="{{ url('/update-one-event') }}" id="activeform">
+            @csrf
+            <input type="hidden" name="active_id" id="active_id" value="">
         </form>
 
         <!-- content-wrapper ends -->

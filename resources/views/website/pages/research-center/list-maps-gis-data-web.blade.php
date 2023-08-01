@@ -32,7 +32,7 @@
         <!--Main Content Start-->
         <div class="main-content p60">
             <!--Department Details Page Start-->
-            <div class="department-details">
+            {{-- <div class="department-details">
                 <div class="container">
                     <div class="row deprt-txt">
                         <h3 class="stitle text-center d-flex justify-content-start">
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!--Department Details Page End-->
         </div>
         <!--Main Content End-->

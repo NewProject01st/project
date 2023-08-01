@@ -98,7 +98,9 @@ class EventServices
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
-   
+    public function updateOne($id){
+        return $this->repo->updateOne($id);
+    }
     public function deleteById($id){
         try {
             $delete = $this->repo->deleteById($id);

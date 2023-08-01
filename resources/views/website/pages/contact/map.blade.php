@@ -1,7 +1,7 @@
 @extends('website.layout.master')
 @section('content')
     <!--Sub Header Start-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBciNFt_xYpjx_QaQZXKAyRJn7sLUwMPds"></script>
+    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBciNFt_xYpjx_QaQZXKAyRJn7sLUwMPds"></script> --}}
     <section class="wf100 subheader">
         <div class="container">
             <h2>
@@ -14,16 +14,16 @@
             <ul>
                 <li> <a href="{{ route('index') }}">
                         @if (session('language') == 'mar')
-                            {{ Config::get('marathi.CONTACT_US.CONTACT_US_MAIN_LINK') }}
+                            {{ Config::get('marathi.RESOURCE_CENTER.RESOURCE_CENTER_MAIN_LINK') }}
                         @else
-                            {{ Config::get('english.CONTACT_US.CONTACT_US_MAIN_LINK') }}
+                            {{ Config::get('english.RESOURCE_CENTER.RESOURCE_CENTER_MAIN_LINK') }}
                         @endif
                     </a> </li>
                 <li>
                     @if (session('language') == 'mar')
-                        {{ Config::get('marathi.CONTACT_US.CONTACT_US_SUB_LINK1') }}
+                        {{ Config::get('marathi.RESOURCE_CENTER.RESOURCE_CENTER_SUB_LINK2') }}
                     @else
-                        {{ Config::get('english.CONTACT_US.CONTACT_US_SUB_LINK1') }}
+                        {{ Config::get('english.RESOURCE_CENTER.RESOURCE_CENTER_SUB_LINK2') }}
                     @endif
                 </li>
             </ul>
@@ -38,24 +38,22 @@
         <div class="map-form p80">
             <div class="container">
                 <div class="row deprt-txt">
-
-
-                    <h3 class="stitle text-center d-flex justify-content-start">
+                    {{-- <h3 class="stitle text-center d-flex justify-content-start">
                         @if (session('language') == 'mar')
-                            {{ Config::get('marathi.HOME_PAGE.CONTACT_INFORMATION_FOR_SDMA') }}
+                            {{ Config::get('marathi.HOME_PAGE.MAPS_GIS_DATA') }}
                         @else
-                            {{ Config::get('english.HOME_PAGE.CONTACT_INFORMATION_FOR_SDMA') }}
+                            {{ Config::get('english.HOME_PAGE.MAPS_GIS_DATA') }}
                         @endif
-                    </h3>
+                    </h3> --}}
                     <div class="col-md-12 col-lg-12 col-md-12">
-                        <div id="mapa" style="height: 600px; width: 100%" class="deprt-txt"></div>
-                        <h3 class="stitle text-center d-flex justify-content-start">
+                        {{-- <div id="mapa" style="height: 600px; width: 100%" class="deprt-txt"></div> --}}
+                        {{-- <h3 class="stitle text-center d-flex justify-content-start mt-5">
                             @if (session('language') == 'mar')
-                            Map Details
+                            {{ Config::get('marathi.HOME_PAGE.MAPS_GIS_DATA_DETAILS') }}
                             @else
-                            Map Details
+                            {{ Config::get('english.HOME_PAGE.MAPS_GIS_DATA_DETAILS') }}
                             @endif
-                        </h3>
+                        </h3> --}}
                      
                         <table id="order-listing" class="table table-striped table-hover table-bordered border-dark">
                             <thead class="" style="background-color: #47194a; color:#fff">

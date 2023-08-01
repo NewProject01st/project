@@ -23,11 +23,16 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('website_files/font-awesome.min.css') }}" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{{ asset('website_files/assets/bootstrap5.3.0/css/bootstrap.css') }}" type="text/css"
+    {{-- <link href="{{ asset('website_files/assets/bootstrap5.3.0/css/bootstrap.css') }}" type="text/css"
     rel="stylesheet">
     <link href="{{ asset('website_files/assets/bootstrap5.3.0/css/bootstrap.min.css') }}" type="text/css"
     rel="stylesheet">
-    <script src="{{ asset('website_files/assets/bootstrap5.3.0/js/bootstrap.bundle.js') }}"></script>  
+    <script src="{{ asset('website_files/assets/bootstrap5.3.0/js/bootstrap.bundle.js') }}"></script>   --}}
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
      <!-- <link href="{{ asset('website_files/assets/css/all.css') }}" type="text/css" rel="stylesheet">  -->
     <link href="{{ asset('website_files/assets/css/custom.css') }}" type="text/css" rel="stylesheet">
     <link href="{{ asset('website_files/assets/css/responsive.css') }}" type="text/css" rel="stylesheet">
@@ -89,8 +94,8 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    //url: "http://52.66.216.5/change-language",
-                     url: "https://nmcdm.org.in/change-language",
+                    url: "http://52.66.216.5/change-language",
+                    //  url: "https://nmcdm.org.in/change-language",
                     //  url: "https://newpro.sumagotest.in/change-language",
                     // url: "http://localhost/new_pro/change-language",
                     // url: "http://localhost/new_pro/project/change-language",
