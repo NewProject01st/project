@@ -1,14 +1,13 @@
 @extends('website.layout.master')
 @section('content')
     <style>
-        img {
-            /* height: 45% !important; */
+        /* img {
             margin-top: 1% !important;
             margin-right: 3% !important;
             float: left;
             border-radius: 5px;
             width: 100% !important;
-        }
+        } */
 
         address {
             padding-top: 10%;
@@ -24,11 +23,11 @@
             margin-bottom: 0px !important;
         }
 
-        span{
+        /* span{
             font-size: 14px !important;
             line-height: 24px !important;
             margin:0 0 15px !important;
-        }
+        } */
 
         .gap-top {
             margin-top: 10px;
@@ -61,7 +60,7 @@
 
     <div class="container gap-top">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 new_design_about_obj">
                 <div class="deprt-txt mt-3">
                     <h3><?php echo $page_title; ?></h3>
                     <?php echo $dynamic_page; ?>

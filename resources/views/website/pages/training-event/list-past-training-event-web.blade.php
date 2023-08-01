@@ -51,12 +51,15 @@
                         @forelse ($data_output as $item)
                             <div class="event-post-full d-flex">
                                 @if (session('language') == 'mar')
-                                <div class="col-lg-12 col-md-12 col-sm-12 training-card-display">
+                                <div class="row">
+                                    <div class="col-lg-5 col-md-5 col-sm-5">
                                     <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
                                         <div class="thumb"><img
                                                 src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['marathi_image'] }}"
                                                 alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा"> </div>
                                     </a>
+                                    </div>
+                                    <div class="col-lg-7 col-md-7 col-sm-7">
                                     <div class="event-post-content">
                                         <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
                                             <div class="event-post-txt">
@@ -68,22 +71,21 @@
                                                 <p class="card_title"><?php echo mb_substr($item['marathi_description'], 0, 121) ?></p>
                                             </div>
                                         </a>
-                                        {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
-                                            USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div> --}}
+                                    </div>
                                     </div>
                                 </div>
                                 @else
-                                   <div class="col-lg-12 col-md-12 col-sm-12 training-card-display">
-                                   <div class="col-lg-6 col-md-6 col-sm-6">
-                                    {{-- <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer"> --}}
-                                        <div class="thumb"><img
+                                   <div class="row">
+                                   <div class="col-lg-5 col-md-5 col-sm-5">
+                                    <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
+                                        <div><img
                                                 src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['english_image'] }}"
-                                                alt="{{ strip_tags($item['english_title']) }} Image"> </div>
-                                    {{-- </a> --}}
+                                                alt="{{ strip_tags($item['english_title']) }} Image" class="thumb"> </div>
+                                    </a>
                                    </div>
-                                   <div class="col-lg-6 col-md-6 col-sm-6">
+                                   <div class="col-lg-7 col-md-7 col-sm-7">
+                                    <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
                                     <div class="event-post-content">
-                                        <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
                                             <div class="event-post-txt">
                                                 <h5 class="card_title"><?php echo $item['english_title']; ?></h5>
                                                 <ul class="event-meta">
@@ -91,16 +93,21 @@
                                                 </ul>
                                                 <p class="card_title"><?php echo mb_substr($item['english_description'], 0, 121) ?></p>
                                             </div>
-                                        </a>
-                                        {{-- <div class="event-post-loc"> <i class="fas fa-map-marker-alt"></i> Millenia Orlando,
-                                            USA <a href="#"><i class="fas fa-arrow-right"></i></a> </div> --}}
-                                    </div>
+                                        </div>
+                                        </a>                                    
                                    </div>
                                    </div>
+
                                 @endif
                             </div>
                         @empty
-                            <h4>No Data Found For Past Events And Trainings</h4>
+                            <h4>
+                                @if (session('language') == 'mar')
+                                {{ Config::get('marathi.TRAINING_WORKSHOP.TRAINING_DATA_NOT_FOUND_PAST') }}
+                            @else
+                                {{ Config::get('english.TRAINING_WORKSHOP.TRAINING_DATA_NOT_FOUND_PAST') }}
+                            @endif
+                        </h4>
                         @endforelse
                         <!--Event List Box End-->
                         <form method="POST" action="{{ url('/list-particular-event') }}" id="showform">

@@ -89,9 +89,11 @@ public function updateAll($request)
         $disaster_data->marathi_title = $request['marathi_title'];
         $disaster_data->english_description = $request['english_description'];
         $disaster_data->marathi_description = $request['marathi_description'];
+        $disaster_data->english_designation = $request['english_designation'];
+        $disaster_data->marathi_designation = $request['marathi_designation'];
 
         $disaster_data->save();
-
+        
         $last_insert_id = $disaster_data->id;
         $return_data['last_insert_id'] = $last_insert_id;
         $return_data['english_image'] = $previousEnglishImage;

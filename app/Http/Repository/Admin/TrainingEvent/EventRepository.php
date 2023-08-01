@@ -108,7 +108,33 @@ class EventRepository{
         }
     }
 
+    public function updateOne($request){
+        try {
+            $event = Event::find($request); // Assuming $request directly contains the ID
 
+            // Assuming 'is_active' is a field in the eventr model
+            if ($event) {
+                $is_active = $event->is_active === 1 ? 0 : 1;
+                $event->is_active = $is_active;
+                $event->save();
+
+                return [
+                    'msg' => 'Event updated successfully.',
+                    'status' => 'success'
+                ];
+            }
+
+            return [
+                'msg' => 'Event not found.',
+                'status' => 'error'
+            ];
+        } catch (\Exception $e) {
+            return [
+                'msg' => 'Failed to update Event.',
+                'status' => 'error'
+            ];
+        }
+    }
    
     public function deleteById($id){
         try {

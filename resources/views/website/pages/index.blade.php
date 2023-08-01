@@ -104,13 +104,7 @@
                     @if (session('language') == 'mar')
                         <div class="row">
                             <div class="col-md-4 col-sm-5">
-                                <div class="city-tour gallery"> <strong>
-                                        @if (session('language') == 'mar')
-                                            {{ Config::get('marathi.HOME_PAGE.DISASTER_MANAGEMENT_HEAD') }}
-                                        @else
-                                            {{ Config::get('english.HOME_PAGE.DISASTER_MANAGEMENT_HEAD') }}
-                                        @endif
-                                    </strong>
+                                <div class="city-tour gallery"> 
                                     <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $item['marathi_image'] }}"
                                         alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा" class="d-block w-100">
                                 </div>
@@ -119,6 +113,7 @@
                                 <div class="Mayor-welcome">
                                     <h5><?php echo $item['marathi_title']; ?></h5>
                                     <p><?php echo $item['marathi_description']; ?></p>
+                                    <h6><?php echo $item['marathi_name']; ?></h6>
                                     <strong><?php echo $item['marathi_designation']; ?></strong>
                                 </div>
                             </div>
@@ -126,13 +121,7 @@
                     @else
                         <div class="row">
                             <div class="col-md-4 col-sm-5">
-                                <div class="city-tour gallery"> <strong>
-                                        @if (session('language') == 'mar')
-                                            {{ Config::get('marathi.HOME_PAGE.DISASTER_MANAGEMENT_HEAD') }}
-                                        @else
-                                            {{ Config::get('english.HOME_PAGE.DISASTER_MANAGEMENT_HEAD') }}
-                                        @endif
-                                    </strong>
+                                <div class="city-tour gallery">
                                     <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $item['english_image'] }}"
                                         alt="{{ strip_tags($item['english_title']) }} Image" class="d-block w-100">
                                 </div>

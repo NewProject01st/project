@@ -2,6 +2,7 @@
 
 // print_r($data_output_tollfreenumber);
 // die();
+
 ?>
 <style>
     /* .search-data input{
@@ -10,7 +11,7 @@
     #search-box{
         border: none !important;
     } */
-    </style>
+</style>
 <div class="wrapper">
     <!--Header Start-->
     <header class="wf100 header-two">
@@ -54,12 +55,12 @@
                     <div class="col-4 d-flex align-items-center new_head_ul2 mt-1">
                         <ul class="quick-links">
                             <li><a href="#">
-                                @if (session('language') == 'mar')
-                                {{ Config::get('marathi.NAVBAR.TOLL_FREE') }}
-                            @else
-                                {{ Config::get('english.NAVBAR.TOLL_FREE') }}
-                            @endif 
-                            @forelse ($common_navbar_data['webtollfree_data'] as $item)
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.NAVBAR.TOLL_FREE') }}
+                                    @else
+                                        {{ Config::get('english.NAVBAR.TOLL_FREE') }}
+                                    @endif
+                                    @forelse ($common_navbar_data['webtollfree_data'] as $item)
                                         @if (session('language') == 'mar')
                                             <span><?php echo $item['marathi_tollfree_no']; ?></span>
                                         @else
@@ -77,15 +78,19 @@
                        
                         <button class="webpage_zoom_btn" id="zoomtextbody">A+</button> --}}
                         <!-- Add the "title" attribute to each button -->
-<button class="webpage_zoom_btn" id="zoomouttextbody" data-toggle="tooltip" data-placement="top"  title="Decrease Font Size">A-</button>
-<button class="webpage_zoom_btn" id="resetfontsize" data-toggle="tooltip" data-placement="top"  title="Normal Font Size">A</button>
-<button class="webpage_zoom_btn" id="zoomtextbody"  data-toggle="tooltip" data-placement="top"  title="Increase Font Size">A+</button>
+                        <button class="webpage_zoom_btn" id="zoomouttextbody" data-toggle="tooltip" data-placement="top"
+                            title="Decrease Font Size">A-</button>
+                        <button class="webpage_zoom_btn" id="resetfontsize" data-toggle="tooltip" data-placement="top"
+                            title="Normal Font Size">A</button>
+                        <button class="webpage_zoom_btn" id="zoomtextbody" data-toggle="tooltip" data-placement="top"
+                            title="Increase Font Size">A+</button>
 
                         {{-- <span id="magnifier" class="magnifier" data-toggle="tooltip" data-placement="top" title="Magnifier">
                                 <i class="fa fa-search-plus" style="font-size:24px; color:#fff"></i>
                             </span> --}}
 
-                            <span id="magnify" data-toggle="tooltip" data-placement="top" title="Magnifier"><i class="fa fa-search-plus" style="font-size:24px; color:#fff"></i></span>
+                        <span id="magnify" data-toggle="tooltip" data-placement="top" title="Magnifier"><i
+                                class="fa fa-search-plus" style="font-size:24px; color:#fff"></i></span>
 
 
 
@@ -153,7 +158,8 @@
                                         <span class="serch-main">
                                             <ul class="navbar-nav mr-auto">
                                                 <li class="nav-item dropdown search-data">
-                                                    <input type="text" id="search-box" placeholder="Search..." style="border: none">
+                                                    <input type="text" id="search-box" placeholder="Search..."
+                                                        style="border: none">
                                                     {{-- <button type="submit" class="header_search_btn">Search</button> --}}
                                                     <div id="search-results" class="dropdown-menu show"
                                                         aria-labelledby="navbarDropdown"></div>
@@ -302,7 +308,84 @@
     <div class="container-fluid">
         <div class="row nav-pd">
             <div class="col-md-12 nav-pd-col navbar_bg-color">
-                <nav id="navbar_top" class="navbar navbar-expand-lg">
+
+                <nav id="navbar_top" class="navbar navbar-expand-lg bg-white">
+                    <div class="container-fluid ">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse nav-center flex-wrap" id="navbarSupportedContent">
+                            @foreach ($menu as $key => $menu_data)
+                                @foreach ($menu_data as $key => $menu_data_new)
+                                    <ul class="navbar-nav  mb-2 mb-lg-0 ">
+                                        @if ($key == '0')
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link @if (sizeof($menu_data[1]) > 0) dropdown-toggle @endif"
+                                                    href="@if ($menu_data_new['is_static'] == true) {{ $menu_data_new['url'] }} 
+                                                 @else 
+                                                 {{ url('/pages/' . $menu_data_new['url']) }} @endif"
+                                                    role="button"
+                                                    @if (sizeof($menu_data[1]) > 0) data-bs-toggle="dropdown" @endif
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                    @if (session('language') == 'mar')
+                                                        {{ $menu_data_new['menu_name_marathi'] }}
+                                                    @else
+                                                        {{ $menu_data_new['menu_name_english'] }}
+                                                    @endif
+                                                </a>
+                                                @if (sizeof($menu_data[1]) > 0)
+                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                        @foreach ($menu_data[1] as $key => $menu_data_sub)
+                                                            <li>
+                                                                <a class="dropdown-item"
+                                                                    href="@if ($menu_data_sub['is_static'] == true) {{ url($menu_data_sub['url']) }} 
+                                                                 @else 
+                                                                 {{ url('/pages/' . $menu_data_sub['url']) }} @endif"
+                                                                    target="_self" title="">
+                                                                    @if (session('language') == 'mar')
+                                                                        {{ $menu_data_sub['menu_name_marathi'] }}
+                                                                    @else
+                                                                        {{ $menu_data_sub['menu_name_english'] }}
+                                                                    @endif
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                @endif
+                                            </li>
+                                        @endif
+                                    </ul>
+                                @endforeach
+                            @endforeach
+                            <form class="mt-2 mb-2 mobi_langs" method="post" action="">
+                                <span class="lang_title">
+                                    @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
+                                    @else
+                                        {{ Config::get('english.HOME_PAGE.SELECT_LANGUAGE') }}
+                                    @endif
+                                </span>
+                                <strong>
+                                    <select name="language" id="language">
+                                        <option value="">Select Language</option>
+                                        <option value="en" <?php if ($language == 'en') {
+                                            echo 'selected';
+                                        }
+                                        ?>>English</option>
+                                        <option value="mar" <?php if ($language == 'mar') {
+                                            echo 'selected';
+                                        }
+                                        ?>>Marathi</option>
+                                    </select>
+                                </strong>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+
+                {{-- <nav id="navbar_top" class="navbar navbar-expand-lg">
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -368,20 +451,20 @@
                                 <strong>
                                     <select name="language" id="language">
                                         <option value="">Select Language</option>
-                                        <option value="en" <?php if ($language == 'en') {
-                                            echo 'selected';
-                                        }
+                                        <option value="en" <?php //if ($language == 'en') {
+                                            //echo 'selected';
+                                        //}
                                         ?>>English</option>
-                                        <option value="mar" <?php if ($language == 'mar') {
-                                            echo 'selected';
-                                        }
+                                        <option value="mar" <?php //if ($language == 'mar') {
+                                            //echo 'selected';
+                                        //}
                                         ?>>Marathi</option>
                                     </select>
                                 </strong>
                             </form>
                                     
                     </div>
-                </nav>
+                </nav> --}}
 
             </div>
         </div>
@@ -395,9 +478,9 @@
         var searchResults = $('#search-results');
 
         searchBox.on('input', function() {
-       
+
             var query = $(this).val();
-           
+
             if (query.length >= 1) {
                 // Send an AJAX request to the search route
                 $.ajax({
