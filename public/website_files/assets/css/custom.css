@@ -7107,3 +7107,7 @@ box-shadow: 0 0 4px #000;
 	background-color: #47194a;
     color: #fff;
   }
+
+  .red-text{
+	color: red !important;
+  }

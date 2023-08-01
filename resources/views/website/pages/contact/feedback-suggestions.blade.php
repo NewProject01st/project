@@ -61,7 +61,7 @@
                                         @else
                                             {{ Config::get('english.CONTACT_US.FORM_FULL_NAME') }}
                                         @endif
-                                    </label>&nbsp<span class="red-text">*</span>
+                                    </label><span class="red-text">*</span>
                                     <input class="gap-text" type="text" name="full_name" id="full_name"
                                         value="{{ old('full_name') }}" value="{{ old('full_name') }}"
                                         oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
@@ -76,7 +76,7 @@
                                         @else
                                             {{ Config::get('english.CONTACT_US.FORM_EMAIL') }}
                                         @endif
-                                    </label>&nbsp<span class="red-text">*</span>
+                                    </label><span class="red-text">*</span>
                                     <input class="gap-text form_text_set" type="email" id="email" name="email"
                                         value="{{ old('email') }}">
                                     @if ($errors->has('email'))
@@ -90,7 +90,7 @@
                                         @else
                                             {{ Config::get('english.CONTACT_US.FORM_MOBILE_NUMBER') }}
                                         @endif
-                                    </label>&nbsp<span class="red-text">*</span>
+                                    </label><span class="red-text">*</span>
                                     <input class="gap-text" type="text" name="mobile_number" id="mobile_number"
                                         value="{{ old('mobile_number') }}"onkeyup="addvalidateMobileNumber(this.value)"
                                         pattern="[789]{1}[0-9]{9}"
@@ -108,7 +108,7 @@
                                         @else
                                             {{ Config::get('english.CONTACT_US.FORM_FEEDBACK_TYPE') }}
                                         @endif
-                                    </label>&nbsp<span class="red-text">*</span>
+                                    </label><span class="red-text">*</span>
                                     <select class="form_text_set select_box_set" name="contact_type" id="contact_type">
                                         <option value="">Select</option>
                                         <option value="Feedback" {{ old('contact_type') == 'Feedback' ? 'selected' : '' }}>
@@ -131,7 +131,7 @@
                                         @else
                                             {{ Config::get('english.CONTACT_US.FORM_SUBJECT') }}
                                         @endif
-                                    </label>&nbsp<span class="red-text">*</span>
+                                    </label><span class="red-text">*</span>
                                     <input class="gap-text" type="text" name="subject" id="subject"
                                         value="{{ old('subject') }}" value="{{ old('ngo_contact_number') }}"
                                         oninput="this.value = this.value.replace(/[^a-zA-Z\s.]/g, '').replace(/(\..*)\./g, '$1');">
@@ -147,7 +147,7 @@
                                         @else
                                             {{ Config::get('english.CONTACT_US.FORM_WRITE_FEEDBACK_SUGGESTION') }}
                                         @endif
-                                    </label>&nbsp<span class="red-text">*</span>
+                                    </label><span class="red-text">*</span>
                                     <textarea class="gap-text" name="suggestion" id="suggestion">{{ old('suggestion') }}</textarea>
                                     @if ($errors->has('suggestion'))
                                         <span class="red-text"><?php echo $errors->first('suggestion', ':message'); ?></span>
