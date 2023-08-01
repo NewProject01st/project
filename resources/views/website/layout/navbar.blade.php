@@ -319,7 +319,7 @@
                         <div class="collapse navbar-collapse nav-center flex-wrap" id="navbarSupportedContent">
                             @foreach ($menu as $key => $menu_data)
                                 @foreach ($menu_data as $key => $menu_data_new)
-                                    <ul class="navbar-nav  mb-2 mb-lg-0 ">
+                                    <ul class="navbar-nav mb-lg-0 ">
                                         @if ($key == '0')
                                             <li class="nav-item dropdown">
                                                 <a class="nav-link @if (sizeof($menu_data[1]) > 0) dropdown-toggle @endif"

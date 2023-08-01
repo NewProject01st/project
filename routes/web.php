@@ -516,6 +516,7 @@ Route::get('/edit-video/{edit_id}', ['as' => 'edit-video', 'uses' => 'App\Http\C
 Route::post('/update-video', ['as' => 'update-video', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\VideoController@update']);
 Route::post('/show-video', ['as' => 'show-video', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\VideoController@show']);
 Route::post('/delete-video', ['as' => 'delete-video', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\VideoController@destroy']);
+Route::post('/update-one-video', ['as' => 'update-one-video', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\VideoController@updateOne']);
 
 Route::get('/list-map-lat-lons', ['as' => 'list-map-lat-lons', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\MapLatLonController@index']);
 Route::get('/add-map-lot-lons', ['as' => 'add-map-lot-lons', 'uses' => 'App\Http\Controllers\Admin\ResourceCenter\MapLatLonController@add']);

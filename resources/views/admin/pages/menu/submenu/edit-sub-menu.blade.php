@@ -50,7 +50,7 @@
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <input type="hidden" name="edit_id" id="edit_id" class="form-control"
                                             value="{{ $edit_data_id }}">
-                                            <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>Save &amp;
+                                            <button type="submit" class="btn btn-sm btn-success" id="submitButton">Save &amp;
                                                 Update</button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
                                         <span><a href="{{ route('list-sub-menu') }}"

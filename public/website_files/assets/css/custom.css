@@ -6697,21 +6697,23 @@ border-bottom: 1px solid #57578E;
 }
 @media (max-width: 768px) {
 	.fixed-top {
-		display: none;
+		/* display: none; */
+		background-color: #fff !important;
+    box-shadow: 0 4px 7px #2122201a !important;
 	}
 
 	.navbar-nav .dropdown-menu {
 		position: static;
 		/* display: block; */
 	}
-	.dropdown-toggle::after{
-		display: block;
-position: absolute;
-top: 50%;
-/* right: 8px; */
-transform: translateY(-50%);
+	.dropdown-toggle {
+		top: 45% !important;
+		
 	}
-
+	.dropdown-toggle::after {
+		top: 5% !important;
+		/* transform: translateY(-50%); */
+	}
 	.search-data .dropdown-menu .show{
 		display: block !important;
 	}
