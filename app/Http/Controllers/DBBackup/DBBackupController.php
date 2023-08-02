@@ -78,11 +78,11 @@ class DBBackupController extends Controller
         fwrite($file_handle, $output);
         fclose($file_handle);
 
-        // $type = pathinfo($file_name, PATHINFO_EXTENSION);
+        $aws_file_name = Config::get('DocumentConstant.DB_BACKUP')."/".'database_backup_on_' . date('d-m-Y H-i-s') . '.sql';
         $data = file_get_contents($file_name);
         $base64 = 'data:@file/octet-stream;base64,' . base64_encode($data);
-        $path = Storage::disk('s3')->put(Config::get('DocumentConstant.DB_BACKUP'), $base64);
-        $path = Storage::disk('s3')->url($path);
+        $path = Storage::disk('s3')->put($aws_file_name, $base64);
+        $path = Storage::disk('s3')->url($aws_file_name);
    
         unlink($file_name);
         // try {
