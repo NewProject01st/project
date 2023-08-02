@@ -26,7 +26,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title </label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title"
+                                            <input class="form-control" name="english_title" id="english_title" placeholder="Enter the Title"
                                                 name="english_title" value="@if (old('english_title'))
                                                 {{ old('english_title') }}@else{{ strip_tags($emergencycontact_data['emergencycontactnumbers']->english_title) }}
                                                 @endif">                                                   
@@ -38,7 +38,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title"
+                                            <input class="form-control" name="marathi_title" id="marathi_title" placeholder="Enter the Title"
                                                 name="marathi_title" value="@if (old('marathi_title'))
                                                 {{ old('marathi_title') }}@else{{ strip_tags($emergencycontact_data['emergencycontactnumbers']->marathi_title) }}
                                                 @endif">                                               
