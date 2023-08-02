@@ -110,8 +110,15 @@ class DBBackupController extends Controller
         // if (Mail::failures()) {
         //     return Redirect()->back()->with('error', 'There is error while sending mail.');
         // } else {
-            return Redirect()->back()->with('success', 'Database backup created Successfully.');
+            // return Redirect()->back()->with('success', 'Database backup created Successfully.');
         // }
+        $return_data = array();
+        $status = 'sucess';
+        $return_data['status'] =  $status;
+        $msg = 'Database backup created Successfully.';
+        $return_data['msg'] =  $msg;
+
+        return redirect('/dashboard')->with(compact('msg', 'status','return_data'));
 
     }
 
