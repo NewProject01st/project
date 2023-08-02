@@ -34,7 +34,7 @@ class DBBackupController extends Controller
         }
         $output = '';
         foreach ($tables as $table) {
-            dd($table);
+            if($table !='tbl_area') {
             $show_table_query = "SHOW CREATE TABLE " . $table . "";
             $statement = $connect->prepare($show_table_query);
             $statement->execute();
@@ -56,6 +56,7 @@ class DBBackupController extends Controller
                 $output .= "" . implode(", ", $table_column_array) . ") VALUES (";
                 $output .= "'" . implode("','", $table_value_array) . "');\n";
             }
+        }
         }
         $path = '/'.Config::get('DocumentConstant.DB_BACKUP');
         // if (!file_exists_s3($path)) {
