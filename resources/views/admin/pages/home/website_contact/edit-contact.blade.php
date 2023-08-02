@@ -55,9 +55,8 @@
                                             <label for="english_number">Landline Number</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="english_number" id="english_number"
-                                                class="form-control mb-2" {{-- pattern="[789]{1}[0-9]{9}"
-                                                oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
-                                                maxlength="10" minlength="10" --}}
+                                                class="form-control mb-2" 
+                                                onkeyup="addvalidateMobileNumber(this.value)"
                                                 value="@if (old('english_number')) {{ old('english_number') }}@else{{ $website_contact->english_number }} @endif"
                                                 placeholder="">
                                             @if ($errors->has('english_number'))
@@ -70,9 +69,7 @@
                                             <label for="marathi_number">दूरध्वनी क्रमांक</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="marathi_number" id="marathi_number"
-                                                {{-- pattern="[789]{1}[0-9]{9}"
-                                                oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
-                                                maxlength="10" minlength="10" --}} class="form-control mb-2"
+                                            onkeyup="addvalidateMobileNumber1(this.value)" class="form-control mb-2"
                                                 value="@if (old('marathi_number')) {{ old('marathi_number') }}@else{{ $website_contact->marathi_number }} @endif"
                                                 placeholder="">
                                             @if ($errors->has('marathi_number'))
@@ -109,6 +106,19 @@
                 </div>
             </div>
         </div>
+        {{-- <script>
+            function addvalidateMobileNumber(number) {
+    var landlineNumberPattern = /^[0-9 ()-]+$/;
+    var validationMessage = document.getElementById("english_number");
+
+    if (landlineNumberPattern.test(number)) {
+        validationMessage.textContent = "";
+    } else {
+        validationMessage.textContent = "Invalid landline number. Only digits, parentheses, hyphens, and spaces are allowed.";
+    }
+}
+
+        </script>
         <script>
             $(document).ready(function() {
                 function checkFormValidity() {
@@ -181,5 +191,109 @@
                     }
                 });
             });
+        </script> --}}
+
+        <script>
+            function addvalidateMobileNumber(number) {
+                var landlineNumberPattern = /^\d+$/;
+                var validationMessage = document.getElementById("english_number");
+        
+                if (landlineNumberPattern.test(number)) {
+                    validationMessage.textContent = "";
+                } else {
+                    validationMessage.textContent = "Invalid landline number. Only numbers are allowed.";
+                }
+            }
         </script>
+    <script>
+        function addvalidateMobileNumber(number) {
+            var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
+            var validationMessage = document.getElementById("english_number");
+    
+            if (mobileNumberPattern.test(number)) {
+                validationMessage.textContent = "";
+            } else {
+                validationMessage.textContent = "Invalid mobile number. Please enter a valid mobile number.";
+            }
+        }
+    </script>
+      <script>
+        function addvalidateMobileNumber1(number) {
+            var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
+            var validationMessage = document.getElementById("marathi_number");
+    
+            if (mobileNumberPattern.test(number)) {
+                validationMessage.textContent = "";
+            } else {
+                validationMessage.textContent = "अवैध लँडलाइन नंबर. कृपया वैध लँडलाइन नंबर प्रविष्ट करा..";
+            }
+        }
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Custom validation method to check if the mobile number is valid based on the regex pattern
+            $.validator.addMethod("valid_mobile_number", function(value, element) {
+                var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
+                return this.optional(element) || mobileNumberPattern.test(value);
+            }, "Invalid mobile number. Please enter a valid mobile number.");
+
+            $.validator.addMethod("valid_marathi_number", function(value, element) {
+                var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
+                return this.optional(element) || mobileNumberPattern.test(value);
+            }, "अवैध लँडलाइन नंबर. कृपया वैध लँडलाइन नंबर प्रविष्ट करा.");
+    
+            // Initialize the form validation
+            var form = $("#regForm");
+            var validator = form.validate({
+                rules: {
+                    english_address: {
+                        required: true,
+                    },
+                    marathi_address: {
+                        required: true,
+                    },
+                    english_number: {
+                        required: true,
+                        valid_mobile_number: true, // Use the custom mobile number validation rule
+                    },
+                    marathi_number: {
+                        required: true,
+                        // valid_marathi_number:true,
+                    },
+                    email: {
+                        required: true,
+                       
+                        // email: true, // Use the built-in email validation rule
+                    },
+                },
+                messages: {
+                    english_address: {
+                        required: "Please Enter the Address.",
+                    },
+                    marathi_address: {
+                        required: "कृपया पत्ता प्रविष्ट करा.",
+                    },
+                    english_number: {
+                        required: "Please Enter the Mobile Number.",
+                    },
+                    marathi_number: {
+                        required: "कृपया मोबाइल क्रमांक प्रविष्ट करा",
+                    },
+                    email: {
+                        required: "Please Enter the Email",
+                    },
+                },
+            });
+    
+            // Submit the form when the "Update" button is clicked
+            $("#submitButton").click(function() {
+                // Validate the form
+                if (form.valid()) {
+                    form.submit();
+                }
+            });
+        });
+    </script>
+    
+        
     @endsection

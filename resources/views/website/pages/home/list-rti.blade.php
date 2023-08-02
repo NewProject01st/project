@@ -36,7 +36,7 @@
         <div class="department-details">
 
             <div class="container">
-                <div class="row">
+                <div class="row deprt-txt">
                     <h3 class="stitle datatable- text-center d-flex justify-content-start">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.RTI.RTI') }}

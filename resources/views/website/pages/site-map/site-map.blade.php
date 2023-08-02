@@ -35,7 +35,7 @@
             <!--Site Map Details Page Start-->
             <div class="department-details">
                 <div class="container">
-                    <div class="row d-flex justify-content-center">
+                    <div class="row deprt-txt d-flex justify-content-center">
                         <h3 class="text-center d-flex justify-content-start">
                             @if (session('language') == 'mar')
                                 {{ Config::get('marathi.SITE_MAP.SITE_MAP') }}
