@@ -81,7 +81,7 @@ class VacanciesRepository {
             $previousMarathiPdf = $vacancy_data->marathi_pdf;
             $vacancy_data->save();        
         
-           
+        //    dd($vacancy_data);
             $last_insert_id = $vacancy_data->id;
 
             $return_data['last_insert_id'] = $last_insert_id;
