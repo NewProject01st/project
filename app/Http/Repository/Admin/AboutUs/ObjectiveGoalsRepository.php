@@ -62,28 +62,29 @@ class ObjectiveGoalsRepository  {
             return $e;
         }
     }
+
     public function updateAll($request) {
+    
         try {
             $return_data = array();
             $objectivegoals_data = ObjectiveGoals::find($request->id);
-
             if (!$objectivegoals_data) {
                 return [
-                    'msg' => 'Objective Goals not found.',
+                    'msg' => 'State Disaster Management Authority not found.',
                     'status' => 'error'
                 ];
             }
-            //Store the previous image name
+            // Store the previous images name
             $previousEnglishImage = $objectivegoals_data->english_image;
             $previousMarathiImage = $objectivegoals_data->marathi_image;
-
-            //Update the fields from request
+            
+        // update the fields from request
             $objectivegoals_data->english_title = $request['english_title'];
             $objectivegoals_data->marathi_title = $request['marathi_title'];
             $objectivegoals_data->english_description = $request['english_description'];
             $objectivegoals_data->marathi_description = $request['marathi_description'];
-           
-            $objectivegoals_data->update();  
+        
+            $objectivegoals_data->save();     
 
             $last_insert_id = $objectivegoals_data->id;
 
@@ -91,11 +92,47 @@ class ObjectiveGoalsRepository  {
             $return_data['english_image'] = $previousEnglishImage;
             $return_data['marathi_image'] = $previousMarathiImage;
             return  $return_data;
-       
+           
         } catch (\Exception $e) {
             return $e;
         }
     }
+
+
+    // public function updateAll($request) {
+    //     try {
+    //         $return_data = array();
+    //         $objectivegoals_data = ObjectiveGoals::find($request->id);
+
+    //         if (!$objectivegoals_data) {
+    //             return [
+    //                 'msg' => 'Objective Goals not found.',
+    //                 'status' => 'error'
+    //             ];
+    //         }
+    //         //Store the previous image name
+    //         $previousEnglishImage = $objectivegoals_data->english_image;
+    //         $previousMarathiImage = $objectivegoals_data->marathi_image;
+
+    //         //Update the fields from request
+    //         $objectivegoals_data->english_title = $request['english_title'];
+    //         $objectivegoals_data->marathi_title = $request['marathi_title'];
+    //         $objectivegoals_data->english_description = $request['english_description'];
+    //         $objectivegoals_data->marathi_description = $request['marathi_description'];
+           
+    //         $objectivegoals_data->update();  
+
+    //         $last_insert_id = $objectivegoals_data->id;
+
+    //         $return_data['last_insert_id'] = $last_insert_id;
+    //         $return_data['english_image'] = $previousEnglishImage;
+    //         $return_data['marathi_image'] = $previousMarathiImage;
+    //         return  $return_data;
+       
+    //     } catch (\Exception $e) {
+    //         return $e;
+    //     }
+    // }
 
 
     public function deleteById($id) {

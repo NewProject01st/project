@@ -36,7 +36,7 @@ return [
 		'GALLERY' =>'गॅलरी',
 		'TRAINING_MATERIALS_WORKSHOP' =>'प्रशिक्षण साहित्य आणि कार्यशाळा',
 		'SUCCESS_STORIES' =>'यशोगाथा',
-		'CONTACT_INFORMATION_FOR_SDMA' =>'SDMA साठी संपर्क माहिती',
+		'CONTACT_INFORMATION_FOR_SDMA' =>'संपर्क माहिती',
 
 	],
 

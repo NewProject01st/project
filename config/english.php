@@ -34,7 +34,7 @@ return [
 		'GALLERY' =>'Gallery',
 		'TRAINING_MATERIALS_WORKSHOP' =>'Training Materials And Workshops',
 		'SUCCESS_STORIES' =>'Success Stories',
-		'CONTACT_INFORMATION_FOR_SDMA' =>'Contact Information For SDMA',
+		'CONTACT_INFORMATION_FOR_SDMA' =>'Contact Information',
 
 	],
 

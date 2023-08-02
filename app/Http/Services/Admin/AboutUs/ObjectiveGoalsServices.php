@@ -51,45 +51,88 @@ class ObjectiveGoalsServices
             return ['status' => 'error', 'msg' => $e->getMessage()];
         }      
     }
-   
+
     public function updateAll($request)
     {
-        $return_data = $this->repo->updateAll($request);
-        $path = Config::get('DocumentConstant.OBJECTIVE_GOALS_ADD');
-        if ($request->hasFile('english_image')) {
-            if ($return_data['english_image']) {
-                if (file_exists_s3(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $return_data['english_image'])) {
-                    removeImage(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $return_data['english_image']);
+        try {
+            $return_data = $this->repo->updateAll($request);
+            $path = Config::get('DocumentConstant.OBJECTIVE_GOALS_ADD');
+            if ($request->hasFile('english_image')) {
+                if ($return_data['english_image']) {
+                    if (file_exists_s3(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $return_data['english_image'])) {
+                        removeImage(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $return_data['english_image']);
+                   }
+
                 }
+                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                uploadImage($request, 'english_image', $path, $englishImageName);
+                $disaster_mgt_data = ObjectiveGoals::find($return_data['last_insert_id']);
+                $disaster_mgt_data->english_image = $englishImageName;
+                $disaster_mgt_data->save();
             }
-            $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
-            uploadImage($request, 'english_image', $path, $englishImageName);
-            $disaster_mgt_data = ObjectiveGoals::find($return_data['last_insert_id']);
-            $disaster_mgt_data->english_image = $englishImageName;
-            $disaster_mgt_data->save();
-        }
-
-        if ($request->hasFile('marathi_image')) {
-            if ($return_data['marathi_image']) {
-                if (file_exists_s3(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $return_data['marathi_image'])) {
-                    removeImage(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $return_data['marathi_image']);
+    
+            if ($request->hasFile('marathi_image')) {
+                if ($return_data['marathi_image']) {
+                    if (file_exists_s3(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $return_data['marathi_image'])) {
+                        removeImage(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $return_data['marathi_image']);
+                    }
                 }
+                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                uploadImage($request, 'marathi_image', $path, $marathiImageName);
+                $disaster_mgt_data = ObjectiveGoals::find($return_data['last_insert_id']);
+                $disaster_mgt_data->marathi_image = $marathiImageName;
+                $disaster_mgt_data->save();
             }
-            $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
-            uploadImage($request, 'marathi_image', $path, $marathiImageName);
-            $disaster_mgt_data = ObjectiveGoals::find($return_data['last_insert_id']);
-            $disaster_mgt_data->marathi_image = $marathiImageName;
-            $disaster_mgt_data->save();
-        }
 
-
-        if ($return_data) {
-            return ['status' => 'success', 'msg' => 'Objective Goals Updated Successfully.'];
-        } else {
-            return ['status' => 'error', 'msg' => 'Objective Goals Not Updated.'];
-        }  
-       
+            if ($return_data) {
+                return ['status' => 'success', 'msg' => 'Disaster Management Portal Updated Successfully.'];
+            } else {
+                return ['status' => 'error', 'msg' => 'Disaster Management Portal Not Updated.'];
+            }  
+            
+        } catch (Exception $e) {
+            return ['status' => 'error', 'msg' => $e->getMessage()];
+        }      
     }
+   
+    // public function updateAll($request)
+    // {
+    //     $return_data = $this->repo->updateAll($request);
+    //     $path = Config::get('DocumentConstant.OBJECTIVE_GOALS_ADD');
+    //     if ($request->hasFile('english_image')) {
+    //         if ($return_data['english_image']) {
+    //             if (file_exists_s3(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $return_data['english_image'])) {
+    //                 removeImage(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $return_data['english_image']);
+    //             }
+    //         }
+    //         $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+    //         uploadImage($request, 'english_image', $path, $englishImageName);
+    //         $disaster_mgt_data = ObjectiveGoals::find($return_data['last_insert_id']);
+    //         $disaster_mgt_data->english_image = $englishImageName;
+    //         $disaster_mgt_data->save();
+    //     }
+
+    //     if ($request->hasFile('marathi_image')) {
+    //         if ($return_data['marathi_image']) {
+    //             if (file_exists_s3(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $return_data['marathi_image'])) {
+    //                 removeImage(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $return_data['marathi_image']);
+    //             }
+    //         }
+    //         $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+    //         uploadImage($request, 'marathi_image', $path, $marathiImageName);
+    //         $disaster_mgt_data = ObjectiveGoals::find($return_data['last_insert_id']);
+    //         $disaster_mgt_data->marathi_image = $marathiImageName;
+    //         $disaster_mgt_data->save();
+    //     }
+
+
+    //     if ($return_data) {
+    //         return ['status' => 'success', 'msg' => 'Objective Goals Updated Successfully.'];
+    //     } else {
+    //         return ['status' => 'error', 'msg' => 'Objective Goals Not Updated.'];
+    //     }  
+       
+    // }
 
     public function getById($id)
     {
