@@ -4,6 +4,7 @@ namespace App\Http\Controllers\DBBackup;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Config;
 use File;
 class DBBackupController extends Controller
