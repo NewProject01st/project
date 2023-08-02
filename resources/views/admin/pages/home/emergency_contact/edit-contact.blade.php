@@ -96,7 +96,7 @@
                                         <div class="form-group">
                                             <label for="english_number">Mobile Number</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" name="english_number" id="english_number"
+                                            <input type="number" name="english_number" id="english_number"
                                                 class="form-control mb-2"
                                                 value="@if (old('english_number')) {{ old('english_number') }}@else{{ $emergency_contact->english_number }} @endif"
                                                 placeholder="">
@@ -109,7 +109,7 @@
                                         <div class="form-group">
                                             <label for="marathi_number">मोबाईल नंबर</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" name="marathi_number" id="marathi_number"
+                                            <input type="number" name="marathi_number" id="marathi_number"
                                                 class="form-control mb-2"
                                                 value="@if (old('marathi_number')) {{ old('marathi_number') }}@else{{ $emergency_contact->marathi_number }} @endif"
                                                 placeholder="मोबाईल नंबर टाका">
@@ -122,7 +122,7 @@
                                         <div class="form-group">
                                             <label for="english_landline_no">Landline Number</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" name="english_landline_no" id="english_landline_no"
+                                            <input type="number" name="english_landline_no" id="english_landline_no"
                                                 class="form-control mb-2"
                                                 value="@if (old('english_landline_no')) {{ old('english_landline_no') }}@else{{ $emergency_contact->english_landline_no }} @endif"
                                                 placeholder="Please enter Landline Number">
@@ -135,7 +135,7 @@
                                         <div class="form-group">
                                             <label for="marathi_landline_no">दूरध्वनी क्रमांक</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" name="marathi_landline_no" id="marathi_landline_no"
+                                            <input type="number" name="marathi_landline_no" id="marathi_landline_no"
                                                 class="form-control mb-2"
                                                 value="@if (old('marathi_landline_no')) {{ old('marathi_landline_no') }}@else{{ $emergency_contact->marathi_landline_no }} @endif"
                                                 placeholder="लँडलाइन क्रमांक प्रविष्ट करा">

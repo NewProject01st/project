@@ -89,7 +89,7 @@
                                         <div class="form-group">
                                             <label for="english_number">Mobile Number</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" name="english_number" id="english_number"
+                                            <input type="number" name="english_number" id="english_number"
                                                 class="form-control mb-2" id="english_number"
                                                 placeholder="Enter the Mobile Number" {{-- pattern="[789]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" minlength="10" --}}
                                                 value="{{ old('english_number') }}">
@@ -102,7 +102,7 @@
                                         <div class="form-group">
                                             <label for="marathi_number">मोबाईल नंबर</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" name="marathi_number" id="marathi_number"
+                                            <input type="number" name="marathi_number" id="marathi_number"
                                                 class="form-control mb-2" id="marathi_number"
                                                 placeholder="मोबाईल नंबर टाका" {{-- pattern="[789]{1}[0-9]{9}"
                                                 oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
@@ -117,7 +117,7 @@
                                         <div class="form-group">
                                             <label for="english_landline_no">Landline Number</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" name="english_landline_no" id="english_landline_no"
+                                            <input type="number" name="english_landline_no" id="english_landline_no"
                                                 class="form-control mb-2" id="english_landline_no"
                                                 placeholder="Enter the Landline Number"
                                                 value="{{ old('english_landline_no') }}">
@@ -130,7 +130,7 @@
                                         <div class="form-group">
                                             <label for="marathi_landline_no">दूरध्वनी क्रमांक</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" name="marathi_landline_no" id="marathi_landline_no"
+                                            <input type="number" name="marathi_landline_no" id="marathi_landline_no"
                                                 class="form-control mb-2" id="marathi_landline_no"
                                                 placeholder="लँडलाइन क्रमांक प्रविष्ट करा"
                                                 value="{{ old('marathi_landline_no') }}">
