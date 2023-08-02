@@ -34,6 +34,7 @@ class DBBackupController extends Controller
         }
         $output = '';
         foreach ($tables as $table) {
+            dd($table);
             $show_table_query = "SHOW CREATE TABLE " . $table . "";
             $statement = $connect->prepare($show_table_query);
             $statement->execute();
