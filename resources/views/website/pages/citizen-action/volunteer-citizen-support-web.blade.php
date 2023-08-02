@@ -489,6 +489,7 @@
         // Trigger 'change' event on '#is_ngo' checkbox to handle initial state
         $('#is_ngo').trigger('change');
     });
+});
 </script>
 
   
