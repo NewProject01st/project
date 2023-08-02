@@ -78,7 +78,7 @@ class DBBackupController extends Controller
         fwrite($file_handle, $output);
         fclose($file_handle);
 
-        $path = Storage::disk('s3')->put($path, $file_name);
+        $path = Storage::disk('s3')->put(Config::get('DocumentConstant.DB_BACKUP'), $file_name);
         $path = Storage::disk('s3')->url($path);
    
         unlink($file_name);
