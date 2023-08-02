@@ -4,6 +4,7 @@ namespace App\Http\Controllers\DBBackup;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Config;
 use File;
 class DBBackupController extends Controller
@@ -34,6 +35,7 @@ class DBBackupController extends Controller
         }
         $output = '';
         foreach ($tables as $table) {
+            if($table !='tbl_area') {
             $show_table_query = "SHOW CREATE TABLE " . $table . "";
             $statement = $connect->prepare($show_table_query);
             $statement->execute();
@@ -56,17 +58,33 @@ class DBBackupController extends Controller
                 $output .= "'" . implode("','", $table_value_array) . "');\n";
             }
         }
-        $path = '/'.Config::get('DocumentConstant.DB_BACKUP');
-        if (!file_exists_s3($path)) {
+        }
+        //s3 bucket
+        // $path = '/'.Config::get('DocumentConstant.DB_BACKUP');
+        // if (!file_exists_s3($path)) {
+        //     File::makeDirectory($path,0777,true);
+        // }
+
+        $path = storage_path().'/'.Config::get('DocumentConstant.DB_BACKUP');
+        if (!file_exists($path)) {
             File::makeDirectory($path,0777,true);
         }
+
+        //storage folder
         date_default_timezone_set("Asia/Kolkata");
 
         $file_name = $path."/".'database_backup_on_' . date('d-m-Y H-i-s') . '.sql';
         $file_handle = fopen($file_name, 'w+');
         fwrite($file_handle, $output);
         fclose($file_handle);
+
+        $aws_file_name = Config::get('DocumentConstant.DB_BACKUP')."/".'database_backup_on_' . date('d-m-Y H-i-s') . '.sql';
+        $data = file_get_contents($file_name);
+        $base64 = 'data:@file/octet-stream;base64,' . base64_encode($data);
+        $path = Storage::disk('s3')->put($aws_file_name, $base64);
+        $path = Storage::disk('s3')->url($aws_file_name);
    
+        unlink($file_name);
         // try {
 
         //     $email_data['msg'] = '';
@@ -89,11 +107,18 @@ class DBBackupController extends Controller
         //     info($e);
         // }
 
-        if (Mail::failures()) {
-            return Redirect()->back()->with('error', 'There is error while sending mail.');
-        } else {
-            return Redirect()->back()->with('success', 'Mail Send Successfully.');
-        }
+        // if (Mail::failures()) {
+        //     return Redirect()->back()->with('error', 'There is error while sending mail.');
+        // } else {
+            // return Redirect()->back()->with('success', 'Database backup created Successfully.');
+        // }
+        $return_data = array();
+        $status = 'sucess';
+        $return_data['status'] =  $status;
+        $msg = 'Database backup created Successfully.';
+        $return_data['msg'] =  $msg;
+
+        return redirect('/dashboard')->with(compact('msg', 'status','return_data'));
 
     }
 
