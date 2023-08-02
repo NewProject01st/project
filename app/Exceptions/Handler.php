@@ -61,13 +61,13 @@ class Handler extends ExceptionHandler
         date_default_timezone_set("Asia/Kolkata");
         $subject = 'Disaster Management Page Error '.date('d-m-Y H:i:s');
         try {
-            $data_insert = array();
-            $data_insert['subject'] =  $subject ;
-            $data_insert['messege'] = $exception ;
+            // $data_insert = array();
+            // $data_insert['subject'] =  $subject ;
+            // $data_insert['messege'] = $exception ;
 
-            ErrorLogs::insert($data_insert);
-            // return redirect()->route('error-handling');
-             return parent::render($request, $exception);
+            // ErrorLogs::insert($data_insert);
+            return redirect()->route('error-handling');
+            //  return parent::render($request, $exception);
         } catch (\Exception $e) {
             return $e;
         }

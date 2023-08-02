@@ -57,9 +57,9 @@ class DBBackupController extends Controller
             }
         }
         $path = '/'.Config::get('DocumentConstant.DB_BACKUP');
-        if (!file_exists_s3($path)) {
-            File::makeDirectory($path,0777,true);
-        }
+        // if (!file_exists_s3($path)) {
+        //     File::makeDirectory($path,0777,true);
+        // }
         date_default_timezone_set("Asia/Kolkata");
 
         $file_name = $path."/".'database_backup_on_' . date('d-m-Y H-i-s') . '.sql';
@@ -89,11 +89,11 @@ class DBBackupController extends Controller
         //     info($e);
         // }
 
-        if (Mail::failures()) {
-            return Redirect()->back()->with('error', 'There is error while sending mail.');
-        } else {
-            return Redirect()->back()->with('success', 'Mail Send Successfully.');
-        }
+        // if (Mail::failures()) {
+        //     return Redirect()->back()->with('error', 'There is error while sending mail.');
+        // } else {
+            return Redirect()->back()->with('success', 'Database backup created Successfully.');
+        // }
 
     }
 
