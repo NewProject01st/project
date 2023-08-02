@@ -58,17 +58,29 @@ class DBBackupController extends Controller
             }
         }
         }
-        $path = '/'.Config::get('DocumentConstant.DB_BACKUP');
+        //s3 bucket
+        // $path = '/'.Config::get('DocumentConstant.DB_BACKUP');
         // if (!file_exists_s3($path)) {
         //     File::makeDirectory($path,0777,true);
         // }
+
+        $path = storage_path().'/'.Config::get('DocumentConstant.DB_BACKUP');
+        if (!file_exists($path)) {
+            File::makeDirectory($path,0777,true);
+        }
+
+        //storage folder
         date_default_timezone_set("Asia/Kolkata");
 
         $file_name = $path."/".'database_backup_on_' . date('d-m-Y H-i-s') . '.sql';
         $file_handle = fopen($file_name, 'w+');
         fwrite($file_handle, $output);
         fclose($file_handle);
+
+        $path = Storage::disk('s3')->put($path, $file_name);
+        $path = Storage::disk('s3')->url($path);
    
+        unlink($file_name);
         // try {
 
         //     $email_data['msg'] = '';
