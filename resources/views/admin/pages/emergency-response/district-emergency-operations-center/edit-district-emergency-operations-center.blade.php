@@ -26,7 +26,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_title">Title </label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control english_title" name="english_title" id="english_title" placeholder="Enter the Title">{{ strip_tags($districtemergencyoperationscenter->english_title) }}</textarea>
+                                            <input class="form-control" name="english_title" id="english_title" placeholder="Enter the Title">{{ strip_tags($districtemergencyoperationscenter->english_title) }}</input>
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
@@ -35,11 +35,9 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_title">शीर्षक</label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control marathi_title" name="marathi_title" id="marathi_title" placeholder="Enter the Title">
-@if (old('marathi_title'))
-{{ old('marathi_title') }}@else{{ strip_tags($districtemergencyoperationscenter->marathi_title) }}
-@endif
-</textarea>
+                                            <input class="form-control" name="marathi_title" id="marathi_title" placeholder="Enter the Title" value="@if (old('marathi_title'))
+                                            {{ old('marathi_title') }}@else{{ strip_tags($districtemergencyoperationscenter->marathi_title) }}
+                                            @endif">
                                             @if ($errors->has('marathi_title'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_title', ':message'); ?></span>
                                             @endif
@@ -49,12 +47,12 @@
                                         <div class="form-group">
                                             <label for="english_description">Description</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <textarea class="form-control english_description" name="english_description" id="english_description"
+                                            <input class="form-control english_description" name="english_description" id="english_description"
                                                 placeholder="Enter the Description">
 @if (old('english_description'))
 {{ old('english_description') }}@else{{ strip_tags($districtemergencyoperationscenter->english_description) }}
 @endif
-</textarea>
+
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
                                             @endif

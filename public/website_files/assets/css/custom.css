@@ -5853,7 +5853,7 @@ a[data-toggle="collapse"] {
 	display: block;
 	position: absolute;
 	top: 50%;
-	right: 8px;
+	right: 0px !important;
 	transform: translateY(-50%);
 }
 .font {
