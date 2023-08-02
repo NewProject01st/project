@@ -98,7 +98,7 @@ class GalleryController extends Controller
     public function update(Request $request)
 {
     $rules = [
-        'category_id' => 'required',
+        // 'category_id' => 'required',
      ];
      if($request->has('english_image')) {
         $rules['english_image'] = 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.GALLERY_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.GALLERY_IMAGE_MIN_SIZE");
@@ -130,6 +130,7 @@ class GalleryController extends Controller
                 ->withErrors($validation);
         } else {
             $update_gallery = $this->service->updateAll($request);
+           
             if ($update_gallery) {
                 $msg = $update_gallery['msg'];
                 $status = $update_gallery['status'];
