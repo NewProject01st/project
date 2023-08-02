@@ -49,7 +49,7 @@
                                                         <td>{{ strip_tags($item->english_title) }}</td>
                                                         <td>{{ strip_tags($item->marathi_title) }}</td>
                                                         <td>{{ strip_tags($item->policies_year) }}</td>
-                                                        <td> <a href="{{ Config::get('DocumentConstant.STATE_DISASTER_PLAN_VIEW') }}{{ $item->english_pdf }}"
+                                                        <td> <a href="{{ Config::get('DocumentConstant.DISTRICT_DISATSER_PLAN_VIEW') }}{{ $item->english_pdf }}"
                                                                 target="_blank"
                                                                 alt=" {{ strip_tags($item['english_title']) }} pdf"><img
                                                                     src="{{ asset('assets/images/pdf.png/') }}"
