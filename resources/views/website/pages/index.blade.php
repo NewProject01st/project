@@ -157,7 +157,7 @@
                         <div class="row d-flex flex-wrap">
                             @foreach ($data_output_disastermanagementnews as $item)
                                 @if (session('language') == 'mar')
-                                    <div class="col-md-4 col-sm-4 mt-4">
+                                    <div class="col-md-4 col-sm-4 mt-4 card-new-size">
                                         <div class="news-box">
                                             <div class="new-thumb">
                                                 {{-- <span class="cat c1">Fire</span> --}}
@@ -188,7 +188,7 @@
                                         </div>
                                     </div>
                                 @else
-                                    <div class="col-md-4 col-sm-4 mt-4">
+                                    <div class="col-md-4 col-sm-4 mt-4 card-new-size">
                                         <div class="news-box">
                                             <div class="new-thumb">
                                                 {{-- <span class="cat c1">Fire</span> --}}
