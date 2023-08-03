@@ -143,7 +143,7 @@
                     addMarker({
                         lat: parseFloat(item.lat),
                         lng: parseFloat(item.lon)
-                    }, map, item.location_address_english);
+                    }, map, item.location_name_english);
                 });
             },
             error: function(data) {}
