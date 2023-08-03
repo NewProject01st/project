@@ -182,12 +182,11 @@
                                         <img id="media_imgPreview" src="#" alt="Image"
                                         class="img-fluid img-thumbnail mt-3" width="150" style="display:none">
                                     </div>
-                                    <div class="col-md-9 d-flex align-items-center">
+                                    {{-- <div class="col-md-9 d-flex align-items-center">
                                         <div class="col-md-5">
                                     <label for="gps">GPS Location:</label>
                                     <input type="text" id="gps" name="gps" readonly><br>
                                         </div>
-                                    <!-- Add a button to get GPS location -->
                                     <div class="col-md-4">
                                     <div class="d-flex justify-content-end">
                                         <div class="modal-footer mt-4" style="float: right;width:300px">
@@ -198,7 +197,7 @@
                                         </div>
                                     </div>
                                     </div>
-                                    </div>
+                                    </div> --}}
 
                                     {{-- <button type="button" id="getLocationBtn">Get GPS Location</button><br> --}}
 
