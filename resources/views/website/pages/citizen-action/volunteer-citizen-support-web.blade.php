@@ -179,32 +179,7 @@
                                         @if ($errors->has('media_upload'))
                                             <span class="red-text"><?php echo $errors->first('media_upload', ':message'); ?></span>
                                         @endif
-                                        <img id="media_imgPreview" src="#" alt="Image"
-                                        class="img-fluid img-thumbnail mt-3" width="150" style="display:none">
                                     </div>
-                                    {{-- <div class="col-md-9 d-flex align-items-center">
-                                        <div class="col-md-5">
-                                    <label for="gps">GPS Location:</label>
-                                    <input type="text" id="gps" name="gps" readonly><br>
-                                        </div>
-                                    <div class="col-md-4">
-                                    <div class="d-flex justify-content-end">
-                                        <div class="modal-footer mt-4" style="float: right;width:300px">
-                                            <button type="button" id="getLocationBtn" class="btn btn-primary" 
-                                                >
-                                                Get GPS Location
-                                            </button>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    </div> --}}
-
-                                    {{-- <button type="button" id="getLocationBtn">Get GPS Location</button><br> --}}
-
-
-
-
-
                                     <div class="col-md-12 ">
                                         <div class="form-group py-4">
                                             <input type="checkbox" id="is_ngo" name="is_ngo"
@@ -284,7 +259,6 @@
                                                     @if ($errors->has('ngo_photo'))
                                                         <span class="red-text"><?php echo $errors->first('ngo_photo', ':message'); ?></span>
                                                     @endif
-                                                    <img id="ngo_photoPreview" src="#" alt="Image" class="img-fluid img-thumbnail mt-3" width="150" style="display:none">
                                                 </div>
                                                 <div class="col-md-12 mb-4">
                                                     <label class="col-form-label modal_lable">
@@ -319,7 +293,7 @@
                                     <div class="d-flex justify-content-end">
                                         <div class="modal-footer mt-4" style="float: right;width:300px">
                                             <button type="submit" class="btn btn-primary new_modal_page_btn" id="submitButton"
-                                                >
+                                                disabled>
                                                 @if (session('language') == 'mar')
                                                     {{ Config::get('marathi.CITIZEN_ACTION.FORM_SEND') }}
                                                 @else
@@ -396,13 +370,6 @@
                 $('#submitButton').prop('disabled', true);
             }
         }
-        $.validator.addMethod("validImage", function(value, element) {
-                // Check if a file is selected
-                if (element.files && element.files.length > 0) {
-                    var extension = element.files[0].name.split('.').pop().toLowerCase();
-                    // Check the file extension
-                    return (extension == "jpg" || extension == "jpeg" || extension == "png");
-                }
 
         // Call the checkFormValidity function on input change
         $('input, textarea, select, #media_upload').on('input change', checkFormValidity);
@@ -437,8 +404,7 @@
                 },
                 media_upload: {
                     required: true,
-                    validImage: true,
-                        accept: "png|jpeg|jpg",
+                    accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
                 },
                 // 'g-recaptcha-response': {
                 //     required: true,
@@ -456,8 +422,7 @@
                 },
                 ngo_photo: {
                     required: true,
-                    validImage: true,
-                        accept: "png|jpeg|jpg",
+                    accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
                 },
                 ngo_address: {
                     required: true,
@@ -483,8 +448,7 @@
                 },
                 media_upload: {
                     required: "Upload Media File",
-                    validImage: true,
-                        accept: "png|jpeg|jpg",
+                    accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
                 },
                 // 'g-recaptcha-response': {
                 //     required: "Please complete the reCAPTCHA.",
@@ -512,7 +476,6 @@
         // Trigger 'change' event on '#is_ngo' checkbox to handle initial state
         $('#is_ngo').trigger('change');
     });
-});
 </script>
 
   
@@ -534,66 +497,6 @@
             $('.hiddenField').show();
         }
     </script> --}}
-    {{-- <script>
-        document.addEventListener("DOMContentLoaded", function() {
-  const getLocationBtn = document.getElementById("getLocationBtn");
-  const gpsInput = document.getElementById("gps");
-
-  getLocationBtn.addEventListener("click", function() {
-    // Check if the browser supports geolocation
-    if ("geolocation" in navigator) {
-      // Get the user's current position
-      navigator.geolocation.getCurrentPosition(
-        function(position) {
-          // Extract latitude and longitude
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
-
-        //   alert("Latitude: " + latitude + "\nLongitude: " + longitude);
-          // Update the GPS input field with the coordinates
-          gpsInput.value = `${latitude}, ${longitude}`;
-        },
-        function(error) {
-          console.error("Error getting GPS location:", error.message);
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by this browser.");
-    }
-  });
-});
-
-    </script> --}}
-
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const getLocationBtn = document.getElementById("getLocationBtn");
-        const gpsInput = document.getElementById("gps");
-
-        getLocationBtn.addEventListener("click", function() {
-            // Check if the browser supports geolocation
-            if ("geolocation" in navigator) {
-                // Get the user's current position
-                navigator.geolocation.getCurrentPosition(
-                    function(position) {
-                        // Extract latitude and longitude
-                        const latitude = position.coords.latitude;
-                        const longitude = position.coords.longitude;
-
-                        // Update the GPS input field with the coordinates
-                        gpsInput.value = `${latitude}, ${longitude}`;
-                    },
-                    function(error) {
-                        console.error("Error getting GPS location:", error.message);
-                    }
-                );
-            } else {
-                console.error("Geolocation is not supported by this browser.");
-            }
-        });
-    });
-</script>
-
 @endsection
 {{-- @extends('website.layout.navbar')
 @extends('website.layout.header') --}}
