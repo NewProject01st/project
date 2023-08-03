@@ -25,7 +25,13 @@ class MarqueeRepository  {
         $marquee_data = new Marquee();
         $marquee_data->english_title = $request['english_title'];
         $marquee_data->marathi_title = $request['marathi_title'];
-        $marquee_data->url = $request['url'];
+        $url = $request['url'];
+        // Check if "http://" or "https://" is already present in the URL
+        if (!str_starts_with($url, 'http://') && !str_starts_with($url, 'https://')) {
+            $url = 'http://' . $url; // Add "http://" to the beginning of the URL
+        }
+        $marquee_data->url = $url;
+
         $marquee_data->save();       
      
 		return $marquee_data;
@@ -60,7 +66,12 @@ public function updateMarquee($request)
         $marquee_data = Marquee::find($request->id);
         $marquee_data->english_title = $request['english_title'];
         $marquee_data->marathi_title = $request['marathi_title'];
-        $marquee_data->url = $request['url'];
+        $url = $request['url'];
+        // Check if "http://" or "https://" is already present in the URL
+        if (!str_starts_with($url, 'http://') && !str_starts_with($url, 'https://')) {
+            $url = 'http://' . $url; // Add "http://" to the beginning of the URL
+        }
+        $marquee_data->url = $url;
        
         $marquee_data->update();  
              
