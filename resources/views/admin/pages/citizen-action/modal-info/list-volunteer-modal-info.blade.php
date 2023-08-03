@@ -38,6 +38,7 @@
                                                     <th>Datetime</th>
                                                     <th>Mobile Number</th>
                                                     <th>description</th>
+                                                    <th>GPS</th>
                                                     <th>Image</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -51,6 +52,7 @@
                                                         <td>{{ $item->datetime }}</td>
                                                         <td>{{ $item->mobile_number }}</td>
                                                         <td>{{ strip_tags($item->description) }}</td>
+                                                        <td>{{ strip_tags($item->gps) }}</td>
                                                         <td> <img class="img-size"
                                                                 src="{{ Config::get('DocumentConstant.VOLUNTEER_CITIZEN_MODAL_VIEW') }}{{ $item->media_upload }}"
                                                                 alt=" {{ strip_tags($item['media_upload']) }} Image" />

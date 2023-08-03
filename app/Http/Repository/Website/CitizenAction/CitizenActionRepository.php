@@ -79,9 +79,10 @@ class CitizenActionRepository  {
                 $modal_data->datetime = $request['datetime'];
                 $modal_data->mobile_number = $request['mobile_number'];
                 $modal_data->description =   $request['description'];
+                
+                
                 // $modal_data->media_upload = $englishImageName;
                 $modal_data->save();       
-                    
                 $last_insert_id = $modal_data->id;
 
                 $englishImageName = $last_insert_id . '_english.' . $request->media_upload->extension();
@@ -113,6 +114,7 @@ class CitizenActionRepository  {
                 $modal_data->datetime = $request['datetime'];
                 $modal_data->mobile_number = $request['mobile_number'];
                 $modal_data->description =   $request['description'];
+                $modal_data->gps = $request['gps']; // Save GPS data to the database
 
 
                 if($request->is_ngo == 'on') {

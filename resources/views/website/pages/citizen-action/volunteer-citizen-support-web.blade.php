@@ -182,6 +182,30 @@
                                         <img id="media_imgPreview" src="#" alt="Image"
                                         class="img-fluid img-thumbnail mt-3" width="150" style="display:none">
                                     </div>
+                                    <div class="col-md-9 d-flex align-items-center">
+                                        <div class="col-md-5">
+                                    <label for="gps">GPS Location:</label>
+                                    <input type="text" id="gps" name="gps" readonly><br>
+                                        </div>
+                                    <!-- Add a button to get GPS location -->
+                                    <div class="col-md-4">
+                                    <div class="d-flex justify-content-end">
+                                        <div class="modal-footer mt-4" style="float: right;width:300px">
+                                            <button type="button" id="getLocationBtn" class="btn btn-primary" 
+                                                >
+                                                Get GPS Location
+                                            </button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    </div>
+
+                                    {{-- <button type="button" id="getLocationBtn">Get GPS Location</button><br> --}}
+
+
+
+
+
                                     <div class="col-md-12 ">
                                         <div class="form-group py-4">
                                             <input type="checkbox" id="is_ngo" name="is_ngo"
@@ -296,7 +320,7 @@
                                     <div class="d-flex justify-content-end">
                                         <div class="modal-footer mt-4" style="float: right;width:300px">
                                             <button type="submit" class="btn btn-primary new_modal_page_btn" id="submitButton"
-                                                disabled>
+                                                >
                                                 @if (session('language') == 'mar')
                                                     {{ Config::get('marathi.CITIZEN_ACTION.FORM_SEND') }}
                                                 @else
@@ -511,6 +535,66 @@
             $('.hiddenField').show();
         }
     </script> --}}
+    {{-- <script>
+        document.addEventListener("DOMContentLoaded", function() {
+  const getLocationBtn = document.getElementById("getLocationBtn");
+  const gpsInput = document.getElementById("gps");
+
+  getLocationBtn.addEventListener("click", function() {
+    // Check if the browser supports geolocation
+    if ("geolocation" in navigator) {
+      // Get the user's current position
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          // Extract latitude and longitude
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+
+        //   alert("Latitude: " + latitude + "\nLongitude: " + longitude);
+          // Update the GPS input field with the coordinates
+          gpsInput.value = `${latitude}, ${longitude}`;
+        },
+        function(error) {
+          console.error("Error getting GPS location:", error.message);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  });
+});
+
+    </script> --}}
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const getLocationBtn = document.getElementById("getLocationBtn");
+        const gpsInput = document.getElementById("gps");
+
+        getLocationBtn.addEventListener("click", function() {
+            // Check if the browser supports geolocation
+            if ("geolocation" in navigator) {
+                // Get the user's current position
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        // Extract latitude and longitude
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+
+                        // Update the GPS input field with the coordinates
+                        gpsInput.value = `${latitude}, ${longitude}`;
+                    },
+                    function(error) {
+                        console.error("Error getting GPS location:", error.message);
+                    }
+                );
+            } else {
+                console.error("Geolocation is not supported by this browser.");
+            }
+        });
+    });
+</script>
+
 @endsection
 {{-- @extends('website.layout.navbar')
 @extends('website.layout.header') --}}
