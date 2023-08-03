@@ -35,7 +35,7 @@ class CitizenActionController extends Controller
             'incident' => 'required',
             'location' => 'required',
             'datetime' => 'required',
-            'mobile_number' => 'required|unique:report_incident_modals,mobile_number',
+            'mobile_number' => 'required',//|unique:report_incident_modals,mobile_number',
             'description' => 'required',
             'media_upload' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'g-recaptcha-response' => 'required|captcha',
@@ -71,7 +71,7 @@ class CitizenActionController extends Controller
                     $msg = $add_modal['msg'];
                     $status = $add_modal['status'];
                     if($status=='success') {
-                        Session::flash('success_message', 'Form submitted successfully!');
+                        Session::flash('success_message', 'Report incident submitted successfully!');
                         return redirect('report-incident-crowdsourcing-web')->with(compact('msg','status'));
                     }
                     else {

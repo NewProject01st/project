@@ -174,7 +174,13 @@
                                             @endif
                                             <span class="red-text">*</span>
                                         </label><br>
-                                        <input type="file" name="media_upload" id="media_upload"> <br>
+                                        <input type="file" name="media_upload" id="media_upload"
+                                            onchange="encodeImgtoBase64(this)"> 
+                                        <input type="text" name="document_file" id="document_file"><br>
+                                        <span id="error_msg_alert_doc"style="color: red;"></span>
+                                         <br>
+
+
                                         @if ($errors->has('media_upload'))
                                             <span class="red-text"><?php echo $errors->first('media_upload', ':message'); ?></span>
                                         @endif
@@ -214,36 +220,73 @@
     </div>
     <!--Main Content End-->
     <script>
+        function encodeImgtoBase64(element) {
+            $('#error_msg_alert_doc').text('');
+            var fileCheck = '';
+            $("#document_file").val('');
+            var fileInput = document.getElementById('media_upload');
+            var filePath = fileInput.value;
+            var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+            if (!allowedExtensions.exec(filePath)) {
+                fileCheck = fileInput.files[0];
+                if (fileCheck) {
+                    $("#document_file").val('');
+                    $("#media_imgPreview").attr('src', '#');
+                    $('#error_msg_alert_doc').text('');
+                    $('#error_msg_alert_doc').text('Please upload file having extensions jpg, jpeg, png format only.');
+                    fileInput.value = '';
+                    return false;
+                }
+            } else {
+                var file = fileInput.files[0];
+                console.log(file);
+                if (file.size > 1000005) {
+                    $("#document_file").val('');
+                    $("#media_imgPreview").attr('src', '#');
+                    $('#error_msg_alert_doc').text('');
+                    $('#error_msg_alert_doc').text('Please upload files size less than 1 mb.');
+                    fileInput.value = '';
+                    $('#imagePreview').empty();
+                    return false;
+                } else {
+
+                    var img = element.files[0];
+                    var reader = new FileReader();
+                    reader.onloadend = function() {
+                        $("#document_file").val(reader.result);
+                    }
+                    reader.readAsDataURL(img);
+
+                }
+
+            }
+
+
+        }
+
         $(document).ready(function() {
+            $("input#document_file").hide();
             // Function to check if all input fields are filled with valid data
             function checkFormValidity() {
-                const incident = $('#incident').val();
-                const location = $('#location').val();
-                const datetime = $('#datetime').val();
-                const mobile_number = $('#mobile_number').val();
-                const description = $('#description').val();
-                const media_upload = $('#media_upload').val(); // Get the value of the file input
-                //const g_recaptcha_response = $('#g-recaptcha-response').val(); // Get the CAPTCHA response
 
-                // Enable the submit button if all fields are valid
-                if (incident && location && datetime && mobile_number && description && media_upload) {
+                if ($("#regForm").valid()) {
                     $('#submitButton').prop('disabled', false);
                 } else {
                     $('#submitButton').prop('disabled', true);
                 }
             }
 
-            $.validator.addMethod("validImage", function(value, element) {
-                // Check if a file is selected
-                if (element.files && element.files.length > 0) {
-                    var extension = element.files[0].name.split('.').pop().toLowerCase();
-                    // Check the file extension
-                    return (extension == "jpg" || extension == "jpeg" || extension == "png");
+            $('input, textarea, select').on('input change', checkFormValidity);
+            $.extend($.validator.methods, {
+                spcenotallow: function(b, c, d) {
+                    if (!this.depend(d, c)) return "dependency-mismatch";
+                    if ("select" === c.nodeName.toLowerCase()) {
+                        var e = a(c).val();
+                        return e && e.length > 0
+                    }
+                    return this.checkable(c) ? this.getLength(b, c) > 0 : b.trim().length > 0
                 }
-                return true; // No file selected, so consider it valid
-            }, "Only JPG, JPEG, PNG images are allowed.");
-            // Call the checkFormValidity function on input change
-            $('input, textarea, select, #media_upload').on('input change', checkFormValidity);
+            });
 
             // Initialize the form validation
             $("#regForm").validate({
@@ -253,30 +296,23 @@
                     },
                     location: {
                         required: true,
+                        spcenotallow: true,
                     },
                     datetime: {
                         required: true,
                     },
                     mobile_number: {
                         required: true,
-                        pattern: /[789][0-9]{9}/,
-                        remote: {
-                            url: '/web/check-mobile-number-exists',
-                            type: 'post',
-                            data: {
-                                mobile_number: function() {
-                                    return $('#mobile_number').val();
-                                }
-                            }
-                        }
+                        spcenotallow: true,
+
                     },
                     description: {
                         required: true,
+                        spcenotallow: true,
                     },
                     media_upload: {
                         required: true,
-                        validImage: true,
-                        accept: "png|jpeg|jpg",
+                        spcenotallow: true,
                     },
                     // 'g-recaptcha-response': {
                     //     required: true,
@@ -288,6 +324,7 @@
                     },
                     location: {
                         required: "Enter Incident Location",
+                        spcenotallow: "Enter Some Text",
                     },
                     datetime: {
                         required: "Enter Date and Time",
@@ -295,14 +332,15 @@
                     mobile_number: {
                         required: "Enter Mobile Number",
                         pattern: "Invalid Mobile Number",
-                        remote: "This mobile number already exists."
+                        remote: "This mobile number already exists.",
+                        spcenotallow: "Enter Some Text",
                     },
                     description: {
                         required: "Enter Description",
+                        spcenotallow: "Enter Some Text",
                     },
                     media_upload: {
                         required: "Upload Media File",
-                        accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
                     },
                     // 'g-recaptcha-response': {
                     //     required: "Please complete the reCAPTCHA.",
