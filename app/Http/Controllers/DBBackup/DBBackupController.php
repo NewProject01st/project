@@ -118,7 +118,8 @@ class DBBackupController extends Controller
         $msg = 'Database backup created Successfully.';
         $return_data['msg'] =  $msg;
 
-        return redirect('/dashboard')->with(compact('msg', 'status','return_data'));
+        return view('admin.pages.dbbackupsuccess',compact('return_data'));
+        //return redirect('/dbbackupsuccess')->with(compact('msg', 'status','return_data'));
 
     }
 
