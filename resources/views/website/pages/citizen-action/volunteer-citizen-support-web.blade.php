@@ -318,7 +318,7 @@
                                     </div>
                                     <div class="d-flex justify-content-end">
                                         <div class="modal-footer mt-4" style="float: right;width:300px">
-                                            <button type="submit" class="btn btn-primary new_modal_page_btn" id="submitButton"
+                                            <button type="submit" class="btn btn-primary new_modal_page_btn" id="submitButton" disabled
                                                 >
                                                 @if (session('language') == 'mar')
                                                     {{ Config::get('marathi.CITIZEN_ACTION.FORM_SEND') }}
