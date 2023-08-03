@@ -90,17 +90,17 @@
                                         @else
                                             {{ Config::get('english.CONTACT_US.FORM_MOBILE_NUMBER') }}
                                         @endif
-                                    </label><span class="red-text">*</span>
-                                    <input class="gap-text" type="text" name="mobile_number" id="mobile_number"
-                                        value="{{ old('mobile_number') }}"onkeyup="addvalidateMobileNumber(this.value)"
-                                        pattern="[789]{1}[0-9]{9}"
+                                        <span class="red-text">*</span>
+                                    </label>
+                                    <input type="text" class="form-control set_m_form" name="mobile_number"
+                                        id="mobile_number" pattern="[789]{1}[0-9]{9}"
                                         oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
-                                        maxlength="10" minlength="10">
-                                    <span id="number-validate" class="red-text"></span>
+                                        maxlength="10" minlength="10" value="{{ old('mobile_number') }}">
                                     @if ($errors->has('mobile_number'))
-                                        <span class="red-text"><?php echo $errors->first('mobile_number', ':message'); ?></span>
+                                        <span class="red-text">{{ $errors->first('mobile_number') }}</span>
                                     @endif
                                 </div>
+
                                 <div class="col-md-6">
                                     <label class="col-form-label modal_lable">
                                         @if (session('language') == 'mar')
@@ -201,18 +201,90 @@
         <!-- Google Map with Contact Form End -->
     </div>
     <!--Main Content End-->
-    <script>
-        function addvalidateMobileNumber(number) {
-            var mobileNumberPattern = /^\d*$/;
-            var validationMessage = document.getElementById("number-validate");
+<script>
+       $(document).ready(function() {
+        $("input#document_file").hide();
+        // Function to check if all input fields are filled with valid data
+        function checkFormValidity() {
 
-            if (mobileNumberPattern.test(number)) {
-                validationMessage.textContent = "";
+            if ($("#regForm").valid()) {
+                $('#submitButton').prop('disabled', false);
             } else {
-                validationMessage.textContent = "Only numbers are allowed.";
+                $('#submitButton').prop('disabled', true);
             }
         }
-    </script>
+
+        $('input, textarea, select').on('input change', checkFormValidity);
+        $.extend($.validator.methods, {
+            spcenotallow: function(b, c, d) {
+                if (!this.depend(d, c)) return "dependency-mismatch";
+                if ("select" === c.nodeName.toLowerCase()) {
+                    var e = a(c).val();
+                    return e && e.length > 0
+                }
+                return this.checkable(c) ? this.getLength(b, c) > 0 : b.trim().length > 0
+            }
+        });
+
+        // Initialize the form validation
+        $("#regForm").validate({
+            rules: {
+                    full_name: {
+                        required: true,
+                        spcenotallow: true,
+                    },
+                    email: {
+                        required: true,
+                        spcenotallow: true,
+                    },
+                    mobile_number: {
+                        required: true,
+                        spcenotallow: true,
+
+                    },
+                    contact_type: {
+                        required: true,
+                    },
+                    subject: {
+                        required: true,
+                        spcenotallow: true,
+                    },
+                    suggestion: {
+                        required: true,
+                        spcenotallow: true,
+                    },
+                },
+                messages: {
+                    full_name: {
+                        required: "Please Enter Full Name",
+                        spcenotallow: "Enter Some Text",
+                    },
+                    email: {
+                        required: "Enter the Email Id",
+                        spcenotallow: "Enter Some Text",
+                    },
+                    mobile_number: {
+                        required: "Enter Mobile Number",
+                        pattern: "Invalid Mobile Number",
+                        remote: "This mobile number already exists.",
+                        spcenotallow: "Enter Some Text",
+                    },
+                    contact_type: {
+                        required: "Select the Contact Type",
+                    },
+                    subject: {
+                        required: "Enter the Subject",
+                        spcenotallow: "Enter Some Text",
+                    },
+                    suggestion: {
+                        required: "Enter the Suggestion",
+                        spcenotallow: "Enter Some Text",
+                    },
+                },            
+        });
+    });
+</script>
+{{-- 
     <script>
         $(document).ready(function() {
             // Function to check if all input fields are filled with valid data
@@ -291,7 +363,7 @@
                 },
             });
         });
-    </script>
+    </script> --}}
 @endsection
 {{-- @extends('website.layout.navbar')
 @extends('website.layout.header') --}}

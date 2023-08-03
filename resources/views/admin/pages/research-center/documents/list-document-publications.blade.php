@@ -53,7 +53,7 @@
                                                                 alt=" {{ strip_tags($item['english_title']) }} pdf"><img
                                                                     src="{{ asset('assets/images/pdf.png/') }}"
                                                                     width="35px" height="35px"></a></td>
-                                                        <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item->english_pdf }}"
+                                                        <td> <a href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $item->marathi_pdf }}"
                                                                 target="_blank"
                                                                 alt=" {{ strip_tags($item['marathi_title']) }} pdf"><img
                                                                     src="{{ asset('assets/images/pdf.png/') }}"

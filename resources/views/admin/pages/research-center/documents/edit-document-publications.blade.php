@@ -90,7 +90,7 @@
                                             href="{{ Config::get('DocumentConstant.DOCUMENT_PUBLICATION_VIEW') }}{{ $documents_publications->marathi_pdf }}"></a>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton">
                                             Save &amp; Update
                                         </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
@@ -108,33 +108,54 @@
         </div>
         <script>
             $(document).ready(function() {
+                var currentEnglishPdf = $("#currentEnglishPdf").val();
+                var currentMarathiPdf = $("#currentMarathiPdf").val();
+
                 // Function to check if all input fields are filled with valid data
                 function checkFormValidity() {
                     const english_title = $('#english_title').val();
                     const marathi_title = $('#marathi_title').val();
                     const english_pdf = $('#english_pdf').val();
                     const marathi_pdf = $('#marathi_pdf').val();
-    
 
-                    // Enable the submit button if all fields are valid
-                    if (english_title && marathi_title && english_pdf && marathi_pdf) {
-                        $('#submitButton').prop('disabled', false);
-                    } else {
-                        $('#submitButton').prop('disabled', true);
+                    // Update the old PDF values if there are any selected files
+                    if (english_pdf !== currentEnglishPdf) {
+                        $("#currentEnglishPdf").val(english_pdf);
+                    }
+                    if (marathi_pdf !== currentMarathiPdf) {
+                        $("#currentMarathiPdf").val(marathi_pdf);
                     }
                 }
-                // Custom validation method to check file size
+
+                // Call the checkFormValidity function on file input change
+                $('#english_pdf, #marathi_pdf').on('change', function() {
+                    checkFormValidity();
+                    validator.element(this); // Revalidate the file input
+                });
+
+                $.validator.addMethod("validPdf", function(value, element) {
+                    // Check if a file is selected
+                    if (element.files && element.files.length > 0) {
+                        var extension = element.files[0].name.split('.').pop().toLowerCase();
+                        // Check the file extension
+                        return (extension === "pdf");
+                    }
+                    return true; // No file selected, so consider it valid
+                }, "Only PDF files are allowed.");
+
                 $.validator.addMethod("fileSize", function(value, element, param) {
-                    // Convert bytes to KB
-                    const fileSizeKB = element.files[0].size / 1024;
-                    return fileSizeKB >= param[0] && fileSizeKB <= param[1];
+                    // Check if a file is selected
+                    if (element.files && element.files.length > 0) {
+                        // Convert bytes to KB
+                        const fileSizeKB = element.files[0].size / 1024;
+                        return fileSizeKB >= param[0] && fileSizeKB <= param[1];
+                    }
+                    return true; // No file selected, so consider it valid
                 }, "File size must be between {0} KB and {1} KB.");
 
-                // Call the checkFormValidity function on input change
-                $('textarea, #english_pdf, #marathi_pdf').on('input change', checkFormValidity);
-
                 // Initialize the form validation
-                $("#regForm").validate({
+                var form = $("#regForm");
+                var validator = form.validate({
                     rules: {
                         english_title: {
                             required: true,
@@ -143,12 +164,12 @@
                             required: true,
                         },
                         english_pdf: {
-                            required: true,
+                            validPdf: true,
                             fileSize: [10, 7168], // Min 10KB and Max 7MB (7 * 1024 KB)
                         },
                         marathi_pdf: {
-                            required: true,
-                             fileSize: [10, 7168], // Min 10KB and Max 7MB (7 * 1024 KB)
+                            validPdf: true,
+                            fileSize: [10, 7168], // Min 10KB and Max 7MB (7 * 1024 KB)
                         },
                     },
                     messages: {
@@ -159,13 +180,49 @@
                             required: "कृपया शीर्षक प्रविष्ट करा",
                         },
                         english_pdf: {
-                            required: "Please Upload PDF",
+                            validPdf: "Only PDF files are allowed.",
+                            fileSize: "The file size is too large. The maximum file size allowed is 7 MB.",
                         },
                         marathi_pdf: {
-                            required: "कृपया पीडीएफ अपलोड करा",
+                            validPdf: "Only PDF files are allowed.",
+                            fileSize: "The file size is too large. The maximum file size allowed is 7 MB.",
                         },
                     },
+                    submitHandler: function(form) {
+                        form.submit();
+                    }
+                });
+
+                // Submit the form when the "Update" button is clicked
+                $("#submitButton").click(function() {
+                    // Validate the form
+                    if (form.valid()) {
+                        form.submit();
+                    }
+                });
+
+                // You can remove the following two blocks if you don't need to display selected PDFs on the page
+                $("#english_pdf").change(function() {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Display the selected PDF for English
+                        // You can remove this if you don't need to display the PDF on the page
+                        $("#currentEnglishPdfDisplay").attr('src', e.target.result);
+                        validator.element("#english_pdf"); // Revalidate the file input
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                });
+
+                $("#marathi_pdf").change(function() {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Display the selected PDF for Marathi
+                        // You can remove this if you don't need to display the PDF on the page
+                        $("#currentMarathiPdfDisplay").attr('src', e.target.result);
+                        validator.element("#marathi_pdf"); // Revalidate the file input
+                    };
+                    reader.readAsDataURL(this.files[0]);
                 });
             });
-        </script>
+        </script>      
     @endsection
