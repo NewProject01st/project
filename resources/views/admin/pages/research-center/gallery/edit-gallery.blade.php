@@ -71,16 +71,17 @@
                 </div>
             </div>
         </div>
+
         <script>
             $(document).ready(function() {
                 var currentEnglishImage = $("#currentEnglishImage").val();
                 var currentMarathiImage = $("#currentMarathiImage").val();
-
+        
                 // Function to check if all input fields are filled with valid data
                 function checkFormValidity() {
                     const english_image = $('#english_image').val();
                     const marathi_image = $('#marathi_image').val();
-
+        
                     // Update the old PDF values if there are any selected files
                     if (english_image !== currentEnglishImage) {
                         $("#currentEnglishImage").val(english_image);
@@ -89,13 +90,13 @@
                         $("#currentMarathiImage").val(marathi_image);
                     }
                 }
-
+        
                 // Call the checkFormValidity function on file input change
-                $('#english_image, #marathi_image').on('change', function() {
+                $('input, #english_image, #marathi_image').on('change', function() {
                     checkFormValidity();
                     validator.element(this); // Revalidate the file input
                 });
-
+        
                 $.validator.addMethod("validImage", function(value, element) {
                     // Check if a file is selected
                     if (element.files && element.files.length > 0) {
@@ -105,7 +106,7 @@
                     }
                     return true; // No file selected, so consider it valid
                 }, "Only JPG, JPEG, PNG images are allowed.");
-
+        
                 $.validator.addMethod("fileSize", function(value, element, param) {
                     // Check if a file is selected
                     if (element.files && element.files.length > 0) {
@@ -115,7 +116,7 @@
                     }
                     return true; // No file selected, so consider it valid
                 }, "File size must be between {0} KB and {1} KB.");
-
+        
                 // Initialize the form validation
                 var form = $("#regForm");
                 var validator = form.validate({
@@ -131,19 +132,19 @@
                     },
                     messages: {
                         english_image: {
-                            validImage: "Only JPG, JPEG, PNG images are allowed.",
-                            fileSize: "The file size must be between 180 KB and 2048 KB.",
-                        },
-                        marathi_image: {
-                            validImage: "फक्त JPG, JPEG, PNG प्रतिमांना परवानगी आहे.",
-                            fileSize: "फाईलचा आकार 180 KB and 2048 KB दरम्यान असणे आवश्यक आहे.",
-                        },
+                    validImage: "Only JPG, JPEG, PNG images are allowed.",
+                    fileSize: "The file size must be between 180 KB and 2048 KB.",
+                },
+                marathi_image: {
+                    validImage: "फक्त JPG, JPEG, PNG प्रतिमांना परवानगी आहे.",
+                    fileSize: "फाईलचा आकार 180 KB and 2048 KB दरम्यान असणे आवश्यक आहे.",
+                },
                     },
                     submitHandler: function(form) {
                         form.submit();
                     }
                 });
-
+        
                 // Submit the form when the "Update" button is clicked
                 $("#submitButton").click(function() {
                     // Validate the form
@@ -151,7 +152,7 @@
                         form.submit();
                     }
                 });
-
+        
                 // You can remove the following two blocks if you don't need to display selected images on the page
                 $("#english_image").change(function() {
                     var reader = new FileReader();
@@ -163,7 +164,7 @@
                     };
                     reader.readAsDataURL(this.files[0]);
                 });
-
+        
                 $("#marathi_image").change(function() {
                     var reader = new FileReader();
                     reader.onload = function(e) {
@@ -175,5 +176,5 @@
                     reader.readAsDataURL(this.files[0]);
                 });
             });
-        </script>
+        </script>   
     @endsection

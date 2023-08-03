@@ -213,7 +213,7 @@
             if (mobileNumberPattern.test(number)) {
                 validationMessage.textContent = "";
             } else {
-                validationMessage.textContent = "Invalid mobile number. Please enter a valid mobile number.";
+                validationMessage.textContent = "Invalid landline number. Please enter a valid landline number.";
             }
         }
     </script>
@@ -235,7 +235,7 @@
             $.validator.addMethod("valid_mobile_number", function(value, element) {
                 var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
                 return this.optional(element) || mobileNumberPattern.test(value);
-            }, "Invalid mobile number. Please enter a valid mobile number.");
+            }, "Invalid landline number. Please enter a valid landline number.");
 
             $.validator.addMethod("valid_marathi_number", function(value, element) {
                 var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
@@ -258,7 +258,7 @@
                     },
                     marathi_number: {
                         required: true,
-                        // valid_marathi_number:true,
+                        valid_marathi_number:true,
                     },
                     email: {
                         required: true,
@@ -274,7 +274,7 @@
                         required: "कृपया पत्ता प्रविष्ट करा.",
                     },
                     english_number: {
-                        required: "Please Enter the Mobile Number.",
+                        required: "Please Enter the Landline Number.",
                     },
                     marathi_number: {
                         required: "कृपया मोबाइल क्रमांक प्रविष्ट करा",

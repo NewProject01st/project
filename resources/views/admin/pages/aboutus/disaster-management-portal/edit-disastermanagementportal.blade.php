@@ -26,10 +26,8 @@
                                         <div class="form-group">
                                             <label for="english_title">Title </label>&nbsp<span class="red-text">*</span>
                                             <input class="form-control" name="english_title" id="english_title" placeholder="Enter the Title" value="@if (old('english_title'))
-                                            {{ strip_tags(old('english_title')) }}
-                                        @else
-                                            {{ strip_tags($disastermanagementportal->english_title) }}
-                                        @endif">                                          
+                                            {{ old('english_title') }}@else{{ strip_tags($disastermanagementportal->english_title) }}
+                                            @endif">                                          
                                             @if ($errors->has('english_title'))
                                                 <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
                                             @endif
