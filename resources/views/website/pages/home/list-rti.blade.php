@@ -86,13 +86,13 @@
                                     @endif
                                 </tr>
                             @empty
-                                <h4>
+                                {{-- <h4>
                                     @if (session('language') == 'mar')
                                         {{ Config::get('marathi.RTI.NO_DATA_FOUND_RTI') }}
                                     @else
                                         {{ Config::get('english.RTI.NO_DATA_FOUND_RTI') }}
                                     @endif
-                                </h4>
+                                </h4> --}}
                             @endforelse
                         </tbody>
                     </table>

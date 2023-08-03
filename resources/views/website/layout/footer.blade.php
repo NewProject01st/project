@@ -202,16 +202,19 @@
                  <?php //print_r($common_data['twitter_feed']['url']);
                  //die();
                  ?>
-
                  <?php
 if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed'])) {
     foreach ($common_data['twitter_feed'] as $feed) {
-        if (isset($feed['url']) && $feed['url'] !=='') {
+        if (isset($feed['url']) && $feed['url'] !=='null') {
             // echo $feed['url'] . '<br>';
             ?>
                  <iframe frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="yes"
                      style="position: static; visibility: visible; height: 52vh; width: 100%; display: block; flex-grow: 1;"
                      title="Twitter Timeline" src="{{ $feed['url'] }}"></iframe>
+
+
+                   
+
                  <?php 
         }
         else {
@@ -341,18 +344,6 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
                      </a>
                  </p>
              </div>
-             {{-- <div class="col-lg-6 col-md-6 col-sm-12">
-                 <ul class="footer-social">
-                     <li><a href="https://www.facebook.com/mynashikmc/" class="fb" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                     <li><a href="https://twitter.com/my_nmc" target="_blank" class="tw"><i class="fab fa-twitter"></i></a></li>
-                     <li><a href="https://instagram.com/my_nmc" target="_blank"  class="insta"><i class="fab fa-instagram"></i></a></li>
-                     <li><a href="https://www.youtube.com/c/mynmc" target="_blank" class="yt"><i class="fab fa-youtube"></i></a></li>
-                     <li><a href="https://nmc.gov.in" target="_blank" class="yt"><i class='fa fa-globe' style='font-size:20px;color:#fff'></i></a></li>
-                 </ul>
-             </div> --}}
-
-
-
              <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-end">
                  <ul class="footer-social">
                      @forelse ($common_data['social_link'] as $item)

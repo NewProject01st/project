@@ -102,13 +102,13 @@
                                     @endif
                                 </tr>
                             @empty
-                                <h4>
+                                {{-- <h4>
                                     @if (session('language') == 'mar')
                                         {{ Config::get('marathi.VACANCIES.NO_DATA_FOUND_VACANCIES') }}
                                     @else
                                         {{ Config::get('english.VACANCIES.NO_DATA_FOUND_VACANCIES') }}
                                     @endif
-                                </h4>
+                                </h4> --}}
                             @endforelse
                         </tbody>
                     </table>
