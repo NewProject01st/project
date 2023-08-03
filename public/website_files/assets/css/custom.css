@@ -7111,3 +7111,10 @@ box-shadow: 0 0 4px #000;
   .red-text{
 	color: red !important;
   }
+
+  @media (min-width: 768px){
+.card-new-size {
+    flex: 0 0 auto;
+    width: 31.333333%;
+}
+  }
