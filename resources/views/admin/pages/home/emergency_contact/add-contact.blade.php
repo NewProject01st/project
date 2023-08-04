@@ -276,7 +276,8 @@
                 }, "Please enter a valid 10-digit number.");
 
                 $.validator.addMethod("marathi_number", function(value, element) {
-                    return this.optional(element) || /^[0-9]{10}$/.test(value);
+                    value = value.replace(/\s/g, '');
+                    return this.optional(element) || /^[०१२३४५६७८९]{10}$/.test(value);
                 }, "कृपया वैध 10-अंकी क्रमांक प्रविष्ट करा.");
 
 
@@ -286,9 +287,10 @@
             }, "Invalid landline number. Please enter a valid landline number.");
 
             $.validator.addMethod("valid_marathi_number", function(value, element) {
-                var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
-                return this.optional(element) || mobileNumberPattern.test(value);
-            }, "अवैध लँडलाइन नंबर. कृपया वैध लँडलाइन नंबर प्रविष्ट करा.");
+    value = value.replace(/\s/g, '');
+    var marathiNumberPattern = /^[०१२३४५६७८९()-\/\s]{7,25}$/;
+    return this.optional(element) || marathiNumberPattern.test(value);
+}, "अवैध नंबर. कृपया वैध नंबर प्रविष्ट करा.");
 
                 $.validator.addMethod("email", function(value, element) {
                     // Regular expression for email validation
