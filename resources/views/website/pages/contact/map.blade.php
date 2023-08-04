@@ -1,7 +1,7 @@
 @extends('website.layout.master')
 @section('content')
     <!--Sub Header Start-->
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBciNFt_xYpjx_QaQZXKAyRJn7sLUwMPds"></script> 
+     {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBciNFt_xYpjx_QaQZXKAyRJn7sLUwMPds"></script>  --}}
     <section class="wf100 subheader">
         <div class="container">
             <h2>
@@ -38,15 +38,15 @@
         <div class="map-form p80">
             <div class="container">
                 <div class="row deprt-txt">
-                    <h3 class="stitle text-center d-flex justify-content-start">
+                    {{-- <h3 class="stitle text-center d-flex justify-content-start">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.HOME_PAGE.MAPS_GIS_DATA') }}
                         @else
                             {{ Config::get('english.HOME_PAGE.MAPS_GIS_DATA') }}
                         @endif
-                    </h3> 
+                    </h3>  --}}
                     <div class="col-md-12 col-lg-12 col-md-12">
-                       <div id="mapa" style="height: 600px; width: 100%" class="deprt-txt"></div> 
+                       {{-- <div id="mapa" style="height: 600px; width: 100%" class="deprt-txt"></div> 
                         <h3 class="stitle text-center d-flex justify-content-start mt-5">
                             @if (session('language') == 'mar')
                             {{ Config::get('marathi.HOME_PAGE.MAPS_GIS_DATA_DETAILS') }}
@@ -54,7 +54,7 @@
                             {{ Config::get('english.HOME_PAGE.MAPS_GIS_DATA_DETAILS') }}
                             @endif
                         </h3>
-                     
+                      --}}
                         <table id="order-listing" class="table table-striped table-hover table-bordered border-dark">
                             <thead class="" style="background-color: #47194a; color:#fff">
                                 <tr>
