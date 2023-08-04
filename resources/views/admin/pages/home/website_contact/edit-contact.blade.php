@@ -237,10 +237,16 @@
                 return this.optional(element) || mobileNumberPattern.test(value);
             }, "Invalid landline number. Please enter a valid landline number.");
 
+            // $.validator.addMethod("valid_marathi_number", function(value, element) {
+            //     var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
+            //     return this.optional(element) || mobileNumberPattern.test(value);
+            // }, "अवैध लँडलाइन नंबर. कृपया वैध लँडलाइन नंबर प्रविष्ट करा.");
+
             $.validator.addMethod("valid_marathi_number", function(value, element) {
-                var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
-                return this.optional(element) || mobileNumberPattern.test(value);
-            }, "अवैध लँडलाइन नंबर. कृपया वैध लँडलाइन नंबर प्रविष्ट करा.");
+    value = value.replace(/\s/g, '');
+    var marathiNumberPattern = /^[०१२३४५६७८९()-\/\s]{7,25}$/;
+    return this.optional(element) || marathiNumberPattern.test(value);
+}, "अवैध नंबर. कृपया वैध नंबर प्रविष्ट करा.");
     
             // Initialize the form validation
             var form = $("#regForm");
