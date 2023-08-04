@@ -46,7 +46,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control mb-2 url" name="url" id="url"
+                                            <input type="text" class="form-control mb-2" name="url" id="url"
                                                 placeholder="Enter the URL" value="{{ $links->url }}">
                                             @if ($errors->has('url'))
                                                 <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>

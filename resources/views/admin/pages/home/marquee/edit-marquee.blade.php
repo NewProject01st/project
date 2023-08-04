@@ -48,8 +48,8 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control url mb-2" name="url" id="url"
-                                                placeholder="Enter the Title" name="url"
+                                            <input type="text" class="form-control mb-2" name="url" id="url"
+                                                placeholder="Enter the Title"
                                                 value="@if (old('url')) {{ old('url') }}@else{{ $marquees->url }} @endif">
                                             @if ($errors->has('url'))
                                                 <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
@@ -79,6 +79,8 @@
                     const english_title = $('#english_title').val();
                     const marathi_title = $('#marathi_title').val();
                     const url = $('#url').val();
+                    
+                    url = url.replace(/\s/g, '');
                 }
                 // Call the checkFormValidity function on file input change
                 $('input').on('change', function() {
