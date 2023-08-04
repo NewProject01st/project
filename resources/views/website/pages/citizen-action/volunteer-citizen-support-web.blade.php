@@ -42,7 +42,7 @@
     <div class="main-content">
 
         <!-- Google Map with Contact Form -->
-        <div class="map-form p80">
+        <div class="map-form mt-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 contact-form m80 deprt-txt">
@@ -61,7 +61,7 @@
 
 
                         <form class="forms-sample" method="post" action="{{ url('volunteer-modal') }}"
-                            enctype="multipart/form-data">
+                            enctype="multipart/form-data" id="regForm">
                             @csrf
                             <div class="col-md-12">
 
@@ -134,7 +134,7 @@
                                         @endif
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <label class="col-form-label modal_lable">
+                                        <label class="col-form-label modal_label">
                                             @if (session('language') == 'mar')
                                                 {{ Config::get('marathi.CITIZEN_ACTION.FORM_MOBILE_NUMBER') }}
                                             @else
@@ -142,16 +142,14 @@
                                             @endif
                                             <span class="red-text">*</span>
                                         </label>
-                                        <input type="input" class="form-control set_m_form" name="mobile_number"
-                                            value="{{ old('mobile_number') }}" id="mobile_number"
-                                            pattern="[789]{1}[0-9]{9}"
+                                        <input type="text" class="form-control set_m_form" name="mobile_number"
+                                            id="mobile_number" pattern="[789]{1}[0-9]{9}"
                                             oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
-                                            maxlength="10" minlength="10">
+                                            maxlength="10" minlength="10" value="{{ old('mobile_number') }}">
                                         @if ($errors->has('mobile_number'))
-                                            <span class="red-text"><?php echo $errors->first('mobile_number', ':message'); ?></span>
+                                            <span class="red-text">{{ $errors->first('mobile_number') }}</span>
                                         @endif
                                     </div>
-
                                     <div class="col-md-12 mb-4">
                                         <label class="col-form-label modal_lable">
                                             @if (session('language') == 'mar')
@@ -166,7 +164,7 @@
                                             <span class="red-text"><?php echo $errors->first('description', ':message'); ?></span>
                                         @endif
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-8 mb-4">
                                         <label class="col-form-label modal_lable">
                                             @if (session('language') == 'mar')
                                                 {{ Config::get('marathi.CITIZEN_ACTION.FORM_MEDIA_UPLOAD') }}
@@ -175,11 +173,35 @@
                                             @endif
                                             <span class="red-text">*</span>
                                         </label><br>
-                                        <input type="file" name="media_upload" id="media_upload"> <br>
+                                        <input type="file" name="media_upload" id="media_upload"
+                                            onchange="encodeImgtoBase64(this)"> 
+                                        <input type="text" name="document_file" id="document_file"><br>
+                                        <span id="error_msg_alert_doc"style="color: red;"></span>
+                                         <br>
+
+
                                         @if ($errors->has('media_upload'))
                                             <span class="red-text"><?php echo $errors->first('media_upload', ':message'); ?></span>
                                         @endif
+                                        <img id="media_imgPreview" src="#" alt="Image"
+                                            class="img-fluid img-thumbnail mt-3" width="150" style="display:none">
                                     </div>
+                                    {{-- <div class="col-md-9 d-flex align-items-center">
+                                        <div class="col-md-5">
+                                    <label for="gps">GPS Location:</label>
+                                    <input type="text" id="gps" name="gps" readonly><br>
+                                        </div>
+                                    <div class="col-md-4">
+                                    <div class="d-flex justify-content-end">
+                                        <div class="modal-footer mt-4" style="float: right;width:300px">
+                                            <button type="button" id="getLocationBtn" class="btn btn-primary" 
+                                                >
+                                                Get GPS Location
+                                            </button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    </div> --}}
                                     <div class="col-md-12 ">
                                         <div class="form-group py-4">
                                             <input type="checkbox" id="is_ngo" name="is_ngo"
@@ -226,28 +248,30 @@
                                                         <span class="red-text"><?php echo $errors->first('ngo_email', ':message'); ?></span>
                                                     @endif
                                                 </div>
+
+
                                                 <div class="col-md-6 mb-2">
-                                                    <label for="ngo_contact_number" class="col-form-label  modal_lable">
+                                                    <label class="col-form-label modal_label">
                                                         @if (session('language') == 'mar')
                                                             {{ Config::get('marathi.CITIZEN_ACTION.NGO_MOBILE_NO') }}
                                                         @else
                                                             {{ Config::get('english.CITIZEN_ACTION.NGO_MOBILE_NO') }}
                                                         @endif
-                                                    </label><span class="red-text">*</span>
-                                                    <input type="input" class="form-control set_m_form"
-                                                        name="ngo_contact_number" id="ngo_contact_number"
-                                                        value="{{ old('ngo_contact_number') }}"
-                                                        pattern="[789]{1}[0-9]{9}"
+                                                        <span class="red-text">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control set_m_form" name="ngo_contact_number"
+                                                        id="ngo_contact_number" pattern="[789]{1}[0-9]{9}"
                                                         oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
-                                                        maxlength="10" minlength="10"
-                                                        >
-
+                                                        maxlength="10" minlength="10" value="{{ old('ngo_contact_number') }}">
                                                     @if ($errors->has('ngo_contact_number'))
-                                                        <span class="red-text"><?php echo $errors->first('ngo_contact_number', ':message'); ?></span>
+                                                        <span class="red-text">{{ $errors->first('ngo_contact_number') }}</span>
                                                     @endif
                                                 </div>
-                                                <div class="col-md-6 mb-2">
-                                                    <label for="ngo_photo" class="col-form-label modal_lable">
+
+
+                                               
+                                                <div class="col-md-8 mb-4">
+                                                    <label class="col-form-label modal_lable">
                                                         @if (session('language') == 'mar')
                                                             {{ Config::get('marathi.CITIZEN_ACTION.PHOTO') }}
                                                         @else
@@ -255,10 +279,18 @@
                                                         @endif
                                                         <span class="red-text">*</span>
                                                     </label><br>
-                                                    <input type="file" name="ngo_photo" id="ngo_photo"> <br>
+                                                    <input type="file" name="ngo_photo" id="ngo_photo"
+                                                        onchange="encodeImgtoBase64NGO(this)"> 
+                                                    <input type="text" name="document_file1" id="document_file1"><br>
+                                                    <span id="error_msg_alert_doc1"style="color: red;"></span>
+                                                     <br>
+            
+            
                                                     @if ($errors->has('ngo_photo'))
                                                         <span class="red-text"><?php echo $errors->first('ngo_photo', ':message'); ?></span>
                                                     @endif
+                                                    <img id="ngo_photoPreview" src="#" alt="Image"
+                                                        class="img-fluid img-thumbnail mt-3" width="150" style="display:none">
                                                 </div>
                                                 <div class="col-md-12 mb-4">
                                                     <label class="col-form-label modal_lable">
@@ -323,163 +355,237 @@
         }
     </script>
     <script>
-    $(document).ready(function() {
-        $('#is_ngo').change(function() {
-            if ($(this).is(':checked')) {
-                $('.hiddenField').show();
-                setNgoValidationRules(true);
-            } else {
-                $('.hiddenField').hide();
-                setNgoValidationRules(false);
+        $(document).ready(function() {
+            $("input#document_file").hide();
+            $("input#document_file1").hide();
+    
+            // Function to check if all input fields are filled with valid data
+            function checkFormValidity() {
+                if ($("#regForm").valid()) {
+                    $('#submitButton').prop('disabled', false);
+                } else {
+                    $('#submitButton').prop('disabled', true);
+                }
             }
-            checkFormValidity(); // Call the function to update the submit button state
-        });
-
-        function setNgoValidationRules(applyValidation) {
-            $("#regForm").validate().settings.rules.ngo_name.required = applyValidation;
-            $("#regForm").validate().settings.rules.ngo_email.required = applyValidation;
-            $("#regForm").validate().settings.rules.ngo_email.email = applyValidation;
-            $("#regForm").validate().settings.rules.ngo_photo.required = applyValidation;
-            $("#regForm").validate().settings.rules.ngo_address.required = applyValidation;
-            $("#regForm").valid(); // Trigger validation to update error messages
-        }
-
-        // Function to check if all input fields are filled with valid data
-        function checkFormValidity() {
-            const incident = $('#incident').val();
-            const location = $('#location').val();
-            const datetime = $('#datetime').val();
-            const mobile_number = $('#mobile_number').val();
-            const description = $('#description').val();
-            const media_upload = $('#media_upload').val();
-
+    
             // Check if NGO-related fields are relevant based on 'is_ngo' checkbox
-            const isNgoRelevant = $('#is_ngo').is(':checked');
-            const ngo_name = isNgoRelevant ? $('#ngo_name').val() : '';
-            const ngo_email = isNgoRelevant ? $('#ngo_email').val() : '';
-            const ngo_photo = isNgoRelevant ? $('#ngo_photo').val() : '';
-            const ngo_address = isNgoRelevant ? $('#ngo_address').val() : '';
-
-            // Enable the submit button if all fields are valid
-            if (
-                incident && location && datetime && mobile_number && description && media_upload &&
-                (!isNgoRelevant || (isNgoRelevant && ngo_name && ngo_email && ngo_photo && ngo_address))
-            ) {
-                $('#submitButton').prop('disabled', false);
-            } else {
-                $('#submitButton').prop('disabled', true);
+            $('#is_ngo').change(function() {
+                if ($(this).is(':checked')) {
+                    $('.hiddenField').show();
+                    setNgoValidationRules(true);
+                } else {
+                    $('.hiddenField').hide();
+                    setNgoValidationRules(false);
+                }
+                checkFormValidity(); // Call the function to update the submit button state
+            });
+    
+            function setNgoValidationRules(applyValidation) {
+                $("#regForm").validate().settings.rules.ngo_name.required = applyValidation;
+                $("#regForm").validate().settings.rules.ngo_email.required = applyValidation;
+                $("#regForm").validate().settings.rules.ngo_email.email = applyValidation;
+                $("#regForm").validate().settings.rules.ngo_photo.required = applyValidation;
+                $("#regForm").validate().settings.rules.ngo_address.required = applyValidation;
+                $("#regForm").valid(); // Trigger validation to update error messages
             }
-        }
-
-        // Call the checkFormValidity function on input change
-        $('input, textarea, select, #media_upload').on('input change', checkFormValidity);
-
-        // Initialize the form validation
-        $("#regForm").validate({
-            rules: {
-                incident: {
-                    required: true,
+    
+            // Initialize the form validation
+            $("#regForm").validate({
+                rules: {
+                    incident: {
+                        required: true,
+                    },
+                    location: {
+                        required: true,
+                    },
+                    datetime: {
+                        required: true,
+                    },
+                    mobile_number: {
+                        required: true,
+                        // pattern: /[789][0-9]{9}/,
+                    },
+                    description: {
+                        required: true,
+                    },
+                    media_upload: {
+                        required: true,
+                        spcenotallow: true,
+                    },
+                    ngo_name: {
+                        required: true,
+                    },
+                    ngo_email: {
+                        required: true,
+                        email: true,
+                    },
+                    ngo_contact_number: {
+                        required: true,
+                    },
+                    ngo_photo: {
+                        required: true,
+                    },
+                    ngo_address: {
+                        required: true,
+                    },
                 },
-                location: {
-                    required: true,
+                messages: {
+                    incident: {
+                        required: "Select Incident",
+                    },
+                    location: {
+                        required: "Enter Incident Location",
+                    },
+                    datetime: {
+                        required: "Enter Date and Time",
+                    },
+                    mobile_number: {
+                        required: "Enter Mobile Number",
+                        // pattern: "Invalid Mobile Number",
+                    },
+                    description: {
+                        required: "Enter Description",
+                    },
+                    media_upload: {
+                        required: "Upload Media File",
+                    },
+                    ngo_name: {
+                        required: "Please enter your NGO name.",
+                    },
+                    ngo_email: {
+                        required: "Please enter your NGO email address.",
+                        email: "Please enter a valid email address.",
+                    },
+                    ngo_contact_number: {
+                        required: "Please enter your NGO contact number.",
+                    },
+                    ngo_photo: {
+                        required: "Please upload your NGO photo.",
+                    },
+                    ngo_address: {
+                        required: "Please enter your NGO address.",
+                    },
                 },
-                datetime: {
-                    required: true,
-                },
-                mobile_number: {
-                    required: true,
-                    pattern: /[789][0-9]{9}/,
-                    remote: {
-                        url: '/web/check-mobile-number-exists',
-                        type: 'post',
-                        data: {
-                            mobile_number: function() {
-                                return $('#mobile_number').val();
-                            }
-                        }
+            });
+    
+            // Function to encode image to Base64
+            function encodeImgtoBase64(element) {
+                $('#error_msg_alert_doc').text('');
+                var fileCheck = '';
+                $("#document_file").val('');
+                var fileInput = document.getElementById('media_upload');
+                var filePath = fileInput.value;
+                var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+                if (!allowedExtensions.exec(filePath)) {
+                    fileCheck = fileInput.files[0];
+                    if (fileCheck) {
+                        $("#document_file").val('');
+                        $("#media_imgPreview").attr('src', '#');
+                        $('#error_msg_alert_doc').text('');
+                        $('#error_msg_alert_doc').text('Please upload file having extensions jpg, jpeg, png format only.');
+                        fileInput.value = '';
+                        return false;
                     }
-                },
-                description: {
-                    required: true,
-                },
-                media_upload: {
-                    required: true,
-                    accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
-                },
-                // 'g-recaptcha-response': {
-                //     required: true,
-                // },
-                ngo_name: {
-                    required: true,
-                },
-                ngo_email: {
-                    required: true,
-                    email: true,
-                },
-                ngo_contact_number: {
-                    required: true,
-                    pattern: /[789][0-9]{9}/,
-                },
-                ngo_photo: {
-                    required: true,
-                    accept: "image/png, image/jpeg, image/jpg", // Update to accept only png, jpeg, and jpg images
-                },
-                ngo_address: {
-                    required: true,
-                },
-            },
-            messages: {
-                incident: {
-                    required: "Select Incident",
-                },
-                location: {
-                    required: "Enter Incident Location",
-                },
-                datetime: {
-                    required: "Enter Date and Time",
-                },
-                mobile_number: {
-                    required: "Enter Mobile Number",
-                    pattern: "Invalid Mobile Number",
-                    remote: "This mobile number already exists."
-                },
-                description: {
-                    required: "Enter Description",
-                },
-                media_upload: {
-                    required: "Upload Media File",
-                    accept: "Only png, jpeg, and jpg image files are allowed.", // Update the error message for the accept rule
-                },
-                // 'g-recaptcha-response': {
-                //     required: "Please complete the reCAPTCHA.",
-                // },
-                ngo_name: {
-                    required: "Please enter your NGO name.",
-                },
-                ngo_email: {
-                    required: "Please enter your NGO email address.",
-                    email: "Please enter a valid email address.",
-                },
-                ngo_contact_number: {
-                    required: "Please enter your NGO contact number.",
-                    pattern: "Invalid Mobile Number",
-                },
-                ngo_photo: {
-                    required: "Please upload your NGO photo.",
-                },
-                ngo_address: {
-                    required: "Please enter your NGO address.",
-                },
-            },
+                } else {
+                    var file = fileInput.files[0];
+                    console.log(file);
+                    if (file.size > 1000005) {
+                        $("#document_file").val('');
+                        $("#media_imgPreview").attr('src', '#');
+                        $('#error_msg_alert_doc').text('');
+                        $('#error_msg_alert_doc').text('Please upload files size less than 1 mb.');
+                        fileInput.value = '';
+                        $('#imagePreview').empty();
+                        return false;
+                    } else {
+                        var img = element.files[0];
+                        var reader = new FileReader();
+                        reader.onloadend = function() {
+                            $("#document_file").val(reader.result);
+                        }
+                        reader.readAsDataURL(img);
+                    }
+                }
+            }
+
+            function encodeImgtoBase64NGO(element) {
+                $('#error_msg_alert_doc1').text('');
+                var fileCheck = '';
+                $("#document_file1").val('');
+                var fileInput = document.getElementById('ngo_photo');
+                var filePath = fileInput.value;
+                var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+                if (!allowedExtensions.exec(filePath)) {
+                    fileCheck = fileInput.files[0];
+                    if (fileCheck) {
+                        $("#document_file1").val('');
+                        $("#ngo_photoPreview").attr('src', '#');
+                        $('#error_msg_alert_doc1').text('');
+                        $('#error_msg_alert_doc1').text('Please upload file having extensions jpg, jpeg, png format only.');
+                        fileInput.value = '';
+                        return false;
+                    }
+                } else {
+                    var file = fileInput.files[0];
+                    console.log(file);
+                    if (file.size > 1000005) {
+                        $("#document_file1").val('');
+                        $("#ngo_photoPreview").attr('src', '#');
+                        $('#error_msg_alert_doc1').text('');
+                        $('#error_msg_alert_doc1').text('Please upload files size less than 1 mb.');
+                        fileInput.value = '';
+                        $('#imagePreview1').empty();
+                        return false;
+                    } else {
+                        var img = element.files[0];
+                        var reader = new FileReader();
+                        reader.onloadend = function() {
+                            $("#document_file1").val(reader.result);
+                        }
+                        reader.readAsDataURL(img);
+                    }
+                }
+            }
+    
+            $('input, textarea, select').on('input change', checkFormValidity);
+            $.validator.addMethod("spcenotallow", function(value, element) {
+                if ("select" === element.nodeName.toLowerCase()) {
+                    var e = $(element).val();
+                    return e && e.length > 0;
+                }
+                return this.checkable(element) ? this.getLength(value, element) > 0 : value.trim().length > 0;
+            }, "Enter Some Text");
         });
+    </script>
 
-        // Trigger 'change' event on '#is_ngo' checkbox to handle initial state
-        $('#is_ngo').trigger('change');
-    });
-</script>
+{{-- <script>
+    document.addEventListener("DOMContentLoaded", function() {
+const getLocationBtn = document.getElementById("getLocationBtn");
+const gpsInput = document.getElementById("gps");
 
-  
+getLocationBtn.addEventListener("click", function() {
+// Check if the browser supports geolocation
+if ("geolocation" in navigator) {
+  // Get the user's current position
+  navigator.geolocation.getCurrentPosition(
+    function(position) {
+      // Extract latitude and longitude
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      // Update the GPS input field with the coordinates
+      gpsInput.value = `${latitude}, ${longitude}`;
+    },
+    function(error) {
+      console.error("Error getting GPS location:", error.message);
+    }
+  );
+} else {
+  console.error("Geolocation is not supported by this browser.");
+}
+});
+});
 
+</script> --}}
     {{-- <script>
         $(document).ready(function() {
             $('#is_ngo').change(function() {

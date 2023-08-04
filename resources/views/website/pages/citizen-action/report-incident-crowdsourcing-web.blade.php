@@ -41,7 +41,7 @@
     <!--Main Content Start-->
     <div class="main-content">
         <!-- Google Map with Contact Form -->
-        <div class="map-form p80">
+        <div class="map-form p60">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 contact-form m80 deprt-txt">
