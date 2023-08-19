@@ -585,6 +585,14 @@ Route::post('/show-terms-conditions', ['as' => 'show-terms-conditions', 'uses' =
 Route::post('/delete-terms-conditions', ['as' => 'delete-terms-conditions', 'uses' => 'App\Http\Controllers\Admin\Footer\TermsConditionController@destroy']);
 // Route::post('/update-one-terms-conditions', ['as' => 'update-one-terms-conditions', 'uses' => 'App\Http\Controllers\Admin\Footer\TermsConditionController@updateOne']);
 
+Route::get('/list-contact-department', ['as' => 'list-contact-department', 'uses' => 'App\Http\Controllers\Admin\Footer\WebsiteContactDepartmentController@index']);
+Route::get('/add-contact-department', ['as' => 'add-contact-department', 'uses' => 'App\Http\Controllers\Admin\Footer\WebsiteContactDepartmentController@add']);
+Route::post('/add-contact-department', ['as' => 'add-contact-department', 'uses' => 'App\Http\Controllers\Admin\Footer\WebsiteContactDepartmentController@store']);
+Route::get('/edit-contact-department/{edit_id}', ['as' => 'edit-contact-department', 'uses' => 'App\Http\Controllers\Admin\Footer\WebsiteContactDepartmentController@edit']);
+Route::post('/update-contact-department', ['as' => 'update-contact-department','uses' => 'App\Http\Controllers\Admin\Footer\WebsiteContactDepartmentController@update']);
+Route::post('/show-contact-department', ['as' => 'show-contact-department', 'uses' => 'App\Http\Controllers\Admin\Footer\WebsiteContactDepartmentController@show']);
+Route::post('/delete-contact-department', ['as' => 'delete-contact-department', 'uses' => 'App\Http\Controllers\Admin\Footer\WebsiteContactDepartmentController@destroy']);
+Route::post('/update-one-contact-department', ['as' => 'update-one-contact-department', 'uses' => 'App\Http\Controllers\Admin\Footer\WebsiteContactDepartmentController@updateOne']);
 //====Header Vacancies=====
 Route::get('/list-header-vacancies', ['as' => 'list-header-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@index']);
 Route::get('/add-header-vacancies', ['as' => 'add-header-vacancies', 'uses' => 'App\Http\Controllers\Admin\Header\VacanciesHeaderController@add']);

@@ -59,6 +59,22 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <label>Email Address :</label>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label>{{ strip_tags($volunteercitizen->email_id) }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <label>Blood Group :</label>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label>{{ strip_tags($volunteercitizen->blood_group) }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
                                             <label>Description :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">

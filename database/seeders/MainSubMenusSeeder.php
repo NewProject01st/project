@@ -65,6 +65,18 @@ class MainSubMenusSeeder extends Seeder
             'is_active' => true,
            
         ]);
+        MainSubMenus::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'main_menu_id' => 2,
+            'menu_name_english' => 'Nashik District Disaster management organization Chart',
+            'menu_name_marathi' => 'नाशिक जिल्हा आपत्ती व्यवस्थापन संस्था चार्ट',
+            'url'=>'state-disaster-management-authority-web',
+            'order_no' => 4,
+            'is_static'=>true,
+            'is_active' => true,
+           
+        ]);
 
         MainSubMenus::create([
             'created_at' => \Carbon\Carbon::now(),
@@ -226,7 +238,56 @@ class MainSubMenusSeeder extends Seeder
             'is_active' => true,
            
         ]);
+        MainSubMenus::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'main_menu_id' => 4,
+            'menu_name_english' => 'COVID Instructions for Public Safety',
+            'menu_name_marathi' => 'सार्वजनिक सुरक्षिततेसाठी COVID सूचना',
+            'order_no' => 5,
+            'url'=>'list-awareness-education-web',
+            'is_static'=>true,
+            'is_active' => true,
+           
+        ]);
+        MainSubMenus::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'main_menu_id' => 4,
+            'menu_name_english' => 'Blood Bank List As Per Government Of Maharashtra Blood Transfusion Council',
+            'menu_name_marathi' => 'महाराष्ट्र शासनाच्या रक्त संक्रमण परिषदेनुसार रक्तपेढीची यादी',
+            'order_no' => 6,
+            'url'=>'list-awareness-education-web',
+            'is_static'=>true,
+            'is_active' => true,
+           
+        ]);
+        MainSubMenus::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'main_menu_id' => 4,
+            'menu_name_english' => 'Indian Standards In Disaster Management',
+            'menu_name_marathi' => 'आपत्ती व्यवस्थापनातील भारतीय मानके',
+            'order_no' => 7,
+            'url'=>'list-awareness-education-web',
+            'is_static'=>true,
+            'is_active' => true,
+           
+        ]);
 
+        MainSubMenus::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'main_menu_id' => 4,
+            'menu_name_english' => 'List of Govt Hospitals in Nashik',
+            'menu_name_marathi' => 'नाशिकमधील शासकीय रुग्णालयांची यादी',
+            'order_no' => 8,
+            'url'=>'list-awareness-education-web',
+            'is_static'=>true,
+            'is_active' => true,
+           
+        ]);
+        
         MainSubMenus::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
@@ -305,6 +366,30 @@ class MainSubMenusSeeder extends Seeder
             'is_active' => true,
            
         ]);
+        MainSubMenus::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'main_menu_id' => 5,
+            'menu_name_english' => 'Nashik City Emergency Operations Center Primary Responsibilities',
+            'menu_name_marathi' => 'नाशिक शहर आपत्कालीन ऑपरेशन केंद्राच्या प्राथमिक जबाबदाऱ्या',
+            'order_no' => 7,
+            'url'=>'list-evacuation-plans-web',
+            'is_static'=>true,
+            'is_active' => true,
+           
+        ]);
+        MainSubMenus::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'main_menu_id' => 5,
+            'menu_name_english' => 'Functionality of alerting by Emergency Operation Centers',
+            'menu_name_marathi' => 'आपत्कालीन ऑपरेशन केंद्रांद्वारे सतर्कतेची कार्यक्षमता',
+            'order_no' => 7,
+            'url'=>'list-evacuation-plans-web',
+            'is_static'=>true,
+            'is_active' => true,
+           
+        ]);
 
         MainSubMenus::create([
             'created_at' => \Carbon\Carbon::now(),
@@ -358,6 +443,18 @@ class MainSubMenusSeeder extends Seeder
            
         ]);
 
+        MainSubMenus::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'main_menu_id' => 7,
+            'menu_name_english' => 'NDRF Annual Training Calendar two thousand twenty three',
+            'menu_name_marathi' => 'NDRF वार्षिक प्रशिक्षण दिनदर्शिका दोन हजार तेवीस',
+            'order_no' => 3,
+            'url'=>'list-past-training-event-web',
+            'is_static'=>true,
+            'is_active' => true,
+           
+        ]);
         MainSubMenus::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
@@ -454,10 +551,23 @@ class MainSubMenusSeeder extends Seeder
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
             'main_menu_id' => 9,
-            'menu_name_english' => 'Training Materials And Workshops',
-            'menu_name_marathi' => 'प्रशिक्षण साहित्य आणि कार्यशाळा',
+            'menu_name_english' => 'Trainings Material',
+            'menu_name_marathi' => 'प्रशिक्षण साहित्य',
             'url'=>'list-training-materials-workshops-web',
             'order_no' => 4,
+            'is_static'=>true,
+            'is_active' => true,
+           
+        ]);
+
+        MainSubMenus::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'main_menu_id' => 9,
+            'menu_name_english' => 'Godavari Basin Water flow Capacity Map',
+            'menu_name_marathi' => 'गोदावरी खोऱ्यातील पाणी प्रवाह क्षमता नकाशा',
+            'url'=>'list-training-materials-workshops-web',
+            'order_no' => 5,
             'is_static'=>true,
             'is_active' => true,
            
@@ -520,8 +630,8 @@ class MainSubMenusSeeder extends Seeder
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
             'main_menu_id' => 11,
-            'menu_name_english' => 'Contact Information For SDMA',
-            'menu_name_marathi' => 'SDMA साठी संपर्क माहिती',
+            'menu_name_english' => 'Contact Information',
+            'menu_name_marathi' => 'संपर्क माहिती',
             'order_no' => 1,
             'url'=>'contact-information',
             'is_static'=>true,

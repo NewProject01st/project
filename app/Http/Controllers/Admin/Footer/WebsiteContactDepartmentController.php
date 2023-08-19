@@ -1,57 +1,55 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Home;
+namespace App\Http\Controllers\Admin\Footer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\WebsiteContact;
-use App\Http\Services\Admin\Home\WebsiteContactServices;
+use App\Http\Services\Admin\Footer\WebsiteContactDepartmentServices;
 use Validator;
-class WebsiteContactController extends Controller
+class WebsiteContactDepartmentController extends Controller
 {
 
    public function __construct()
     {
-        $this->service = new WebsiteContactServices();
+        $this->service = new WebsiteContactDepartmentServices();
     }
     public function index()
     {
         try {
-            $website_contact = $this->service->getAll();
-            return view('admin.pages.home.website_contact.list-contact', compact('website_contact'));
+            $website_contact_department = $this->service->getAll();
+            return view('admin.pages.footer.website-contact-department.list-contact-department', compact('website_contact_department'));
         } catch (\Exception $e) {
             return $e;
         }
     }
     public function add()
     {
-        return view('admin.pages.home.website_contact.add-contact');
+        return view('admin.pages.footer.website-contact-department.add-contact-department');
     }
 
     public function store(Request $request) {
         $rules = [
-            'english_address' => 'required|max:255',
-            'marathi_address' => 'required|max:255',  
-            'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
-            'english_number' => [
-                'required',
-                // 'regex:/^[+]?[0-9-()\/\s]{7,25}$/',
-            ],
-            'marathi_number' => 'required|max:25',
-            // 'marathi_icon' => 'required',
+            'department_english_name' => 'required|max:25',
+            'department_marathi_name' => 'required|max:25',
+            'department_english_address' => 'required|max:255',
+            'department_marathi_address' => 'required|max:255',
+            'department_email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
+            'department_english_contact_number' => 'required',
+            'department_marathi_contact_number' => 'required',
             
          ];
     $messages = [  
-            'english_address.required' => 'Please enter address.',
-            'english_address.max'   => 'Please  enter address length upto 255 character only.',
-            'marathi_address.required' => 'कृपया पत्ता प्रविष्ट करा.',
-            'marathi_address.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',        
-            'email.required' => 'Please enter email.',
-            'email.regex' => 'Enter valid email.',
-            'english_number.required' => 'Please enter number.',
-            'marathi_number.required' => 'कृपया क्रमांक प्रविष्ट करा ',
-            // 'english_number.regex' => 'Please enter valid number.',
-            'marathi_number.max' => 'कृपया क्रमांक बरोबर  प्रविष्ट करा. ',
+        'department_english_name.required' => 'Please enter name.',
+        'department_marathi_name.required' => 'कृपया नाव प्रविष्ट करा',
+        'department_english_address.required' => 'Please enter address.',
+        'department_english_address.max'   => 'Please  enter address length upto 255 character only.',
+        'department_marathi_address.required' => 'कृपया पत्ता प्रविष्ट करा.',
+        'department_marathi_address.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',  
+        'department_email.required' => 'required',
+        'department_email.regex' => 'Enter valid email.',
+        'department_english_contact_number.required' => 'Please enter mobile number.',
+        'department_marathi_contact_number.required' => 'कृपया मोबाईल नंबर टाका',
  
     ];  
 
@@ -59,7 +57,7 @@ class WebsiteContactController extends Controller
         $validation = Validator::make($request->all(),$rules,$messages);
         if($validation->fails() )
         {
-            return redirect('add-website-contact')
+            return redirect('add-contact-department')
                 ->withInput()
                 ->withErrors($validation);
         }
@@ -74,54 +72,40 @@ class WebsiteContactController extends Controller
                 $msg = $add_general_contact['msg'];
                 $status = $add_general_contact['status'];
                 if($status=='success') {
-                    return redirect('list-website-contact')->with(compact('msg','status'));
+                    return redirect('list-contact-department')->with(compact('msg','status'));
                 }
                 else {
-                    return redirect('add-website-contact')->withInput()->with(compact('msg','status'));
+                    return redirect('add-contact-department')->withInput()->with(compact('msg','status'));
                 }
             }
 
         }
     } catch (Exception $e) {
-        return redirect('add-website-contact')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+        return redirect('add-contact-department')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
 }
     
     public function edit(Request $request)
     {
         $edit_data_id = base64_decode($request->edit_id);
-        $website_contact = $this->service->getById($edit_data_id);
-        return view('admin.pages.home.website_contact.edit-contact', compact('website_contact'));
+        $website_contact_department = $this->service->getById($edit_data_id);
+        return view('admin.pages.footer.website-contact-department.edit-contact-department', compact('website_contact_department'));
     }
     public function update(Request $request)
 {
     $rules = [
-        'english_address' => 'required|max:255',
-        'marathi_address' => 'required|max:255',
-        'email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
-        'english_number' => [
-            'required',
-            // 'numeric',
-            // 'regex:/^[+]?[0-9-()\/\s]{7,25}$/',
-        ],
-        'marathi_number' => 'required|max:25',
+        'department_english_name' => 'required|max:25',
+        'department_marathi_name' => 'required|max:25',
         'department_english_address' => 'required|max:255',
         'department_marathi_address' => 'required|max:255',
         'department_email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
         'department_english_contact_number' => 'required',
         'department_marathi_contact_number' => 'required',
+        
      ];
     $messages = [   
-        'english_address.required' => 'Please enter address.',
-        'english_address.max'   => 'Please  enter address length upto 255 character only.',
-        'marathi_address.required' => 'कृपया पत्ता प्रविष्ट करा.',
-        'marathi_address.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',    
-        'email.required' => 'required',
-        'email.regex' => 'Enter valid email.',
-        'english_number.required' => 'Please enter number.',
-        'marathi_number.required' => 'कृपया क्रमांक प्रविष्ट करा ',
-        // 'english_number.regex' => 'Please enter valid number.',
-        'marathi_number.max' => 'कृपया क्रमांक बरोबर  प्रविष्ट करा. ',
+        'department_english_name.required' => 'Please enter name.',
+        'department_marathi_name.required' => 'कृपया नाव प्रविष्ट करा',
         'department_english_address.required' => 'Please enter address.',
         'department_english_address.max'   => 'Please  enter address length upto 255 character only.',
         'department_marathi_address.required' => 'कृपया पत्ता प्रविष्ट करा.',
@@ -144,7 +128,7 @@ class WebsiteContactController extends Controller
                 $msg = $update_contact['msg'];
                 $status = $update_contact['status'];
                 if ($status == 'success') {
-                    return redirect('list-website-contact')->with(compact('msg', 'status'));
+                    return redirect('list-contact-department')->with(compact('msg', 'status'));
                 } else {
                     return redirect()->back()
                         ->withInput()
@@ -161,8 +145,8 @@ class WebsiteContactController extends Controller
 public function show(Request $request)
     {
         try {
-            $website_contact = $this->service->getById($request->show_id);
-            return view('admin.pages.home.website_contact.show-contact', compact('website_contact'));
+            $website_contact_department = $this->service->getById($request->show_id);
+            return view('admin.pages.footer.website-contact-department.show-contact-department', compact('website_contact_department'));
         } catch (\Exception $e) {
             return $e;
         }
@@ -173,8 +157,10 @@ public function updateOne(Request $request)
 {
     try {
         $active_id = $request->active_id;
+        
     $result = $this->service->updateOne($active_id);
-        return redirect('list-website-contact')->with('flash_message', 'Updated!');  
+ 
+        return redirect('list-contact-department')->with('flash_message', 'Updated!');  
     } catch (\Exception $e) {
         return $e;
     }
@@ -188,7 +174,7 @@ public function destroy(Request $request){
             $msg = $contact['msg'];
             $status = $contact['status'];
             if ($status == 'success') {
-                return redirect('list-website-contact')->with(compact('msg', 'status'));
+                return redirect('list-contact-department')->with(compact('msg', 'status'));
             } else {
                 return redirect()->back()
                     ->withInput()

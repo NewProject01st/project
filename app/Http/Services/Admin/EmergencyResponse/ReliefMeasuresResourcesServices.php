@@ -59,8 +59,8 @@ class ReliefMeasuresResourcesServices{
                         removeImage(Config::get('DocumentConstant.RELIEF_MEASURES_RESOURCES_DELETE') . $return_data['english_image']);
                     }
                 }
-    
-                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                $randomNumber = rand(100000, 999999);
+                $englishImageName = $return_data['last_insert_id'] . '_' . $randomNumber . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
                
                 $relief_measures_data = ReliefMeasuresResources::find($return_data['last_insert_id']);
@@ -75,8 +75,8 @@ class ReliefMeasuresResourcesServices{
                     }    
 
                  }
-    
-                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                 $randomNumber1 = rand(100000, 999999);
+                $marathiImageName = $return_data['last_insert_id'] . '_' . $randomNumber1 . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
 
                 $relief_measures_data = ReliefMeasuresResources::find($return_data['last_insert_id']);

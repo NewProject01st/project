@@ -157,17 +157,17 @@
                                 <div class="col-md-8">
 
                                 </div>
+                                <div class="col-md-4 captcha_set" id="g_recaptcha_response"
+                                        style="text-align: -webkit-right;">
+                                        {!! NoCaptcha::renderJs() !!}
+                                        {!! NoCaptcha::display() !!}
 
-                                <div class="col-md-4 captcha_set" style="text-align: -webkit-right;">
-                                    {!! NoCaptcha::renderJs() !!}
-                                    {!! NoCaptcha::display() !!}
-
-                                    @if ($errors->has('g-recaptcha-response'))
-                                        <span class="help-block">
-                                            <span class="red-text">{{ $errors->first('g-recaptcha-response') }}</span>
-                                        </span>
-                                    @endif
-                                </div>
+                                        @if ($errors->has('g-recaptcha-response'))
+                                            <span class="help-block">
+                                                <span class="red-text">{{ $errors->first('g-recaptcha-response') }}</span>
+                                            </span>
+                                        @endif
+                                    </div>
 
                                 <div class="col-md-8">
 
@@ -175,7 +175,7 @@
 
                                 <div class=" col-md-4 mt-4">
                                     <button type="submit" class="btn btn-primary new_modal_page_btn" id="submitButton"
-                                        style="float: right;width:300px" disabled>
+                                        style="float: right;width:300px">
                                         @if (session('language') == 'mar')
                                             {{ Config::get('marathi.CONTACT_US.FORM_SEND') }}
                                         @else
@@ -185,6 +185,8 @@
 
 
                                 </div>
+
+                                
                             </div>
                         </form>
                     </div>
@@ -201,34 +203,12 @@
         <!-- Google Map with Contact Form End -->
     </div>
     <!--Main Content End-->
-<script>
-       $(document).ready(function() {
-        $("input#document_file").hide();
-        // Function to check if all input fields are filled with valid data
-        function checkFormValidity() {
+    <script>
+        $(document).ready(function() {
 
-            if ($("#regForm").valid()) {
-                $('#submitButton').prop('disabled', false);
-            } else {
-                $('#submitButton').prop('disabled', true);
-            }
-        }
-
-        $('input, textarea, select').on('input change', checkFormValidity);
-        $.extend($.validator.methods, {
-            spcenotallow: function(b, c, d) {
-                if (!this.depend(d, c)) return "dependency-mismatch";
-                if ("select" === c.nodeName.toLowerCase()) {
-                    var e = a(c).val();
-                    return e && e.length > 0
-                }
-                return this.checkable(c) ? this.getLength(b, c) > 0 : b.trim().length > 0
-            }
-        });
-
-        // Initialize the form validation
-        $("#regForm").validate({
-            rules: {
+            $("#regForm").validate({
+                errorClass: "error",
+                rules: {
                     full_name: {
                         required: true,
                         spcenotallow: true,
@@ -280,90 +260,43 @@
                         required: "Enter the Suggestion",
                         spcenotallow: "Enter Some Text",
                     },
-                },            
-        });
-    });
-</script>
-{{-- 
-    <script>
-        $(document).ready(function() {
-            // Function to check if all input fields are filled with valid data
-            function checkFormValidity() {
-                const full_name = $('#full_name').val();
-                const email = $('#email').val();
-                const mobile_number = $('#mobile_number').val();
-                const contact_type = $('#contact_type').val(); // Get the value of the file input
-                const subject = $('#subject').val();
-                const suggestion = $('#suggestion').val();
-
-                // Enable the submit button if all fields are valid
-                if (full_name && email && mobile_number && mobile_number && contact_type && subject && suggestion) {
-                    $('#submitButton').prop('disabled', false);
-                } else {
-                    $('#submitButton').prop('disabled', true);
+                },   
+                highlight: function(element, errorClass) {
+                    $(element).removeClass(errorClass);
+                },
+                submitHandler: function(form) {
+                    // Check if reCAPTCHA challenge is completed
+                    if (grecaptcha.getResponse() === "") {
+                        alert("Please complete the reCAPTCHA challenge.");
+                    } else {
+                        // Proceed with form submission
+                        form.submit();
+                    }
                 }
+            });
+
+
+            if ((grecaptcha.getResponse().length === 0) && $("#regForm").valid()) {
+                $('#submitButton').prop('disabled', true);
+            } else {
+                $('#submitButton').prop('disabled', false);
             }
 
-            // Call the checkFormValidity function on input change
-            $('input, textarea, select').on('input change', checkFormValidity);
-
-            // Initialize the form validation
-            $("#regForm").validate({
-                rules: {
-                    full_name: {
-                        required: true,
-                    },
-                    email: {
-                        required: true,
-                    },
-                    mobile_number: {
-                        required: true,
-                        pattern: /[789][0-9]{9}/,
-                        remote: {
-                            url: '/web/check-mobile-number-exists',
-                            type: 'post',
-                            data: {
-                                mobile_number: function() {
-                                    return $('#mobile_number').val();
-                                }
-                            }
-                        }
-                    },
-                    contact_type: {
-                        required: true,
-                    },
-                    subject: {
-                        required: true,
-                    },
-                    suggestion: {
-                        required: true,
-                    },
-                },
-                messages: {
-                    full_name: {
-                        required: "Please Enter Full Name",
-                    },
-                    email: {
-                        required: "Enter the Email Id",
-                    },
-                    mobile_number: {
-                        required: "Enter Mobile Number",
-                        pattern: "Invalid Mobile Number",
-                        remote: "This mobile number already exists."
-                    },
-                    contact_type: {
-                        required: "Select the Contact Type",
-                    },
-                    subject: {
-                        required: "Enter the Subject",
-                    },
-                    suggestion: {
-                        required: "Enter the Suggestion",
-                    },
-                },
-            });
+            $("input#document_file").hide();
+           
         });
-    </script> --}}
+
+        $.extend($.validator.methods, {
+            spcenotallow: function(b, c, d) {
+                if (!this.depend(d, c)) return "dependency-mismatch";
+                if ("select" === c.nodeName.toLowerCase()) {
+                    var e = a(c).val();
+                    return e && e.length > 0
+                }
+                return this.checkable(c) ? this.getLength(b, c) > 0 : b.trim().length > 0
+            }
+        });
+    </script>
 @endsection
 {{-- @extends('website.layout.navbar')
 @extends('website.layout.header') --}}

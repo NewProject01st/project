@@ -134,7 +134,7 @@
                                         @endif
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <label class="col-form-label modal_label">
+                                        <label class="col-form-label modal_lable">
                                             @if (session('language') == 'mar')
                                                 {{ Config::get('marathi.CITIZEN_ACTION.FORM_MOBILE_NUMBER') }}
                                             @else
@@ -148,6 +148,70 @@
                                             maxlength="10" minlength="10" value="{{ old('mobile_number') }}">
                                         @if ($errors->has('mobile_number'))
                                             <span class="red-text">{{ $errors->first('mobile_number') }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="email_id" class="col-form-label modal_lable">
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.CITIZEN_ACTION.FORM_EMAIL_ID') }}
+                                            @else
+                                                {{ Config::get('english.CITIZEN_ACTION.FORM_EMAIL_ID') }}
+                                            @endif
+
+                                        </label>
+                                        <input type="email" class="form-control set_m_form" name="email_id" id="email_id"
+                                            value="{{ old('email_id') }}">
+
+                                        @if ($errors->has('email_id'))
+                                            <span class="red-text"><?php echo $errors->first('email_id', ':message'); ?></span>
+                                        @endif
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="blood_group" class="col-form-label modal_lable">
+                                            @if (session('language') == 'mar')
+                                                {{ Config::get('marathi.CITIZEN_ACTION.FORM_BLOOD_GROUP') }}
+                                            @else
+                                                {{ Config::get('english.CITIZEN_ACTION.FORM_BLOOD_GROUP') }}
+                                            @endif
+                                        </label>
+                                        <select class="form-control set_m_form" id="blood_group" name="blood_group">
+                                            <option value="">Select</option>
+                                            <option value="A+"
+                                                @if (old('blood_group') == 'A+') {{ 'selected' }} @endif>
+                                                A+
+                                            </option>
+                                            <option value="A-"
+                                                @if (old('blood_group') == 'A-') {{ 'selected' }} @endif>
+                                                A-
+                                            </option>
+                                            <option value="B+"
+                                                @if (old('blood_group') == 'B+') {{ 'selected' }} @endif>
+                                                B+
+                                            </option>
+                                            <option value="B-"
+                                                @if (old('blood_group') == 'B-') {{ 'selected' }} @endif>
+                                                B-
+                                            </option>
+
+                                            <option value="O+"
+                                                @if (old('blood_group') == 'O+') {{ 'selected' }} @endif>
+                                                O+
+                                            </option>
+                                            <option value="O-"
+                                                @if (old('blood_group') == 'O-') {{ 'selected' }} @endif>
+                                                O-
+                                            </option>
+                                            <option value="AB+"
+                                                @if (old('blood_group') == 'AB+') {{ 'selected' }} @endif>
+                                                AB+
+                                            </option>
+                                            <option value="AB-"
+                                                @if (old('blood_group') == 'AB-') {{ 'selected' }} @endif>
+                                                AB-
+                                            </option>
+                                        </select>
+                                        @if ($errors->has('blood_group'))
+                                            <span class="red-text"><?php echo $errors->first('blood_group', ':message'); ?></span>
                                         @endif
                                     </div>
                                     <div class="col-md-12 mb-4">
@@ -174,10 +238,10 @@
                                             <span class="red-text">*</span>
                                         </label><br>
                                         <input type="file" name="media_upload" id="media_upload"
-                                            onchange="encodeImgtoBase64(this)"> 
+                                            onchange="encodeImgtoBase64(this)">
                                         <input type="text" name="document_file" id="document_file"><br>
                                         <span id="error_msg_alert_doc"style="color: red;"></span>
-                                         <br>
+                                        <br>
 
 
                                         @if ($errors->has('media_upload'))
@@ -241,8 +305,8 @@
                                                         @endif
                                                         <span class="red-text">*</span>
                                                     </label>
-                                                    <input type="input" class="form-control set_m_form" name="ngo_email"
-                                                        id="ngo_email" value="{{ old('ngo_email') }}">
+                                                    <input type="input" class="form-control set_m_form"
+                                                        name="ngo_email" id="ngo_email" value="{{ old('ngo_email') }}">
 
                                                     @if ($errors->has('ngo_email'))
                                                         <span class="red-text"><?php echo $errors->first('ngo_email', ':message'); ?></span>
@@ -259,17 +323,20 @@
                                                         @endif
                                                         <span class="red-text">*</span>
                                                     </label>
-                                                    <input type="text" class="form-control set_m_form" name="ngo_contact_number"
-                                                        id="ngo_contact_number" pattern="[789]{1}[0-9]{9}"
+                                                    <input type="text" class="form-control set_m_form"
+                                                        name="ngo_contact_number" id="ngo_contact_number"
+                                                        pattern="[789]{1}[0-9]{9}"
                                                         oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
-                                                        maxlength="10" minlength="10" value="{{ old('ngo_contact_number') }}">
+                                                        maxlength="10" minlength="10"
+                                                        value="{{ old('ngo_contact_number') }}">
                                                     @if ($errors->has('ngo_contact_number'))
-                                                        <span class="red-text">{{ $errors->first('ngo_contact_number') }}</span>
+                                                        <span
+                                                            class="red-text">{{ $errors->first('ngo_contact_number') }}</span>
                                                     @endif
                                                 </div>
 
 
-                                               
+
                                                 <div class="col-md-8 mb-4">
                                                     <label class="col-form-label modal_lable">
                                                         @if (session('language') == 'mar')
@@ -280,17 +347,18 @@
                                                         <span class="red-text">*</span>
                                                     </label><br>
                                                     <input type="file" name="ngo_photo" id="ngo_photo"
-                                                        onchange="encodeImgtoBase64NGO(this)"> 
+                                                        onchange="encodeImgtoBase64NGO(this)">
                                                     <input type="text" name="document_file1" id="document_file1"><br>
                                                     <span id="error_msg_alert_doc1"style="color: red;"></span>
-                                                     <br>
-            
-            
+                                                    <br>
+
+
                                                     @if ($errors->has('ngo_photo'))
                                                         <span class="red-text"><?php echo $errors->first('ngo_photo', ':message'); ?></span>
                                                     @endif
                                                     <img id="ngo_photoPreview" src="#" alt="Image"
-                                                        class="img-fluid img-thumbnail mt-3" width="150" style="display:none">
+                                                        class="img-fluid img-thumbnail mt-3" width="150"
+                                                        style="display:none">
                                                 </div>
                                                 <div class="col-md-12 mb-4">
                                                     <label class="col-form-label modal_lable">
@@ -324,8 +392,8 @@
                                     </div>
                                     <div class="d-flex justify-content-end">
                                         <div class="modal-footer mt-4" style="float: right;width:300px">
-                                            <button type="submit" class="btn btn-primary new_modal_page_btn" id="submitButton"
-                                                disabled>
+                                            <button type="submit" class="btn btn-primary new_modal_page_btn"
+                                                id="submitButton">
                                                 @if (session('language') == 'mar')
                                                     {{ Config::get('marathi.CITIZEN_ACTION.FORM_SEND') }}
                                                 @else
@@ -358,28 +426,26 @@
         $(document).ready(function() {
             $("input#document_file").hide();
             $("input#document_file1").hide();
-    
-            // Function to check if all input fields are filled with valid data
-            function checkFormValidity() {
-                if ($("#regForm").valid()) {
-                    $('#submitButton').prop('disabled', false);
-                } else {
-                    $('#submitButton').prop('disabled', true);
-                }
-            }
-    
-            // Check if NGO-related fields are relevant based on 'is_ngo' checkbox
+
             $('#is_ngo').change(function() {
-                if ($(this).is(':checked')) {
-                    $('.hiddenField').show();
-                    setNgoValidationRules(true);
-                } else {
-                    $('.hiddenField').hide();
-                    setNgoValidationRules(false);
-                }
-                checkFormValidity(); // Call the function to update the submit button state
-            });
-    
+            if ($(this).is(':checked')) {
+                $('.hiddenField').show();
+                setNgoValidationRules(true);
+            } else {
+                $('.hiddenField').hide();
+                setNgoValidationRules(false);
+            }
+            checkFormValidity(); // Call the function to update the submit button state
+        });
+
+        function checkFormValidity() {
+            if ((grecaptcha.getResponse().length === 0) || !$("#regForm").valid()) {
+                // $('#submitButton').prop('disabled', true); // Remove this line
+            } else {
+                // $('#submitButton').prop('disabled', false); // Remove this line
+            }
+        }
+
             function setNgoValidationRules(applyValidation) {
                 $("#regForm").validate().settings.rules.ngo_name.required = applyValidation;
                 $("#regForm").validate().settings.rules.ngo_email.required = applyValidation;
@@ -388,7 +454,7 @@
                 $("#regForm").validate().settings.rules.ngo_address.required = applyValidation;
                 $("#regForm").valid(); // Trigger validation to update error messages
             }
-    
+
             // Initialize the form validation
             $("#regForm").validate({
                 rules: {
@@ -466,8 +532,20 @@
                         required: "Please enter your NGO address.",
                     },
                 },
+                highlight: function(element, errorClass) {
+                    $(element).removeClass(errorClass);
+                },
+                submitHandler: function(form) {
+                    // Check if reCAPTCHA challenge is completed
+                    if (grecaptcha.getResponse() === "") {
+                        alert("Please complete the reCAPTCHA challenge.");
+                    } else {
+                        // Proceed with form submission
+                        form.submit();
+                    }
+                }
             });
-    
+
             // Function to encode image to Base64
             function encodeImgtoBase64(element) {
                 $('#error_msg_alert_doc').text('');
@@ -482,7 +560,8 @@
                         $("#document_file").val('');
                         $("#media_imgPreview").attr('src', '#');
                         $('#error_msg_alert_doc').text('');
-                        $('#error_msg_alert_doc').text('Please upload file having extensions jpg, jpeg, png format only.');
+                        $('#error_msg_alert_doc').text(
+                            'Please upload file having extensions jpg, jpeg, png format only.');
                         fileInput.value = '';
                         return false;
                     }
@@ -521,7 +600,8 @@
                         $("#document_file1").val('');
                         $("#ngo_photoPreview").attr('src', '#');
                         $('#error_msg_alert_doc1').text('');
-                        $('#error_msg_alert_doc1').text('Please upload file having extensions jpg, jpeg, png format only.');
+                        $('#error_msg_alert_doc1').text(
+                            'Please upload file having extensions jpg, jpeg, png format only.');
                         fileInput.value = '';
                         return false;
                     }
@@ -546,19 +626,30 @@
                     }
                 }
             }
-    
             $('input, textarea, select').on('input change', checkFormValidity);
-            $.validator.addMethod("spcenotallow", function(value, element) {
-                if ("select" === element.nodeName.toLowerCase()) {
-                    var e = $(element).val();
-                    return e && e.length > 0;
-                }
-                return this.checkable(element) ? this.getLength(value, element) > 0 : value.trim().length > 0;
-            }, "Enter Some Text");
-        });
+        $.validator.addMethod("spcenotallow", function(value, element) {
+            if ("select" === element.nodeName.toLowerCase()) {
+                var e = $(element).val();
+                return e && e.length > 0;
+            }
+            return this.checkable(element) ? this.getLength(value, element) > 0 : value.trim().length >
+                0;
+        }, "Enter Some Text");
+    });
+
+            // $('input, textarea, select').on('input change', checkFormValidity);
+            // $.validator.addMethod("spcenotallow", function(value, element) {
+            //     if ("select" === element.nodeName.toLowerCase()) {
+            //         var e = $(element).val();
+            //         return e && e.length > 0;
+            //     }
+            //     return this.checkable(element) ? this.getLength(value, element) > 0 : value.trim().length >
+            //         0;
+            // }, "Enter Some Text");
+        // });
     </script>
 
-{{-- <script>
+    {{-- <script>
     document.addEventListener("DOMContentLoaded", function() {
 const getLocationBtn = document.getElementById("getLocationBtn");
 const gpsInput = document.getElementById("gps");

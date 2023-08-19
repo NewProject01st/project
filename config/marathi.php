@@ -34,9 +34,11 @@ return [
 		'VIDEO' =>'व्हिडिओ',
 		'VIDEO_MESSAGE'   => 'व्हिडिओसाठी कोणताही डेटा आढळला नाही.',
 		'GALLERY' =>'गॅलरी',
-		'TRAINING_MATERIALS_WORKSHOP' =>'प्रशिक्षण साहित्य आणि कार्यशाळा',
+		'TRAINING_MATERIALS_WORKSHOP' =>'प्रशिक्षण',
 		'SUCCESS_STORIES' =>'यशोगाथा',
 		'CONTACT_INFORMATION_FOR_SDMA' =>'संपर्क माहिती',
+		'CONTACT_INFORMATION_FOR_SDMA_DIVISION' =>'विभाग संपर्क माहिती',
+		'CONTACT_INFORMATION_FOR_SDMA_DEPARTMENT' =>'विभाग संपर्क माहिती',
 
 	],
 
@@ -141,6 +143,8 @@ return [
 		'FORM_INCIDENT_LOCATION'   => 'स्थान',
 		'FORM_DATE_AND_TIME'   => 'तारीख आणि वेळ',
 		'FORM_MOBILE_NUMBER'   => 'मोबाईल क्रमांक',
+		'FORM_EMAIL_ID'   => 'ईमेल पत्ता',
+		'FORM_BLOOD_GROUP'   => 'रक्त गट',
 		'FORM_DESCRIPTION'   => 'वर्णन',
 		'FORM_MEDIA_UPLOAD'   => 'मीडिया अपलोड',
 		'FORM_SEND'   => 'पाठवा	',

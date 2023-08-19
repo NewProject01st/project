@@ -175,10 +175,10 @@
                                             <span class="red-text">*</span>
                                         </label><br>
                                         <input type="file" name="media_upload" id="media_upload"
-                                            onchange="encodeImgtoBase64(this)"> 
-                                        <input type="text" name="document_file" id="document_file"><br>
+                                            onchange="encodeImgtoBase64(this)">
+                                        {{-- <input type="text" name="document_file" id="document_file"><br> --}}
                                         <span id="error_msg_alert_doc"style="color: red;"></span>
-                                         <br>
+                                        <br>
 
 
                                         @if ($errors->has('media_upload'))
@@ -198,11 +198,9 @@
                                             </span>
                                         @endif
                                     </div>
-
                                 </div>
                                 <div class="modal-footer mt-4" style="float: right;width:300px">
-                                    <button type="submit" class="btn btn-primary new_modal_page_btn" id="submitButton"
-                                        disabled>
+                                    <button type="submit" class="btn btn-primary new_modal_page_btn" id="submitButton">
                                         @if (session('language') == 'mar')
                                             {{ Config::get('marathi.CITIZEN_ACTION.FORM_SEND') }}
                                         @else
@@ -265,31 +263,9 @@
         }
 
         $(document).ready(function() {
-            $("input#document_file").hide();
-            // Function to check if all input fields are filled with valid data
-            function checkFormValidity() {
 
-                if ($("#regForm").valid()) {
-                    $('#submitButton').prop('disabled', false);
-                } else {
-                    $('#submitButton').prop('disabled', true);
-                }
-            }
-
-            $('input, textarea, select').on('input change', checkFormValidity);
-            $.extend($.validator.methods, {
-                spcenotallow: function(b, c, d) {
-                    if (!this.depend(d, c)) return "dependency-mismatch";
-                    if ("select" === c.nodeName.toLowerCase()) {
-                        var e = a(c).val();
-                        return e && e.length > 0
-                    }
-                    return this.checkable(c) ? this.getLength(b, c) > 0 : b.trim().length > 0
-                }
-            });
-
-            // Initialize the form validation
             $("#regForm").validate({
+                errorClass: "error",
                 rules: {
                     incident: {
                         required: true,
@@ -314,9 +290,7 @@
                         required: true,
                         spcenotallow: true,
                     },
-                    // 'g-recaptcha-response': {
-                    //     required: true,
-                    // },
+                   
                 },
                 messages: {
                     incident: {
@@ -341,12 +315,43 @@
                     },
                     media_upload: {
                         required: "Upload Media File",
-                    },
-                    // 'g-recaptcha-response': {
-                    //     required: "Please complete the reCAPTCHA.",
-                    // },
+                    }
+                   
                 },
+                highlight: function(element, errorClass) {
+                    $(element).removeClass(errorClass);
+                },
+                submitHandler: function(form) {
+                    // Check if reCAPTCHA challenge is completed
+                    if (grecaptcha.getResponse() === "") {
+                        alert("Please complete the reCAPTCHA challenge.");
+                    } else {
+                        // Proceed with form submission
+                        form.submit();
+                    }
+                }
             });
+
+
+            if ((grecaptcha.getResponse().length === 0) && $("#regForm").valid()) {
+                $('#submitButton').prop('disabled', true);
+            } else {
+                $('#submitButton').prop('disabled', false);
+            }
+
+            $("input#document_file").hide();
+           
+        });
+
+        $.extend($.validator.methods, {
+            spcenotallow: function(b, c, d) {
+                if (!this.depend(d, c)) return "dependency-mismatch";
+                if ("select" === c.nodeName.toLowerCase()) {
+                    var e = a(c).val();
+                    return e && e.length > 0
+                }
+                return this.checkable(c) ? this.getLength(b, c) > 0 : b.trim().length > 0
+            }
         });
     </script>
 @endsection

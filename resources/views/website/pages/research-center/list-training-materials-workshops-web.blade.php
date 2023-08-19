@@ -105,7 +105,7 @@
                                     @endif
                                 </tr>
                             @empty
-                                <h4>No Data Found For Training Materials And Workshops</h4>
+                                <h4>No Data Found For Trainings And Workshops</h4>
                             @endforelse
                         </tbody>
                     </table>

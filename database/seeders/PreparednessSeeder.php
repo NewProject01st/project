@@ -44,8 +44,8 @@ class PreparednessSeeder extends Seeder
              <li>कृती नियोजन: धोका आणि असुरक्षिततेच्या मुल्यांकनावर आधारित, ओळखल्या गेलेल्या तफावत दूर करण्यासाठी आणि तयारी वाढवण्यासाठी कृती योजना विकसित केली जाते. या योजनेमध्ये पायाभूत सुविधांमध्ये सुधारणा, पूर्व चेतावणी प्रणाली, निर्वासन योजना, आपत्कालीन प्रतिसाद प्रशिक्षण, समुदाय जागरूकता मोहिमा आणि संसाधनांचे वाटप यासारख्या उपायांचा समावेश असू शकतो.</li>             
              </ul>
             ',
-            'english_image' => '1_english.jpeg',
-            'marathi_image' => '1_marathi.jpeg',
+            'english_image' => '1_english.png',
+            'marathi_image' => '1_marathi.png',
             'is_deleted'=>false,
             'is_active'=>true,
         
@@ -75,8 +75,8 @@ class PreparednessSeeder extends Seeder
              <li>संस्थात्मक समन्वय आणि क्षमता निर्माण: प्रभावी पूर्व चेतावणी प्रणालींना सरकारी संस्था, आपत्ती व्यवस्थापन अधिकारी, वैज्ञानिक संस्था आणि समुदाय संस्थांसह विविध भागधारकांमध्ये समन्वय आवश्यक आहे. कर्मचार्‍यांना प्रशिक्षित करण्यासाठी, प्रतिसाद योजना विकसित करण्यासाठी आणि आणीबाणीच्या काळात अखंड समन्वयासाठी संप्रेषण नेटवर्क स्थापित करण्यासाठी क्षमता निर्माण उपक्रम आवश्यक आहेत.</li>             
              </ul>
             ',
-            'english_image' => '1_english.jpeg',
-            'marathi_image' => '1_marathi.jpeg',
+            'english_image' => '1_english.png',
+            'marathi_image' => '1_marathi.png',
             'is_deleted'=>false,
             'is_active'=>true,
         
@@ -120,8 +120,8 @@ class PreparednessSeeder extends Seeder
              <li><b>समुदाय सज्जता:</b> रहिवाशांना आपत्ती सज्जता, प्रतिसाद प्रक्रिया आणि स्वयं-मदत उपायांबद्दल शिक्षित करण्यासाठी समुदाय स्तरावर प्रशिक्षण सत्र आयोजित करणे. हे समुदायांना आपत्तींचा सामना करण्यासाठी सक्रिय आणि लवचिक होण्यासाठी सक्षम करते.</li>         
              </ul>
             ',
-            'english_image' => '1_english.jpeg',
-            'marathi_image' => '1_marathi.jpeg',
+            'english_image' => '1_english.png',
+            'marathi_image' => '1_marathi.png',
             'is_deleted'=>false,
             'is_active'=>true,
         
@@ -160,8 +160,8 @@ class PreparednessSeeder extends Seeder
             </li>
             </ul>
             ',
-            'english_image' => '1_english.jpeg',
-            'marathi_image' => '1_marathi.jpeg',
+            'english_image' => '1_english.png',
+            'marathi_image' => '1_marathi.png',
             'is_deleted'=>false,
             'is_active'=>true,
         

@@ -10,12 +10,12 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
                             <h3 class="page-title">
-                                Website Contact
+                                Website Department Contact
                             </h3>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
                             <div>
-                                <a href="{{ route('list-website-contact') }}" class="btn btn-sm btn-primary ml-3">Back</a>
+                                <a href="{{ route('list-contact-department') }}" class="btn btn-sm btn-primary ml-3">Back</a>
                             </div>
                         </div>
 
@@ -29,7 +29,23 @@
                                             <label> Address :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ strip_tags($website_contact->english_address) }}</label>
+                                            <label>{{ strip_tags($website_contact_department->department_english_name) }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label> Address :</label>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>{{ strip_tags($website_contact_department->department_marathi_name) }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label> Address :</label>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>{{ strip_tags($website_contact_department->department_english_address) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -37,7 +53,7 @@
                                             <label>पत्ता :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ strip_tags($website_contact->marathi_address) }}</label>
+                                            <label>{{ strip_tags($website_contact_department->department_marathi_address) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -45,7 +61,7 @@
                                             <label>Email :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ strip_tags($website_contact->email) }}</label>
+                                            <label>{{ strip_tags($website_contact_department->department_email) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -53,7 +69,7 @@
                                             <label> Number :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ strip_tags($website_contact->english_number) }}</label>
+                                            <label>{{ strip_tags($website_contact_department->department_english_contact_number) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -61,7 +77,7 @@
                                             <label>क्रमांक :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ strip_tags($website_contact->marathi_number) }}</label>
+                                            <label>{{ strip_tags($website_contact_department->department_marathi_contact_number) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -69,7 +85,7 @@
                                             <label>Department Address :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ strip_tags($website_contact->department_english_address) }}</label>
+                                            <label>{{ strip_tags($website_contact_department->department_english_address) }}</label>
                                         </div>
                                     </div>
 
@@ -78,7 +94,7 @@
                                             <label>विभाग पत्ता :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ strip_tags($website_contact->department_marathi_address) }}</label>
+                                            <label>{{ strip_tags($website_contact_department->department_marathi_address) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -86,7 +102,7 @@
                                             <label>Department Contact Number :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ strip_tags($website_contact->department_english_contact_number) }}</label>
+                                            <label>{{ strip_tags($website_contact_department->department_english_contact_number) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -94,7 +110,7 @@
                                             <label>विभाग संपर्क क्रमांक :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ strip_tags($website_contact->department_marathi_contact_number) }}</label>
+                                            <label>{{ strip_tags($website_contact_department->department_marathi_contact_number) }}</label>
                                         </div>
                                     </div>
 
@@ -103,7 +119,7 @@
                                             <label>Department Email :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ strip_tags($website_contact->department_email) }}</label>
+                                            <label>{{ strip_tags($website_contact_department->department_email) }}</label>
                                         </div>
                                     </div>
                                 </div>

@@ -64,7 +64,8 @@ class ObjectiveGoalsServices
                    }
 
                 }
-                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                $randomNumber = rand(100000, 999999);
+                $englishImageName = $return_data['last_insert_id'] . '_' . $randomNumber . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
                 $disaster_mgt_data = ObjectiveGoals::find($return_data['last_insert_id']);
                 $disaster_mgt_data->english_image = $englishImageName;
@@ -77,7 +78,8 @@ class ObjectiveGoalsServices
                         removeImage(Config::get('DocumentConstant.OBJECTIVE_GOALS_DELETE') . $return_data['marathi_image']);
                     }
                 }
-                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                $randomNumber1 = rand(100000, 999999);
+                $marathiImageName = $return_data['last_insert_id'] . '_' . $randomNumber1 . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
                 $disaster_mgt_data = ObjectiveGoals::find($return_data['last_insert_id']);
                 $disaster_mgt_data->marathi_image = $marathiImageName;

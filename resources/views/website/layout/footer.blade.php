@@ -6,6 +6,7 @@
              $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData();
              ?>
              <!--Footer Widget Start-->
+
              @forelse ($common_data['website_contact_details'] as $item)
                  @if (session('language') == 'mar')
                      <div class="col-md-3 col-sm-6">

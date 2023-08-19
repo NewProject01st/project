@@ -51,8 +51,8 @@ class PrimaryEmergencyContactNumbersSeeder extends Seeder
             // 'marathi_emergency_contact_title' => 'आपत्कालीन संपर्क क्रमांकांची यादी',
             // 'english_emergency_contact_number' => 'Number',
             // 'marathi_emergency_contact_number' => 'Number',
-            'english_image' => '1_english.jpeg',
-            'marathi_image' => '1_marathi.jpeg',
+            'english_image' => '1_english.png',
+            'marathi_image' => '1_marathi.png',
             'is_deleted'=>false,
             'is_active'=>true,
         ]);

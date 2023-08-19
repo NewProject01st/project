@@ -1,29 +1,31 @@
 <?php
-namespace App\Http\Repository\Admin\Home;
+namespace App\Http\Repository\Admin\Footer;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\QueryException;
 use DB;
 use Illuminate\Support\Carbon;
 // use Session;
 use App\Models\ {
-	WebsiteContact
+	WebsiteContactDepartment
 };
-class WebsiteContactRepository  {
+class WebsiteContactDepartmentRepository  {
 	public function getAll(){
         try {
-            return WebsiteContact::all();
+            return WebsiteContactDepartment::all();
         } catch (\Exception $e) {
             return $e;
         }
     }
 	public function addAll($request){
         try {
-            $contact_data = new WebsiteContact();  
-            $contact_data->english_address = $request['english_address'];
-            $contact_data->marathi_address = $request['marathi_address'];
-            $contact_data->email = $request['email'];
-            $contact_data->english_number = $request['english_number'];
-            $contact_data->marathi_number =  $request['marathi_number'];
+            $contact_data = new WebsiteContactDepartment();  
+            $contact_data->department_english_name =  $request['department_english_name'];
+            $contact_data->department_marathi_name =  $request['department_marathi_name'];
+            $contact_data->department_english_address =  $request['department_english_address'];
+            $contact_data->department_marathi_address =  $request['department_marathi_address'];
+            $contact_data->department_email =  $request['department_email'];
+            $contact_data->department_english_contact_number =  $request['department_english_contact_number'];
+            $contact_data->department_marathi_contact_number =  $request['department_marathi_contact_number'];
             $contact_data->save();       
                 
             return $contact_data;
@@ -38,7 +40,7 @@ class WebsiteContactRepository  {
     public function getById($id)
     {
         try {
-            $contact = WebsiteContact::find($id);
+            $contact = WebsiteContactDepartment::find($id);
             if ($contact) {
                 return $contact;
             } else {
@@ -55,7 +57,7 @@ class WebsiteContactRepository  {
     public function updateAll($request)
     {
         try {
-            $contact_data = WebsiteContact::find($request->id);
+            $contact_data = WebsiteContactDepartment::find($request->id);
             
             if (!$contact_data) {
                 return [
@@ -63,11 +65,8 @@ class WebsiteContactRepository  {
                     'status' => 'error'
                 ];
             }
-            $contact_data->english_address = $request['english_address'];
-            $contact_data->marathi_address = $request['marathi_address'];
-            $contact_data->email = $request['email'];
-            $contact_data->english_number = $request['english_number'];
-            $contact_data->marathi_number =  $request['marathi_number'];
+            $contact_data->department_english_name =  $request['department_english_name'];
+            $contact_data->department_marathi_name =  $request['department_marathi_name'];
             $contact_data->department_english_address =  $request['department_english_address'];
             $contact_data->department_marathi_address =  $request['department_marathi_address'];
             $contact_data->department_email =  $request['department_email'];
@@ -90,10 +89,11 @@ class WebsiteContactRepository  {
     public function updateOne($request)
     {
         try {
-            $contact = WebsiteContact::find($request); // Assuming $request directly contains the ID        
+            $contact = WebsiteContactDepartment::find($request); // Assuming $request directly contains the ID        
             if ($contact) {
                 $is_active = $contact->is_active === 1 ? 0 : 1;
                 $contact->is_active = $is_active;
+                
                 $contact->save();
                 return [
                     'msg' => 'Contact updated successfully.',
@@ -114,7 +114,7 @@ class WebsiteContactRepository  {
     public function deleteById($id)
     {
         try {
-            $contact = WebsiteContact::find($id);
+            $contact = WebsiteContactDepartment::find($id);
             if ($contact) {
                 $contact->delete();
                 return $contact;

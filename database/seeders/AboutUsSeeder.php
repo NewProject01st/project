@@ -23,16 +23,15 @@ class AboutUsSeeder extends Seeder
             'marathi_title' => 'आपत्ती व्यवस्थापन पोर्टलची ओळख',
             'english_description' => 'The Disaster Management Portal is a comprehensive online platform designed to facilitate efficient and organized management of disasters. It serves as a centralized hub for disaster-related information, coordination, and collaboration among various stakeholders involved in disaster management, including government agencies, relief organizations, emergency services, and the general public. The portal aims to enhance preparedness, response, and recovery efforts by providing timely and accurate information, tools, and resources.<br>
             The primary objective of the Disaster Management Portal is to ensure effective disaster management by enabling quick and coordinated actions during emergencies. It serves as a vital communication channel, delivering real-time alerts, notifications, and updates to users about disasters occurring in their area. This feature helps individuals and communities stay informed and take necessary precautions or actions to ensure their safety.<br>
-            One of the key functionalities of the portal is the incident reporting system. Users can report incidents related to disasters, such as earthquakes, floods, fires, or any other emergencies they come across. They can provide essential details about the incident, including its location, severity, and any other relevant information. "
+            One of the key functionalities of the portal is the incident reporting system. Users can report incidents related to disasters, such as earthquakes, floods, fires, or any other emergencies they come across. They can provide essential details about the incident, including its location, severity, and any other relevant information.
             ',
             'marathi_description' => 'आपत्ती व्यवस्थापन पोर्टल हे एक सर्वसमावेशक ऑनलाइन प्लॅटफॉर्म आहे जे आपत्तींचे कार्यक्षम आणि संघटित व्यवस्थापन सुलभ करण्यासाठी डिझाइन केलेले आहे. हे आपत्ती-संबंधित माहिती, समन्वय आणि सरकारी संस्था, मदत संस्था, आपत्कालीन सेवा आणि सामान्य जनता यासह आपत्ती व्यवस्थापनामध्ये गुंतलेल्या विविध भागधारकांमध्ये एक केंद्रीकृत केंद्र म्हणून काम करते. वेळेवर आणि अचूक माहिती, साधने आणि संसाधने प्रदान करून सज्जता, प्रतिसाद आणि पुनर्प्राप्ती प्रयत्न वाढवणे हे पोर्टलचे उद्दिष्ट आहे.<br>
             आपत्ती व्यवस्थापन पोर्टलचे प्राथमिक उद्दिष्ट आपत्कालीन परिस्थितीत जलद आणि समन्वित कृती सक्षम करून प्रभावी आपत्ती व्यवस्थापन सुनिश्चित करणे आहे. हे एक महत्त्वपूर्ण संप्रेषण चॅनेल म्हणून काम करते, रीअल-टाइम अलर्ट, सूचना आणि वापरकर्त्यांना त्यांच्या क्षेत्रातील आपत्तींबद्दल अद्यतने वितरीत करते. हे वैशिष्‍ट्य व्‍यक्‍ती आणि समुदायांना माहिती ठेवण्‍यात आणि त्‍यांची सुरक्षितता सुनिश्चित करण्‍यासाठी आवश्‍यक खबरदारी किंवा कृती करण्‍यात मदत करते.<br>
-            पोर्टलच्या मुख्य कार्यांपैकी एक म्हणजे घटना अहवाल प्रणाली. वापरकर्ते आपत्तींशी संबंधित घटनांची तक्रार करू शकतात, जसे की भूकंप, पूर, आग किंवा इतर कोणत्याही आपत्कालीन परिस्थिती. ते घटनेचे स्थान, तीव्रता आणि इतर कोणत्याही संबंधित माहितीसह आवश्यक तपशील प्रदान करू शकतात. "
+            पोर्टलच्या मुख्य कार्यांपैकी एक म्हणजे घटना अहवाल प्रणाली. वापरकर्ते आपत्तींशी संबंधित घटनांची तक्रार करू शकतात, जसे की भूकंप, पूर, आग किंवा इतर कोणत्याही आपत्कालीन परिस्थिती. ते घटनेचे स्थान, तीव्रता आणि इतर कोणत्याही संबंधित माहितीसह आवश्यक तपशील प्रदान करू शकतात.
 
             ',
-            'english_image' => '1_english.jpeg',
-            'marathi_image' => '1_marathi.jpeg',
-            // 'url' => 'disaster',
+            'english_image' => '1_english.png',
+            'marathi_image' => '1_marathi.png',
             'is_deleted'=>false,
             'is_active'=>true,
         ]);
@@ -52,7 +51,7 @@ class AboutUsSeeder extends Seeder
                <li>Digital Resource Management: Provide a directory of digital resources, including emergency services, relief organizations, and volunteer groups during disaster response.</li>   
               <li> Enhancing Communication and Collaboration: Facilitate effective communication and collaboration among stakeholders, including government agencies, non-profit organizations, and affected communities, to foster a coordinated and integrated approach to disaster management.</li> 
               <li> Promoting Public Awareness and Education: Raise public awareness about disaster risks, mitigation strategies, and safety measures through educational materials, campaigns, and training programs.</li> 
-               <li>Ensuring Accessibility and Inclusivity: Design the portal to be accessible to a wide range of users. Ensure that information and resources are available in multiple languages and formats to cater to diverse needs."</li>
+               <li>Ensuring Accessibility and Inclusivity: Design the portal to be accessible to a wide range of users. Ensure that information and resources are available in multiple languages and formats to cater to diverse needs.</li>
                 </ul>',
                 'marathi_description' => 'आपत्ती व्यवस्थापन पोर्टलची उद्दिष्टे ही विशिष्ट उद्दिष्टे आणि उद्दिष्टे आहेत जी आपत्तींचे प्रभावीपणे व्यवस्थापन करण्यासाठी आणि त्यांना प्रतिसाद देण्यासाठी ते साध्य करण्याचे उद्दिष्ट ठेवतात. पोर्टलच्या संदर्भ आणि आवश्यकतांवर अवलंबून ही उद्दिष्टे बदलू शकतात, परंतु काही सामान्य उद्दिष्टांमध्ये हे समाविष्ट आहे:<br>
               <ul> 
@@ -63,11 +62,10 @@ class AboutUsSeeder extends Seeder
                 <li>  डिजिटल संसाधन व्यवस्थापन: आपत्कालीन सेवा, मदत संस्था आणि आपत्ती प्रतिसादादरम्यान स्वयंसेवक गटांसह डिजिटल संसाधनांची निर्देशिका प्रदान करा.</li>
                 <li> संप्रेषण आणि सहयोग वाढवणे: आपत्ती व्यवस्थापनासाठी समन्वित आणि एकात्मिक दृष्टीकोन वाढविण्यासाठी सरकारी संस्था, ना-नफा संस्था आणि प्रभावित समुदायांसह भागधारकांमध्ये प्रभावी संवाद आणि सहयोग सुलभ करा.</li>
                 <li> सार्वजनिक जागरुकता आणि शिक्षणाचा प्रचार करणे: शैक्षणिक साहित्य, मोहिमा आणि प्रशिक्षण कार्यक्रमांद्वारे आपत्ती जोखीम, कमी करण्याच्या धोरणे आणि सुरक्षा उपायांबद्दल जनजागृती करणे.</li>
-                <li>प्रवेशयोग्यता आणि सर्वसमावेशकता सुनिश्चित करणे: वापरकर्त्यांच्या विस्तृत श्रेणीसाठी प्रवेशयोग्य होण्यासाठी पोर्टल डिझाइन करा. विविध गरजा पूर्ण करण्यासाठी माहिती आणि संसाधने अनेक भाषांमध्ये आणि स्वरूपांमध्ये उपलब्ध असल्याची खात्री करा."</li>
+                <li>प्रवेशयोग्यता आणि सर्वसमावेशकता सुनिश्चित करणे: वापरकर्त्यांच्या विस्तृत श्रेणीसाठी प्रवेशयोग्य होण्यासाठी पोर्टल डिझाइन करा. विविध गरजा पूर्ण करण्यासाठी माहिती आणि संसाधने अनेक भाषांमध्ये आणि स्वरूपांमध्ये उपलब्ध असल्याची खात्री करा.</li>
                  </ul> ',
-                // 'url' => 'goals',
-                'english_image' => '1_english.jpeg',
-                'marathi_image' => '1_marathi.jpeg',
+                'english_image' => '1_english.png',
+                'marathi_image' => '1_marathi.png',
                 'is_deleted' => false,
                 'is_active' => true,
                
@@ -112,9 +110,8 @@ class AboutUsSeeder extends Seeder
                 <li> सार्वजनिक जागरुकता आणि शिक्षणाचा प्रचार करणे: शैक्षणिक साहित्य, मोहिमा आणि प्रशिक्षण कार्यक्रमांद्वारे आपत्ती जोखीम, कमी करण्याच्या धोरणे आणि सुरक्षा उपायांबद्दल जनजागृती करणे.</li>
                 <li>सतत सुधारणा आणि शिक्षण: पोर्टल अभिप्राय गोळा करून, मूल्यमापन आयोजित करून आणि भविष्यातील आपत्ती व्यवस्थापन प्रयत्नांना बळ देण्यासाठी भूतकाळातील आपत्तींमधून शिकलेल्या धड्यांचा समावेश करून सतत सुधारणा करण्याची संस्कृती वाढवण्याचा प्रयत्न करते.</li>
                  </ul> ',
-                // 'url' => 'goals',
-                'english_image' => '1_english1.jpeg',
-                'marathi_image' => '1_marathi1.jpeg',
+                'english_image' => '1_english1.png',
+                'marathi_image' => '1_marathi1.png',
                 'is_deleted' => false,
                 'is_active' => true,
                
@@ -171,11 +168,8 @@ class AboutUsSeeder extends Seeder
                 </li>
                 </ul>
                 ',
-                'english_image' => 'slide_english.jpeg',
-                'marathi_image' => 'slide_marathi.jpeg',
-                // 'url' => 'state',
-                'english_image' => '1_english.jpeg',
-            'marathi_image' => '1_marathi.jpeg',
+                'english_image' => '1_english.png',
+                'marathi_image' => '1_marathi.png',
                 'is_deleted'=>false,
                 'is_active'=>true,
             

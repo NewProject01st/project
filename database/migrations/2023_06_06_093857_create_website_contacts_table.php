@@ -15,7 +15,6 @@ class CreateWebsiteContactsTable extends Migration
     {
         Schema::create('website_contacts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
             $table->string('english_address');
             $table->string('marathi_address');
             $table->string('email');

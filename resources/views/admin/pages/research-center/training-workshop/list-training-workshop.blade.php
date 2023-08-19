@@ -7,15 +7,15 @@
         <div class="content-wrapper mt-7">
             <div class="page-header">
                 <h3 class="page-title">
-                    Training Materials And Workshops List
+                    Trainings List
                     @if (in_array('per_add', $data_permission))
                         <a href="{{ url('add-training-workshop') }}" class="btn btn-sm btn-primary ml-3">+ Add</a>
                     @endif
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('list-training-workshop') }}">Training Materials And Workshops</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Training Materials And Workshops List</li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-training-workshop') }}">Trainings</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> Trainings</li>
                     </ol>
                 </nav>
             </div>

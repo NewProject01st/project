@@ -32,9 +32,12 @@ return [
 		'VIDEO' =>'Video',
 		'VIDEO_MESSAGE'   => 'No Data Found For Video.',
 		'GALLERY' =>'Gallery',
-		'TRAINING_MATERIALS_WORKSHOP' =>'Training Materials And Workshops',
+		'TRAINING_MATERIALS_WORKSHOP' =>'Trainings',
 		'SUCCESS_STORIES' =>'Success Stories',
 		'CONTACT_INFORMATION_FOR_SDMA' =>'Contact Information',
+		'CONTACT_INFORMATION_FOR_SDMA_DIVISION' =>'Division Contact Information',
+		'CONTACT_INFORMATION_FOR_SDMA_DEPARTMENT' =>'Department Contact Information',
+
 
 	],
 
@@ -139,6 +142,8 @@ return [
 		'FORM_INCIDENT_LOCATION'   => 'Location',
 		'FORM_DATE_AND_TIME'   => 'Date and Time',
 		'FORM_MOBILE_NUMBER'   => 'Mobile Number',
+		'FORM_EMAIL_ID'   => 'Email Address',
+		'FORM_BLOOD_GROUP'   => 'Blood Group',
 		'FORM_DESCRIPTION'   => 'Description',
 		'FORM_MEDIA_UPLOAD'   => 'Media Upload',
 		'FORM_SEND'   => 'Send',
@@ -184,7 +189,7 @@ return [
 		'RESOURCE_CENTER_SUB_LINK1' =>'Documents Publications',
 		'RESOURCE_CENTER_SUB_LINK2' =>' Maps and GIS Data',
 		'RESOURCE_CENTER_SUB_LINK3' =>' Videos And Multimedia',
-		'RESOURCE_CENTER_SUB_LINK4' =>' Training Materials And Workshops',
+		'RESOURCE_CENTER_SUB_LINK4' =>' Trainings',
 		'RESOURCE_CENTER_SR_NO' =>'Sr. No.',
 		'RESOURCE_CENTER_TITLE' =>'Title',
 		'RESOURCE_CENTER_DOWNLOAD_FIL' =>'Download File',

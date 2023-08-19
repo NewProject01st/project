@@ -78,7 +78,7 @@ public function updateAll($request)
         
         if (!$update_training) {
             return [
-                'msg' => 'Training Material and Workshop not found.',
+                'msg' => 'Trainings not found.',
                 'status' => 'error'
             ];
         }
@@ -104,7 +104,7 @@ public function updateAll($request)
     } catch (\Exception $e) {
         return $e;
         return [
-            'msg' => 'Failed to update Training Material and Workshop.',
+            'msg' => 'Failed to update Trainings.',
             'status' => 'error'
         ];
     }

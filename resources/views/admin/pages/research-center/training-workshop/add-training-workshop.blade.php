@@ -5,12 +5,12 @@
         <div class="content-wrapper mt-6">
             <div class="page-header">
                 <h3 class="page-title">
-                    Training Materials And Workshops
+                    Trainings
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('list-training-workshop') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Training Materials And Workshops</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Trainings</li>
                     </ol>
                 </nav>
             </div>

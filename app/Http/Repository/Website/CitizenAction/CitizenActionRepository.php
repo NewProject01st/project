@@ -113,6 +113,8 @@ class CitizenActionRepository  {
                 $modal_data->location = $request['location'];
                 $modal_data->datetime = $request['datetime'];
                 $modal_data->mobile_number = $request['mobile_number'];
+                $modal_data->email_id = $request['email_id'];
+                $modal_data->blood_group = $request['blood_group'];
                 $modal_data->description =   $request['description'];
                 // $modal_data->gps = $request['gps']; // Save GPS data to the database
 

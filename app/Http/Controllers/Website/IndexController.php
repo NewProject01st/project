@@ -18,7 +18,8 @@ use App\Models\ {
     PolicyPrivacy,
     TermsCondition,
     SocialIcon,
-    TweeterFeed
+    TweeterFeed,
+    WebsiteContactDepartment
 };
 
 class IndexController extends Controller
@@ -61,10 +62,29 @@ class IndexController extends Controller
                 'website_contacts.marathi_number',
                 'website_contacts.english_number',
                 'website_contacts.id',
+                // 'department_english_address',
+                // 'department_marathi_address',
+                // 'department_email',
+                // 'department_english_contact_number',
+                // 'department_marathi_contact_number'
             )
             ->get()
             ->toArray();
             $retun_data['website_contact_details']  = $websitecontact_data;
+
+            $websitecontact_department_data =  WebsiteContactDepartment::where('is_active', '=',true)
+            ->select( 
+                'website_contact_department.department_english_name',
+                'website_contact_department.department_marathi_name',
+                'website_contact_department.department_english_address',
+                'website_contact_department.department_marathi_address',
+                'website_contact_department.department_email',
+                'website_contact_department.department_english_contact_number',
+                'website_contact_department.department_marathi_contact_number'
+            )
+            ->get()
+            ->toArray();
+            $retun_data['websitecontact_department_details']  = $websitecontact_department_data;
  
             $weballdepartment_data =  DepartmentInformation::where('is_active', '=',true)
             ->select( 

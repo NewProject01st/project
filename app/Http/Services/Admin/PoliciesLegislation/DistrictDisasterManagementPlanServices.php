@@ -68,7 +68,8 @@ class DistrictDisasterManagementPlanServices
                     }
 
                 }
-                $englishPDFName = $return_data['last_insert_id'] . '_english.' . $request->english_pdf->extension();
+                $randomNumber = rand(100000, 999999);
+                $englishPDFName = $return_data['last_insert_id'] . '_' . $randomNumber .  '_english.' . $request->english_pdf->extension();
                 uploadImage($request, 'english_pdf', $path, $englishPDFName);
                 $district_plan = DistrictDisasterManagementPlan::find($return_data['last_insert_id']);
                 $district_plan->english_pdf = $englishPDFName;
@@ -82,8 +83,8 @@ class DistrictDisasterManagementPlanServices
                     }
 
                 }
-    
-                $marathiPDFName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_pdf->extension();
+                $randomNumber1 = rand(100000, 999999);
+                $marathiPDFName = $return_data['last_insert_id'] . '_' . $randomNumber1 .  '_marathi.' . $request->marathi_pdf->extension();
                 uploadImage($request, 'marathi_pdf', $path, $marathiPDFName);
                 $district_plan = DistrictDisasterManagementPlan::find($return_data['last_insert_id']);
                 $district_plan->marathi_pdf = $marathiPDFName;
