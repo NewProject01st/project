@@ -536,7 +536,7 @@
                       </a>
                   </li>
               @endif
-              @if (in_array('list-users', $data_for_url))
+              {{-- @if (in_array('list-users', $data_for_url))
                   <li class="{{request()->is('list-users*') 
                     ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#master-management" aria-expanded="false"
@@ -546,7 +546,7 @@
                           <i class="menu-arrow"></i>
                       </a>
                       @if (in_array('list-users', $data_for_url))
-                          <?php $currenturl = Request::url(); ?>
+                          <?php //$currenturl = Request::url(); ?>
                           <div class="collapse" id="master-management">
                               <ul class="nav flex-column sub-menu">
                                   <li class="nav-item d-none d-lg-block"> <a class="nav-link"
@@ -555,27 +555,65 @@
                           </div>
                       @endif
                   </li>
-              @endif
+              @endif --}}
+              @if (in_array('list-users', $data_for_url))
 
+              <li class="{{request()->is('list-users*')
+
+                ? 'nav-item active' : 'nav-item' }}">
+
+                <?php $currenturl = Request::url(); ?>
+
+                  <a class="nav-link" href="{{ route('list-users') }}">
+
+                      <i class="fas fa-user menu-icon"></i>
+
+                      <span class="menu-title">Users Management</span>
+
+                  </a>
+
+              </li>
+
+          @endif
                {{--@if (in_array('db-backup', $data_for_url)) --}}
-                  <li class="{{request()->is('db-backup*') 
+                  {{-- <li class="{{request()->is('db-backup*') 
                     ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#db-backup" aria-expanded="false"
                           aria-controls="db-backup">
                           <i class="fas fa-user menu-icon"></i>
                           <span class="menu-title">Data Base Backup</span>
                           <i class="menu-arrow"></i>
-                      </a>
+                      </a> --}}
                      {{-- @if (in_array('db-backup', $data_for_url)) --}}
-                          <?php $currenturl = Request::url(); ?>
+                          {{-- <?php //$currenturl = Request::url(); ?>
                           <div class="collapse" id="db-backup">
                               <ul class="nav flex-column sub-menu">
                                   <li class="nav-item d-none d-lg-block"> <a class="nav-link"
                                           href="{{ route('db-backup') }}">Data Base Backup</a></li>
                               </ul>
-                          </div>
+                          </div> --}}
                      {{-- @endif --}}
+                  {{-- </li> --}}
+
+                  @if (in_array('list-users', $data_for_url))
+
+                  <li class="{{request()->is('db-backup*')
+
+                    ? 'nav-item active' : 'nav-item' }} ">
+
+                    <?php $currenturl = Request::url(); ?>
+
+                      <a class="nav-link" href="{{ route('db-backup') }}">
+
+                          <i class="fas fa-user menu-icon"></i>
+
+                          <span class="menu-title">Data Base Backup</span>
+
+                      </a>
+
                   </li>
+
+              @endif
              {{-- @endif --}}
           </ul>
       </nav>

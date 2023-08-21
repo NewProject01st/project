@@ -474,6 +474,14 @@
                     description: {
                         required: true,
                     },
+                    email_id:{
+                     required: true,
+                     spcenotallow: true,
+                    },
+                    blood_group:{
+                     required: true,
+                     spcenotallow: true,
+                    },
                     media_upload: {
                         required: true,
                         spcenotallow: true,
@@ -497,23 +505,29 @@
                 },
                 messages: {
                     incident: {
-                        required: "Select Incident",
+                        required: "Please Select Incident",
                     },
                     location: {
-                        required: "Enter Incident Location",
+                        required: "Please Enter Incident Location",
                     },
                     datetime: {
-                        required: "Enter Date and Time",
+                        required: "Please Enter Date and Time",
                     },
                     mobile_number: {
-                        required: "Enter Mobile Number",
+                        required: "Please Enter Mobile Number",
                         // pattern: "Invalid Mobile Number",
                     },
                     description: {
-                        required: "Enter Description",
+                        required: "Please Enter Description",
+                    },
+                    email_id: {
+                        required: "Enter Email Id",
+                    },
+                    blood_group: {
+                        required: "Please Select Blood Group",
                     },
                     media_upload: {
-                        required: "Upload Media File",
+                        required: "Please Upload Media File",
                     },
                     ngo_name: {
                         required: "Please enter your NGO name.",

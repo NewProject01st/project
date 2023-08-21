@@ -1253,3 +1253,27 @@ button.btn.btn-outline-warning.btn-fw {  display: block;   width: 100%;   margin
   .emergancy-contact p {
     color: #fff !important;
   }
+
+  .sub-menu{
+
+    width: 100% !important;
+
+    padding-left: 10px !important;
+
+  }
+
+  .collapse{
+
+    padding: 0px !important;
+
+    height: auto !important;
+
+  }
+
+ 
+
+  .collapse::-webkit-scrollbar {
+
+    width: 10px !important;
+
+  }
