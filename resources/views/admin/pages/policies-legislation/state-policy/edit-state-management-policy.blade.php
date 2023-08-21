@@ -48,22 +48,6 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="policies_year">Year</label>&nbsp;<span class="red-text">*</span>
-                                            <select class="form-control" id="dYear" name="policies_year">
-                                                <option value="">Select Year</option>
-                                                @for ($year = date('Y'); $year >= 1950; $year--)
-                                                    <option value="{{ $year }}"
-                                                        @if (old('policies_year', $state_policy->policies_year) == $year) selected @endif>
-                                                        {{ $year }}</option>
-                                                @endfor
-                                            </select>
-                                            @if ($errors->has('policies_year'))
-                                                <span class="red-text">{{ $errors->first('policies_year') }}</span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
                                             <label for="english_pdf">PDF</label>&nbsp<span class="red-text">*</span><br>
                                             <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"
                                                 class="form-control mb-2">
@@ -86,7 +70,22 @@
                                         <a
                                             href="{{ Config::get('DocumentConstant.STATE_DISASTER_POLICY_VIEW') }}{{ $state_policy->marathi_pdf }}"></a>
                                     </div>
-
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="policies_year">Year</label>&nbsp;<span class="red-text">*</span>
+                                            <select class="form-control" id="dYear" name="policies_year">
+                                                <option value="">Select Year</option>
+                                                @for ($year = date('Y'); $year >= 1950; $year--)
+                                                    <option value="{{ $year }}"
+                                                        @if (old('policies_year', $state_policy->policies_year) == $year) selected @endif>
+                                                        {{ $year }}</option>
+                                                @endfor
+                                            </select>
+                                            @if ($errors->has('policies_year'))
+                                                <span class="red-text">{{ $errors->first('policies_year') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-sm btn-success" id="submitButton">
                                             Save &amp; Update

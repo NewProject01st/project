@@ -58,7 +58,7 @@ class DistrictEmergencyOperationsCenterServices{
                     }
                 }
     
-                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                $englishImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
                
                 $district_operation_data = DistrictEmergencyOperationsCenter::find($return_data['last_insert_id']);
@@ -74,7 +74,7 @@ class DistrictEmergencyOperationsCenterServices{
 
                  }
     
-                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                $marathiImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
 
                 $district_operation_data = DistrictEmergencyOperationsCenter::find($return_data['last_insert_id']);

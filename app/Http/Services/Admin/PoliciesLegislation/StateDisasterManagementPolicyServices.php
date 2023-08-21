@@ -33,10 +33,10 @@ class StateDisasterManagementPolicyServices
         try {
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.STATE_DISASTER_POLICY_ADD');
-            $englishPDFName = $last_id . '_english.' . $request->english_pdf->extension();
-            $marathiPDFName = $last_id . '_marathi.' . $request->marathi_pdf->extension();
-            uploadImage($request, 'english_pdf', $path, $englishPDFName);
-            uploadImage($request, 'marathi_pdf', $path, $marathiPDFName);
+            $englishPdfName = $last_id['englishPdfName'];
+            $marathiPdfName = $last_id['marathiPdfName'];
+            uploadImage($request, 'english_pdf', $path, $englishPdfName);
+            uploadImage($request, 'marathi_pdf', $path, $marathiPdfName);
             if ($last_id) {
                 return ['status' => 'success', 'msg' => 'State Disaster Management Policy Added Successfully.'];
             } else {
@@ -67,7 +67,7 @@ class StateDisasterManagementPolicyServices
                     }
 
                 }
-                $englishPDFName = $return_data['last_insert_id'] . '_english.' . $request->english_pdf->extension();
+                $englishPDFName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_english.' . $request->english_pdf->extension();
                 uploadImage($request, 'english_pdf', $path, $englishPDFName);
                 $district_plan = StateDisasterManagementPolicy::find($return_data['last_insert_id']);
                 $district_plan->english_pdf = $englishPDFName;
@@ -81,7 +81,7 @@ class StateDisasterManagementPolicyServices
                     }
 
                 }
-                $marathiPDFName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_pdf->extension();
+                $marathiPDFName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_marathi.' . $request->marathi_pdf->extension();
                 uploadImage($request, 'marathi_pdf', $path, $marathiPDFName);
                 $district_plan = StateDisasterManagementPolicy::find($return_data['last_insert_id']);
                 $district_plan->marathi_pdf = $marathiPDFName;

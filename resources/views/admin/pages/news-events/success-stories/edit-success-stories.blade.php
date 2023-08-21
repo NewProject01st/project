@@ -201,7 +201,7 @@
                         },
                         english_image: {
                             validImage: true,
-                            fileSize: [4, 200], // Min 180KB and Max 2MB (2 * 1024 KB)
+                            fileSize: [10, 400], // Min 180KB and Max 2MB (2 * 1024 KB)
                         },
                     },
                     messages: {
@@ -219,7 +219,7 @@
                         },
                         english_image: {
                             validImage: "Only JPG, JPEG, PNG images are allowed.",
-                            fileSize: "The file size must be between 4 KB and 200 KB.",
+                            fileSize: "The file size must be between 10 KB and 400 KB.",
                         },
                         english_designation: {
                             required: "Please Enter the Designation",

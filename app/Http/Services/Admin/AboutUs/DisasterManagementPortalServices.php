@@ -63,7 +63,7 @@ class DisasterManagementPortalServices
                    }
 
                 }
-                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                $englishImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
                 $disaster_mgt_data = DisasterManagementPortal::find($return_data['last_insert_id']);
                 $disaster_mgt_data->english_image = $englishImageName;
@@ -76,7 +76,7 @@ class DisasterManagementPortalServices
                         removeImage(Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_DELETE') . $return_data['marathi_image']);
                     }
                 }
-                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                $marathiImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
                 $disaster_mgt_data = DisasterManagementPortal::find($return_data['last_insert_id']);
                 $disaster_mgt_data->marathi_image = $marathiImageName;

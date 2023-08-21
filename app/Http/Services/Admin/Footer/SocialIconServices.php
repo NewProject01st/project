@@ -37,7 +37,7 @@ class SocialIconServices
         try {
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.SOCIAL_ICON_ADD');
-            $englishImageName = $last_id . '_english.' . $request->icon->extension();
+            $englishImageName = $last_id['englishImageName'];
             uploadImage($request, 'icon', $path, $englishImageName);
             if ($last_id) {
                 return ['status' => 'success', 'msg' => 'Social Icon  Added Successfully.'];
@@ -72,7 +72,7 @@ class SocialIconServices
                     }
                 }
     
-                $iconImage = $return_data['last_insert_id'] . '_english.' . $request->icon->extension();
+                $iconImage = $return_data['last_insert_id'] .'_' . rand(100000, 999999) . '_english.' . $request->icon->extension();
                 uploadImage($request, 'icon', $path, $iconImage);
                
                 $social_icon = SocialIcon::find($return_data['last_insert_id']);

@@ -20,7 +20,7 @@ class SuccessStoriesRepository  {
     }
 	public function addAll($request){
     try {
-        
+        $data =array();
         $news_events = new SuccessStories();
         $news_events->english_title = $request['english_title'];
         $news_events->marathi_title = $request['marathi_title'];
@@ -32,14 +32,15 @@ class SuccessStoriesRepository  {
         $news_events->save();      
         $last_insert_id = $news_events->id;
 
-        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
+        $englishImageName = $last_insert_id .'_' . rand(100000, 999999) . '_english.' . $request->english_image->extension();
         
 
         $news_events = SuccessStories::find($last_insert_id); // Assuming $request directly contains the ID
         $news_events->english_image = $englishImageName; // Save the image filename to the database
         $news_events->save();
         
-        return $last_insert_id;
+        $data['englishImageName'] =$englishImageName;
+        return $data;
 
     } catch (\Exception $e) {
         return [

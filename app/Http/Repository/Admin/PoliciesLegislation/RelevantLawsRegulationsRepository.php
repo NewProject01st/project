@@ -22,7 +22,7 @@ class RelevantLawsRegulationsRepository{
 
 	public function addAll($request){
         try {
-        
+            $data =array();
             $relevant_data = new RelevantLawsRegulation();
             $relevant_data->english_title = $request['english_title'];
             $relevant_data->marathi_title = $request['marathi_title'];
@@ -31,15 +31,17 @@ class RelevantLawsRegulationsRepository{
             $relevant_data->save();       
             $last_insert_id = $relevant_data->id;
 
-            $englishPDFName = $last_insert_id . '_english.' . $request->english_pdf->extension();
-            $marathiPDFName = $last_insert_id . '_marathi.' . $request->marathi_pdf->extension();
+            $englishPdfName = $last_insert_id . '_' . rand(100000, 999999) . '_english.' . $request->english_pdf->extension();
+            $marathiPdfName = $last_insert_id . '_' . rand(100000, 999999) . '_marathi.' . $request->marathi_pdf->extension();
             
             $state = RelevantLawsRegulation::find($last_insert_id); // Assuming $request directly contains the ID
-            $state->english_pdf = $englishPDFName; // Save the image filename to the database
-            $state->marathi_pdf = $marathiPDFName; // Save the image filename to the database
+            $state->english_pdf = $englishPdfName; // Save the image filename to the database
+            $state->marathi_pdf = $marathiPdfName; // Save the image filename to the database
             $state->save();
             
-            return $last_insert_id;
+            $data['englishPdfName'] =$englishPdfName;
+            $data['marathiPdfName'] =$marathiPdfName;
+            return $data;
 
         } catch (\Exception $e) {
             return [

@@ -20,23 +20,25 @@ class VacanciesRepository {
     }
 	public function addAll($request){
         try {
-            
+            $data =array();
+
             $vacancy_data = new VacanciesHeader();
             $vacancy_data->english_title = $request['english_title'];
             $vacancy_data->marathi_title = $request['marathi_title'];
             $vacancy_data->save();       
                 
             $last_insert_id = $vacancy_data->id;
-
-            $englishPdfName = $last_insert_id . '_english.' . $request->english_pdf->extension();
-            $marathiPdfName = $last_insert_id . '_marathi.' . $request->marathi_pdf->extension();
+            $englishPdfName = $last_insert_id . '_' . rand(100000, 999999) . '_english.' . $request->english_pdf->extension();
+            $marathiPdfName = $last_insert_id . '_' . rand(100000, 999999) . '_marathi.' . $request->marathi_pdf->extension();
             
             $vacancy_data = VacanciesHeader::find($last_insert_id); // Assuming $request directly contains the ID
             $vacancy_data->english_pdf = $englishPdfName; // Save the pdf filename to the database
             $vacancy_data->marathi_pdf = $marathiPdfName; // Save the pdf filename to the database
             $vacancy_data->save();
             
-            return $last_insert_id;
+            $data['englishPdfName'] =$englishPdfName;
+            $data['marathiPdfName'] =$marathiPdfName;
+            return $data;
 
         } catch (\Exception $e) {
             return [

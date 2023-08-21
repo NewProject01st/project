@@ -34,8 +34,8 @@ class DisasterManagementNewsServices
         try {
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.DISASTER_NEWS_ADD');
-            $englishImageName = $last_id . '_english.' . $request->english_image->extension();
-            $marathiImageName = $last_id . '_marathi.' . $request->marathi_image->extension();
+            $englishImageName = $last_id['englishImageName'];
+            $marathiImageName = $last_id['marathiImageName'];
             uploadImage($request, 'english_image', $path, $englishImageName);
             uploadImage($request, 'marathi_image', $path, $marathiImageName);
 
@@ -70,7 +70,7 @@ class DisasterManagementNewsServices
                         removeImage($delete_file_path_eng);
                     }
                 }
-                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                $englishImageName = $return_data['last_insert_id'] .'_' . rand(100000, 999999) . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
                 $disaster_mgt_data = DisasterManagementNews::find($return_data['last_insert_id']);
                 $disaster_mgt_data->english_image = $englishImageName;
@@ -84,7 +84,7 @@ class DisasterManagementNewsServices
                         removeImage($delete_file_path_marathi);
                     }
                 }
-                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                $marathiImageName = $return_data['last_insert_id'] .'_' . rand(100000, 999999) . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
                 $disaster_mgt_data = DisasterManagementNews::find($return_data['last_insert_id']);
                 $disaster_mgt_data->marathi_image = $marathiImageName;

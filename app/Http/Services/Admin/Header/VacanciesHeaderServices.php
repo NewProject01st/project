@@ -36,8 +36,8 @@ class VacanciesHeaderServices
         try {
             $last_id = $this->repo->addAll($request);
             $path =  Config::get('DocumentConstant.VACANCIES_PDF_ADD');
-            $englishPdfName = $last_id . '_english.' . $request->english_pdf->extension();
-            $marathiPdfName = $last_id . '_marathi.' . $request->marathi_pdf->extension();
+            $englishPdfName = $last_id['englishPdfName'];//. '_english.' . $request->english_pdf->extension();
+            $marathiPdfName = $last_id['marathiPdfName'];//$last_id . '_marathi.' . $request->marathi_pdf->extension();
             uploadImage($request, 'english_pdf', $path, $englishPdfName);
             uploadImage($request, 'marathi_pdf', $path, $marathiPdfName);
             if ($last_id) {
@@ -71,8 +71,7 @@ class VacanciesHeaderServices
                     }
 
                 }
-    
-                $englishPdfName = $return_data['last_insert_id'] . '_english.' . $request->english_pdf->extension();
+                $englishPdfName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_english.' . $request->english_pdf->extension();
                 uploadImage($request, 'english_pdf', $path, $englishPdfName);
                
                 $rti_data = VacanciesHeader::find($return_data['last_insert_id']);
@@ -87,8 +86,7 @@ class VacanciesHeaderServices
                         removeImage($delete_file_mar);
                     }
                 }
-    
-                $marathiPdfName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_pdf->extension();
+                $marathiPdfName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_marathi.' . $request->marathi_pdf->extension();
                 uploadImage($request, 'marathi_pdf', $path, $marathiPdfName);
 
                 $rti_data = VacanciesHeader::find($return_data['last_insert_id']);

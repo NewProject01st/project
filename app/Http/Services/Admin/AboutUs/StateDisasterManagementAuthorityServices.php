@@ -67,7 +67,7 @@ class StateDisasterManagementAuthorityServices
                     }
 
                 }
-                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                $englishImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
                 $disaster_mgt_data = StateDisasterManagementAuthority::find($return_data['last_insert_id']);
                 $disaster_mgt_data->english_image = $englishImageName;
@@ -80,7 +80,7 @@ class StateDisasterManagementAuthorityServices
                         removeImage(Config::get('DocumentConstant.ABOUT_US_STATE_DISASTER_MGTAUTHORITY_DELETE') . $return_data['marathi_image']);
                     }
                 }
-                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                $marathiImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
                 $disaster_mgt_data = StateDisasterManagementAuthority::find($return_data['last_insert_id']);
                 $disaster_mgt_data->marathi_image = $marathiImageName;

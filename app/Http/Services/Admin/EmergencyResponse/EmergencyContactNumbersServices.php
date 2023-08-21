@@ -89,7 +89,7 @@ class EmergencyContactNumbersServices
                     }
                 }
 
-                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                $englishImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
 
                 $emergency_contact_data = EmergencyContactNumbers::find($return_data['last_insert_id']);
@@ -105,7 +105,7 @@ class EmergencyContactNumbersServices
 
                 }
 
-                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                $marathiImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
 
                 $emergency_contact_data = EmergencyContactNumbers::find($return_data['last_insert_id']);

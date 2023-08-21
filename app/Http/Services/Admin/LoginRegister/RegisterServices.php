@@ -54,8 +54,9 @@ class RegisterServices
                 $last_id = $this->repo->register($request);
                 $path = Config::get('DocumentConstant.USER_PROFILE_ADD');
                 //"\all_web_data\images\home\slides\\"."\\";
-                $userProfile = $last_id . '_english.' . $request->user_profile->extension();
-                uploadImage($request, 'user_profile', $path, $userProfile);
+                $imageProfile = $last_id['imageProfile'];
+                // $userProfile = $last_id . '_english.' . $request->user_profile->extension();
+                uploadImage($request, 'user_profile', $path, $imageProfile);
              
                 if ($last_id) {
                     return ['status' => 'success', 'msg' => 'User Added Successfully.'];
@@ -121,7 +122,7 @@ class RegisterServices
 
                 }
     
-                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->user_profile->extension();
+                $englishImageName = $return_data['last_insert_id'] .'_' . rand(100000, 999999) . '_english.' . $request->user_profile->extension();
                 uploadImage($request, 'user_profile', $path, $englishImageName);
                 $slide_data = User::find($return_data['last_insert_id']);
                 $slide_data->user_profile = $englishImageName;

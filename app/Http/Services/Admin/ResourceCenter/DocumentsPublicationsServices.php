@@ -34,8 +34,8 @@ class DocumentsPublicationsServices
         try {
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.DOCUMENT_PUBLICATION_ADD');
-            $englishPdfName = $last_id . '_english.' . $request->english_pdf->extension();
-            $marathiPdfName = $last_id . '_marathi.' . $request->marathi_pdf->extension();
+            $englishPdfName = $last_id['englishPdfName'];
+            $marathiPdfName = $last_id['marathiPdfName'];
             uploadImage($request, 'english_pdf', $path, $englishPdfName);
             uploadImage($request, 'marathi_pdf', $path, $marathiPdfName);
 
@@ -73,7 +73,7 @@ class DocumentsPublicationsServices
                     }
                 }
     
-                $englishPdfName = $return_data['last_insert_id'] . '_english.' . $request->english_pdf->extension();
+                $englishPdfName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_english.' . $request->english_pdf->extension();
                 uploadImage($request, 'english_pdf', $path, $englishPdfName);
                 $district_plan = Documentspublications::find($return_data['last_insert_id']);
                 $district_plan->english_pdf = $englishPdfName;
@@ -89,7 +89,7 @@ class DocumentsPublicationsServices
                     }
                 }
     
-                $marathiPdfName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_pdf->extension();
+                $marathiPdfName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_marathi.' . $request->marathi_pdf->extension();
                 uploadImage($request, 'marathi_pdf', $path, $marathiPdfName);
                 $district_plan = Documentspublications::find($return_data['last_insert_id']);
                 $district_plan->marathi_pdf = $marathiPdfName;

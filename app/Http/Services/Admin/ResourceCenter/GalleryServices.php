@@ -34,8 +34,8 @@ class GalleryServices
            
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.Gallery_ADD');
-            $englishImageName = $last_id . '_english.' . $request->english_image->extension();
-            $marathiImageName = $last_id . '_marathi.' . $request->marathi_image->extension();
+            $englishImageName = $last_id['englishImageName'];
+            $marathiImageName = $last_id['marathiImageName'];
             uploadImage($request, 'english_image', $path, $englishImageName);
             uploadImage($request, 'marathi_image', $path, $marathiImageName);
 
@@ -73,7 +73,7 @@ class GalleryServices
 
                  }
     
-                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                $englishImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
                 $gallery = Gallery::find($return_data['last_insert_id']);
                 $gallery->english_image = $englishImageName;
@@ -89,7 +89,7 @@ class GalleryServices
 
                  }
     
-                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                $marathiImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
                 $district_plan = Gallery::find($return_data['last_insert_id']);
                 $district_plan->marathi_image = $marathiImageName;

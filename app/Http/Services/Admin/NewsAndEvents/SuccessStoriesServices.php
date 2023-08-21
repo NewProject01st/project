@@ -36,7 +36,7 @@ class SuccessStoriesServices
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.SUCCESS_STORIES_ADD');
             // $path =  "\all_web_data\images\home\slides\\"."\\";
-            $englishImageName = $last_id . '_english.' . $request->english_image->extension();
+            $englishImageName = $last_id['englishImageName'];
             uploadImage($request, 'english_image', $path, $englishImageName);
            
 
@@ -78,7 +78,7 @@ class SuccessStoriesServices
 
                 }
     
-                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                $englishImageName = $return_data['last_insert_id'] .'_' . rand(100000, 999999) . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
                 $slide_data = SuccessStories::find($return_data['last_insert_id']);
                 $slide_data->english_image = $englishImageName;

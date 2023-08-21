@@ -61,7 +61,7 @@ class StateEmergencyOperationsCenterServices{
                 }
     
     
-                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                $englishImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
                
                 $state_operation = StateEmergencyOperationsCenter::find($return_data['last_insert_id']);
@@ -77,7 +77,7 @@ class StateEmergencyOperationsCenterServices{
 
                  }
     
-                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                $marathiImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
 
                 $state_operation = StateEmergencyOperationsCenter::find($return_data['last_insert_id']);

@@ -244,11 +244,11 @@
                         },
                         english_image: {
                             validImage: true,
-                            fileSize: [180, 2048], // Min 180KB and Max 2MB (2 * 1024 KB)
+                            fileSize: [10, 22], // Min 10KB and Max 2MB (2 * 1024 KB)
                         },
                         marathi_image: {
                             validImage: true,
-                            fileSize: [180, 2048], // Min 180KB and Max 2MB (2 * 1024 KB)
+                            fileSize: [10, 22], // Min 10KB and Max 2MB (2 * 1024 KB)
                         },
                          english_image_new: {
                             validImage: true,

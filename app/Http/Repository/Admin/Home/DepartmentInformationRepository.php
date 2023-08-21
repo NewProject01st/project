@@ -23,6 +23,7 @@ class DepartmentInformationRepository  {
 	public function addAll($request)
 {
     try {
+        $data =array();
         $department_data = new DepartmentInformation();
         $department_data->english_title = $request['english_title'];
         $department_data->marathi_title = $request['marathi_title'];
@@ -38,10 +39,10 @@ class DepartmentInformationRepository  {
         
         $last_insert_id = $department_data->id;
 
-        $englishImageName  = $last_insert_id . '_english.' . $request->english_image->extension();
-        $englishImageName1 = $last_insert_id . '_english1.' . $request->english_image_new->extension();
-        $marathiImageName  = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
-        $marathiImageName1 = $last_insert_id . '_marathi1.' . $request->marathi_image_new->extension();
+        $englishImageName  = $last_insert_id .'_' . rand(100000, 999999) . '_english.' . $request->english_image->extension();
+        $englishImageName1 = $last_insert_id .'_' . rand(100000, 999999) . '_english1.' . $request->english_image_new->extension();
+        $marathiImageName  = $last_insert_id .'_' . rand(100000, 999999) . '_marathi.' . $request->marathi_image->extension();
+        $marathiImageName1 = $last_insert_id .'_' . rand(100000, 999999) . '_marathi1.' . $request->marathi_image_new->extension();
         
         $department_data_update = DepartmentInformation::find($last_insert_id); 
         $department_data_update->english_image = $englishImageName; 
@@ -49,7 +50,12 @@ class DepartmentInformationRepository  {
         $department_data_update->marathi_image = $marathiImageName;
         $department_data_update->marathi_image_new = $marathiImageName1;
         $department_data_update->save();
-        return $last_insert_id;
+
+        $data['englishImageName'] =$englishImageName;
+        $data['marathiImageName'] =$marathiImageName;
+        $data['englishImageName1'] =$englishImageName1;
+        $data['marathiImageName1'] =$marathiImageName1;
+        return $data;
 
     } catch (\Exception $e) {
         return [

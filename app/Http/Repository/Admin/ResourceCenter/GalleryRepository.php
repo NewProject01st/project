@@ -25,6 +25,7 @@ class GalleryRepository  {
     }
 	public function addAll($request){
     try {
+        $data =array();
         $gallery = new Gallery();
         $gallery->category_id = $request['category_id'];
         $gallery->save();
@@ -32,8 +33,8 @@ class GalleryRepository  {
         $last_insert_id = $gallery->id;
         
 
-        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
-        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        $englishImageName = $last_insert_id .'_'. rand(100000, 999999) . '_english.' . $request->english_image->extension();
+        $marathiImageName = $last_insert_id .'_'. rand(100000, 999999) . '_marathi.' . $request->marathi_image->extension();
         
         $gallerys = Gallery::find($last_insert_id); // Assuming $request directly contains the ID
        
@@ -41,7 +42,10 @@ class GalleryRepository  {
         $gallerys->marathi_image = $marathiImageName; // Save the image filename to the database
      
         $gallerys->save();
-        return $last_insert_id;
+
+         $data['englishImageName'] =$englishImageName;
+        $data['marathiImageName'] =$marathiImageName;
+        return $data;
 
     } catch (\Exception $e) {
         return [

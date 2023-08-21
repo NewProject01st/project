@@ -21,6 +21,7 @@ class SliderRepository  {
 
 	public function addAll($request){
         try {
+            $data =array();
             $slides = new Slider();
             $slides->english_title = $request['english_title'];
             $slides->marathi_title = $request['marathi_title'];
@@ -32,15 +33,17 @@ class SliderRepository  {
             $slides->save(); 
             $last_insert_id = $slides->id;
 
-            $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
-            $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+            $englishImageName = $last_insert_id .'_' . rand(100000, 999999) . '_english.' . $request->english_image->extension();
+            $marathiImageName = $last_insert_id .'_' . rand(100000, 999999) . '_marathi.' . $request->marathi_image->extension();
             
             $slide = Slider::find($last_insert_id); // Assuming $request directly contains the ID
             $slide->english_image = $englishImageName; // Save the image filename to the database
             $slide->marathi_image = $marathiImageName; // Save the image filename to the database
             $slide->save();
             
-            return $last_insert_id;
+            $data['englishImageName'] =$englishImageName;
+            $data['marathiImageName'] =$marathiImageName;
+            return $data;
 
         } catch (\Exception $e) {
             return [

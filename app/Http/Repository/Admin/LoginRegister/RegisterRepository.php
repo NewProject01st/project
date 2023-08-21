@@ -78,6 +78,7 @@ class RegisterRepository
 
 	public function register($request)
 	{
+		$data =array();
 		// $ipAddress = getIPAddress($request);
 		$user_data = new User();
 		$user_data->u_email = $request['u_email'];
@@ -100,14 +101,15 @@ class RegisterRepository
 		$last_insert_id = $user_data->id;
 		// $this->insertRolesPermissions($request, $last_insert_id);
 
-		$imageProfile = $last_insert_id . '_english.' . $request->user_profile->extension();
+		$imageProfile = $last_insert_id .'_' . rand(100000, 999999) . '_english.' . $request->user_profile->extension();
         
         $user_detail = User::find($last_insert_id); // Assuming $request directly contains the ID
         $user_detail->user_profile = $imageProfile; // Save the image filename to the database
         $user_detail->save();
         // echo  $user_detail;
 		// die();
-        return $last_insert_id;
+        $data['imageProfile'] =$imageProfile;
+        return $data;
 
 	}
 

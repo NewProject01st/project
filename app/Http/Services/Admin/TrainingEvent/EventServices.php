@@ -32,8 +32,8 @@ class EventServices
         try {
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.TRAINING_EVENT_ADD');
-            $englishImageName = $last_id . '_english.' . $request->english_image->extension();
-            $marathiImageName = $last_id . '_marathi.' . $request->marathi_image->extension();
+            $englishImageName = $last_id['englishImageName'];
+            $marathiImageName = $last_id['marathiImageName'];
             uploadImage($request, 'english_image', $path, $englishImageName);
             uploadImage($request, 'marathi_image', $path, $marathiImageName);
 
@@ -68,7 +68,7 @@ class EventServices
 
                 }
     
-                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image->extension();
+                $englishImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_english.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
                 $slide_data = Event::find($return_data['last_insert_id']);
                 $slide_data->english_image = $englishImageName;
@@ -82,7 +82,7 @@ class EventServices
                     }
                 }
     
-                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image->extension();
+                $marathiImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_marathi.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
                 $slide_data = Event::find($return_data['last_insert_id']);
                 $slide_data->marathi_image = $marathiImageName;

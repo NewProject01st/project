@@ -47,17 +47,6 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="policies_year">Year</label>&nbsp<span class="red-text">*</span>
-                                            <select class="form-control" id="dYear" name="policies_year">
-                                                <option value="{{ old('policies_year') }}">Select Year</option>
-                                            </select>
-                                            @if ($errors->has('policies_year'))
-                                                <span class="red-text"><?php echo $errors->first('policies_year', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
                                             <label for="english_pdf">PDF</label>&nbsp<span class="red-text">*</span><br>
                                             <input type="file" name="english_pdf" id="english_pdf" accept=".pdf"
                                                 class="form-control mb-2">
@@ -73,6 +62,17 @@
                                                 class="form-control mb-2">
                                             @if ($errors->has('marathi_pdf'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_pdf', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="policies_year">Year</label>&nbsp<span class="red-text">*</span>
+                                            <select class="form-control" id="dYear" name="policies_year">
+                                                <option value="{{ old('policies_year') }}">Select Year</option>
+                                            </select>
+                                            @if ($errors->has('policies_year'))
+                                                <span class="red-text"><?php echo $errors->first('policies_year', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>

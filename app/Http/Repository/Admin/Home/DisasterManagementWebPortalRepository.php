@@ -36,13 +36,14 @@ class DisasterManagementWebPortalRepository  {
         
         $last_insert_id = $disaster_data->id;
 
-        $englishImageName = $last_insert_id . '_english.' . $request->english_image->extension();
-        $marathiImageName = $last_insert_id . '_marathi.' . $request->marathi_image->extension();
+        $englishImageName = $last_insert_id .'_' . rand(100000, 999999) . '_english.' . $request->english_image->extension();
+        $marathiImageName = $last_insert_id .'_' . rand(100000, 999999) . '_marathi.' . $request->marathi_image->extension();
         
         $disaster_data_update = DisasterManagementWebPortal::find($last_insert_id); 
         $disaster_data_update->english_image = $englishImageName; 
         $disaster_data_update->marathi_image = $marathiImageName;
         $disaster_data_update->save();
+        
         return $last_insert_id;
     } catch (\Exception $e) {
         return [

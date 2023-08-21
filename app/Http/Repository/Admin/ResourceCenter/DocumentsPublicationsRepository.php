@@ -22,7 +22,7 @@ class DocumentsPublicationsRepository  {
 
 	public function addAll($request){
         try {
-        
+            $data =array();
             $documents_data = new Documentspublications();
             $documents_data->english_title = $request['english_title'];
             $documents_data->marathi_title = $request['marathi_title'];
@@ -30,15 +30,17 @@ class DocumentsPublicationsRepository  {
             $documents_data->save();       
             $last_insert_id = $documents_data->id;
 
-            $englishPdfName = $last_insert_id . '_english.' . $request->english_pdf->extension();
-            $marathiPdfName = $last_insert_id . '_marathi.' . $request->marathi_pdf->extension();
+            $englishPdfName = $last_insert_id .'_'. rand(100000, 999999) . '_english.' . $request->english_pdf->extension();
+            $marathiPdfName = $last_insert_id .'_'. rand(100000, 999999) . '_marathi.' . $request->marathi_pdf->extension();
             
             $document = Documentspublications::find($last_insert_id); // Assuming $request directly contains the ID
             $document->english_pdf = $englishPdfName; // Save the image filename to the database
             $document->marathi_pdf = $marathiPdfName; // Save the image filename to the database
             $document->save();
             
-            return $last_insert_id;
+            $data['englishPdfName'] =$englishPdfName;
+            $data['marathiPdfName'] =$marathiPdfName;
+            return $data;
 
         } catch (\Exception $e) {
             return [

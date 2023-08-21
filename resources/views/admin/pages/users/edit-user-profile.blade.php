@@ -242,6 +242,9 @@
                     const designation = $('#designation').val();
                     const english_image = $('#english_image').val();
 
+                     // Remove spaces from the number input
+                      number = number.replace(/\s/g, '');
+
                     // Update the old PDF values if there are any selected files
                     if (english_image !== currentEnglishImage) {
                         $("#currentEnglishImage").val(english_image);
@@ -289,6 +292,8 @@
                         },
                         number: {
                             required: true,
+                            digits: true, // Validate as digits only
+                             minlength: 10, // Minimum length of 10 digits
                         },
                         designation: {
                             required: true,
@@ -311,6 +316,8 @@
                         },
                         number: {
                             required: "Please Enter the Number",
+                            digits: "Please enter a valid 10-digit number",
+                            minlength: "Please enter at least 10 digits",
                         },
                         designation: {
                             required: "Please Enter the Designation",

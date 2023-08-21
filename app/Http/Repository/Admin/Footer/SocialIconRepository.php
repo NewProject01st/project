@@ -23,19 +23,21 @@ class SocialIconRepository{
 	public function addAll($request)
 {
     try {
+        $data =array();
         $social_icon = new SocialIcon();
         $social_icon->url = $request['url'];
         $social_icon->save();       
               
         $last_insert_id = $social_icon->id;
 
-        $englishImageName = $last_insert_id . '_english.' . $request->icon->extension();
+        $englishImageName = $last_insert_id .'_' . rand(100000, 999999) . '_english.' . $request->icon->extension();
         
         $social_icons = SocialIcon::find($last_insert_id); // Assuming $request directly contains the ID
         $social_icons->icon = $englishImageName; // Save the image filename to the database
         $social_icons->save();
 
-        return $last_insert_id;
+        $data['englishImageName'] =$englishImageName;
+        return $data;
 
     } catch (\Exception $e) {
         return [

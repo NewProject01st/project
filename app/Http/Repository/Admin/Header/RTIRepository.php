@@ -22,6 +22,8 @@ class RTIRepository{
 	
 	public function addAll($request){
     try {   
+        $data =array();
+
         $rti_data = new RTI();
         $rti_data->english_title = $request['english_title'];
         $rti_data->marathi_title = $request['marathi_title'];
@@ -29,16 +31,17 @@ class RTIRepository{
               
         $last_insert_id = $rti_data->id;
 
-        $englishPdfName = $last_insert_id . '_english.' . $request->english_pdf->extension();
-        $marathiPdfName = $last_insert_id . '_marathi.' . $request->marathi_pdf->extension();
+        $englishPdfName = $last_insert_id . '_' . rand(100000, 999999) . '_english.' . $request->english_pdf->extension();
+        $marathiPdfName = $last_insert_id . '_' . rand(100000, 999999) . '_marathi.' . $request->marathi_pdf->extension();
         
         $rti_data = RTI::find($last_insert_id); // Assuming $request directly contains the ID
         $rti_data->english_pdf = $englishPdfName; // Save the pdf filename to the database
         $rti_data->marathi_pdf = $marathiPdfName; // Save the pdf filename to the database
         $rti_data->save();
         
-        return $last_insert_id;
-
+        $data['englishPdfName'] =$englishPdfName;
+        $data['marathiPdfName'] =$marathiPdfName;
+        return $data;
 
     } catch (\Exception $e) {
         return [

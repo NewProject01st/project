@@ -33,10 +33,10 @@ class DepartmentInformationServices
         try {
             $last_id = $this->repo->addAll($request);
             $path = Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_ADD');
-            $englishImageName = $last_id . '_english.' . $request->english_image->extension();
-            $englishImageName1 = $last_id . '_english1.' . $request->english_image_new->extension();
-            $marathiImageName = $last_id . '_marathi.' . $request->marathi_image->extension();
-            $marathiImageName1 = $last_id . '_marathi1.' . $request->marathi_image_new->extension();
+            $englishImageName = $last_id['englishImageName'];
+            $englishImageName1 = $last_id['englishImageName1'];
+            $marathiImageName = $last_id['marathiImageName'];
+            $marathiImageName1 = $last_id['marathiImageName1'];           
             uploadImage($request, 'english_image', $path, $englishImageName);
             uploadImage($request, 'english_image_new', $path, $englishImageName1);
             uploadImage($request, 'marathi_image', $path, $marathiImageName);
@@ -74,7 +74,7 @@ class DepartmentInformationServices
                         removeImage(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['english_image']);
                     }
                 }
-                $englishImageName = $return_data['last_insert_id'] . '_english_icon.' . $request->english_image->extension();
+                $englishImageName = $return_data['last_insert_id'] .'_' . rand(100000, 999999) . '_english_icon.' . $request->english_image->extension();
                 uploadImage($request, 'english_image', $path, $englishImageName);
                 $disaster_mgt_data = DepartmentInformation::find($return_data['last_insert_id']);
                 $disaster_mgt_data->english_image = $englishImageName;
@@ -87,7 +87,7 @@ class DepartmentInformationServices
                         removeImage(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['english_image_new']);
                     }
                 }
-                $englishImageName = $return_data['last_insert_id'] . '_english.' . $request->english_image_new->extension();
+                $englishImageName = $return_data['last_insert_id'] .'_' . rand(100000, 999999) . '_english.' . $request->english_image_new->extension();
                 uploadImage($request, 'english_image_new', $path, $englishImageName);
                 $disaster_mgt_data = DepartmentInformation::find($return_data['last_insert_id']);
                 $disaster_mgt_data->english_image_new = $englishImageName;
@@ -100,7 +100,7 @@ class DepartmentInformationServices
                         removeImage(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['marathi_image']);
                     }
                 }
-                $marathiImageName = $return_data['last_insert_id'] . '_marathi_icon.' . $request->marathi_image->extension();
+                $marathiImageName = $return_data['last_insert_id'] .'_' . rand(100000, 999999) . '_marathi_icon.' . $request->marathi_image->extension();
                 uploadImage($request, 'marathi_image', $path, $marathiImageName);
                 $disaster_mgt_data = DepartmentInformation::find($return_data['last_insert_id']);
                 $disaster_mgt_data->marathi_image = $marathiImageName;
@@ -113,7 +113,7 @@ class DepartmentInformationServices
                         removeImage(Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_DELETE') . $return_data['marathi_image_new']);
                     }
                 }
-                $marathiImageName = $return_data['last_insert_id'] . '_marathi.' . $request->marathi_image_new->extension();
+                $marathiImageName = $return_data['last_insert_id'] .'_' . rand(100000, 999999) . '_marathi.' . $request->marathi_image_new->extension();
                 uploadImage($request, 'marathi_image_new', $path, $marathiImageName);
                 $disaster_mgt_data = DepartmentInformation::find($return_data['last_insert_id']);
                 $disaster_mgt_data->marathi_image_new = $marathiImageName;

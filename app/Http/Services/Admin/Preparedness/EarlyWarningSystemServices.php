@@ -78,8 +78,7 @@ class EarlyWarningSystemServices
                 }
             }
 
-            $randomNumber = rand(100000, 999999);
-            $englishImageName = $return_data['last_insert_id'] . '_' . $randomNumber . '_english.' . $request->english_image->extension();
+            $englishImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_english.' . $request->english_image->extension();
             uploadImage($request, 'english_image', $path, $englishImageName);
            
             $warning_data = EarlyWarningSystem::find($return_data['last_insert_id']);
@@ -96,7 +95,7 @@ class EarlyWarningSystemServices
             }
             
             $randomNumber1 = rand(100000, 999999);
-            $marathiImageName = $return_data['last_insert_id'] . '_' . $randomNumber1 . '_marathi.' . $request->marathi_image->extension();
+            $marathiImageName = $return_data['last_insert_id'] . '_' . rand(100000, 999999) . '_marathi.' . $request->marathi_image->extension();
             uploadImage($request, 'marathi_image', $path, $marathiImageName);
 
             $warning_data = EarlyWarningSystem::find($return_data['last_insert_id']);
