@@ -12,7 +12,7 @@
                 @endif
             </h2>
             <ul>
-                <li> <a href="{{ route('list-particular-success-stories-web') }}">
+                <li> <a href="{{ route('list-success-stories-web') }}">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.NEWS_EVENTS.NEWS_EVENTS_MAIN_LINK') }}
                         @else

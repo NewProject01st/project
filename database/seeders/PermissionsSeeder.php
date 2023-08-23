@@ -383,9 +383,9 @@ class PermissionsSeeder extends Seeder
                 [
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Training',
+                    'route_name' => 'Training Materials',
                     'url' => 'list-training-workshop',
-                    'permission_name' => 'Trainings',
+                    'permission_name' => 'Training Materials',
                 ]);
             Permissions::create(
                 [

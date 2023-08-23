@@ -43,9 +43,9 @@ class TrainingAndWorkshopServices
             uploadImage($request, 'english_pdf', $path, $englishPdfName);
             uploadImage($request, 'marathi_pdf', $path, $marathiPdfName);
             if ($last_id) {
-                return ['status' => 'success', 'msg' => 'Trainings Added Successfully.'];
+                return ['status' => 'success', 'msg' => 'Training Materials Added Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Trainings Not Added.'];
+                return ['status' => 'error', 'msg' => 'Training Materials Not Added.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];
@@ -99,9 +99,9 @@ class TrainingAndWorkshopServices
                 $district_plan->save();
             }
             if ($return_data) {
-                return ['status' => 'success', 'msg' => 'Trainings Updated Successfully.'];
+                return ['status' => 'success', 'msg' => 'Training Materials Updated Successfully.'];
             } else {
-                return ['status' => 'error', 'msg' => 'Trainings Not Updated.'];
+                return ['status' => 'error', 'msg' => 'Training Materials Not Updated.'];
             }  
         } catch (Exception $e) {
             return ['status' => 'error', 'msg' => $e->getMessage()];

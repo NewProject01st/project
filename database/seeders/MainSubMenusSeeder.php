@@ -551,7 +551,7 @@ class MainSubMenusSeeder extends Seeder
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
             'main_menu_id' => 9,
-            'menu_name_english' => 'Trainings Material',
+            'menu_name_english' => 'Training Materials',
             'menu_name_marathi' => 'प्रशिक्षण साहित्य',
             'url'=>'list-training-materials-workshops-web',
             'order_no' => 4,

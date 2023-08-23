@@ -490,7 +490,7 @@
                                 @endif
                                 @if (in_array('list-training-workshop', $data_for_url))
                                 <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                        href="{{ route('list-training-workshop') }}">Trainings</a>
+                                        href="{{ route('list-training-workshop') }}">Training Materials</a>
                                 </li>
                                 @endif
                             </ul>

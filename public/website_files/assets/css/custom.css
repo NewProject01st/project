@@ -1888,7 +1888,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 }
 .event-post-full .event-post-content {
 	/* width: 390px; */
-	float: left;
+	float: right;
 }
 .event-post-full .event-post-txt {
 	padding: 20px 30px 0;
