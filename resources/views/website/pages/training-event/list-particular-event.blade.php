@@ -22,11 +22,13 @@
                                     <h3><?php echo $item['marathi_title']; ?> </h3>
                                     <img src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['marathi_image'] }}"
                                         class="d-block w-100" alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा">
+                                        <i class="fas fa-calendar-alt"></i><?php echo $item['start_date']; ?> - <?php echo $item['end_date']; ?>
                                     <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                 @else
                                     <h3><?php echo $item['english_title']; ?> </h3>
                                     <img src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['english_image'] }}"
                                         class="d-block w-100" alt="{{ strip_tags($item['english_title']) }} Image">
+                                        <i class="fas fa-calendar-alt"></i><?php echo $item['start_date']; ?> - <?php echo $item['end_date']; ?>
                                     <p style="text-align: justify;"> <?php echo $item['english_description']; ?></p>
                                 @endif
                             </div>

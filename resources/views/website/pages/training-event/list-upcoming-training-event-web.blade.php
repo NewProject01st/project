@@ -68,9 +68,9 @@
                                                     <div class="event-post-content">
     
                                                         <div class="event-post-txt">
-                                                            <h5 class="card_title"><?php echo mb_substr($item['marathi_title'], 0, 35); ?></h5>
+                                                            <h5 class="card_title training-card-title"><?php echo mb_substr($item['marathi_title'], 0, 35); ?></h5>
                                                             <ul class="event-meta">
-                                                                <li><i class="fas fa-calendar-alt"></i> <?php echo $item['end_date']; ?></li>
+                                                                <li><i class="fas fa-calendar-alt"></i> <?php echo $item['start_date']; ?> - <?php echo $item['end_date']; ?></li>
                                                             </ul>
                                                             <p class="card_title"><?php echo mb_substr($item['marathi_description'], 0, 121); ?></p>
                                                         </div>
@@ -94,9 +94,9 @@
                                                 <div class="event-post-content">
 
                                                     <div class="event-post-txt">
-                                                        <h5 class="card_title"><?php echo mb_substr($item['english_title'], 0, 35); ?></h5>
+                                                        <h5 class="card_title training-card-title"><?php echo mb_substr($item['english_title'], 0, 35); ?></h5>
                                                         <ul class="event-meta">
-                                                            <li><i class="fas fa-calendar-alt"></i> <?php echo $item['end_date']; ?></li>
+                                                            <li><i class="fas fa-calendar-alt"></i> <?php echo $item['start_date']; ?> - <?php echo $item['end_date']; ?></li>
                                                         </ul>
                                                         <p class="card_title"><?php echo mb_substr($item['english_description'], 0, 121); ?></p>
                                                     </div>
