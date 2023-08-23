@@ -1881,7 +1881,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 }
 
 .event-post-full .thumb {
-	width: 360px;
+	width: 100%;
 	float: left;
 	position: relative;
 	overflow: hidden;

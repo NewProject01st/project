@@ -76,7 +76,7 @@
                                                         {{ Config::get('english.HOME_PAGE.READ_MORE') }}
                                                     @endif
                                                 </span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
-                                                        class="fas fa-arrow-right"></i></a>
+                                                        class="fa fa-arrow-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -100,7 +100,7 @@
                                             </div>
                                             <div class="news-box-f"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more <a
                                                     data-id="{{ $item['id'] }}" class="show-btn"><i
-                                                        class="fas fa-arrow-right"></i></a>
+                                                        class="fa fa-arrow-right"></i></a>
                                             </div>
                                         </div>
                                     </div>

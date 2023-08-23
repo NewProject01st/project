@@ -252,7 +252,7 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
 {{ Config::get('english.FOOTER.DATE') }}
 @endif --}}
                          </strong>
-                         <i class="fab fa-twitter"></i>
+                         <i class="fa fa-twitter"></i>
                      </div>
                  </div>
                  <?php 
