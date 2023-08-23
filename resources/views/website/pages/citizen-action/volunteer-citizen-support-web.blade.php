@@ -270,7 +270,7 @@
                                         <div class="form-group py-4">
                                             <input type="checkbox" id="is_ngo" name="is_ngo"
                                                 {{ old('is_ngo') ? 'checked' : '' }}>
-                                            <label for="is_ngo">
+                                            <label for="is_ngo" class="ngo_email modal_lable">
                                                 @if (session('language') == 'mar')
                                                     {{ Config::get('marathi.CITIZEN_ACTION.ARE_YOU_NGO') }}
                                                 @else
@@ -315,7 +315,7 @@
 
 
                                                 <div class="col-md-6 mb-2">
-                                                    <label class="col-form-label modal_label">
+                                                    <label class="col-form-label ngo_email modal_lable">
                                                         @if (session('language') == 'mar')
                                                             {{ Config::get('marathi.CITIZEN_ACTION.NGO_MOBILE_NO') }}
                                                         @else
