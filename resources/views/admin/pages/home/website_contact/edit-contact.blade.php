@@ -46,7 +46,7 @@
                                         <div class="form-group">
                                             <label for="english_number">Landline Number</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" name="english_number" id="english_number"
+                                            <input type="text" name="english_number" id="english_number" oninput="this.value = this.value.replace(/[^0-9+\/\-\.\,]/g, '').replace(/(\..*)\./g, '$1');"
                                                 class="form-control mb-2" onkeyup="addvalidateMobileNumber(this.value)"
                                                 value="@if (old('english_number')) {{ old('english_number') }}@else{{ $website_contact->english_number }} @endif"
                                                 placeholder="Enter the Landline Number">
@@ -59,7 +59,7 @@
                                         <div class="form-group">
                                             <label for="marathi_number">दूरध्वनी क्रमांक</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" name="marathi_number" id="marathi_number"
+                                            <input type="text" name="marathi_number" id="marathi_number" oninput="this.value = this.value.replace(/[^0-9+\/\-\.\,]/g, '').replace(/(\..*)\./g, '$1');"
                                                 onkeyup="addvalidateMobileNumber1(this.value)" class="form-control mb-2"
                                                 value="@if (old('marathi_number')) {{ old('marathi_number') }}@else{{ $website_contact->marathi_number }} @endif"
                                                 placeholder="लँडलाइन क्रमांक प्रविष्ट करा">
@@ -137,11 +137,15 @@
 <script>
     $(document).ready(function() {
         // Function to check if all input fields are filled with valid data
+        // var validInput = inputValue.replace(/[^a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\/\\|\-=]/g, "");
+    
+        /[^A-Za-z]/g
+
         function checkFormValidity() {
             const english_address = $('#english_address').val();
             const marathi_address = $('#marathi_address').val();
-            const english_landline_no = $('#english_landline_no').val();
-            const marathi_landline_no = $('#marathi_landline_no').val();
+            const english_number = $('#english_number').val();
+            const marathi_number = $('#marathi_number').val();
             const email = $('#email').val();
 
             // Validate the contact number
