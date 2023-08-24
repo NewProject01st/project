@@ -64,48 +64,6 @@
                                             <label>{{ strip_tags($website_contact->marathi_number) }}</label>
                                         </div>
                                     </div>
-                                    <div class="row ">
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Department Address :</label>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ strip_tags($website_contact->department_english_address) }}</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="row ">
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>विभाग पत्ता :</label>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ strip_tags($website_contact->department_marathi_address) }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Department Contact Number :</label>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ strip_tags($website_contact->department_english_contact_number) }}</label>
-                                        </div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>विभाग संपर्क क्रमांक :</label>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ strip_tags($website_contact->department_marathi_contact_number) }}</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="row ">
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>Department Email :</label>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>{{ strip_tags($website_contact->department_email) }}</label>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

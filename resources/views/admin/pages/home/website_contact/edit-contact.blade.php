@@ -27,9 +27,7 @@
                                         <div class="form-group">
                                             <label for="english_address"> Address</label>&nbsp<span
                                                 class="red-text">*</span>
-                                            <input type="text" class="form-control mb-2" name="english_address" id="english_address" placeholder="Enter the Address" value="@if (old('english_address'))
-                                            {{ old('english_address') }}@else{{ $website_contact->english_address }}
-                                            @endif">
+                                            <input type="text" class="form-control mb-2" name="english_address" id="english_address" placeholder="Enter the Address" value="@if(old('english_address')){{ old('english_address') }}@else{{ $website_contact->english_address }}@endif">
                                             @if ($errors->has('english_address'))
                                                 <span class="red-text"><?php echo $errors->first('english_address', ':message'); ?></span>
                                             @endif
@@ -38,9 +36,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="marathi_address">पत्ता</label>&nbsp<span class="red-text">*</span>
-                                            <input  type="text" class="form-control mb-2" name="marathi_address" id="marathi_address" placeholder="पत्ता प्रविष्ट करा" value="@if (old('marathi_address'))
-                                            {{ old('marathi_address') }}@else{{ $website_contact->marathi_address }}
-                                            @endif">
+                                            <input  type="text" class="form-control mb-2" name="marathi_address" id="marathi_address" placeholder="पत्ता प्रविष्ट करा" value="@if(old('marathi_address')){{ old('marathi_address') }}@else{{ $website_contact->marathi_address }}@endif">
                                             @if ($errors->has('marathi_address'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_address', ':message'); ?></span>
                                             @endif
@@ -101,7 +97,7 @@
                 </div>
             </div>
         </div>
-        <script>
+        {{-- <script>
             function addvalidateMobileNumber(number) {
                 var landlineNumberPattern = /^\d+$/;
                 var validationMessage = document.getElementById("english_number");
@@ -112,8 +108,8 @@
                     validationMessage.textContent = "Invalid landline number. Only numbers are allowed.";
                 }
             }
-        </script>
-        <script>
+        </script> --}}
+        {{-- <script>
             function addvalidateMobileNumber(number) {
                 var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
                 var validationMessage = document.getElementById("english_number");
@@ -136,8 +132,106 @@
                     validationMessage.textContent = "अवैध लँडलाइन नंबर. कृपया वैध लँडलाइन नंबर प्रविष्ट करा..";
                 }
             }
-        </script>
-        <script>
+        </script> --}}
+
+<script>
+    $(document).ready(function() {
+        // Function to check if all input fields are filled with valid data
+        function checkFormValidity() {
+            const english_address = $('#english_address').val();
+            const marathi_address = $('#marathi_address').val();
+            const english_landline_no = $('#english_landline_no').val();
+            const marathi_landline_no = $('#marathi_landline_no').val();
+            const email = $('#email').val();
+
+            // Validate the contact number
+            const isValidContactNumber1 = english_number.length >= 3 &&
+                english_number.length <= 11;
+            const isMarathiContactNumberValid1 = marathi_number.length >= 3 &&
+                marathi_number.length <= 11;
+
+
+            // Validate landline numbers using regex
+            const isValidEnglishLandlineNumber = regex.test(english_number);
+            const isValidMarathiLandlineNumber = regex.test(marathi_number);
+
+            // Check if the form should be disabled
+            const shouldDisableSubmit = !(
+                isMarathiContactNumberValid1 &&
+                isValidEnglishLandlineNumber &&
+                isValidMarathiLandlineNumber
+            );
+            // Do not disable the submit button
+            $('#submitButton').prop('disabled', false);
+
+
+        }
+
+        // Call the checkFormValidity function on input change
+        $('input').on('input change', checkFormValidity);
+
+        // Initialize the form validation
+        $("#regForm").validate({
+            rules: {              
+                english_address: {
+                    required: true,
+                },
+                marathi_address: {
+                    required: true,
+                },
+                english_number: {
+                    required: true,
+                    minlength: 3,
+                    maxlength: 11,
+                },
+                marathi_number: {
+                    required: true,
+                    minlength: 3,
+                    maxlength: 11,
+                },
+                email: {
+                    required: true,
+                },
+            },
+            messages: {
+                english_address: {
+                    required: "Please Enter the Address",
+                },
+                marathi_address: {
+                    required: "कृपया पत्ता प्रविष्ट करा",
+                },
+                english_number: {
+                    required: "Please Enter the Number",
+                    minlength: "The number must be at least 3 digits long",
+                    maxlength: "The number must be no more than 11 digits long",
+                },
+                marathi_number: {
+                    required: "Please Enter the Number",
+                    minlength: "The number must be at least 3 digits long",
+                    maxlength: "The number must be no more than 11 digits long",
+                },
+                email: {
+                    required: "Please Enter the Email",
+                },
+            },
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {{-- <script>
             $(document).ready(function() {
                 // Custom validation method to check if the mobile number is valid based on the regex pattern                
                 // $.validator.addMethod("valid_mobile_number", function(value, element) {
@@ -220,7 +314,7 @@
                     }
                 });
             });
-        </script>
+        </script> --}}
 
         {{-- <script>
             $(document).ready(function() {

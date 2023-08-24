@@ -105,11 +105,6 @@ class WebsiteContactController extends Controller
             // 'regex:/^[+]?[0-9-()\/\s]{7,25}$/',
         ],
         'marathi_number' => 'required|max:25',
-        'department_english_address' => 'required|max:255',
-        'department_marathi_address' => 'required|max:255',
-        'department_email' => 'required|regex:/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z])+\.)+([a-zA-Z0-9]{2,4})+$/',
-        'department_english_contact_number' => 'required',
-        'department_marathi_contact_number' => 'required',
      ];
     $messages = [   
         'english_address.required' => 'Please enter address.',
@@ -122,14 +117,6 @@ class WebsiteContactController extends Controller
         'marathi_number.required' => 'कृपया क्रमांक प्रविष्ट करा ',
         // 'english_number.regex' => 'Please enter valid number.',
         'marathi_number.max' => 'कृपया क्रमांक बरोबर  प्रविष्ट करा. ',
-        'department_english_address.required' => 'Please enter address.',
-        'department_english_address.max'   => 'Please  enter address length upto 255 character only.',
-        'department_marathi_address.required' => 'कृपया पत्ता प्रविष्ट करा.',
-        'department_marathi_address.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',  
-        'department_email.required' => 'required',
-        'department_email.regex' => 'Enter valid email.',
-        'department_english_contact_number.required' => 'Please enter mobile number.',
-        'department_marathi_contact_number.required' => 'कृपया मोबाईल नंबर टाका',
     ];
 
     try {

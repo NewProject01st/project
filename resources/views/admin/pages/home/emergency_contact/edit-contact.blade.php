@@ -226,7 +226,154 @@
                 }
             }
         </script>
-        <script>
+           <script>
+            $(document).ready(function() {
+                // Function to check if all input fields are filled with valid data
+                function checkFormValidity() {
+
+                    const english_title = $('#english_title').val();
+                    const marathi_title = $('#marathi_title').val();
+                    const english_name = $('#english_name').val();
+                    const marathi_name = $('#marathi_name').val();
+                    const english_address = $('#english_address').val();
+                    const marathi_address = $('#marathi_address').val();
+                    const english_number = $('#english_number').val();
+                    const marathi_number = $('#marathi_number').val();
+                    const english_landline_no = $('#english_landline_no').val();
+                    const marathi_landline_no = $('#marathi_landline_no').val();
+                    const email = $('#email').val();
+
+                    // Validate the contact number
+                    const isValidContactNumber = english_number.length >= 3 &&
+                        english_number.length <= 11;
+                    const isMarathiContactNumberValid = marathi_number.length >= 3 &&
+                        marathi_number.length <= 11;
+                    const isValidContactNumber1 = english_landline_no.length >= 3 &&
+                        english_landline_no.length <= 11;
+                    const isMarathiContactNumberValid1 = marathi_landline_no.length >= 3 &&
+                        marathi_landline_no.length <= 11;
+
+
+                    // Validate landline numbers using regex
+                    const isValidEnglishLandlineNumber = regex.test(english_landline_no);
+                    const isValidMarathiLandlineNumber = regex.test(marathi_landline_no);
+
+                    // Check if the form should be disabled
+                    const shouldDisableSubmit = !(
+                        isValidContactNumber &&
+                        isMarathiContactNumberValid &&
+                        isValidContactNumber1 &&
+                        isMarathiContactNumberValid1 &&
+                        isValidEnglishLandlineNumber &&
+                        isValidMarathiLandlineNumber
+                    );
+                    // Do not disable the submit button
+                    $('#submitButton').prop('disabled', false);
+
+
+                }
+
+                // Call the checkFormValidity function on input change
+                $('input').on('input change', checkFormValidity);
+
+                // Initialize the form validation
+                $("#regForm").validate({
+                    rules: {
+                        english_title: {
+                            required: true,
+                        },
+                        marathi_title: {
+                            required: true,
+                        },
+                        english_name: {
+                            required: true,
+                        },
+                        marathi_name: {
+                            required: true,
+                        },
+                        english_address: {
+                            required: true,
+                        },
+                        marathi_address: {
+                            required: true,
+                        },
+                        english_number: {
+                            required: true,
+                            number: true,
+                            minlength: 3,
+                            maxlength: 11,
+                        },
+                        marathi_number: {
+                            required: true,
+                            number: true,
+                            minlength: 3,
+                            maxlength: 11,
+                        },
+                        english_landline_no: {
+                            required: true,
+                            minlength: 3,
+                            maxlength: 11,
+                        },
+                        marathi_landline_no: {
+                            required: true,
+                            minlength: 3,
+                            maxlength: 11,
+                        },
+                        email: {
+                            required: true,
+                        },
+                    },
+                    messages: {
+                        english_title: {
+                            required: "Please Enter the Title",
+                        },
+                        marathi_title: {
+                            required: "कृपया शीर्षक प्रविष्ट करा",
+                        },
+                        english_name: {
+                            required: "Please Enter the Name",
+                        },
+                        marathi_name: {
+                            required: "कृपया नाव प्रविष्ट करा",
+                        },
+                        english_address: {
+                            required: "Please Enter the Address",
+                        },
+                        marathi_address: {
+                            required: "कृपया पत्ता प्रविष्ट करा",
+                        },
+                        english_number: {
+                            required: "Please Enter the Number",
+                            number: "Please Enter a valid number",
+                            minlength: "The number must be at least 3 digits long",
+                            maxlength: "The number must be no more than 11 digits long",
+                        },
+                        marathi_number: {
+                            required: "Please Enter the Number",
+                            number: "Please Enter a valid number",
+                            minlength: "The number must be at least 3 digits long",
+                            maxlength: "The number must be no more than 11 digits long",
+                        },
+
+                        english_landline_no: {
+                            required: "Please Enter the Number",
+                            minlength: "The number must be at least 3 digits long",
+                            maxlength: "The number must be no more than 11 digits long",
+                        },
+                        marathi_landline_no: {
+                            required: "Please Enter the Number",
+                            minlength: "The number must be at least 3 digits long",
+                            maxlength: "The number must be no more than 11 digits long",
+                        },
+                        email: {
+                            required: "Please Enter the Email",
+                        },
+                    },
+                });
+            });
+        </script>
+
+        {{-- <script>
             $(document).ready(function() {
                 function checkFormValidity() {
                     const english_title = $('#english_title').val();
@@ -381,101 +528,9 @@
                     }
                 });
             });
-        </script>
-
-
-
-
-        {{-- <script>
-            $(document).ready(function() {
-                // Function to check if all input fields are filled with valid data
-                function checkFormValidity() {
-                    const english_title = $('#english_title').val();
-                    const marathi_title = $('#marathi_title').val();
-                    const english_name = $('#english_name').val();
-                    const marathi_name = $('#marathi_name').val();
-                    const english_address = $('#english_address').val();
-                    const marathi_address = $('#marathi_address').val();
-                    const english_number = $('#english_number').val();
-                    const marathi_number = $('#marathi_number').val();
-                    const english_landline_no = $('#english_landline_no').val();
-                    const marathi_landline_no = $('#marathi_landline_no').val();
-                    const email = $('#email').val();
-
-                    // Enable the submit button if all fields are valid
-                    if (english_address && marathi_address && email) {
-                        $('#submitButton').prop('disabled', false);
-                    } else {
-                        $('#submitButton').prop('disabled', true);
-                    }
-                }
-
-                // Call the checkFormValidity function on input change
-                $('input,textarea').on('input change',
-                    checkFormValidity);
-
-                // Initialize the form validation
-                $("#regForm").validate({
-                    rules: {
-                        english_title: {
-                            required: true,
-                        },
-                        marathi_title: {
-                            required: true,
-                        },
-                        english_name: {
-                            required: true,
-                        },
-                        marathi_name: {
-                            required: true,
-                        },
-                        english_address: {
-                            required: true,
-                        },
-                        marathi_address: {
-                            required: true,
-                        },
-                        english_number: {
-                            required: true,
-                        },
-                        marathi_number: {
-                            required: true,
-                        },
-                        email: {
-                            required: true,
-                        },
-                    },
-                    messages: {
-                        english_title: {
-                            required: "Please Enter the Title",
-                        },
-                        marathi_title: {
-                            required: "कृपया शीर्षक प्रविष्ट करा",
-                        },
-                        english_name: {
-                            required: "Please Enter the Name",
-                        },
-                        marathi_name: {
-                            required: "कृपया नाव प्रविष्ट करा",
-                        },
-                        english_address: {
-                            required: "Please Enter the Address",
-                        },
-                        marathi_address: {
-                            required: "कृपया पत्ता प्रविष्ट करा",
-                        },
-                        english_number: {
-                            required: "Please Enter the Number",
-                        },
-                        marathi_number: {
-                            required: "कृपया क्रमांक प्रविष्ट करा",
-                        },
-                        email: {
-                            required: "Please Enter the Email",
-                        },
-                    },
-
-                });
-            });
         </script> --}}
+
+
+
+
     @endsection

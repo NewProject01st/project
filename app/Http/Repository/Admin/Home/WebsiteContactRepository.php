@@ -68,11 +68,7 @@ class WebsiteContactRepository  {
             $contact_data->email = $request['email'];
             $contact_data->english_number = $request['english_number'];
             $contact_data->marathi_number =  $request['marathi_number'];
-            $contact_data->department_english_address =  $request['department_english_address'];
-            $contact_data->department_marathi_address =  $request['department_marathi_address'];
-            $contact_data->department_email =  $request['department_email'];
-            $contact_data->department_english_contact_number =  $request['department_english_contact_number'];
-            $contact_data->department_marathi_contact_number =  $request['department_marathi_contact_number'];
+           
             $contact_data->save();        
         
             return [

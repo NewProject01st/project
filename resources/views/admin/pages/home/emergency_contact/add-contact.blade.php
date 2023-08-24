@@ -69,8 +69,11 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_address">Address</label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control mb-2" name="english_address" id="english_address" placeholder="Enter the Address">{{ old('english_address') }}</textarea>
+                                            <label for="english_address">Address</label>&nbsp<span
+                                                class="red-text">*</span><br>
+                                            <input type="text" name="english_address" id="english_address"
+                                                class="form-control mb-2" placeholder="Enter the Address"
+                                                value="{{ old('english_address') }}">
                                             @if ($errors->has('english_address'))
                                                 <span class="red-text"><?php echo $errors->first('english_address', ':message'); ?></span>
                                             @endif
@@ -78,47 +81,22 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_address">पत्ता</label>&nbsp<span class="red-text">*</span>
-                                            <textarea class="form-control mb-2" name="marathi_address" id="marathi_address" placeholder="पत्ता प्रविष्ट करा">{{ old('marathi_description') }}</textarea>
+                                            <label for="marathi_address">पत्ता</label>&nbsp<span
+                                                class="red-text">*</span><br>
+                                            <input type="text" name="marathi_address" id="marathi_address"
+                                                class="form-control mb-2" placeholder="पत्ता प्रविष्ट करा"
+                                                value="{{ old('marathi_address') }}">
                                             @if ($errors->has('marathi_address'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_address', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
-                                    {{-- <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="english_number">Mobile Number</label>&nbsp<span
-                                                class="red-text">*</span>
-                                            <input type="number" name="english_number" id="english_number"
-                                                class="form-control mb-2" id="english_number"
-                                                placeholder="Enter the Mobile Number" 
-                                                value="{{ old('english_number') }}">
-                                            @if ($errors->has('english_number'))
-                                                <span class="red-text"><?php echo $errors->first('english_number', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <label for="marathi_number">मोबाईल नंबर</label>&nbsp<span
-                                                class="red-text">*</span>
-                                            <input type="number" name="marathi_number" id="marathi_number"
-                                                class="form-control mb-2" id="marathi_number"
-                                                placeholder="मोबाईल नंबर टाका"
-                                                value="{{ old('marathi_number') }}">
-                                            @if ($errors->has('marathi_number'))
-                                                <span class="red-text"><?php echo $errors->first('marathi_number', ':message'); ?></span>
-                                            @endif
-                                        </div>
-                                    </div> --}}
-
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="english_number">Mobile Number</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="english_number" id="english_number"
-                                                class="form-control mb-2"
-                                                value="{{old('english_number')}}"
+                                                class="form-control mb-2" value="{{ old('english_number') }}"
                                                 placeholder="">
                                             @if ($errors->has('english_number'))
                                                 <span class="red-text"><?php echo $errors->first('english_number', ':message'); ?></span>
@@ -130,8 +108,7 @@
                                             <label for="marathi_number">मोबाईल नंबर</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="marathi_number" id="marathi_number"
-                                                class="form-control mb-2"
-                                                value="{{old('marathi_number')}}"
+                                                class="form-control mb-2" value="{{ old('marathi_number') }}"
                                                 placeholder="मोबाईल नंबर टाका">
                                             @if ($errors->has('marathi_number'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_number', ':message'); ?></span>
@@ -143,10 +120,8 @@
                                             <label for="english_landline_no">Landline Number</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="english_landline_no" id="english_landline_no"
-                                                class="form-control mb-2" 
-                                                onkeyup="addvalidateMobileNumber(this.value)"
-                                                value="{{old('english_landline_no')}}"
-                                                placeholder="">
+                                                class="form-control mb-2" onkeyup="addvalidateMobileNumber(this.value)"
+                                                value="{{ old('english_landline_no') }}" placeholder="">
                                             @if ($errors->has('english_landline_no'))
                                                 <span class="red-text"><?php echo $errors->first('english_landline_no', ':message'); ?></span>
                                             @endif
@@ -157,9 +132,8 @@
                                             <label for="marathi_landline_no">दूरध्वनी क्रमांक</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="marathi_landline_no" id="marathi_landline_no"
-                                            onkeyup="addvalidateMobileNumber1(this.value)" class="form-control mb-2"
-                                            value="{{old('marathi_landline_no')}}"
-                                                placeholder="">
+                                                onkeyup="addvalidateMobileNumber1(this.value)" class="form-control mb-2"
+                                                value="{{ old('marathi_landline_no') }}" placeholder="">
                                             @if ($errors->has('marathi_landline_no'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_landline_no', ':message'); ?></span>
                                             @endif
@@ -174,7 +148,8 @@
                                                 placeholder="Enter the Landline Number"
                                                 value="{{ old('english_landline_no') }}">
                                             @if ($errors->has('english_landline_no'))
-                                                <span class="red-text"><?php //echo $errors->first('english_landline_no', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('english_landline_no', ':message');
+                                                ?></span>
                                             @endif
                                         </div>
                                     </div>
@@ -187,7 +162,8 @@
                                                 placeholder="लँडलाइन क्रमांक प्रविष्ट करा"
                                                 value="{{ old('marathi_landline_no') }}">
                                             @if ($errors->has('marathi_landline_no'))
-                                                <span class="red-text"><?php //echo $errors->first('marathi_landline_no', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('marathi_landline_no', ':message');
+                                                ?></span>
                                             @endif
                                         </div>
                                     </div> --}}
@@ -204,7 +180,7 @@
                                     </div>
 
                                     <div class="col-md-12 col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton" disabled>
+                                        <button type="submit" class="btn btn-sm btn-success" id="submitButton">
                                             Save &amp; Submit
                                         </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
@@ -222,7 +198,7 @@
             function addvalidateMobileNumber(number) {
                 var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
                 var validationMessage = document.getElementById("english_landline_no");
-        
+
                 if (mobileNumberPattern.test(number)) {
                     validationMessage.textContent = "";
                 } else {
@@ -230,11 +206,11 @@
                 }
             }
         </script>
-          <script>
+        <script>
             function addvalidateMobileNumber1(number) {
                 var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
                 var validationMessage = document.getElementById("marathi_landline_no");
-        
+
                 if (mobileNumberPattern.test(number)) {
                     validationMessage.textContent = "";
                 } else {
@@ -242,10 +218,12 @@
                 }
             }
         </script>
+
         <script>
             $(document).ready(function() {
                 // Function to check if all input fields are filled with valid data
                 function checkFormValidity() {
+
                     const english_title = $('#english_title').val();
                     const marathi_title = $('#marathi_title').val();
                     const english_name = $('#english_name').val();
@@ -258,53 +236,38 @@
                     const marathi_landline_no = $('#marathi_landline_no').val();
                     const email = $('#email').val();
 
-                    // Enable the submit button if all fields are valid
-                    if (english_address && marathi_address && email) {
-                        $('#submitButton').prop('disabled', false);
-                    } else {
-                        $('#submitButton').prop('disabled', true);
-                    }
+                    // Validate the contact number
+                    const isValidContactNumber = english_number.length >= 3 &&
+                        english_number.length <= 11;
+                    const isMarathiContactNumberValid = marathi_number.length >= 3 &&
+                        marathi_number.length <= 11;
+                    const isValidContactNumber1 = english_landline_no.length >= 3 &&
+                        english_landline_no.length <= 11;
+                    const isMarathiContactNumberValid1 = marathi_landline_no.length >= 3 &&
+                        marathi_landline_no.length <= 11;
+
+
+                    // Validate landline numbers using regex
+                    const isValidEnglishLandlineNumber = regex.test(english_landline_no);
+                    const isValidMarathiLandlineNumber = regex.test(marathi_landline_no);
+
+                    // Check if the form should be disabled
+                    const shouldDisableSubmit = !(
+                        isValidContactNumber &&
+                        isMarathiContactNumberValid &&
+                        isValidContactNumber1 &&
+                        isMarathiContactNumberValid1 &&
+                        isValidEnglishLandlineNumber &&
+                        isValidMarathiLandlineNumber
+                    );
+                    // Do not disable the submit button
+                    $('#submitButton').prop('disabled', false);
+
+
                 }
 
                 // Call the checkFormValidity function on input change
-                $('input,textarea').on('input change',
-                    checkFormValidity);
-
-                // Add custom validation rules for English and Marathi numbers
-                $.validator.addMethod("english_number", function(value, element) {
-                    return this.optional(element) || /^[0-9]{10}$/.test(value);
-                }, "Please enter a valid 10-digit number.");
-
-                $.validator.addMethod("marathi_number", function(value, element) {
-                    value = value.replace(/\s/g, '');
-                    return this.optional(element) || /^[०१२३४५६७८९]{10}$/.test(value);
-                }, "कृपया वैध 10-अंकी क्रमांक प्रविष्ट करा.");
-
-
-                $.validator.addMethod("valid_mobile_number", function(value, element) {
-                var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
-                return this.optional(element) || mobileNumberPattern.test(value);
-            }, "Invalid landline number. Please enter a valid landline number.");
-
-            $.validator.addMethod("valid_marathi_number", function(value, element) {
-    value = value.replace(/\s/g, '');
-    var marathiNumberPattern = /^[०१२३४५६७८९()-\/\s]{7,25}$/;
-    return this.optional(element) || marathiNumberPattern.test(value);
-}, "अवैध नंबर. कृपया वैध नंबर प्रविष्ट करा.");
-
-                $.validator.addMethod("email", function(value, element) {
-                    // Regular expression for email validation
-                    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-                    return this.optional(element) || emailRegex.test(value);
-                }, "Please enter a valid email address.");
-
-                // $.validator.addMethod("english_landline_no", function(value, element) {
-                //     return this.optional(element) || /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/.test(value);
-                // }, "Please enter a valid landline number (e.g., 123-456-7890).");
-
-                // $.validator.addMethod("marathi_landline_no", function(value, element) {
-                //     return this.optional(element) || /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/.test(value);
-                // }, "कृपया एक वैध दूरध्वनी नंबर प्रविष्ट करा (उदा. १२३-४५६-७८९०).");
+                $('input').on('input change', checkFormValidity);
 
                 // Initialize the form validation
                 $("#regForm").validate({
@@ -329,26 +292,28 @@
                         },
                         english_number: {
                             required: true,
-                            english_number: true, // Use the custom validation rule
+                            number: true,
+                            minlength: 3,
+                            maxlength: 11,
                         },
                         marathi_number: {
                             required: true,
-                            marathi_number: true, // Use the custom validation rule
+                            number: true,
+                            minlength: 3,
+                            maxlength: 11,
                         },
                         english_landline_no: {
                             required: true,
-                            valid_mobile_number: true,
-                            // english_landline_no: true, // Use the custom validation rule
+                            minlength: 3,
+                            maxlength: 11,
                         },
                         marathi_landline_no: {
                             required: true,
-                            valid_marathi_number:true,
-                            // marathi_landline_no: true, // Use the custom validation rule
+                            minlength: 3,
+                            maxlength: 11,
                         },
                         email: {
                             required: true,
-                            email: true, // Use the custom email validation rule
-
                         },
                     },
                     messages: {
@@ -372,21 +337,31 @@
                         },
                         english_number: {
                             required: "Please Enter the Number",
+                            number: "Please Enter a valid number",
+                            minlength: "The number must be at least 3 digits long",
+                            maxlength: "The number must be no more than 11 digits long",
                         },
                         marathi_number: {
-                            required: "कृपया क्रमांक प्रविष्ट करा",
+                            required: "Please Enter the Number",
+                            number: "Please Enter a valid number",
+                            minlength: "The number must be at least 3 digits long",
+                            maxlength: "The number must be no more than 11 digits long",
                         },
+
                         english_landline_no: {
-                            required: "Please Enter the Landline Number",
+                            required: "Please Enter the Number",
+                            minlength: "The number must be at least 3 digits long",
+                            maxlength: "The number must be no more than 11 digits long",
                         },
                         marathi_landline_no: {
-                            required: "कृपया लँडलाइन क्रमांक प्रविष्ट करा",
+                            required: "Please Enter the Number",
+                            minlength: "The number must be at least 3 digits long",
+                            maxlength: "The number must be no more than 11 digits long",
                         },
                         email: {
                             required: "Please Enter the Email",
                         },
                     },
-
                 });
             });
         </script>
