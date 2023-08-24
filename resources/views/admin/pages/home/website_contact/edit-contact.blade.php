@@ -146,9 +146,9 @@
 
             // Validate the contact number
             const isValidContactNumber1 = english_number.length >= 3 &&
-                english_number.length <= 11;
+                english_number.length <= 25;
             const isMarathiContactNumberValid1 = marathi_number.length >= 3 &&
-                marathi_number.length <= 11;
+                marathi_number.length <= 25;
 
 
             // Validate landline numbers using regex
@@ -182,12 +182,12 @@
                 english_number: {
                     required: true,
                     minlength: 3,
-                    maxlength: 11,
+                    maxlength: 25,
                 },
                 marathi_number: {
                     required: true,
                     minlength: 3,
-                    maxlength: 11,
+                    maxlength: 25,
                 },
                 email: {
                     required: true,
@@ -203,12 +203,12 @@
                 english_number: {
                     required: "Please Enter the Number",
                     minlength: "The number must be at least 3 digits long",
-                    maxlength: "The number must be no more than 11 digits long",
+                    maxlength: "The number must be no more than 25 digits long",
                 },
                 marathi_number: {
                     required: "Please Enter the Number",
                     minlength: "The number must be at least 3 digits long",
-                    maxlength: "The number must be no more than 11 digits long",
+                    maxlength: "The number must be no more than 25 digits long",
                 },
                 email: {
                     required: "Please Enter the Email",
