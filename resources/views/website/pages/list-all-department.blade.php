@@ -40,7 +40,7 @@
                                 <div class="col-md-3 col-sm-3">
                                     <div class="deprt-icon-box"> <img
                                             src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item['marathi_image'] }}"
-                                            alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा">
+                                            alt="{{ strip_tags($item['marathi_title']) }} छायाचित्र">
                                         <h6> <a><?php echo $item['marathi_title']; ?></a> </h6>
                                         <a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer">
                                             @if (session('language') == 'mar')

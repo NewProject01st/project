@@ -28,7 +28,7 @@
                                 @if (session('language') == 'mar')
                                     <h3><?php echo $item['marathi_title']; ?> </h3>
                                     <img src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item['marathi_image_new'] }}"
-                                        class="d-block w-100" alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा">
+                                        class="d-block w-100" alt="{{ strip_tags($item['marathi_title']) }} छायाचित्र">
                                     <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                     <ul><li><a href="{{ $item['url'] }}" target="_blank"><?php echo $item['url']; ?></a></li></ul>
                                 @else

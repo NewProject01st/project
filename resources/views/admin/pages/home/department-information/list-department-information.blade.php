@@ -59,7 +59,7 @@
                                                         </td>
                                                         <td> <img class="img-size"
                                                                 src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item->marathi_image }}"
-                                                                alt=" {{ strip_tags($item['marathi_title']) }} प्रतिमा" />
+                                                                alt=" {{ strip_tags($item['marathi_title']) }} छायाचित्र" />
                                                         </td>
                                                         <td>
                                                             <label class="switch">

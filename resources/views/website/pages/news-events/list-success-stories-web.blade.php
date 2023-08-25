@@ -56,7 +56,7 @@
                                                             <div class="img-area">
                                                                 
                                                                     <img src="{{ Config::get('DocumentConstant.SUCCESS_STORIES_VIEW') }}{{ $item['english_image'] }}"
-                                                                    alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा">
+                                                                    alt="{{ strip_tags($item['marathi_title']) }} छायाचित्र">
                                                             </div>
                                                             <div class="bio">
                                                                 <h2>{{ $item['marathi_title'] }}</h2>

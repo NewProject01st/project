@@ -63,12 +63,12 @@
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <img src="{{ asset('storage/images/aboutus/disaster-management-portal/' . $disastermanagementportal->english_image) }}"
-                                            alt=" {{ strip_tags($disastermanagementportal['marathi_title']) }} प्रतिमा"   style="width:300px; height:150px;" />
+                                            alt=" {{ strip_tags($disastermanagementportal['marathi_title']) }} छायाचित्र"   style="width:300px; height:150px;" />
                                         </div>
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label>प्रतिमा:</label>
+                                            <label>छायाचित्र:</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                             <img src="{{ asset('storage/images/aboutus/disaster-management-portal/' . $disastermanagementportal->marathi_image) }}"

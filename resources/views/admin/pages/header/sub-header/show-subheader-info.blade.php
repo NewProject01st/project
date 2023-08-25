@@ -99,7 +99,7 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-3 col-md-3 col-sm-3">
-                                            <label> प्रतिमा :</label>
+                                            <label> छायाचित्र :</label>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 pt-2">
                                             <img src="{{ asset('storage/images/header/sub-header/' . $subheader_info->marathi_logo) }}"

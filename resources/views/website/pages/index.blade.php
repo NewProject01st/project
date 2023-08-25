@@ -106,7 +106,7 @@
                             <div class="col-md-4 col-sm-5">
                                 <div class="city-tour gallery"> 
                                     <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $item['marathi_image'] }}"
-                                        alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा" class="d-block w-100">
+                                        alt="{{ strip_tags($item['marathi_title']) }} छायाचित्र" class="d-block w-100">
                                 </div>
                             </div>
                             <div class="col-md-8 col-sm-7">
@@ -162,7 +162,7 @@
                                             <div class="new-thumb">
                                                 {{-- <span class="cat c1">Fire</span> --}}
                                                 <img src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW') }}{{ $item['marathi_image'] }}"
-                                                    alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा"
+                                                    alt="{{ strip_tags($item['marathi_title']) }} छायाचित्र"
                                                     class="d-block w-100">
                                             </div>
                                             <div class="new-txt">
@@ -320,7 +320,7 @@
                                 <div class="col-md-4 col-sm-4">
                                     <div class="deprt-icon-box"> <img
                                             src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item['marathi_image'] }}"
-                                            alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा">
+                                            alt="{{ strip_tags($item['marathi_title']) }} छायाचित्र">
                                         <h6> <a><?php echo $item['marathi_title']; ?></a> </h6>
                                         <a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer">
                                             @if (session('language') == 'mar')

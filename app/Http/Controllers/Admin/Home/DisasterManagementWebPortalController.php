@@ -67,12 +67,12 @@ class DisasterManagementWebPortalController extends Controller
             'english_image.max' => 'The image size must not exceed '.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MAX_SIZE").'KB .',
             'english_image.min' => 'The image size must not be less than '.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MIN_SIZE").'KB .',
             'english_image.dimensions' => 'The image dimensions must be between 150x150 and 400x400 pixels.',
-            'marathi_image.required' => 'कृपया प्रतिमा आवश्यक आहे.',
-            'marathi_image.image' => 'कृपया प्रतिमा फाइल कायदेशीर असणे आवश्यक आहे.',
-            'marathi_image.mimes' => 'कृपया प्रतिमा JPEG, PNG, JPG स्वरूपात असणे आवश्यक आहे.',
+            'marathi_image.required' => 'कृपया छायाचित्र आवश्यक आहे.',
+            'marathi_image.image' => 'कृपया छायाचित्र फाइल कायदेशीर असणे आवश्यक आहे.',
+            'marathi_image.mimes' => 'कृपया छायाचित्र JPEG, PNG, JPG स्वरूपात असणे आवश्यक आहे.',
             'marathi_image.max' => 'कृपया प्रतिमेचा आकार जास्त नसावा. '.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MAX_SIZE").'KB .',
             'marathi_image.min' => 'कृपया प्रतिमेचा आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.DISASTER_WEB_PORTAL_IMAGE_MIN_SIZE").'KB .',
-            'marathi_image.dimensions' => 'कृपया प्रतिमा 150x150  आणि 400x400  पिक्सेल दरम्यान असणे आवश्यक आहे.',
+            'marathi_image.dimensions' => 'कृपया छायाचित्र 150x150  आणि 400x400  पिक्सेल दरम्यान असणे आवश्यक आहे.',
         
         
     ];

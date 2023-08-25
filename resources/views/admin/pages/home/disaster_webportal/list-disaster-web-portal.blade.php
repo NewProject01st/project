@@ -42,7 +42,7 @@
                                                     <th>Designation Name</th>
                                                     <th>पदनाम नाव</th>
                                                     <th>Image </th>
-                                                    <th>प्रतिमा </th>
+                                                    <th>छायाचित्र </th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -64,7 +64,7 @@
                                                         </td>
                                                         <td> <img class="img-size"
                                                                 src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $item->marathi_image }}"
-                                                                alt=" {{ strip_tags($item['marathi_title']) }} प्रतिमा" />
+                                                                alt=" {{ strip_tags($item['marathi_title']) }} छायाचित्र" />
                                                         </td>
 
                                                         <td>

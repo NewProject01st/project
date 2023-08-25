@@ -48,19 +48,19 @@ class PublicAwarenessEducationController extends Controller
         'english_description.required' => 'Please enter description.',
         'marathi_description.required' => 'कृपया वर्णन प्रविष्ट करा.',
         'english_image.required' => 'The image field is required.',
-        'marathi_image.required' => 'कृपया प्रतिमा आवश्यक आहे.',
+        'marathi_image.required' => 'कृपया छायाचित्र आवश्यक आहे.',
         'english_image.required' => 'The image is required.',
         'english_image.image' => 'The image must be a valid image file.',
         'english_image.mimes' => 'The image must be in JPEG, PNG, JPG format.',
         'english_image.max' => 'The image size must not exceed '.Config::get("AllFileValidation.PUBLIC_AWARENESS_EDUCATION_IMAGE_MAX_SIZE").'KB .',
         'english_image.min' => 'The image size must not be less than '.Config::get("AllFileValidation.PUBLIC_AWARENESS_EDUCATION_IMAGE_MIN_SIZE").'KB .',
         'english_image.dimensions' => 'The image dimensions must be between 1500x500 and 2000x1000 pixels.',
-        'marathi_image.required' => 'कृपया प्रतिमा आवश्यक आहे.',
-        'marathi_image.image' => 'कृपया प्रतिमा फाइल कायदेशीर असणे आवश्यक आहे.',
-        'marathi_image.mimes' => 'कृपया प्रतिमा JPEG, PNG, JPG स्वरूपात असणे आवश्यक आहे.',
+        'marathi_image.required' => 'कृपया छायाचित्र आवश्यक आहे.',
+        'marathi_image.image' => 'कृपया छायाचित्र फाइल कायदेशीर असणे आवश्यक आहे.',
+        'marathi_image.mimes' => 'कृपया छायाचित्र JPEG, PNG, JPG स्वरूपात असणे आवश्यक आहे.',
         'marathi_image.max' => 'कृपया प्रतिमेचा आकार जास्त नसावा.'.Config::get("AllFileValidation.PUBLIC_AWARENESS_EDUCATION_IMAGE_MAX_SIZE").'KB .',
         'marathi_image.min' => 'कृपया प्रतिमेचा आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.PUBLIC_AWARENESS_EDUCATION_IMAGE_MIN_SIZE").'KB .',
-        'marathi_image.dimensions' => 'कृपया प्रतिमा 1500x500 आणि 2000x1000 पिक्सेल दरम्यान असणे आवश्यक आहे.',
+        'marathi_image.dimensions' => 'कृपया छायाचित्र 1500x500 आणि 2000x1000 पिक्सेल दरम्यान असणे आवश्यक आहे.',
     ];
 
     try {
@@ -130,12 +130,12 @@ class PublicAwarenessEducationController extends Controller
         'english_image.max' => 'The image size must not exceed '.Config::get("AllFileValidation.PUBLIC_AWARENESS_EDUCATION_IMAGE_MAX_SIZE").'KB .',
         'english_image.min' => 'The image size must not be less than '.Config::get("AllFileValidation.PUBLIC_AWARENESS_EDUCATION_IMAGE_MIN_SIZE").'KB .',
         'english_image.dimensions' => 'The image dimensions must be between 1500x500 and 2000x1000 pixels.',
-        'marathi_image.required' => 'कृपया प्रतिमा आवश्यक आहे.',
-        'marathi_image.image' => 'कृपया प्रतिमा फाइल कायदेशीर असणे आवश्यक आहे.',
-        'marathi_image.mimes' => 'कृपया प्रतिमा JPEG, PNG, JPG स्वरूपात असणे आवश्यक आहे.',
+        'marathi_image.required' => 'कृपया छायाचित्र आवश्यक आहे.',
+        'marathi_image.image' => 'कृपया छायाचित्र फाइल कायदेशीर असणे आवश्यक आहे.',
+        'marathi_image.mimes' => 'कृपया छायाचित्र JPEG, PNG, JPG स्वरूपात असणे आवश्यक आहे.',
         'marathi_image.max' => 'कृपया प्रतिमेचा आकार जास्त नसावा.'.Config::get("AllFileValidation.PUBLIC_AWARENESS_EDUCATION_IMAGE_MAX_SIZE").'KB .',
         'marathi_image.min' => 'कृपया प्रतिमेचा आकार पेक्षा कमी नसावा.'.Config::get("AllFileValidation.PUBLIC_AWARENESS_EDUCATION_IMAGE_MIN_SIZE").'KB .',
-        'marathi_image.dimensions' => 'कृपया प्रतिमा 1500x500 आणि 2000x1000 पिक्सेल दरम्यान असणे आवश्यक आहे.',
+        'marathi_image.dimensions' => 'कृपया छायाचित्र 1500x500 आणि 2000x1000 पिक्सेल दरम्यान असणे आवश्यक आहे.',
     ];
 
     try {

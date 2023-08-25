@@ -56,7 +56,7 @@
                                             <div class="new-thumb">
                                                 {{-- <span class="cat c1">Fire</span> --}}
                                                 <img src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW') }}{{ $item['marathi_image'] }}"
-                                                alt=" {{ strip_tags($item['marathi_title']) }} प्रतिमा"  class="d-block w-100">
+                                                alt=" {{ strip_tags($item['marathi_title']) }} छायाचित्र"  class="d-block w-100">
                                             </div>
                                             <div class="new-txt">
                                                 <ul class="news-meta">

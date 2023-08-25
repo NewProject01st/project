@@ -98,7 +98,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_image">प्रतिमा</label>&nbsp<span
+                                            <label for="marathi_image">छायाचित्र</label>&nbsp<span
                                                 class="red-text">*</span><br>
                                             <input type="file" name="marathi_image" id="marathi_image" accept="image/*"
                                             class="form-control mb-2"><br>
@@ -217,8 +217,8 @@
                     fileSize: "File size must be between 10 KB and 2 MB.",
                 },
                 marathi_image: {
-                    required: "कृपया प्रतिमा अपलोड करा (JPG, JPEG, PNG).",
-                    fileExtension: "फक्त JPG, JPEG, आणि PNG प्रतिमांना परवानगी आहे.",
+                    required: "कृपया छायाचित्र अपलोड करा (JPG, JPEG, PNG).",
+                    fileExtension: "फक्त JPG, JPEG, आणि PNG छायाचित्रंना परवानगी आहे.",
                     fileSize: "फाइल साईज 10 KB आणि 2 MB दरम्यान असणे आवश्यक आहे.",
                 },
                 // start_date:{

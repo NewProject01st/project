@@ -97,7 +97,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
                                         <div class="form-group">
-                                            <label for="marathi_image_new">प्रतिमा</label>&nbsp<span
+                                            <label for="marathi_image_new">छायाचित्र</label>&nbsp<span
                                                 class="red-text">*</span><br>
                                             <input type="file" name="marathi_image_new" id="marathi_image_new"
                                                 accept="image/*" class="form-control mb-2">
@@ -233,8 +233,8 @@
                             fileSize: "File size must be between 10 KB and 22KB.",
                         },
                         marathi_image: {
-                            required: "कृपया प्रतिमा अपलोड करा (JPG, JPEG, PNG).",
-                            fileExtension: "फक्त JPG, JPEG, आणि PNG प्रतिमांना परवानगी आहे.",
+                            required: "कृपया छायाचित्र अपलोड करा (JPG, JPEG, PNG).",
+                            fileExtension: "फक्त JPG, JPEG, आणि PNG छायाचित्रंना परवानगी आहे.",
                             fileSize: "फाइल साईज 10 KB आणि 22 BK दरम्यान असणे आवश्यक आहे.",
                         },
                         english_image_new: {
@@ -243,8 +243,8 @@
                             fileSize: "File size must be between 100 KB and 300KB.",
                         },
                         marathi_image_new: {
-                            required: "कृपया प्रतिमा अपलोड करा (JPG, JPEG, PNG).",
-                            fileExtension: "फक्त JPG, JPEG, आणि PNG प्रतिमांना परवानगी आहे.",
+                            required: "कृपया छायाचित्र अपलोड करा (JPG, JPEG, PNG).",
+                            fileExtension: "फक्त JPG, JPEG, आणि PNG छायाचित्रंना परवानगी आहे.",
                             fileSize: "फाइल साईज 100 KB आणि 300 दरम्यान असणे आवश्यक आहे.",
                         },
                        

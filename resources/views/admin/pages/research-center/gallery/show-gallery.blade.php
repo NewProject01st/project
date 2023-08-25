@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label> प्रतिमा :</label>
+                                            <label> छायाचित्र :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                             <img src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $gallery->marathi_image }}"

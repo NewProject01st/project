@@ -153,7 +153,7 @@ return [
 		'NGO_NAME'   => 'NGO चे नाव :',
 		'NGO_EMAIL'   => 'NGO ईमेल :',
 		'NGO_MOBILE_NO'   => 'NGO मोबाईल नंबर :',
-		'PHOTO'   => 'प्रतिमा :',
+		'PHOTO'   => 'छायाचित्र :',
 		'ADDRESS'   => 'पत्ता :',
 	],
 

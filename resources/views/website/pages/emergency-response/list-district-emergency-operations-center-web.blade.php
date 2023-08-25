@@ -43,7 +43,7 @@
                                     @if (session('language') == 'mar')
                                         <h3><?php echo $item['marathi_title']; ?> </h3>
                                         <img src="{{ Config::get('DocumentConstant.DISTRICT_OPERATION_CENTER_VIEW') }}{{ $item['marathi_image'] }}"
-                                            class="d-block w-100 to_set_img district_emerg" alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा">
+                                            class="d-block w-100 to_set_img district_emerg" alt="{{ strip_tags($item['marathi_title']) }} छायाचित्र">
                                         <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                     @else
                                         <h3><?php echo $item['english_title']; ?> </h3>

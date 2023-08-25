@@ -53,7 +53,7 @@ class WeatherController extends Controller
         'weather_date' => 'required',
         'expired_date' => 'required',
         'english_image.required' => 'The image field is required.',
-        'marathi_image.required' => 'कृपया प्रतिमा आवश्यक आहे.',
+        'marathi_image.required' => 'कृपया छायाचित्र आवश्यक आहे.',
         
     ];
 

@@ -208,7 +208,7 @@
                     },
                     messages: {
                 english_image: {
-                    validImage: "फक्त JPG, JPEG, PNG प्रतिमांना परवानगी आहे.",
+                    validImage: "फक्त JPG, JPEG, PNG छायाचित्रंना परवानगी आहे.",
                     fileSize: "फाईलचा आकार 180 KB and 2048 KB दरम्यान असणे आवश्यक आहे.",
                 },
                     },

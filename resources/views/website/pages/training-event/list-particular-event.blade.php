@@ -22,7 +22,7 @@
                                     <h3><?php echo $item['marathi_title']; ?> </h3>
                                   <b><i class="fas fa-calendar-alt"></i><?php echo $item['start_date']; ?> - <?php echo $item['end_date']; ?></b>
                                     <img src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['marathi_image'] }}"
-                                        class="d-block w-100" alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा">
+                                        class="d-block w-100" alt="{{ strip_tags($item['marathi_title']) }} छायाचित्र">
                                     <p style="text-align: justify;"> <?php echo $item['marathi_description']; ?></p>
                                 @else
                                     <h3><?php echo $item['english_title']; ?> </h3>

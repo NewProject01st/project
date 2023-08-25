@@ -106,11 +106,11 @@
                                     </div>
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>प्रतिमा :</label>
+                                            <label>छायाचित्र :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8 pt-2">
                                             <img src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $department_info->marathi_image_new }}"
-                                                style="width:300px; height:150px;" alt=" {{ strip_tags($department_info['marathi_title']) }} प्रतिमा"/>
+                                                style="width:300px; height:150px;" alt=" {{ strip_tags($department_info['marathi_title']) }} छायाचित्र"/>
                                         </div>
                                     </div>
 

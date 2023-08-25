@@ -122,7 +122,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_image"> प्रतिमा </label>
+                                            <label for="marathi_image"> छायाचित्र </label>
                                             <input type="file" name="marathi_image" id="marathi_image"
                                                 accept="image/*" class="form-control">
                                             @if ($errors->has('marathi_image'))

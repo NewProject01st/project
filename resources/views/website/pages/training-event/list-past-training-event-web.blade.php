@@ -56,7 +56,7 @@
                                     <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
                                         <div class="thumb"><img
                                                 src="{{ Config::get('DocumentConstant.TRAINING_EVENT_VIEW') }}{{ $item['marathi_image'] }}"
-                                                alt="{{ strip_tags($item['marathi_title']) }} प्रतिमा"> </div>
+                                                alt="{{ strip_tags($item['marathi_title']) }} छायाचित्र"> </div>
                                     </a>
                                     </div>
                                     <div class="col-lg-7 col-md-7 col-sm-7">

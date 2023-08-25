@@ -107,8 +107,8 @@
                     },
                     messages: {
                         marathi_image: {
-                            required: "कृपया प्रतिमा अपलोड करा (JPG, JPEG, PNG).",
-                            fileExtension: "फक्त JPG, JPEG, आणि PNG प्रतिमांना परवानगी आहे.",
+                            required: "कृपया छायाचित्र अपलोड करा (JPG, JPEG, PNG).",
+                            fileExtension: "फक्त JPG, JPEG, आणि PNG छायाचित्रंना परवानगी आहे.",
                             fileSize: "फाइल साईज 10 KB आणि 1 MB दरम्यान असणे आवश्यक आहे.",
                         },
                         url: {

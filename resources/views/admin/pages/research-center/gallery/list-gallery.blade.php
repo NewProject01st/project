@@ -35,7 +35,7 @@
                                                     <th>Sr. No.</th>
                                                     <th>Gallery Category</th>
                                                     <th> Image</th>
-                                                    <th>प्रतिमा</th>
+                                                    <th>छायाचित्र</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -52,7 +52,7 @@
                                                         </td>
                                                         <td> <img class="img-size"
                                                                 src="{{ Config::get('DocumentConstant.Gallery_VIEW') }}{{ $item->marathi_image }}"
-                                                                alt=" {{ strip_tags($item['marathi_title']) }} प्रतिमा" />
+                                                                alt=" {{ strip_tags($item['marathi_title']) }} छायाचित्र" />
                                                         </td>
                                                         <td>
                                                             <label class="switch">

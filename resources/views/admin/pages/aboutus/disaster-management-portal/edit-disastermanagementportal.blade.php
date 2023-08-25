@@ -86,12 +86,12 @@
                                         <img id="english"
                                             src="{{ Config::get('DocumentConstant.ABOUT_US_DISASTER_MGT_PORTAL_VIEW') }}{{ $disastermanagementportal->english_image }}"
                                             class="img-fluid img-thumbnail" width="150">
-                                        <img id="english_imgPreview" src="#" alt=" {{ strip_tags($disastermanagementportal['marathi_title']) }} प्रतिमा"
+                                        <img id="english_imgPreview" src="#" alt=" {{ strip_tags($disastermanagementportal['marathi_title']) }} छायाचित्र"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_image"> प्रतिमा</label>
+                                            <label for="marathi_image"> छायाचित्र</label>
                                             <input type="file" name="marathi_image" id="marathi_image" accept="image/*"
                                                 class="form-control mb-2">
                                             @if ($errors->has('marathi_image'))
@@ -214,7 +214,7 @@
                     fileSize: "The file size must be between 180 KB and 2048 KB.",
                 },
                 marathi_image: {
-                    validImage: "फक्त JPG, JPEG, PNG प्रतिमांना परवानगी आहे.",
+                    validImage: "फक्त JPG, JPEG, PNG छायाचित्रंना परवानगी आहे.",
                     fileSize: "फाईलचा आकार 180 KB and 2048 KB दरम्यान असणे आवश्यक आहे.",
                 },
                     },
