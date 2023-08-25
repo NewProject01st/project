@@ -24,7 +24,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="menu_name_english">Menu Name English</label>&nbsp<span
+                                            <label for="menu_name_english">Menu Name</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="menu_name_english" id="menu_name_english"
                                                 class="form-control mb-2" id="menu_name_english" placeholder=""
@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="menu_name_marathi">Menu Name Marathi</label>&nbsp<span
+                                            <label for="menu_name_marathi">Menu Name</label>&nbsp<span
                                                 class="red-text">*</span>
                                             <input type="text" name="menu_name_marathi" id="menu_name_marathi"
                                                 class="form-control mb-2" id="menu_name_marathi" placeholder=""

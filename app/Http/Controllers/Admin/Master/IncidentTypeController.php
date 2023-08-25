@@ -141,7 +141,7 @@ class IncidentTypeController extends Controller
         'english_title.required' => 'Please enter an title.',
         'english_title.regex' => 'Please  enter text only.',
         'english_title.max' => 'Please enter an  title with a maximum of 255 characters.',
-        'english_title.unique' => 'The English title already exists.',
+        'english_title.unique' => 'The title already exists.',
         'marathi_title.required' => 'कृपया  शीर्षक प्रविष्ट करा.',
         'marathi_title.max' => 'कृपया २५५ अक्षरांपर्यंत  शीर्षक प्रविष्ट करा.',
         'marathi_title.unique' => 'शीर्षक आधीच अस्तित्वात आहे.',
