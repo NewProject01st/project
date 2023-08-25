@@ -162,7 +162,7 @@
         <!-- Summernote Editor -->
         <script>
             $('#summernote1').summernote({
-                placeholder: 'Enter Marathi Title',
+                placeholder: 'Enter Title',
                 tabsize: 2,
                 height: 100
             });
@@ -171,7 +171,7 @@
         <!-- Summernote Editor -->
         <script>
             $('#summernote2').summernote({
-                placeholder: 'Enter English Title',
+                placeholder: 'Enter Title',
                 tabsize: 2,
                 height: 100
             });

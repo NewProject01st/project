@@ -24,7 +24,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title English <span
+                                            <label for="english_title">Title <span
                                                     class="text-danger">*</span></label>
                                             <input type="text" class="form-control mb-2" name="english_title"
                                                 id="english_title" placeholder="Enter the Title"
@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">Title Marathi <span
+                                            <label for="marathi_title">शीर्षक <span
                                                     class="text-danger">*</span></label>
                                             <input type="text" class="form-control mb-2" name="marathi_title"
                                                 id="marathi_title" placeholder="शीर्षक प्रविष्ट करा"

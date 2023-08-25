@@ -35,7 +35,7 @@
                                                     <th>Sr. No.</th>
                                                     <th>Address</th>
                                                     <th>पत्ता</th>
-                                                    <th>English</th>
+                                                    <th>Number</th>
                                                     <th>क्रमांक </th>
                                                     <th>Email</th>
                                                     {{-- <th>Status</th> --}}

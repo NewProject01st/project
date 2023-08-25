@@ -24,7 +24,7 @@
                                 <div class="row">
                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title English <span
+                                            <label for="english_title">Title <span
                                                     class="text-danger">*</span></label>
                                                     <input class="form-control mb-2" name="english_title" id="english_title" placeholder="Enter the Title">  
                                             @if ($errors->has('english_title'))
@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="marathi_title">Title Marathi <span
+                                            <label for="marathi_title">Title <span
                                                     class="text-danger">*</span></label>
                                                     <input class=" form-control mb-2" name="marathi_title" id="marathi_title" placeholder="शीर्षक प्रविष्ट करा">
                                             @if ($errors->has('marathi_title'))

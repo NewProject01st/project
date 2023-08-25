@@ -62,7 +62,7 @@
 
                                     <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
-                                            <label>English URL :</label>
+                                            <label>URL :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
                                             <label>{{ strip_tags($disaster_news->english_url) }}</label>
