@@ -132,13 +132,106 @@
                     validationMessage.textContent = "अवैध लँडलाइन नंबर. कृपया वैध लँडलाइन नंबर प्रविष्ट करा..";
                 }
             }
-        </script> --}}
-
+        </script> --}}        
 <script>
-    $(document).ready(function() {
-        // Function to check if all input fields are filled with valid data
-        // var validInput = inputValue.replace(/[^a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\/\\|\-=]/g, "");
+    $(document).ready(function () {
+        function checkFormValidity() {
+            const english_number = $('#english_number').val();
+            const marathi_number = $('#marathi_number').val();
+
+            // Validate the contact number
+            const isValidContactNumber1 = english_number.length >= 3 && english_number.length <= 25;
+            const isMarathiContactNumberValid1 = marathi_number.length >= 3 && marathi_number.length <= 25;
+
+            // Validate landline numbers using regex
+            const regex = /[^A-Za-z]/g;
+            const isValidEnglishLandlineNumber = regex.test(english_number);
+            const isValidMarathiLandlineNumber = regex.test(marathi_number);
+
+        }
+
+        // Call the checkFormValidity function on input change
+        $('input').on('input change', checkFormValidity);
+
+        // Initialize the form validation
+        $("#regForm").validate({
+            rules: {
+                english_address: {
+                    required: true,
+                    spcenotallow: true,
+                },
+                marathi_address: {
+                    required: true,
+                    spcenotallow: true,
+                },
+                english_number: {
+                    required: true,
+                    minlength: 3,
+                    maxlength: 25,
+                    spcenotallow: true,
+                },
+                marathi_number: {
+                    required: true,
+                    minlength: 3,
+                    maxlength: 25,
+                    spcenotallow: true,
+                },
+                email: {
+                    required: true,
+                    email: true,
+                    nospace: true, // Add custom nospace rule
+                },
+            },
+            messages: {
+                english_address: {
+                    required: "Please Enter the Address",
+                    spcenotallow: "Enter Some Text",
+                },
+                marathi_address: {
+                    required: "कृपया पत्ता प्रविष्ट करा",
+                    spcenotallow: "Enter Some Text",
+                },
+                english_number: {
+                    required: "Please Enter the Number",
+                    minlength: "The number must be at least 3 digits long",
+                    maxlength: "The number must be no more than 25 digits long",
+                    spcenotallow: "Enter Some Number",
+                },
+                marathi_number: {
+                    required: "Please Enter the Number",
+                    minlength: "The number must be at least 3 digits long",
+                    maxlength: "The number must be no more than 25 digits long",
+                    spcenotallow: "Enter Some Number",
+                },
+                email: {
+                    required: "Please Enter the Email",
+                    email: "Enter a valid email address",
+                    nospace: "Enter Some Email",
+                },
+            },
+        });
+
+        $.validator.addMethod("spcenotallow", function (value, element) {
+            if (element.nodeName.toLowerCase() === "select") {
+                var val = $(element).val();
+                return val && val.length > 0;
+            }
+            return this.checkable(element) ? this.getLength(value, element) > 0 : value.trim().length > 0;
+        }, "Enter Some Text");
+
+          // Add custom validation method for nospace rule
+    $.validator.addMethod("nospace", function (value, element) {
+            return value.indexOf(" ") === -1; // Return true if no space found
+        }, "Email address cannot contain spaces");
     
+
+    });
+  
+</script>
+
+
+{{-- <script>
+    $(document).ready(function() {
         /[^A-Za-z]/g
 
         function checkFormValidity() {
@@ -179,226 +272,67 @@
             rules: {              
                 english_address: {
                     required: true,
+                    spcenotallow: true,
                 },
                 marathi_address: {
                     required: true,
+                    spcenotallow: true,
                 },
                 english_number: {
                     required: true,
                     minlength: 3,
                     maxlength: 25,
+                    spcenotallow: true,
                 },
                 marathi_number: {
                     required: true,
                     minlength: 3,
                     maxlength: 25,
+                    spcenotallow: true,
                 },
                 email: {
                     required: true,
+                    spcenotallow: true,
                 },
             },
             messages: {
                 english_address: {
                     required: "Please Enter the Address",
+                    spcenotallow: "Enter Some Text",
                 },
                 marathi_address: {
                     required: "कृपया पत्ता प्रविष्ट करा",
+                    spcenotallow: "Enter Some Text",
                 },
                 english_number: {
                     required: "Please Enter the Number",
                     minlength: "The number must be at least 3 digits long",
                     maxlength: "The number must be no more than 25 digits long",
+                    spcenotallow: "Enter Some Number",
                 },
                 marathi_number: {
                     required: "Please Enter the Number",
                     minlength: "The number must be at least 3 digits long",
                     maxlength: "The number must be no more than 25 digits long",
+                    spcenotallow: "Enter Some Number",
                 },
                 email: {
                     required: "Please Enter the Email",
+                    spcenotallow: "Enter Some Email",
                 },
             },
         });
     });
-</script>
+    $.extend($.validator.methods, {
+            spcenotallow: function(b, c, d) {
+                if (!this.depend(d, c)) return "dependency-mismatch";
+                if ("select" === c.nodeName.toLowerCase()) {
+                    var e = a(c).val();
+                    return e && e.length > 0
+                }
+                return this.checkable(c) ? this.getLength(b, c) > 0 : b.trim().length > 0
+            }
+        });
+</script> --}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        {{-- <script>
-            $(document).ready(function() {
-                // Custom validation method to check if the mobile number is valid based on the regex pattern                
-                // $.validator.addMethod("valid_mobile_number", function(value, element) {
-                //     var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
-                //     return this.optional(element) || mobileNumberPattern.test(value);
-                // }, "Invalid landline number. Please enter a valid landline number.");
-
-                $.extend($.validator.methods, {
-                    spcenotallow: function(b, c, d) {
-                        if (!this.depend(d, c)) return "dependency-mismatch";
-                        if ("select" === c.nodeName.toLowerCase()) {
-                            var e = a(c).val();
-                            return e && e.length > 0
-                        }
-                        return this.checkable(c) ? this.getLength(b, c) > 0 : b.trim().length > 0
-                    }
-                });
-
-
-                // $.validator.addMethod("valid_marathi_number", function(value, element) {
-                //     value = value.replace(/\s/g, '');
-                //     var marathiNumberPattern = /^[०१२३४५६७८९()-\/\s]{7,25}$/;
-                //     return this.optional(element) || marathiNumberPattern.test(value);
-                // }, "अवैध नंबर. कृपया वैध नंबर प्रविष्ट करा.");
-
-                // Initialize the form validation
-                var form = $("#regForm");
-                var validator = form.validate({
-                    rules: {
-                        english_address: {
-                            required: true,
-                            spcenotallow: true,
-                        },
-                        marathi_address: {
-                            required: true,
-                            spcenotallow: true,
-                        },
-                        english_number: {
-                            required: true,
-                            spcenotallow: true,
-                        },
-                        marathi_number: {
-                            required: true,
-                            spcenotallow: true,
-                        },
-                        email: {
-                            required: true,
-                            spcenotallow: true,
-                        },
-                    },
-                    messages: {
-                        english_address: {
-                            required: "Please Enter the Address.",
-                            spcenotallow: "Enter Some Text",
-                        },
-                        marathi_address: {
-                            required: "कृपया पत्ता प्रविष्ट करा.",
-                            spcenotallow: "काही मजकूर प्रविष्ट करा",
-                        },
-                        email: {
-                            required: "Please Enter the Email",
-                            spcenotallow: "Enter Some Text",
-                        },
-                        english_number: {
-                            required: "Please Enter the Landline Number.",
-                            spcenotallow: "Enter Some Text",
-                        },
-                        marathi_number: {
-                            required: "कृपया मोबाइल क्रमांक प्रविष्ट करा",
-                            spcenotallow: "काही मजकूर प्रविष्ट करा",
-                        },
-                    },
-                });
-
-                // Submit the form when the "Update" button is clicked
-                $("#submitButton").click(function() {
-                    // Validate the form
-                    if (form.valid()) {
-                        form.submit();
-                    }
-                });
-            });
-        </script> --}}
-
-        {{-- <script>
-            $(document).ready(function() {
-                // Custom validation method to check if the mobile number is valid based on the regex pattern
-                $.validator.addMethod("valid_mobile_number", function(value, element) {
-                    var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
-                    return this.optional(element) || mobileNumberPattern.test(value);
-                }, "Invalid landline number. Please enter a valid landline number.");
-
-                // $.validator.addMethod("valid_marathi_number", function(value, element) {
-                //     var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
-                //     return this.optional(element) || mobileNumberPattern.test(value);
-                // }, "अवैध लँडलाइन नंबर. कृपया वैध लँडलाइन नंबर प्रविष्ट करा.");
-
-                $.validator.addMethod("valid_marathi_number", function(value, element) {
-                    value = value.replace(/\s/g, '');
-                    var marathiNumberPattern = /^[०१२३४५६७८९()-\/\s]{7,25}$/;
-                    return this.optional(element) || marathiNumberPattern.test(value);
-                }, "अवैध नंबर. कृपया वैध नंबर प्रविष्ट करा.");
-
-                
-
-                $.validator.addMethod("department_english_contact_number", function(value, element) {
-                    value = value.replace(/\s/g, '');
-                    return this.optional(element) || /^[0-9]{10}$/.test(value);
-                }, "Please enter a valid 10-digit number.");
-
-                $.validator.addMethod("department_marathi_contact_number", function(value, element) {
-                    value = value.replace(/\s/g, '');
-                    return this.optional(element) || /^[०१२३४५६७८९]{10}$/.test(value);
-                }, "कृपया वैध 10-अंकी क्रमांक प्रविष्ट करा.");
-
-                // Initialize the form validation
-                var form = $("#regForm");
-                var validator = form.validate({
-                    rules: {
-                        english_address: {
-                            required: true,
-                        },
-                        marathi_address: {
-                            required: true,
-                        },
-                        english_number: {
-                            required: true,
-                            valid_mobile_number: true, // Use the custom mobile number validation rule
-                        },
-                        marathi_number: {
-                            required: true,
-                            valid_marathi_number: true,
-                        },
-                        email: {
-                            required: true,
-                        },
-                    },
-                    messages: {
-                        english_address: {
-                            required: "Please Enter the Address.",
-                        },
-                        marathi_address: {
-                            required: "कृपया पत्ता प्रविष्ट करा.",
-                        },
-                        email: {
-                            required: "Please Enter the Email",
-                        },                        
-                        english_number: {
-                            required: "Please Enter the Landline Number.",
-                        },
-                        marathi_number: {
-                            required: "कृपया मोबाइल क्रमांक प्रविष्ट करा",
-                        },
-                    },
-                });
-
-                // Submit the form when the "Update" button is clicked
-                $("#submitButton").click(function() {
-                    // Validate the form
-                    if (form.valid()) {
-                        form.submit();
-                    }
-                });
-            });
-        </script> --}}
     @endsection

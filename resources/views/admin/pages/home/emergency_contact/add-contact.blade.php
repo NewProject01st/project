@@ -194,7 +194,7 @@
                 </div>
             </div>
         </div>
-        <script>
+        {{-- <script>
             function addvalidateMobileNumber(number) {
                 var mobileNumberPattern = /^[+]?[0-9-()\/\s]{7,25}$/;
                 var validationMessage = document.getElementById("english_landline_no");
@@ -217,7 +217,192 @@
                     validationMessage.textContent = "अवैध लँडलाइन नंबर. कृपया वैध लँडलाइन नंबर प्रविष्ट करा..";
                 }
             }
+        </script> --}}
+
+        <script>
+            $(document).ready(function() {
+                function checkFormValidity() {
+                    const english_number = $('#english_number').val();
+                    const marathi_number = $('#marathi_number').val();
+                    const english_landline_no = $('#english_landline_no').val();
+                    const marathi_landline_no = $('#marathi_landline_no').val();
+
+                    // Validate the contact number
+                    const isValidContactNumber = english_number.length >= 3 &&
+                        english_number.length <= 11;
+                    const isMarathiContactNumberValid = marathi_number.length >= 3 &&
+                        marathi_number.length <= 11;
+                    const isValidContactNumber1 = english_landline_no.length >= 3 &&
+                        english_landline_no.length <= 25;
+                    const isMarathiContactNumberValid1 = marathi_landline_no.length >= 3 &&
+                        marathi_landline_no.length <= 25;
+
+                    // Validate landline numbers using regex
+                    const regex = /[^A-Za-z]/g;
+                    const isValidEnglishLandlineNumber = regex.test(english_landline_no);
+                    const isValidMarathiLandlineNumber = regex.test(marathi_landline_no);
+
+                }
+
+                function validateLandlineNumber(value) {
+  return regex.test(value);
+}
+
+$("#english_landline_no").on("input change", function () {
+  if (!validateLandlineNumber(this.value)) {
+    this.setCustomValidity("Landline number can only contain digits and hyphens");
+  } else {
+    this.setCustomValidity("");
+  }
+});
+function validateLandlineNumber(value) {
+  return regex.test(value);
+}
+
+$("#marathi_landline_no").on("input change", function () {
+  if (!validateLandlineNumber(this.value)) {
+    this.setCustomValidity("Landline number can only contain digits and hyphens");
+  } else {
+    this.setCustomValidity("");
+  }
+});
+
+                // Call the checkFormValidity function on input change
+                $('input').on('input change', checkFormValidity);
+
+                // Initialize the form validation
+                $("#regForm").validate({
+                    rules: {
+                        english_title: {
+                            required: true,
+                            spcenotallow: true,
+                        },
+                        marathi_title: {
+                            required: true,
+                            spcenotallow: true,
+                        },
+                        english_name: {
+                            required: true,
+                            spcenotallow: true,
+                        },
+                        marathi_name: {
+                            required: true,
+                            spcenotallow: true,
+                        },
+                        english_address: {
+                            required: true,
+                            spcenotallow: true,
+                        },
+                        marathi_address: {
+                            required: true,
+                            spcenotallow: true,
+                        },
+                        english_number: {
+                            required: true,
+                            number: true,
+                            minlength: 3,
+                            maxlength: 11,
+                            spcenotallow: true,
+                        },
+                        marathi_number: {
+                            required: true,
+                            minlength: 3,
+                            maxlength: 25,
+                            spcenotallow: true,
+                        },
+                        english_landline_no: {
+                            required: true,
+                            minlength: 3,
+                            maxlength: 25,
+                            spcenotallow: true,
+                        },
+                        marathi_landline_no: {
+                            required: true,
+                            minlength: 3,
+                            maxlength: 25,
+                            spcenotallow: true,
+                        },
+                        email: {
+                            required: true,
+                            email: true,
+                            nospace: true, // Add custom nospace rule
+                        },
+                    },
+                    messages: {
+                        english_title: {
+                            required: "Please Enter the Title",
+                        },
+                        marathi_title: {
+                            required: "कृपया शीर्षक प्रविष्ट करा",
+                        },
+                        english_name: {
+                            required: "Please Enter the Name",
+                        },
+                        marathi_name: {
+                            required: "कृपया नाव प्रविष्ट करा",
+                        },
+                        english_address: {
+                            required: "Please Enter the Address",
+                            spcenotallow: "Enter Some Text",
+                        },
+                        marathi_address: {
+                            required: "कृपया पत्ता प्रविष्ट करा",
+                            spcenotallow: "Enter Some Text",
+                        },
+                        english_number: {
+                            required: "Please Enter the Number",
+                            number: "Please Enter a valid number",
+                            minlength: "The number must be at least 3 digits long",
+                            maxlength: "The number must be no more than 11 digits long",
+                            spcenotallow: "Enter Some Number",
+                        },
+                        marathi_number: {
+                            required: "Please Enter the Number",
+                            number: "Please Enter a valid number",
+                            minlength: "The number must be at least 3 digits long",
+                            maxlength: "The number must be no more than 11 digits long",
+                            spcenotallow: "Enter Some Number",
+                        },
+                        english_landline_no: {
+                            required: "Please Enter the Number",
+                            minlength: "The number must be at least 3 digits long",
+                            maxlength: "The number must be no more than 25 digits long",
+                            spcenotallow: "Enter Some Number",
+                        },
+                        marathi_landline_no: {
+                            required: "Please Enter the Number",
+                            minlength: "The number must be at least 3 digits long",
+                            maxlength: "The number must be no more than 25 digits long",
+                            spcenotallow: "Enter Some Number",
+                        },
+                        email: {
+                            required: "Please Enter the Email",
+                            email: "Enter a valid email address",
+                            nospace: "Enter Some Email",
+                        },
+                    },
+                });
+
+                $.validator.addMethod("spcenotallow", function(value, element) {
+                    if (element.nodeName.toLowerCase() === "select") {
+                        var val = $(element).val();
+                        return val && val.length > 0;
+                    }
+                    return this.checkable(element) ? this.getLength(value, element) > 0 : value.trim().length >
+                        0;
+                }, "Enter Some Text");
+
+                // Add custom validation method for nospace rule
+                $.validator.addMethod("nospace", function(value, element) {
+                    return value.indexOf(" ") === -1; // Return true if no space found
+                }, "Email address cannot contain spaces");
+
+
+            });
         </script>
+
+
+
 
         <script>
             $(document).ready(function() {
@@ -248,20 +433,21 @@
 
 
                     // Validate landline numbers using regex
+                    const regex = /[^A-Za-z]/g;
                     const isValidEnglishLandlineNumber = regex.test(english_landline_no);
                     const isValidMarathiLandlineNumber = regex.test(marathi_landline_no);
 
                     // Check if the form should be disabled
-                    const shouldDisableSubmit = !(
-                        isValidContactNumber &&
-                        isMarathiContactNumberValid &&
-                        isValidContactNumber1 &&
-                        isMarathiContactNumberValid1 &&
-                        isValidEnglishLandlineNumber &&
-                        isValidMarathiLandlineNumber
-                    );
-                    // Do not disable the submit button
-                    $('#submitButton').prop('disabled', false);
+                    // const shouldDisableSubmit = !(
+                    //     isValidContactNumber &&
+                    //     isMarathiContactNumberValid &&
+                    //     isValidContactNumber1 &&
+                    //     isMarathiContactNumberValid1 &&
+                    //     isValidEnglishLandlineNumber &&
+                    //     isValidMarathiLandlineNumber
+                    // );
+                    // // Do not disable the submit button
+                    // $('#submitButton').prop('disabled', false);
 
 
                 }
