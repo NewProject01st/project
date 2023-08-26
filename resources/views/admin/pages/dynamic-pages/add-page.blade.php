@@ -29,8 +29,7 @@
 
                                                 <label for="menu_name_english">Main Menu</label>&nbsp<span
                                                     class="red-text">*</span>
-                                                <select class="form-select form-control" name="menu_data" id="menu_data"
-                                                    aria-label="Default select example">
+                                                <select class="form-select form-control" name="menu_data" id="menu_data" aria-label="Default select example">
                                                     <option value="">Select Name</option>
                                                     @foreach ($main_menu_data as $key => $data)
                                                         <option value="{{ $data['menu_id'] }}_{{ $data['main_sub'] }}"
@@ -39,7 +38,7 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
-
+                                                
                                                 @if ($errors->has('menu_data'))
                                                     <span class="red-text"><?php echo $errors->first('menu_data', ':message'); ?></span>
                                                 @endif
@@ -134,67 +133,23 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>        
         <!-- include summernote css/js -->
-
+        
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
         {{-- <link rel="stylesheet" href="{{ asset('assets/vendors/summernote/dist/summernote.min.css') }}" />
         <script src="{{ asset('assets/vendors/summernote/dist/summernote.min.js') }}"></script> --}}
-
+            
         <!-- Summernote Editor -->
-        {{-- <script>
+        <script>
             $('#summernote1').summernote({
                 placeholder: 'Enter Content',
                 tabsize: 2,
-                height: 100,
-                // toolbar: false // Disable the toolbar
-                toolbar: [
-      ['style', ['style']],
-      ['font', ['bold', 'italic', 'subscript', 'superscript', 'clear']],
-      ['color', ['color']],
-      ['para', ['ol', 'ul', 'paragraph']],
-      ['table', ['table']],
-      ['insert', ['hr']],
-      ['view', ['fullscreen']]
-    ],
-
-     callbacks: {
-          onBlur: function (e) {
-              var p = e.target.parentNode.parentNode
-              console.log(p);
-              if (!(e.relatedTarget && $.contains(p, e.relatedTarget))) {
-                  $(this).parent().children('.note-editor').children('.note-toolbar').css("display", "none");
-              }
-          },
-          onFocus: function (e) {
-              $(this).parent().children('.note-editor').children('.note-toolbar').css("display", "block");
-        }
-    }
-            });
-        </script> --}}
-
-        <!-- Summernote Editor -->
-        <script>
-            var summernoteInstance = $('#summernote1').summernote({
-                placeholder: 'सामग्री प्रविष्ट करा',
-                tabsize: 2,
-                height: 100,
-            });
-
-            summernoteInstance.summernote('disable');
-
-            // Enable the editor and set toolbar when focusing
-            $('#summernote1').on('summernote.focus', function() {
-                summernoteInstance.summernote('enable');
-                summernoteInstance.summernote('toolbar', [
-                    ['style', ['bold', 'italic', 'underline']],
-                    ['insert', ['link', 'picture']]
-                ])
+                height: 100
             });
         </script>
         <!-- Summernote Editor End -->
-
         <!-- Summernote Editor -->
         <script>
             $('#summernote2').summernote({
@@ -205,80 +160,80 @@
         </script>
         <!-- Summernote Editor End -->
 
-        {{-- <script type="text/javascript">
+        <script type="text/javascript">
             function submitRegister() {
                 document.getElementById("frm_register").submit();
             }
-        </script> --}}
-        <script>
-            $(document).ready(function() {
-                // Function to check if all input fields are filled with valid data
-                function checkFormValidity() {
-
-                    const menu_data = $('#menu_data').val();
-                    const english_title = $('#english_title').val();
-                    const marathi_title = $('#marathi_title').val();
-                    const summernote1 = $('#summernote1').val();
-                    const summernote2 = $('#summernote2').val();
-                    const meta_data = $('#meta_data').val();
-                    const publish_date = $('#publish_date').val();
-                    // Enable the submit button if all fields are valid
-                    if (english_title && marathi_title && summernote1 && summernote2 && meta_data && publish_date) {
-                        $('#submitButton').prop('disabled', false);
-                    } else {
-                        $('#submitButton').prop('disabled', true);
-                    }
-                }
-
-                // Call the checkFormValidity function on input change
-                $('input,textarea, select').on('input change',
-                    checkFormValidity);
-
-                // Initialize the form validation
-                $("#regForm").validate({
-                    rules: {
-                        english_title: {
-                            required: true,
-                        },
-                        marathi_title: {
-                            required: true,
-                        },
-                        summernote1: {
-                            required: true,
-                        },
-                        summernote2: {
-                            required: true,
-                        },
-                        meta_data: {
-                            required: true,
-                        },
-                        publish_date: {
-                            required: true,
-                        },
-
-                    },
-                    messages: {
-                        english_title: {
-                            required: "Please Enter the Title",
-                        },
-                        marathi_title: {
-                            required: "कृपया शीर्षक प्रविष्ट करा",
-                        },
-                        summernote1: {
-                            required: "Please Enter the Description",
-                        },
-                        summernote2: {
-                            required: "कृपया वर्णन प्रविष्ट करा",
-                        },
-                        meta_data: {
-                            required: "Please Enter the URL",
-                        },
-                        publish_date: {
-                            required: "Please Select Date",
-                        },
-                    },
-
-                });
-            });
         </script>
+           <script>
+            $(document).ready(function() {
+     // Function to check if all input fields are filled with valid data
+     function checkFormValidity() {
+        
+        const menu_data = $('#menu_data').val();
+         const english_title = $('#english_title').val();
+         const marathi_title = $('#marathi_title').val();
+         const summernote1 = $('#summernote1').val();
+         const summernote2 = $('#summernote2').val();
+         const meta_data = $('#meta_data').val();
+         const publish_date = $('#publish_date').val();
+         // Enable the submit button if all fields are valid
+         if (english_title && marathi_title && summernote1 && summernote2 && meta_data && publish_date) {
+             $('#submitButton').prop('disabled', false);
+         } else {
+             $('#submitButton').prop('disabled', true);
+         }
+     }
+ 
+     // Call the checkFormValidity function on input change
+     $('input,textarea, select').on('input change',
+         checkFormValidity);
+ 
+     // Initialize the form validation
+     $("#regForm").validate({
+         rules: {
+             english_title: {
+                 required: true,
+             },
+             marathi_title: {
+                 required: true,
+             },
+             summernote1: {
+                 required: true,
+             },
+             summernote2: {
+                 required: true,
+             },
+             meta_data: {
+                 required: true,
+             },
+             publish_date: {
+                 required: true,
+             },
+             
+         },
+         messages: {
+             english_title: {
+                 required: "Please Enter the Title",
+             },
+             marathi_title: {
+                 required: "कृपया शीर्षक प्रविष्ट करा",
+             },
+             summernote1: {
+                 required: "Please Enter the Description",
+             },
+             summernote2: {
+                 required: "कृपया वर्णन प्रविष्ट करा",
+             },
+             meta_data: {
+                 required: "Please Enter the URL",
+             },
+             publish_date: {
+                required: "Please Select Date",
+             },
+         },
+         
+     });
+ });
+         </script>
     @endsection
