@@ -75,10 +75,12 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <div class="form-group">
+                                        <div class="form-group ">
                                             <label for="english_description">Page Content </label>&nbsp<span
                                                 class="red-text">*</span>
+                                                <span class="summernote1">
                                             <textarea class="form-control" name="english_description" id="summernote1" placeholder="Enter Page Content ">{{ old('english_description') }}</textarea>
+                                                </span>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php echo $errors->first('english_description', ':message');
                                                 ?></span>
@@ -89,7 +91,9 @@
                                         <div class="form-group">
                                             <label for="marathi_description">पृष्ठ सामग्री</label>&nbsp<span
                                                 class="red-text">*</span>
+                                                <span class="summernote2">
                                             <textarea class="form-control" name="marathi_description" id="summernote2" placeholder="पृष्ठ सामग्री प्रविष्ट करा ">{{ old('marathi_description') }}</textarea>
+                                        </span>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message');
                                                 ?></span>
@@ -142,58 +146,10 @@
         {{-- <link rel="stylesheet" href="{{ asset('assets/vendors/summernote/dist/summernote.min.css') }}" />
         <script src="{{ asset('assets/vendors/summernote/dist/summernote.min.js') }}"></script> --}}
 
-        <!-- Summernote Editor -->
-        {{-- <script>
-            $('#summernote1').summernote({
-                placeholder: 'Enter Content',
-                tabsize: 2,
-                height: 100,
-                // toolbar: false // Disable the toolbar
-                toolbar: [
-      ['style', ['style']],
-      ['font', ['bold', 'italic', 'subscript', 'superscript', 'clear']],
-      ['color', ['color']],
-      ['para', ['ol', 'ul', 'paragraph']],
-      ['table', ['table']],
-      ['insert', ['hr']],
-      ['view', ['fullscreen']]
-    ],
-
-     callbacks: {
-          onBlur: function (e) {
-              var p = e.target.parentNode.parentNode
-              console.log(p);
-              if (!(e.relatedTarget && $.contains(p, e.relatedTarget))) {
-                  $(this).parent().children('.note-editor').children('.note-toolbar').css("display", "none");
-              }
-          },
-          onFocus: function (e) {
-              $(this).parent().children('.note-editor').children('.note-toolbar').css("display", "block");
-        }
-    }
-            });
-        </script> --}}
 
         <!-- Summernote Editor -->
         <script>
-            // var summernoteInstance = $('#summernote1').summernote({
-            //     placeholder: 'सामग्री प्रविष्ट करा',
-            //     tabsize: 2,
-            //     height: 100,
-            // });
-
-            // summernoteInstance.summernote('disable');
-
-            // // Enable the editor and set toolbar when focusing
-            // $('#summernote1').on('summernote.focus', function() {
-            //     summernoteInstance.summernote('enable');
-            //     summernoteInstance.summernote('toolbar', [
-            //         ['style', ['bold', 'italic', 'underline']],
-            //         ['insert', ['link', 'picture']]
-            //     ])
-            // });
-
-            var summernoteInstance = $('#summernote1').summernote({
+          var summernoteInstance = $('#summernote1').summernote({
             placeholder: 'सामग्री प्रविष्ट करा',
             tabsize: 2,
             height: 100,
@@ -211,20 +167,42 @@
         });
 
         // Enable the editor when clicking anywhere in the textarea
-        $(document).on('click', function() {
+        $('.summernote1').on('click', function() {
             summernoteInstance.summernote('enable');
         });
         </script>
         <!-- Summernote Editor End -->
-
-        <!-- Summernote Editor -->
         <script>
+            var summernoteInstance1 = $('#summernote2').summernote({
+              placeholder: 'सामग्री प्रविष्ट करा',
+              tabsize: 2,
+              height: 100,
+          });
+  
+          summernoteInstance1.summernote('disable');
+  
+          // Enable the editor and set toolbar when focusing
+          $('#summernote2').on('summernote.focus', function() {
+              summernoteInstance1.summernote('enable');
+              summernoteInstance1.summernote('toolbar', [
+                  ['style', ['bold', 'italic', 'underline']],
+                  ['insert', ['link', 'picture']]
+              ]);
+          });
+  
+          // Enable the editor when clicking anywhere in the textarea
+          $('.summernote2').on('click', function() {
+              summernoteInstance1.summernote('enable');
+          });
+          </script>
+        <!-- Summernote Editor -->
+        {{-- <script>
             $('#summernote2').summernote({
                 placeholder: 'सामग्री प्रविष्ट करा',
                 tabsize: 2,
                 height: 100
             });
-        </script>
+        </script> --}}
         <!-- Summernote Editor End -->
 
         {{-- <script type="text/javascript">
