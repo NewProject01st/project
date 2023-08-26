@@ -90,9 +90,11 @@
                                         <div class="form-group">
                                             <label for="english_description">Page Content</label>&nbsp<span
                                                 class="red-text">*</span>
+                                                <span class="summernote1">
                                             <textarea class="form-control" name="english_description" id="summernote1" placeholder="Enter the Description">
                                              @if (old('english_description')){{ old('english_description') }}@else{{ $html_english }}@endif 
                                         </textarea>
+                                                </span>
                                             @if ($errors->has('english_description'))
                                                 <span class="red-text"><?php echo $errors->first('english_description', ':message'); ?></span>
                                             @endif
@@ -102,9 +104,11 @@
                                         <div class="form-group">
                                             <label for="marathi_description">पृष्ठ सामग्री</label>&nbsp<span
                                                 class="red-text">*</span>
+                                                <span class="summernote2">
                                             <textarea class="form-control" name="marathi_description" id="summernote2" placeholder="पृष्ठ सामग्री प्रविष्ट करा">
                                                 @if (old('marathi_description')){{ old('marathi_description') }}@else{{ $html_marathi }}@endif 
                                         </textarea>
+                                                </span>
                                             @if ($errors->has('marathi_description'))
                                                 <span class="red-text"><?php echo $errors->first('marathi_description', ':message'); ?></span>
                                             @endif
@@ -159,38 +163,74 @@
         </div>
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+        
         <!-- Summernote Editor -->
         <script>
+            var summernoteInstance = $('#summernote1').summernote({
+              placeholder: 'सामग्री प्रविष्ट करा',
+              tabsize: 2,
+              height: 100,
+          });
+  
+          summernoteInstance.summernote('disable');
+  
+          // Enable the editor and set toolbar when focusing
+          $('#summernote1').on('summernote.focus', function() {
+              summernoteInstance.summernote('enable');
+              summernoteInstance.summernote('toolbar', [
+                  ['style', ['bold', 'italic', 'underline']],
+                  ['insert', ['link', 'picture']]
+              ]);
+          });
+  
+          // Enable the editor when clicking anywhere in the textarea
+          $('.summernote1').on('click', function() {
+              summernoteInstance.summernote('enable');
+          });
+          </script>
+          <!-- Summernote Editor End -->
+          <script>
+              var summernoteInstance1 = $('#summernote2').summernote({
+                placeholder: 'सामग्री प्रविष्ट करा',
+                tabsize: 2,
+                height: 100,
+            });
+    
+            summernoteInstance1.summernote('disable');
+    
+            // Enable the editor and set toolbar when focusing
+            $('#summernote2').on('summernote.focus', function() {
+                summernoteInstance1.summernote('enable');
+                summernoteInstance1.summernote('toolbar', [
+                    ['style', ['bold', 'italic', 'underline']],
+                    ['insert', ['link', 'picture']]
+                ]);
+            });
+    
+            // Enable the editor when clicking anywhere in the textarea
+            $('.summernote2').on('click', function() {
+                summernoteInstance1.summernote('enable');
+            });
+            </script>
+        <!-- Summernote Editor -->
+        {{-- <script>
             $('#summernote1').summernote({
                 placeholder: 'Enter Title',
                 tabsize: 2,
                 height: 100
             });
-        </script>
+        </script> --}}
         <!-- Summernote Editor End -->
         <!-- Summernote Editor -->
-        <script>
+        {{-- <script>
             $('#summernote2').summernote({
                 placeholder: 'Enter Title',
                 tabsize: 2,
                 height: 100
             });
-        </script>
+        </script> --}}
         <!-- Summernote Editor End -->
-            <script type="text/javascript">
-            function submitRegister() {
-                document.getElementById("frm_register").submit();
-            }
-        </script>
-
-        <script type="text/javascript">
-            function submitRegister() {
-                document.getElementById("frm_register").submit();
-            }
-        </script>
-
-
-
+            
 <script>
     $(document).ready(function() {
         function checkFormValidity() {
