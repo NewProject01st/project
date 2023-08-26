@@ -64,6 +64,14 @@
                                             </h6>
                                             <p class="card_title"> <?php echo $item['marathi_description']; ?></p>
                                         </div>
+                                        <div class="news-box-f"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  @if (session('language') == 'mar')
+                                            {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                        @else
+                                            {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                        @endif <a
+                                            data-id="{{ $item['id'] }}" class="disaster-show-btn"><i
+                                                class="fa fa-arrow-right"></i></a>
+                                    </div>
                                         {{-- <div class="news-box-f cursor-pointer">
                                             <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 @if (session('language') == 'mar')
@@ -90,7 +98,7 @@
                                         </div>
                                         <div class="news-box-f"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more <a
                                                 data-id="{{ $item['id'] }}" class="disaster-show-btn"><i
-                                                    class="fas fa-arrow-right"></i></a>
+                                                    class="fa fa-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>

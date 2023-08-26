@@ -176,22 +176,44 @@
 
         <!-- Summernote Editor -->
         <script>
+            // var summernoteInstance = $('#summernote1').summernote({
+            //     placeholder: 'सामग्री प्रविष्ट करा',
+            //     tabsize: 2,
+            //     height: 100,
+            // });
+
+            // summernoteInstance.summernote('disable');
+
+            // // Enable the editor and set toolbar when focusing
+            // $('#summernote1').on('summernote.focus', function() {
+            //     summernoteInstance.summernote('enable');
+            //     summernoteInstance.summernote('toolbar', [
+            //         ['style', ['bold', 'italic', 'underline']],
+            //         ['insert', ['link', 'picture']]
+            //     ])
+            // });
+
             var summernoteInstance = $('#summernote1').summernote({
-                placeholder: 'सामग्री प्रविष्ट करा',
-                tabsize: 2,
-                height: 100,
-            });
+            placeholder: 'सामग्री प्रविष्ट करा',
+            tabsize: 2,
+            height: 100,
+        });
 
-            summernoteInstance.summernote('disable');
+        summernoteInstance.summernote('disable');
 
-            // Enable the editor and set toolbar when focusing
-            $('#summernote1').on('summernote.focus', function() {
-                summernoteInstance.summernote('enable');
-                summernoteInstance.summernote('toolbar', [
-                    ['style', ['bold', 'italic', 'underline']],
-                    ['insert', ['link', 'picture']]
-                ])
-            });
+        // Enable the editor and set toolbar when focusing
+        $('#summernote1').on('summernote.focus', function() {
+            summernoteInstance.summernote('enable');
+            summernoteInstance.summernote('toolbar', [
+                ['style', ['bold', 'italic', 'underline']],
+                ['insert', ['link', 'picture']]
+            ]);
+        });
+
+        // Enable the editor when clicking anywhere in the textarea
+        $(document).on('click', function() {
+            summernoteInstance.summernote('enable');
+        });
         </script>
         <!-- Summernote Editor End -->
 
