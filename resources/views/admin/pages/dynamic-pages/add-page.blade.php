@@ -75,31 +75,45 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <div class="form-group ">
+                                        <div class="form-group" id="summernote_new_id">
+                                            <label for="english_description">Page Content <span class="red-text">*</span></label>
+                                            <textarea class="form-control" name="english_description" id="summernote1" placeholder="Enter Page Content">{{ old('english_description') }}</textarea>
+                                            @if ($errors->has('english_description'))
+                                                <span class="red-text">{{ $errors->first('english_description') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="form-group" id="summernote_marathi_new_id">
+                                            <label for="marathi_description">पृष्ठ सामग्री <span class="red-text">*</span></label>
+                                            <textarea class="form-control" name="marathi_description" id="summernote2" placeholder="पृष्ठ सामग्री प्रविष्ट करा">{{ old('marathi_description') }}</textarea>
+                                            @if ($errors->has('marathi_description'))
+                                                <span class="red-text">{{ $errors->first('marathi_description') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    {{-- <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="form-group" id="summernote_new_id">
                                             <label for="english_description">Page Content </label>&nbsp<span
                                                 class="red-text">*</span>
-                                                <span class="summernote1">
                                             <textarea class="form-control" name="english_description" id="summernote1" placeholder="Enter Page Content ">{{ old('english_description') }}</textarea>
-                                                </span>
                                             @if ($errors->has('english_description'))
-                                                <span class="red-text"><?php echo $errors->first('english_description', ':message');
+                                                <span class="red-text"><?php //echo $errors->first('english_description', ':message');
                                                 ?></span>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <div class="form-group">
+                                        <div class="form-group" id="summernote_marathi_new_id">
                                             <label for="marathi_description">पृष्ठ सामग्री</label>&nbsp<span
                                                 class="red-text">*</span>
-                                                <span class="summernote2">
-                                            <textarea class="form-control" name="marathi_description" id="summernote2" placeholder="पृष्ठ सामग्री प्रविष्ट करा ">{{ old('marathi_description') }}</textarea>
-                                        </span>
+                                                <textarea class="form-control" name="marathi_description" id="summernote2" placeholder="पृष्ठ सामग्री प्रविष्ट करा ">{{ old('marathi_description') }}</textarea>
                                             @if ($errors->has('marathi_description'))
-                                                <span class="red-text"><?php echo $errors->first('marathi_description', ':message');
+                                                <span class="red-text"><?php //echo $errors->first('marathi_description', ':message');
                                                 ?></span>
                                             @endif
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
@@ -145,34 +159,78 @@
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
         {{-- <link rel="stylesheet" href="{{ asset('assets/vendors/summernote/dist/summernote.min.css') }}" />
         <script src="{{ asset('assets/vendors/summernote/dist/summernote.min.js') }}"></script> --}}
-
+        <script>
+                var summernoteInstance1 = $('#summernote1').summernote({
+                    placeholder: 'Enter Content',
+                    tabsize: 2,
+                    height: 100
+                });
+        
+                summernoteInstance1.summernote('disable');
+        
+                $('#summernote_new_id .note-editable').on('click', function() {
+                    summernoteInstance1.summernote('enable');
+                    summernoteInstance1.summernote('toolbar', [
+                        ['style', ['bold', 'italic', 'underline']],
+                        ['insert', ['link', 'picture']]
+                    ]);
+                });
+        
+                var summernoteInstance2 = $('#summernote2').summernote({
+                    placeholder: 'Enter Content',
+                    tabsize: 2,
+                    height: 100
+                });
+        
+                summernoteInstance2.summernote('disable');
+        
+                $('#summernote_marathi_new_id .note-editable').on('click', function() {
+                    summernoteInstance2.summernote('enable');
+                    summernoteInstance2.summernote('toolbar', [
+                        ['style', ['bold', 'italic', 'underline']],
+                        ['insert', ['link', 'picture']]
+                    ]);
+                });
+        </script>
 
         <!-- Summernote Editor -->
-        <script>
-          var summernoteInstance = $('#summernote1').summernote({
-            placeholder: 'सामग्री प्रविष्ट करा',
-            tabsize: 2,
-            height: 100,
-        });
+        {{-- <script>
+            var summernoteInstance = $('#summernote1').summernote({
+                placeholder: 'Enter Content',
+                tabsize: 2,
+                height: 100
+            });
 
-        summernoteInstance.summernote('disable');
+            summernoteInstance.summernote('disable');
 
-        // Enable the editor and set toolbar when focusing
-        $('#summernote1').on('summernote.focus', function() {
-            summernoteInstance.summernote('enable');
-            summernoteInstance.summernote('toolbar', [
-                ['style', ['bold', 'italic', 'underline']],
-                ['insert', ['link', 'picture']]
-            ]);
-        });
-
-        // Enable the editor when clicking anywhere in the textarea
-        $('.summernote1').on('click', function() {
-            summernoteInstance.summernote('enable');
-        });
+            $(document).on('click', '#summernote_new_id .note-editable', function() {
+                summernoteInstance.summernote('enable');
+                summernoteInstance.summernote('toolbar', [
+                    ['style', ['bold', 'italic', 'underline']],
+                    ['insert', ['link', 'picture']]
+                ]);
+            });
         </script>
-        <!-- Summernote Editor End -->
-        <script>
+               <script>
+            var summernoteInstance = $('#summernote2').summernote({
+                placeholder: 'Enter Content',
+                tabsize: 2,
+                height: 100
+            });
+
+            summernoteInstance.summernote('disable');
+
+            $(document).on('click', '#summernote_marathi_new_id .note-editable', function() {
+                summernoteInstance.summernote('enable');
+                summernoteInstance.summernote('toolbar', [
+                    ['style', ['bold', 'italic', 'underline']],
+                    ['insert', ['link', 'picture']]
+                ]);
+            });
+        </script> --}}
+
+
+        {{-- <script>
             var summernoteInstance1 = $('#summernote2').summernote({
               placeholder: 'सामग्री प्रविष्ट करा',
               tabsize: 2,
@@ -194,7 +252,7 @@
           $('.summernote2').on('click', function() {
               summernoteInstance1.summernote('enable');
           });
-          </script>
+          </script> --}}
         <!-- Summernote Editor -->
         {{-- <script>
             $('#summernote2').summernote({

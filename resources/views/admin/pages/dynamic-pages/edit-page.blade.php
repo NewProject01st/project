@@ -87,7 +87,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <div class="form-group">
+                                        <div class="form-group" id="summernote_new_id">
                                             <label for="english_description">Page Content</label>&nbsp<span
                                                 class="red-text">*</span>
                                                 <span class="summernote1">
@@ -101,7 +101,7 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <div class="form-group">
+                                        <div class="form-group" id="summernote_marathi_new_id">
                                             <label for="marathi_description">पृष्ठ सामग्री</label>&nbsp<span
                                                 class="red-text">*</span>
                                                 <span class="summernote2">
@@ -164,42 +164,16 @@
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
         
-        <!-- Summernote Editor -->
         <script>
-            var summernoteInstance = $('#summernote1').summernote({
-              placeholder: 'सामग्री प्रविष्ट करा',
-              tabsize: 2,
-              height: 100,
-          });
-  
-          summernoteInstance.summernote('disable');
-  
-          // Enable the editor and set toolbar when focusing
-          $('#summernote1').on('summernote.focus', function() {
-              summernoteInstance.summernote('enable');
-              summernoteInstance.summernote('toolbar', [
-                  ['style', ['bold', 'italic', 'underline']],
-                  ['insert', ['link', 'picture']]
-              ]);
-          });
-  
-          // Enable the editor when clicking anywhere in the textarea
-          $('.summernote1').on('click', function() {
-              summernoteInstance.summernote('enable');
-          });
-          </script>
-          <!-- Summernote Editor End -->
-          <script>
-              var summernoteInstance1 = $('#summernote2').summernote({
-                placeholder: 'सामग्री प्रविष्ट करा',
+            var summernoteInstance1 = $('#summernote1').summernote({
+                placeholder: 'Enter Content',
                 tabsize: 2,
-                height: 100,
+                height: 100
             });
     
             summernoteInstance1.summernote('disable');
     
-            // Enable the editor and set toolbar when focusing
-            $('#summernote2').on('summernote.focus', function() {
+            $('#summernote_new_id .note-editable').on('click', function() {
                 summernoteInstance1.summernote('enable');
                 summernoteInstance1.summernote('toolbar', [
                     ['style', ['bold', 'italic', 'underline']],
@@ -207,28 +181,22 @@
                 ]);
             });
     
-            // Enable the editor when clicking anywhere in the textarea
-            $('.summernote2').on('click', function() {
-                summernoteInstance1.summernote('enable');
-            });
-            </script>
-        <!-- Summernote Editor -->
-        {{-- <script>
-            $('#summernote1').summernote({
-                placeholder: 'Enter Title',
+            var summernoteInstance2 = $('#summernote2').summernote({
+                placeholder: 'Enter Content',
                 tabsize: 2,
                 height: 100
             });
-        </script> --}}
-        <!-- Summernote Editor End -->
-        <!-- Summernote Editor -->
-        {{-- <script>
-            $('#summernote2').summernote({
-                placeholder: 'Enter Title',
-                tabsize: 2,
-                height: 100
+    
+            summernoteInstance2.summernote('disable');
+    
+            $('#summernote_marathi_new_id .note-editable').on('click', function() {
+                summernoteInstance2.summernote('enable');
+                summernoteInstance2.summernote('toolbar', [
+                    ['style', ['bold', 'italic', 'underline']],
+                    ['insert', ['link', 'picture']]
+                ]);
             });
-        </script> --}}
+    </script>
         <!-- Summernote Editor End -->
             
 <script>
