@@ -88,6 +88,8 @@
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group" id="summernote_new_id">
+                                            <div class="text-danger mb-2"><span
+                                                class="red-text">*</span> Note - To enable the text area, double-click on it, which will subsequently activate the text area tools for interaction and modification.</div>
                                             <label for="english_description">Page Content</label>&nbsp<span
                                                 class="red-text">*</span>
                                                 <span class="summernote1">
@@ -102,6 +104,8 @@
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group" id="summernote_marathi_new_id">
+                                            <div class="text-danger mb-2"><span
+                                                class="red-text">*</span> टीप - मजकूर क्षेत्र सक्षम करण्यासाठी, त्यावर डबल-क्लिक करा, जे नंतर परस्परसंवाद आणि सुधारणेसाठी मजकूर क्षेत्र साधने सक्रिय करेल.</div>
                                             <label for="marathi_description">पृष्ठ सामग्री</label>&nbsp<span
                                                 class="red-text">*</span>
                                                 <span class="summernote2">
