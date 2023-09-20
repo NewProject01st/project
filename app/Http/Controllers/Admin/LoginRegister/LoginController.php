@@ -27,6 +27,22 @@ class LoginController extends Controller
 
     public function submitLogin(Request $request) {
 
+        $get_user = User::where([
+            'u_email' => $request['email'],
+            ])->first();
+            if(!empty($get_user)){
+           
+                if($get_user->ip_address!=$request->ip() || $get_user->user_agent!=$request->userAgent()){
+                    $update = User::where([
+                        'u_email' => $request['email'],
+                        ])
+                        ->update([
+                            'ip_address'=>'null',
+                            'user_agent'=>'null',
+                        ]);        
+                }
+            }
+            
         $rules = [
             'email' => 'required | email', 
             'password' => 'required',
