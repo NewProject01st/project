@@ -132,7 +132,7 @@ class EmergencyContactNumbersController extends Controller
             'english_emergency_contact_title' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
             'marathi_emergency_contact_title' =>  'required|max:255',
             // 'english_emergency_contact_number' =>  'required|regex:/^[0-9]{10}$/',
-            'marathi_emergency_contact_number' => 'required|max:25',
+            'marathi_emergency_contact_number' => 'required',
         ];
         $messages = [
             'english_emergency_contact_title.required' => 'Please Enter Emergency Title.',
@@ -142,8 +142,8 @@ class EmergencyContactNumbersController extends Controller
             'marathi_emergency_contact_title.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',
             // 'english_emergency_contact_number.required' => 'Please Enter Emergency Contact.',
             // 'marathi_emergency_contact_number.required' => 'कृपया आपत्कालीन संपर्क प्रविष्ट करा.',
-            // 'english_emergency_contact_number.regex' => 'Please enter only  number with 10-digit numbers.',
-            'marathi_emergency_contact_number.max' => 'कृपया फक्त 10-अंकी संख्या असलेली संख्या प्रविष्ट करा. ',
+            'english_emergency_contact_number.required' => 'Please Enter Emergency Conatct Number.',
+            'marathi_emergency_contact_number.required' => 'कृपया आपत्कालीन संपर्क क्रमांक प्रविष्ट करा. ',
         ];
 
         try

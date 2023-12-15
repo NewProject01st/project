@@ -433,7 +433,7 @@
                               @endif
                               @if (in_array('list-state-disaster-management-policy', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                          href="{{ route('list-state-disaster-management-policy') }}">State Disaster Management Policy</a>
+                                          href="{{ route('list-state-disaster-management-policy') }}">Disaster Management Policies</a>
                                   </li>
                               @endif
                               @if (in_array('list-relevant-laws-and-regulations', $data_for_url))

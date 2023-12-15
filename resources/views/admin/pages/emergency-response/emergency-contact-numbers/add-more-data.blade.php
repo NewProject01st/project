@@ -127,15 +127,15 @@
                         },
                         english_emergency_contact_number: {
                             required: true,
-                            number: true,
-                            minlength: 3,
-                            maxlength: 11,
+                            // number: true,
+                            // minlength: 3,
+                            // maxlength: 11,
                         },
                         marathi_emergency_contact_number: {
                             required: true,
-                            number: true,
-                            minlength: 3,
-                            maxlength: 11,
+                            // number: true,
+                            // minlength: 3,
+                            // maxlength: 11,
                         },
                     },
                     messages: {
@@ -147,15 +147,15 @@
                         },
                         english_emergency_contact_number: {
                             required: "Please Enter the Number",
-                            number: "Please Enter a valid number",
-                            minlength: "The number must be at least 3 digits long",
-                            maxlength: "The number must be no more than 11 digits long",
+                            // number: "Please Enter a valid number",
+                            // minlength: "The number must be at least 3 digits long",
+                            // maxlength: "The number must be no more than 11 digits long",
                         },
                         marathi_emergency_contact_number: {
                             required: "Please Enter the Number",
-                            number: "Please Enter a valid number",
-                            minlength: "The number must be at least 3 digits long",
-                            maxlength: "The number must be no more than 11 digits long",
+                            // number: "Please Enter a valid number",
+                            // minlength: "The number must be at least 3 digits long",
+                            // maxlength: "The number must be no more than 11 digits long",
                         },
                     },
                 });
