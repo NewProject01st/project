@@ -64,7 +64,7 @@
                             <!--Department Details Txt End-->
                             <!-- Button trigger modal -->
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('report-incident-crowdsourcing-web') }}">
+                                <a href="{{ route('report-incident-crowdsourcing') }}">
                                     <button type="button" class="btn modal-btn-color">
                                         @if (session('language') == 'mar')
                                             {{ Config::get('marathi.HOME_PAGE.REPORT_AN_INCIDENT') }}

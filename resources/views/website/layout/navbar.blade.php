@@ -35,7 +35,7 @@
                                         {{ Config::get('english.VACANCIES.VACANCIES') }}
                                     @endif
                                 </a></li>
-                            <li><a href="{{ route('report-incident-crowdsourcing-web') }}">
+                            <li><a href="{{ route('report-incident-crowdsourcing') }}">
                                     @if (session('language') == 'mar')
                                         {{ Config::get('marathi.NAVBAR.REPORT_IT') }}
                                     @else
@@ -96,7 +96,7 @@
 
                     </div>
                     <div class="col-2 set_volunteer">
-                        <a href="{{ route('add-volunteer-citizen-support-web') }}" class="become-vol">
+                        <a href="{{ route('volunteer-citizen-support') }}" class="become-vol">
                             @if (session('language') == 'mar')
                                 {{ Config::get('marathi.NAVBAR.BECOME_VOLUNTEER') }}
                             @else

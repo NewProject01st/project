@@ -116,7 +116,7 @@
                              </h4>
                          @endforelse
                      </ul>
-                     <form method="POST" action="{{ url('/particular-department-information') }}"
+                     <form method="POST" action="{{ url('/department') }}"
                          id="departmentshowform">
                          @csrf
                          <input type="hidden" name="department_show_id" id="department_show_id" value="">
@@ -206,19 +206,18 @@
                  <?php
 if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed'])) {
     foreach ($common_data['twitter_feed'] as $feed) {
-        if (isset($feed['url']) && $feed['url'] !=='null') {
-            // echo $feed['url'] . '<br>';
+        // if (isset($feed['url']) && $feed['url'] !=='null') {
             ?>
-                 <iframe frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="yes"
+                 {{-- <iframe frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="yes"
                      style="position: static; visibility: visible; height: 52vh; width: 100%; display: block; flex-grow: 1;"
-                     title="Twitter Timeline" src="{{ $feed['url'] }}"></iframe>
+                     title="Twitter Timeline" src="{{ $feed['url'] }}"></iframe> --}}
 
 
                    
 
                  <?php 
-        }
-        else {
+        // }
+        // else {
             ?>
                  <div class="twitter-widget">
                      <div class="tw-txt">
@@ -257,7 +256,7 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
                  </div>
                  <?php 
                 //   echo 'URL is not defined.';
-              } 
+            //   } 
     }
 }
 ?>
@@ -427,14 +426,21 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
 
  <!-- end webpage A+ A- button script -->
  <script>
-     $(document).ready(function() {
-         $('#order-listing').DataTable({
-             searching: true,
-             ordering: false,
-             lengthChange: false,
-             showNEntries: false
-         });
-     });
+$(document).ready(function (){
+    var table = $('#example').dataTable({
+       "columnDefs": [
+          { "targets": [1,2], "orderable": true }
+      ]
+    });    
+});
+    //  $(document).ready(function() {
+    //      $('#order-listing').DataTable({
+    //          searching: true,
+    //          ordering: true,
+    //          lengthChange: false,
+    //          showNEntries: false
+    //      });
+    //  });
  </script>
 
  {{-- <script>
@@ -730,7 +736,10 @@ magnifyingGlass.addEventListener("dblclick", removeMagnifiyingGlass);
         }
     });
 </script>
-
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
  </body>
 
 

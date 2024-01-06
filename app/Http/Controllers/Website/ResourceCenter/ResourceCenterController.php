@@ -42,7 +42,7 @@ class ResourceCenterController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.research-center.list-documents-publications-web',compact('language','menu','data_output'));
+        return view('website.pages.research-center.documents-publications',compact('language','menu','data_output'));
     }  
     public function getAllMapsGISData()
     {
@@ -58,7 +58,7 @@ class ResourceCenterController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.research-center.list-maps-gis-data-web',compact('language','menu',));
+        return view('website.pages.research-center.maps-and-gis-data',compact('language','menu',));
     }  
 
 
@@ -77,7 +77,7 @@ class ResourceCenterController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.research-center.list-training-materials-workshops-web',compact('language','menu','data_output'));
+        return view('website.pages.research-center.training-materials',compact('language','menu','data_output'));
     }  
 
     // public function getAllMultimedia()
@@ -95,7 +95,7 @@ class ResourceCenterController extends Controller
     //     } catch (\Exception $e) {
     //         return $e;
     //     }
-    //     return view('website.pages.research-center.list-multimedia-web',compact('language','menu', 'data_getallvideo', 'data_output'));
+    //     return view('website.pages.research-center.videos-and-multimedia',compact('language','menu', 'data_getallvideo', 'data_output'));
     // }  
 
 
@@ -115,7 +115,7 @@ class ResourceCenterController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.research-center.list-multimedia-web',compact('language', 'menu','gallery_data','data_getallvideo', 'categories'));
+        return view('website.pages.research-center.videos-and-multimedia',compact('language', 'menu','gallery_data','data_getallvideo', 'categories'));
     }
 
     public function getAllAjaxMultimedia(Request $request) {
@@ -145,7 +145,7 @@ class ResourceCenterController extends Controller
     //     } catch (\Exception $e) {
     //         return $e;
     //     }
-    //     return view('website.pages.research-center.list-multimedia-web', compact('language', 'menu','data_output', 'categories'));
+    //     return view('website.pages.research-center.videos-and-multimedia', compact('language', 'menu','data_output', 'categories'));
     // }
      
     

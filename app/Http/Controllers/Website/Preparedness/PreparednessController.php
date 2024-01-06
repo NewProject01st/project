@@ -38,7 +38,7 @@ class PreparednessController extends Controller
             } else {
                 $language = 'en';
             }
-            return view('website.pages.preparedness.list-hazard-vulnerability-web',compact('language','menu', 'data_output'));
+            return view('website.pages.preparedness.hazard-and-vulnerability-assessment ',compact('language','menu', 'data_output'));
 
         } catch (\Exception $e) {
             return $e;
@@ -55,7 +55,7 @@ class PreparednessController extends Controller
             } else {
                 $language = 'en';
             }
-            return view('website.pages.preparedness.list-warning-system-web',compact('language','menu','data_output'));
+            return view('website.pages.preparedness.early-warning-systems',compact('language','menu','data_output'));
         } catch (\Exception $e) {
             return $e;
         }
@@ -72,7 +72,7 @@ class PreparednessController extends Controller
             } else {
                 $language = 'en';
             }
-            return view('website.pages.preparedness.list-capacity-training-web',compact('language','menu', 'data_output'));
+            return view('website.pages.preparedness.capacity-building-and-training',compact('language','menu', 'data_output'));
         } catch (\Exception $e) {
             return $e;
         }
@@ -89,7 +89,7 @@ class PreparednessController extends Controller
             } else {
                 $language = 'en';
             }
-            return view('website.pages.preparedness.list-public-awareness-education-web',compact('language','menu', 'data_output'));
+            return view('website.pages.preparedness.public-awareness-and-education',compact('language','menu', 'data_output'));
         } catch (\Exception $e) {
             return $e;
         }

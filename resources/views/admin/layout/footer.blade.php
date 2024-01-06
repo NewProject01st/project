@@ -432,7 +432,7 @@
     $(document).ready(function() {
         $('#order-listing').DataTable({
             searching: true,
-            ordering: false,
+            ordering: true,
             lengthChange: false,
             showNEntries: false
         });

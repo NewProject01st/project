@@ -15,7 +15,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
                             <div>
-                                <a href="{{ route('list-capacity-building-and-training') }}"
+                                <a href="{{ route('list-list-capacity-training') }}"
                                     class="btn btn-sm btn-primary ml-3">Back</a>
                             </div>
                         </div>

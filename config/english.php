@@ -169,11 +169,13 @@ return [
 	
 	'POLICIES_LEGISLATION'=>[ 
 		'POLICIES_LEGISLATION_HEADING' =>'You Are Here',
-		'POLICIES_LEGISLATION_MAIN_LINK' =>'Policies Legislation',
+		'POLICIES_LEGISLATION_MAIN_LINK' =>'Policies & Guidelines',
 		'POLICIES_LEGISLATION_SUB_LINK1' =>'State Disaster Management Plan',
 		'POLICIES_LEGISLATION_SUB_LINK2' =>'District Disaster Management Plans',
 		'POLICIES_LEGISLATION_SUB_LINK3' =>'Disaster Management Policies',
 		'POLICIES_LEGISLATION_SUB_LINK4' =>'Relevant Laws And Regulations',
+		'POLICIES_LEGISLATION_SUB_LINK5' =>'Disaster Management Act',
+		'POLICIES_LEGISLATION_SUB_LINK6' =>'Disaster Management Guidelines',
 		'POLICIES_LEGISLATION_SR_NO' =>'Sr. No.',
 		'POLICIES_LEGISLATION_TITLE' =>'Title',
 		'POLICIES_LEGISLATION_YEAR' =>'Year',

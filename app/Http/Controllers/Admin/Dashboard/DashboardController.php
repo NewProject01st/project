@@ -248,7 +248,7 @@ class DashboardController extends Controller {
             //     array_push($return_data, $data_dashboard);
             // }
 
-            // if($value['url'] == 'list-capacity-building-and-training') {
+            // if($value['url'] == 'list-list-capacity-training') {
             //     $data_dashboard['url'] =  $value['url'];
             //     $data_dashboard['permission_name'] =  $value['permission_name'];
             //     $roles = CapacityTraining::all();

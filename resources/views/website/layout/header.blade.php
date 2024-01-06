@@ -41,7 +41,7 @@
 
     <link href="{{ asset('website_files/assets/css/jquery.dataTables.min.css') }}" type="text/css" rel="stylesheet">
     {{--<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>--}}
-
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="{{ asset('website_files/assets/js/jquery-3.7.0.min.js') }}"></script>
     <script src="{{ asset('website_files/assets/js/jquery.validate.min.js') }}"></script>
 
@@ -95,8 +95,8 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     // url: "http://52.66.216.5/change-language",
-                     url: "https://nmcdm.org.in/change-language",
-                    //  url: "https://newpro.sumagotest.in/change-language",
+                    //  url: "https://nmcdm.org.in/change-language",
+                     url: "https://newpro.sumagotest.in/change-language",
                     // url: "http://localhost/new_pro/change-language",
                     // url: "http://localhost/new_pro/project/change-language",
                     cache: false,

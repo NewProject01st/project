@@ -41,7 +41,7 @@ class AboutusController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.aboutus.list-disastermanagementportal-web',compact('language','menu','data_output'));
+        return view('website.pages.aboutus.disaster-management-portal ',compact('language','menu','data_output'));
     }  
     public function getAllObjectiveGoals()
     {
@@ -58,7 +58,7 @@ class AboutusController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.aboutus.list-objectivegoals-web',compact('language','menu','data_output'));
+        return view('website.pages.aboutus.objective-and-goals',compact('language','menu','data_output'));
     }
 
     public function getAllStateDisasterManagementAuthority()
@@ -76,7 +76,7 @@ class AboutusController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.aboutus.state-disaster-management-authority-web',compact('language','menu','data_output'));
+        return view('website.pages.aboutus.state-disaster-management-authority',compact('language','menu','data_output'));
     }
 
 }

@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Website\PoliciesLegislation;
+namespace App\Http\Controllers\Website\PoliciesAndGuidelines;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Services\Website\PoliciesLegislation\PoliciesLegislationServices;
+use App\Http\Services\Website\PoliciesAndGuidelines\PoliciesAndGuidelinesServices;
 // use App\Http\Services\LoginRegister\LoginService;
 use Session;
 
-class PoliciesLegislationController extends Controller
+class PoliciesAndGuidelinesController extends Controller
 {
     public static $loginServe,$masterApi;
     public function __construct()
     {
         // self::$loginServe = new LoginService();
-        $this->service = new PoliciesLegislationServices();
+        $this->service = new PoliciesAndGuidelinesServices();
         $this->menu = getMenuItems();
 
        
@@ -38,7 +38,7 @@ class PoliciesLegislationController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.policies-legislation.list-state-disaster-managementplan-web',compact('language','menu','data_output'));
+        return view('website.pages.policies-and-guidelines.state-disaster-management-plan',compact('language','menu','data_output'));
     }  
     public function getAllDistrictDisasterManagementPlan()
     {
@@ -55,7 +55,7 @@ class PoliciesLegislationController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.policies-legislation.list-district-disaster-managementplan-web',compact('language','menu', 'data_output'));
+        return view('website.pages.policies-and-guidelines.district-disaster-management-plans',compact('language','menu', 'data_output'));
     }
 
     public function getAllStateDisasterManagementPolicy()
@@ -73,7 +73,7 @@ class PoliciesLegislationController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.policies-legislation.list-state-management-policy-web',compact('language','menu', 'data_output'));
+        return view('website.pages.policies-and-guidelines.disaster-management-policies',compact('language','menu', 'data_output'));
     }
     public function getAllRelevantLawsRegulation()
     {
@@ -90,7 +90,41 @@ class PoliciesLegislationController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.policies-legislation.list-relevant-laws-web',compact('language','menu', 'data_output'));
+        return view('website.pages.policies-and-guidelines.relevant-laws-and-regulations',compact('language','menu', 'data_output'));
+    }
+    public function getAllDisasterManagementAct()
+    {
+        try {
+
+            $menu = $this->menu;
+            $data_output = $this->service->getAllDisasterManagementAct();
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+
+        } catch (\Exception $e) {
+            return $e;
+        }
+        return view('website.pages.policies-and-guidelines.disaster-management-act',compact('language','menu', 'data_output'));
+    }
+    public function getAllDisasterManagementGuidelines()
+    {
+        try {
+
+            $menu = $this->menu;
+            $data_output = $this->service->getAllDisasterManagementGuidelines();
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+
+        } catch (\Exception $e) {
+            return $e;
+        }
+        return view('website.pages.policies-and-guidelines.disaster-management-guidelines',compact('language','menu', 'data_output'));
     }
     
 }

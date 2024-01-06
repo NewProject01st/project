@@ -64,7 +64,7 @@
                             <!--Department Details Txt End-->
                             <!-- Button trigger modal -->
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('add-volunteer-citizen-support-web') }}">
+                                <a href="{{ route('volunteer-citizen-support') }}">
                                     <button type="button" class="btn modal-btn-color">
                                         @if (session('language') == 'mar')
                                             {{ Config::get('marathi.HOME_PAGE.CITIZEN_VOLUNTEER') }}

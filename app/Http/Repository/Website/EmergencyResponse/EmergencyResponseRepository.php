@@ -63,7 +63,9 @@ class EmergencyResponseRepository  {
                 $data_output_array = $data_output_array->select('english_emergency_contact_title', 'english_emergency_contact_number');
             }
             $data_output = $data_output->get()->toArray();
-            $data_output_array = $data_output_array->get()->toArray();
+            // $data_output_array = $data_output_array->get()->toArray();
+            $data_output_array =  $data_output_array->orderBy('id', 'desc')->get()
+                            ->toArray();
             // dd($data_output_array);
             return ['data_output' => $data_output, 'data_output_array' => $data_output_array];
         } catch (\Exception $e) {

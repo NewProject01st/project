@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Repository\Website\PoliciesLegislation;
+namespace App\Http\Repository\Website\PoliciesAndGuidelines;
 
 use Illuminate\Database\QueryException;
 use DB;
@@ -9,11 +9,13 @@ use App\Models\ {
     StateDisasterManagementPlan,
 	DistrictDisasterManagementPlan,
     StateDisasterManagementPolicy,
-    RelevantLawsRegulation
+    RelevantLawsRegulation,
+    DisasterManagementAct,
+    DisasterManagementGuidelines
 
 };
 
-class PoliciesLegislationRepository  {
+class PoliciesAndGuidelinesRepository  {
 
 
 	public function getAllStateDisasterManagementPlan()
@@ -25,7 +27,7 @@ class PoliciesLegislationRepository  {
             } else {
                 $data_output = $data_output->select('english_title', 'english_pdf','policies_year');
             }
-            $data_output =  $data_output->get()
+            $data_output =  $data_output->orderBy('policies_year', 'desc')->get()
                             ->toArray();
             return  $data_output;
         } catch (\Exception $e) {
@@ -41,7 +43,7 @@ class PoliciesLegislationRepository  {
             } else {
                 $data_output = $data_output->select('english_title', 'english_pdf','policies_year');
             }
-            $data_output =  $data_output->get()
+            $data_output =  $data_output->orderBy('policies_year', 'desc')->get()
                             ->toArray();
             return  $data_output;
         } catch (\Exception $e) {
@@ -57,7 +59,7 @@ class PoliciesLegislationRepository  {
             } else {
                 $data_output = $data_output->select('english_title', 'english_pdf','policies_year');
             }
-            $data_output =  $data_output->get()
+            $data_output =  $data_output->orderBy('policies_year', 'desc')->get()
                             ->toArray();
             return  $data_output;
         } catch (\Exception $e) {
@@ -73,7 +75,39 @@ class PoliciesLegislationRepository  {
             } else {
                 $data_output = $data_output->select('english_title', 'english_pdf','policies_year');
             }
-            $data_output =  $data_output->get()
+            $data_output =  $data_output->orderBy('policies_year', 'desc')->get()
+                            ->toArray();
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+    public function getAllDisasterManagementAct()
+    {
+        try {
+            $data_output = DisasterManagementAct::where('is_active','=',true);
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->select('marathi_title', 'marathi_pdf','policies_year');
+            } else {
+                $data_output = $data_output->select('english_title', 'english_pdf','policies_year');
+            }
+            $data_output =  $data_output->orderBy('policies_year', 'desc')->get()
+                            ->toArray();
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+    public function getAllDisasterManagementGuidelines()
+    {
+        try {
+            $data_output = DisasterManagementGuidelines::where('is_active','=',true);
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->select('marathi_title', 'marathi_pdf','policies_year');
+            } else {
+                $data_output = $data_output->select('english_title', 'english_pdf','policies_year');
+            }
+            $data_output =  $data_output->orderBy('policies_year', 'desc')->get()
                             ->toArray();
             return  $data_output;
         } catch (\Exception $e) {

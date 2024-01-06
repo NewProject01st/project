@@ -38,7 +38,7 @@ class EventController extends Controller
             } else {
                 $language = 'en';
             }
-            return view('website.pages.training-event.list-upcoming-training-event-web',compact('language','menu','data_output'));
+            return view('website.pages.training-event.upcoming-events-and-trainings',compact('language','menu','data_output'));
         } catch (\Exception $e) {
             return $e;
         }
@@ -57,7 +57,7 @@ class EventController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.training-event.list-past-training-event-web',compact('language','menu','data_output'));
+        return view('website.pages.training-event.past-events-and-trainings ',compact('language','menu','data_output'));
     } 
 
     public function show(Request $request)

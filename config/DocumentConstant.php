@@ -6,6 +6,10 @@ return [
     'USER_PROFILE_ADD'	         => "/all_web_data/images/userProfile/",
     'USER_PROFILE_DELETE'	         => '/all_web_data/images/userProfile/',
     'USER_PROFILE_VIEW'	         => env("AWS_FILE_VIEW").'/all_web_data/images/userProfile/',
+    
+    'LANDING_SLIDER_ADD'	         => "/all_web_data/images/home/slides/",
+    'LANDING_SLIDER_DELETE'	         => '/all_web_data/images/home/slides/',
+    'LANDING_SLIDER_VIEW'	         => env("AWS_FILE_VIEW").'/all_web_data/images/home/slides/',
 
     'SLIDER_ADD'	         => "/all_web_data/images/home/slides/",
     'SLIDER_DELETE'	         => '/all_web_data/images/home/slides/',
@@ -167,5 +171,12 @@ return [
     'DYNAMIC_PAGE_DOC_DELETE' => '/all_web_data/images/dynamic_page/',
     'DYNAMIC_PAGE_DOC_VIEW'	 => env("AWS_FILE_VIEW"),
     
+    'DISASTER_MANAGEMENT_ACT_ADD'	     => "/all_web_data/pdf/policies_legislation/disaster_management_act/",
+    'DISASTER_MANAGEMENT_ACT_DELETE'   => '/all_web_data/pdf/policies_legislation/disaster_management_act/',
+    'DISASTER_MANAGEMENT_ACT_VIEW'	 => env("AWS_FILE_VIEW").'/all_web_data/pdf/policies_legislation/disaster_management_act/',
+    
+    'DISASTER_MANAGEMENT_GUIDELINES_ADD'	     => "/all_web_data/pdf/policies_legislation/disaster_management_guidelines/",
+    'DISASTER_MANAGEMENT_GUIDELINES_DELETE'   => '/all_web_data/pdf/policies_legislation/disaster_management_guidelines/',
+    'DISASTER_MANAGEMENT_GUIDELINES_VIEW'	 => env("AWS_FILE_VIEW").'/all_web_data/pdf/policies_legislation/disaster_management_guidelines/',
 
 ];

@@ -170,11 +170,13 @@ return [
 	
 	'POLICIES_LEGISLATION'=>[ 
 		'POLICIES_LEGISLATION_HEADING' =>'तुम्ही इथे आहात',
-		'POLICIES_LEGISLATION_MAIN_LINK' =>'धोरणे कायदे',
+		'POLICIES_LEGISLATION_MAIN_LINK' =>'धोरणे आणि मार्गदर्शक तत्त्वे',
 		'POLICIES_LEGISLATION_SUB_LINK1' =>'राज्य आपत्ती व्यवस्थापन योजना',
 		'POLICIES_LEGISLATION_SUB_LINK2' =>'जिल्हा आपत्ती व्यवस्थापन योजना',
 		'POLICIES_LEGISLATION_SUB_LINK3' =>'राज्य आपत्ती व्यवस्थापन धोरण',
 		'POLICIES_LEGISLATION_SUB_LINK4' =>'संबंधित कायदे आणि नियम',
+		'POLICIES_LEGISLATION_SUB_LINK5' =>'आपत्ती व्यवस्थापन कायदा',
+		'POLICIES_LEGISLATION_SUB_LINK6' =>'आपत्ती व्यवस्थापन मार्गदर्शक तत्त्वे',
 		'POLICIES_LEGISLATION_SR_NO' =>'अनुक्रमांक',
 		'POLICIES_LEGISLATION_TITLE' =>'शीर्षक',
 		'POLICIES_LEGISLATION_YEAR' =>'वर्ष	',

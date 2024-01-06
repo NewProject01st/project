@@ -65,6 +65,27 @@
                       </div>
                   </li>
               @endif
+              @if (in_array('list-landing-slide', $data_for_url))
+              <li  class="{{request()->is('list-landing-slide*') 
+                ? 'nav-item active' : 'nav-item' }}">
+                  <a class="nav-link" data-toggle="collapse" href="#landing-slider" aria-expanded="false"
+                      aria-controls="landing-slider">
+                      <i class="fas fa-newspaper fa-lg "></i>
+                      <span class="pl-2 menu-title">Landing</span>
+                      <i class="menu-arrow"></i>
+                  </a>
+                  <div class="collapse" id="landing-slider">
+                      <ul class="nav flex-column sub-menu">
+                          @if (in_array('list-landing-slide', $data_for_url))
+                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                      href="{{ route('list-landing-slide') }}">Landing Slider</a>
+                              </li>
+                          @endif
+                        
+                      </ul>
+                  </div>
+              </li>
+          @endif
               @if (in_array('list-header-vacancies', $data_for_url) ||
                in_array('list-header-rti', $data_for_url) || 
                in_array('list-tollfree-number', $data_for_url) || 
@@ -280,7 +301,7 @@
               @endif
               @if (in_array('list-hazard-vulnerability-assessment', $data_for_url) ||
                       in_array('list-early-warning-system', $data_for_url) ||
-                      in_array('list-capacity-building-and-training', $data_for_url) ||
+                      in_array('list-list-capacity-training', $data_for_url) ||
                       in_array('list-public-awareness-and-education', $data_for_url))
                   <li class="{{request()->is('list-public-awareness-and-education*') 
                     ? 'nav-item active' : 'nav-item' }}">
@@ -303,9 +324,9 @@
                                           href="{{ route('list-early-warning-system') }}">Early Warning System</a>
                                   </li>
                               @endif
-                              @if (in_array('list-capacity-building-and-training', $data_for_url))
+                              @if (in_array('list-list-capacity-training', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"> <a class="nav-link"
-                                          href="{{ route('list-capacity-building-and-training') }}">Capacity Training</a>
+                                          href="{{ route('list-list-capacity-training') }}">Capacity Training</a>
                                   </li>
                               @endif
                               @if (in_array('list-public-awareness-and-education', $data_for_url))
@@ -415,7 +436,7 @@
                       <a class="nav-link" data-toggle="collapse" href="#policie-legislation" aria-expanded="false"
                           aria-controls="policie-legislation">
                           <i class="fa fa-th-large menu-icon menu-icon"></i>
-                          <span class="menu-title">Policies Legislation</span>
+                          <span class="menu-title">Policies and Guidelines</span>
                           <i class="menu-arrow"></i>
                       </a>
 
@@ -442,6 +463,18 @@
                                       </a>
                                   </li>
                               @endif
+                              @if (in_array('list-disaster-management-act', $data_for_url))
+                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                      href="{{ route('list-disaster-management-act') }}">Disaster Management Act
+                                  </a>
+                              </li>
+                          @endif
+                          @if (in_array('list-disaster-management-guidelines', $data_for_url))
+                          <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                  href="{{ route('list-disaster-management-guidelines') }}">Disaster Management Guidelines
+                              </a>
+                          </li>
+                      @endif
                           </ul>
                       </div>
                   </li>

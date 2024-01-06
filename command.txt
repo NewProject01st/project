@@ -2,7 +2,7 @@ php artisan make:model DynamicPagesContent --migration
 php artisan make:seeder EmployeeSeeder
 composer dump-autoload
 php artisan storage:link    
-
+php artisan make:migration create_landing_slider
 //Add colmn existing table
 php artisan make:migration add_page_content_to_dynamic_web_pages_table --table=dynamic_web_pages
 

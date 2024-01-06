@@ -43,7 +43,7 @@
                             {{ Config::get('english.VACANCIES.VACANCIES') }}
                         @endif
                     </h3>
-                    <table id="order-listing" class="table table-striped table-hover table-bordered border-dark">
+                    <table id="example" class="table table-striped table-hover table-bordered border-dark">
                         <thead class="" style="background-color: #47194a; color:#fff">
                             <tr>
                                 <th scope="col" class="d-flex justify-content-center">

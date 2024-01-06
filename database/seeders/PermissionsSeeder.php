@@ -26,6 +26,14 @@ class PermissionsSeeder extends Seeder
                 [
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'Landing-Slider',
+                    'url' => 'list-landing-slide',
+                    'permission_name' => 'Landing-Slider',
+                ]);
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
                     'route_name' => 'Role',
                     'url' => 'list-role',
                     'permission_name' => 'Role',
@@ -208,7 +216,7 @@ class PermissionsSeeder extends Seeder
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
                     'route_name' => 'Capacity training',
-                    'url' => 'list-capacity-building-and-training',
+                    'url' => 'list-list-capacity-training',
                     'permission_name' => 'Capacity training',
                 ]);   
                             
@@ -327,6 +335,22 @@ class PermissionsSeeder extends Seeder
                     'route_name' => 'Relevant-Laws-And-Regulations',
                     'url' => 'list-relevant-laws-and-regulations',
                     'permission_name' => 'Relevant-Laws-And-Regulations',
+                ]);
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'Disaster-Management-Act',
+                    'url' => 'list-disaster-management-act',
+                    'permission_name' => 'Disaster-Management-Act',
+                ]);
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'Disaster-Management-Guidelines',
+                    'url' => 'list-disaster-management-guidelines',
+                    'permission_name' => 'Disaster-Management-Guidelines',
                 ]);
 
             Permissions::create(

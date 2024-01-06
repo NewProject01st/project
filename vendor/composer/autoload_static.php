@@ -626,6 +626,7 @@ class ComposerStaticInitfa1c34c534ad44dd9d5550fc7190bcde
         'App\\Http\\Controllers\\Website\\EmergencyResponse\\EmergencyResponseController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/EmergencyResponse/EmergencyResponseController.php',
         'App\\Http\\Controllers\\Website\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/IndexController.php',
         'App\\Http\\Controllers\\Website\\Map\\MapController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/Map/MapController.php',
+        'App\\Http\\Controllers\\Website\\NewController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/NewController.php',
         'App\\Http\\Controllers\\Website\\NewsAndEvents\\NewsEventsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/NewsAndEvents/NewsEventsController.php',
         'App\\Http\\Controllers\\Website\\PoliciesLegislation\\PoliciesLegislationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/PoliciesLegislation/PoliciesLegislationController.php',
         'App\\Http\\Controllers\\Website\\Preparedness\\PreparednessController' => __DIR__ . '/../..' . '/app/Http/Controllers/Website/Preparedness/PreparednessController.php',

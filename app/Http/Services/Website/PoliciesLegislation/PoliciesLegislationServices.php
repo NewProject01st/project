@@ -1,13 +1,13 @@
 <?php
-namespace App\Http\Services\Website\PoliciesLegislation;
+namespace App\Http\Services\Website\PoliciesAndGuidelines;
 
-use App\Http\Repository\Website\PoliciesLegislation\PoliciesLegislationRepository;
+use App\Http\Repository\Website\PoliciesAndGuidelines\PoliciesAndGuidelinesRepository;
 
 // use App\Marquee;
 use Carbon\Carbon;
 
 
-class PoliciesLegislationServices
+class PoliciesAndGuidelinesServices
 {
 
 	protected $repo;
@@ -17,7 +17,7 @@ class PoliciesLegislationServices
      */
     public function __construct()
     {
-        $this->repo = new PoliciesLegislationRepository();
+        $this->repo = new PoliciesAndGuidelinesRepository();
     }
     public function getAllStateDisasterManagementPlan()
     {
@@ -48,6 +48,22 @@ class PoliciesLegislationServices
     {
         try {
             return $this->repo->getAllRelevantLawsRegulation();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }  
+    public function getAllDisasterManagementAct()
+    {
+        try {
+            return $this->repo->getAllDisasterManagementAct();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }  
+    public function getAllDisasterManagementGuidelines()
+    {
+        try {
+            return $this->repo->getAllDisasterManagementGuidelines();
         } catch (\Exception $e) {
             return $e;
         }

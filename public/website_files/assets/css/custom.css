@@ -661,7 +661,7 @@ header {
 .carousel-caption {
 	position: absolute;
 	right: 15%;
-	top: 6.25rem;
+	top: 4.25rem;
 	left: 15%;
 	padding-top: 1.25rem;
 	padding-bottom: 1.25rem;
@@ -7126,3 +7126,4 @@ box-shadow: 0 0 4px #000;
     width: 31.333333%;
 }
   }
+  

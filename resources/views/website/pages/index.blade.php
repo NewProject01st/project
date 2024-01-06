@@ -1,560 +1,161 @@
-@extends('website.layout.master')
-@section('content')
-    <style>
-        .main-footer {
-            margin-top: 0%;
-        }
-    </style>
-    <script>
-        $('li.dropdown.mega-dropdown a').on('click', function(event) {
-            $(this).parent().toggleClass('open');
-        });
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Disaster Management</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/landing.css') }}">
+    <link rel="shortcut icon" href="{{ asset('website_files/images/home/DM.png') }}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body>
+    <?php
+    $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData();
+    // dd($common_data);
+    // die();
+    ?>
+    <!-- Images from Unsplash -->
+    <div class="row" style="width:100%; padding:0px; margin:0px;">
+        <div class="row main-landing nak-content-box-layout3 "
+            style="background-image: url('{{ asset('website_files/images/home/backg.jpg') }}');">
+            <div class="col-lg-7 col-md-7 col-sm-12 p-4">
+                <div class="row" style="padding:50px 70px;">
+                    <div class="d-flex justify-content-left align-items-center py-3">
+                        <img class="img-size img-fluid" data-aos="zoom-in" data-aos-duration="2000"
+                            src="{{ asset('website_files/images/home/dmlogo.png') }}" alt="" width="80%">
+                    </div>
+                    <div class="sm-block-views-landing-page-title-landingtitle">
+                        <h4 class="item-title py-2" data-aos="fade-right" data-aos-anchor="#example-anchor"
+                            data-aos-offset="500" data-aos-duration="3000">Welcome to Disaster Management</h4>
+                        <p class="" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                            data-aos-duration="3000">The National Disaster Management Authority (NDMA), headed by the
+                            Prime Minister of India, is the apex body for Disaster Management in India. Setting up of
+                            NDMA and the creation of an enabling environment for institutional mechanisms.
+                        
+                        </p>
+                    </div>
+                    <div class="">
+                        <span class="">
+                            <a href="https://localhost/new_pro/home"><button type="submit" data-aos="zoom-in-down"
+                                    data-aos-duration="3000"
+                                    class="nak-btn nak-btn-fill nak-btn-layout2">EXPLORE</button></a>
+                        </span>
+                    </div>
+                    <div class="nak-social-layout3">
+                        <label class="nak-label" data-aos="fade-left" data-aos-anchor="#example-anchor"
+                            data-aos-offset="500" data-aos-duration="3000">Stay in
+                            Touch</label>
+                        <ul class="d-flex">
+                            <li>
+                                <a href="https://www.facebook.com/mynashikmc/" target="_blank" data-aos="zoom-in-up" data-aos-duration="3000">
+                                    <i class="fab fa-facebook-f icon"></i> </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/my_nmc/" target="_blank" data-aos="zoom-in-up" data-aos-duration="3000"><i class="fab fa-instagram icon"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fmy_nmc" target="_blank" data-aos="zoom-in-down" data-aos-duration="3000"><i class="fab fa-twitter icon"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/c/mynmc" target="_blank" data-aos="zoom-in-down" data-aos-duration="3000"><i class="fab fa-youtube icon"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://nmc.gov.in/" target="_blank" data-aos="zoom-in-down" data-aos-duration="3000"><i class="fas fa-globe icon"></i></a>
+                            </li>
+                        </ul>
+                        {{-- <ul class="footer-social">
+                            @forelse ($common_data['social_link'] as $item)
+                                    <li><a href="{{ $item['url'] }}" target="_blank" class="fb" target="_blank" target="_blank" data-aos="zoom-in-up" data-aos-duration="3000">
+                                            
+                                            <img src="{{ Config::get('DocumentConstant.SOCIAL_ICON_VIEW') }}{{ $item['icon'] }}"
+                                                width="25" height="25" alt="...">
+                                        </a></li>
+                            @empty
+                        </ul>
+                    </div>
+                    @endforelse --}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5 slider-container px-0">
+                <div class="">
+                    {{-- <h1>The best for<br/>the brightest.</h1> --}}
+                    <div class="slide active" height="100vh">
+                        <img src="{{ asset('website_files/images/home/1.png') }}" class="img-fluid slide-img" height="100vh" alt="Slide 1">
+                    </div>
+                    <div class="slide">
+                        <img src="{{ asset('website_files/images/home/2.png') }}" class="img-fluid slide-img" height="100vh" alt="Slide 2">
+                    </div>
+                    <div class="slide">
+                        <img src="{{ asset('website_files/images/home/3.png') }}" class="img-fluid slide-img" height="100vh" alt="Slide 3">
+                    </div>
+                    <div class="slide">
+                        <img src="{{ asset('website_files/images/home/4.png') }}" class="img-fluid slide-img" height="100vh" alt="Slide 4">
+                    </div>
+                    <div class="controls-container">
+                        <div class="control"></div>
+                        <div class="control"></div>
+                        <div class="control"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-    <div class="main-content">
-        {{-- Start Marquee --}}
-        <section class="marquee-main" id="zoomtext">
-            <div class="container-fluid">
-                <div class=" list-group">
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const controls = document.querySelectorAll('.control');
+        let activeSlide = 0;
+        let prevActive = 0;
 
-                    <marquee width="100%" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-                        <div class="d-flex  g-2 ">
-                            @foreach ($data_output_marquee as $item)
-                                @if (session('language') == 'mar')
-                                    <p class="marquee_para px-2"><a href="{{ $item['url'] }}" target="_blank"
-                                            class="marquee-scroll"><?php echo $item['marathi_title']; ?></a></p>
-                                @else
-                                    <p class="marquee_para px-2"><a href="{{ $item['url'] }}" target="_blank"
-                                            class="marquee-scroll"><?php echo $item['english_title']; ?></a></p>
-                                @endif
-                            @endforeach
-                        </div>
-                    </marquee>
+        changeSlides();
+        let intervalId = setInterval(changeSlides, 4000);
 
-                </div>
-            </div>
-        </section>
-        {{-- End Marquee --}}
-        {{-- Start Slider --}}
-        <section>
-            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    @foreach ($data_output_slider as $slider)
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{ $loop->index }}"
-                            class="{{ $loop->first ? 'active' : '' }}" aria-current="true" aria-label="Slide 1"></button>
-                    @endforeach
-                </div>
-                <div class="carousel-inner">
-                    @foreach ($data_output_slider as $slider)
-                        @if (session('language') == 'mar')
-                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
-                                <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider['marathi_image'] }}"
-                                    class="d-block w-100" alt="{{ strip_tags($slider['marathi_title']) }} Image">
-                                <div class="carousel-caption">
-                                    <h1><?php echo $slider['marathi_title']; ?></h1>
-                                    <p><?php echo $slider['marathi_description']; ?> </p>
-                                    <div class="slide-content-box pt-3"> <a href="{{ $slider['url'] }}" class="con"
-                                            target="_blank">
-                                            @if (session('language') == 'mar')
-                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                            @else
-                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                            @endif
-                                        </a> </div>
-                                </div>
-                            </div>
-                        @elseif (array_key_exists('english_title', $slider))
-                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
-                                <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider['english_image'] }}"
-                                    class="d-block w-100" alt="{{ strip_tags($slider['english_title']) }} Image">
-                                <div class="carousel-caption">
-                                    <h1><?php echo $slider['english_title']; ?></h1>
-                                    <p><?php echo $slider['english_description']; ?> </p>
-                                    <div class="slide-content-box pt-3"> <a href="{{ $slider['url'] }}" class="con"
-                                            target="_blank">
-                                            @if (session('language') == 'mar')
-                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                            @else
-                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                            @endif
-                                        </a> </div>
-                                </div>
+        function changeSlides() {
+            slides[prevActive].classList.remove('active');
+            controls[prevActive].classList.remove('active');
 
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </section>
-        {{-- End Slider --}}
-        {{-- Start Disaster Management --}}
-        <section class="Mayor-video-msg">
-            <div class="container">
-                @foreach ($data_output_disastermangwebportal as $item)
-                    @if (session('language') == 'mar')
-                        <div class="row">
-                            <div class="col-md-4 col-sm-5">
-                                <div class="city-tour gallery"> 
-                                    <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $item['marathi_image'] }}"
-                                        alt="{{ strip_tags($item['marathi_title']) }} छायाचित्र" class="d-block w-100">
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-sm-7">
-                                <div class="Mayor-welcome">
-                                    <h5><?php echo $item['marathi_title']; ?></h5>
-                                    <p><?php echo $item['marathi_description']; ?></p>
-                                    <h6><?php echo $item['marathi_name']; ?></h6>
-                                    <strong><?php echo $item['marathi_designation']; ?></strong>
-                                </div>
-                            </div>
-                        </div>
-                    @else
-                        <div class="row">
-                            <div class="col-md-4 col-sm-5">
-                                <div class="city-tour gallery">
-                                    <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $item['english_image'] }}"
-                                        alt="{{ strip_tags($item['english_title']) }} Image" class="d-block w-100">
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-sm-7">
-                                <div class="Mayor-welcome">
-                                    <h5><?php echo $item['english_title']; ?></h5>
-                                    <p><?php echo $item['english_description']; ?></p>
-                                    <h6><?php echo $item['english_name']; ?></h6>
-                                    <strong><?php echo $item['english_designation']; ?></strong>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                @endforeach
-            </div>
-        </section>
-        {{-- End Disaster Management --}}
-        <!--Start News Start-->
-        <section class="wf100 city-news p60">
-            <div class="container ">
-                <div class="title-style-3">
-                    <h3>
-                        @if (session('language') == 'mar')
-                            {{ Config::get('marathi.HOME_PAGE.DISASTER_MANAGEMENT_NEWS') }}
-                        @else
-                            {{ Config::get('english.HOME_PAGE.DISASTER_MANAGEMENT_NEWS') }}
-                        @endif
-                    </h3>
-                </div>
-                <div class="row d-flex flex-wrap">
-                    <div class="col-lg-9 col-md-9 col-sm-9">
-                        <div class="row d-flex flex-wrap">
-                            @foreach ($data_output_disastermanagementnews as $item)
-                                @if (session('language') == 'mar')
-                                    <div class="col-md-4 col-sm-4 mt-4 card-new-size">
-                                        <div class="news-box">
-                                            <div class="new-thumb">
-                                                {{-- <span class="cat c1">Fire</span> --}}
-                                                <img src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW') }}{{ $item['marathi_image'] }}"
-                                                    alt="{{ strip_tags($item['marathi_title']) }} छायाचित्र"
-                                                    class="d-block w-100">
-                                            </div>
-                                            <div class="new-txt">
-                                                <ul class="news-meta">
-                                                    <li>
-                                                        {{-- 05 MAY, 2023  --}}
-                                                        <?php echo $item['disaster_date']; ?></li>
-                                                    {{-- <li>176 Comments</li> --}}
-                                                </ul>
-                                                <h6 class="card_title"><a href="#"><?php echo mb_substr($item['marathi_title'], 0, 31); ?></a></h6>
-                                                <p class="card_title"> <?php echo mb_substr($item['marathi_description'], 0, 74); ?></p>
-                                            </div>
-                                            <div class="news-box-f cursor-pointer">
-                                                <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    @if (session('language') == 'mar')
-                                                        {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                                    @else
-                                                        {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                                    @endif
-                                                </span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
-                                                        class="fa fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @else
-                                    <div class="col-md-4 col-sm-4 mt-4 card-new-size">
-                                        <div class="news-box">
-                                            <div class="new-thumb">
-                                                {{-- <span class="cat c1">Fire</span> --}}
-                                                <img src="{{ Config::get('DocumentConstant.DISASTER_NEWS_VIEW') }}{{ $item['english_image'] }}"
-                                                    alt="{{ strip_tags($item['english_title']) }} Image"
-                                                    class="d-block w-100">
-                                            </div>
-                                            <div class="new-txt">
-                                                <ul class="news-meta">
-                                                    <li>
-                                                        {{-- 05 MAY, 2023  --}}
-                                                        <?php echo $item['disaster_date']; ?></li>
-                                                    {{-- <li>176 Comments</li> --}}
-                                                </ul>
-                                                <h6 class="card_title"><a href="#"><?php echo mb_substr($item['english_title'], 0, 31); ?></a></h6>
-                                                <p class="card_title"> <?php echo mb_substr($item['english_description'], 0, 74); ?></p>
-                                            </div>
-                                            <div class="news-box-f cursor-pointer">
-                                                <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    @if (session('language') == 'mar')
-                                                        {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                                    @else
-                                                        {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                                    @endif
-                                                </span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
-                                                        class="fa fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3">
-                    <?php $forecast_data_api = unserialize(getTempratureData()->forecast); ?>
-                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                        @foreach ($forecast_data_api as $key => $forecast_data)
-                            <div class="carousel-item @if ($key == 0) {{ 'active' }} @endif">
-                                <!-- Item -->
-                                <div class="WeatherBlock mt-4">
-                                    <div class="card weather_card">
-                                        <div class="card-body">
-                                            <h6 class="text-center">Nashik</h6>
-                                            <p class="text-center weather_day">{{date("d/m/Y", strtotime($forecast_data['datetime']))}} | {{date("l", strtotime($forecast_data['datetime']))}}</p>
+            slides[activeSlide].classList.add('active');
+            controls[activeSlide].classList.add('active');
 
-                                            <div class="d-flex justify-content-center bd-highlight mb-1 today_tem">
-                                                <div class="p-2 bd-highlight">
-                                                    <h5> {{ $forecast_data['min_temp'] }}° C </h5>
-                                                    <h6 class="d-flex justify-content-center">MIN<h6>
-                                                </div>
-                                                <div class="p-2 bd-highlight">
-                                                    <h5> {{ $forecast_data['max_temp'] }}° C </h5>
-                                                    <h6 class="d-flex justify-content-center">MAX<h6>
-                                                </div>
-                                            </div>
-                                            
+            prevActive = activeSlide++;
 
-                                            <hr class="divide_line">
-                                            <div class="row">
-                                                @foreach ($forecast_data['hour_wise'] as $key => $forecast_data_hourwise)
-                                                    @if ($key % 2 == 0)
-                                                        <div class="col-lg-4 col-md-6 col-sm-6 mb-2">
-                                                            <div class="p-2 bd-highlight timewise_temp">
-                                                                <p class="time">
-                                                                    {{ substr_replace($forecast_data_hourwise['datetime'], '', -3) }}
-                                                                </p>
-                                                                <p class="d-flex justify-content-center temp">
-                                                                    {{ $forecast_data_hourwise['temp'] }}° C
-                                                                <p>
-                                                            </div>
-                                                        </div>
-                                                    @endif
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Item -->
-                            </div>
-                            @endforeach
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
+            if (activeSlide >= slides.length) {
+                activeSlide = 0;
+            }
+        }
 
-                    </div>
-                    
-                </div>
-            </div>
+        controls.forEach(control => {
+            control.addEventListener('click', () => {
+                let idx = Array.from(controls).indexOf(control);
+                activeSlide = idx;
 
-            <!--News Box End-->
+                changeSlides();
 
+                clearInterval(intervalId);
+                intervalId = setInterval(changeSlides, 4000);
+            });
+        });
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 
-    </div>
-    </div>
-    <form method="POST" action="{{ url('/new-paricular-data-web') }}" id="showform">
-        @csrf
-        <input type="hidden" name="show_id" id="show_id" value="">
-    </form>
-    </section>
-    <!--End News End-->
+</body>
 
-
-    <!--Departments & Information Desk Start-->
-    <section class="wf100 p75-50  depart-info">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="title-style-3">
-                        <h3>
-                            @if (session('language') == 'mar')
-                                {{ Config::get('marathi.HOME_PAGE.DEPARTMENT_INFORMATION_DESK') }}
-                            @else
-                                {{ Config::get('english.HOME_PAGE.DEPARTMENT_INFORMATION_DESK') }}
-                            @endif
-                        </h3>
-                    </div>
-                    <div class="row">
-                        @foreach ($data_output_departmentinformation as $item)
-                            @if (session('language') == 'mar')
-                                <!--Icon Box Start-->
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="deprt-icon-box"> <img
-                                            src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item['marathi_image'] }}"
-                                            alt="{{ strip_tags($item['marathi_title']) }} छायाचित्र">
-                                        <h6> <a><?php echo $item['marathi_title']; ?></a> </h6>
-                                        <a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer">
-                                            @if (session('language') == 'mar')
-                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                            @else
-                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                            @endif
-                                        </a>
-                                    </div>
-                                </div>
-                            @else
-                                <div class="col-md-4 col-sm-4">
-                                    <div class="deprt-icon-box"> <img id="imageElement"
-                                            src="{{ Config::get('DocumentConstant.HOME_DEPARTMENT_WEB_VIEW') }}{{ $item['english_image'] }}"
-                                            alt="{{ strip_tags($item['english_title']) }} Image">
-                                        <h6> <a><?php echo $item['english_title']; ?></a> </h6>
-                                        <a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer">
-                                            @if (session('language') == 'mar')
-                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                            @else
-                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                            @endif
-                                        </a>
-                                    </div>
-                                </div>
-                                <!--Icon Box End-->
-                            @endif
-                        @endforeach
-                        <form method="POST" action="{{ url('/particular-department-information') }}"
-                            id="departmentshowform">
-                            @csrf
-                            <input type="hidden" name="department_show_id" id="department_show_id" value="">
-                        </form>
-                    </div>
-                    
-                    {{-- <span class="read_more_btn_span"><a class="read_more_btn" href="{{route('list-all-department')}}" >Read More</a></span> --}}
-                
-                    <span class="read_more_btn_span">
-                        @if ($total_records > 6)
-                            <a class="read_more_btn" href="{{ route('list-all-department') }}" id="readMoreBtn1">Read More</a>
-                        @endif
-                    </span>
-
-
-                    {{-- <span class="read_more_btn_span">
-                        <a class="read_more_btn" href="{{ route('list-all-department') }}" id="readMoreBtn">Read More</a>
-                    </span> --}}
-                
-                
-                
-                
-                </div>
-
-                {{-- ============================== --}}
-               
-                
-                {{-- ===================================== --}}
-
-                <div class="col-md-3">
-                    <div class="emergency-info mt-2">
-                        <h5>
-                            @if (session('language') == 'mar')
-                                {{ Config::get('marathi.HOME_PAGE.HELP_AND_EMERENCY_SERVICE') }}
-                            @else
-                                {{ Config::get('english.HOME_PAGE.HELP_AND_EMERENCY_SERVICE') }}
-                            @endif
-                        </h5>
-                        <div class="accordion accordion-flush" id="accordionFlushExample">
-                            @foreach ($data_output_emergencycontact as $index => $item)
-                                @if (session('language') == 'mar')
-                                    <div class="accordion-item custom-accordion-item">
-                                        <h2 class="accordion-header accordion-header-custom"
-                                            id="flush-heading{{ $index }}">
-                                            <button
-                                                class="accordion-button accordion-button-custom collapsed bg-secondary-custom"
-                                                type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#flush-collapse{{ $index }}" aria-expanded="false"
-                                                aria-controls="flush-collapse{{ $index }}">
-                                                {{ strip_tags($item['marathi_title']) }}
-                                            </button>
-                                        </h2>
-                                        <div id="flush-collapse{{ $index }}"
-                                            class="accordion-collapse collapse bg-secondary-custom"
-                                            aria-labelledby="flush-heading{{ $index }}"
-                                            data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">
-                                                <ul>
-                                                    <li><i class="fa fa-user-tie"></i> <?php echo $item['marathi_name']; ?></li>
-                                                    <li><i class="fa fa-building"></i> <?php echo $item['marathi_address']; ?></li>
-                                                    <li><i class="fa fa-phone"></i> <?php echo $item['marathi_number']; ?></li>
-                                                    <li><i class="fa fa-fax"></i> <?php echo $item['marathi_landline_no']; ?></li>
-                                                    <li><i class="fa fa-envelope"></i> <?php echo $item['email']; ?></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @else
-                                    <div class="accordion-item custom-accordion-item">
-                                        <h2 class="accordion-header accordion-header-custom"
-                                            id="flush-heading{{ $index }}">
-                                            <button
-                                                class="accordion-button accordion-button-custom collapsed bg-secondary-custom"
-                                                type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#flush-collapse{{ $index }}" aria-expanded="false"
-                                                aria-controls="flush-collapse{{ $index }}">
-                                                {{ strip_tags($item['english_title']) }}
-                                            </button>
-                                        </h2>
-                                        <div id="flush-collapse{{ $index }}"
-                                            class="accordion-collapse collapse bg-secondary-custom"
-                                            aria-labelledby="flush-heading{{ $index }}"
-                                            data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">
-                                                <ul>
-                                                    <li><i class="fa fa-user-tie"></i> <?php echo $item['english_name']; ?></li>
-                                                    <li><i class="fa fa-building"></i>
-                                                        {{ strip_tags($item['english_address']) }}</li>
-                                                    <li><i class="fa fa-phone"></i> <?php echo $item['english_number']; ?></li>
-                                                    <li><i class="fa fa-fax"></i> <?php echo $item['english_landline_no']; ?></li>
-                                                    <li><i class="fa fa-envelope"></i> <?php echo $item['email']; ?></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
-                    
-                        <div class="emergency-info mt-2">
-                            <h5>
-                                @if (session('language') == 'mar')
-                                {{ Config::get('marathi.HOME_PAGE.FORCAST_LIVE_DATA') }}
-                            @else
-                                {{ Config::get('english.HOME_PAGE.FORCAST_LIVE_DATA') }}
-                            @endif
-                            </h5>
-                           
-                            <div class="accordion accordion-flush" id="accordionFlushExample1">
-                                @foreach ($data_output_disasterforcast as $index => $item)
-                                    @if (session('language') == 'mar')
-                                        <div class="accordion-item custom-accordion-item">
-                                            <h2 class="accordion-header accordion-header-custom"
-                                                id="flush-heading1{{ $index }}">
-                                                <button
-                                                    class="accordion-button accordion-button-custom collapsed bg-secondary-custom"
-                                                    type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#flush-collapse1{{ $index }}"
-                                                    aria-expanded="false"
-                                                    aria-controls="flush-collapse1{{ $index }}">
-                                                    {{-- {{ strip_tags($item['marathi_title']) }} --}}
-                                                    @if (session('language') == 'mar')
-                                                    {{ Config::get('marathi.HOME_PAGE.DISASTER_FORCAST') }}
-                                                @else
-                                                    {{ Config::get('english.HOME_PAGE.DISASTER_FORCAST') }}
-                                                @endif
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapse1{{ $index }}"
-                                                class="accordion-collapse collapse bg-secondary-custom"
-                                                aria-labelledby="flush-heading1{{ $index }}"
-                                                data-bs-parent="#accordionFlushExample1">
-                                                <div class="accordion-body">
-                                                    <ul>
-                                                        <li><span><b class="content-justify"><?php echo $item['marathi_title']; ?></b></span><span class="content-justify"><?php echo $item['marathi_description']; ?></span>
-                                                       
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="accordion-item custom-accordion-item">
-                                            <h2 class="accordion-header accordion-header-custom"
-                                                id="flush-heading1{{ $index }}">
-                                                <button
-                                                    class="accordion-button accordion-button-custom collapsed bg-secondary-custom"
-                                                    type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#flush-collapse1{{ $index }}"
-                                                    aria-expanded="false"
-                                                    aria-controls="flush-collapse1{{ $index }}">
-                                                    {{-- {{ strip_tags($item['english_title']) }} --}}
-
-                                                    @if (session('language') == 'mar')
-                                                    {{ Config::get('marathi.HOME_PAGE.DISASTER_FORCAST') }}
-                                                @else
-                                                    {{ Config::get('english.HOME_PAGE.DISASTER_FORCAST') }}
-                                                @endif
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapse1{{ $index }}"
-                                                class="accordion-collapse collapse bg-secondary-custom"
-                                                aria-labelledby="flush-heading1{{ $index }}"
-                                                data-bs-parent="#accordionFlushExample1">
-                                                <div class="accordion-body">
-                                                    <ul>
-                                                        <li><span><b class="content-justify"><?php echo $item['english_title']; ?></b></span><span class="content-justify"><?php echo $item['english_description']; ?></span>
-                                                            <a
-                                                    href="{{ route('list-disaster-forecast-web') }}">
-                                                        @if (session('language') == 'mar')
-                                                            {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                                        @else
-                                                            {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                                        @endif
-                                                    </a>
-                                                </div>
-                                                </li>
-                                                    </ul>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
-                               
-                               
-                            </div>
-                        </div>
-
-        </div>
-
-        </div>
-        </div>
-        </div>
-    </section>
-    <!--Departments & Information Desk End-->
-    </div>
-@endsection
- 
-
-
-
-
-
-
-
-
-
+</html>

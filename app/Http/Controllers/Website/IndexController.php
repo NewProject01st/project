@@ -194,6 +194,10 @@ class IndexController extends Controller
     }    
     public function index()
     {
+        return view('website.pages.index');
+    }
+    public function home()
+    {
         try {
             $menu = $this->menu;
             // $menuDataSearch = $this->menuDataSearch;
@@ -216,7 +220,7 @@ class IndexController extends Controller
             } else {
                 $language = 'en';
             }
-            return view('website.pages.index',compact('language','menu','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact', 'data_output_departmentinformation','data_output_disasterforcast', 'total_records'));
+            return view('website.pages.home',compact('language','menu','data_output_marquee', 'data_output_slider', 'data_output_disastermangwebportal', 'data_output_disastermanagementnews', 'data_output_emergencycontact', 'data_output_departmentinformation','data_output_disasterforcast', 'total_records'));
 
         } catch (\Exception $e) {
             return $e;
@@ -233,7 +237,7 @@ class IndexController extends Controller
             } else {
                 $language = 'en';
             }
-            return view('website.pages.new-paricular-data-web', compact('language','menu','disaster_news'));
+            return view('website.pages.disaster-management-news', compact('language','menu','disaster_news'));
 
         } catch (\Exception $e) {
             return $e;
@@ -252,7 +256,7 @@ class IndexController extends Controller
             } else {
                 $language = 'en';
             }
-            return view('website.pages.particular-department-information', compact('language','menu','department_information'));
+            return view('website.pages.department', compact('language','menu','department_information'));
         } catch (\Exception $e) {
             return $e;
         }
@@ -272,7 +276,7 @@ class IndexController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.list-disaster-forecast-web',compact('language','menu','data_output'));
+        return view('website.pages.disaster-forecast-web',compact('language','menu','data_output'));
     }
 
     public function getAllDepartmentInformation()

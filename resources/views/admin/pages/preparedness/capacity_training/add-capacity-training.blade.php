@@ -9,7 +9,7 @@
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('list-capacity-building-and-training') }}">Preparedness</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-list-capacity-training') }}">Preparedness</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Capacity Building And Training </li>
                     </ol>
                 </nav>
@@ -18,7 +18,7 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action="{{ url('add-capacity-building-and-training') }}"
+                            <form class="forms-sample" action="{{ url('add-list-capacity-training') }}"
                                 method="POST" enctype="multipart/form-data" id="regForm">
                                 @csrf
                                 <div class="row">
@@ -88,7 +88,7 @@
                                     <div class="col-md-12 col-sm-12 text-center mt-3">
                                         <button type="submit" class="btn btn-sm btn-success">Save &amp; Submit</button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
-                                        <span><a href="{{ route('list-capacity-building-and-training') }}"
+                                        <span><a href="{{ route('list-list-capacity-training') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
                                 </div>

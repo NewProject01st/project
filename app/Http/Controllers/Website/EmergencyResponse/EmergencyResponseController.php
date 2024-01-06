@@ -38,7 +38,7 @@ class EmergencyResponseController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.emergency-response.list-state-emergency-operations-center-web',compact('language','menu','data_output'));
+        return view('website.pages.emergency-response.state-emergency-operations-center ',compact('language','menu','data_output'));
     }  
     public function getAllDistrictEmergencyOperationsCenter()
     {
@@ -55,7 +55,7 @@ class EmergencyResponseController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.emergency-response.list-district-emergency-operations-center-web',compact('language','menu', 'data_output'));
+        return view('website.pages.emergency-response.district-emergency-operations-center',compact('language','menu', 'data_output'));
     }
 
     public function getAllEmergencyContactNumbers()
@@ -75,7 +75,7 @@ class EmergencyResponseController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.emergency-response.list-emergency-contact-numbers-web',compact('language','menu', 'data_output_new','data_output_array'));
+        return view('website.pages.emergency-response.emergency-contact-numbers',compact('language','menu', 'data_output_new','data_output_array'));
     }
     public function getAllSearchRescueTeams()
     {
@@ -92,7 +92,7 @@ class EmergencyResponseController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.emergency-response.list-search-rescue-teams-web',compact('language','menu', 'data_output'));
+        return view('website.pages.emergency-response.search-rescue-teams',compact('language','menu', 'data_output'));
     }
     public function getAllReliefMeasuresResources()
     {
@@ -109,7 +109,7 @@ class EmergencyResponseController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.emergency-response.list-relief-measures-resources-web',compact('language','menu', 'data_output'));
+        return view('website.pages.emergency-response.relief-measures-and-resources',compact('language','menu', 'data_output'));
     }
     public function getAllEvacuationPlans()
     {
@@ -126,7 +126,7 @@ class EmergencyResponseController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.emergency-response.list-evacuation-plans-web',compact('language','menu', 'data_output'));
+        return view('website.pages.emergency-response.evacuation-plans',compact('language','menu', 'data_output'));
     }
 
     

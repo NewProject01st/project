@@ -12,7 +12,7 @@
                 @endif
             </h2>
             <ul>
-                <li> <a href="{{ route('index') }}">
+                <li> <a href="{{ route('home') }}">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.RESOURCE_CENTER.RESOURCE_CENTER_MAIN_LINK') }}
                         @else
@@ -55,7 +55,7 @@
                             @endif
                         </h3>
                       --}}
-                        <table id="order-listing" class="table table-striped table-hover table-bordered border-dark">
+                        <table id="example" class="table table-striped table-hover table-bordered border-dark">
                             <thead class="" style="background-color: #47194a; color:#fff">
                                 <tr>
                                     <th scope="col">

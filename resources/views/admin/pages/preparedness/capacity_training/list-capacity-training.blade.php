@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 
 @section('content')
-    <?php $data_permission = getPermissionForCRUDPresentOrNot('list-capacity-building-and-training', session('permissions'));
+    <?php $data_permission = getPermissionForCRUDPresentOrNot('list-list-capacity-training', session('permissions'));
     ?>
     <div class="main-panel">
         <div class="content-wrapper mt-7">
@@ -9,14 +9,14 @@
                 <h3 class="page-title">
                     Capacity Building And Training
                     {{-- @if (in_array('per_add', $data_permission))
-                        <a href="{{ route('add-capacity-building-and-training') }}" class="btn btn-sm btn-primary ml-3">+
+                        <a href="{{ route('add-list-capacity-training') }}" class="btn btn-sm btn-primary ml-3">+
                             Add</a>
                     @endif --}}
 
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ url('list-capacity-building-and-training') }}">Preparedness</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('list-list-capacity-training') }}">Preparedness</a></li>
                         <li class="breadcrumb-item active" aria-current="page"> Capacity Building And Training</li>
                     </ol>
                 </nav>
@@ -61,7 +61,7 @@
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
-                                                                    <a href="{{ route('edit-capacity-building-and-training', base64_encode($item->id)) }}"
+                                                                    <a href="{{ route('edit-list-capacity-training', base64_encode($item->id)) }}"
                                                                         class="btn btn-sm btn-outline-primary m-1"
                                                                         title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                                                 @endif
@@ -90,11 +90,11 @@
                 </div>
             </div>
         </div>
-        <form method="POST" action="{{ url('/delete-capacity-building-and-training') }}" id="deleteform">
+        <form method="POST" action="{{ url('/delete-list-capacity-training') }}" id="deleteform">
             @csrf
             <input type="hidden" name="delete_id" id="delete_id" value="">
         </form>
-        <form method="POST" action="{{ url('/show-capacity-building-and-training') }}" id="showform">
+        <form method="POST" action="{{ url('/show-list-capacity-training') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>

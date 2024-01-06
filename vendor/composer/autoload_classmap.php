@@ -103,6 +103,7 @@ return array(
     'App\\Http\\Controllers\\Website\\EmergencyResponse\\EmergencyResponseController' => $baseDir . '/app/Http/Controllers/Website/EmergencyResponse/EmergencyResponseController.php',
     'App\\Http\\Controllers\\Website\\IndexController' => $baseDir . '/app/Http/Controllers/Website/IndexController.php',
     'App\\Http\\Controllers\\Website\\Map\\MapController' => $baseDir . '/app/Http/Controllers/Website/Map/MapController.php',
+    'App\\Http\\Controllers\\Website\\NewController' => $baseDir . '/app/Http/Controllers/Website/NewController.php',
     'App\\Http\\Controllers\\Website\\NewsAndEvents\\NewsEventsController' => $baseDir . '/app/Http/Controllers/Website/NewsAndEvents/NewsEventsController.php',
     'App\\Http\\Controllers\\Website\\PoliciesLegislation\\PoliciesLegislationController' => $baseDir . '/app/Http/Controllers/Website/PoliciesLegislation/PoliciesLegislationController.php',
     'App\\Http\\Controllers\\Website\\Preparedness\\PreparednessController' => $baseDir . '/app/Http/Controllers/Website/Preparedness/PreparednessController.php',

@@ -42,68 +42,73 @@ Route::post('/submitLogin', ['as' => 'submitLogin', 'uses' => 'App\Http\Controll
 
 Route::get('/pages/{page}', ['as' => 'pages', 'uses' => 'App\Http\Controllers\Website\DynamicPages\DynamicPagesController@index']);
 // Website
-Route::get('/index', ['as' => 'index', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
-Route::post('/new-paricular-data-web', ['as' => 'new-paricular-data-web', 'uses' => 'App\Http\Controllers\Website\IndexController@show']);
-Route::post('/particular-department-information', ['as' => 'particular-department-information', 'uses' => 'App\Http\Controllers\Website\IndexController@showDepartmentInformation']);
+// Route::get('/landing', ['as' => 'landing', 'uses' => 'App\Http\Controllers\Website\NewController@landing']);
+// landing
+Route::get('/', ['as' => '', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
+Route::get('/home', ['as' => 'home', 'uses' => 'App\Http\Controllers\Website\IndexController@home']);
+Route::post('/disaster-management-news', ['as' => 'disaster-management-news', 'uses' => 'App\Http\Controllers\Website\IndexController@show']);
+Route::post('/department', ['as' => 'department', 'uses' => 'App\Http\Controllers\Website\IndexController@showDepartmentInformation']);
 Route::post('/particular-disaster_forecast', ['as' => 'particular-disaster_forecast', 'uses' => 'App\Http\Controllers\Website\IndexController@showDisasterForecast']);
-Route::get('/list-disaster-forecast-web', ['as' => 'list-disaster-forecast-web', 'uses' => 'App\Http\Controllers\Website\IndexController@getAllWebDisaterForcast']);
+Route::get('/disaster-forecast-web', ['as' => 'disaster-forecast-web', 'uses' => 'App\Http\Controllers\Website\IndexController@getAllWebDisaterForcast']);
 Route::get('/list-all-department', ['as' => 'list-all-department', 'uses' => 'App\Http\Controllers\Website\IndexController@getAllDepartmentInformation']);
 
 Route::get('/list-vacancies', ['as' => 'list-vacancies', 'uses' => 'App\Http\Controllers\Website\IndexController@showVacancies']);
 Route::get('/list-rti', ['as' => 'list-rti', 'uses' => 'App\Http\Controllers\Website\IndexController@showRTI']);
 
-Route::get('/list-maps-gis-data-web', ['as' => 'information-map', 'uses' => 'App\Http\Controllers\Website\Map\MapController@index']);
+Route::get('/maps-and-gis-data', ['as' => 'information-map', 'uses' => 'App\Http\Controllers\Website\Map\MapController@index']);
 Route::post('/information-map-ajax', ['as' => 'information-map-ajax', 'uses' => 'App\Http\Controllers\Website\Map\MapController@mapDataAjax']);
 
 Route::get('/privacy-policy', ['as' => 'privacy-policy', 'uses' => 'App\Http\Controllers\Website\IndexController@getPrivacyPolicy']);
 Route::get('/terms_condition', ['as' => 'terms_condition', 'uses' => 'App\Http\Controllers\Website\IndexController@getTermConditions']);
 
-Route::get('/list-disastermanagementportal-web', ['as' => 'list-disastermanagementportal-web', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllDisasterManagmentPortal']);
-Route::get('/list-objectivegoals-web', ['as' => 'list-objectivegoals-web', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllObjectiveGoals']);
-Route::get('/state-disaster-management-authority-web', ['as' => 'state-disaster-management-authority-web', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllStateDisasterManagementAuthority']);
+Route::get('/disaster-management-portal ', ['as' => 'disaster-management-portal ', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllDisasterManagmentPortal']);
+Route::get('/objective-and-goals', ['as' => 'objective-and-goals', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllObjectiveGoals']);
+Route::get('/state-disaster-management-authority', ['as' => 'state-disaster-management-authority', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllStateDisasterManagementAuthority']);
 Route::get('/contact-information', ['as' => 'contact-information', 'uses' => 'App\Http\Controllers\Website\ContactUs\ContactController@getAllContactInformation']);
 Route::get('/feedback-suggestions', ['as' => 'feedback-suggestions', 'uses' => 'App\Http\Controllers\Website\ContactUs\ContactController@add']);
 Route::post('/feedback-suggestions', ['as' => 'feedback-suggestions', 'uses' => 'App\Http\Controllers\Website\ContactUs\ContactController@store']);
 
-Route::get('/list-hazard-vulnerability-web', ['as' => 'list-hazard-vulnerability-web', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllHazardVulnerability']);
-Route::get('/list-warning-system-web', ['as' => 'list-warning-system-web', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllEarlyWarningSystem']);
-Route::get('/list-capacity-training', ['as' => 'list-capacity-training', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllCapacityTraining']);
-Route::get('/list-awareness-education-web', ['as' => 'list-awareness-education-web', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllPublicAwarenessEducation']);
+Route::get('/hazard-and-vulnerability-assessment ', ['as' => 'hazard-and-vulnerability-assessment ', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllHazardVulnerability']);
+Route::get('/early-warning-systems', ['as' => 'early-warning-systems', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllEarlyWarningSystem']);
+Route::get('/capacity-building-and-training', ['as' => 'capacity-building-and-training', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllCapacityTraining']);
+Route::get('/public-awareness-and-education', ['as' => 'public-awareness-and-education', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllPublicAwarenessEducation']);
 
-Route::get('/list-state-emergency-operations-center-web', ['as' => 'list-state-emergency-operations-center-web', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllStateEmergencyOperationsCenter']);
-Route::get('/list-district-emergency-operations-center-web', ['as' => 'list-district-emergency-operations-center-web', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllDistrictEmergencyOperationsCenter']);
-Route::get('/list-emergency-contact-numbers-web', ['as' => 'list-emergency-contact-numbers-web', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllEmergencyContactNumbers']);
-Route::get('/list-search-rescue-teams-web', ['as' => 'list-search-rescue-teams-web', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllSearchRescueTeams']);
-Route::get('/list-relief-measures-resources-web', ['as' => 'list-relief-measures-resources-web', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllReliefMeasuresResources']);
-Route::get('/list-evacuation-plans-web', ['as' => 'list-evacuation-plans-web', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllEvacuationPlans']);
+Route::get('/state-emergency-operations-center ', ['as' => 'state-emergency-operations-center ', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllStateEmergencyOperationsCenter']);
+Route::get('/district-emergency-operations-center', ['as' => 'district-emergency-operations-center', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllDistrictEmergencyOperationsCenter']);
+Route::get('/emergency-contact-numbers', ['as' => 'emergency-contact-numbers', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllEmergencyContactNumbers']);
+Route::get('/search-rescue-teams', ['as' => 'search-rescue-teams', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllSearchRescueTeams']);
+Route::get('/relief-measures-and-resources', ['as' => 'relief-measures-and-resources', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllReliefMeasuresResources']);
+Route::get('/evacuation-plans', ['as' => 'evacuation-plans', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllEvacuationPlans']);
 
 Route::get('/volunteer-citizen-support-web', ['as' => 'volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllVolunteerCitizenSupport']);
 
 Route::post('/report-modal', ['as' => 'report-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeIncidentModalInfo']);
 Route::post('/volunteer-modal', ['as' => 'volunteer-modal', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@storeVolunteerModalInfo']);
-Route::get('/report-incident-crowdsourcing-web', ['as' => 'report-incident-crowdsourcing-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllIncidentType']);
+Route::get('/report-incident-crowdsourcing', ['as' => 'report-incident-crowdsourcing', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAllIncidentType']);
 Route::get('/check-mobile-number-exists', ['as' => 'check-mobile-number-exists', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@checkMobileNumberExists']);
 
 
-Route::get('/add-volunteer-citizen-support-web', ['as' => 'add-volunteer-citizen-support-web', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAddVolunteerCitizenSupport']);
+Route::get('/volunteer-citizen-support', ['as' => 'volunteer-citizen-support', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAddVolunteerCitizenSupport']);
 
-Route::get('/list-upcoming-training-event-web', ['as' => 'list-upcoming-training-event-web', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllUpcomingEvent']);
-Route::get('/list-past-training-event-web', ['as' => 'list-past-training-event-web', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllPastEvent']);
+Route::get('/upcoming-events-and-trainings', ['as' => 'upcoming-events-and-trainings', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllUpcomingEvent']);
+Route::get('/past-events-and-trainings ', ['as' => 'past-events-and-trainings ', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllPastEvent']);
 Route::post('/list-particular-event', ['as' => 'list-particular-event', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@show']);
 
-Route::get('/list-state-disaster-managementplan-web', ['as' => 'list-state-disaster-managementplan-web', 'uses' => 'App\Http\Controllers\Website\PoliciesLegislation\PoliciesLegislationController@getAllStateDisasterManagementPlan']);
-Route::get('/list-district-disaster-managementplan-web', ['as' => 'list-district-disaster-managementplan-web', 'uses' => 'App\Http\Controllers\Website\PoliciesLegislation\PoliciesLegislationController@getAllDistrictDisasterManagementPlan']);
-Route::get('/list-state-management-policy-web', ['as' => 'list-state-management-policy-web', 'uses' => 'App\Http\Controllers\Website\PoliciesLegislation\PoliciesLegislationController@getAllStateDisasterManagementPolicy']);
-Route::get('/list-relevant-laws-web', ['as' => 'list-relevant-laws-web', 'uses' => 'App\Http\Controllers\Website\PoliciesLegislation\PoliciesLegislationController@getAllRelevantLawsRegulation']);
+Route::get('/state-disaster-management-plan', ['as' => 'state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Website\PoliciesAndGuidelines\PoliciesAndGuidelinesController@getAllStateDisasterManagementPlan']);
+Route::get('/district-disaster-management-plans', ['as' => 'district-disaster-management-plans', 'uses' => 'App\Http\Controllers\Website\PoliciesAndGuidelines\PoliciesAndGuidelinesController@getAllDistrictDisasterManagementPlan']);
+Route::get('/disaster-management-policies', ['as' => 'disaster-management-policies', 'uses' => 'App\Http\Controllers\Website\PoliciesAndGuidelines\PoliciesAndGuidelinesController@getAllStateDisasterManagementPolicy']);
+Route::get('/relevant-laws-and-regulations', ['as' => 'relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Website\PoliciesAndGuidelines\PoliciesAndGuidelinesController@getAllRelevantLawsRegulation']);
+Route::get('/disaster-management-act', ['as' => 'disaster-management-act', 'uses' => 'App\Http\Controllers\Website\PoliciesAndGuidelines\PoliciesAndGuidelinesController@getAllDisasterManagementAct']);
+Route::get('/disaster-management-guidelines', ['as' => 'disaster-management-guidelines', 'uses' => 'App\Http\Controllers\Website\PoliciesAndGuidelines\PoliciesAndGuidelinesController@getAllDisasterManagementGuidelines']);
 
-Route::get('/list-documents-publications-web', ['as' => 'list-documents-publications-web', 'uses' => 'App\Http\Controllers\Website\ResourceCenter\ResourceCenterController@getAllDocumentspublications']);
-// Route::get('/list-maps-gis-data-web', ['as' => 'list-maps-gis-data-web', 'uses' => 'App\Http\Controllers\Website\ResourceCenter\ResourceCenterController@getAllMapsGISData']);
-Route::get('/list-multimedia-web', ['as' => 'list-multimedia-web', 'uses' => 'App\Http\Controllers\Website\ResourceCenter\ResourceCenterController@getAllMultimedia']);
+Route::get('/documents-publications', ['as' => 'documents-publications', 'uses' => 'App\Http\Controllers\Website\ResourceCenter\ResourceCenterController@getAllDocumentspublications']);
+// Route::get('/maps-and-gis-data', ['as' => 'maps-and-gis-data', 'uses' => 'App\Http\Controllers\Website\ResourceCenter\ResourceCenterController@getAllMapsGISData']);
+Route::get('/videos-and-multimedia', ['as' => 'videos-and-multimedia', 'uses' => 'App\Http\Controllers\Website\ResourceCenter\ResourceCenterController@getAllMultimedia']);
 Route::post('/list-ajax-multimedia-web', ['as' => 'list-ajax-multimedia-web', 'uses' => 'App\Http\Controllers\Website\ResourceCenter\ResourceCenterController@getAllAjaxMultimedia']);
-Route::get('/list-training-materials-workshops-web', ['as' => 'list-training-materials-workshops-web', 'uses' => 'App\Http\Controllers\Website\ResourceCenter\ResourceCenterController@getAllTraningMaterial']);
+Route::get('/training-materials', ['as' => 'training-materials', 'uses' => 'App\Http\Controllers\Website\ResourceCenter\ResourceCenterController@getAllTraningMaterial']);
 
-Route::get('/list-disaster-management-news-web', ['as' => 'list-disaster-management-news-web', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@getAllDisasterManagementNews']);
-Route::get('/list-success-stories-web', ['as' => 'list-success-stories-web', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@getAllSuccessStories']);
+Route::get('/disaster-management-news', ['as' => 'disaster-management-news', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@getAllDisasterManagementNews']);
+Route::get('/success-stories ', ['as' => 'success-stories ', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@getAllSuccessStories']);
 Route::post('/list-particular-success-stories-web', ['as' => 'list-particular-success-stories-web', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@show']);
 
 Route::get('/site-map', ['as' => 'site-map', 'uses' => 'App\Http\Controllers\Website\SiteMap\SiteMapController@index']);
@@ -133,6 +138,19 @@ Route::group(['middleware' => ['admin']], function () {
 
     Route::post('/otp-verification', ['as' => 'otp-verification', 'uses' => 'App\Http\Controllers\Admin\LoginRegister\RegisterController@updateEmailOtp']);
     
+
+    // Landing Start================
+
+    Route::get('/list-landing-slide', ['as' => 'list-landing-slide', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingSliderController@index']);
+    Route::get('/add-landing-slide', ['as' => 'add-landing-slide', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingSliderController@add']);
+    Route::post('/add-landing-slide', ['as' => 'add-landing-slide', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingSliderController@store']);
+    Route::get('/edit-landing-slide/{edit_id}', ['as' => 'edit-landing-slide', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingSliderController@edit']);
+    Route::post('/update-landing-slide', ['as' => 'update-landing-slide', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingSliderController@update']);
+    Route::post('/show-landing-slide', ['as' => 'show-landing-slide', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingSliderController@show']);
+    Route::post('/delete-landing-slide', ['as' => 'delete-landing-slide', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingSliderController@destroy']);
+    Route::post('/update-active-landing-slide', ['as' => 'update-active-landing-slide', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingSliderController@updateOne']);
+    
+    // Landing End================
     Route::get('/list-main-menu', ['as' => 'list-main-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\MainMenuController@index']);
     Route::get('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\MainMenuController@add']);
     Route::post('/add-main-menu', ['as' => 'add-main-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\MainMenuController@store']);
@@ -297,13 +315,13 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-early-warning-system', ['as' => 'show-early-warning-system', 'uses' => 'App\Http\Controllers\Admin\Preparedness\EarlyWarningSystemController@show']);
     Route::post('/delete-early-warning-system', ['as' => 'delete-early-warning-system', 'uses' => 'App\Http\Controllers\Admin\Preparedness\EarlyWarningSystemController@destroy']);
 
-    Route::get('/list-capacity-building-and-training', ['as' => 'list-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@index']);
-    Route::get('/add-capacity-building-and-training', ['as' => 'add-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@add']);
-    Route::post('/add-capacity-building-and-training', ['as' => 'add-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@store']);
-    Route::get('/edit-capacity-building-and-training/{edit_id}', ['as' => 'edit-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@edit']);
-    Route::post('/update-capacity-building-and-training', ['as' => 'update-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@update']);
-    Route::post('/show-capacity-building-and-training', ['as' => 'show-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@show']);
-    Route::post('/delete-capacity-building-and-training', ['as' => 'delete-capacity-building-and-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@destroy']);
+    Route::get('/list-list-capacity-training', ['as' => 'list-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@index']);
+    Route::get('/add-list-capacity-training', ['as' => 'add-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@add']);
+    Route::post('/add-list-capacity-training', ['as' => 'add-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@store']);
+    Route::get('/edit-list-capacity-training/{edit_id}', ['as' => 'edit-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@edit']);
+    Route::post('/update-list-capacity-training', ['as' => 'update-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@update']);
+    Route::post('/show-list-capacity-training', ['as' => 'show-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@show']);
+    Route::post('/delete-list-capacity-training', ['as' => 'delete-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@destroy']);
     
     Route::get('/list-public-awareness-and-education', ['as' => 'list-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Admin\Preparedness\PublicAwarenessEducationController@index']);
     Route::get('/add-public-awareness-and-education', ['as' => 'add-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Admin\Preparedness\PublicAwarenessEducationController@add']);
@@ -427,41 +445,59 @@ Route::post('/delete-event', ['as' => 'delete-event', 'uses' => 'App\Http\Contro
 Route::post('/update-one-event', ['as' => 'update-one-event', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\EventController@updateOne']);
 
 //=========Policies And legislation========
-Route::get('/list-state-disaster-management-plan', ['as' => 'list-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPlanController@index']);
-Route::get('/add-state-disaster-management-plan', ['as' => 'add-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPlanController@add']);
-Route::post('/add-state-disaster-management-plan', ['as' => 'add-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPlanController@store']);
-Route::get('/edit-state-disaster-management-plan/{edit_id}', ['as' => 'edit-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPlanController@edit']);
-Route::post('/update-state-disaster-management-plan', ['as' => 'update-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPlanController@update']);
-Route::post('/show-state-disaster-management-plan', ['as' => 'show-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPlanController@show']);
-Route::post('/delete-state-disaster-management-plan', ['as' => 'delete-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPlanController@destroy']);
-Route::post('/update-one-state_disaster', ['as' => 'update-one-state_disaster', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPlanController@updateOne']);
+Route::get('/list-state-disaster-management-plan', ['as' => 'list-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPlanController@index']);
+Route::get('/add-state-disaster-management-plan', ['as' => 'add-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPlanController@add']);
+Route::post('/add-state-disaster-management-plan', ['as' => 'add-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPlanController@store']);
+Route::get('/edit-state-disaster-management-plan/{edit_id}', ['as' => 'edit-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPlanController@edit']);
+Route::post('/update-state-disaster-management-plan', ['as' => 'update-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPlanController@update']);
+Route::post('/show-state-disaster-management-plan', ['as' => 'show-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPlanController@show']);
+Route::post('/delete-state-disaster-management-plan', ['as' => 'delete-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPlanController@destroy']);
+Route::post('/update-one-state_disaster', ['as' => 'update-one-state_disaster', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPlanController@updateOne']);
 
-Route::get('/list-district-disaster-management-plan', ['as' => 'list-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\DistrictDisasterManagementPlanController@index']);
-Route::get('/add-district-disaster-management-plan', ['as' => 'add-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\DistrictDisasterManagementPlanController@add']);
-Route::post('/add-district-disaster-management-plan', ['as' => 'add-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\DistrictDisasterManagementPlanController@store']);
-Route::get('/edit-district-disaster-management-plan/{edit_id}', ['as' => 'edit-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\DistrictDisasterManagementPlanController@edit']);
-Route::post('/update-district-disaster-management-plan', ['as' => 'update-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\DistrictDisasterManagementPlanController@update']);
-Route::post('/show-district-disaster-management-plan', ['as' => 'show-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\DistrictDisasterManagementPlanController@show']);
-Route::post('/delete-district-disaster-management-plan', ['as' => 'delete-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\DistrictDisasterManagementPlanController@destroy']);
-Route::post('/update-one-disaster', ['as' => 'update-one-disaster', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\DistrictDisasterManagementPlanController@updateOne']);
+Route::get('/list-district-disaster-management-plan', ['as' => 'list-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DistrictDisasterManagementPlanController@index']);
+Route::get('/add-district-disaster-management-plan', ['as' => 'add-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DistrictDisasterManagementPlanController@add']);
+Route::post('/add-district-disaster-management-plan', ['as' => 'add-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DistrictDisasterManagementPlanController@store']);
+Route::get('/edit-district-disaster-management-plan/{edit_id}', ['as' => 'edit-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DistrictDisasterManagementPlanController@edit']);
+Route::post('/update-district-disaster-management-plan', ['as' => 'update-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DistrictDisasterManagementPlanController@update']);
+Route::post('/show-district-disaster-management-plan', ['as' => 'show-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DistrictDisasterManagementPlanController@show']);
+Route::post('/delete-district-disaster-management-plan', ['as' => 'delete-district-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DistrictDisasterManagementPlanController@destroy']);
+Route::post('/update-one-disaster', ['as' => 'update-one-disaster', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DistrictDisasterManagementPlanController@updateOne']);
 
-Route::get('/list-state-disaster-management-policy', ['as' => 'list-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPolicyController@index']);
-Route::get('/add-state-disaster-management-policy', ['as' => 'add-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPolicyController@add']);
-Route::post('/add-state-disaster-management-policy', ['as' => 'add-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPolicyController@store']);
-Route::get('/edit-state-disaster-management-policy/{edit_id}', ['as' => 'edit-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPolicyController@edit']);
-Route::post('/update-state-disaster-management-policy', ['as' => 'update-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPolicyController@update']);
-Route::post('/show-state-disaster-management-policy', ['as' => 'show-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPolicyController@show']);
-Route::post('/delete-state-disaster-management-policy', ['as' => 'delete-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPolicyController@destroy']);
-Route::post('/update-one-disaster_policy', ['as' => 'update-one-disaster_policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\StateDisasterManagementPolicyController@updateOne']);
+Route::get('/list-state-disaster-management-policy', ['as' => 'list-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPolicyController@index']);
+Route::get('/add-state-disaster-management-policy', ['as' => 'add-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPolicyController@add']);
+Route::post('/add-state-disaster-management-policy', ['as' => 'add-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPolicyController@store']);
+Route::get('/edit-state-disaster-management-policy/{edit_id}', ['as' => 'edit-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPolicyController@edit']);
+Route::post('/update-state-disaster-management-policy', ['as' => 'update-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPolicyController@update']);
+Route::post('/show-state-disaster-management-policy', ['as' => 'show-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPolicyController@show']);
+Route::post('/delete-state-disaster-management-policy', ['as' => 'delete-state-disaster-management-policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPolicyController@destroy']);
+Route::post('/update-one-disaster_policy', ['as' => 'update-one-disaster_policy', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPolicyController@updateOne']);
 
-Route::get('/list-relevant-laws-and-regulations', ['as' => 'list-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\RelevantLawsRegulationsController@index']);
-Route::get('/add-relevant-laws-and-regulations', ['as' => 'add-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\RelevantLawsRegulationsController@add']);
-Route::post('/add-relevant-laws-and-regulations', ['as' => 'add-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\RelevantLawsRegulationsController@store']);
-Route::get('/edit-relevant-laws-and-regulations/{edit_id}', ['as' => 'edit-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\RelevantLawsRegulationsController@edit']);
-Route::post('/update-relevant-laws-and-regulations', ['as' => 'update-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\RelevantLawsRegulationsController@update']);
-Route::post('/show-relevant-laws-and-regulations', ['as' => 'show-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\RelevantLawsRegulationsController@show']);
-Route::post('/delete-relevant-laws-and-regulations', ['as' => 'delete-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\RelevantLawsRegulationsController@destroy']);
-Route::post('/update-one-relevant_law', ['as' => 'update-one-relevant_law', 'uses' => 'App\Http\Controllers\Admin\PoliciesLegislation\RelevantLawsRegulationsController@updateOne']);
+Route::get('/list-relevant-laws-and-regulations', ['as' => 'list-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\RelevantLawsRegulationsController@index']);
+Route::get('/add-relevant-laws-and-regulations', ['as' => 'add-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\RelevantLawsRegulationsController@add']);
+Route::post('/add-relevant-laws-and-regulations', ['as' => 'add-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\RelevantLawsRegulationsController@store']);
+Route::get('/edit-relevant-laws-and-regulations/{edit_id}', ['as' => 'edit-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\RelevantLawsRegulationsController@edit']);
+Route::post('/update-relevant-laws-and-regulations', ['as' => 'update-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\RelevantLawsRegulationsController@update']);
+Route::post('/show-relevant-laws-and-regulations', ['as' => 'show-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\RelevantLawsRegulationsController@show']);
+Route::post('/delete-relevant-laws-and-regulations', ['as' => 'delete-relevant-laws-and-regulations', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\RelevantLawsRegulationsController@destroy']);
+Route::post('/update-one-relevant_law', ['as' => 'update-one-relevant_law', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\RelevantLawsRegulationsController@updateOne']);
+
+Route::get('/list-disaster-management-act', ['as' => 'list-disaster-management-act', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementActController@index']);
+Route::get('/add-disaster-management-act', ['as' => 'add-disaster-management-act', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementActController@add']);
+Route::post('/add-disaster-management-act', ['as' => 'add-disaster-management-act', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementActController@store']);
+Route::get('/edit-disaster-management-act/{edit_id}', ['as' => 'edit-disaster-management-act', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementActController@edit']);
+Route::post('/update-disaster-management-act', ['as' => 'update-disaster-management-act', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementActController@update']);
+Route::post('/show-disaster-management-act', ['as' => 'show-disaster-management-act', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementActController@show']);
+Route::post('/delete-disaster-management-act', ['as' => 'delete-disaster-management-act', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementActController@destroy']);
+Route::post('/update-one-disaster-management-act', ['as' => 'update-one-disaster-management-act', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementActController@updateOne']);
+
+Route::get('/list-disaster-management-guidelines', ['as' => 'list-disaster-management-guidelines', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementGuidelinesController@index']);
+Route::get('/add-disaster-management-guidelines', ['as' => 'add-disaster-management-guidelines', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementGuidelinesController@add']);
+Route::post('/add-disaster-management-guidelines', ['as' => 'add-disaster-management-guidelines', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementGuidelinesController@store']);
+Route::get('/edit-disaster-management-guidelines/{edit_id}', ['as' => 'edit-disaster-management-guidelines', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementGuidelinesController@edit']);
+Route::post('/update-disaster-management-guidelines', ['as' => 'update-disaster-management-guidelines', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementGuidelinesController@update']);
+Route::post('/show-disaster-management-guidelines', ['as' => 'show-disaster-management-guidelines', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementGuidelinesController@show']);
+Route::post('/delete-disaster-management-guidelines', ['as' => 'delete-disaster-management-guidelines', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementGuidelinesController@destroy']);
+Route::post('/update-one-disaster-management-guidelines', ['as' => 'update-one-disaster-management-guidelines', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\DisasterManagementGuidelinesController@updateOne']);
 
 //=======Research And Center==========
 

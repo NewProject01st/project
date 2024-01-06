@@ -80,16 +80,16 @@ class CapacityTrainingController extends Controller
                 $msg = $add_capacity_training['msg'];
                 $status = $add_capacity_training['status'];
                 if($status=='success') {
-                    return redirect('list-capacity-building-and-training')->with(compact('msg','status'));
+                    return redirect('list-list-capacity-training')->with(compact('msg','status'));
                 }
                 else {
-                    return redirect('add-capacity-building-and-training')->withInput()->with(compact('msg','status'));
+                    return redirect('add-list-capacity-training')->withInput()->with(compact('msg','status'));
                 }
             }
 
         }
     } catch (Exception $e) {
-        return redirect('add-capacity-building-and-training')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+        return redirect('add-list-capacity-training')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
     }
 }
     
@@ -147,7 +147,7 @@ class CapacityTrainingController extends Controller
                 $msg = $update_capacity_training['msg'];
                 $status = $update_capacity_training['status'];
                 if ($status == 'success') {
-                    return redirect('list-capacity-building-and-training')->with(compact('msg', 'status'));
+                    return redirect('list-list-capacity-training')->with(compact('msg', 'status'));
                 } else {
                     return redirect()->back()
                         ->withInput()
@@ -175,7 +175,7 @@ public function show(Request $request)
     {
         try {
             $capacity_training = $this->service->deleteById($request->delete_id);
-            return redirect('list-capacity-building-and-training')->with('flash_message', 'Deleted!');  
+            return redirect('list-list-capacity-training')->with('flash_message', 'Deleted!');  
         } catch (\Exception $e) {
             return $e;
         }

@@ -96,8 +96,8 @@ class MainMenusSeeder extends Seeder
         MainMenus::create([
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'menu_name_english' => ' Policies and Legislation',
-            'menu_name_marathi' => 'धोरणे आणि कायदे',
+            'menu_name_english' => ' Policies & Guidelines',
+            'menu_name_marathi' => 'धोरणे आणि मार्गदर्शक तत्त्वे',
             'order_no' => 8,
             'is_static'=>true,
             'is_active' => true,

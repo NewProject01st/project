@@ -58,7 +58,7 @@ class CitizenActionController extends Controller
             $validation = Validator::make($request->all(),$rules,$messages);
             if($validation->fails() )
             {
-                return redirect('report-incident-crowdsourcing-web')
+                return redirect('report-incident-crowdsourcing')
                     ->withInput()
                     ->withErrors($validation);
             }
@@ -72,17 +72,17 @@ class CitizenActionController extends Controller
                     $status = $add_modal['status'];
                     if($status=='success') {
                         Session::flash('success_message', 'Report incident submitted successfully!');
-                        return redirect('report-incident-crowdsourcing-web')->with(compact('msg','status'));
+                        return redirect('report-incident-crowdsourcing')->with(compact('msg','status'));
                     }
                     else {
-                        return redirect('report-incident-crowdsourcing-web')->withInput()->with(compact('language','menu','msg','status'));
+                        return redirect('report-incident-crowdsourcing')->withInput()->with(compact('language','menu','msg','status'));
     
                     }
                 }
     
             }
         } catch (Exception $e) {
-            return redirect('report-incident-crowdsourcing-web')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+            return redirect('report-incident-crowdsourcing')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
     }
 
@@ -149,7 +149,7 @@ class CitizenActionController extends Controller
         $validation = Validator::make($request->all(), $rules, $messages);
 
         if ($validation->fails()) {
-            return redirect('add-volunteer-citizen-support-web')
+            return redirect('volunteer-citizen-support')
                 ->withInput()
                 ->withErrors($validation);
         }
@@ -161,12 +161,12 @@ class CitizenActionController extends Controller
             $status = $add_modal['status'];
             if ($add_modal && $add_modal['status'] == 'success') {
                 Session::flash('success_message', 'Form submitted successfully!');
-                return redirect('add-volunteer-citizen-support-web')->with(compact('msg', 'status'));
+                return redirect('volunteer-citizen-support')->with(compact('msg', 'status'));
             } else {
-                return redirect('add-volunteer-citizen-support-web')->withInput()->with(compact('language', 'menu', 'msg', 'status'));
+                return redirect('volunteer-citizen-support')->withInput()->with(compact('language', 'menu', 'msg', 'status'));
             }
         } catch (Exception $e) {
-            return redirect('add-volunteer-citizen-support-web')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
+            return redirect('volunteer-citizen-support')->withInput()->with(['msg' => $e->getMessage(), 'status' => 'error']);
         }
     }
 
@@ -185,7 +185,7 @@ class CitizenActionController extends Controller
         } catch (\Exception $e) {
         return $e;
         }
-        return view('website.pages.citizen-action.report-incident-crowdsourcing-web',compact('language','menu', 'data_output_incident'));
+        return view('website.pages.citizen-action.report-incident-crowdsourcing',compact('language','menu', 'data_output_incident'));
     }  
 
 
