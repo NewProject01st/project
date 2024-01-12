@@ -1,9 +1,7 @@
 @extends('website.layout.master')
 
 @section('content')
-<?php
-$counter = 1;
-?>
+
     <!--Subheader Start-->
     <section class="wf100 subheader">
         <div class="container">
@@ -125,6 +123,9 @@ $counter = 1;
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+    $counter = 1;
+@endphp
                     @foreach ($data_output as $item)
                         @if ($item['hospital_english_type'] == 1)
                             <tr class="">
@@ -210,11 +211,13 @@ $counter = 1;
                     </tr>
                 </thead>
                 <tbody>
-                   
+                    @php
+                    $counter1 = 1;
+                @endphp
                     @foreach ($data_output as $item)
                         @if ($item['hospital_english_type'] == 2)
                             <tr class="">
-                                <td><div class="d-flex justify-content-center">{{ $counter++ }}</div></td>
+                                <td><div class="d-flex justify-content-center">{{ $counter1++ }}</div></td>
                                 @if (session('language') == 'mar')
                                     <td><div class="d-flex justify-content-left">{{ $item['marathi_name'] }}</div></td>
                                     <td><div class="d-flex justify-content-left">{{ $item['marathi_area'] }}</div></td>
