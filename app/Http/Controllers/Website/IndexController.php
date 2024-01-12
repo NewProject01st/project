@@ -192,10 +192,23 @@ class IndexController extends Controller
         }
                    
     }    
+    // public function index()
+    // {
+    //     return view('website.pages.index');
+    // }
     public function index()
     {
-        return view('website.pages.index');
-    }
+        try {
+
+            $menu = $this->menu;
+            $data_output = $this->service->index();
+            $data_output_landing_content = $this->service->getAllLandingContent();
+            return view('website.pages.index',compact('data_output', 'data_output_landing_content'));
+
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
     public function home()
     {
         try {
@@ -226,6 +239,24 @@ class IndexController extends Controller
             return $e;
         }
     }
+
+     public function getAllHazardVulnerability()
+    {
+        try {
+
+            $menu = $this->menu;
+            $data_output = $this->service->getAllHazardVulnerability();
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+            return view('website.pages.preparedness.hazard-and-vulnerability-assessment ',compact('language','menu', 'data_output'));
+
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }  
     public function show(Request $request)
     {
         try {

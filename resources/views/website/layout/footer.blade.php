@@ -426,22 +426,21 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
 
  <!-- end webpage A+ A- button script -->
  <script>
-$(document).ready(function (){
-    var table = $('#example').dataTable({
-       "columnDefs": [
-          { "targets": [1,2], "orderable": true }
-      ]
-    });    
-});
-    //  $(document).ready(function() {
-    //      $('#order-listing').DataTable({
-    //          searching: true,
-    //          ordering: true,
-    //          lengthChange: false,
-    //          showNEntries: false
-    //      });
-    //  });
- </script>
+    $(document).ready(function () {
+        var table1 = $('#example').DataTable({
+            "columnDefs": [
+                { "targets": [1, 2], "orderable": true }
+            ]
+        });
+
+        var table2 = $('#example1').DataTable({
+            "columnDefs": [
+                { "targets": [1, 2], "orderable": true }
+            ]
+        });
+    });
+</script>
+
 
  {{-- <script>
      $('#zoomtextbody').click(function() {

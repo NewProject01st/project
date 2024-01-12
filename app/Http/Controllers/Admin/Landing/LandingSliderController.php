@@ -32,7 +32,7 @@ class LandingSliderController extends Controller
     public function store(Request $request){
         $rules = [
             'english_title' => 'required|max:255',
-            'english_image' => 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'',
+            'english_image' => 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.LANDING_SLIDER_IMAGE_MAX_SIZE").'|min:'.Config::get("AllFileValidation.LANDING_SLIDER_IMAGE_MIN_SIZE").'',
         ];
 
         $messages = [    
@@ -42,9 +42,9 @@ class LandingSliderController extends Controller
             'english_image.required' => 'The image is required.',
             'english_image.image' => 'The image must be a valid image file.',
             'english_image.mimes' => 'The image must be in JPEG, PNG, JPG format.',
-            'english_image.max' => 'The image size must not exceed '.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'KB .',
-            'english_image.min' => 'The image size must not be less than '.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'KB .',
-            'english_image.dimensions' => 'The image dimensions must be between 1500x500 and 2000x1000 pixels.',
+            'english_image.max' => 'The image size must not exceed '.Config::get("AllFileValidation.LANDING_SLIDER_IMAGE_MAX_SIZE").'KB .',
+            'english_image.min' => 'The image size must not be less than '.Config::get("AllFileValidation.LANDING_SLIDER_IMAGE_MIN_SIZE").'KB .',
+            // 'english_image.dimensions' => 'The image dimensions must be between 1500x500 and 2000x1000 pixels.',
         ];
 
         try {
@@ -94,18 +94,18 @@ class LandingSliderController extends Controller
         ];
 
         if($request->has('english_image')) {
-            $rules['english_image'] = 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'|dimensions:min_width=1500,min_height=500,max_width=2000,max_height=1000|min:'.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE");
+            $rules['english_image'] = 'required|image|mimes:jpeg,png,jpg|max:'.Config::get("AllFileValidation.LANDING_SLIDER_IMAGE_MAX_SIZE").'|min:'.Config::get("AllFileValidation.LANDING_SLIDER_IMAGE_MIN_SIZE");
         }
         $messages = [   
             'english_title.required'=>'Please enter title.',
-            // 'english_title.regex' => 'Please  enter text only.',
+            // 'english_title.regex' => 'Please enter text only.',
             'english_title.max'   => 'Please  enter text length upto 255 character only.',           
             'english_image.required' => 'The image is required.',
             'english_image.image' => 'The image must be a valid image file.',
             'english_image.mimes' => 'The image must be in JPEG, PNG, JPG format.',
-            'english_image.max' => 'The image size must not exceed '.Config::get("AllFileValidation.SLIDER_IMAGE_MAX_SIZE").'KB .',
-            'english_image.min' => 'The image size must not be less than '.Config::get("AllFileValidation.SLIDER_IMAGE_MIN_SIZE").'KB .',
-            'english_image.dimensions' => 'The image dimensions must be between 1500x500 and 2000x1000 pixels.',
+            'english_image.max' => 'The image size must not exceed '.Config::get("AllFileValidation.LANDING_SLIDER_IMAGE_MAX_SIZE").'KB .',
+            'english_image.min' => 'The image size must not be less than '.Config::get("AllFileValidation.LANDING_SLIDER_IMAGE_MIN_SIZE").'KB .',
+            // 'english_image.dimensions' => 'The image dimensions must be between 1500x500 and 2000x1000 pixels.',
         ];
 
         try {

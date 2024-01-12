@@ -296,6 +296,9 @@
                 $('input,textarea, select').on('input change',
                     checkFormValidity);
 
+                    // Initialize DataTable on your table
+        $('#yourDataTableId').DataTable();
+
                 // Initialize the form validation
                 $("#regForm").validate({
                     rules: {

@@ -5,12 +5,12 @@
         <div class="content-wrapper mt-6">
             <div class="page-header">
                 <h3 class="page-title">
-                    Landing Slide
+                    Landing Content
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('list-landing-slide') }}">Landing</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Update Landing Slide</li>
+                        <li class="breadcrumb-item"><a href="{{ route('list-landing-content') }}">Landing</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> Update Landing Content</li>
                     </ol>
                 </nav>
             </div>
@@ -18,44 +18,71 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" action="{{ route('update-landing-slide') }}" method="post" id="regForm"
+                            <form class="forms-sample" action="{{ route('update-landing-content') }}" method="post" id="regForm"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_title">Title </label>&nbsp<span class="red-text">*</span>
-                                            <input class="form-control" name="english_title" id="english_title"
+                                            <label for="title">Title </label>&nbsp<span class="red-text">*</span>
+                                            <input class="form-control" name="title" id="title"
                                                 placeholder="Enter the Title"
-                                                value=" @if (old('english_title')) {{ old('english_title') }}@else{{ $slider->english_title }} @endif">
-                                            <label class="error py-2" for="english_title" id="english_title_error"></label>
-                                            @if ($errors->has('english_title'))
-                                                <span class="red-text"><?php echo $errors->first('english_title', ':message'); ?></span>
+                                                value=" @if (old('title')) {{ old('title') }}@else{{ $slider->title }} @endif">
+                                            <label class="error py-2" for="title" id="title_error"></label>
+                                            @if ($errors->has('title'))
+                                                <span class="red-text"><?php echo $errors->first('title', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <label for="english_image"> Image</label>
-                                            <input type="file" name="english_image" class="form-control"
-                                                id="english_image" accept="image/*" placeholder="image">
-                                            @if ($errors->has('english_image'))
-                                                <div class="red-text"><?php echo $errors->first('english_image', ':message'); ?>
+                                            <label for="description">Description</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <textarea class="form-control english_description" name="description" id="english_description"
+                                                placeholder="Enter the Description">
+                                                <label class="error py-2" for="description" id="description_error"></label>
+                                            @if (old('description'))
+{{ old('description') }}@else{{ $slider->description }}
+@endif
+                                            </textarea>
+                                            @if ($errors->has('description'))
+                                                <span class="red-text"><?php echo $errors->first('description', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="image"> Logo</label>
+                                            <input type="file" name="image" class="form-control"
+                                                id="image" accept="image/*" placeholder="image">
+                                            @if ($errors->has('image'))
+                                                <div class="red-text"><?php echo $errors->first('image', ':message'); ?>
                                                 </div>
                                             @endif
                                         </div>
                                         <img id="english"
-                                            src="{{ Config::get('DocumentConstant.LANDING_SLIDER_VIEW') }}{{ $slider->english_image }}"
+                                            src="{{ Config::get('DocumentConstant.LANDING_CONTENT_VIEW') }}{{ $slider->image }}"
                                             class="img-fluid img-thumbnail" width="150">
                                         <img id="english_imgPreview" src="#" alt="pic"
                                             class="img-fluid img-thumbnail" width="150" style="display:none">
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
+                                        <div class="form-group">
+                                            <label for="url"> URL</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" class="form-control" placeholder="Enter the URL"
+                                                value="@if (old('url')) {{ old('url') }}@else{{ $slider->url }} @endif"
+                                                name="url" id="url">
+                                            @if ($errors->has('url'))
+                                                <span class="red-text"><?php echo $errors->first('url', ':message'); ?></span>
+                                            @endif
+                                        </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12 text-center">
                                         <button type="submit" class="btn btn-sm btn-success" id="submitButton">
                                             Save &amp; Update
                                         </button>
                                         {{-- <button type="reset" class="btn btn-sm btn-danger">Cancel</button> --}}
-                                        <span><a href="{{ route('list-landing-slide') }}"
+                                        <span><a href="{{ route('list-landing-content') }}"
                                                 class="btn btn-sm btn-primary ">Back</a></span>
                                     </div>
                                 </div>
@@ -75,17 +102,17 @@
         
                 // Function to check if all input fields are filled with valid data
                 function checkFormValidity() {
-                    const english_title = $('#english_title').val();
-                    const english_image = $('#english_image').val();
+                    const title = $('#title').val();
+                    const image = $('#image').val();
                   
                     // Update the old PDF values if there are any selected files
-                    if (english_image !== currentEnglishImage) {
-                        $("#currentEnglishImage").val(english_image);
+                    if (image !== currentEnglishImage) {
+                        $("#currentEnglishImage").val(image);
                     }
                 }
         
                 // Call the checkFormValidity function on file input change
-                $('input, #english_image').on('change', function() {
+                $('input, #image').on('change', function() {
                     checkFormValidity();
                     validator.element(this); // Revalidate the file input
                 });
@@ -114,19 +141,19 @@
                 var form = $("#regForm");
                 var validator = form.validate({
                     rules: {
-                        english_title: {
+                        title: {
                             required: true,
                         },
-                        english_image: {
+                        image: {
                             validImage: true,
                             fileSize: [180, 2048], // Min 180KB and Max 2MB (2 * 1024 KB)
                         },
                     },
                     messages: {
-                        english_title: {
+                        title: {
                             required: "Please Enter the Title",
                         },
-                        english_image: {
+                        image: {
                     validImage: "Only JPG, JPEG, PNG images are allowed.",
                     fileSize: "The file size must be between 180 KB and 2048 KB.",
                 },
@@ -145,13 +172,13 @@
                 });
         
                 // You can remove the following two blocks if you don't need to display selected images on the page
-                $("#english_image").change(function() {
+                $("#image").change(function() {
                     var reader = new FileReader();
                     reader.onload = function(e) {
                         // Display the selected image for English
                         // You can remove this if you don't need to display the image on the page
                         $("#currentEnglishImageDisplay").attr('src', e.target.result);
-                        validator.element("#english_image"); // Revalidate the file input
+                        validator.element("#image"); // Revalidate the file input
                     };
                     reader.readAsDataURL(this.files[0]);
                 });

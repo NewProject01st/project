@@ -19,7 +19,22 @@ class IndexServices
     {
         $this->repo = new IndexRepository();
     }
-    
+    public function index()
+    {
+        try {
+            return $this->repo->index();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
+    public function getAllLandingContent()
+    {
+        try {
+            return $this->repo->getAllLandingContent();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
     public function getAllSocialIcon()
     {
         try {

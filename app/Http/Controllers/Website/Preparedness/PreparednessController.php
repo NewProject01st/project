@@ -95,5 +95,23 @@ class PreparednessController extends Controller
         }
         
     }
+    public function getAllGovtHospitals()
+    {
+        try {
+
+            $menu = $this->menu;
+            $data_output = $this->service->getAllGovtHospitals();
+            
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
+            return view('website.pages.preparedness.government-hospitals',compact('language','menu', 'data_output'));
+        } catch (\Exception $e) {
+            return $e;
+        }
+        
+    }
 
 }

@@ -98,12 +98,20 @@ return [
 		'PREPAREDNESS_MAIN_LINK' =>'Preparedness',
 		'PREPAREDNESS_SUB_LINK1' =>'Hazard and Vulnerability Assessment',
 		'PREPAREDNESS_SUB_LINK2' =>'Early Warning Systems',
-		'PREPAREDNESS_SUB_LINK3' =>'Capacity Building And Training',
+		'PREPAREDNESS_SUB_LINK3' =>'Government Hospitals',
 		'PREPAREDNESS_SUB_LINK4' =>' Public Awareness and Education',
 		'NO_DATA_FOUND_CAPACITY_TRAINING'   => 'No Data Found For Capacity Building And Training.',
 		'NO_DATA_FOUND_HAZARD_VULNERABILITY'   => 'No Data Found For Hazard And Vulnerability.',
 		'NO_DATA_FOUND_AWARENESS_EDUCATION'   => 'No Data Found For Public Awareness and Education.',
-
+		'PREPAREDNESS_SR_NO' =>'Sr. No.',
+		'PREPAREDNESS_NAME' =>'Name',
+		'PREPAREDNESS_EMAIL' =>'Email',
+		'PREPAREDNESS_AREA' =>'Area',
+		'PREPAREDNESS_PHONE' =>'Phone',
+		'PREPAREDNESS_ADDRESS' =>'Address',
+		'PREPAREDNESS_PINCODE' =>'Pincode',
+		'PREPAREDNESS_TAB1' =>'List of Govt Hospitals in Nashik',
+		'PREPAREDNESS_TAB2' =>'Primary Health Centre Information',
 	],
 
 	'EMERGENCY_RESPONSES'=>[ 

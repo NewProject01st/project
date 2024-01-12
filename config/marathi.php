@@ -99,12 +99,20 @@ return [
 		'PREPAREDNESS_MAIN_LINK' =>'तयारी',
 		'PREPAREDNESS_SUB_LINK1' =>'धोका आणि भेद्यता मूल्यांकन',
 		'PREPAREDNESS_SUB_LINK2' =>'पूर्व चेतावणी प्रणाली',
-		'PREPAREDNESS_SUB_LINK3' =>'क्षमता निर्माण आणि प्रशिक्षण',
+		'PREPAREDNESS_SUB_LINK3' =>'सरकारी रुग्णालये',
 		'PREPAREDNESS_SUB_LINK4' =>'जनजागृती आणि शिक्षण	',
 		'NO_DATA_FOUND_CAPACITY_TRAINING'   => 'क्षमता निर्माण आणि प्रशिक्षणासाठी कोणताही डेटा आढळला नाही.',
 		'NO_DATA_FOUND_HAZARD_VULNERABILITY'   => 'धोका आणि असुरक्षिततेसाठी कोणताही डेटा आढळला नाही	.',
 		'NO_DATA_FOUND_AWARENESS_EDUCATION'   => 'जनजागृती आणि शिक्षणासाठी कोणताही डेटा आढळला नाही.',
-
+		'PREPAREDNESS_SR_NO' =>'अनुक्रमांक',
+		'PREPAREDNESS_NAME' =>'नाव',
+		'PREPAREDNESS_EMAIL' =>'ईमेल',
+		'PREPAREDNESS_AREA' =>'क्षेत्रफळ',
+		'PREPAREDNESS_PHONE' =>'फोन',
+		'PREPAREDNESS_ADDRESS' =>'पत्ता',
+		'PREPAREDNESS_PINCODE' =>'पिन कोड',
+		'PREPAREDNESS_TAB1' =>'नाशिकमधील शासकीय रुग्णालयांची यादी',
+		'PREPAREDNESS_TAB2' =>'प्राथमिक आरोग्य केंद्र माहिती',
 	],
 
 	'EMERGENCY_RESPONSES'=>[ 

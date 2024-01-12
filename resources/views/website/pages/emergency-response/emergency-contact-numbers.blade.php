@@ -118,12 +118,12 @@
         </div>
         <!--Main Content End--><script>
             // Using aoColumnDefs
-$(document).ready( function() {
-  $('#example').dataTable( {
-    "aoColumnDefs": [
-      { "bSearchable": true, "aTargets": [ 0 ] }
-    ] } );
-} );
+// $(document).ready( function() {
+//   $('#example').dataTable( {
+//     "aoColumnDefs": [
+//       { "bSearchable": true, "aTargets": [ 0 ] }
+//     ] } );
+// } );
 
 
 // Using aoColumns

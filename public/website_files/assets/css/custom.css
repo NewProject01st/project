@@ -613,9 +613,9 @@ header {
 
 .carousel-caption h1, .slider-caption strong {
 	color: #fff;
-	font-size: 50px;
+	font-size: 40px;
 	font-family: 'Montserrat', sans-serif;
-	line-height: 70px;
+	line-height: 50px;
 	display: block;
 	margin: 0 0 15px;
 	font-weight: 700;
@@ -661,7 +661,7 @@ header {
 .carousel-caption {
 	position: absolute;
 	right: 15%;
-	top: 4.25rem;
+	top: 5.25rem;
 	left: 15%;
 	padding-top: 1.25rem;
 	padding-bottom: 1.25rem;

@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Repository\Admin\Preparedness;
+namespace App\Http\Repository\Admin\TrainingEvent;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\QueryException;
 use DB;

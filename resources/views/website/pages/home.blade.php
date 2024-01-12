@@ -4,6 +4,35 @@
         .main-footer {
             margin-top: 0%;
         }
+       /* Add these styles to your stylesheet */
+.carousel-item {
+    position: relative;
+}
+
+.carousel-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+}
+
+.carousel-caption {
+    position: absolute;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    color: white; /* White text color */
+}
+
+.carousel-caption h1,
+.carousel-caption p,
+.slide-content-box a {
+    color: white; /* Set the text color inside the caption */
+}
+
     </style>
     <script>
         $('li.dropdown.mega-dropdown a').on('click', function(event) {
@@ -47,7 +76,7 @@
                 <div class="carousel-inner">
                     @foreach ($data_output_slider as $slider)
                         @if (session('language') == 'mar')
-                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
+                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="500000">
                                 <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider['marathi_image'] }}"
                                     class="d-block w-100" alt="{{ strip_tags($slider['marathi_title']) }} Image">
                                 <div class="carousel-caption">
@@ -67,7 +96,7 @@
                                 </div>
                             </div>
                         @elseif (array_key_exists('english_title', $slider))
-                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="10000">
+                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="500000">
                                 <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider['english_image'] }}"
                                     class="d-block w-100" alt="{{ strip_tags($slider['english_title']) }} Image">
                                 <div class="carousel-caption">
@@ -553,6 +582,22 @@
     </section>
     <!--Departments & Information Desk End-->
     </div>
+    <script>
+        function initializeAOS() {
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+        }
+    
+        // Call initializeAOS initially when the page loads
+        initializeAOS();
+    
+        // Function to manually refresh AOS after dynamically adding content
+        function refreshAOS() {
+            AOS.refresh();
+        }
+    </script>
 @endsection
  
 

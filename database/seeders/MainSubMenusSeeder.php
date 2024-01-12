@@ -228,6 +228,19 @@ class MainSubMenusSeeder extends Seeder
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
             'main_menu_id' => 4,
+            'menu_name_english' => 'Government Hospitals',
+            'menu_name_marathi' => 'सरकारी रुग्णालये',
+            'order_no' => 4,
+            'url'=>'government-hospitals',
+            'is_static'=>true,
+            'is_active' => true,
+           
+        ]);
+        
+        MainSubMenus::create([
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'main_menu_id' => 4,
             'menu_name_english' => 'COVID Instructions for Public Safety',
             'menu_name_marathi' => 'सार्वजनिक सुरक्षिततेसाठी COVID सूचना',
             'order_no' => 4,
@@ -617,18 +630,18 @@ class MainSubMenusSeeder extends Seeder
             'is_active' => true,
            
         ]);
-        MainSubMenus::create([
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
-            'main_menu_id' => 10,
-            'menu_name_english' => 'Disaster Forecast',
-            'menu_name_marathi' => 'आपत्तीचा अंदाज',
-            'url'=>'disaster-forecast-web',
-            'order_no' => 5,
-            'is_static'=>true,
-            'is_active' => true,
+        // MainSubMenus::create([
+        //     'created_at' => \Carbon\Carbon::now(),
+        //     'updated_at' => \Carbon\Carbon::now(),
+        //     'main_menu_id' => 10,
+        //     'menu_name_english' => 'Disaster Forecast',
+        //     'menu_name_marathi' => 'आपत्तीचा अंदाज',
+        //     'url'=>'disaster-forecast-web',
+        //     'order_no' => 5,
+        //     'is_static'=>true,
+        //     'is_active' => true,
            
-        ]);
+        // ]);
 
         MainSubMenus::create([
             'created_at' => \Carbon\Carbon::now(),

@@ -7,6 +7,10 @@ return [
     'USER_PROFILE_DELETE'	         => '/all_web_data/images/userProfile/',
     'USER_PROFILE_VIEW'	         => env("AWS_FILE_VIEW").'/all_web_data/images/userProfile/',
     
+    'LANDING_CONTENT_ADD'	         => "/all_web_data/images/home/landing_content/",
+    'LANDING_CONTENT_DELETE'	         => '/all_web_data/images/home/landing_content/',
+    'LANDING_CONTENT_VIEW'	         => env("AWS_FILE_VIEW").'/all_web_data/images/home/landing_content/',
+
     'LANDING_SLIDER_ADD'	         => "/all_web_data/images/home/slides/",
     'LANDING_SLIDER_DELETE'	         => '/all_web_data/images/home/slides/',
     'LANDING_SLIDER_VIEW'	         => env("AWS_FILE_VIEW").'/all_web_data/images/home/slides/',

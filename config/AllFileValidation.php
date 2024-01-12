@@ -4,6 +4,9 @@ namespace App\Constants;
 
 return [
     //Home
+    'LANDING_SLIDER_IMAGE_MAX_SIZE'=>'2048',
+    'LANDING_SLIDER_IMAGE_MIN_SIZE'=>'50',
+
     'SLIDER_IMAGE_MAX_SIZE'=>'2048',
     'SLIDER_IMAGE_MIN_SIZE'=>'180',
 

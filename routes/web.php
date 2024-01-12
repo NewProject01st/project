@@ -72,6 +72,7 @@ Route::get('/hazard-and-vulnerability-assessment ', ['as' => 'hazard-and-vulnera
 Route::get('/early-warning-systems', ['as' => 'early-warning-systems', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllEarlyWarningSystem']);
 Route::get('/capacity-building-and-training', ['as' => 'capacity-building-and-training', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllCapacityTraining']);
 Route::get('/public-awareness-and-education', ['as' => 'public-awareness-and-education', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllPublicAwarenessEducation']);
+Route::get('/government-hospitals', ['as' => 'government-hospitals', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllGovtHospitals']);
 
 Route::get('/state-emergency-operations-center ', ['as' => 'state-emergency-operations-center ', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllStateEmergencyOperationsCenter']);
 Route::get('/district-emergency-operations-center', ['as' => 'district-emergency-operations-center', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllDistrictEmergencyOperationsCenter']);
@@ -149,6 +150,16 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-landing-slide', ['as' => 'show-landing-slide', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingSliderController@show']);
     Route::post('/delete-landing-slide', ['as' => 'delete-landing-slide', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingSliderController@destroy']);
     Route::post('/update-active-landing-slide', ['as' => 'update-active-landing-slide', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingSliderController@updateOne']);
+    
+
+    Route::get('/list-landing-content', ['as' => 'list-landing-content', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingContentController@index']);
+    Route::get('/add-landing-content', ['as' => 'add-landing-content', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingContentController@add']);
+    Route::post('/add-landing-content', ['as' => 'add-landing-content', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingContentController@store']);
+    Route::get('/edit-landing-content/{edit_id}', ['as' => 'edit-landing-content', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingContentController@edit']);
+    Route::post('/update-landing-content', ['as' => 'update-landing-content', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingContentController@update']);
+    Route::post('/show-landing-content', ['as' => 'show-landing-content', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingContentController@show']);
+    Route::post('/delete-landing-content', ['as' => 'delete-landing-content', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingContentController@destroy']);
+    Route::post('/update-active-landing-content', ['as' => 'update-active-landing-content', 'uses' => 'App\Http\Controllers\Admin\Landing\LandingContentController@updateOne']);
     
     // Landing End================
     Route::get('/list-main-menu', ['as' => 'list-main-menu', 'uses' => 'App\Http\Controllers\Admin\Menu\MainMenuController@index']);
@@ -314,14 +325,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/update-early-warning-system', ['as' => 'update-early-warning-system', 'uses' => 'App\Http\Controllers\Admin\Preparedness\EarlyWarningSystemController@update']);
     Route::post('/show-early-warning-system', ['as' => 'show-early-warning-system', 'uses' => 'App\Http\Controllers\Admin\Preparedness\EarlyWarningSystemController@show']);
     Route::post('/delete-early-warning-system', ['as' => 'delete-early-warning-system', 'uses' => 'App\Http\Controllers\Admin\Preparedness\EarlyWarningSystemController@destroy']);
-
-    Route::get('/list-list-capacity-training', ['as' => 'list-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@index']);
-    Route::get('/add-list-capacity-training', ['as' => 'add-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@add']);
-    Route::post('/add-list-capacity-training', ['as' => 'add-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@store']);
-    Route::get('/edit-list-capacity-training/{edit_id}', ['as' => 'edit-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@edit']);
-    Route::post('/update-list-capacity-training', ['as' => 'update-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@update']);
-    Route::post('/show-list-capacity-training', ['as' => 'show-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@show']);
-    Route::post('/delete-list-capacity-training', ['as' => 'delete-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\Preparedness\CapacityTrainingController@destroy']);
     
     Route::get('/list-public-awareness-and-education', ['as' => 'list-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Admin\Preparedness\PublicAwarenessEducationController@index']);
     Route::get('/add-public-awareness-and-education', ['as' => 'add-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Admin\Preparedness\PublicAwarenessEducationController@add']);
@@ -331,6 +334,13 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('/show-public-awareness-and-education', ['as' => 'show-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Admin\Preparedness\PublicAwarenessEducationController@show']);
     Route::post('/delete-public-awareness-and-education', ['as' => 'delete-public-awareness-and-education', 'uses' => 'App\Http\Controllers\Admin\Preparedness\PublicAwarenessEducationController@destroy']);
 
+    Route::get('/list-govt-hospitals', ['as' => 'list-govt-hospitals', 'uses' => 'App\Http\Controllers\Admin\Preparedness\GovtHospitalsController@index']);
+    Route::get('/add-govt-hospitals', ['as' => 'add-govt-hospitals', 'uses' => 'App\Http\Controllers\Admin\Preparedness\GovtHospitalsController@add']);
+    Route::post('/add-govt-hospitals', ['as' => 'add-govt-hospitals', 'uses' => 'App\Http\Controllers\Admin\Preparedness\GovtHospitalsController@store']);
+    Route::get('/edit-govt-hospitals/{edit_id}', ['as' => 'edit-govt-hospitals', 'uses' => 'App\Http\Controllers\Admin\Preparedness\GovtHospitalsController@edit']);
+    Route::post('/update-govt-hospitals', ['as' => 'update-govt-hospitals', 'uses' => 'App\Http\Controllers\Admin\Preparedness\GovtHospitalsController@update']);
+    Route::post('/show-govt-hospitals', ['as' => 'show-govt-hospitals', 'uses' => 'App\Http\Controllers\Admin\Preparedness\GovtHospitalsController@show']);
+    Route::post('/delete-govt-hospitals', ['as' => 'delete-govt-hospitals', 'uses' => 'App\Http\Controllers\Admin\Preparedness\GovtHospitalsController@destroy']);
     // ==========EmergencyResponse=======
     Route::get('/list-state-emergency-operations-center', ['as' => 'list-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\StateEmergencyOperationsCenterController@index']);
     Route::get('/add-state-emergency-operations-center', ['as' => 'add-state-emergency-operations-center', 'uses' => 'App\Http\Controllers\Admin\EmergencyResponse\StateEmergencyOperationsCenterController@add']);
@@ -444,6 +454,13 @@ Route::post('/show-event', ['as' => 'show-event', 'uses' => 'App\Http\Controller
 Route::post('/delete-event', ['as' => 'delete-event', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\EventController@destroy']);
 Route::post('/update-one-event', ['as' => 'update-one-event', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\EventController@updateOne']);
 
+Route::get('/list-list-capacity-training', ['as' => 'list-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\CapacityTrainingController@index']);
+Route::get('/add-list-capacity-training', ['as' => 'add-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\CapacityTrainingController@add']);
+Route::post('/add-list-capacity-training', ['as' => 'add-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\CapacityTrainingController@store']);
+Route::get('/edit-list-capacity-training/{edit_id}', ['as' => 'edit-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\CapacityTrainingController@edit']);
+Route::post('/update-list-capacity-training', ['as' => 'update-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\CapacityTrainingController@update']);
+Route::post('/show-list-capacity-training', ['as' => 'show-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\CapacityTrainingController@show']);
+Route::post('/delete-list-capacity-training', ['as' => 'delete-list-capacity-training', 'uses' => 'App\Http\Controllers\Admin\TrainingEvent\CapacityTrainingController@destroy']);
 //=========Policies And legislation========
 Route::get('/list-state-disaster-management-plan', ['as' => 'list-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPlanController@index']);
 Route::get('/add-state-disaster-management-plan', ['as' => 'add-state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Admin\PoliciesAndGuidelines\StateDisasterManagementPlanController@add']);

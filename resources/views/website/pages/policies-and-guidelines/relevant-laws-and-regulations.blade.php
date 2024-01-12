@@ -12,7 +12,7 @@
                     @endif
                 </h2>
                 <ul>
-                    <li> <a href="{{ route('relevant-laws-and-regulations ') }}">
+                    <li> <a href="{{ route('relevant-laws-and-regulations') }}">
                             @if (session('language') == 'mar')
                                 {{ Config::get('marathi.POLICIES_LEGISLATION.POLICIES_LEGISLATION_MAIN_LINK') }}
                             @else

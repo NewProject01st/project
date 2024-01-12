@@ -22,6 +22,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('website_files/font-awesome.min.css') }}" type="text/css" rel="stylesheet">
+   
+    <link href="{{ asset('website_files/assets/css/slider.scss') }}" type="text/css" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {{-- <link href="{{ asset('website_files/assets/bootstrap5.3.0/css/bootstrap.css') }}" type="text/css"
     rel="stylesheet">
@@ -44,6 +47,10 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="{{ asset('website_files/assets/js/jquery-3.7.0.min.js') }}"></script>
     <script src="{{ asset('website_files/assets/js/jquery.validate.min.js') }}"></script>
+
+    <!-- Add this in your HTML head section -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
     <!-- webpage A+ A- button script -->
     <style type="text/css">
@@ -95,9 +102,9 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     // url: "http://52.66.216.5/change-language",
-                    //  url: "https://nmcdm.org.in/change-language",
-                     url: "https://newpro.sumagotest.in/change-language",
-                    // url: "http://localhost/new_pro/change-language",
+                     url: "https://nmcdm.org.in/change-language",
+                    //  url: "https://newpro.sumagotest.in/change-language",
+                    // url: "https://localhost/new_pro/change-language",
                     // url: "http://localhost/new_pro/project/change-language",
                     cache: false,
                     success: function(response) {

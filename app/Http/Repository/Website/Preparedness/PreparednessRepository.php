@@ -9,7 +9,8 @@ use App\Models\ {
 	HazardVulnerability,
     EarlyWarningSystem,
     CapacityTraining,
-    PublicAwarenessEducation
+    PublicAwarenessEducation,
+    GovtHospitals
 
 };
 
@@ -83,5 +84,22 @@ class PreparednessRepository  {
             return $e;
         }
     }
-    
+    public function getAllGovtHospitals()
+    {
+        try {
+            $data_output = GovtHospitals::where('is_active','=',true);
+           
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->select('hospital_english_type','marathi_name', 'marathi_area','marathi_phone','email','marathi_pincode','marathi_address');
+            } else {
+                $data_output = $data_output->select('hospital_english_type', 'english_name','english_area','english_phone','email','english_pincode','english_address');
+            }
+            $data_output =  $data_output->get()
+                            ->toArray();
+                      
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
 }

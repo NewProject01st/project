@@ -1,7 +1,7 @@
 <?php
-namespace App\Http\Services\Admin\Preparedness;
+namespace App\Http\Services\Admin\TrainingEvent;
 
-use App\Http\Repository\Admin\Preparedness\CapacityTrainingRepository;
+use App\Http\Repository\Admin\TrainingEvent\CapacityTrainingRepository;
 
 use App\Models\
 { CapacityTraining };

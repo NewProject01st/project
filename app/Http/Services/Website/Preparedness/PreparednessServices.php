@@ -51,6 +51,16 @@ class PreparednessServices
         } catch (\Exception $e) {
             return $e;
         }
-    }   
+    } 
+    public function getAllGovtHospitals()
+    {
+        try {
+            return $this->repo->getAllGovtHospitals();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    } 
+    
+    
      
 }

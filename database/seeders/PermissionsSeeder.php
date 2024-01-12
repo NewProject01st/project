@@ -26,6 +26,14 @@ class PermissionsSeeder extends Seeder
                 [
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),
+                    'route_name' => 'Landing-Content',
+                    'url' => 'list-landing-content',
+                    'permission_name' => 'Landing-Content',
+                ]);
+            Permissions::create(
+                [
+                    'created_at' => \Carbon\Carbon::now(),
+                    'updated_at' => \Carbon\Carbon::now(),
                     'route_name' => 'Landing-Slider',
                     'url' => 'list-landing-slide',
                     'permission_name' => 'Landing-Slider',
@@ -211,14 +219,7 @@ class PermissionsSeeder extends Seeder
                     'url' => 'list-early-warning-system',
                     'permission_name' => 'Early Warning System',
                 ]);
-            Permissions::create(
-                [
-                    'created_at' => \Carbon\Carbon::now(),
-                    'updated_at' => \Carbon\Carbon::now(),
-                    'route_name' => 'Capacity training',
-                    'url' => 'list-list-capacity-training',
-                    'permission_name' => 'Capacity training',
-                ]);   
+             
                             
             Permissions::create(
                 [
@@ -228,6 +229,15 @@ class PermissionsSeeder extends Seeder
                     'url' => 'list-public-awareness-and-education',
                     'permission_name' => 'Awareness And Education',
                 ]);
+                Permissions::create(
+                    [
+                        'created_at' => \Carbon\Carbon::now(),
+                        'updated_at' => \Carbon\Carbon::now(),
+                        'route_name' => 'Govt Hospitals',
+                        'url' => 'list-govt-hospitals',
+                        'permission_name' => 'Govt Hospitals',
+                    ]);
+    
 
             Permissions::create(
                 [
@@ -411,6 +421,14 @@ class PermissionsSeeder extends Seeder
                     'url' => 'list-training-workshop',
                     'permission_name' => 'Training Materials',
                 ]);
+                Permissions::create(
+                    [
+                        'created_at' => \Carbon\Carbon::now(),
+                        'updated_at' => \Carbon\Carbon::now(),
+                        'route_name' => 'Capacity training',
+                        'url' => 'list-list-capacity-training',
+                        'permission_name' => 'Capacity training',
+                    ]); 
             Permissions::create(
                 [
                     'created_at' => \Carbon\Carbon::now(),

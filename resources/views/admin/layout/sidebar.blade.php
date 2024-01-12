@@ -65,7 +65,8 @@
                       </div>
                   </li>
               @endif
-              @if (in_array('list-landing-slide', $data_for_url))
+              @if (in_array('list-landing-slide', $data_for_url) ||
+              in_array('list-landing-content', $data_for_url))
               <li  class="{{request()->is('list-landing-slide*') 
                 ? 'nav-item active' : 'nav-item' }}">
                   <a class="nav-link" data-toggle="collapse" href="#landing-slider" aria-expanded="false"
@@ -79,6 +80,11 @@
                           @if (in_array('list-landing-slide', $data_for_url))
                               <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                       href="{{ route('list-landing-slide') }}">Landing Slider</a>
+                              </li>
+                          @endif
+                          @if (in_array('list-landing-content', $data_for_url))
+                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                      href="{{ route('list-landing-content') }}">Landing Content</a>
                               </li>
                           @endif
                         
@@ -301,9 +307,9 @@
               @endif
               @if (in_array('list-hazard-vulnerability-assessment', $data_for_url) ||
                       in_array('list-early-warning-system', $data_for_url) ||
-                      in_array('list-list-capacity-training', $data_for_url) ||
-                      in_array('list-public-awareness-and-education', $data_for_url))
-                  <li class="{{request()->is('list-public-awareness-and-education*') 
+                      in_array('list-public-awareness-and-education', $data_for_url)||
+                      in_array('list-govt-hospitals', $data_for_url))
+                  <li class="{{request()->is('list-govt-hospitals*') 
                     ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#preparedness" aria-expanded="false"
                           aria-controls="preparedness">
@@ -324,16 +330,17 @@
                                           href="{{ route('list-early-warning-system') }}">Early Warning System</a>
                                   </li>
                               @endif
-                              @if (in_array('list-list-capacity-training', $data_for_url))
-                                  <li class="nav-item d-none d-lg-block"> <a class="nav-link"
-                                          href="{{ route('list-list-capacity-training') }}">Capacity Training</a>
-                                  </li>
-                              @endif
+                             
                               @if (in_array('list-public-awareness-and-education', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"> <a class="nav-link"
                                           href="{{ route('list-public-awareness-and-education') }}">Awareness And Education </a>
                                   </li>
                               @endif
+                              @if (in_array('list-govt-hospitals', $data_for_url))
+                              <li class="nav-item d-none d-lg-block"> <a class="nav-link"
+                                      href="{{ route('list-govt-hospitals') }}">Government Hospitals </a>
+                              </li>
+                          @endif
                           </ul>
                       </div>
                   </li>
@@ -418,7 +425,7 @@
                       </div>
                   </li>
               @endif
-              @if (in_array('list-event', $data_for_url))
+              {{-- @if (in_array('list-event', $data_for_url))
                   <li class="{{request()->is('list-event*') 
                     ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" href="{{ route('list-event') }}">
@@ -426,7 +433,37 @@
                           <span class="menu-title">Training Workshops</span>
                       </a>
                   </li>
+              @endif --}}
+              @if (in_array('list-list-capacity-training', $data_for_url) ||
+                      in_array('list-training-workshop', $data_for_url))
+                  <li class="{{request()->is('list-training-workshop*') 
+                    ? 'nav-item active' : 'nav-item' }}">
+                      <a class="nav-link" data-toggle="collapse" href="#trainingevent" aria-expanded="false"
+                          aria-controls="trainingevent">
+                          <i class="fas fa-toolbox fa-lg menu-icon"></i>
+                          <span class="menu-title">Training Workshops</span>
+                          <i class="menu-arrow"></i>
+                      </a>
+
+                      <div class="collapse" id="trainingevent">
+                          <ul class="nav flex-column sub-menu">
+                           
+                              @if (in_array('list-list-capacity-training', $data_for_url))
+                                  <li class="nav-item d-none d-lg-block"> <a class="nav-link"
+                                          href="{{ route('list-list-capacity-training') }}">Capacity Training</a>
+                                  </li>
+                              @endif
+                              @if (in_array('list-training-workshop', $data_for_url))
+                                <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                        href="{{ route('list-training-workshop') }}">Training Materials</a>
+                                </li>
+                                @endif
+                          </ul>
+                      </div>
+                  </li>
               @endif
+
+
               @if (in_array('list-state-disaster-management-plan', $data_for_url) ||
                       in_array('list-district-disaster-management-plan', $data_for_url) ||
                       in_array('list-state-disaster-management-policy', $data_for_url) ||
@@ -483,9 +520,8 @@
               in_array('list-map-lat-lons', $data_for_url) ||
               in_array('list-gallery', $data_for_url) ||
               in_array('list-gallery-category', $data_for_url) ||
-              in_array('list-video', $data_for_url)||
-              in_array('list-training-workshop', $data_for_url))
-                  <li class="{{request()->is('list-training-workshop*') 
+              in_array('list-video', $data_for_url))
+                  <li class="{{request()->is('list-video*') 
                     ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" data-toggle="collapse" href="#resource-center" aria-expanded="false"
                           aria-controls="resource-center">
@@ -521,32 +557,32 @@
                                             href="{{ route('list-video') }}">Video</a>
                                     </li>
                                 @endif
-                                @if (in_array('list-training-workshop', $data_for_url))
-                                <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                        href="{{ route('list-training-workshop') }}">Training Materials</a>
-                                </li>
-                                @endif
+                               
                             </ul>
                       </div>
                   </li>
               @endif
-              @if (in_array('list-success-stories', $data_for_url))
-                  <li  class="{{request()->is('list-success-stories*') 
+              @if (in_array('list-success-stories', $data_for_url) ||in_array('list-event', $data_for_url))
+                  <li  class="{{request()->is('list-event*') 
                     ? 'nav-item active' : 'nav-item' }}">
-                      <a class="nav-link" data-toggle="collapse" href="#news-events" aria-expanded="false"
-                          aria-controls="news-events">
+                      <a class="nav-link" data-toggle="collapse" href="#news-events-tab" aria-expanded="false"
+                          aria-controls="news-events-tab">
                           <i class="fas fa-newspaper fa-lg "></i>
                           <span class="pl-2 menu-title">News And Events </span>
                           <i class="menu-arrow"></i>
                       </a>
-                      <div class="collapse" id="news-events">
+                      <div class="collapse" id="news-events-tab">
                           <ul class="nav flex-column sub-menu">
                               @if (in_array('list-success-stories', $data_for_url))
                                   <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                           href="{{ route('list-success-stories') }}">Success Stories</a>
                                   </li>
                               @endif
-                            
+                              @if (in_array('list-event', $data_for_url))
+                              <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                      href="{{ route('list-event') }}">Event</a>
+                              </li>
+                          @endif
                           </ul>
                       </div>
                   </li>

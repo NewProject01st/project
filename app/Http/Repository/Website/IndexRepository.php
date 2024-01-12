@@ -17,10 +17,37 @@ use App\Models\ {
     RTI,
     DisasterForcast,
     PolicyPrivacy,
-    TermsCondition
+    TermsCondition,
+    LandingSlider,
+    LandingContent
 };
 
 class IndexRepository  {
+
+    public function index()
+    {
+        try {
+            $data_output = LandingSlider::where('is_active','=',true);
+            $data_output =  $data_output->select('english_title', 'english_image');
+            $data_output =  $data_output->get()
+                            ->toArray();
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
+    public function getAllLandingContent()
+    {
+        try {
+            $data_output = LandingContent::where('is_active','=',true);
+            $data_output =  $data_output->select('title', 'image', 'description','url');
+            $data_output =  $data_output->get()
+                            ->toArray();
+            return  $data_output;
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
 
     public function getAllSocialIcon()
     {

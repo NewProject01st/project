@@ -1,23 +1,23 @@
 @extends('admin.layout.master')
 
 @section('content')
-    <?php $data_permission = getPermissionForCRUDPresentOrNot('list-landing-slide', session('permissions'));
+    <?php $data_permission = getPermissionForCRUDPresentOrNot('list-landing-content', session('permissions'));
     ?>
     <div class="main-panel">
         <div class="content-wrapper mt-7">
             <div class="page-header">
                 <h3 class="page-title">
-                    Landing Slide List
+                    Landing Content List
                     @if (in_array('per_add', $data_permission))
-                        <a href="{{ route('add-landing-slide') }}" class="btn btn-sm btn-primary ml-3">+
+                        <a href="{{ route('add-landing-content') }}" class="btn btn-sm btn-primary ml-3">+
                             Add</a>
                     @endif
 
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('list-landing-slide') }}">Landing</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Landing Slide List</li>
+                        <li class="breadcrumb-item"><a href="{{ route('list-landing-content') }}">Landing</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Landing Content List</li>
                     </ol>
                 </nav>
             </div>
@@ -34,6 +34,7 @@
                                                 <tr>
                                                     <th>Sr. No.</th>
                                                     <th>Title </th>
+                                                    <th>Description</th>
                                                     <th>Image </th>
                                                     <th>Status</th>
                                                     <th>Action</th>
@@ -43,10 +44,11 @@
                                                 @foreach ($slider as $item)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ strip_tags($item->english_title) }}</td>
+                                                        <td>{{ strip_tags($item->title) }}</td>
+                                                        <td>{{ strip_tags($item->description) }}</td>
                                                         <td> <img class="img-size"
-                                                                src="{{ Config::get('DocumentConstant.LANDING_SLIDER_VIEW') }}{{ $item->english_image }}"
-                                                                alt=" {{ strip_tags($item['english_title']) }} Image" />
+                                                                src="{{ Config::get('DocumentConstant.LANDING_CONTENT_VIEW') }}{{ $item->image }}"
+                                                                alt=" {{ strip_tags($item['title']) }} Image" />
                                                         </td>
                                                         <td>
                                                             <label class="switch">
@@ -62,7 +64,7 @@
                                                         <td>
                                                             <div class="d-flex">
                                                                 @if (in_array('per_update', $data_permission))
-                                                                    <a href="{{ route('edit-landing-slide', base64_encode($item->id)) }}"
+                                                                    <a href="{{ route('edit-landing-content', base64_encode($item->id)) }}"
                                                                         class="btn btn-sm btn-outline-primary m-1"
                                                                         title="Edit Slide"><i
                                                                             class="fas fa-pencil-alt"></i></a>
@@ -93,15 +95,15 @@
                 </div>
             </div>
         </div>
-        <form method="POST" action="{{ url('/delete-landing-slide') }}" id="deleteform">
+        <form method="POST" action="{{ url('/delete-landing-content') }}" id="deleteform">
             @csrf
             <input type="hidden" name="delete_id" id="delete_id" value="">
         </form>
-        <form method="POST" action="{{ url('/show-landing-slide') }}" id="showform">
+        <form method="POST" action="{{ url('/show-landing-content') }}" id="showform">
             @csrf
             <input type="hidden" name="show_id" id="show_id" value="">
         </form>
-        <form method="POST" action="{{ url('/update-active-landing-slide') }}" id="activeform">
+        <form method="POST" action="{{ url('/update-active-landing-content') }}" id="activeform">
             @csrf
             <input type="hidden" name="active_id" id="active_id" value="">
         </form>

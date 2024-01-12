@@ -8,14 +8,26 @@
 
 body {
     margin: 0;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
     text-align: left;
-    /* background-color: #eff0f6; */
+    overflow-y: hidden;
+    height: 100vh; /* Set height to 100% of the viewport height */
+    margin: 0; /* Remove default margin */
 }
+
+.main-landing {
+    background-color: #fff !important;
+    border: .01rem solid #e0e1ed !important;
+    /* border-radius: 20px 0px 0px 20px; */
+    color: #585CA1;
+    height: 100vh; /* Set height to 100% of the viewport height */
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
 
 /* .container {
 padding: 30px 50px 30px 50px   !important;
@@ -59,7 +71,7 @@ padding: 30px 50px 30px 50px   !important;
 	
 }
 .slide img{
-	border-radius: 0px 20px 20px 0px;
+	/* border-radius: 0px 20px 20px 0px; */
 }
 
 .slide.active {
@@ -154,12 +166,12 @@ padding: 30px 50px 30px 50px   !important;
 	margin-top: 30px;
 	max-width: 1364px;
 }
-.main-landing{
+/* .main-landing{
 	background-color: #fff !important;
   border: .01rem solid #e0e1ed !important;
   border-radius: 20px 0px 0px 20px;
   color: #585CA1;
-}
+} */
 ul {
 	display: flex;
 	padding-left: 0px;
@@ -179,7 +191,7 @@ ul {
 	height: 40px;
 	background-color: #fff;
 	text-align: center;
-	line-height: 33px;
+	line-height: 30px;
 	font-size: 22px;
 	/* margin: 0 10px; */
 	display: block;
@@ -202,7 +214,7 @@ ul {
 	transform: rotateY(360deg);
   }
   
-  ul li a:before {
+  /* ul li a:before {
 	content: "";
 	position: absolute;
 	top: 100%;
@@ -212,18 +224,18 @@ ul {
 	background: #f00;
 	transition: .5s;
 	z-index: 2;
-  }
+  } */
   
-  ul li a:hover:before {
+  /* ul li a:hover:before {
 	top: 0;
-  }
+  } */
   
-  ul li:nth-child(1) a:before{
+  /* ul li:nth-child(1) a:before{
 	background: #3b5999;
   }
   
   ul li:nth-child(2) a:before{
-	/* background: #0077b5; */
+	
 	background: #f09433; 
 background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
 background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
@@ -240,4 +252,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', end
   }
   ul li:nth-child(5) a:before {
 	background: #007dc5;
-  }
+  } */

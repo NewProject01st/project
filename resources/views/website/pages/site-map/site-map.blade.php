@@ -53,7 +53,8 @@
                                                 <li class="nav-item dropdown">
                                                     <a class="nav-link sit_map_link 
                                             @if (sizeof($menu_data[1]) > 0) dropdown-toggle sit_map_dropdown_toggle @endif"
-                                                        href="@if ($menu_data_new['is_static'] == true) {{ $menu_data_new['url'] }} 
+                                                        href="@if ($menu_data_new['is_static'] == true)
+                                                         {{-- {{ $menu_data_new['url'] }}  --}}
                                                       @else 
                                                       {{ url('/pages/' . $menu_data_new['url']) }} @endif"
                                                         id="" role="button"

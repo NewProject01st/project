@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Preparedness;
+namespace App\Http\Controllers\Admin\TrainingEvent;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CapacityTraining;
-use App\Http\Services\Admin\Preparedness\CapacityTrainingServices;
+use App\Http\Services\Admin\TrainingEvent\CapacityTrainingServices;
 use Validator;
 use Config;
 class CapacityTrainingController extends Controller

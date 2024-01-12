@@ -10,12 +10,12 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-start align-items-center">
                             <h3 class="page-title">
-                                Landing Slide
+                                Landing Content
                             </h3>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 d-flex justify-content-end align-items-center">
                             <div>
-                                <a href="{{ route('list-landing-slide') }}" class="btn btn-sm btn-primary ml-3">Back</a>
+                                <a href="{{ route('list-landing-content') }}" class="btn btn-sm btn-primary ml-3">Back</a>
                             </div>
                         </div>
 
@@ -29,7 +29,15 @@
                                             <label>Title :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <label>{{ strip_tags($slider->english_title) }}</label>
+                                            <label>{{ strip_tags($slider->title) }}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <label>Description :</label>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label>{{ strip_tags($slider->description) }}</label>
                                         </div>
                                     </div>
                                     <div class="row ">
@@ -37,8 +45,8 @@
                                             <label> Image :</label>
                                         </div>
                                         <div class="col-lg-8 col-md-8 col-sm-8">
-                                            <img src="{{ Config::get('DocumentConstant.LANDING_SLIDER_VIEW') }}{{ $slider->english_image }}"
-                                                style="width:300px; height:150px;" alt=" {{ strip_tags($slider['english_title']) }} Image"/>
+                                            <img src="{{ Config::get('DocumentConstant.LANDING_CONTENT_VIEW') }}{{ $slider->image }}"
+                                                style="width:300px; height:150px;" alt=" {{ strip_tags($slider['title']) }} Image"/>
                                         </div>
                                     </div>
                                 </div>

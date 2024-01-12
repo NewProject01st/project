@@ -33,14 +33,14 @@ class SubMenuController extends Controller
 
     public function store(Request $request) {
     $rules = [
-        'menu_name_english' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+        'menu_name_english' => 'required|max:255',
         'menu_name_marathi' => 'required|max:255',
         // 'order_no' => 'required',
         
         ];
     $messages = [   
         'menu_name_english.required'=>'Please enter menu name title.',
-        'menu_name_english.regex' => 'Please  enter text only.',
+        // 'menu_name_english.regex' => 'Please  enter text only.',
         'menu_name_english.max'   => 'Please  enter menu name length upto 255 character only.',
         'menu_name_marathi.required'=>'कृपया मेनू नावाचे शीर्षक प्रविष्ट करा.',
         'menu_name_marathi.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',  
@@ -93,14 +93,14 @@ class SubMenuController extends Controller
     }
     public function update(Request $request) {
         $rules = [
-            'menu_name_english' => 'required|regex:/^[a-zA-Z\s]+$/u|max:255',
+            'menu_name_english' => 'required|max:255',
             'menu_name_marathi' => 'required|max:255',
             // 'order_no' => 'required',
             
             ];
         $messages = [   
             'menu_name_english.required'=>'Please enter menu name title.',
-            'menu_name_english.regex' => 'Please  enter text only.',
+            // 'menu_name_english.regex' => 'Please  enter text only.',
             'menu_name_english.max'   => 'Please  enter menu name length upto 255 character only.',
             'menu_name_marathi.required'=>'कृपया मेनू नावाचे शीर्षक प्रविष्ट करा.',
             'menu_name_marathi.max'   => 'कृपया केवळ २५५ वर्णांपर्यंत मजकूराची लांबी प्रविष्ट करा.',  
