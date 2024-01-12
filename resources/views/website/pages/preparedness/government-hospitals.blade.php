@@ -1,9 +1,9 @@
 @extends('website.layout.master')
 
 @section('content')
-@php
+<?php
 $counter = 1;
-@endphp
+?>
     <!--Subheader Start-->
     <section class="wf100 subheader">
         <div class="container">
