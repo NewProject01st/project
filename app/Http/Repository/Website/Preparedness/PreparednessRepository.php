@@ -94,8 +94,8 @@ class PreparednessRepository  {
             } else {
                 $data_output = $data_output->select('hospital_english_type', 'english_name','english_area','english_phone','email','english_pincode','english_address');
             }
-            $data_output =  $data_output->get()
-                            ->toArray();
+            $data_output =  $data_output->orderBy('id', 'desc')->get()
+            ->toArray();
                       
             return  $data_output;
         } catch (\Exception $e) {

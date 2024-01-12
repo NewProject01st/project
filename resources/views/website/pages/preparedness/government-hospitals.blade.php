@@ -1,6 +1,9 @@
 @extends('website.layout.master')
 
 @section('content')
+@php
+$counter = 1;
+@endphp
     <!--Subheader Start-->
     <section class="wf100 subheader">
         <div class="container">
@@ -45,6 +48,7 @@
                     </h3>
                   
 {{-- ============================================ --}}
+<div class="new_design_about_obj">
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
         <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
@@ -112,9 +116,9 @@
                         <th scope="col">
                             <div class="d-flex justify-content-center">
                                 @if (session('language') == 'mar')
-                                    {{ Config::get('marathi.PREPAREDNESS.PREPAREDNESS_PINCODE') }}
+                                    {{ Config::get('marathi.PREPAREDNESS.PREPAREDNESS_PHONE') }}
                                 @else
-                                    {{ Config::get('english.PREPAREDNESS.PREPAREDNESS_PINCODE') }}
+                                    {{ Config::get('english.PREPAREDNESS.PREPAREDNESS_PHONE') }}
                                 @endif
                             </div>
                         </th>
@@ -124,18 +128,18 @@
                     @foreach ($data_output as $item)
                         @if ($item['hospital_english_type'] == 1)
                             <tr class="">
+                                <td><div class="d-flex justify-content-center">{{ $counter++ }}</div></td>
                                 @if (session('language') == 'mar')
-                                    <td><div class="d-flex justify-content-center">{{ $loop->iteration }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ $item['marathi_name'] }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ $item['marathi_area'] }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ strip_tags($item['marathi_address']) }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ $item['marathi_pincode'] }}</div></td>                                        
+                                    <td><div class="d-flex justify-content-left">{{ $item['marathi_name'] }}</div></td>
+                                    <td><div class="d-flex justify-content-left">{{ $item['marathi_area'] }}</div></td>
+                                    <td><div class="d-flex justify-content-left">{{ strip_tags($item['marathi_address']) }}</div></td>
+                                    <td><div class="d-flex justify-content-left">{{ $item['marathi_phone'] }}</div></td>                                        
                                 @else
-                                    <td><div class="d-flex justify-content-center">{{ $loop->iteration }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ $item['english_name'] }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ $item['english_area'] }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ strip_tags($item['english_address']) }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ $item['english_pincode'] }}</div></td>
+                                   
+                                    <td><div class="d-flex justify-content-left">{{ $item['english_name'] }}</div></td>
+                                    <td><div class="d-flex justify-content-left">{{ $item['english_area'] }}</div></td>
+                                    <td><div class="d-flex justify-content-left">{{ strip_tags($item['english_address']) }}</div></td>
+                                    <td><div class="d-flex justify-content-left">{{ $item['english_phone'] }}</div></td>
                                 @endif
                             </tr>
                         @endif
@@ -206,23 +210,23 @@
                     </tr>
                 </thead>
                 <tbody>
+                   
                     @foreach ($data_output as $item)
                         @if ($item['hospital_english_type'] == 2)
                             <tr class="">
+                                <td><div class="d-flex justify-content-center">{{ $counter++ }}</div></td>
                                 @if (session('language') == 'mar')
-                                    <td><div class="d-flex justify-content-center">{{ $loop->iteration }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ $item['marathi_name'] }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ $item['marathi_area'] }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ strip_tags($item['marathi_address']) }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ $item['email'] }}</div></td>           
-                                    <td><div class="d-flex justify-content-center">{{ $item['marathi_pincode'] }}</div></td>                               
+                                    <td><div class="d-flex justify-content-left">{{ $item['marathi_name'] }}</div></td>
+                                    <td><div class="d-flex justify-content-left">{{ $item['marathi_area'] }}</div></td>
+                                    <td><div class="d-flex justify-content-left">{{ strip_tags($item['marathi_address']) }}</div></td>
+                                    <td><div class="d-flex justify-content-left">{{ $item['email'] }}</div></td>           
+                                    <td><div class="d-flex justify-content-left">{{ $item['marathi_pincode'] }}</div></td>                               
                                 @else
-                                    <td><div class="d-flex justify-content-center">{{ $loop->iteration }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ $item['english_name'] }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ $item['english_area'] }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ strip_tags($item['english_address']) }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ $item['email'] }}</div></td>
-                                    <td><div class="d-flex justify-content-center">{{ $item['english_pincode'] }}</div></td>  
+                                    <td><div class="d-flex justify-content-left">{{ $item['english_name'] }}</div></td>
+                                    <td><div class="d-flex justify-content-left">{{ $item['english_area'] }}</div></td>
+                                    <td><div class="d-flex justify-content-left">{{ strip_tags($item['english_address']) }}</div></td>
+                                    <td><div class="d-flex justify-content-left">{{ $item['email'] }}</div></td>
+                                    <td><div class="d-flex justify-content-left">{{ $item['english_pincode'] }}</div></td>  
                                 @endif
                             </tr>
                         @endif
@@ -234,7 +238,7 @@
         @endif
     </div>
 </div>
-
+</div>
 
 
 
