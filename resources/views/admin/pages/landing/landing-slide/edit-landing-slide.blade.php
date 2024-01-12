@@ -119,7 +119,7 @@
                         },
                         english_image: {
                             validImage: true,
-                            fileSize: [180, 2048], // Min 180KB and Max 2MB (2 * 1024 KB)
+                            fileSize: [10, 2048], // Min 180KB and Max 2MB (2 * 1024 KB)
                         },
                     },
                     messages: {
@@ -128,7 +128,7 @@
                         },
                         english_image: {
                     validImage: "Only JPG, JPEG, PNG images are allowed.",
-                    fileSize: "The file size must be between 180 KB and 2048 KB.",
+                    fileSize: "The file size must be between 10 KB and 2048 KB.",
                 },
                     },
                     submitHandler: function(form) {
