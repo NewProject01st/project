@@ -219,11 +219,11 @@
                         },
                         english_image: {
                             validImage: true,
-                            fileSize: [180, 2048], // Min 180KB and Max 2MB (2 * 1024 KB)
+                            fileSize: [10, 2048], // Min 180KB and Max 2MB (2 * 1024 KB)
                         },
                         marathi_image: {
                             validImage: true,
-                            fileSize: [180, 2048], // Min 180KB and Max 2MB (2 * 1024 KB)
+                            fileSize: [10, 2048], // Min 180KB and Max 2MB (2 * 1024 KB)
                         },
                     },
                     messages: {
@@ -241,11 +241,11 @@
                         },
                         english_image: {
                     validImage: "Only JPG, JPEG, PNG images are allowed.",
-                    fileSize: "The file size must be between 180 KB and 2048 KB.",
+                    fileSize: "The file size must be between 10 KB and 2048 KB.",
                 },
                 marathi_image: {
                     validImage: "फक्त JPG, JPEG, PNG छायाचित्रंना परवानगी आहे.",
-                    fileSize: "फाईलचा आकार 180 KB and 2048 KB दरम्यान असणे आवश्यक आहे.",
+                    fileSize: "फाईलचा आकार 10 KB and 2048 KB दरम्यान असणे आवश्यक आहे.",
                 },
                     },
                     submitHandler: function(form) {
