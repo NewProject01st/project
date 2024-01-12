@@ -58,7 +58,7 @@
                         </div>
                         <div class="">
                             <span class="">
-                                <a href="https://localhost/new_pro/home"><button type="submit" data-aos="zoom-in-down"
+                                <a href="{{ $content['url'] }}"><button type="submit" data-aos="zoom-in-down"
                                         data-aos-duration="3000"
                                         class="nak-btn nak-btn-fill nak-btn-layout2">EXPLORE</button></a>
                             </span>
