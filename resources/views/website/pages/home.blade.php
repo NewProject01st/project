@@ -5,11 +5,11 @@
             margin-top: 0%;
         }
        /* Add these styles to your stylesheet */
-.carousel-item {
+.sliderman .carousel-item {
     position: relative;
 }
 
-.carousel-item::before {
+.sliderman .carousel-item::before {
     content: "";
     position: absolute;
     top: 0;
@@ -19,7 +19,7 @@
     background-color: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
 }
 
-.carousel-caption {
+.sliderman .carousel-caption {
     position: absolute;
     /* top: 50%;
     left: 50%;
@@ -27,7 +27,7 @@
     color: white; /* White text color */
 }
 
-.carousel-caption h1,
+.sliderman .carousel-caption h1,
 .carousel-caption p,
 .slide-content-box a {
     color: white; /* Set the text color inside the caption */
@@ -66,7 +66,7 @@
         {{-- End Marquee --}}
         {{-- Start Slider --}}
         <section>
-            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div id="carouselExampleDark" class="sliderman carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     @foreach ($data_output_slider as $slider)
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{ $loop->index }}"

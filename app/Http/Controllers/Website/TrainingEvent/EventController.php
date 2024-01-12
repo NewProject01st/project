@@ -57,7 +57,7 @@ class EventController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.training-event.past-events-and-trainings ',compact('language','menu','data_output'));
+        return view('website.pages.training-event.past-events-and-trainings',compact('language','menu','data_output'));
     } 
 
     public function show(Request $request)

@@ -435,7 +435,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'NDRF Annual Training Calendar two thousand twenty three',
             'menu_name_marathi' => 'NDRF वार्षिक प्रशिक्षण दिनदर्शिका दोन हजार तेवीस',
             'order_no' => 2,
-            'url'=>'past-events-and-trainings ',
+            'url'=>'past-events-and-trainings',
             'is_static'=>true,
             'is_active' => true,
            
@@ -613,7 +613,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Past Events and Trainings',
             'menu_name_marathi' => 'आगामी कार्यक्रम आणि प्रशिक्षण',
             'order_no' => 3,
-            'url'=>'past-events-and-trainings ',
+            'url'=>'past-events-and-trainings',
             'is_static'=>true,
             'is_active' => true,
            

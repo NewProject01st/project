@@ -92,7 +92,7 @@ Route::get('/check-mobile-number-exists', ['as' => 'check-mobile-number-exists',
 Route::get('/volunteer-citizen-support', ['as' => 'volunteer-citizen-support', 'uses' => 'App\Http\Controllers\Website\CitizenAction\CitizenActionController@getAddVolunteerCitizenSupport']);
 
 Route::get('/upcoming-events-and-trainings', ['as' => 'upcoming-events-and-trainings', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllUpcomingEvent']);
-Route::get('/past-events-and-trainings ', ['as' => 'past-events-and-trainings ', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllPastEvent']);
+Route::get('/past-events-and-trainings', ['as' => 'past-events-and-trainings', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@getAllPastEvent']);
 Route::post('/list-particular-event', ['as' => 'list-particular-event', 'uses' => 'App\Http\Controllers\Website\TrainingEvent\EventController@show']);
 
 Route::get('/state-disaster-management-plan', ['as' => 'state-disaster-management-plan', 'uses' => 'App\Http\Controllers\Website\PoliciesAndGuidelines\PoliciesAndGuidelinesController@getAllStateDisasterManagementPlan']);

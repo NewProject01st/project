@@ -12,7 +12,7 @@
                 @endif
             </h2>
             <ul>
-                <li> <a href="{{ route('past-events-and-trainings ') }}">
+                <li> <a href="{{ route('past-events-and-trainings') }}">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.TRAINING_WORKSHOP.TRAINING_WORKSHOP_MAIN_LINK') }}
                         @else
