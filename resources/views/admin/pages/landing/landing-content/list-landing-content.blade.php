@@ -8,10 +8,10 @@
             <div class="page-header">
                 <h3 class="page-title">
                     Landing Content List
-                    @if (in_array('per_add', $data_permission))
+                    {{-- @if (in_array('per_add', $data_permission))
                         <a href="{{ route('add-landing-content') }}" class="btn btn-sm btn-primary ml-3">+
                             Add</a>
-                    @endif
+                    @endif --}}
 
                 </h3>
                 <nav aria-label="breadcrumb">

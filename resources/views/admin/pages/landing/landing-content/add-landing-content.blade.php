@@ -124,7 +124,7 @@
                         image: {
                             required: true,
                             fileExtension: ["jpg", "jpeg", "png"],
-                            fileSize: [10, 2048], // Min 10KB and Max 2MB (2 * 1024 KB)
+                            fileSize: [10, 1024], // Min 10KB and Max 2MB (2 * 1024 KB)
                         },
                     },
                     messages: {
@@ -134,7 +134,7 @@
                         image: {
                             required: "Please upload an Image (JPG, JPEG, PNG).",
                             fileExtension: "Only JPG, JPEG, and PNG images are allowed.",
-                            fileSize: "File size must be between 10 KB and 2 MB.",
+                            fileSize: "File size must be between 10 KB and 1024 KB.",
                         },
                     },
                 });
