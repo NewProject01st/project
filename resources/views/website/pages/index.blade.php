@@ -54,10 +54,10 @@
                         <div class="">
                             <h4 class="item-title py-2 dis-display title-size" data-aos="fade-right" data-aos-anchor="#example-anchor"
                                 data-aos-offset="500" data-aos-duration="3000"><?php echo $content['title']; ?> </h4>
-                            <p class="dis-display" data-aos="fade-left" data-aos-anchor="#example-anchor1" data-aos-offset="500"
+                            <h6 class="dis-display new-dis-size" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
                                 data-aos-duration="3000"><?php echo $content['description']; ?>
     
-                            </p>
+                        </h6>
                         </div>
                         <div class="btn-display">
                             <span class="">

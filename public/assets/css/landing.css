@@ -237,6 +237,9 @@ ul {
 .title-size{
 	font-size: 28px;
 }
+.new-dis-size p{
+	font-size: 17px;
+}
   @media (max-width: 767px) {
 	.mob-img{
 		display: none;
@@ -277,6 +280,9 @@ ul {
 	}
 	.title-size{
 		font-size: 17px;
+	}
+	.new-dis-size p{
+		font-size: 13px;
 	}
   }
   /* ul li a:before {
