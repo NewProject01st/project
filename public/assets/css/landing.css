@@ -132,7 +132,6 @@ padding: 30px 50px 30px 50px   !important;
 /* =================== */
 .img-size{
 	width: 17rem;
-	
 }
 .nak-content-box-layout3 .item-title {
     color: #ff5e14;
@@ -270,7 +269,9 @@ ul {
 		line-height: 30px;
 		text-align: center;
 	}
-	
+	.img-size{
+		width: 10rem;
+	}
   }
   /* ul li a:before {
 	content: "";
