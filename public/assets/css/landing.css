@@ -15,17 +15,29 @@ body {
     color: #212529;
     text-align: left;
     overflow-y: hidden;
-    height: 100vh; /* Set height to 100% of the viewport height */
-    margin: 0; /* Remove default margin */
+    height: 100vh; 
+    margin: 0; 
 }
-
+.land-main-display{
+	width:100%;
+	padding:0 !important;
+	 margin:0 !important;
+}
 .main-landing {
-    background-color: #fff !important;
-    border: .01rem solid #e0e1ed !important;
+	background: #fff url("../../website_files/images/home/backg.jpg") no-repeat center center fixed;
+    background-size: cover; /* Ensure the background covers the entire container */
+    border: 1px solid #e0e1ed; /* Specify the border width */
     /* border-radius: 20px 0px 0px 20px; */
     color: #585CA1;
-    height: 100vh; /* Set height to 100% of the viewport height */
-    overflow: hidden; /* Ensure content doesn't overflow */
+    height: 100vh;
+    overflow: hidden;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.img-display-center{
+	display: flex;
+	justify-content: left;
+	align-items: center;
 }
 
 
@@ -45,7 +57,9 @@ padding: 30px 50px 30px 50px   !important;
 	/* height: 100vh !important; 
 	width: 100% !important; */
 }
-
+.left-card-padding{
+	padding:20px 70px 20px 70px;
+}
 .slider-container h1 {
 	color: #fff;
 	font-size: 40px; /* Adjust as needed */
@@ -213,7 +227,51 @@ ul {
 	color: #fff;
 	transform: rotateY(360deg);
   }
-  
+  .btn-display{
+	display: flex;
+	justify-content: left;
+}
+.dis-display p{
+	display: flex;
+	text-align: left;
+}
+  @media (max-width: 767px) {
+	.mob-img{
+		display: none;
+	}
+	.left-card-padding{
+		padding:5px 20px 20px 10px;
+	}
+	.img-display-center{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.nak-social-layout3 {
+		text-align: center;
+	
+	}
+	.discription-display{
+		display: flex !important;
+		justify-content: center !important;
+		align-items: center !important;
+	}
+	.btn-display{
+		display: flex;
+		justify-content: center;
+	}
+	.dis-display {
+		display: flex !important;
+		text-align: center !important;
+	}
+	.nak-content-box-layout3 p {
+		color: #111111;
+		font-size: 17px;
+		line-height: 30px;
+		text-align: center;
+	}
+	
+  }
   /* ul li a:before {
 	content: "";
 	position: absolute;

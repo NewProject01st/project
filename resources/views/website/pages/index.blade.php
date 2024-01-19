@@ -4,11 +4,12 @@
 <head>
     <title>Disaster Management</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="{{ asset('assets/css/landing.css') }}">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="{{ asset('assets/css/landing.css') }}">
     <link rel="shortcut icon" href="{{ asset('website_files/images/home/DM.ico') }}" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -29,34 +30,36 @@
     padding: 5px;
     }
     .slide-title{
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
+    ul {
+  padding-left: 0rem;
+}
 </style>
 <body>
     <?php
     $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData();
     ?>
     <!-- Images from Unsplash -->
-    <div class="row" style="width:100%; padding:0px; margin:0px;">
-        <div class="row main-landing nak-content-box-layout3 "
-            style="background-image: url('{{ asset('website_files/images/home/backg.jpg') }}');">
+    <div class="row land-main-display" >
+        <div class="row main-landing nak-content-box-layout3 ">
             <div class="col-lg-7 col-md-7 col-sm-12 p-4">
-                <div class="row" style="padding:20px 70px 20px 70px;">
+                <div class="row left-card-padding">
                     @foreach ($data_output_landing_content as $key => $content)
-                        <div class="d-flex justify-content-left align-items-center py-3">
+                        <div class="img-display-center py-3">
                                 <img class="img-size img-fluid" data-aos="zoom-in" data-aos-duration="2000" src="{{ Config::get('DocumentConstant.LANDING_CONTENT_VIEW') }}{{ $content['image'] }}"
                                 alt="{{ strip_tags($content['title']) }} छायाचित्र"
                                 class="d-block w-100">
                         </div>
-                        <div class="sm-block-views-landing-page-title-landingtitle">
-                            <h4 class="item-title py-2" data-aos="fade-right" data-aos-anchor="#example-anchor"
+                        <div class="">
+                            <h4 class="item-title py-2 dis-display" data-aos="fade-right" data-aos-anchor="#example-anchor"
                                 data-aos-offset="500" data-aos-duration="3000"><?php echo $content['title']; ?> </h4>
-                            <p class="" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                            <p class="dis-display" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
                                 data-aos-duration="3000"><?php echo $content['description']; ?>
     
                             </p>
                         </div>
-                        <div class="">
+                        <div class="btn-display">
                             <span class="">
                                 <a href="{{ $content['url'] }}"><button type="submit" data-aos="zoom-in-down"
                                         data-aos-duration="3000"
@@ -81,7 +84,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-5 col-sm-5 slider-container px-0">
+            <div class="col-lg-5 col-md-5 col-sm-5 slider-container mob-img px-0">
                 <div class="">
                     @foreach ($data_output as $key => $slider)
                         <?php
