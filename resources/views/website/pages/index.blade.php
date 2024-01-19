@@ -52,9 +52,9 @@
                                 class="d-block w-100">
                         </div>
                         <div class="">
-                            <h4 class="item-title py-2 dis-display" data-aos="fade-right" data-aos-anchor="#example-anchor"
+                            <h4 class="item-title py-2 dis-display title-size" data-aos="fade-right" data-aos-anchor="#example-anchor"
                                 data-aos-offset="500" data-aos-duration="3000"><?php echo $content['title']; ?> </h4>
-                            <p class="dis-display" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                            <p class="dis-display" data-aos="fade-left" data-aos-anchor="#example-anchor1" data-aos-offset="500"
                                 data-aos-duration="3000"><?php echo $content['description']; ?>
     
                             </p>
@@ -67,7 +67,7 @@
                             </span>
                         </div>
                         @endforeach
-                    <div class="nak-social-layout3">
+                    <div class="nak-social-layout3 pt-2">
                         <label class="nak-label" data-aos="fade-left" data-aos-anchor="#example-anchor"
                             data-aos-offset="500" data-aos-duration="3000">Stay in
                             Touch</label>

@@ -234,6 +234,9 @@ ul {
 	display: flex;
 	text-align: left;
 }
+.title-size{
+	font-size: 28px;
+}
   @media (max-width: 767px) {
 	.mob-img{
 		display: none;
@@ -271,6 +274,9 @@ ul {
 	}
 	.img-size{
 		width: 10rem;
+	}
+	.title-size{
+		font-size: 17px;
 	}
   }
   /* ul li a:before {
