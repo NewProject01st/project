@@ -91,7 +91,8 @@
                         
                         ?>
                         <div class="slide{{ $key === 0 ? ' active' : '' }}" height="100vh">
-                            <img src="{{ Config::get('DocumentConstant.LANDING_SLIDER_VIEW') }}{{ $slider['english_image'] }}"
+                            <img  data-aos="zoom-in-up" data-aos-offset="300"
+                            data-aos-easing="ease-in-sine" src="{{ Config::get('DocumentConstant.LANDING_SLIDER_VIEW') }}{{ $slider['english_image'] }}"
                                 class="img-fluid slide-img" height="100vh" alt="Slide {{ $key + 1 }}">
                         
                         

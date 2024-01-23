@@ -84,7 +84,7 @@ class PreparednessRepository  {
             return $e;
         }
     }
-    public function getAllGovtHospitals()
+    public function getAllGovtHospitals($searchTerm = null)
     {
         try {
             $data_output = GovtHospitals::where('is_active','=',true);
@@ -94,6 +94,14 @@ class PreparednessRepository  {
             } else {
                 $data_output = $data_output->select('hospital_english_type', 'english_name','english_area','english_phone','email','english_pincode','english_address');
             }
+            // Add the filter condition based on the search term
+        if ($searchTerm) {
+            $data_output = $data_output->where(function ($query) use ($searchTerm) {
+                $query->where('english_name', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('marathi_name', 'like', '%' . $searchTerm . '%');
+            });
+        }
+
             $data_output =  $data_output->orderBy('id', 'desc')->get()
             ->toArray();
                       

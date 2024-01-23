@@ -2664,12 +2664,13 @@ li.header-weather {
 /*********** Mayor Msg with Video Start ***********/
     
 .Mayor-video-msg {
-	background: url(../npatt.png);
+	background: url(../images/h2factsbg.jpg);
+	/* background-color: #0000; */
 	padding: 40px 0 60px;
 }
 .Mayor-welcome h5 {
 	font-weight: 700;
-	color: #fff;
+	color: #646060;
 	margin: 0 0 16px;
 }
 .Mayor-welcome h5 p {
@@ -2681,18 +2682,18 @@ li.header-weather {
 }
 .Mayor-welcome p {
 	font-size: 16px;
-    color: #fff;
+	color: #646060;
     line-height: 24px;
     margin: 0 0 31px;
 }
 .Mayor-welcome h6 {
 	font-weight: 600;
-	color: #fff;
+	color: #646060;
 	margin: 0 0 6px;
 	position: relative;
 }
 .Mayor-welcome strong {
-	color: #fff;
+	color: #646060;
 	font-size: 14ppx;
 	font-style: italic;
 	font-weight: 500;
