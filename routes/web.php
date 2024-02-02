@@ -45,7 +45,7 @@ Route::get('/pages/{page}', ['as' => 'pages', 'uses' => 'App\Http\Controllers\We
 // Route::get('/landing', ['as' => 'landing', 'uses' => 'App\Http\Controllers\Website\NewController@landing']);
 // landing
 Route::get('/', ['as' => '', 'uses' => 'App\Http\Controllers\Website\IndexController@index']);
-Route::get('/home', ['as' => 'home', 'uses' => 'App\Http\Controllers\Website\IndexController@home']);
+// Route::get('/home', ['as' => 'home', 'uses' => 'App\Http\Controllers\Website\IndexController@home']);
 Route::post('/disaster-management-news', ['as' => 'disaster-management-news', 'uses' => 'App\Http\Controllers\Website\IndexController@show']);
 Route::post('/department', ['as' => 'department', 'uses' => 'App\Http\Controllers\Website\IndexController@showDepartmentInformation']);
 Route::post('/particular-disaster_forecast', ['as' => 'particular-disaster_forecast', 'uses' => 'App\Http\Controllers\Website\IndexController@showDisasterForecast']);

@@ -196,20 +196,20 @@ class IndexController extends Controller
     // {
     //     return view('website.pages.index');
     // }
+    // public function index()
+    // {
+    //     try {
+
+    //         $menu = $this->menu;
+    //         $data_output = $this->service->index();
+    //         $data_output_landing_content = $this->service->getAllLandingContent();
+    //         return view('website.pages.index',compact('data_output', 'data_output_landing_content'));
+
+    //     } catch (\Exception $e) {
+    //         return $e;
+    //     }
+    // } 
     public function index()
-    {
-        try {
-
-            $menu = $this->menu;
-            $data_output = $this->service->index();
-            $data_output_landing_content = $this->service->getAllLandingContent();
-            return view('website.pages.index',compact('data_output', 'data_output_landing_content'));
-
-        } catch (\Exception $e) {
-            return $e;
-        }
-    } 
-    public function home()
     {
         try {
             $menu = $this->menu;
