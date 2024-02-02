@@ -46,11 +46,11 @@
             <div class="col-lg-7 col-md-7 col-sm-12 p-4">
                 <div class="row left-card-padding">
                     @foreach ($data_output_landing_content as $key => $content)
-                        <div class="img-display-center py-3">
+                        {{-- <div class="img-display-center py-3">
                                 <img class="img-size img-fluid" data-aos="zoom-in" data-aos-duration="2000" src="{{ Config::get('DocumentConstant.LANDING_CONTENT_VIEW') }}{{ $content['image'] }}"
                                 alt="{{ strip_tags($content['title']) }} छायाचित्र"
                                 class="d-block w-100">
-                        </div>
+                        </div> --}}
                         <div class="">
                             <h4 class="item-title py-2 dis-display title-size" data-aos="fade-right" data-aos-anchor="#example-anchor"
                                 data-aos-offset="500" data-aos-duration="3000"><?php echo $content['title']; ?> </h4>
