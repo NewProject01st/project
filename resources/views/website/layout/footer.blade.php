@@ -7,7 +7,7 @@
              ?>
              <!--Footer Widget Start-->
 
-             @forelse ($common_data['website_contact_details'] as $item)
+             {{-- @forelse ($common_data['website_contact_details'] as $item)
                  @if (session('language') == 'mar')
                      <div class="col-md-3 col-sm-6">
                          <div class="textwidget"> <img src="{{ asset('website_files/images/footer/footer_logo.png') }}"
@@ -20,14 +20,14 @@
                                              @else
                                                  {{ Config::get('english.HOME_PAGE.COUNCIL_ADDRESS') }}
                                              @endif
-                                         </strong><?php echo $item['marathi_address']; ?></li>
+                                         </strong><?php //echo $item['marathi_address']; ?></li>
                                      <li> <i class="fa fa-envelope"></i> <strong>
                                              @if (session('language') == 'mar')
                                                  {{ Config::get('marathi.HOME_PAGE.EMAIL') }}
                                              @else
                                                  {{ Config::get('english.HOME_PAGE.EMAIL') }}
                                              @endif
-                                         </strong><?php echo $item['email']; ?>
+                                         </strong><?php// echo $item['email']; ?>
                                      </li>
                                      <li> <i class="fa fa-phone"></i> <strong>
                                              @if (session('language') == 'mar')
@@ -36,7 +36,7 @@
                                                  {{ Config::get('english.HOME_PAGE.CALL_US') }}
                                              @endif
                                          </strong>
-                                         <?php echo $item['marathi_number']; ?> </li>
+                                         <?php //echo $item['marathi_number']; ?> </li>
                                  </ul>
                              </address>
                          </div>
@@ -54,7 +54,7 @@
                                                  {{ Config::get('english.HOME_PAGE.COUNCIL_ADDRESS') }}
                                              @endif
                                          </strong>
-                                         <?php echo $item['english_address']; ?></li>
+                                         <?php //echo $item['english_address']; ?></li>
                                      <li> <i class="fa fa-envelope"></i> <strong>
                                              @if (session('language') == 'mar')
                                                  {{ Config::get('marathi.HOME_PAGE.EMAIL') }}
@@ -62,7 +62,7 @@
                                                  {{ Config::get('english.HOME_PAGE.EMAIL') }}
                                              @endif
                                          </strong>
-                                         <?php echo $item['email']; ?>
+                                         <?php //echo $item['email']; ?>
                                      </li>
                                      <li> <i class="fa fa-phone"></i> <strong>
                                              @if (session('language') == 'mar')
@@ -71,7 +71,7 @@
                                                  {{ Config::get('english.HOME_PAGE.CALL_US') }}
                                              @endif
                                          </strong>
-                                         <?php echo $item['english_number']; ?></li>
+                                         <?php //echo $item['english_number']; ?></li>
                                  </ul>
                              </address>
                          </div>
@@ -85,7 +85,7 @@
                          {{ Config::get('english.FOOTER.WEBSITE_CONTACT') }}
                      @endif
                  </h4>
-             @endforelse
+             @endforelse --}}
              <!--Footer Widget End-->
              <!--Footer Widget Start-->
              <div class="col-md-3 col-sm-6">
