@@ -98,13 +98,13 @@
                          @endif
                      </h6>
                      <ul>
-                         @forelse ($common_data['web_department_data']  as $item)
+                         {{-- @forelse ($common_data['web_department_data']  as $item)
                              @if (session('language') == 'mar')
                                  <li><a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer"><i
-                                             class="fa fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
+                                             class="fa fa-star"></i><?php //echo $item['marathi_title']; ?></a></li>
                              @else
                                  <li><a data-id="{{ $item['id'] }}" class="department-show-btn rm cursor-pointer"><i
-                                             class="fa fa-star"></i><?php echo $item['english_title']; ?></a></li>
+                                             class="fa fa-star"></i><?php //echo $item['english_title']; ?></a></li>
                              @endif
                          @empty
                              <h4>
@@ -114,7 +114,7 @@
                                      {{ Config::get('english.FOOTER.DEPARTMENT_DATA') }}
                                  @endif
                              </h4>
-                         @endforelse
+                         @endforelse --}}
                      </ul>
                      <form method="POST" action="{{ url('/department') }}"
                          id="departmentshowform">
@@ -137,12 +137,12 @@
                      <ul>
 
 
-                         @forelse ($common_data['weballfooterlink_data']  as $item)
+                         {{-- @forelse ($common_data['weballfooterlink_data']  as $item)
                              @if (session('language') == 'mar')
                                  <li><a href="{{ $item['url'] }}" target="_blank"><i
                                              class="fa fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                              @else
-                                 <li><a href="{{ $item['url'] }}" {{-- href="{{echo strpos("https://",$item['url'])}}" --}} target="_blank"><i
+                                 <li><a href="{{ $item['url'] }}"  target="_blank"><i
                                              class="fa fa-star"></i><?php echo $item['english_title']; ?></a></li>
                              @endif
                          @empty
@@ -188,7 +188,7 @@
                                      {{ Config::get('english.FOOTER.TERM_CONDITION') }}
                                  @endif
                              </p>
-                         @endforelse
+                         @endforelse --}}
                          {{-- <li><a href="{{ route('privacy-policy') }}"  target="_blank"><i
                             class="fa fa-star"></i>Privacy Policy</a></li>
                             <li><a href="{{ route('terms_condition') }}" target="_blank"><i
@@ -204,8 +204,8 @@
                  //die();
                  ?>
                  <?php
-if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed'])) {
-    foreach ($common_data['twitter_feed'] as $feed) {
+// if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed'])) {
+//     foreach ($common_data['twitter_feed'] as $feed) {
         // if (isset($feed['url']) && $feed['url'] !=='null') {
             ?>
                  {{-- <iframe frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="yes"
@@ -257,8 +257,8 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
                  <?php 
                 //   echo 'URL is not defined.';
             //   } 
-    }
-}
+//     }
+// }
 ?>
                  <?php
                  //if (isset($common_data['twitter_feed']) && isset($common_data['twitter_feed']['url'])) {
@@ -346,22 +346,20 @@ if (isset($common_data['twitter_feed']) && is_array($common_data['twitter_feed']
              </div>
              <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-end">
                  <ul class="footer-social">
-                     @forelse ($common_data['social_link'] as $item)
+                     {{-- @forelse ($common_data['social_link'] as $item)
                          @if (session('language') == 'mar')
                              <li><a href="{{ $item['url'] }}" target="_blank" class="fb" target="_blank">
-                                     {{-- <i class="fab fa-facebook-f"></i> --}}
                                      <img src="{{ Config::get('DocumentConstant.SOCIAL_ICON_VIEW') }}{{ $item['icon'] }}"
                                          width="25" height="25" alt="...">
                                  </a></li>
                          @else
                              <li><a href="{{ $item['url'] }}" target="_blank" class="fb" target="_blank">
-                                     {{-- <i class="fab fa-facebook-f"></i> --}}
                                      <img src="{{ Config::get('DocumentConstant.SOCIAL_ICON_VIEW') }}{{ $item['icon'] }}"
                                          width="25" height="25" alt="...">
                                  </a></li>
                          @endif
 
-                     @empty
+                     @empty --}}
                  </ul>
              </div>
              <h4>
