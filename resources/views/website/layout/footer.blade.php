@@ -369,7 +369,7 @@
                      {{ Config::get('english.CITIZEN_ACTION.NO_DATA_FOUND_CITIZEN_FEEDBACK_SUGGESTION') }}
                  @endif
              </h4>
-             @endforelse
+             {{-- @endforelse --}}
 
 
 
