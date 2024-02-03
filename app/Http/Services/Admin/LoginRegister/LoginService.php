@@ -17,7 +17,7 @@ class LoginService
 
     public function checkLogin($request) {
         $response = $this->repo->checkLogin($request);
-   
+   info($response);
         if($response['user_details']) {
             // use bcrypt for login
             $password = $request['password'];
