@@ -5,8 +5,8 @@
              <?php
              $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData();
             
-            print_r($common_data);
-            // die();
+          echo $common_data;
+            die();
             ?>
              <!--Footer Widget Start-->
 
