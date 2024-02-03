@@ -239,6 +239,7 @@ ul {
 }
 .new-dis-size p{
 	font-size: 17px;
+	text-align: justify;
 }
   @media (max-width: 767px) {
 	.mob-img{
