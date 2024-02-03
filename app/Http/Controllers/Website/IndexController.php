@@ -173,8 +173,8 @@ class IndexController extends Controller
             )
             ->get()
             ->toArray();
-print_r($webtollfree_data);
-die();
+        info($webtollfree_data);
+
             $retun_data['webtollfree_data']  = $webtollfree_data;     
             
             $website_logo =  WebsiteLogo::where('is_active', '=',true)
