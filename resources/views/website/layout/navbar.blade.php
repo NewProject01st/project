@@ -53,7 +53,7 @@
 
                     </div>
                     <div class="col-4 d-flex align-items-center new_head_ul2 mt-1">
-                        <ul class="quick-links">
+                        {{-- <ul class="quick-links">
                             <li><a href="#">
                                     @if (session('language') == 'mar')
                                         {{ Config::get('marathi.NAVBAR.TOLL_FREE') }}
@@ -62,26 +62,16 @@
                                     @endif
                                     @forelse ($common_navbar_data['webtollfree_data'] as $item)
                                         @if (session('language') == 'mar')
-                                            <span><?php echo $item['marathi_tollfree_no']; ?></span>
+                                            <span><?php //echo $item['marathi_tollfree_no']; ?></span>
                                         @else
-                                            <span><?php echo $item['english_tollfree_no']; ?></span>
+                                            <span><?php //echo $item['english_tollfree_no']; ?></span>
                                         @endif
-
-                                        @empty
-                                        <h4>
-                                            @if (session('language') == 'mar')
-                                                <h1>Data Not Found</h1>
-                                            @else
-                                            <h1>Data Not Found</h1>
-                                            @endif
-                                        </h4>
-                                    @endforelse
-                                    {{-- @endforeach --}}
+                                    @endforeach
 
                                 </a></li>
 
 
-                        </ul>
+                        </ul> --}}
 
                         {{-- <button class="webpage_zoom_btn" id="zoomouttextbody">A-</button>
                         
