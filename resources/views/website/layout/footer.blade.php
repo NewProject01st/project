@@ -6,7 +6,7 @@
              $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData();
             
             print_r($common_data);
-            die();
+            // die();
             ?>
              <!--Footer Widget Start-->
 
