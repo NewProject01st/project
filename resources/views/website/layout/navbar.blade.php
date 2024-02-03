@@ -1,7 +1,7 @@
 <?php $common_navbar_data = App\Http\Controllers\Website\IndexController::getCommonWebNavbarData();
 
-// print_r($data_output_tollfreenumber);
-// die();
+print_r($data_output_tollfreenumber);
+die();
 
 ?>
 <style>
