@@ -70,7 +70,7 @@ class IndexController extends Controller
             )
             ->get()
             ->toArray();
-            
+
             info($websitecontact_data);
 
             $retun_data['website_contact_details']  = $websitecontact_data;
@@ -160,7 +160,9 @@ class IndexController extends Controller
 
             return $retun_data ;
         } catch (\Exception $e) {
-            return $e;
+             info("Satish");
+             info($e->getMessage());
+             Log::error($e->getMessage());
         }
                    
     }
