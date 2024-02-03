@@ -173,7 +173,7 @@ class IndexController extends Controller
             )
             ->get()
             ->toArray();
-            dd($webtollfree_data);
+           echo $webtollfree_data;
             die();
             $retun_data['webtollfree_data']  = $webtollfree_data;     
             
