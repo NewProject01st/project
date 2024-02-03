@@ -110,7 +110,7 @@
         <div class="h3-logo-row wf100">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-4 col-sm-4 d-flex align-items-center">
                         <ul class="header-contact new_city_head_change">
                             <li class="city-exp for_pl_pr"> <i class="fa fa-street-view"></i>
                                 <strong>

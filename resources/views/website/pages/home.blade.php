@@ -82,10 +82,10 @@
                                 <div class="carousel-caption">
                                     <h1 data-aos="fade-right" data-aos-anchor="#example-anchor"
                                     data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['marathi_title']; ?></h1>
-                                    <p  data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
-                                    data-aos-duration="2500"><?php echo $slider['marathi_description']; ?> </p>
-                                    <div class="slide-content-box pt-3" data-aos="zoom-in-down"
-                                    data-aos-duration="2500"> <a href="{{ $slider['url'] }}" class="con"
+                                    <p  data-aos="fade-left" data-aos-anchor="#example-anchor"
+                                    data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['marathi_description']; ?> </p>
+                                    <div class="slide-content-box pt-3" data-aos="fade-right" data-aos-anchor="#example-anchor"
+                                    data-aos-offset="500" data-aos-duration="2000"> <a href="{{ $slider['url'] }}" class="con"
                                             target="_blank">
                                             @if (session('language') == 'mar')
                                                 {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
