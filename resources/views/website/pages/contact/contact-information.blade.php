@@ -47,7 +47,8 @@
                     <div class="col-md-12">
                         <div class="row graybg">
                             <div class="col-md-12 br contact-new-design-b">
-                                <?php $common_data_contact = App\Http\Controllers\Website\IndexController::getCommonWebData();
+                                @inject('common_data_contact_obj','App\Http\Controllers\Website\IndexController')
+                                <?php $common_data_contact = $common_data_contact_obj->getCommonWebData();
                                 ?>
                                 {{ info($common_data_contact)}}
                                 @foreach ($common_data_contact['website_contact_details'] as $item)
