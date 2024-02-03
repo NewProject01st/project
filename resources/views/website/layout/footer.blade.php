@@ -4,7 +4,9 @@
          <div class="row">
              <?php
              $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData();
-             ?>
+            
+            info($common_data);
+            ?>
              <!--Footer Widget Start-->
 
              @forelse ($common_data['website_contact_details'] as $item)

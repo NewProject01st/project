@@ -71,7 +71,7 @@ class IndexController extends Controller
             ->get()
             ->toArray();
 
-            info($websitecontact_data);
+            // info($websitecontact_data);
 
             $retun_data['website_contact_details']  = $websitecontact_data;
 
