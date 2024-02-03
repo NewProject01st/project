@@ -7,7 +7,7 @@
 try {
     $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData();
 } catch (\Illuminate\Database\QueryException $e) {
-    Log::error($e->getMessage());
+    info($e->getMessage());
 }
  
              ?>
