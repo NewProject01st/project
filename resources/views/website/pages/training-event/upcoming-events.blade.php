@@ -14,22 +14,22 @@
           </h4>
           <div class="upcoming-events inner">
               <ul>
-                  @forelse($common_data['upcoming_event']  as $event)
+                  {{-- @forelse($common_data['upcoming_event']  as $event) --}}
                       <?php
                     //   $date_event = explode('-', $event['end_date']);
                     //   $monthNum = $date_event[2];
                     //   $monthName = date('F', mktime(0, 0, 0, $monthNum, 10)); // March                        
 
-                        $date_event = explode('-', $event['end_date']);
-                        $day = $date_event[2];
-                        $monthNum = $date_event[1];
-                        $year = $date_event[0];
+                        // $date_event = explode('-', $event['end_date']);
+                        // $day = $date_event[2];
+                        // $monthNum = $date_event[1];
+                        // $year = $date_event[0];
 
-                        $monthName = date('F', mktime(0, 0, 0, $monthNum, $day, $year));
+                        // $monthName = date('F', mktime(0, 0, 0, $monthNum, $day, $year));
                         // echo $monthName;
                         
                       ?>
-                      <li>
+                      {{-- <li>
                           <div class="edate"> <strong>{{ $date_event[2] }}</strong> {{ $monthName }} <span
                                   class="year">{{ $date_event[0] }}</span>
                           </div>
@@ -38,18 +38,18 @@
                               @else
                                   <h6> <a href="#">{{ strip_tags($event['english_title']) }}</a>
                           @endif
-                          </h6>
+                          </h6> --}}
                           {{-- <span class="loc">Maharashtra, India</span> --}}
                       </li>
-                  @empty
-                      <p>
+                  {{-- @empty --}}
+                      {{-- <p>
                         @if (session('language') == 'mar')
                         {{ Config::get('marathi.TRAINING_WORKSHOP.No_UPCOMING_EVENT') }}
                     @else
                         {{ Config::get('english.TRAINING_WORKSHOP.No_UPCOMING_EVENT') }}
                     @endif
                         </p>
-                  @endforelse
+                  @endforelse --}}
               </ul>
           </div>
       </div>
