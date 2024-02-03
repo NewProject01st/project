@@ -3,13 +3,7 @@
      <div class="container">
          <div class="row">
              <?php
-
-try {
-    $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData();
-} catch (\Illuminate\Database\QueryException $e) {
-    info($e->getMessage());
-}
- 
+             $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData();
              ?>
              <!--Footer Widget Start-->
 
