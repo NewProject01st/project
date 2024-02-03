@@ -71,14 +71,14 @@
                         <label class="nak-label" data-aos="fade-left" data-aos-anchor="#example-anchor"
                             data-aos-offset="500" data-aos-duration="3000">Stay in
                             Touch</label>
-                        <ul class="footer-social">
+                        {{-- <ul class="footer-social">
                             @forelse ($common_data['social_link'] as $item)
                                     <li><a href="{{ $item['url'] }}" target="_blank" class="fb" target="_blank" target="_blank" data-aos="zoom-in-up" data-aos-duration="3000">
                                             <img src="{{ Config::get('DocumentConstant.SOCIAL_ICON_VIEW') }}{{ $item['icon'] }}"
                                                 width="25" height="25" alt="...">
                                         </a></li>
                             @empty
-                        </ul>
+                        </ul> --}}
                     </div>
                     @endforelse
                     </div>
