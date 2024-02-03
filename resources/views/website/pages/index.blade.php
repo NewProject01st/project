@@ -18,7 +18,7 @@
     .overlay-container{
         position: absolute;
     right: 10%;
-    bottom: 20px;
+    bottom: 100px;
     left: 10%;
     z-index: 10;
     padding-top: 20px;
@@ -48,7 +48,7 @@
                     @foreach ($data_output_landing_content as $key => $content)
                         <div class="img-display-center py-3">
                                 <img class="img-size img-fluid" data-aos="zoom-in" data-aos-duration="2000" src="{{ Config::get('DocumentConstant.LANDING_CONTENT_VIEW') }}{{ $content['image'] }}"
-                                alt="{{ strip_tags($content['title']) }} छायाचित्र"
+                                alt="{{ strip_tags($content['title']) }} Image"
                                 class="d-block w-100">
                         </div>
                         <div class="">
