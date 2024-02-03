@@ -2,10 +2,16 @@
  <footer class="home3 main-footer wf100">
      <div class="container">
          <div class="row">
-            @inject('common_data_contact_obj','App\Http\Controllers\Website\IndexController')
-            <?php $common_data = $common_data_contact_obj->getCommonWebData();
-            ?>
-           
+             <?php
+
+try {
+    $common_data = App\Http\Controllers\Website\IndexController::getCommonWebData();
+} catch (\Illuminate\Database\QueryException $e) {
+    Log::error($e->getMessage());
+}
+ 
+             ?>
+             <!--Footer Widget Start-->
 
              @forelse ($common_data['website_contact_details'] as $item)
                  @if (session('language') == 'mar')
