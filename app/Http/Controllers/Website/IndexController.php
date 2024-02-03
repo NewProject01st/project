@@ -162,7 +162,6 @@ class IndexController extends Controller
         } catch (\Exception $e) {
              info("Satish");
              info($e->getMessage());
-             Log::error($e->getMessage());
         }
                    
     }
