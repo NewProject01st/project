@@ -186,7 +186,7 @@ class IndexController extends Controller
             ->toArray();
 
             $retun_data['website_logo']  = $website_logo;   
-
+            info($retun_data);
             return $retun_data ;
         } catch (\Exception $e) {
             return $e;
