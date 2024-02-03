@@ -48,6 +48,7 @@
                         <div class="row graybg">
                             <div class="col-md-12 br contact-new-design-b">
                                 <?php $common_data_contact = App\Http\Controllers\Website\IndexController::getCommonWebData();
+                                info($common_data_contact);
                                 ?>
                                 @foreach ($common_data_contact['website_contact_details'] as $item)
                                     @if (session('language') == 'mar')
