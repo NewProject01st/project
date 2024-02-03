@@ -102,7 +102,7 @@
                                 <div class="carousel-caption">
                                     <h1 data-aos="fade-right" data-aos-anchor="#example-anchor"
                                     data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['english_title']; ?></h1>
-                                    <p  data-aos="fade-left" data-aos="fade-left" data-aos-anchor="#example-anchor"
+                                    <p data-aos="fade-left" data-aos-anchor="#example-anchor"
                                     data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['english_description']; ?> </p>
                                     <div class="slide-content-box pt-3" data-aos="fade-right" data-aos-anchor="#example-anchor"
                                     data-aos-offset="500" data-aos-duration="2000"> <a href="{{ $slider['url'] }}" class="con"
