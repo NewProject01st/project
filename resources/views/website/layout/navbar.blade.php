@@ -53,7 +53,7 @@
 
                     </div>
                     <div class="col-4 d-flex align-items-center new_head_ul2 mt-1">
-                        {{-- <ul class="quick-links">
+                        <ul class="quick-links">
                             <li><a href="#">
                                     @if (session('language') == 'mar')
                                         {{ Config::get('marathi.NAVBAR.TOLL_FREE') }}
@@ -62,16 +62,16 @@
                                     @endif
                                     @forelse ($common_navbar_data['webtollfree_data'] as $item)
                                         @if (session('language') == 'mar')
-                                            <span><?php //echo $item['marathi_tollfree_no']; ?></span>
+                                            <span><?php echo $item['marathi_tollfree_no']; ?></span>
                                         @else
-                                            <span><?php //echo $item['english_tollfree_no']; ?></span>
+                                            <span><?php echo $item['english_tollfree_no']; ?></span>
                                         @endif
                                     @endforeach
 
                                 </a></li>
 
 
-                        </ul> --}}
+                        </ul>
 
                         {{-- <button class="webpage_zoom_btn" id="zoomouttextbody">A-</button>
                         
@@ -127,7 +127,7 @@
                             </li>
                         </ul>
                     </div>
-                    {{-- <div class="col-md-4 col-sm-4">
+                    <div class="col-md-4 col-sm-4">
                         @forelse ($common_navbar_data['website_logo'] as $item)
                             @if (session('language') == 'mar')
                                 <div class="h3-logo"> <a href="/home">
@@ -139,7 +139,7 @@
                                             alt="" style="width: 50%;"></a></div>
                             @endif
                         @endforeach
-                    </div> --}}
+                    </div>
 
                     <div class="col-4 lang-position">
                         <div class="row d-flex justify-content-end">
