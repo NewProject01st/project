@@ -70,6 +70,9 @@ class IndexController extends Controller
             )
             ->get()
             ->toArray();
+            
+            info($websitecontact_data);
+
             $retun_data['website_contact_details']  = $websitecontact_data;
 
             $websitecontact_department_data =  WebsiteContactDepartment::where('is_active', '=',true)
