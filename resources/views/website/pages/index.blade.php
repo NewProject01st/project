@@ -80,7 +80,7 @@
                             @empty
                         </ul> --}}
                     </div>
-                    @endforelse
+                    {{-- @endforelse --}}
                     </div>
                 </div>
             </div>
