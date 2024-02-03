@@ -66,7 +66,17 @@
                                         @else
                                             <span><?php echo $item['english_tollfree_no']; ?></span>
                                         @endif
-                                    @endforeach
+
+                                        @empty
+                                        <h4>
+                                            @if (session('language') == 'mar')
+                                                <h1>Data Not Found</h1>
+                                            @else
+                                            <h1>Data Not Found</h1>
+                                            @endif
+                                        </h4>
+                                    @endforelse
+                                    {{-- @endforeach --}}
 
                                 </a></li>
 
