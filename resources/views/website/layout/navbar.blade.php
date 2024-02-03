@@ -127,7 +127,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-4 col-sm-4">
+                    {{-- <div class="col-md-4 col-sm-4">
                         @forelse ($common_navbar_data['website_logo'] as $item)
                             @if (session('language') == 'mar')
                                 <div class="h3-logo"> <a href="/home">
@@ -139,7 +139,7 @@
                                             alt="" style="width: 50%;"></a></div>
                             @endif
                         @endforeach
-                    </div>
+                    </div> --}}
 
                     <div class="col-4 lang-position">
                         <div class="row d-flex justify-content-end">
