@@ -131,7 +131,7 @@
                                     class="btn btn-sm btn-primary ml-3">Add Contact
                                     Number</a>
                             </div>
-                            <table class="table table-striped table-hover table-bordered border-dark mt-3 mb-3">
+                            <table id="order-listing" class="table table-striped table-hover table-bordered border-dark mt-3 mb-3">
                                 <thead class="" style="background-color: #47194a; color:#fff">
                                     <tr>
                                         <th scope="col">Sr. No.</th>

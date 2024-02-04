@@ -7,7 +7,7 @@
         <div class="content-wrapper mt-7">
             <div class="page-header">
                 <h3 class="page-title">
-                    State Disaster Management policy
+                    Disaster Management Policies
                     @if (in_array('per_add', $data_permission))
                         <a href="{{ route('add-state-disaster-management-policy') }}" class="btn btn-sm btn-primary ml-3">+
                             Add</a>
@@ -17,7 +17,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('list-state-disaster-management-policy') }}"> Policies & Guidelines</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> State Disaster Management policy</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Disaster Management Policies</li>
                     </ol>
                 </nav>
             </div>

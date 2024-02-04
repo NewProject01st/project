@@ -5,13 +5,13 @@
         <div class="content-wrapper mt-6">
             <div class="page-header">
                 <h3 class="page-title">
-                    State Disaster Management policy
+                    Disaster Management Policies
                 </h3>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('list-state-disaster-management-policy') }}">Policies and
                                 Legislation</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"> Update State Disaster Management policy
+                        <li class="breadcrumb-item active" aria-current="page"> Update Disaster Management Policies
                         </li>
                     </ol>
                 </nav>

@@ -243,9 +243,9 @@ class MainSubMenusSeeder extends Seeder
             'main_menu_id' => 4,
             'menu_name_english' => 'COVID Instructions for Public Safety',
             'menu_name_marathi' => 'सार्वजनिक सुरक्षिततेसाठी COVID सूचना',
-            'order_no' => 4,
-            'url'=>'public-awareness-and-education',
-            'is_static'=>true,
+            'order_no' => 5,
+            // 'url'=>'public-awareness-and-education',
+            'is_static'=>false,
             'is_active' => true,
            
         ]);
@@ -255,9 +255,9 @@ class MainSubMenusSeeder extends Seeder
             'main_menu_id' => 4,
             'menu_name_english' => 'Blood Bank List As Per Government Of Maharashtra Blood Transfusion Council',
             'menu_name_marathi' => 'महाराष्ट्र शासनाच्या रक्त संक्रमण परिषदेनुसार रक्तपेढीची यादी',
-            'order_no' => 5,
-            'url'=>'public-awareness-and-education',
-            'is_static'=>true,
+            'order_no' => 6,
+            // 'url'=>'public-awareness-and-education',
+            'is_static'=>false,
             'is_active' => true,
            
         ]);
@@ -267,9 +267,9 @@ class MainSubMenusSeeder extends Seeder
             'main_menu_id' => 4,
             'menu_name_english' => 'Indian Standards In Disaster Management',
             'menu_name_marathi' => 'आपत्ती व्यवस्थापनातील भारतीय मानके',
-            'order_no' => 6,
-            'url'=>'public-awareness-and-education',
-            'is_static'=>true,
+            'order_no' => 7,
+            // 'url'=>'public-awareness-and-education',
+            'is_static'=>false,
             'is_active' => true,
            
         ]);
@@ -280,9 +280,9 @@ class MainSubMenusSeeder extends Seeder
             'main_menu_id' => 4,
             'menu_name_english' => 'List of Govt Hospitals in Nashik',
             'menu_name_marathi' => 'नाशिकमधील शासकीय रुग्णालयांची यादी',
-            'order_no' => 7,
-            'url'=>'public-awareness-and-education',
-            'is_static'=>true,
+            'order_no' => 8,
+            // 'url'=>'public-awareness-and-education',
+            'is_static'=>false,
             'is_active' => true,
            
         ]);
@@ -435,8 +435,8 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'NDRF Annual Training Calendar two thousand twenty three',
             'menu_name_marathi' => 'NDRF वार्षिक प्रशिक्षण दिनदर्शिका दोन हजार तेवीस',
             'order_no' => 2,
-            'url'=>'past-events-and-trainings',
-            'is_static'=>true,
+            // 'url'=>'past-events-and-trainings',
+            'is_static'=>false,
             'is_active' => true,
            
         ]);
