@@ -4,6 +4,19 @@ use Illuminate\Support\Str;
 
 return [
 
+
+    //SMG New Code 
+
+    // 'entropy_file' => '/dev/urandom', // Path to the random input source
+    // 'entropy_length' => 32, // Adjust the length as per your requirement
+    // 'hash_function' => 'sha256', // Use a strong hash function
+
+
+    // 'use_only_cookies' => true, // Store the session ID only in cookies
+
+    
+    //SMG New Code end
+
     /*
     |--------------------------------------------------------------------------
     | Default Session Driver
@@ -33,7 +46,7 @@ return [
 
     'lifetime' => env('SESSION_LIFETIME', 120),
 
-    'expire_on_close' => false,
+    'expire_on_close' => true,    //SMG Added from  'false' to  true
 
     /*
     |--------------------------------------------------------------------------
@@ -46,7 +59,7 @@ return [
     |
     */
 
-    'encrypt' => false,
+    'encrypt' => true,  //SMG Added from true  to  false
 
     /*
     |--------------------------------------------------------------------------
@@ -72,7 +85,7 @@ return [
     |
     */
 
-    'connection' => env('SESSION_CONNECTION'),
+    'connection' => env('SESSION_CONNECTION', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -100,7 +113,7 @@ return [
     |
     */
 
-    'store' => env('SESSION_STORE'),
+    'store' => env('SESSION_STORE', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -128,7 +141,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-        Str::slug(env('APP_NAME', 'laravel'), '_').'_session'
+        Str::slug("DM_".env('APP_NAME', 'laravel'), '_').'_session' //SMG Added DM prefix
     ),
 
     /*
@@ -155,7 +168,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN'),
+    'domain' => env('SESSION_DOMAIN', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -168,7 +181,7 @@ return [
     |
     */
 
-    'secure' => env('SESSION_SECURE_COOKIE'),
+    'secure' => env('SESSION_SECURE_COOKIE',true), //SMG Added DM true
 
     /*
     |--------------------------------------------------------------------------
@@ -196,6 +209,9 @@ return [
     |
     */
 
-    'same_site' => 'lax',
+    'same_site' => 'strict',  //SMG Added from  'lax' to  strict
+
+
+
 
 ];
