@@ -55,15 +55,17 @@
                     <div class="col-4 d-flex align-items-center new_head_ul2 mt-1">
                         <ul class="quick-links">
                             <li>
-                                    @if (session('language') == 'mar')
+                                    {{-- @if (session('language') == 'mar')
                                         {{ Config::get('marathi.NAVBAR.TOLL_FREE') }}
                                     @else
                                         {{ Config::get('english.NAVBAR.TOLL_FREE') }}
-                                    @endif
+                                    @endif --}}
                                     @forelse ($common_navbar_data['webtollfree_data'] as $item)
                                         @if (session('language') == 'mar')
+                                        {{ Config::get('marathi.NAVBAR.TOLL_FREE') }}
                                             <span><a href="tel:<?php echo $item['marathi_tollfree_no']; ?>"><?php echo $item['marathi_tollfree_no']; ?></a></span>
                                         @else
+                                        {{ Config::get('english.NAVBAR.TOLL_FREE') }}
                                             <span><a href="tel:<?php echo $item['english_tollfree_no']; ?>"><?php echo $item['english_tollfree_no']; ?></a></span>
                                         @endif
                                     @endforeach
