@@ -62,9 +62,9 @@
                                     @endif
                                     @forelse ($common_navbar_data['webtollfree_data'] as $item)
                                         @if (session('language') == 'mar')
-                                            <span><?php echo $item['marathi_tollfree_no']; ?></span>
+                                            <span><a href="tel:<?php echo $item['marathi_tollfree_no']; ?>"><?php echo $item['marathi_tollfree_no']; ?></a></span>
                                         @else
-                                            <span><?php echo $item['english_tollfree_no']; ?></span>
+                                            <span><a href="tel:<?php echo $item['english_tollfree_no']; ?>"><?php echo $item['english_tollfree_no']; ?></a></span>
                                         @endif
                                     @endforeach
 
