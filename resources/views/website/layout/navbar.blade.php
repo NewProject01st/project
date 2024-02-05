@@ -54,7 +54,7 @@
                     </div>
                     <div class="col-4 d-flex align-items-center new_head_ul2 mt-1">
                         <ul class="quick-links">
-                            <li><a href="#">
+                            <li>
                                     @if (session('language') == 'mar')
                                         {{ Config::get('marathi.NAVBAR.TOLL_FREE') }}
                                     @else
@@ -68,7 +68,7 @@
                                         @endif
                                     @endforeach
 
-                                </a></li>
+                               </li>
 
 
                         </ul>
