@@ -62,10 +62,11 @@
                                     @endif --}}
                                     @forelse ($common_navbar_data['webtollfree_data'] as $item)
                                         @if (session('language') == 'mar')
-                                        
-                                            <span><a href="tel:<?php echo $item['marathi_tollfree_no']; ?>"> {{ Config::get('marathi.NAVBAR.TOLL_FREE') }} <?php echo $item['marathi_tollfree_no']; ?></a></span>
+                                        {{ Config::get('marathi.NAVBAR.TOLL_FREE') }}
+                                            <span><a href="tel:<?php echo $item['marathi_tollfree_no']; ?>"><?php echo $item['marathi_tollfree_no']; ?></a></span>
                                         @else
-                                            <span><a href="tel:<?php echo $item['english_tollfree_no']; ?>">{{ Config::get('english.NAVBAR.TOLL_FREE') }} <?php echo $item['english_tollfree_no']; ?></a></span>
+                                        {{ Config::get('english.NAVBAR.TOLL_FREE') }}
+                                            <span><a href="tel:<?php echo $item['english_tollfree_no']; ?>"><?php echo $item['english_tollfree_no']; ?></a></span>
                                         @endif
                                     @endforeach
 
