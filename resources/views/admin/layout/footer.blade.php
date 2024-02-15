@@ -430,7 +430,7 @@
         });
     });
 </script>
-<script>
+{{-- <script>
     $(document).ready(function() {
         $('#order-listing').DataTable({
             searching: true,
@@ -439,7 +439,25 @@
             showNEntries: false
         });
     });
+</script> --}}
+
+<script>
+    $(document).ready(function() {
+        $('#order-listing').DataTable({
+            searching: true,
+            ordering: true,
+            lengthChange: false,
+            showNEntries: false,
+            columnDefs: [{
+                targets: 0,
+                render: function(data, type, row, meta) {
+                    return meta.row + 1;
+                }
+            }]
+        });
+    });
 </script>
+
 
 <script>
     $(function() {
