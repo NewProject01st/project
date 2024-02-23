@@ -21,9 +21,9 @@
         content="@if (isset($dynamic_meta_data)) {{ $dynamic_meta_data }} @else  {{ $metadata->keywords }} @endif">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="{{ asset('website_files/font-awesome.min.css') }}" type="text/css" rel="stylesheet">
+    {{-- <link href="{{ asset('website_files/font-awesome.min.css') }}" type="text/css" rel="stylesheet"> --}}
    
-    <link href="{{ asset('website_files/assets/css/slider.scss') }}" type="text/css" rel="stylesheet">
+    {{-- <link href="{{ asset('website_files/assets/css/slider.scss') }}" type="text/css" rel="stylesheet"> --}}
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {{-- <link href="{{ asset('website_files/assets/bootstrap5.3.0/css/bootstrap.css') }}" type="text/css"

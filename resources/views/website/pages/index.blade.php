@@ -43,7 +43,7 @@
     <!-- Images from Unsplash -->
     <div class="row land-main-display" >
         <div class="row main-landing nak-content-box-layout3 ">
-            <div class="col-lg-7 col-md-7 col-sm-12 p-4">
+            <div class="col-lg-7 col-md-7 col-sm-12 p-4 d-flex align-items-center">
                 <div class="row left-card-padding">
                     @foreach ($data_output_landing_content as $key => $content)
                         <div class="img-display-center py-3">
