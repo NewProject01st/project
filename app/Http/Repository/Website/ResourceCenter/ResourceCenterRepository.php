@@ -129,12 +129,22 @@ public function getAllTrainingMaterial()
     try {
         $data_output = TrainingMaterialsWorkshops::where('is_active','=',true);
         if (Session::get('language') == 'mar') {
-            $data_output =  $data_output->select('marathi_title', 'marathi_pdf');
+            $data_output =  $data_output->select('marathi_title', 'marathi_pdf')
+            ->where('marathi_title', 'REGEXP', '^[a-zA-Z]');
         } else {
-            $data_output = $data_output->select('english_title', 'english_pdf');
+            $data_output = $data_output->select('english_title', 'english_pdf')
+            ->where('english_title', 'REGEXP', '^[a-zA-Z]');
         }
-        $data_output =  $data_output->get()
-                        ->toArray();
+        if (Session::get('language') == 'mar') {
+            $data_output =  $data_output->orderBy('marathi_title')->get()
+                            ->toArray();
+            }
+            else{
+                $data_output =  $data_output->orderBy('english_title')->get()
+                ->toArray();
+            }
+        // $data_output =  $data_output->get()
+        //                 ->toArray();
         return  $data_output;
     //    echo $data_output;
     //    die();

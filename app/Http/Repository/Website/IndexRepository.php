@@ -294,30 +294,68 @@ class IndexRepository  {
         try {
             $data_output = VacanciesHeader::where('is_active','=',true);
             if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('marathi_title','marathi_pdf');
+                $data_output =  $data_output->select('marathi_title','marathi_pdf')
+                ->where('marathi_title', 'REGEXP', '^[a-zA-Z]');
             } else {
-                $data_output = $data_output->select('english_title','english_pdf');
+                $data_output = $data_output->select('english_title','english_pdf')
+                ->where('english_title', 'REGEXP', '^[a-zA-Z]');
             }
-            $data_output =  $data_output->get()
+            if (Session::get('language') == 'mar') {
+            $data_output =  $data_output->orderBy('marathi_title')->get()
                             ->toArray();
+            }
+            else{
+                $data_output =  $data_output->orderBy('english_title')->get()
+                ->toArray();
+            }
             return  $data_output;
         } catch (\Exception $e) {
             return $e;
         }
     }
-
+    // public function getAllVacancies()
+    // {
+    //     try {
+    //         $data_output = VacanciesHeader::where('is_active', true);
+        
+    //         if (Session::get('language') == 'mar') {
+    //             $data_output = $data_output->where('marathi_title','marathi_pdf', 'REGEXP', '[a-zA-Z]');
+    //         } else {
+    //             $data_output = $data_output->where('english_title','english_pdf', 'REGEXP', '[a-zA-Z]');
+    //         }
+        
+        
+    //         $data_output = $data_output->orderBy('english_title')->get()->toArray();
+                
+    //         return $data_output;
+    //     } catch (\Exception $e) {
+    //         return $e;
+    //     }
+    // }
     
+    
+ 
     public function getAllRTI()
     {
         try {
             $data_output = RTI::where('is_active','=',true);
             if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('marathi_title','marathi_pdf');
+                $data_output =  $data_output->select('marathi_title','marathi_pdf')
+                ->where('marathi_title', 'REGEXP', '^[a-zA-Z]');
             } else {
-                $data_output = $data_output->select('english_title','english_pdf');
+                $data_output = $data_output->select('english_title','english_pdf')
+                ->where('english_title', 'REGEXP', '^[a-zA-Z]');
             }
-            $data_output =  $data_output->get()
-                            ->toArray();
+            if (Session::get('language') == 'mar') {
+                $data_output =  $data_output->orderBy('marathi_title')->get()
+                                ->toArray();
+                }
+                else{
+                    $data_output =  $data_output->orderBy('english_title')->get()
+                    ->toArray();
+                }
+            // $data_output =  $data_output->get()
+            //                 ->toArray();
             return  $data_output;
         } catch (\Exception $e) {
             return $e;
