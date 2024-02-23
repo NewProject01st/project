@@ -90,9 +90,11 @@ class PreparednessRepository  {
             $data_output = GovtHospitals::where('is_active','=',true);
            
             if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('hospital_english_type','marathi_name', 'marathi_area','marathi_phone','email','marathi_pincode','marathi_address');
+                $data_output =  $data_output->select('hospital_english_type','marathi_name', 'marathi_area','marathi_phone','email','marathi_pincode','marathi_address')
+                ->where('marathi_name', 'REGEXP', '^[a-zA-Z]');
             } else {
-                $data_output = $data_output->select('hospital_english_type', 'english_name','english_area','english_phone','email','english_pincode','english_address');
+                $data_output = $data_output->select('hospital_english_type', 'english_name','english_area','english_phone','email','english_pincode','english_address')
+                ->where('english_name', 'REGEXP', '^[a-zA-Z]');
             }
             // Add the filter condition based on the search term
         if ($searchTerm) {
@@ -102,8 +104,18 @@ class PreparednessRepository  {
             });
         }
 
-            $data_output =  $data_output->orderBy('id', 'desc')->get()
-            ->toArray();
+        if (Session::get('language') == 'mar') {
+            $data_output =  $data_output->orderBy('marathi_name')->get()
+                            ->toArray();
+            }
+            else{
+                $data_output =  $data_output->orderBy('english_name')->get()
+                ->toArray();
+            }
+
+
+            // $data_output =  $data_output->orderBy('id', 'desc')->get()
+            // ->toArray();
                       
             return  $data_output;
         } catch (\Exception $e) {

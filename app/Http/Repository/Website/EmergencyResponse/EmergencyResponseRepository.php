@@ -57,15 +57,26 @@ class EmergencyResponseRepository  {
             $data_output_array = AddMoreEmergencyContactNumbers::where('is_active','=',true);
             if (Session::get('language') == 'mar') {
                 $data_output =  $data_output->select('marathi_title','marathi_description', 'marathi_image');
-                $data_output_array= $data_output_array->select('marathi_emergency_contact_title', 'marathi_emergency_contact_number');
+                $data_output_array= $data_output_array->select('marathi_emergency_contact_title', 'marathi_emergency_contact_number')
+                ->where('marathi_emergency_contact_title', 'REGEXP', '^[a-zA-Z]');
             } else {
                 $data_output = $data_output->select('english_title', 'english_description','english_image');
-                $data_output_array = $data_output_array->select('english_emergency_contact_title', 'english_emergency_contact_number');
+                $data_output_array = $data_output_array->select('english_emergency_contact_title', 'english_emergency_contact_number')
+                ->where('english_emergency_contact_title', 'REGEXP', '^[a-zA-Z]');
             }
             $data_output = $data_output->get()->toArray();
             // $data_output_array = $data_output_array->get()->toArray();
-            $data_output_array =  $data_output_array->orderBy('id', 'desc')->get()
-                            ->toArray();
+            // $data_output_array =  $data_output_array->orderBy('id', 'desc')->get()
+            //                 ->toArray();
+            if (Session::get('language') == 'mar') {
+                $data_output_array =  $data_output_array->orderBy('marathi_emergency_contact_title')->get()
+                                ->toArray();
+                }
+                else{
+                    $data_output_array =  $data_output_array->orderBy('english_emergency_contact_title')->get()
+                    ->toArray();
+                }
+                            
             // dd($data_output_array);
             return ['data_output' => $data_output, 'data_output_array' => $data_output_array];
         } catch (\Exception $e) {
