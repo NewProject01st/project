@@ -103,8 +103,8 @@ class RegisterRepository
 
 		$imageProfile = $last_insert_id .'_' . rand(100000, 999999) . '_english.' . $request->user_profile->extension();
         
-        $user_detail = User::find($last_insert_id); // Assuming $request directly contains the ID
-        $user_detail->user_profile = $imageProfile; // Save the image filename to the database
+        $user_detail = User::find($last_insert_id);
+        $user_detail->user_profile = $imageProfile; 
         $user_detail->save();
         // echo  $user_detail;
 		// die();
