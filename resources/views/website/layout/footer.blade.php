@@ -13,8 +13,8 @@
              @forelse ($common_data['website_contact_details'] as $item)
                  @if (session('language') == 'mar')
                      <div class="col-md-3 col-sm-6">
-                         <div class="textwidget"> <img src="{{ asset('website_files/images/footer/footer_logo.png') }}"
-                                 alt="" width="80%"><br><br>
+                         <div class="textwidget"><a href="/home"> <img src="{{ asset('website_files/images/footer/footer_logo.png') }}"
+                                 alt="" width="80%"></a><br><br>
                              <address>
                                  <ul>
                                      <li> <i class="fa fa-university"></i> <strong>
@@ -30,7 +30,8 @@
                                              @else
                                                  {{ Config::get('english.HOME_PAGE.EMAIL') }}
                                              @endif
-                                         </strong><?php echo $item['email']; ?>
+                                         </strong><a href="mailto:<?php echo $item['email']; ?>" target="_blank"  style="color: #fff;"><?php echo $item['email']; ?></a>
+                                        
                                      </li>
                                      <li> <i class="fa fa-phone"></i> <strong>
                                              @if (session('language') == 'mar')
@@ -46,8 +47,8 @@
                      </div>
                  @else
                      <div class="col-md-3 col-sm-6">
-                         <div class="textwidget"> <img src="{{ asset('website_files/images/footer/footer_logo.png') }}"
-                                 alt="" width="80%"><br><br>
+                         <div class="textwidget"> <a href="/home"> <img src="{{ asset('website_files/images/footer/footer_logo.png') }}"
+                                 alt="" width="80%"></a><br><br>
                              <address>
                                  <ul>
                                      <li> <i class="fa fa-university"></i> <strong>
@@ -65,7 +66,8 @@
                                                  {{ Config::get('english.HOME_PAGE.EMAIL') }}
                                              @endif
                                          </strong>
-                                         <?php echo $item['email']; ?>
+                                         <a href="mailto:<?php echo $item['email']; ?>" style="color: #fff;" target="_blank"><?php echo $item['email']; ?></a>
+
                                      </li>
                                      <li> <i class="fa fa-phone"></i> <strong>
                                              @if (session('language') == 'mar')

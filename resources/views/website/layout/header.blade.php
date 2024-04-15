@@ -93,7 +93,8 @@
     <script>
         $(document).ready(function() {
 
-            $("#language").change(function() {
+            // $("#language").change(function() {
+                $(".website_language_select, .mobile_language_select").change(function() {
                 var url_env = "{{ env('APP_URL') }}";
 
                 $.ajax({
@@ -111,8 +112,11 @@
                         location.reload();
                     },
                     data: {
-                        'language': $("#language").val()
-                    },
+                    'language': $(this).val()
+                   },
+                    // data: {
+                    //     'language': $("#language").val()
+                    // },
                     error: function(errorResponse) {
 
                     }

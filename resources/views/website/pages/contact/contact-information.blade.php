@@ -98,7 +98,7 @@
                                                     @endif
                                                 </h5>
                                                 <p class="set_text"><a
-                                                        href="mailto:contact@alex.com"><?php echo $item['email']; ?></a></p>
+                                                        href="mailto:<?php echo $item['email']; ?>"><?php echo $item['email']; ?></a></p>
                                                 {{-- <p class="set_text"><a href="mailto:info@alex.com">info@balad.com</a></p> --}}
                                             </div>
                                         </div>

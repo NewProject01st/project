@@ -147,16 +147,7 @@
                         <div class="row d-flex justify-content-end">
                             <div class="col-md-9 col-sm-9">
                                 <ul class="header-contact new_city_head_change">
-                                    <li class="city-exp for_pl_pr">
-
-                                        <!-- <input type="text" placeholder="Search.." name="search" > -->
-                                        <!-- <button class="btn btn-success btn-sm" type="submit">Go</button> -->
-                                        <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
-
-                                        {{-- <form>
-                                    <input type="search" placeholder="Search...">
-                                    <button type="submit">Search</button>
-                                    </form> --}}
+                                    <li class="city-exp for_pl_pr">                                     
                                         <span class="serch-main">
                                             <ul class="navbar-nav mr-auto">
                                                 <li class="nav-item dropdown search-data">
@@ -167,34 +158,7 @@
                                                         aria-labelledby="navbarDropdown"></div>
                                                 </li>
                                             </ul>
-                                        </span>
-
-
-
-                                        {{-- <form action="{{ route('/') }}" method="GET">
-                                        <input type="text" name="query" placeholder="Search...">
-                                        <button type="submit">Search</button>
-                                    </form>
-                                     --}}
-
-                                        {{-- <form method="GET" action="">
-                                        <input type="search" name="query" placeholder="Search...">
-                                        <button type="submit">Search</button>
-                                    </form> --}}
-
-
-                                        {{-- </li>
-                                        <form>
-                                            <input type="search" placeholder="Search...">
-                                            <button type="submit">
-                                                @if (session('language') == 'mar')
-                                                    {{ Config::get('marathi.NAVBAR.SEARCH') }}
-                                                @else
-                                                    {{ Config::get('english.NAVBAR.SEARCH') }}
-                                                @endif
-                                            </button>
-                                        </form>
-                                    </li> --}}
+                                        </span>                                      
                                 </ul>
 
                             </div>
@@ -213,7 +177,7 @@
                                                 @endif
                                             </span>
                                             <strong>
-                                                <select name="language" id="language">
+                                                <select name="language" class="website_language_select">
                                                     <option value="">Select Language</option>
                                                     <option value="en" <?php if ($language == 'en') {
                                                         echo 'selected';
@@ -238,74 +202,6 @@
             </div>
         </div>
     </header>
-    <!--Header End-->
-
-    {{-- <div class="container-fluid">
-        <div class="row nav-pd">
-            <div class="col-md-12 nav-pd-col navbar_bg-color">
-                <nav class="navbar navbar-expand-lg">
-
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse nav-center d-flex flex-wrap" id="navbarSupportedContent">
-                        @foreach ($menu as $key => $menu_data)
-                            @foreach ($menu_data as $key => $menu_data_new)
-                                <ul class="navbar-nav mr-auto">
-                                    @if ($key == '0')
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link 
-                                            @if (sizeof($menu_data[1]) > 0) dropdown-toggle @endif"
-                                                href="@if ($menu_data_new['is_static'] == true) {{ $menu_data_new['url'] }} 
-                                                      @else 
-                                                      {{ url('/pages/' . $menu_data_new['url']) }} @endif"
-                                                id="" role="button"
-                                                @if (sizeof($menu_data[1]) > 0) data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false" @endif>
-                                                @if (session('language') == 'mar')
-                                                    {{ $menu_data_new['menu_name_marathi'] }}
-                                                @else
-                                                    {{ $menu_data_new['menu_name_english'] }}
-                                                @endif
-                                            </a>
-                                            @if (sizeof($menu_data[1]) > 0)
-                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                    @foreach ($menu_data[1] as $key => $menu_data_sub)
-                                                        <a class="dropdown-item"
-                                                            href="@if ($menu_data_sub['is_static'] == true) {{ url($menu_data_sub['url']) }} 
-                                                      @else 
-                                                          {{ url('/pages/' . $menu_data_sub['url']) }} @endif 
-                                                      "
-                                                            target="_self" title="">
-                                                            @if (session('language') == 'mar')
-                                                                {{ $menu_data_sub['menu_name_marathi'] }}
-                                                            @else
-                                                                {{ $menu_data_sub['menu_name_english'] }}
-                                                            @endif
-                                                        </a>
-                                                      
-                                                    @endforeach
-
-                                                </div>
-                                            @endif
-                                        </li>
-                                    @endif
-                                </ul>
-                            @endforeach
-                        @endforeach
-                    </div>
-                </nav>
-
-            </div>
-        </div>
-    </div>
-</div>
-</header>  --}}
-    <!--Header End-->
 
     <div class="container-fluid">
         <div class="row nav-pd">
@@ -370,7 +266,7 @@
                                     @endif
                                 </span>
                                 <strong>
-                                    <select name="language" id="language">
+                                    <select name="language" class="mobile_language_select">
                                         <option value="">Select Language</option>
                                         <option value="en" <?php if ($language == 'en') {
                                             echo 'selected';
@@ -386,88 +282,6 @@
                         </div>
                     </div>
                 </nav>
-
-                {{-- <nav id="navbar_top" class="navbar navbar-expand-lg">
-
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse nav-center flex-wrap" id="navbarSupportedContent">
-                        @foreach ($menu as $key => $menu_data)
-                            @foreach ($menu_data as $key => $menu_data_new)
-                                <ul class="navbar-nav mr-auto">
-                                    @if ($key == '0')
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link 
-                                            @if (sizeof($menu_data[1]) > 0) dropdown-toggle @endif"
-                                                href="@if ($menu_data_new['is_static'] == true) {{ $menu_data_new['url'] }} 
-                                                      @else 
-                                                      {{ url('/pages/' . $menu_data_new['url']) }} @endif"
-                                                id="" role="button"
-                                                @if (sizeof($menu_data[1]) > 0) data-toggle="dropdown"
-                                                aria-haspopup="true"
-                                                aria-expanded="false" @endif>
-                                                @if (session('language') == 'mar')
-                                                    {{ $menu_data_new['menu_name_marathi'] }}
-                                                @else
-                                                    {{ $menu_data_new['menu_name_english'] }}
-                                                @endif
-                                            </a>
-                                            @if (sizeof($menu_data[1]) > 0)
-                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                    @foreach ($menu_data[1] as $key => $menu_data_sub)
-                                                        <a class="dropdown-item"
-                                                            href="@if ($menu_data_sub['is_static'] == true) {{ url($menu_data_sub['url']) }} 
-                                                      @else 
-                                                          {{ url('/pages/' . $menu_data_sub['url']) }} @endif 
-                                                      "
-                                                            target="_self" title="">
-                                                            @if (session('language') == 'mar')
-                                                                {{ $menu_data_sub['menu_name_marathi'] }}
-                                                            @else
-                                                                {{ $menu_data_sub['menu_name_english'] }}
-                                                            @endif
-                                                        </a>
-                                                        <!-- <hr class="gap-drop-menu"> -->
-                                                    @endforeach
-
-                                                </div>
-                                            @endif
-                                        </li>
-                                    @endif
-                                </ul>
-                            @endforeach
-                        @endforeach
-                        
-                            <form class="mt-2 mb-2 mobi_langs" method="post" action="">
-                                <span class="lang_title">
-                                    @if (session('language') == 'mar')
-                                        {{ Config::get('marathi.HOME_PAGE.SELECT_LANGUAGE') }}
-                                    @else
-                                        {{ Config::get('english.HOME_PAGE.SELECT_LANGUAGE') }}
-                                    @endif
-                                </span>
-                                <strong>
-                                    <select name="language" id="language">
-                                        <option value="">Select Language</option>
-                                        <option value="en" <?php //if ($language == 'en') {
-                                            //echo 'selected';
-                                        //}
-                                        ?>>English</option>
-                                        <option value="mar" <?php //if ($language == 'mar') {
-                                            //echo 'selected';
-                                        //}
-                                        ?>>Marathi</option>
-                                    </select>
-                                </strong>
-                            </form>
-                                    
-                    </div>
-                </nav> --}}
-
             </div>
         </div>
     </div>
