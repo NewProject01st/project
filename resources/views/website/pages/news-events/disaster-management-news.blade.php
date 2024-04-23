@@ -79,18 +79,22 @@
                                                         class="fa fa-arrow-right"></i></a>
                                             </div> --}}
                                             <div class="text-center readmorebtn">
-                                                <div class="cursor-pointer">
-                                                    <a data-id="{{ $item['id'] }}">
-                                                        <span class="pl-3">
-                                                            @if (session('language') == 'mar')
-                                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                                            @else
-                                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                                            @endif
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                                <a data-id="{{ $item['id'] }}"  class="department-show-btn rm cursor-pointer" >
+                                               <div class="cursor-pointer">
+                                                  
+                                                       <span class="pl-3">
+                                                         
+                                                           @if (session('language') == 'mar')
+                                                               {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                                           @else
+                                                               {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                           @endif
+                                                       
+                                                       </span>
+                                                  
+                                               </div>
+                                           </a>
+                                           </div>
                                         </div>
                                     </div>
                                 @else
@@ -116,18 +120,22 @@
                                                         class="fa fa-arrow-right"></i></a>
                                             </div> --}}
                                             <div class="text-center readmorebtn">
-                                                <div class="cursor-pointer">
-                                                    <a data-id="{{ $item['id'] }}">
-                                                        <span class="pl-3">
-                                                            @if (session('language') == 'mar')
-                                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                                            @else
-                                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                                            @endif
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                                <a data-id="{{ $item['id'] }}"  class="department-show-btn rm cursor-pointer" >
+                                               <div class="cursor-pointer">
+                                                  
+                                                       <span class="pl-3">
+                                                         
+                                                           @if (session('language') == 'mar')
+                                                               {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                                           @else
+                                                               {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                           @endif
+                                                       
+                                                       </span>
+                                                  
+                                               </div>
+                                           </a>
+                                           </div>
                                         </div>
                                     </div>
                                 @endif

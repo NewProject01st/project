@@ -7144,9 +7144,12 @@ box-shadow: 0 0 4px #000;
 	font-weight: 600;
 	position: relative;
 }
+.readmorebtn .department-show-btn{
+	color: #777777;
+}
 
-.readmorebtn:hover {
-	background-color:#D94148;; /* Change to desired background color on hover */
+.readmorebtn .department-show-btn :hover {
+	background-color:#D94148 !important; /* Change to desired background color on hover */
 	color: #fff;
 }
 

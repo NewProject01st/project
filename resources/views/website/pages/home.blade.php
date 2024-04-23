@@ -210,30 +210,23 @@
                                                 <h6 class="card_title"><a href="#"><?php echo mb_substr($item['marathi_title'], 0, 31); ?></a></h6>
                                                 <p class="card_title"> <?php echo mb_substr($item['marathi_description'], 0, 74); ?></p>
                                             </div>
-                                            {{-- <div class="news-box-f cursor-pointer">
-                                                <a data-id="{{ $item['id'] }}" class="show-btn">
-                                                <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    @if (session('language') == 'mar')
-                                                        {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                                    @else
-                                                        {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                                    @endif
-                                                </span> <i
-                                                        class="fa fa-arrow-right"></i></a>
-                                            </div> --}}
                                             <div class="text-center readmorebtn">
-                                                <div class="cursor-pointer">
-                                                    <a data-id="{{ $item['id'] }}">
-                                                        <span class="pl-3">
-                                                            @if (session('language') == 'mar')
-                                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                                            @else
-                                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                                            @endif
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                                <a data-id="{{ $item['id'] }}"  class="department-show-btn rm cursor-pointer" >
+                                               <div class="cursor-pointer">
+                                                  
+                                                       <span class="pl-3">
+                                                         
+                                                           @if (session('language') == 'mar')
+                                                               {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                                           @else
+                                                               {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                           @endif
+                                                       
+                                                       </span>
+                                                  
+                                               </div>
+                                           </a>
+                                           </div>
                                         </div>
                                     </div>
                                 @else
@@ -255,20 +248,34 @@
                                                 <h6 class="card_title"><a href="#"><?php echo mb_substr($item['english_title'], 0, 31); ?></a></h6>
                                                 <p class="card_title"> <?php echo mb_substr($item['english_description'], 0, 74); ?></p>
                                             </div>
+                                            {{-- <div class="news-box-f cursor-pointer">
+                                                <a data-id="{{ $item['id'] }}" class="show-btn">
+                                                <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    @if (session('language') == 'mar')
+                                                        {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                                    @else
+                                                        {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                    @endif
+                                                </span> <i
+                                                        class="fa fa-arrow-right"></i></a>
+                                            </div> --}}
                                             <div class="text-center readmorebtn">
+                                                 <a data-id="{{ $item['id'] }}"  class="department-show-btn rm cursor-pointer" >
                                                 <div class="cursor-pointer">
-                                                    <a data-id="{{ $item['id'] }}">
+                                                   
                                                         <span class="pl-3">
+                                                          
                                                             @if (session('language') == 'mar')
                                                                 {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
                                                             @else
                                                                 {{ Config::get('english.HOME_PAGE.READ_MORE') }}
                                                             @endif
+                                                        
                                                         </span>
-                                                    </a>
+                                                   
                                                 </div>
+                                            </a>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 @endif
