@@ -7128,7 +7128,7 @@ box-shadow: 0 0 4px #000;
 }
   }
  
-  .readmorebtn {
+  .readmorebtn  {
 	font-size: 17px;
 	/* padding: 10px; */
 	transition: background-color 0.3s; /* Smooth transition for background color change */
@@ -7144,11 +7144,11 @@ box-shadow: 0 0 4px #000;
 	font-weight: 600;
 	position: relative;
 }
-.readmorebtn .department-show-btn{
+.readmorebtn .show-btn  {
 	color: #777777;
 }
 
-.readmorebtn .department-show-btn :hover {
+.readmorebtn .show-btn :hover {
 	background-color:#D94148 !important; /* Change to desired background color on hover */
 	color: #fff;
 }

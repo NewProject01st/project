@@ -4,35 +4,38 @@
         .main-footer {
             margin-top: 0%;
         }
-       /* Add these styles to your stylesheet */
-.sliderman .carousel-item {
-    position: relative;
-}
 
-.sliderman .carousel-item::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-}
+        /* Add these styles to your stylesheet */
+        .sliderman .carousel-item {
+            position: relative;
+        }
 
-.sliderman .carousel-caption {
-    position: absolute;
-    /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-    color: white; /* White text color */
-}
+        .sliderman .carousel-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Black background with 0.5 opacity */
+        }
 
-.sliderman .carousel-caption h1,
-.carousel-caption h6,
-.slide-content-box a {
-    color: white; /* Set the text color inside the caption */
-}
+        .sliderman .carousel-caption {
+            position: absolute;
+            /* top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); */
+            color: white;
+            /* White text color */
+        }
 
+        .sliderman .carousel-caption h1,
+        .carousel-caption h6,
+        .slide-content-box a {
+            color: white;
+            /* Set the text color inside the caption */
+        }
     </style>
     <script>
         $('li.dropdown.mega-dropdown a').on('click', function(event) {
@@ -80,13 +83,13 @@
                                 <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider['marathi_image'] }}"
                                     class="d-block w-100" alt="{{ strip_tags($slider['marathi_title']) }} Image">
                                 <div class="carousel-caption">
-                                    <h1 data-aos="fade-right" data-aos-anchor="#example-anchor"
-                                    data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['marathi_title']; ?></h1>
-                                    <h6  data-aos="fade-left" data-aos-anchor="#example-anchor"
-                                    data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['marathi_description']; ?> </h6>
-                                    <div class="slide-content-box pt-3" data-aos="fade-right" data-aos-anchor="#example-anchor"
-                                    data-aos-offset="500" data-aos-duration="2000"> <a href="{{ $slider['url'] }}" class="con"
-                                            target="_blank">
+                                    <h1 data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                                        data-aos-duration="2000"><?php echo $slider['marathi_title']; ?></h1>
+                                    <h6 data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                                        data-aos-duration="2000"><?php echo $slider['marathi_description']; ?> </h6>
+                                    <div class="slide-content-box pt-3" data-aos="fade-right"
+                                        data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="2000"> <a
+                                            href="{{ $slider['url'] }}" class="con" target="_blank">
                                             @if (session('language') == 'mar')
                                                 {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
                                             @else
@@ -100,13 +103,13 @@
                                 <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider['english_image'] }}"
                                     class="d-block w-100" alt="{{ strip_tags($slider['english_title']) }} Image">
                                 <div class="carousel-caption">
-                                    <h1 data-aos="fade-right" data-aos-anchor="#example-anchor"
-                                    data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['english_title']; ?></h1>
-                                    <h6 data-aos="fade-left" data-aos-anchor="#example-anchor"
-                                    data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['english_description']; ?> </h6>
-                                    <div class="slide-content-box pt-3" data-aos="fade-right" data-aos-anchor="#example-anchor"
-                                    data-aos-offset="500" data-aos-duration="2000"> <a href="{{ $slider['url'] }}" class="con"
-                                            target="_blank">
+                                    <h1 data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                                        data-aos-duration="2000"><?php echo $slider['english_title']; ?></h1>
+                                    <h6 data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                                        data-aos-duration="2000"><?php echo $slider['english_description']; ?> </h6>
+                                    <div class="slide-content-box pt-3" data-aos="fade-right"
+                                        data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="2000"> <a
+                                            href="{{ $slider['url'] }}" class="con" target="_blank">
                                             @if (session('language') == 'mar')
                                                 {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
                                             @else
@@ -139,7 +142,7 @@
                     @if (session('language') == 'mar')
                         <div class="row">
                             <div class="col-md-4 col-sm-5">
-                                <div class="city-tour gallery"> 
+                                <div class="city-tour gallery">
                                     <img src="{{ Config::get('DocumentConstant.HOME_DISATER_MGT_WEB_PORTAL_VIEW') }}{{ $item['marathi_image'] }}"
                                         alt="{{ strip_tags($item['marathi_title']) }} छायाचित्र" class="d-block w-100">
                                 </div>
@@ -211,22 +214,22 @@
                                                 <p class="card_title"> <?php echo mb_substr($item['marathi_description'], 0, 74); ?></p>
                                             </div>
                                             <div class="text-center readmorebtn">
-                                                <a data-id="{{ $item['id'] }}"  class="department-show-btn rm cursor-pointer" >
-                                               <div class="cursor-pointer">
-                                                  
-                                                       <span class="pl-3">
-                                                         
-                                                           @if (session('language') == 'mar')
-                                                               {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                                           @else
-                                                               {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                                           @endif
-                                                       
-                                                       </span>
-                                                  
-                                               </div>
-                                           </a>
-                                           </div>
+                                                <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
+                                                    <div class="cursor-pointer">
+
+                                                        <span class="pl-3">
+
+                                                            @if (session('language') == 'mar')
+                                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                                            @else
+                                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                            @endif
+
+                                                        </span>
+
+                                                    </div>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 @else
@@ -248,33 +251,22 @@
                                                 <h6 class="card_title"><a href="#"><?php echo mb_substr($item['english_title'], 0, 31); ?></a></h6>
                                                 <p class="card_title"> <?php echo mb_substr($item['english_description'], 0, 74); ?></p>
                                             </div>
-                                            {{-- <div class="news-box-f cursor-pointer">
-                                                <a data-id="{{ $item['id'] }}" class="show-btn">
-                                                <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    @if (session('language') == 'mar')
-                                                        {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                                    @else
-                                                        {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                                    @endif
-                                                </span> <i
-                                                        class="fa fa-arrow-right"></i></a>
-                                            </div> --}}
                                             <div class="text-center readmorebtn">
-                                                 <a data-id="{{ $item['id'] }}"  class="department-show-btn rm cursor-pointer" >
-                                                <div class="cursor-pointer">
-                                                   
+                                                <a data-id="{{ $item['id'] }}" class="show-btn cursor-pointer">
+                                                    <div class="cursor-pointer">
+
                                                         <span class="pl-3">
-                                                          
+
                                                             @if (session('language') == 'mar')
                                                                 {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
                                                             @else
                                                                 {{ Config::get('english.HOME_PAGE.READ_MORE') }}
                                                             @endif
-                                                        
+
                                                         </span>
-                                                   
-                                                </div>
-                                            </a>
+
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -283,66 +275,71 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-3">
-                    <?php $forecast_data_api = unserialize(getTempratureData()->forecast); ?>
-                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                        @foreach ($forecast_data_api as $key => $forecast_data)
-                            <div class="carousel-item @if ($key == 0) {{ 'active' }} @endif">
-                                <!-- Item -->
-                                <div class="WeatherBlock mt-4">
-                                    <div class="card weather_card">
-                                        <div class="card-body">
-                                            <h6 class="text-center">Nashik</h6>
-                                            <p class="text-center weather_day">{{date("d/m/Y", strtotime($forecast_data['datetime']))}} | {{date("l", strtotime($forecast_data['datetime']))}}</p>
+                        <?php $forecast_data_api = unserialize(getTempratureData()->forecast); ?>
+                        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                @foreach ($forecast_data_api as $key => $forecast_data)
+                                    <div
+                                        class="carousel-item @if ($key == 0) {{ 'active' }} @endif">
+                                        <!-- Item -->
+                                        <div class="WeatherBlock mt-4">
+                                            <div class="card weather_card">
+                                                <div class="card-body">
+                                                    <h6 class="text-center">Nashik</h6>
+                                                    <p class="text-center weather_day">
+                                                        {{ date('d/m/Y', strtotime($forecast_data['datetime'])) }} |
+                                                        {{ date('l', strtotime($forecast_data['datetime'])) }}</p>
 
-                                            <div class="d-flex justify-content-center bd-highlight mb-1 today_tem">
-                                                <div class="p-2 bd-highlight">
-                                                    <h5> {{ $forecast_data['min_temp'] }}° C </h5>
-                                                    <h6 class="d-flex justify-content-center">MIN<h6>
-                                                </div>
-                                                <div class="p-2 bd-highlight">
-                                                    <h5> {{ $forecast_data['max_temp'] }}° C </h5>
-                                                    <h6 class="d-flex justify-content-center">MAX<h6>
-                                                </div>
-                                            </div>
-                                            
-
-                                            <hr class="divide_line">
-                                            <div class="row">
-                                                @foreach ($forecast_data['hour_wise'] as $key => $forecast_data_hourwise)
-                                                    @if ($key % 2 == 0)
-                                                        <div class="col-lg-4 col-md-6 col-sm-6 mb-2">
-                                                            <div class="p-2 bd-highlight timewise_temp">
-                                                                <p class="time">
-                                                                    {{ substr_replace($forecast_data_hourwise['datetime'], '', -3) }}
-                                                                </p>
-                                                                <p class="d-flex justify-content-center temp">
-                                                                    {{ $forecast_data_hourwise['temp'] }}° C
-                                                                <p>
-                                                            </div>
+                                                    <div class="d-flex justify-content-center bd-highlight mb-1 today_tem">
+                                                        <div class="p-2 bd-highlight">
+                                                            <h5> {{ $forecast_data['min_temp'] }}° C </h5>
+                                                            <h6 class="d-flex justify-content-center">MIN<h6>
                                                         </div>
-                                                    @endif
-                                                @endforeach
+                                                        <div class="p-2 bd-highlight">
+                                                            <h5> {{ $forecast_data['max_temp'] }}° C </h5>
+                                                            <h6 class="d-flex justify-content-center">MAX<h6>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <hr class="divide_line">
+                                                    <div class="row">
+                                                        @foreach ($forecast_data['hour_wise'] as $key => $forecast_data_hourwise)
+                                                            @if ($key % 2 == 0)
+                                                                <div class="col-lg-4 col-md-6 col-sm-6 mb-2">
+                                                                    <div class="p-2 bd-highlight timewise_temp">
+                                                                        <p class="time">
+                                                                            {{ substr_replace($forecast_data_hourwise['datetime'], '', -3) }}
+                                                                        </p>
+                                                                        <p class="d-flex justify-content-center temp">
+                                                                            {{ $forecast_data_hourwise['temp'] }}° C
+                                                                        <p>
+                                                                    </div>
+                                                                </div>
+                                                            @endif
+                                                        @endforeach
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+                                        <!-- Item -->
                                     </div>
-                                </div>
-                                <!-- Item -->
+                                @endforeach
                             </div>
-                            @endforeach
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
 
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -409,18 +406,18 @@
                                 <!--Icon Box End-->
                             @endif
                         @endforeach
-                        <form method="POST" action="{{ url('/department') }}"
-                            id="departmentshowform">
+                        <form method="POST" action="{{ url('/department') }}" id="departmentshowform">
                             @csrf
                             <input type="hidden" name="department_show_id" id="department_show_id" value="">
                         </form>
                     </div>
-                    
+
                     {{-- <span class="read_more_btn_span"><a class="read_more_btn" href="{{route('list-all-department')}}" >Read More</a></span> --}}
-                
+
                     <span class="read_more_btn_span">
                         @if ($total_records > 6)
-                            <a class="read_more_btn" href="{{ route('list-all-department') }}" id="readMoreBtn1">Read More</a>
+                            <a class="read_more_btn" href="{{ route('list-all-department') }}" id="readMoreBtn1">Read
+                                More</a>
                         @endif
                     </span>
 
@@ -428,15 +425,15 @@
                     {{-- <span class="read_more_btn_span">
                         <a class="read_more_btn" href="{{ route('list-all-department') }}" id="readMoreBtn">Read More</a>
                     </span> --}}
-                
-                
-                
-                
+
+
+
+
                 </div>
 
                 {{-- ============================== --}}
-               
-                
+
+
                 {{-- ===================================== --}}
 
                 <div class="col-md-3">
@@ -509,97 +506,98 @@
                             @endforeach
                         </div>
                     </div>
-                    
-                        <div class="emergency-info mt-2">
-                            <h5>
-                                @if (session('language') == 'mar')
+
+                    <div class="emergency-info mt-2">
+                        <h5>
+                            @if (session('language') == 'mar')
                                 {{ Config::get('marathi.HOME_PAGE.FORCAST_LIVE_DATA') }}
                             @else
                                 {{ Config::get('english.HOME_PAGE.FORCAST_LIVE_DATA') }}
                             @endif
-                            </h5>
-                           
-                            <div class="accordion accordion-flush" id="accordionFlushExample1">
-                                @foreach ($data_output_disasterforcast as $index => $item)
-                                    @if (session('language') == 'mar')
-                                        <div class="accordion-item custom-accordion-item">
-                                            <h2 class="accordion-header accordion-header-custom"
-                                                id="flush-heading1{{ $index }}">
-                                                <button
-                                                    class="accordion-button accordion-button-custom collapsed bg-secondary-custom"
-                                                    type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#flush-collapse1{{ $index }}"
-                                                    aria-expanded="false"
-                                                    aria-controls="flush-collapse1{{ $index }}">
-                                                    {{-- {{ strip_tags($item['marathi_title']) }} --}}
-                                                    @if (session('language') == 'mar')
-                                                    {{ Config::get('marathi.HOME_PAGE.DISASTER_FORCAST') }}
-                                                @else
-                                                    {{ Config::get('english.HOME_PAGE.DISASTER_FORCAST') }}
-                                                @endif
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapse1{{ $index }}"
-                                                class="accordion-collapse collapse bg-secondary-custom"
-                                                aria-labelledby="flush-heading1{{ $index }}"
-                                                data-bs-parent="#accordionFlushExample1">
-                                                <div class="accordion-body">
-                                                    <ul>
-                                                        <li><span><b class="content-justify"><?php echo $item['marathi_title']; ?></b></span><span class="content-justify"><?php echo $item['marathi_description']; ?></span>
-                                                       
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="accordion-item custom-accordion-item">
-                                            <h2 class="accordion-header accordion-header-custom"
-                                                id="flush-heading1{{ $index }}">
-                                                <button
-                                                    class="accordion-button accordion-button-custom collapsed bg-secondary-custom"
-                                                    type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#flush-collapse1{{ $index }}"
-                                                    aria-expanded="false"
-                                                    aria-controls="flush-collapse1{{ $index }}">
-                                                    {{-- {{ strip_tags($item['english_title']) }} --}}
+                        </h5>
 
-                                                    @if (session('language') == 'mar')
+                        <div class="accordion accordion-flush" id="accordionFlushExample1">
+                            @foreach ($data_output_disasterforcast as $index => $item)
+                                @if (session('language') == 'mar')
+                                    <div class="accordion-item custom-accordion-item">
+                                        <h2 class="accordion-header accordion-header-custom"
+                                            id="flush-heading1{{ $index }}">
+                                            <button
+                                                class="accordion-button accordion-button-custom collapsed bg-secondary-custom"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapse1{{ $index }}"
+                                                aria-expanded="false" aria-controls="flush-collapse1{{ $index }}">
+                                                {{-- {{ strip_tags($item['marathi_title']) }} --}}
+                                                @if (session('language') == 'mar')
                                                     {{ Config::get('marathi.HOME_PAGE.DISASTER_FORCAST') }}
                                                 @else
                                                     {{ Config::get('english.HOME_PAGE.DISASTER_FORCAST') }}
                                                 @endif
-                                                </button>
-                                            </h2>
-                                            <div id="flush-collapse1{{ $index }}"
-                                                class="accordion-collapse collapse bg-secondary-custom"
-                                                aria-labelledby="flush-heading1{{ $index }}"
-                                                data-bs-parent="#accordionFlushExample1">
-                                                <div class="accordion-body">
-                                                    <ul>
-                                                        <li><span><b class="content-justify"><?php echo $item['english_title']; ?></b></span><span class="content-justify"><?php echo $item['english_description']; ?></span>
-                                                            <a
-                                                    href="{{ route('disaster-forecast-web') }}">
-                                                        @if (session('language') == 'mar')
-                                                            {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                                        @else
-                                                            {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                                        @endif
-                                                    </a>
-                                                </div>
-                                                </li>
-                                                    </ul>
-                                                    
-                                                </div>
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapse1{{ $index }}"
+                                            class="accordion-collapse collapse bg-secondary-custom"
+                                            aria-labelledby="flush-heading1{{ $index }}"
+                                            data-bs-parent="#accordionFlushExample1">
+                                            <div class="accordion-body">
+                                                <ul>
+                                                    <li><span><b
+                                                                class="content-justify"><?php echo $item['marathi_title']; ?></b></span><span
+                                                            class="content-justify"><?php echo $item['marathi_description']; ?></span>
+
+                                                </ul>
                                             </div>
                                         </div>
-                                    @endif
-                                @endforeach
-                               
-                               
-                            </div>
+                                    </div>
+                                @else
+                                    <div class="accordion-item custom-accordion-item">
+                                        <h2 class="accordion-header accordion-header-custom"
+                                            id="flush-heading1{{ $index }}">
+                                            <button
+                                                class="accordion-button accordion-button-custom collapsed bg-secondary-custom"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapse1{{ $index }}"
+                                                aria-expanded="false" aria-controls="flush-collapse1{{ $index }}">
+                                                {{-- {{ strip_tags($item['english_title']) }} --}}
+
+                                                @if (session('language') == 'mar')
+                                                    {{ Config::get('marathi.HOME_PAGE.DISASTER_FORCAST') }}
+                                                @else
+                                                    {{ Config::get('english.HOME_PAGE.DISASTER_FORCAST') }}
+                                                @endif
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapse1{{ $index }}"
+                                            class="accordion-collapse collapse bg-secondary-custom"
+                                            aria-labelledby="flush-heading1{{ $index }}"
+                                            data-bs-parent="#accordionFlushExample1">
+                                            <div class="accordion-body">
+                                                <ul>
+                                                    <li><span><b
+                                                                class="content-justify"><?php echo $item['english_title']; ?></b></span><span
+                                                            class="content-justify"><?php echo $item['english_description']; ?></span>
+                                                        <a href="{{ route('disaster-forecast-web') }}">
+                                                            @if (session('language') == 'mar')
+                                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                                            @else
+                                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                            @endif
+                                                        </a>
+                                            </div>
+                                            </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
                         </div>
+                        @endif
+                        @endforeach
 
-        </div>
+
+                    </div>
+                </div>
+
+            </div>
 
         </div>
         </div>
@@ -614,23 +612,13 @@
                 once: true
             });
         }
-    
+
         // Call initializeAOS initially when the page loads
         initializeAOS();
-    
+
         // Function to manually refresh AOS after dynamically adding content
         function refreshAOS() {
             AOS.refresh();
         }
     </script>
 @endsection
- 
-
-
-
-
-
-
-
-
-
