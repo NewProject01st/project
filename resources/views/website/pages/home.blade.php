@@ -84,7 +84,7 @@
                                     data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['marathi_title']; ?></h1>
                                     <h6  data-aos="fade-left" data-aos-anchor="#example-anchor"
                                     data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['marathi_description']; ?> </h6>
-                                    {{-- <div class="slide-content-box pt-3" data-aos="fade-right" data-aos-anchor="#example-anchor"
+                                    <div class="slide-content-box pt-3" data-aos="fade-right" data-aos-anchor="#example-anchor"
                                     data-aos-offset="500" data-aos-duration="2000"> <a href="{{ $slider['url'] }}" class="con"
                                             target="_blank">
                                             @if (session('language') == 'mar')
@@ -92,7 +92,7 @@
                                             @else
                                                 {{ Config::get('english.HOME_PAGE.READ_MORE') }}
                                             @endif
-                                        </a> </div> --}}
+                                        </a> </div>
                                 </div>
                             </div>
                         @elseif (array_key_exists('english_title', $slider))
@@ -104,7 +104,7 @@
                                     data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['english_title']; ?></h1>
                                     <h6 data-aos="fade-left" data-aos-anchor="#example-anchor"
                                     data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['english_description']; ?> </h6>
-                                    {{-- <div class="slide-content-box pt-3" data-aos="fade-right" data-aos-anchor="#example-anchor"
+                                    <div class="slide-content-box pt-3" data-aos="fade-right" data-aos-anchor="#example-anchor"
                                     data-aos-offset="500" data-aos-duration="2000"> <a href="{{ $slider['url'] }}" class="con"
                                             target="_blank">
                                             @if (session('language') == 'mar')
@@ -112,7 +112,7 @@
                                             @else
                                                 {{ Config::get('english.HOME_PAGE.READ_MORE') }}
                                             @endif
-                                        </a> </div> --}}
+                                        </a> </div>
                                 </div>
 
                             </div>
