@@ -7128,3 +7128,43 @@ box-shadow: 0 0 4px #000;
 }
   }
  
+  .readmorebtn {
+	font-size: 17px;
+	/* padding: 10px; */
+	transition: background-color 0.3s; /* Smooth transition for background color change */
+	background-color: #fff; 
+	
+
+	border-top: 1px solid #eeeeee;
+	overflow: hidden;
+	line-height: 50px;
+	color: #777777;
+	font-style: italic;
+	font-size: 14px;
+	font-weight: 600;
+	position: relative;
+}
+
+.readmorebtn:hover {
+	background-color:#D94148;; /* Change to desired background color on hover */
+	color: #fff;
+}
+
+
+
+  .cursor-pointer {
+    cursor: pointer;
+}
+
+.pl-3 {
+    padding-left: 0.75rem; /* Adjust as needed */
+}
+
+.show-btn {
+    color: #007bff; /* Change color as needed */
+    text-decoration: none;
+}
+
+.show-btn:hover {
+    color: #0056b3; /* Change hover color as needed */
+}

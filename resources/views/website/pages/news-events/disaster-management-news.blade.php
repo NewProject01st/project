@@ -68,7 +68,7 @@
                                                 <h6 class="card_title"><a href="#"><?php echo mb_substr($item['marathi_title'], 0, 31); ?></a></h6>
                                                 <p class="card_title"> <?php echo mb_substr($item['marathi_description'], 0, 74); ?></p>
                                             </div>
-                                            <div class="news-box-f cursor-pointer">
+                                            {{-- <div class="news-box-f cursor-pointer">
                                                 <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     @if (session('language') == 'mar')
                                                         {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
@@ -77,6 +77,19 @@
                                                     @endif
                                                 </span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
                                                         class="fa fa-arrow-right"></i></a>
+                                            </div> --}}
+                                            <div class="text-center readmorebtn">
+                                                <div class="cursor-pointer">
+                                                    <a data-id="{{ $item['id'] }}">
+                                                        <span class="pl-3">
+                                                            @if (session('language') == 'mar')
+                                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                                            @else
+                                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                            @endif
+                                                        </span>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -98,9 +111,22 @@
                                                 <h6 class="card_title"><a href="#"><?php echo mb_substr($item['english_title'], 0, 31); ?></a></h6>
                                                 <p class="card_title"> <?php echo mb_substr($item['english_description'], 0, 74); ?></p>
                                             </div>
-                                            <div class="news-box-f"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more <a
+                                            {{-- <div class="news-box-f"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read more <a
                                                     data-id="{{ $item['id'] }}" class="show-btn"><i
                                                         class="fa fa-arrow-right"></i></a>
+                                            </div> --}}
+                                            <div class="text-center readmorebtn">
+                                                <div class="cursor-pointer">
+                                                    <a data-id="{{ $item['id'] }}">
+                                                        <span class="pl-3">
+                                                            @if (session('language') == 'mar')
+                                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                                            @else
+                                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                            @endif
+                                                        </span>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

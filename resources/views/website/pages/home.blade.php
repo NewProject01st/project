@@ -84,7 +84,7 @@
                                     data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['marathi_title']; ?></h1>
                                     <h6  data-aos="fade-left" data-aos-anchor="#example-anchor"
                                     data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['marathi_description']; ?> </h6>
-                                    <div class="slide-content-box pt-3" data-aos="fade-right" data-aos-anchor="#example-anchor"
+                                    {{-- <div class="slide-content-box pt-3" data-aos="fade-right" data-aos-anchor="#example-anchor"
                                     data-aos-offset="500" data-aos-duration="2000"> <a href="{{ $slider['url'] }}" class="con"
                                             target="_blank">
                                             @if (session('language') == 'mar')
@@ -92,7 +92,7 @@
                                             @else
                                                 {{ Config::get('english.HOME_PAGE.READ_MORE') }}
                                             @endif
-                                        </a> </div>
+                                        </a> </div> --}}
                                 </div>
                             </div>
                         @elseif (array_key_exists('english_title', $slider))
@@ -104,7 +104,7 @@
                                     data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['english_title']; ?></h1>
                                     <h6 data-aos="fade-left" data-aos-anchor="#example-anchor"
                                     data-aos-offset="500" data-aos-duration="2000"><?php echo $slider['english_description']; ?> </h6>
-                                    <div class="slide-content-box pt-3" data-aos="fade-right" data-aos-anchor="#example-anchor"
+                                    {{-- <div class="slide-content-box pt-3" data-aos="fade-right" data-aos-anchor="#example-anchor"
                                     data-aos-offset="500" data-aos-duration="2000"> <a href="{{ $slider['url'] }}" class="con"
                                             target="_blank">
                                             @if (session('language') == 'mar')
@@ -112,7 +112,7 @@
                                             @else
                                                 {{ Config::get('english.HOME_PAGE.READ_MORE') }}
                                             @endif
-                                        </a> </div>
+                                        </a> </div> --}}
                                 </div>
 
                             </div>
@@ -210,15 +210,29 @@
                                                 <h6 class="card_title"><a href="#"><?php echo mb_substr($item['marathi_title'], 0, 31); ?></a></h6>
                                                 <p class="card_title"> <?php echo mb_substr($item['marathi_description'], 0, 74); ?></p>
                                             </div>
-                                            <div class="news-box-f cursor-pointer">
+                                            {{-- <div class="news-box-f cursor-pointer">
+                                                <a data-id="{{ $item['id'] }}" class="show-btn">
                                                 <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     @if (session('language') == 'mar')
                                                         {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
                                                     @else
                                                         {{ Config::get('english.HOME_PAGE.READ_MORE') }}
                                                     @endif
-                                                </span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
+                                                </span> <i
                                                         class="fa fa-arrow-right"></i></a>
+                                            </div> --}}
+                                            <div class="text-center readmorebtn">
+                                                <div class="cursor-pointer">
+                                                    <a data-id="{{ $item['id'] }}">
+                                                        <span class="pl-3">
+                                                            @if (session('language') == 'mar')
+                                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                                            @else
+                                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                            @endif
+                                                        </span>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -241,16 +255,20 @@
                                                 <h6 class="card_title"><a href="#"><?php echo mb_substr($item['english_title'], 0, 31); ?></a></h6>
                                                 <p class="card_title"> <?php echo mb_substr($item['english_description'], 0, 74); ?></p>
                                             </div>
-                                            <div class="news-box-f cursor-pointer">
-                                                <span class="pl-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    @if (session('language') == 'mar')
-                                                        {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
-                                                    @else
-                                                        {{ Config::get('english.HOME_PAGE.READ_MORE') }}
-                                                    @endif
-                                                </span> <a data-id="{{ $item['id'] }}" class="show-btn"><i
-                                                        class="fa fa-arrow-right"></i></a>
+                                            <div class="text-center readmorebtn">
+                                                <div class="cursor-pointer">
+                                                    <a data-id="{{ $item['id'] }}">
+                                                        <span class="pl-3">
+                                                            @if (session('language') == 'mar')
+                                                                {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
+                                                            @else
+                                                                {{ Config::get('english.HOME_PAGE.READ_MORE') }}
+                                                            @endif
+                                                        </span>
+                                                    </a>
+                                                </div>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 @endif
