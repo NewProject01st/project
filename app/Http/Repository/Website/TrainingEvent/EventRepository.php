@@ -26,8 +26,9 @@ class EventRepository  {
             } else {
                 $data_output = $data_output->select('id','english_title', 'english_description','english_image','start_date', 'end_date');
             }
-            $data_output =  $data_output->get()
-                            ->toArray();
+                $data_output =  $data_output->orderBy('end_date', 'desc') 
+                ->get()
+                ->toArray();
             return  $data_output;
         } catch (\Exception $e) {
             return $e;
@@ -44,8 +45,9 @@ class EventRepository  {
             } else {
                 $data_output = $data_output->select('id','english_title', 'english_description','english_image','start_date', 'end_date');
             }
-            $data_output =  $data_output->get()
-                            ->toArray();
+            $data_output =  $data_output->orderBy('end_date', 'desc') 
+                        ->get()
+                        ->toArray();
             return  $data_output;
         //    echo $data_output;
         //    die();
