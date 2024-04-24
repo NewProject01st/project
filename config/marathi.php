@@ -39,6 +39,7 @@ return [
 		'CONTACT_INFORMATION_FOR_SDMA' =>'संपर्क माहिती',
 		'CONTACT_INFORMATION_FOR_SDMA_DIVISION' =>'विभाग संपर्क माहिती',
 		'CONTACT_INFORMATION_FOR_SDMA_DEPARTMENT' =>'विभाग संपर्क माहिती',
+		'SLOGAN'=>'स्लोगन',
 
 	],
 

@@ -47,23 +47,34 @@
         {{-- Start Marquee --}}
         <section class="marquee-main" id="zoomtext">
             <div class="container-fluid">
-                <div class=" list-group">
-
-                    <marquee width="100%" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-                        <div class="d-flex  g-2 ">
-                            @foreach ($data_output_marquee as $item)
-                                @if (session('language') == 'mar')
-                                    <p class="marquee_para px-2"><a href="{{ $item['url'] }}" target="_blank"
-                                            class="marquee-scroll"><?php echo $item['marathi_title']; ?></a></p>
-                                @else
-                                    <p class="marquee_para px-2"><a href="{{ $item['url'] }}" target="_blank"
-                                            class="marquee-scroll"><?php echo $item['english_title']; ?></a></p>
-                                @endif
-                            @endforeach
-                        </div>
-                    </marquee>
-
+              <div class="row">
+                <div class="col-md-1 marquee-left-colour d-flex justify-content-center align-items-center">
+                    <p class="px-2 ">
+                        @if (session('language') == 'mar')
+                        {{ Config::get('marathi.HOME_PAGE.SLOGAN') }}
+                        @else
+                            {{ Config::get('english.HOME_PAGE.SLOGAN') }}
+                        @endif</p>
                 </div>
+                  <div class="col-md-11 marquee-right-colour">
+                    <div class=" list-group">
+                        <marquee width="100%" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                            <div class="d-flex  g-2 ">
+                                @foreach ($data_output_marquee as $item)
+                                    @if (session('language') == 'mar')
+                                        <p class="marquee_para px-2"><a href="{{ $item['url'] }}" target="_blank"
+                                                class="marquee-scroll"><?php echo $item['marathi_title']; ?></a></p>
+                                    @else
+                                        <p class="marquee_para px-2"><a href="{{ $item['url'] }}" target="_blank"
+                                                class="marquee-scroll"><?php echo $item['english_title']; ?></a></p>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </marquee>
+    
+                    </div>
+                  </div>
+              </div>
             </div>
         </section>
         {{-- End Marquee --}}

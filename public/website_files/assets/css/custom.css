@@ -482,10 +482,26 @@ header {
 /******** + ========== + Main Marquee Start + ========== + ********/
 
 .marquee-main {
-	background-color: #144b8b;
+
 	/* padding:20px 0px 20px 0px !important; */
 	font-family: 'Montserrat', sans-serif;
 	color: #fff !important;
+}
+.marquee-left-colour{
+	background-color: #d94148;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.marquee-left-colour p {
+    animation: blink 1s infinite;
+}
+
+.marquee-right-colour{
+	background-color: #144b8b;
 }
 .marquee-main a {
   position: relative;
