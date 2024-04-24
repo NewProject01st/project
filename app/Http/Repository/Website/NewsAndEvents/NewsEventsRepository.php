@@ -23,8 +23,9 @@ class NewsEventsRepository  {
             } else {
                 $data_output = $data_output->select('english_title','english_description','english_url','disaster_date','english_image','id');
             }
-            $data_output =  $data_output->get()
-                            ->toArray();
+               $data_output = $data_output->orderBy('disaster_date', 'desc')
+                                            ->get()
+                                            ->toArray();
             return  $data_output;
         } catch (\Exception $e) {
             return $e;
@@ -39,8 +40,9 @@ public function getAllSuccessStories()
             } else {
                 $data_output = $data_output->select('id','english_title','english_description','english_designation','english_image');
             }
-            $data_output =  $data_output->get()
-                            ->toArray();
+            $data_output =  $data_output->orderBy('id', 'desc')
+                                        ->get()
+                                        ->toArray();
             return  $data_output;
         } catch (\Exception $e) {
             return $e;
