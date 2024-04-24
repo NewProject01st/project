@@ -37,7 +37,7 @@ return [
 		'CONTACT_INFORMATION_FOR_SDMA' =>'Contact Information',
 		'CONTACT_INFORMATION_FOR_SDMA_DIVISION' =>'Division Contact Information',
 		'CONTACT_INFORMATION_FOR_SDMA_DEPARTMENT' =>'Department Contact Information',
-		'SLOGAN'=>'Slogan',
+		'SLOGAN'=>'Slogans',
 
 
 	],
