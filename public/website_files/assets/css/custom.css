@@ -627,7 +627,7 @@ header {
 
 /******** + ========== + Main Slider Start + ========== + ********/
 
-.carousel-caption h1, .slider-caption strong {
+.carousel-caption h2, .slider-caption strong {
 	color: #fff;
 	font-size: 40px;
 	font-family: 'Montserrat', sans-serif;

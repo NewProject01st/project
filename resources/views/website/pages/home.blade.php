@@ -30,7 +30,7 @@
             /* White text color */
         }
 
-        .sliderman .carousel-caption h1,
+        .sliderman .carousel-caption h2,
         .carousel-caption h6,
         .slide-content-box a {
             color: white;
@@ -94,8 +94,8 @@
                                 <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider['marathi_image'] }}"
                                     class="d-block w-100" alt="{{ strip_tags($slider['marathi_title']) }} Image">
                                 <div class="carousel-caption">
-                                    <h1 data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500"
-                                        data-aos-duration="2000"><?php echo $slider['marathi_title']; ?></h1>
+                                    <h2 data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                                        data-aos-duration="2000"><?php echo $slider['marathi_title']; ?></h2>
                                     <h6 data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
                                         data-aos-duration="2000"><?php echo $slider['marathi_description']; ?> </h6>
                                     <div class="slide-content-box pt-3" data-aos="fade-right"
@@ -114,8 +114,8 @@
                                 <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider['english_image'] }}"
                                     class="d-block w-100" alt="{{ strip_tags($slider['english_title']) }} Image">
                                 <div class="carousel-caption">
-                                    <h1 data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500"
-                                        data-aos-duration="2000"><?php echo $slider['english_title']; ?></h1>
+                                    <h2 data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                                        data-aos-duration="2000"><?php echo $slider['english_title']; ?></h2>
                                     <h6 data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
                                         data-aos-duration="2000"><?php echo $slider['english_description']; ?> </h6>
                                     <div class="slide-content-box pt-3" data-aos="fade-right"
