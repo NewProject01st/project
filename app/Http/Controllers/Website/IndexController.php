@@ -256,7 +256,7 @@ class IndexController extends Controller
             } else {
                 $language = 'en';
             }
-            return view('website.pages.preparedness.hazard-and-vulnerability-assessment ',compact('language','menu', 'data_output'));
+            return view('website.pages.preparedness.hazard-and-vulnerability-assessment',compact('language','menu', 'data_output'));
 
         } catch (\Exception $e) {
             return $e;

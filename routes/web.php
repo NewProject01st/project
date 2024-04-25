@@ -61,20 +61,20 @@ Route::post('/information-map-ajax', ['as' => 'information-map-ajax', 'uses' => 
 Route::get('/privacy-policy', ['as' => 'privacy-policy', 'uses' => 'App\Http\Controllers\Website\IndexController@getPrivacyPolicy']);
 Route::get('/terms_condition', ['as' => 'terms_condition', 'uses' => 'App\Http\Controllers\Website\IndexController@getTermConditions']);
 
-Route::get('/disaster-management-portal ', ['as' => 'disaster-management-portal ', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllDisasterManagmentPortal']);
+Route::get('/disaster-management-portal', ['as' => 'disaster-management-portal', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllDisasterManagmentPortal']);
 Route::get('/objective-and-goals', ['as' => 'objective-and-goals', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllObjectiveGoals']);
 Route::get('/state-disaster-management-authority', ['as' => 'state-disaster-management-authority', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllStateDisasterManagementAuthority']);
 Route::get('/contact-information', ['as' => 'contact-information', 'uses' => 'App\Http\Controllers\Website\ContactUs\ContactController@getAllContactInformation']);
 Route::get('/feedback-suggestions', ['as' => 'feedback-suggestions', 'uses' => 'App\Http\Controllers\Website\ContactUs\ContactController@add']);
 Route::post('/feedback-suggestions', ['as' => 'feedback-suggestions', 'uses' => 'App\Http\Controllers\Website\ContactUs\ContactController@store']);
 
-Route::get('/hazard-and-vulnerability-assessment ', ['as' => 'hazard-and-vulnerability-assessment ', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllHazardVulnerability']);
+Route::get('/hazard-and-vulnerability-assessment', ['as' => 'hazard-and-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllHazardVulnerability']);
 Route::get('/early-warning-systems', ['as' => 'early-warning-systems', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllEarlyWarningSystem']);
 Route::get('/capacity-building-and-training', ['as' => 'capacity-building-and-training', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllCapacityTraining']);
 Route::get('/public-awareness-and-education', ['as' => 'public-awareness-and-education', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllPublicAwarenessEducation']);
 Route::get('/government-hospitals', ['as' => 'government-hospitals', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllGovtHospitals']);
 
-Route::get('/state-emergency-operations-center ', ['as' => 'state-emergency-operations-center ', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllStateEmergencyOperationsCenter']);
+Route::get('/state-emergency-operations-center', ['as' => 'state-emergency-operations-center', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllStateEmergencyOperationsCenter']);
 Route::get('/district-emergency-operations-center', ['as' => 'district-emergency-operations-center', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllDistrictEmergencyOperationsCenter']);
 Route::get('/emergency-contact-numbers', ['as' => 'emergency-contact-numbers', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllEmergencyContactNumbers']);
 Route::get('/search-rescue-teams', ['as' => 'search-rescue-teams', 'uses' => 'App\Http\Controllers\Website\EmergencyResponse\EmergencyResponseController@getAllSearchRescueTeams']);

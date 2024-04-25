@@ -12,7 +12,7 @@
                     @endif
                 </h2>
                 <ul>
-                    <li> <a href="{{ route('disaster-management-portal ') }}">
+                    <li> <a href="{{ route('disaster-management-portal') }}">
                             @if (session('language') == 'mar')
                                 {{ Config::get('marathi.ABOUT_US.ABOUT_US_MAIN_LINK') }}
                             @else

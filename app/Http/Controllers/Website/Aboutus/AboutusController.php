@@ -41,7 +41,7 @@ class AboutusController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.aboutus.disaster-management-portal ',compact('language','menu','data_output'));
+        return view('website.pages.aboutus.disaster-management-portal',compact('language','menu','data_output'));
     }  
     public function getAllObjectiveGoals()
     {

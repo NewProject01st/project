@@ -35,7 +35,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Introduction To The Disaster Management Portal',
             'menu_name_marathi' => 'आपत्ती व्यवस्थापन पोर्टलची ओळख',
             'order_no' => 1,
-            'url'=>'disaster-management-portal ',
+            'url'=>'disaster-management-portal',
             'is_static'=>true,
             'is_active' => true,
            
@@ -194,7 +194,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'Hazard And Vulnerability Assessment',
             'menu_name_marathi' => 'धोका आणि असुरक्षा मूल्यांकन',
             'order_no' => 1,
-            'url'=>'hazard-and-vulnerability-assessment ',
+            'url'=>'hazard-and-vulnerability-assessment',
             'is_static'=>true,
             'is_active' => true,
            
@@ -294,7 +294,7 @@ class MainSubMenusSeeder extends Seeder
             'menu_name_english' => 'State Emergency Operations Center (EOC)',
             'menu_name_marathi' => 'राज्य आपत्कालीन ऑपरेशन केंद्र (EOC)',
             'order_no' => 1,
-            'url'=>'state-emergency-operations-center ',
+            'url'=>'state-emergency-operations-center',
             'is_static'=>true,
             'is_active' => true,
            

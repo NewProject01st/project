@@ -12,7 +12,7 @@
                     @endif
                 </h2>
                 <ul>
-                    <li> <a href="{{ route('state-emergency-operations-center ') }}">
+                    <li> <a href="{{ route('state-emergency-operations-center') }}">
                             @if (session('language') == 'mar')
                                 {{ Config::get('marathi.EMERGENCY_RESPONSES.EMERGENCY_RESPONSES_MAIN_LINK') }}
                             @else
