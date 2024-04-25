@@ -182,8 +182,12 @@
                                  <li><a href="{{ route('privacy-policy') }}"><i
                                              class="fa fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                              @else
-                                 <li><a href="{{ route('terms-condition') }}"><i
-                                             class="fa fa-star"></i><?php echo $item['english_title']; ?></a></li>
+                                 <li>
+                                    {{-- <a href="{{ route('terms-condition') }}"> --}}
+                                    <i
+                                             class="fa fa-star"></i><?php echo $item['english_title']; ?>
+                                            {{-- </a> --}}
+                                        </li>
                              @endif
                          @empty
                              <p>

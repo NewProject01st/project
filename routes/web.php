@@ -59,7 +59,7 @@ Route::get('/maps-and-gis-data', ['as' => 'information-map', 'uses' => 'App\Http
 Route::post('/information-map-ajax', ['as' => 'information-map-ajax', 'uses' => 'App\Http\Controllers\Website\Map\MapController@mapDataAjax']);
 
 Route::get('/privacy-policy', ['as' => 'privacy-policy', 'uses' => 'App\Http\Controllers\Website\IndexController@getPrivacyPolicy']);
-Route::get('/terms-condition', ['as' => 'terms-condition', 'uses' => 'App\Http\Controllers\Website\IndexController@getTermConditions']);
+// Route::get('/terms-condition', ['as' => 'terms-condition', 'uses' => 'App\Http\Controllers\Website\IndexController@getTermConditions']);
 
 Route::get('/disaster-management-portal', ['as' => 'disaster-management-portal', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllDisasterManagmentPortal']);
 Route::get('/objective-and-goals', ['as' => 'objective-and-goals', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllObjectiveGoals']);
