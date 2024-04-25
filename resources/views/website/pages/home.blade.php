@@ -587,13 +587,13 @@
                                                     <li><span><b
                                                                 class="content-justify"><?php echo $item['english_title']; ?></b></span><span
                                                             class="content-justify"><?php echo $item['english_description']; ?></span>
-                                                        {{-- <a href="{{ route('disaster-forecast-web') }}"> --}}
+                                                        <a href="{{ route('disaster-forecast-web') }}">
                                                             @if (session('language') == 'mar')
                                                                 {{ Config::get('marathi.HOME_PAGE.READ_MORE') }}
                                                             @else
                                                                 {{ Config::get('english.HOME_PAGE.READ_MORE') }}
                                                             @endif
-                                                        {{-- </a> --}}
+                                                        </a>
                                             </div>
                                             </li>
                                             </ul>

@@ -49,7 +49,7 @@ Route::get('/home', ['as' => 'home', 'uses' => 'App\Http\Controllers\Website\Ind
 Route::post('/disaster-management-news', ['as' => 'disaster-management-news', 'uses' => 'App\Http\Controllers\Website\IndexController@show']);
 Route::post('/department', ['as' => 'department', 'uses' => 'App\Http\Controllers\Website\IndexController@showDepartmentInformation']);
 Route::post('/particular-disaster_forecast', ['as' => 'particular-disaster_forecast', 'uses' => 'App\Http\Controllers\Website\IndexController@showDisasterForecast']);
-// Route::get('/disaster-forecast-web', ['as' => 'disaster-forecast-web', 'uses' => 'App\Http\Controllers\Website\IndexController@getAllWebDisaterForcast']);
+Route::get('/disaster-forecast-web', ['as' => 'disaster-forecast-web', 'uses' => 'App\Http\Controllers\Website\IndexController@getAllWebDisaterForcast']);
 Route::get('/list-all-department', ['as' => 'list-all-department', 'uses' => 'App\Http\Controllers\Website\IndexController@getAllDepartmentInformation']);
 
 Route::get('/list-vacancies', ['as' => 'list-vacancies', 'uses' => 'App\Http\Controllers\Website\IndexController@showVacancies']);
@@ -58,15 +58,15 @@ Route::get('/list-rti', ['as' => 'list-rti', 'uses' => 'App\Http\Controllers\Web
 Route::get('/maps-and-gis-data', ['as' => 'information-map', 'uses' => 'App\Http\Controllers\Website\Map\MapController@index']);
 Route::post('/information-map-ajax', ['as' => 'information-map-ajax', 'uses' => 'App\Http\Controllers\Website\Map\MapController@mapDataAjax']);
 
-// Route::get('/privacy-policy', ['as' => 'privacy-policy', 'uses' => 'App\Http\Controllers\Website\IndexController@getPrivacyPolicy']);
-// Route::get('/terms-condition', ['as' => 'terms-condition', 'uses' => 'App\Http\Controllers\Website\IndexController@getTermConditions']);
+Route::get('/privacy-policy', ['as' => 'privacy-policy', 'uses' => 'App\Http\Controllers\Website\IndexController@getPrivacyPolicy']);
+Route::get('/terms-condition', ['as' => 'terms-condition', 'uses' => 'App\Http\Controllers\Website\IndexController@getTermConditions']);
 
 Route::get('/disaster-management-portal', ['as' => 'disaster-management-portal', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllDisasterManagmentPortal']);
 Route::get('/objective-and-goals', ['as' => 'objective-and-goals', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllObjectiveGoals']);
 Route::get('/state-disaster-management-authority', ['as' => 'state-disaster-management-authority', 'uses' => 'App\Http\Controllers\Website\Aboutus\AboutusController@getAllStateDisasterManagementAuthority']);
 Route::get('/contact-information', ['as' => 'contact-information', 'uses' => 'App\Http\Controllers\Website\ContactUs\ContactController@getAllContactInformation']);
-// Route::get('/feedback-suggestions', ['as' => 'feedback-suggestions', 'uses' => 'App\Http\Controllers\Website\ContactUs\ContactController@add']);
-// Route::post('/feedback-suggestions', ['as' => 'feedback-suggestions', 'uses' => 'App\Http\Controllers\Website\ContactUs\ContactController@store']);
+Route::get('/feedback-suggestions', ['as' => 'feedback-suggestions', 'uses' => 'App\Http\Controllers\Website\ContactUs\ContactController@add']);
+Route::post('/feedback-suggestions', ['as' => 'feedback-suggestions', 'uses' => 'App\Http\Controllers\Website\ContactUs\ContactController@store']);
 
 Route::get('/hazard-and-vulnerability-assessment', ['as' => 'hazard-and-vulnerability-assessment', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllHazardVulnerability']);
 Route::get('/early-warning-systems', ['as' => 'early-warning-systems', 'uses' => 'App\Http\Controllers\Website\Preparedness\PreparednessController@getAllEarlyWarningSystem']);
