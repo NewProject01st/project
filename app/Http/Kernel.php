@@ -74,4 +74,7 @@ class Kernel extends HttpKernel
         'referrer-policy' => \App\Http\Middleware\SetReferrerPolicy::class,
 
     ];
+    protected $commands = [
+        \App\Console\Commands\GenerateSitemap::class,
+    ];
 }
