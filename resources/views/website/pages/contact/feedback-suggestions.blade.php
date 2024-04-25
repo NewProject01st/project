@@ -12,13 +12,15 @@
             </h2>
             <ul>
 
-                <li> <a href="{{ route('feedback-suggestions') }}">
+                <li> 
+                    {{-- <a href="{{ route('feedback-suggestions') }}"> --}}
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.CONTACT_US.CONTACT_US_MAIN_LINK') }}
                         @else
                             {{ Config::get('english.CONTACT_US.CONTACT_US_MAIN_LINK') }}
                         @endif
-                    </a> </li>
+                    {{-- </a>  --}}
+                </li>
                 <li>
                     @if (session('language') == 'mar')
                         {{ Config::get('marathi.CONTACT_US.CONTACT_US_SUB_LINK2') }}
@@ -50,7 +52,9 @@
                                 {{ Session::get('success_message') }}
                             </div>
                         @endif
-                        <form class="forms-sample" action="{{ url('feedback-suggestions') }}" id="regForm" method="POST"
+                        <form class="forms-sample" 
+                        {{-- action="{{ url('feedback-suggestions') }}" --}}
+                         id="regForm" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="row">

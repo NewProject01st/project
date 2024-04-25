@@ -12,13 +12,15 @@
                     @endif
                 </h2>
                 <ul>
-                    <li> <a href="{{ route('feedback-suggestions') }}">
+                    <li> 
+                        {{-- <a href="{{ route('feedback-suggestions') }}"> --}}
                             @if (session('language') == 'mar')
                                 {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_MAIN_LINK') }}
                             @else
                                 {{ Config::get('english.CITIZEN_ACTION.CITIZEN_ACTION_MAIN_LINK') }}
                             @endif
-                        </a> </li>
+                        {{-- </a> --}}
+                     </li>
                     <li>
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.CITIZEN_ACTION.CITIZEN_ACTION_SUB_LINK3') }}
@@ -64,7 +66,7 @@
                             <!--Department Details Txt End-->
                             <!-- Button trigger modal -->
                             <div class="d-flex justify-content-center">
-                                <a href="{{ route('feedback-suggestions') }}">
+                                {{-- <a href="{{ route('feedback-suggestions') }}"> --}}
                                     <button type="button" class="btn modal-btn-color">
                                         @if (session('language') == 'mar')
                                             {{ Config::get('marathi.HOME_PAGE.FEEDBACK_ADN_SUGGESTION') }}
@@ -73,7 +75,7 @@
                                         @endif
 
                                     </button>
-                                </a>
+                                {{-- </a> --}}
                             </div>
                         </div>
                         <!--Sidebar Start-->
