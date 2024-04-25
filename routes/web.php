@@ -109,7 +109,7 @@ Route::post('/list-ajax-multimedia-web', ['as' => 'list-ajax-multimedia-web', 'u
 Route::get('/training-materials', ['as' => 'training-materials', 'uses' => 'App\Http\Controllers\Website\ResourceCenter\ResourceCenterController@getAllTraningMaterial']);
 
 Route::get('/disaster-management-news', ['as' => 'disaster-management-news', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@getAllDisasterManagementNews']);
-Route::get('/success-stories ', ['as' => 'success-stories ', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@getAllSuccessStories']);
+Route::get('/success-stories', ['as' => 'success-stories', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@getAllSuccessStories']);
 Route::post('/list-particular-success-stories-web', ['as' => 'list-particular-success-stories-web', 'uses' => 'App\Http\Controllers\Website\NewsAndEvents\NewsEventsController@show']);
 
 Route::get('/site-map', ['as' => 'site-map', 'uses' => 'App\Http\Controllers\Website\SiteMap\SiteMapController@index']);

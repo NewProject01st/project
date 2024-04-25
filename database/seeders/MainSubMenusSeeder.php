@@ -624,7 +624,7 @@ class MainSubMenusSeeder extends Seeder
             'main_menu_id' => 10,
             'menu_name_english' => 'Success Stories And Case Studies',
             'menu_name_marathi' => 'यशोगाथा आणि केस स्टडी',
-            'url'=>'success-stories ',
+            'url'=>'success-stories',
             'order_no' => 4,
             'is_static'=>true,
             'is_active' => true,

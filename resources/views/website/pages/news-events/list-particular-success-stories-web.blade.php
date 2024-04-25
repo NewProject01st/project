@@ -12,7 +12,7 @@
                 @endif
             </h2>
             <ul>
-                <li> <a href="{{ route('success-stories ') }}">
+                <li> <a href="{{ route('success-stories') }}">
                         @if (session('language') == 'mar')
                             {{ Config::get('marathi.NEWS_EVENTS.NEWS_EVENTS_MAIN_LINK') }}
                         @else
@@ -94,7 +94,7 @@
                     <div class="col-md-3">
                         {{-- <div class="pb-3">
                             <button type="button" class="btn back-btn-color"><a
-                                    href="{{ route('success-stories ') }}">
+                                    href="{{ route('success-stories') }}">
                                     @if (session('language') == 'mar')
                                         {{ Config::get('marathi.NEWS_EVENTS.NEWS_EVENTS_BACK') }}
                                     @else

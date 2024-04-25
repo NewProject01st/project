@@ -57,7 +57,7 @@ class NewsEventsController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
-        return view('website.pages.news-events.success-stories ',compact('language','menu', 'data_output'));
+        return view('website.pages.news-events.success-stories',compact('language','menu', 'data_output'));
     }
     public function show(Request $request)
     {
