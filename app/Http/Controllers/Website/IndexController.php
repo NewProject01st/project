@@ -419,7 +419,7 @@ class IndexController extends Controller
             } else {
                 $language = 'en';
             }
-            return view('website.pages.terms_condition',compact('language','menu', 'data_output'));
+            return view('website.pages.terms-condition',compact('language','menu', 'data_output'));
 
         } catch (\Exception $e) {
             return $e;

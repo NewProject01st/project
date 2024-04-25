@@ -182,7 +182,7 @@
                                  <li><a href="{{ route('privacy-policy') }}"><i
                                              class="fa fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                              @else
-                                 <li><a href="{{ route('terms_condition') }}"><i
+                                 <li><a href="{{ route('terms-condition') }}"><i
                                              class="fa fa-star"></i><?php echo $item['english_title']; ?></a></li>
                              @endif
                          @empty
@@ -196,7 +196,7 @@
                          @endforelse
                          {{-- <li><a href="{{ route('privacy-policy') }}"  target="_blank"><i
                             class="fa fa-star"></i>Privacy Policy</a></li>
-                            <li><a href="{{ route('terms_condition') }}" target="_blank"><i
+                            <li><a href="{{ route('terms-condition') }}" target="_blank"><i
                                 class="fa fa-star"></i>Terms and Conditions</a></li> --}}
 
                      </ul>
