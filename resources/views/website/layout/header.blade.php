@@ -16,7 +16,7 @@
     $metadata = App\Models\Metadata::first();
     ?>
     <meta name="english_name" content="{{ $metadata->english_name }}">
-    <meta name="google-site-verification" content="xcyyjJgQSlEdcZrDXC5e9asZKy8Xnhf4BKbnL6YvyJk" />
+    
     <meta name="keywords"
         content="@if (isset($dynamic_meta_data)) {{ $dynamic_meta_data }} @else  {{ $metadata->keywords }} @endif">
     <meta name="viewport" content="width=device-width, initial-scale=1">
