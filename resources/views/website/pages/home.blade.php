@@ -48,7 +48,7 @@
         <section class="marquee-main" id="zoomtext">
             <div class="container-fluid">
               <div class="row">
-                <div class="col-md-1 marquee-left-colour d-flex justify-content-center align-items-center">
+                <div class="col-md-1 col-3 marquee-left-colour d-flex justify-content-center align-items-center">
                     <p class="px-2 ">
                         @if (session('language') == 'mar')
                         {{ Config::get('marathi.HOME_PAGE.SLOGAN') }}
@@ -56,7 +56,7 @@
                             {{ Config::get('english.HOME_PAGE.SLOGAN') }}
                         @endif</p>
                 </div>
-                  <div class="col-md-11 marquee-right-colour">
+                  <div class="col-md-11 col-9 marquee-right-colour">
                     <div class=" list-group">
                         <marquee width="100%" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
                             <div class="d-flex  g-2 ">
