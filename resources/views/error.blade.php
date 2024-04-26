@@ -404,7 +404,7 @@ svg {
   <div class="row">
     <div class="col-md-12">
         <a href="/" class="set_logo">
-          <img src="{{ Config::get('DocumentConstant.WEBSITE_LOGO_VIEW') }}" alt="" style="width: 22%;">
+          <img src="{{ Config::get('DocumentConstant.WEBSITE_LOGO_VIEW') }}" alt="Logo Not Found" style="width: 22%;">
         </a>
     </div>
   </div>
