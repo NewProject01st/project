@@ -14,7 +14,7 @@
                  @if (session('language') == 'mar')
                      <div class="col-md-3 col-sm-6">
                          <div class="textwidget"><a href="/home"> <img src="{{ asset('website_files/images/footer/footer_logo.png') }}"
-                                 alt="" width="80%"></a><br><br>
+                                 alt="Image Not Found" width="80%"></a><br><br>
                              <address>
                                  <ul>
                                      <li> <i class="fa fa-university"></i> <strong>
@@ -48,7 +48,7 @@
                  @else
                      <div class="col-md-3 col-sm-6">
                          <div class="textwidget"> <a href="/home"> <img src="{{ asset('website_files/images/footer/footer_logo.png') }}"
-                                 alt="" width="80%"></a><br><br>
+                                 alt="Image Not Found" width="80%"></a><br><br>
                              <address>
                                  <ul>
                                      <li> <i class="fa fa-university"></i> <strong>
