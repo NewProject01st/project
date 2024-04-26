@@ -255,22 +255,22 @@ class IndexRepository  {
             return $e;
         }
     }
-    public function getAllWebDisaterForcast(){
-        try {
-             $data_output = DisasterForcast::where('is_active','=',true);
+    // public function getAllWebDisaterForcast(){
+    //     try {
+    //          $data_output = DisasterForcast::where('is_active','=',true);
            
-            if (Session::get('language') == 'mar') {
-                $data_output =  $data_output->select('id','marathi_title','marathi_description');
-            } else {
-                $data_output = $data_output->select('id','english_title','english_description');
-            }
-            $data_output =  $data_output->get()
-                            ->toArray();
-            return  $data_output;
-        } catch (\Exception $e) {
-            return $e;
-        }
-    }
+    //         if (Session::get('language') == 'mar') {
+    //             $data_output =  $data_output->select('id','marathi_title','marathi_description');
+    //         } else {
+    //             $data_output = $data_output->select('id','english_title','english_description');
+    //         }
+    //         $data_output =  $data_output->get()
+    //                         ->toArray();
+    //         return  $data_output;
+    //     } catch (\Exception $e) {
+    //         return $e;
+    //     }
+    // }
 
     public function getByIdDisasterForecast($id)
     {

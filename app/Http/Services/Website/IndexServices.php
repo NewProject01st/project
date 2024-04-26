@@ -118,14 +118,14 @@ class IndexServices
         }
     }  
     
-    public function getAllWebDisaterForcast ()
-    {
-        try {
-            return $this->repo->getAllWebDisaterForcast ();
-        } catch (\Exception $e) {
-            return $e;
-        }
-    } 
+    // public function getAllWebDisaterForcast ()
+    // {
+    //     try {
+    //         return $this->repo->getAllWebDisaterForcast ();
+    //     } catch (\Exception $e) {
+    //         return $e;
+    //     }
+    // } 
     public function getByIdDepartmentInformation($id)
     {
         try {
