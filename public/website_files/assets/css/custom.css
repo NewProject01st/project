@@ -7168,7 +7168,14 @@ box-shadow: 0 0 4px #000;
 	background-color:#D94148 !important; /* Change to desired background color on hover */
 	color: #fff;
 }
+.readmorebtn .disaster-show-btn  {
+	color: #777777;
+}
 
+.readmorebtn .disaster-show-btn :hover {
+	background-color:#D94148 !important; /* Change to desired background color on hover */
+	color: #fff;
+}
 
 
   .cursor-pointer {
