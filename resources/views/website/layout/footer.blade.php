@@ -178,13 +178,13 @@
                          @endforelse
 
                          @forelse ($common_data['termcondition_data'] as $item)
-                             @if (session('language') == 'mar')
+                             {{-- @if (session('language') == 'mar')
                                  <li><a href="{{ route('privacy-policy') }}"><i
                                              class="fa fa-star"></i><?php echo $item['marathi_title']; ?></a></li>
                              @else
                                  <li><a href="{{ route('terms-condition') }}"><i
                                              class="fa fa-star"></i><?php echo $item['english_title']; ?></a></li>
-                             @endif
+                             @endif --}}
                          @empty
                              <p>
                                  @if (session('language') == 'mar')
