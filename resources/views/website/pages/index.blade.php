@@ -3,7 +3,9 @@
 
 <head>
     <title>Disaster Management</title>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="canonical" href="https://nmcdm.org.in/">
+
     <meta name="google-site-verification" content="xcyyjJgQSlEdcZrDXC5e9asZKy8Xnhf4BKbnL6YvyJk" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="{{ asset('assets/css/landing.css') }}">

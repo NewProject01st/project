@@ -2,6 +2,7 @@
 <html  lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="canonical" href="https://nmcdm.org.in/">
     <title>
         {{ env('APP_NAME') }}
     </title>
