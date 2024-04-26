@@ -297,23 +297,23 @@ class IndexController extends Controller
             return $e;
         }
     } 
-    // public function getAllWebDisaterForcast()
-    // {
-    //     try {
+    public function getAllWebDisaterForcast()
+    {
+        try {
 
-    //         $menu = $this->menu;
-    //         $data_output = $this->service->getAllWebDisaterForcast();
-    //         if (Session::get('language') == 'mar') {
-    //             $language = Session::get('language');
-    //         } else {
-    //             $language = 'en';
-    //         }
+            $menu = $this->menu;
+            $data_output = $this->service->getAllWebDisaterForcast();
+            if (Session::get('language') == 'mar') {
+                $language = Session::get('language');
+            } else {
+                $language = 'en';
+            }
 
-    //     } catch (\Exception $e) {
-    //         return $e;
-    //     }
-    //     return view('website.pages.disaster-forecast-web',compact('language','menu','data_output'));
-    // }
+        } catch (\Exception $e) {
+            return $e;
+        }
+        return view('website.pages.disaster-forecast-web',compact('language','menu','data_output'));
+    }
 
     public function getAllDepartmentInformation()
     {
