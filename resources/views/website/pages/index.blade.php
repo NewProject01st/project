@@ -63,8 +63,8 @@
                                 class="d-block w-100">
                         </div>
                         <div class="">
-                            <h4 class="item-title py-2 dis-display title-size" data-aos="fade-right" data-aos-anchor="#example-anchor"
-                                data-aos-offset="500" data-aos-duration="3000"><?php echo $content['title']; ?> </h4>
+                            <h1 class="item-title py-2 dis-display title-size" data-aos="fade-right" data-aos-anchor="#example-anchor"
+                                data-aos-offset="500" data-aos-duration="3000"><?php echo $content['title']; ?> </h1>
                             <h6 class="dis-display new-dis-size" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
                                 data-aos-duration="3000"><?php echo $content['description']; ?>
     
