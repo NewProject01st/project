@@ -7056,6 +7056,9 @@ box-shadow: 0 0 4px #000;
 	.read_more_btn_span{
 		margin-bottom: 1rem!important;
 	}
+	.marquee-main a {
+		padding-right: 500px !important;
+	  }
 }
 
 
