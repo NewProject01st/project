@@ -525,6 +525,7 @@ header {
 	display: block ruby !important;
 	font-size: 16px;
     font-weight: 600;
+	padding-right: 800px !important;
 }
 .marquee-main .list-group{
 
