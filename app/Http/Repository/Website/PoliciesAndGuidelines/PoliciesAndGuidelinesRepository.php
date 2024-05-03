@@ -105,11 +105,11 @@ public function getAllStateDisasterManagementPolicy()
             ->where('english_title', 'REGEXP', '^[a-zA-Z]');
         }
         if (Session::get('language') == 'mar') {
-            $data_output =  $data_output->orderBy('policies_year', 'asc')->orderBy('marathi_title','asc')->get()
+            $data_output =  $data_output->orderBy('policies_year', 'desc')->orderBy('marathi_title','asc')->get()
                             ->toArray();
             }
             else{
-                $data_output =  $data_output->orderBy('policies_year', 'asc')->orderBy('english_title', 'asc')->get()
+                $data_output =  $data_output->orderBy('policies_year', 'desc')->orderBy('english_title', 'asc')->get()
                 ->toArray();
             }
 
