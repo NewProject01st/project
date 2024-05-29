@@ -158,7 +158,7 @@ return [
 		'FORM_MEDIA_UPLOAD'   => 'मीडिया अपलोड',
 		'FORM_SEND'   => 'पाठवा	',
 		'FORM_VOLUNTEER_TYPE'   => 'स्वयंसेवक प्रकार',
-		'ARE_YOU_NGO'   => 'तुम्ही NGO आहात का?',
+		'ARE_YOU_NGO'   => 'तुम्ही एनजीओ आहात का ?',
 		'NGO_NAME'   => 'NGO चे नाव :',
 		'NGO_EMAIL'   => 'NGO ईमेल :',
 		'NGO_MOBILE_NO'   => 'NGO मोबाईल नंबर :',

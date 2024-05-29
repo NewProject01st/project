@@ -157,7 +157,7 @@ return [
 		'FORM_MEDIA_UPLOAD'   => 'Media Upload',
 		'FORM_SEND'   => 'Send',
 		'FORM_VOLUNTEER_TYPE'   => 'Volunteer Type',
-		'ARE_YOU_NGO'   => 'Are you NGO ?',
+		'ARE_YOU_NGO'   => 'Are you an NGO ?',
 		'NGO_NAME'   => 'NGO Name :',
 		'NGO_EMAIL'   => 'NGO Email :',
 		'NGO_MOBILE_NO'   => 'NGO Mobile Number :',
