@@ -218,7 +218,7 @@ return [
 		
 		'DISASTER_MANAGEMENT_NEWS' =>'आपत्ती व्यवस्थापन बातम्या',
 		'NO_DATA_FOUND_DISASTER_MANAGEMENT_NEWS'   => 'आपत्ती व्यवस्थापन बातम्यांसाठी कोणताही डेटा सापडला नाही.',
-		'NO_DATA_FOUND_SUCCESS_AND_STORIES'   => 'यशोगाथा साठी कोणताही डेटा आढळला नाही.',
+		'NO_DATA_FOUND_SUCCESS_AND_STORIES'   => 'डेटा लवकरच येत आहे.',
 	],
 
 	'CONTACT_US'=>[ 

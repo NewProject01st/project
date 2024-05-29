@@ -218,7 +218,7 @@ return [
 
 		'DISASTER_MANAGEMENT_NEWS' =>'Disaster Management News',
 		'NO_DATA_FOUND_DISASTER_MANAGEMENT_NEWS'   => 'No Data Found For Disaster Management News.',
-		'NO_DATA_FOUND_SUCCESS_AND_STORIES'   => 'No Data Found For Success Stories.',
+		'NO_DATA_FOUND_SUCCESS_AND_STORIES'   => 'Data Coming Soon.',
 
 	],
 

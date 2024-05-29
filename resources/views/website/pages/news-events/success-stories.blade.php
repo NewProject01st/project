@@ -101,7 +101,7 @@
                                         @endif
                                     </div>
                                 @empty
-                                    <h4>
+                                    <h4 class="d-flex justify-content-center">
                                         @if (session('language') == 'mar')
                                             {{ Config::get('marathi.NEWS_EVENTS.NO_DATA_FOUND_SUCCESS_AND_STORIES') }}
                                         @else
