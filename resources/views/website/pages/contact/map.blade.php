@@ -96,9 +96,11 @@
                                 src="{{$item['google_map_link']}}" width="100%" height="300px"></iframe>
                               </div>
                               <div class="col-lg-4 col-md-4 col-sm-4">
-                                <span class="map-title"><?php echo $item['location_name_marathi']; ?></span>
-                                <span class="map-address"><?php echo $item['location_address_marathi']; ?></span>
-                                <span class="map-address"><?php echo $item['marathi_description']; ?></span>
+                                <div><span class="map-title"><?php echo $item['location_name_marathi']; ?></span></div>
+                                <div><span class="map-address"><?php echo $item['location_address_marathi']; ?></span></div>
+                                @if(!is_null($item['marathi_description']))
+                                <div><span class="map-address">{{ $item['marathi_description'] }}</span></div>
+                            @endif
                               </div>
                               @else
                               <div class="col-lg-8 col-md-8 col-sm-8">
@@ -106,9 +108,11 @@
                                 src="{{$item['google_map_link']}}" width="100%" height="300px"></iframe>
                               </div>
                               <div class="col-lg-4 col-md-4 col-sm-4">
-                                <span class="map-title"><?php echo $item['location_name_english']; ?></span>
-                                <span class="map-address"><?php echo $item['location_address_english']; ?></span>
-                                <span class="map-address"><?php echo $item['english_description']; ?></span>
+                                <div><span class="map-title"><?php echo $item['location_name_english']; ?></span></div>
+                                <div><span class="map-address"><?php echo $item['location_address_english']; ?></span></div>
+                                @if(!is_null($item['english_description']))
+                                <div><span class="map-address">{{ $item['english_description'] }}</span></div>
+                            @endif
                               </div>
                               @endif
                            </div>
