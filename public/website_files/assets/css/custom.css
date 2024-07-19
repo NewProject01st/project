@@ -7199,3 +7199,13 @@ box-shadow: 0 0 4px #000;
 .show-btn:hover {
     color: #0056b3; /* Change hover color as needed */
 }
+.map-title{
+	font-size: 19px !important;
+	font-weight: 500 !important;
+	color: #333333 !important;
+   }
+   .map-address{
+	font-size: 17px !important;
+	/* font-weight: 500 !important; */
+	color: #333333 !important;
+   }

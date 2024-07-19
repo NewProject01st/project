@@ -57,7 +57,8 @@ class MapLatLonController extends Controller
         'location_address_marathi.required' => 'कृपया पत्ता प्रविष्ट करा.',
         // 'location_address_marathi.regex' => 'कृपया बरोबर पत्ता प्रविष्ट करा.',
         'location_address_marathi.max'   => 'कृपया पत्त्याची लांबी 255 पर्यंत प्रविष्ट करा.',
-
+        'location_address_marathi.required' => 'Please enter map link.',
+        
         // 'data_for.required' => 'Please enter data.',
        
     ];
@@ -136,6 +137,7 @@ class MapLatLonController extends Controller
         'location_address_marathi.required' => 'कृपया पत्ता प्रविष्ट करा.',
         // 'location_address_marathi.regex' => 'कृपया बरोबर पत्ता प्रविष्ट करा.',
         'location_address_marathi.max'   => 'कृपया पत्त्याची लांबी 255 पर्यंत प्रविष्ट करा.',
+        'location_address_marathi.required' => 'Please enter map link.',
         // 'data_for.required' => 'Please enter data.',
     ];
     try {

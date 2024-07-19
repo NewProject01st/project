@@ -95,6 +95,35 @@
                                             @endif
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="english_description">Description</label>
+                                            <textarea class="form-control english_description" name="english_description" id="english_description"
+                                                placeholder="Enter the Description" name="description">{{ old('english_description') }}</textarea>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="marathi_description"> वर्णन </label>
+                                            <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
+                                                placeholder="वर्णन प्रविष्ट करा">{{ old('marathi_description') }}</textarea>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="google_map_link"> Google Map Link</label>&nbsp<span
+                                                class="red-text">*</span>
+                                            <input type="text" class="form-control " name="google_map_link"
+                                                id="google_map_link" placeholder="Enter the location name."
+                                                name="google_map_link" value="{{ old('google_map_link') }}">
+                                            @if ($errors->has('google_map_link'))
+                                                <span class="red-text"><?php echo $errors->first('google_map_link', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
                                     {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="data_for">Data For</label>&nbsp<span class="red-text">*</span>
@@ -102,7 +131,7 @@
                                                 placeholder="Enter the police station data." name="data_for"
                                                 value="{{ old('data_for') }}">
                                             @if ($errors->has('data_for'))
-                                                <span class="red-text"><?php echo $errors->first('data_for', ':message'); ?></span>
+                                                <span class="red-text"><?php //echo $errors->first('data_for', ':message'); ?></span>
                                             @endif
                                         </div>
                                     </div> --}}
@@ -165,7 +194,9 @@
                         location_address_marathi: {
                             required: true,
                         },
-                       
+                        google_map_link: {
+                            required: true,
+                        },
                     },
                     messages: {
                         lat: {
@@ -187,7 +218,10 @@
                         location_address_marathi: {
                             required: "कृपया स्थानाचा पत्ता प्रविष्ट करा",
                         },
-                       
+                        google_map_link: {
+                            required: "Please Enter the map link",
+                        },
+                     
                     },
                 });
             });

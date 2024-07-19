@@ -21,6 +21,9 @@ class CreateMapLatLonsTable extends Migration
             $table->string('location_name_marathi');
             $table->string('location_address_english');
             $table->string('location_address_marathi');
+            $table->text('google_map_link');
+            $table->text('english_description')->default('null');
+            $table->text('marathi_description')->default('null');
             $table->string('data_for')->default('police_station');
             $table->boolean('is_deleted')->default(false);
             $table->boolean('is_active')->default(true);

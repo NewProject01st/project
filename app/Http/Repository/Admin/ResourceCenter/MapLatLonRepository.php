@@ -30,9 +30,15 @@ class MapLatLonRepository  {
             $mapgis_data->location_name_marathi = $request['location_name_marathi'];
             $mapgis_data->location_address_english = $request['location_address_english'];
             $mapgis_data->location_address_marathi = $request['location_address_marathi'];
-            // $mapgis_data->data_for = $request['data_for'];
-            $mapgis_data->save();       
-     
+            $mapgis_data->google_map_link = $request['google_map_link'];           
+            $mapgis_data->save();   
+
+            if (isset($request['english_description'])) {
+                $mapgis_data->english_description = $request['english_description'];
+            }
+            if (isset($request['marathi_description'])) {
+                $mapgis_data->marathi_description = $request['marathi_description'];
+            }  
 		return $mapgis_data;
 
         } catch (\Exception $e) {
@@ -71,6 +77,9 @@ class MapLatLonRepository  {
             $mapgis_data->location_name_marathi = $request['location_name_marathi'];
             $mapgis_data->location_address_english = $request['location_address_english'];
             $mapgis_data->location_address_marathi = $request['location_address_marathi'];
+            $mapgis_data->google_map_link = $request['google_map_link'];
+            $mapgis_data->english_description = $request['english_description'];
+            $mapgis_data->marathi_description = $request['marathi_description'];
             // $mapgis_data->data_for = $request['data_for'];
             $mapgis_data->update();  
                      

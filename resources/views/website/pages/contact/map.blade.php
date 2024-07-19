@@ -55,7 +55,7 @@
                             @endif
                         </h3>
                       --}}
-                        <table id="example" class="table table-striped table-hover table-bordered border-dark">
+                       <table id="example" class="table table-striped table-hover table-bordered border-dark">
                             <thead class="" style="background-color: #47194a; color:#fff">
                                 <tr>
                                     <th scope="col">
@@ -74,18 +74,44 @@
                                     <tr class="">
                                         @if (session('language') == 'mar')
                                             <td class="set_tbl_td">{{ $key + 1 }}</td>
-                                            <td><?php echo $item['location_name_marathi']; ?></td>
-                                            <td><?php echo $item['location_address_marathi']; ?></td>
+                                            <td><?php //echo $item['location_name_marathi']; ?></td>
+                                            <td><?php //echo $item['location_address_marathi']; ?></td>
                                         @else
                                             <td class="set_tbl_td">{{ $key + 1 }}</td>
-                                            <td><?php echo $item['location_name_english']; ?></td>
-                                            <td><?php echo $item['location_address_english']; ?></td>
+                                            <td><?php //echo $item['location_name_english']; ?></td>
+                                            <td><?php //echo $item['location_address_english']; ?></td>
                                         @endif
                                     </tr>
                                 @empty
                                 @endforelse
                             </tbody>
-                        </table>
+                        </table> 
+
+                        <div class="container">
+                            @forelse($data_output as $key=>$item)
+                           <div class="row pt-4">
+                            @if (session('language') == 'mar')
+                              <div class="col-lg-8 col-md-8 col-sm-8">
+                                <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3867187.666169696!2d76.76983739999999!3d18.81817715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1683036229388!5m2!1sen!2sin"></iframe>
+                              </div>
+                              <div class="col-lg-4 col-md-4 col-sm-4">
+                                <h3><?php echo $item['location_name_english']; ?></h3>
+                              </div>
+                              @else
+                              <div class="col-lg-8 col-md-8 col-sm-8">
+                                <iframe
+                                src="{{$item['google_map_link']}}" width="100%" height="300px"></iframe>
+                              </div>
+                              <div class="col-lg-4 col-md-4 col-sm-4">
+                                <span class="map-title"><?php echo $item['location_name_english']; ?></span>
+                                <span class="map-address"><?php echo $item['location_address_english']; ?></span>
+                              </div>
+                              @endif
+                           </div>
+                           @empty
+                           @endforelse
+                        </div>
 
                     </div>
                 </div>

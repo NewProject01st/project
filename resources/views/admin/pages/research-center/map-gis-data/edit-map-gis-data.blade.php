@@ -96,6 +96,46 @@
                                             @endif
                                         </div>
                                     </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="english_description">Description</label>
+                                            <textarea class="form-control english_description" name="english_description" id="english_description"
+                                                placeholder="Enter the Description">
+                                                <label class="error py-2" for="english_description" id="english_description_error"></label>
+                                            @if (old('english_description'))
+{{ old('english_description') }}@else{{ $map_gis->english_description }}
+@endif
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="marathi_description"> वर्णन </label>
+                                            <textarea class="form-control marathi_description" name="marathi_description" id="marathi_description"
+                                                placeholder="वर्णन प्रविष्ट करा">
+                                            @if (old('marathi_description'))
+{{ old('marathi_description') }}@else{{ $map_gis->marathi_description }}
+@endif
+                                            </textarea>
+                                            <label class="error py-2" for="english_description"
+                                                id="english_description_error"></label>
+
+                                            <label class="error py-2" for="marathi_description"
+                                                id="marathi_description_error"></label>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="google_map_link">Google Map Link</label>&nbsp<span class="red-text">*</span>
+                                            <input type="text" name="google_map_link" id="google_map_link" class="form-control mb-2"
+                                                value="@if (old('google_map_link')) {{ old('google_map_link') }}@else{{ $map_gis->google_map_link }} @endif"
+                                                placeholder="">
+                                            @if ($errors->has('google_map_link'))
+                                                <span class="red-text"><?php echo $errors->first('google_map_link', ':message'); ?></span>
+                                            @endif
+                                        </div>
+                                    </div>
                                     {{-- <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label for="data_for">Data For</label>&nbsp<span class="red-text">*</span>
@@ -161,7 +201,9 @@
                         location_address_marathi: {
                             required: true,
                         },
-                       
+                        google_map_link: {
+                            required: true,
+                        },
                     },
                     messages: {
                         lat: {
@@ -183,7 +225,9 @@
                         location_address_marathi: {
                             required: "कृपया स्थानाचा पत्ता प्रविष्ट करा",
                         },
-                       
+                        google_map_link: {
+                            required: "Please Enter the map link",
+                        },
                     },
                     submitHandler: function(form) {
                         form.submit();

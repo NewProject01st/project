@@ -73,6 +73,14 @@
                                             <label>{{ strip_tags($map_gis->location_address_marathi) }}</label>
                                         </div>
                                     </div>
+                                    <div class="row ">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <label>Map Link :</label>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8">
+                                            <label style="width: 100%;">{{ strip_tags($map_gis->google_map_link) }}</label>
+                                        </div>
+                                    </div>
                                     {{-- <div class="row ">
                                         <div class="col-lg-4 col-md-4 col-sm-4">
                                             <label>Data For :</label>
