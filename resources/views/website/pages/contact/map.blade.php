@@ -99,6 +99,7 @@
                                 <div><span class="map-title"><?php echo $item['location_name_marathi']; ?></span></div>
                                 <div><span class="map-address"><?php echo $item['location_address_marathi']; ?></span></div>
                                 @if(!is_null($item['marathi_description']))
+                                @else
                                 <div><span class="map-address">{{ $item['marathi_description'] }}</span></div>
                             @endif
                               </div>
@@ -111,6 +112,7 @@
                                 <div><span class="map-title"><?php echo $item['location_name_english']; ?></span></div>
                                 <div><span class="map-address"><?php echo $item['location_address_english']; ?></span></div>
                                 @if(!is_null($item['english_description']))
+                                @else
                                 <div><span class="map-address">{{ $item['english_description'] }}</span></div>
                             @endif
                               </div>
