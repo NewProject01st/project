@@ -4,7 +4,9 @@ Project:		DM
 Version:		1.0
 
 -------------------------------------------------------------------*/
-
+.slider-width{
+	width: 100%;
+}
 @media only screen and (max-width: 375px){ 
 	.head_row .set_volunteer{
 		padding: 7px 0px !important;
@@ -33,6 +35,9 @@ Version:		1.0
 	.dropdown:hover .dropdown-menu{
 		display: none;
 		margin-top: auto; 
+	}
+	.slider-width{
+		width: 150%;
 	}
   }
 
