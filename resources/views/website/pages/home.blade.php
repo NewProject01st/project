@@ -92,7 +92,7 @@
                         @if (session('language') == 'mar')
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="5000">
                                 <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider['marathi_image'] }}"
-                                    class="d-block w-100" alt="{{ strip_tags($slider['marathi_title']) }} Image">
+                                    class="d-block" alt="{{ strip_tags($slider['marathi_title']) }} Image" style="width: 150%">
                                 <div class="carousel-caption">
                                     <h2 data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500"
                                         data-aos-duration="2000"><?php echo $slider['marathi_title']; ?></h2>
@@ -112,7 +112,7 @@
                         @elseif (array_key_exists('english_title', $slider))
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="5000">
                                 <img src="{{ Config::get('DocumentConstant.SLIDER_VIEW') }}{{ $slider['english_image'] }}"
-                                    class="d-block w-100" alt="{{ strip_tags($slider['english_title']) }} Image">
+                                    class="d-block" alt="{{ strip_tags($slider['english_title']) }} Image" style="width: 150%">
                                 <div class="carousel-caption">
                                     <h2 data-aos="fade-right" data-aos-anchor="#example-anchor" data-aos-offset="500"
                                         data-aos-duration="2000"><?php echo $slider['english_title']; ?></h2>
